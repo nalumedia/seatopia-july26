@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if page.metafields.custom.meta_description != blank -%}
+      <meta name="description" content="{{ page.metafields.custom.meta_description | escape }}">
+    {%- else -%}
+      <meta name="description" content="Become a Seatopian. Clean, lab-verified, omega-rich seafood delivered on ocean time — third-party verified for DHA, EPA, mercury and microplastics, with a certificate behind every claim.">
+    {%- endif -%}
+
+    <title>{{ page.title | default: 'The Seatopia Membership — Not just healthy. Measurable.' }}</title>
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200..700&family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
+
+    {{ 'membership.css' | asset_url | stylesheet_tag }}
+
+    {{ content_for_header }}
+  </head>
+
+  <body class="membership-layout">
+    {{ content_for_layout }}
+
+    <script>
+      (function () {
+        // FAQ accordion (buttons use a 0fr -> 1fr CSS-grid reveal + a plus icon that rotates to a ×)
+        document.addEventListener('click', function (e) {
+          var faqBtn = e.target.closest('[data-testid^="button-faq-"]');
+          if (faqBtn) {
+            var expanded = faqBtn.getAttribute('aria-expanded') === 'true';
+            faqBtn.setAttribute('aria-expanded', String(!expanded));
+            var panel = faqBtn.nextElementSibling;
+            if (panel) panel.style.gridTemplateRows = expanded ? '0fr' : '1fr';
+            var icon = faqBtn.querySelector('svg');
+            if (icon) icon.style.transform = expanded ? 'none' : 'rotate(45deg)';
+            return;
+          }
+
+          // Mobile menu — build a panel from the header nav links on demand
+          var mBtn = e.target.closest('[data-testid="button-mobile-menu"]');
+          if (mBtn) {
+            e.preventDefault();
+            var existing = document.getElementById('membership-mobile-menu');
+            if (existing) { existing.remove(); return; }
+
+            var nav = document.querySelector('header nav') || document.querySelector('header');
+            var menu = document.createElement('div');
+            menu.id = 'membership-mobile-menu';
+            menu.style.cssText =
+              'position:fixed;inset:0 0 auto 0;z-index:60;background:#fff;padding:88px 28px 32px;' +
+              'box-shadow:0 12px 32px rgba(16,24,40,.18);display:flex;flex-direction:column;gap:20px;';
+
+            if (nav) {
+              nav.querySelectorAll('a').forEach(function (a) {
+                var href = a.getAttribute('href');
+                if (!href) return;
+                var link = document.createElement('a');
+                link.href = href;
+                link.textContent = (a.textContent || '').trim();
+                link.style.cssText = 'color:#2e4b59;font-size:18px;font-weight:500;text-decoration:none;';
+                menu.appendChild(link);
+              });
+            }
+
+            var close = document.createElement('button');
+            close.setAttribute('aria-label', 'Close menu');
+            close.textContent = '✕';
+            close.style.cssText =
+              'position:absolute;top:22px;right:26px;font-size:26px;line-height:1;' +
+              'background:none;border:none;cursor:pointer;color:#2e4b59;';
+            close.addEventListener('click', function () { menu.remove(); });
+            menu.appendChild(close);
+
+            document.body.appendChild(menu);
+            return;
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

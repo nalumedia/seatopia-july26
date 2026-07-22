@@ -8,7 +8,11 @@
       "Bash(command -v shopify)",
       "Bash(command -v theme-check)",
       "Bash(theme-check sections/custom-main-blog.liquid)",
-      "Bash(shopify theme *)"
+      "Bash(shopify theme *)",
+      "Read(//Users/ryan/Downloads/**)",
+      "Bash(grep -nE \"^\\\\s*\\(\\\\*|html|body|:root|h1|h2|h3|p|a|ul|button|img\\)\\\\s*[\\\\{,]\" membership.html)",
+      "Bash(python3 -)",
+      "Bash(awk '{print $5, $9}')"
     ]
   }
 }
