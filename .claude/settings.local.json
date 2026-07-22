@@ -12,7 +12,9 @@
       "Read(//Users/ryan/Downloads/**)",
       "Bash(grep -nE \"^\\\\s*\\(\\\\*|html|body|:root|h1|h2|h3|p|a|ul|button|img\\)\\\\s*[\\\\{,]\" membership.html)",
       "Bash(python3 -)",
-      "Bash(awk '{print $5, $9}')"
+      "Bash(awk '{print $5, $9}')",
+      "Bash(python3 -c \"import json;d=json.load\\(open\\('config/settings_data.json'\\)\\)['current'];print\\('heading:',d.get\\('type_heading_font'\\),'| body:',d.get\\('type_body_font'\\)\\)\")",
+      "Bash(grep -nA6 -E \"^\\\\.heading[ ,\\\\{]\" assets/theme.css)"
     ]
   }
 }
