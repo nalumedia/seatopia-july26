@@ -1,0 +1,212 @@
+{% doc %}
+  @prompt
+    Give me a custom annoucement bar, basically a section that does exactly the same as the global annoucement bar where I can put in a custom message. Everything else, size, colour, etc, can be same as global annoucement bar, This needs the possibility to be linked to a URL, page, product, etc.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-custom-announcement-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    color: {{ block.settings.text_color }};
+    text-align: center;
+    padding: {{ block.settings.padding_vertical }}px {{ block.settings.padding_horizontal }}px;
+  }
+
+  .ai-custom-announcement__wrapper-{{ ai_gen_id }} {
+    max-width: {{ settings.page_width }}px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .ai-custom-announcement__link-{{ ai_gen_id }} {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    transition: opacity 0.2s ease;
+  }
+
+  .ai-custom-announcement__link-{{ ai_gen_id }}:hover {
+    opacity: 0.85;
+  }
+
+  .ai-custom-announcement__content-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .ai-custom-announcement__text-{{ ai_gen_id }} {
+    font-size: {{ block.settings.font_size }}px;
+    font-weight: {{ block.settings.font_weight }};
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .ai-custom-announcement__text-{{ ai_gen_id }} a {
+    color: {{ block.settings.link_color }};
+    text-decoration: underline;
+  }
+
+  .ai-custom-announcement__text-{{ ai_gen_id }} a:hover {
+    opacity: 0.8;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-custom-announcement__text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.font_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-custom-announcement-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-custom-announcement__wrapper-{{ ai_gen_id }}">
+    {% if block.settings.link != blank %}
+      <a href="{{ block.settings.link }}" class="ai-custom-announcement__link-{{ ai_gen_id }}">
+        <div class="ai-custom-announcement__content-{{ ai_gen_id }}">
+          {% if block.settings.message != blank %}
+            <div class="ai-custom-announcement__text-{{ ai_gen_id }}">
+              {{ block.settings.message }}
+            </div>
+          {% else %}
+            <div class="ai-custom-announcement__text-{{ ai_gen_id }}">
+              Add your announcement message here
+            </div>
+          {% endif %}
+        </div>
+      </a>
+    {% else %}
+      <div class="ai-custom-announcement__content-{{ ai_gen_id }}">
+        {% if block.settings.message != blank %}
+          <div class="ai-custom-announcement__text-{{ ai_gen_id }}">
+            {{ block.settings.message }}
+          </div>
+        {% else %}
+          <div class="ai-custom-announcement__text-{{ ai_gen_id }}">
+            Add your announcement message here
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom announcement bar",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "message",
+      "label": "Message",
+      "default": "<p>Welcome to our store</p>"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#2E4B59"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "font_weight",
+      "label": "Font weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "label": "Vertical padding",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Horizontal padding",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom announcement bar"
+    }
+  ]
+}
+{% endschema %}

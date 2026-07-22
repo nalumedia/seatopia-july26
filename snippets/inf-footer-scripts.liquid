@@ -1,0 +1,78 @@
+{%- liquid
+  assign hide_inflektion = false
+
+  if request.page_type == 'page'
+    if page.metafields.custom.enable_announcement_bar.value == false
+      assign hide_inflektion = true
+    endif
+  endif
+-%}
+
+{% if load_inflektion %}
+<script>
+(function(){
+var script = document.createElement('script');
+script.onload = function() {
+  EF.click({
+      offer_id: EF.urlParameter('oid'),
+      affiliate_id: EF.urlParameter('utm_campaign'),
+      transaction_id: EF.urlParameter('infclid'),
+      sub1: EF.urlParameter('sub1'),
+      sub2: EF.urlParameter('sub2'),
+      sub3: EF.urlParameter('sub3'),
+      sub4: EF.urlParameter('sub4'),
+      sub5: EF.urlParameter('sub5'),
+      uid: EF.urlParameter('uid'),
+      source_id: EF.urlParameter('source_id'),
+      creative_id: EF.urlParameter('creative_id'),
+  }).then( function(transaction_id) {
+    if (transaction_id) {
+      (async () => {
+        let formData = new URLSearchParams();
+        formData.append('attributes[eftid]', transaction_id);
+        const rawResponse = await fetch('/cart.js', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+          },
+          body: formData
+        });
+      })();
+    }
+  });
+
+  var sendEmailLead = function(email) {
+    EF.conversion({
+      offer_id: 115,
+      event_id: 424,
+      email: email,
+      verification_token: 'GsvCLpAApfyy5AavCmfmFQ231wUDQ9',
+    });
+  };
+
+  window.addEventListener("klaviyoForms", function(e) {
+    if (e.detail.type === 'submit') {
+      sendEmailLead(e.detail.metaData.$email);
+    }
+  });
+
+  // Track Alia form submissions
+  document.addEventListener('submit', function(e) {
+    const aliaForm = e.target.closest('form[id^="alia-"]');
+    if (aliaForm) {
+      const emailInput = aliaForm.querySelector('input[name="email"]');
+      if (emailInput && emailInput.value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailRegex.test(emailInput.value)) {
+          sendEmailLead(emailInput.value);
+        }
+      }
+    }
+  });
+};
+script.src = "https://www.inflektionweb.com/scripts/sdk/everflow.js";
+document.head.appendChild(script);
+})(document);
+</script>
+{% endif %}

@@ -1,0 +1,115 @@
+/* added by laplaya.studio*/
+
+
+
+/*general*/
+:root {
+  --text-h1: 36px;
+  --text-h2: 26px;
+  --text-h3: 17px;
+  --text-h4: 16px;
+  --text-h5: 16px;
+  --text-h6: 16px;
+  --font-button-size: 20px;
+  --font-button-text-transform: capitalize;
+  --font-heading-line-height: 150%;
+
+  --text-3xs: 16px;
+  --text-2xs: 16px;
+  --text-xs: 16px;
+  --text-2sm: 16px;
+  --text-sm: 16px;
+  --text-base: 16px;
+  --title-lg: 26px;
+  --title-xl: 36px;
+  --title-md: 36px;
+
+  --border-radius: var(--buttons-radius);
+  --border-radius-medium: var(--buttons-radius);
+  --border-radius-small: var(--buttons-radius);
+  --rounded-full: 70px;
+  --buttons-radius: 70px;
+  --inputs-radius: 100px;
+      --input-height: 40px;
+  --rounded-button: 70px;
+}
+
+/* Buttons */
+.button--fixed {
+  min-width: unset;
+}
+.button,
+button.tab__item {
+  letter-spacing: -0.4px !important;
+  padding: 10px 40px !important;
+}
+.button--secondary,
+button.shopify-payment-button__button--unbranded,
+#shopify-pc__banner__btn-decline {
+  color: rgb(var(--color-button-text));
+  background: rgb(var(--color-button-background));
+  padding: 10px 40px !important;
+}
+
+.slideshow-content .button--secondary {
+  background: none;
+  border: 1px solid rgb(var(--color-button-background));
+}
+
+@media screen and (min-width: 640px) {
+  .product-form__submit,
+  button.shopify-payment-button__button--unbranded,
+  .shopify-payment-button__button.shopify-payment-button__button--branded
+    [role="button"] {
+    max-height: 40px;
+    min-height: unset;
+  }
+}
+
+.tab__item.button--secondary {
+  background-color: rgb(var(--color-button-text));
+  color: var(--color-base-text);
+}
+
+/* Default Product Template */
+swatch:after,
+.label-swatch:after,
+:checked + .label-swatch:after {
+  box-shadow: none;
+}
+:checked + .label-swatch,
+.secondary--button {
+  background-color: rgb(var(--color-button-background))!important;
+  color: white;
+}
+.label-swatch {
+  box-shadow: none;
+  background-color: rgb(var(--color-button-text))!important;
+  color: var(--color-base-text);
+}
+.label-swatch {
+  --swatch-radius: 100px !important;
+  --sp-4: 10px !important;
+  --sp-5: 60px !important;
+}
+.label-swatch {
+  font-size: 20px !important;
+}
+.product__text p {
+  font-family: var(--font-heading-family);
+  font-size: 18px !important;
+}
+p.product__vendor {
+  font-size: 17px !important;
+  letter-spacing: -0.34px !important;
+}
+
+/* Products */
+.product__price {
+  font-size: var(--text-h3);
+}
+
+/* Animations */
+.split-words .word {
+  overflow: visible !important;
+}

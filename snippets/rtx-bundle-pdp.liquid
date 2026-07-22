@@ -1,0 +1,50 @@
+
+{%- comment -%}
+  RTX PDP Snippet for Bundle Integration
+  Modified to apply selected subscription to all selected products in a bundle
+{%- endcomment -%}
+{%- liquid
+  assign retextionAppId = '5859381'
+  assign currentVariant = variant | default: product.selected_or_first_available_variant
+  assign requiresPlan = product.requires_selling_plan
+  assign selectedAllocation = null
+  assign selectedOrFirstAllocation = null
+  assign sellingPlanGroups = product.selling_plan_groups | where: 'app_id', retextionAppId
+  for allocation in currentVariant.selling_plan_allocations
+    assign group = sellingPlanGroups | where: 'id', allocation.selling_plan_group_id | first
+    if group == blank or group.app_id != retextionAppId
+      continue
+    endif
+    if allocation.selling_plan.selected
+      assign selectedAllocation = allocation
+      assign selectedOrFirstAllocation = allocation
+      break
+    endif
+  endfor
+-%}
+
+{%- if sellingPlanGroups.size > 0 -%}
+  <div class="bundle-subscription-wrapper-jtpl"  >
+    <label for="bundle-subscription-select-jtpl" class="label">{{ 'Subscription Options' }}</label>
+    <select id="bundle-subscription-select-jtpl" class="bundle-subscription-select-jtpl" data-product-handle="{{product.url}}" data-role="bundle-subscription-selector">
+      <option value="">One-time purchase</option>
+      {%- for allocation in currentVariant.selling_plan_allocations -%}
+        {%- assign plan = allocation.selling_plan -%}
+        {%- assign group = sellingPlanGroups | where: 'id', allocation.selling_plan_group_id | first -%}
+        {%- if group == blank or plan.name contains 'Prepaid' or group.app_id != retextionAppId -%}
+          {%- continue -%}
+        {%- endif -%}
+        <option value="{{ plan.id }}" data-plan="{{ plan.name | escape }}"
+          {% if allocation == selectedAllocation %}selected{% endif %}>
+          {{ plan.name | escape }}
+        </option>
+      {%- endfor -%}
+    </select>
+  </div>
+
+
+{%- endif -%}
+
+
+
+

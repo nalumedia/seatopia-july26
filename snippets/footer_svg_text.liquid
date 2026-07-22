@@ -1,0 +1,12 @@
+{% if block.settings.footer_heading != blank %}
+  <div class="footer-heading">
+    <div class="svg-txt-outer">
+    {{ block.settings.footer_heading }}
+    {% if block.settings.svg != blank %}
+      <span class="cstm-footer-heading-svg">
+        {{ block.settings.svg  }}
+      </span>
+    {% endif %}
+    </div>
+  </div>
+{% endif %}

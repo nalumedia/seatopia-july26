@@ -1,0 +1,380 @@
+{% comment %}
+  ============================================================================
+  Seatopia — Omega Quant Results (Customer Account Page)
+  ============================================================================
+  Displays the logged-in customer's OmegaQuant Omega-3 Index results.
+  Data is pulled from DeepBlue (the internal tool), NOT the OmegaQuant API.
+
+  HOW TO INSTALL
+  1. In your Shopify theme, create a new template/section for the customer
+     account area (e.g. a page accessible from the account nav).
+  2. Paste this entire file into that section/snippet.
+  3. Set the two config values below:
+       - DEEPBLUE_API_URL : your DeepBlue app URL (e.g. https://xxx.replit.app)
+       - API_KEY          : your SHOPIFY_NUTRITION_API_KEY value
+  4. This page must be viewed while the customer is logged in so that
+     {{ customer.email }} is available.
+  ============================================================================
+{% endcomment %}
+
+<nav class="oq-account-nav" aria-label="Account navigation">
+  <a class="oq-account-nav__back" href="https://account.seatopia.fish/orders">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>Back to my account</span>
+  </a>
+  <div class="oq-account-nav__links">
+    <a href="https://account.seatopia.fish/orders">Orders</a>
+    <a href="https://account.seatopia.fish/profile">Profile</a>
+    <a href="https://seatopia.fish/pages/mercury-detox-guide-for-sushi-lovers" target="_blank" rel="noopener">Mercury Detox Guide</a>
+    <a href="https://calendly.com/101-seafood" target="_blank" rel="noopener">Book Your Cooking Class</a>
+    <a href="{{ page.url | default: '/pages/omega-index' }}" aria-current="page" class="is-active">Omega Index</a>
+  </div>
+</nav>
+
+<div id="seatopia-omega-root" data-loading="true">
+  <noscript>Please enable JavaScript to view your Omega-3 results.</noscript>
+</div>
+
+<style>
+  #seatopia-omega-root {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 24px 16px 64px;
+    color: #1f2937;
+    {% comment %} font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; {% endcomment %}
+    font-family: "DM Sans", sans-serif;
+  }
+  .oq-account-nav {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 20px 16px 0;
+    font-family: "DM Sans", sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 24px;
+    justify-content: space-between;
+  }
+  .oq-account-nav__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0f172a;
+    text-decoration: none;
+  }
+  .oq-account-nav__back:hover { color: #0d9488; }
+  .oq-account-nav__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    font-size: 14px;
+  }
+  .oq-account-nav__links a {
+    color: #6b7280;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .oq-account-nav__links a:hover { color: #0f172a; }
+  .oq-account-nav__links a.is-active { color: #0d9488; font-weight: 600; }
+
+  .oq-head { margin-bottom: 28px; }
+  .oq-eyebrow {
+    text-transform: uppercase; letter-spacing: 0.14em; font-size: 12px;
+    color: #0d9488; font-weight: 600; margin: 0 0 6px;
+  }
+  .oq-title {
+    {% comment %} font-family: Georgia, "Times New Roman", serif; {% endcomment %}
+     font-family:"Crimson Pro", serif;
+    font-size: 30px; line-height: 1.15; margin: 0 0 6px; color: #0f172a; font-weight: 600;
+  }
+  .oq-sub { color: #6b7280; font-size: 15px; margin: 0; }
+
+  .oq-card {
+    background: #fff; border: 1px solid #e5e7eb; border-radius: 16px;
+    padding: 24px; margin-bottom: 20px;
+    box-shadow: 0 1px 2px rgba(16,24,40,0.04);
+  }
+
+  .oq-hero { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
+  .oq-index-wrap { display: flex; align-items: baseline; gap: 8px; }
+  .oq-index { font-size: 60px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
+  .oq-unit { font-size: 22px; font-weight: 600; color: #9ca3af; }
+  .oq-index-label { font-size: 13px; color: #6b7280; margin: 4px 0 0; }
+
+  .oq-zone {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px;
+  }
+  .oq-zone--desirable { background: #ecfdf5; color: #047857; }
+  .oq-zone--intermediate { background: #fffbeb; color: #b45309; }
+  .oq-zone--risk { background: #fef2f2; color: #dc2626; }
+  .oq-zone--unknown { background: #f3f4f6; color: #6b7280; }
+
+  .oq-index--desirable { color: #047857; }
+  .oq-index--intermediate { color: #b45309; }
+  .oq-index--risk { color: #dc2626; }
+  .oq-index--unknown { color: #374151; }
+
+  /* gauge */
+  .oq-gauge { margin-top: 22px; }
+  .oq-gauge-bar {
+    position: relative; height: 12px; border-radius: 999px; overflow: hidden;
+    background: linear-gradient(to right, #f87171 0%, #f87171 28.4%, #fbbf24 28.4%, #fbbf24 56.7%, #34d399 56.7%, #34d399 100%);
+  }
+  .oq-gauge-marker {
+    position: absolute; top: -6px; width: 4px; height: 24px; border-radius: 2px;
+    background: #0f172a; transform: translateX(-50%); transition: left .4s ease;
+  }
+  .oq-gauge-labels {
+    display: flex; justify-content: space-between; margin-top: 8px;
+    font-size: 12px; color: #6b7280;
+  }
+  .oq-gauge-zones {
+    display: flex; margin-top: 6px; font-size: 11px; color: #9ca3af; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .oq-gauge-zones span { text-align: center; }
+
+  .oq-section-title {
+    {% comment %} font-family: Georgia, serif; font-size: 18px; font-weight: 600; {% endcomment %}
+     font-family:"Crimson Pro", serif;
+    color: #0f172a; margin: 0 0 14px;
+  }
+
+  .oq-meta { display: flex; flex-wrap: wrap; gap: 20px 40px; }
+  .oq-meta-item { }
+  .oq-meta-k { font-size: 12px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 2px; }
+  .oq-meta-v { font-size: 15px; color: #1f2937; font-weight: 600; margin: 0; }
+
+  .oq-hist-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 0; border-bottom: 1px solid #f3f4f6;
+  }
+  .oq-hist-row:last-child { border-bottom: none; }
+  .oq-hist-left { display: flex; flex-direction: column; }
+  .oq-hist-date { font-weight: 600; font-size: 14px; color: #1f2937; }
+  .oq-hist-bc { font-size: 12px; color: #9ca3af; }
+  .oq-hist-right { display: flex; align-items: center; gap: 12px; }
+  .oq-hist-idx { font-weight: 700; font-size: 18px; }
+
+  .oq-note { font-size: 13px; color: #6b7280; line-height: 1.6; }
+  .oq-spinner {
+    width: 28px; height: 28px; border: 3px solid #e5e7eb; border-top-color: #0d9488;
+    border-radius: 50%; animation: oq-spin 0.8s linear infinite; margin: 40px auto;
+  }
+  @keyframes oq-spin { to { transform: rotate(360deg); } }
+  .oq-empty { text-align: center; padding: 48px 16px; color: #6b7280; }
+  .oq-empty h3 { font-family: Georgia, serif; color: #0f172a; margin: 0 0 8px; }
+</style>
+
+<script>
+  (function () {
+    // ---- CONFIG: set these two values ----
+    {% comment %} var DEEPBLUE_API_URL = 'https://YOUR-DEEPBLUE-URL.replit.app'; {% endcomment %}
+        var DEEPBLUE_API_URL = 'https://getdeep.blue';
+
+    {% comment %} var API_KEY = 'YOUR_SHOPIFY_NUTRITION_API_KEY'; {% endcomment %}
+     var API_KEY = 'ATf8sF7N].ApA$Fh1s';
+    // --------------------------------------
+
+    var root = document.getElementById('seatopia-omega-root');
+    var customerEmail = {{ customer.email | json }};
+    console.log({{ customer.email | json }})
+
+    function esc(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+    function fmtDate(s) {
+      if (!s) return '—';
+      var d = new Date(s);
+      if (isNaN(d.getTime())) return esc(s);
+      return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+    }
+    function zoneClass(z) {
+      if (z === 'desirable' || z === 'intermediate' || z === 'risk') return z;
+      return 'unknown';
+    }
+    function zoneLabel(z) {
+      if (z === 'desirable') return 'Desirable';
+      if (z === 'intermediate') return 'Intermediate';
+      if (z === 'risk') return 'Needs improvement';
+      return 'Pending';
+    }
+
+    function renderLoading() {
+      root.innerHTML = '<div class="oq-spinner"></div>';
+    }
+  {% comment %} 
+    function renderEmpty(msg) {
+      root.innerHTML =
+        '<div class="oq-head">' +
+          '<p class="oq-eyebrow">Seatopia Standard</p>' +
+          '<h1 class="oq-title">Your Omega-3 Index</h1>' +
+        '</div>' +
+        '<div class="oq-card oq-empty">' +
+          '<h3>No results yet</h3>' +
+          '<p>' + esc(msg || "We don't have an OmegaQuant test on file for this account yet. Once your sample is processed, your results will appear here.") + '</p>' +
+        '</div>';
+    } {% endcomment %}
+
+      function renderEmpty() {
+      root.innerHTML =
+        '<div class="oq-head">' +
+          '<p class="oq-eyebrow">Seatopia Standard</p>' +
+          '<h1 class="oq-title">Your Omega Index</h1>' +
+        '</div>' +
+        '<div class="oq-card oq-empty product__text rte text-base">' +
+          '<p>' +
+          'Know your numbers. Seatopia is partnering with Omega Quant to deliver your Omega Index. Want to participate in the pilot? ' +
+          'Email <a href="mailto:nemo@seatopia.fish?subject=' +
+          encodeURIComponent('Yes! I want to know my Omega Index') +
+          '">nemo@seatopia.fish</a>' +
+          '</p>' +
+        '</div>';
+    }
+
+    function renderError() {
+      root.innerHTML =
+        '<div class="oq-card oq-empty">' +
+          '<h3>Unable to load results</h3>' +
+          '<p>Please refresh the page, or contact us if this keeps happening.</p>' +
+        '</div>';
+    }
+
+    function gauge(index, scale) {
+      var low = (scale && scale.low) || 3;
+      var high = (scale && scale.high) || 14.1;
+      var riskBelow = (scale && scale.risk_below) || 4;
+      var desirableAt = (scale && scale.desirable_at) || 8;
+      var pct = Math.max(0, Math.min(100, ((index - low) / (high - low)) * 100));
+      var riskPct = ((riskBelow - low) / (high - low)) * 100;
+      var desPct = ((desirableAt - low) / (high - low)) * 100;
+      return (
+        '<div class="oq-gauge">' +
+          '<div class="oq-gauge-bar" style="background:linear-gradient(to right,#f87171 0%,#f87171 ' + riskPct + '%,#fbbf24 ' + riskPct + '%,#fbbf24 ' + desPct + '%,#34d399 ' + desPct + '%,#34d399 100%);">' +
+            '<div class="oq-gauge-marker" style="left:' + pct + '%;"></div>' +
+          '</div>' +
+          '<div class="oq-gauge-labels"><span>' + low + '%</span><span>' + high + '%</span></div>' +
+          '<div class="oq-gauge-zones">' +
+            '<span style="width:' + riskPct + '%;">Risk</span>' +
+            '<span style="width:' + (desPct - riskPct) + '%;">Intermediate</span>' +
+            '<span style="width:' + (100 - desPct) + '%;">Desirable</span>' +
+          '</div>' +
+        '</div>'
+      );
+    }
+
+      function render(data) {
+      var latest = data.latest;
+      if (!data.found || !latest) { renderEmpty(); return;}  
+      
+ 
+
+      var zc = zoneClass(latest.zone);
+      var idxText = (typeof latest.omega3_index === 'number') ? latest.omega3_index.toFixed(2) : '—';
+
+      var html = '';
+      html += '<div class="oq-head">' +
+        '<p class="oq-eyebrow">Seatopia Standard</p>' +
+        '<h1 class="oq-title">Your Omega-3 Index' + (data.name ? ', ' + esc(data.name.split(' ')[0]) : '') + '</h1>' +
+        '<p class="oq-sub">Your latest OmegaQuant blood test result and what it means.</p>' +
+      '</div>';
+
+      // Hero card
+      html += '<div class="oq-card">' +
+        '<div class="oq-hero">' +
+          '<div>' +
+            '<div class="oq-index-wrap">' +
+              '<span class="oq-index oq-index--' + zc + '">' + idxText + '</span>' +
+              '<span class="oq-unit">' + esc(latest.omega3_unit || '%') + '</span>' +
+            '</div>' +
+            '<p class="oq-index-label">Omega-3 Index · tested ' + fmtDate(latest.completed_date) + '</p>' +
+          '</div>' +
+          '<div style="margin-left:auto;"><span class="oq-zone oq-zone--' + zc + '">' + zoneLabel(latest.zone) + '</span></div>' +
+        '</div>' +
+        (typeof latest.omega3_index === 'number' ? gauge(latest.omega3_index, data.zone_scale) : '') +
+      '</div>';
+
+      // Seafood context
+      if (data.survey) {
+        html += '<div class="oq-card">' +
+          '<h2 class="oq-section-title">Your seafood habits</h2>' +
+          '<div class="oq-meta">' +
+            '<div class="oq-meta-item"><p class="oq-meta-k">Seafood frequency</p><p class="oq-meta-v">' + esc(data.survey.seafood_frequency || '—') + '</p></div>' +
+            '<div class="oq-meta-item"><p class="oq-meta-k">Takes omega-3 supplement</p><p class="oq-meta-v">' + esc((data.survey.takes_supplements || '').toString().toUpperCase() === 'TRUE' ? 'Yes' : (data.survey.takes_supplements ? esc(data.survey.takes_supplements) : '—')) + '</p></div>' +
+            (data.survey.supplement_type ? '<div class="oq-meta-item"><p class="oq-meta-k">Supplement</p><p class="oq-meta-v">' + esc(data.survey.supplement_type) + '</p></div>' : '') +
+          '</div>' +
+        '</div>';
+      }
+
+      // History
+      if (data.history && data.history.length > 1) {
+        var rows = '';
+        for (var i = 0; i < data.history.length; i++) {
+          var h = data.history[i];
+          var hzc = zoneClass(h.zone);
+          var hidx = (typeof h.omega3_index === 'number') ? h.omega3_index.toFixed(2) + esc(h.omega3_unit || '%') : (h.qns ? 'QNS' : '—');
+          rows += '<div class="oq-hist-row">' +
+            '<div class="oq-hist-left">' +
+              '<span class="oq-hist-date">' + fmtDate(h.completed_date) + '</span>' +
+              '<span class="oq-hist-bc">' + esc(h.barcode) + '</span>' +
+            '</div>' +
+            '<div class="oq-hist-right">' +
+              '<span class="oq-zone oq-zone--' + hzc + '">' + zoneLabel(h.zone) + '</span>' +
+              '<span class="oq-hist-idx oq-index--' + hzc + '">' + hidx + '</span>' +
+            '</div>' +
+          '</div>';
+        }
+        html += '<div class="oq-card"><h2 class="oq-section-title">Test history</h2>' + rows + '</div>';
+      }
+
+      // Methodology
+      html += '<div class="oq-card">' +
+        '<h2 class="oq-section-title">About the Omega-3 Index</h2>' +
+        '<p class="oq-note">The Omega-3 Index measures the amount of EPA and DHA (the two key omega-3 fatty acids found in seafood) in your red blood cell membranes, shown as a percentage of total fatty acids. ' +
+        'A higher index is associated with better long-term heart and brain health. Research suggests a <strong>desirable</strong> index is 8% or above, <strong>intermediate</strong> is 4&ndash;8%, and below 4% is considered a higher-risk range. ' +
+        'Eating more cold-water seafood is one of the most effective ways to raise your index over time.</p>' +
+      '</div>';
+
+      root.innerHTML = html;
+    }
+
+  if (!customerEmail) { renderEmpty(); return; }  
+
+  {% comment %} if (!customerEmail) {
+  root.innerHTML = '<div class="oq-card oq-empty"><h3>Please log in</h3><p>Log in to your account to view your Omega-3 results.</p></div>';
+  return;
+  } {% endcomment %}
+
+   {% comment %} setTimeout(()=>{
+        renderLoading();
+    },1500) {% endcomment %}
+    
+    
+    renderLoading();
+    fetch(DEEPBLUE_API_URL + '/api/public/omega-quant?email=' + encodeURIComponent(customerEmail), {
+      headers: { 'X-Api-Key': API_KEY }
+    })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(render)
+      .catch(function (err) { console.error('[Seatopia Omega] load failed', err); renderError(); });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Omega Quant Account",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Omega Quant Account"
+    }
+  ]
+}
+{% endschema %}

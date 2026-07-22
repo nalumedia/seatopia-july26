@@ -1,0 +1,95 @@
+<div class="cstm-jtpl-main-items-list page-width">
+        <div class="product__highlights{% if section.settings.content_id_1 != blank %} with-heading flex flex-col gap-5 relative{% endif %} below-media">
+          {%- if section.settings.content_id_1  != blank -%}
+            <p class="font-medium leading-tight md:text-lg">{{ section.settings.content_id_1  | escape }}</p>
+            
+          {%- endif -%}
+          <scroll-shadow class="product-card__spec block overflow-hidden">
+            <div class="product-card__icons flex flex-nowrap lg:flex-wrap ">
+              {%- for block in section.blocks -%}
+                <div class="product-card__icon shrink-0">
+                  <div class="flex flex-col items-center md:flex-row md:items-start gap-2">
+                    {%- if block.settings.image_id != blank -%}
+                      <figure class="shrink-0 media media--transparent relative inline-block">
+                        {{- block.settings.image_id | image_url: width: block.settings.image_id.width | image_tag: loading: 'lazy', sizes: '32px', widths: '80,96,160,192', class: 'w-full h-full', is: 'lazy-image' -}}
+                      </figure>
+                    {%- endif -%}
+                    <div class="flex flex-col items-center md:items-start gap-1 text-center md:text-left text-sm font-medium leading-none">
+                      {{- block.settings.content_id -}}
+                      {%- if block.settings.text_id != blank  -%}
+                        {%- if block.settings.text_url != blank  -%}
+                        <a href="{{ block.settings.text_url  }}">
+                             {%- endif -%}
+                        <p class="text-opacity font-normal text-xs leading-tight">{{ block.settings.text_id }}</p>
+                            {%- if block.settings.text_url != blank  -%}
+                        </a>
+                        {%- endif -%}
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+              {%- endfor -%}
+            </div>
+            <template>
+              <slot></slot>
+              <s dir="{% render 'direction' %}" style="--t: 0; --b: 0; --l: 0; --r: 0;">
+                <span class="l"></span>
+                <span class="r"></span>
+              </s>
+              <style>
+                :host{display:inline-block;position:relative}:host([hidden]){display:none}
+                s{position:absolute;inset:0;pointer-events:none;}
+                s span{position:absolute;inset-block:0;width:clamp(var(--sp-12),4.73vw,var(--sp-23));opacity:0;transition:opacity var(--animation-short);}
+                s .l{inset-inline-start:0;opacity:var(--l);background:linear-gradient(90deg,rgb(var(--color-background)) 0%,transparent 100%);}
+                s .r{inset-inline-end:0;opacity:var(--r);background:linear-gradient(270deg,rgb(var(--color-background)) 0%,transparent 100%);}
+                s[dir=rtl] :is(.icon-chevron-left,.icon-chevron-right){transform:scaleX(-1);}
+              </style>
+            </template>
+          </scroll-shadow>
+        </div>
+   </div>
+{% schema %}
+  {
+    "name": "Icon with text",
+    "settings": [
+      {
+      "type": "inline_richtext",
+      "id": "content_id_1",
+      "label": "Heading"
+    }
+    ],
+    "blocks": [
+          {
+  "type": "block_type",
+  "name": "Tab content",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_id",
+      "label": "Svg Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "content_id",
+      "label": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "text_id",
+      "label": "Text"
+    },
+      {
+      "type": "url",
+      "id": "text_url",
+      "label": "Text URL"
+    }
+  ]
+}
+    ],
+    "presets": [
+      {
+        "name": "Icon with text"
+      }
+    ] 
+  }
+{% endschema %}

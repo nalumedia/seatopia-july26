@@ -1,0 +1,23 @@
+cat > .gitignore <<'EOF'
+# macOS
+.DS_Store
+
+# Shopify CLI
+.shopify/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Environment variables
+.env
+.env.*
+
+# Editors
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.swp
+EOF

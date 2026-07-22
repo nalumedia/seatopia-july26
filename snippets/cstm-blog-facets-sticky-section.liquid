@@ -1,0 +1,215 @@
+{%- if enable_filtering or enable_sorting -%}
+  <facet-sticky
+    class="facet-sticky z-25 fixed left-0 text-center w-full pointer-events-none block xl:hidden"
+    data-scroll
+    data-scroll-sticky
+    data-scroll-target=".collection"
+  >
+    <button
+      type="button"
+      class="button button--primary icon-with-text pointer-events-auto"
+      is="hover-button"
+      aria-controls="FacetDrawerSticky"
+      aria-expanded="false"
+    >
+      <span class="btn-fill" data-fill></span>
+      <span class="btn-text">
+        {%- liquid
+          render 'icon', icon: 'filter', size: 'sm'
+          if enable_filtering or enable_sorting
+            echo 'collections.filtering.filter_and_sort' | t
+          else
+            echo 'collections.filtering.filter_show_button' | t
+          endif
+        -%}
+        {%- if enable_filtering -%}
+          {% comment %} <facet-count class="count flex items-center justify-center text-xs font-medium rounded-full"{% if filter_count == 0 %} hidden{% endif %}>{{ filter_count }}</facet-count> {% endcomment %}
+        {%- endif -%}
+      </span>
+    </button>
+    <drawer-element
+      id="FacetDrawerSticky"
+      class="facet-drawer drawer drawer--start z-30 fixed bottom-0 left-0 h-full w-full pointer-events-none"
+      role="dialog"
+      aria-modal="true"
+      aria-label="{% if enable_filtering or enable_sorting %}{{ 'collections.filtering.filter_and_sort' | t | escape }}{% else %}{{ 'collections.filtering.filter_by_label' | t | escape }}{% endif %}"
+      data-section-id="{{ section_id }}"
+      hidden
+    >
+      <overlay-element
+        class="overlay fixed-modal invisible opacity-0 fixed bottom-0 left-0 w-full h-screen pointer-events-none"
+        aria-controls="FacetDrawerSticky"
+        aria-expanded="false"
+      ></overlay-element>
+      <div class="drawer__inner z-10 absolute top-0 flex flex-col w-full h-full overflow-hidden">
+        <gesture-element class="drawer__header flex justify-between opacity-0 invisible relative">
+          <span class="drawer__title heading lg:text-3xl text-2xl leading-none tracking-tight">
+            {%- liquid
+              if enable_filtering or enable_sorting
+                echo 'collections.filtering.filter_and_sort' | t | escape
+              else
+                echo 'collections.filtering.filter_by_label' | t | escape
+              endif
+            -%}
+          </span>
+          <button
+            class="button button--secondary button--close drawer__close hidden sm:flex items-center justify-center"
+            type="button"
+            is="hover-button"
+            aria-controls="FacetDrawerSticky"
+            aria-expanded="false"
+            aria-label="{{ 'general.accessibility.close' | t | escape }}"
+          >
+            <span class="btn-fill" data-fill></span>
+            <span class="btn-text">
+              {%- liquid
+                render 'icon', icon: 'close', size: 'sm'
+                render 'icon', icon: 'loader', size: 'sm absolute opacity-0 invisible animate-spin'
+              -%}
+            </span>
+          </button>
+        </gesture-element>
+
+        {% comment %}   Start Custom Tag filter  {% endcomment %}
+<div class="csmt-mb-outer">
+            <div class="blog-filter-mobile-sticky field  md:hidden" style="text-align:left;">
+            {%- if section.settings.title3 != blank -%}
+            <h2>{{ section.settings.title3 }}</h2>
+            {%- endif -%}
+            <div class="cstm-sticy-blog-tag inline-block relative">
+            <label for="TagFilter" class="sr-only">{{ 'blogs.article.filter' | t }}</label>
+            
+            <ul id="TagFilter" class="cstm-mb-top-filter tag-list" is="tag-filter">
+            {% assign new_tag = section.settings.filter3tags | split: ',' %}
+            
+            {%- for tag in new_tag %}
+            <li class="cstm-mb-middle flex items-center relative tag-option-sticky" data-tag="{{ tag | handleize }}">
+            <a
+            {% comment %}
+              href="{{ blog.url }}/tagged/{{ tag_clean | replace: '&amp;', '-' | handleize }}" {% endcomment %}
+              class="subcollection flex items-center relative leading-tight text-lg-xl" tag-name="{{- tag | downcase | replace: ' ','-'-}}"
+            >
+              <span class="btn-text">
+                {{- tag -}}
+              </span>
+            </a>
+            </li>
+            {%- endfor %}
+            </ul>
+            </div>
+            </div>
+
+
+
+
+
+                <div class="cstm-blog-tag-drawer-sticky blog-filter-mobile-sticky  blog-filter-mobile-middle field  md:hidden" style="text-align:left;">
+                {%- if section.settings.title2 != blank -%}
+                <h2>{{ section.settings.title2 }}</h2>
+                {%- endif -%}
+                <div class="cstm-sticy-blog-tag inline-block relative">
+                <label for="TagFilter" class="sr-only">{{ 'blogs.article.filter' | t }}</label>
+                
+                <ul id="TagFilter" class="cstm-mb-top-filter-middle tag-list" is="tag-filter">
+                {% assign new_tag = section.settings.filter2tags | split: ',' %}
+                
+                {%- for tag in new_tag %}
+                <li class="cstm-mb-middle flex items-center relative tag-option-sticky" data-tag="{{ tag | handleize }}">
+                <a
+                {% comment %}
+                href="{{ blog.url }}/tagged/{{ tag_clean | replace: '&amp;', '-' | handleize }}" {% endcomment %}
+                class="subcollection flex items-center relative leading-tight text-lg-xl" tag-name="{{- tag | downcase | replace: ' ','-'-}}"
+                >
+                <span class="btn-text">
+                  {{- tag -}}
+                </span>
+                </a>
+                </li>
+                {%- endfor %}
+                </ul>
+                </div>
+                </div>
+
+        {%- if section.settings.title1 != blank or section.settings.filter1tags != blank or blog.tags.size > 0 -%}
+          <div class="cstm-blog-tag-drawer-sticky">
+            {%- if section.settings.title1 != blank -%}
+              <h2>{{ section.settings.title1 }}</h2>
+            {%- endif -%}
+            <ul class="cstm-blog-tag-filter-sticky">
+              {%- assign new_tag = section.settings.filter1tags | split: ',' -%}
+              {%- for tag in new_tag -%}
+                <li class="flex items-center relative tag-option-sticky" data-tag="{{ tag | handleize }}">
+                {% comment %}  <a
+                    href="javascript:void(0)"
+                    class="subcollection flex items-center relative leading-tight text-lg-2xl"
+                  >
+                    <span class="btn-text">{{ tag }}</span>
+                  </a> {% endcomment %}
+
+                  <a
+                    {% comment %}
+                        href="{{ blog.url }}/tagged/{{ tag_clean | replace: '&amp;', '-' | handleize }}" {% endcomment %}
+                        class="subcollection flex items-center relative leading-tight text-lg-xl" tag-name="{{- tag | downcase | replace: ' ','-'-}}"
+                      >
+                        <span class="btn-text">
+                          {{- tag -}}
+                        </span>
+                      </a>
+
+                </li>
+              {%- endfor -%}
+            </ul>
+
+            {% comment %}
+            <button class="cstm-apply-blog-btn button button--primary w-full" type="button" is="hover-button">
+              Apply
+            </button>
+            {% endcomment %}
+          </div>
+        {%- endif -%}
+</div>
+        {% comment %}   End Custom Tag filter  {% endcomment %}
+      </div>
+    </drawer-element>
+  </facet-sticky>
+{%- endif -%}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const tagItems = document.querySelectorAll('.tag-option-sticky');
+    const applyBtn = document.querySelector('.cstm-apply-blog-btn');
+
+    if (!applyBtn) {
+      console.error('Apply button not found. Make sure it exists in the HTML.');
+      return;
+    }
+
+    let selectedTag = null;
+
+    tagItems.forEach(item => {
+      item.addEventListener('click', function () {
+        tagItems.forEach(el => el.classList.remove('active'));
+        this.classList.add('active');
+        selectedTag = this.dataset.tag;
+      });
+    });
+
+applyBtn.addEventListener('click', function () {
+  document.body.classList.remove('has-modal-open');
+  document.getElementById('FacetDrawerSticky').removeAttribute('active');
+});
+
+
+
+    
+    
+    // applyBtn.addEventListener('click', function () {
+    //   const blogBaseUrl = "{{ blog.url }}"; // e.g., /blogs/news
+    //   if (selectedTag) {
+    //     window.location.href = `${blogBaseUrl}/tagged/${selectedTag}`;
+    //   } else {
+    //     window.location.href = blogBaseUrl;
+    //   }
+    // });
+  });
+</script>

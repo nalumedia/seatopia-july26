@@ -1,0 +1,46 @@
+{%- comment -%}
+  Renders one dropdown in the recipe filter nav.
+
+  Accepts:
+  - label: {String} Dropdown label (e.g. "Seafood")
+  - tags: {String} Comma / newline separated list of blog tags
+  - blog: {Object} Blog Liquid object
+{%- endcomment -%}
+{%- capture nl %}
+{% endcapture -%}
+{%- assign tag_items = tags | strip_html | replace: nl, ',' | split: ',' -%}
+{%- assign has_items = false -%}
+{%- for t in tag_items -%}
+  {%- assign t_stripped = t | strip -%}
+  {%- if t_stripped != blank -%}
+    {%- assign has_items = true -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if label != blank and has_items -%}
+  <div class="recipe-nav__item" data-recipe-dropdown>
+    <button type="button" class="recipe-nav__trigger" aria-expanded="false" aria-haspopup="true" data-recipe-trigger>
+      <span>{{ label | escape }}</span>
+      <svg class="recipe-nav__caret" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="recipe-nav__panel" data-recipe-panel hidden>
+      <ul>
+        {%- for tag in tag_items -%}
+          {%- assign tag_clean = tag | strip -%}
+          {%- if tag_clean != blank -%}
+            <li>
+              <a
+                href="{{ blog.url }}/tagged/{{ tag_clean | handleize }}"
+                class="recipe-nav__link{% if current_tags contains tag_clean %} is-active{% endif %}"
+              >
+                {{- tag_clean -}}
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+{%- endif -%}

@@ -1,0 +1,455 @@
+{%- capture direction -%}{% render 'direction' %}{%- endcapture -%}
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}" dir="{{ direction }}">
+  <head>
+
+
+{% render 'replo-head' %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.color_button_background }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {% # theme-check-disable RemoteAsset %}
+    <link rel="dns-prefetch" href="https://ajax.googleapis.com">
+    <link rel="dns-prefetch" href="https://maps.googleapis.com">
+    <link rel="dns-prefetch" href="https://maps.gstatic.com">
+    {% # theme-check-enable RemoteAsset %}
+    {% render 'inf-header-scripts' %}
+
+    {%- if settings.favicon != blank -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" type="image/png">
+    {%- endif -%}
+
+    <title>
+      {{- page_title -}}
+      {%- if current_tags -%}
+        {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+      {%- endif -%}
+      {%- if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif -%}
+      {%- if request.page_type == 'password' -%}
+        {{- shop.name -}}
+      {%- else -%}
+        {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- endif -%}
+    </title>
+
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    {%- liquid
+      render 'social-meta-tags'
+
+      render 'css-variables'
+      echo 'theme.css' | asset_url | stylesheet_tag: preload: true
+
+      if direction == 'rtl'
+        echo 'rtl.css' | asset_url | stylesheet_tag: preload: true
+      endif
+    -%}
+
+    <link
+      rel="stylesheet"
+      href="{{ 'apps.css' | asset_url }}"
+      media="print"
+      fetchpriority="low"
+      onload="this.media='all'"
+    >
+    {% comment %}  {{ 'custom.css' | asset_url | stylesheet_tag > }}   {% endcomment %}
+    {{ 'custom-jtpl.css' | asset_url | stylesheet_tag > }}
+
+    {{ 'recipekit.css' | asset_url | stylesheet_tag > }}
+
+    {{ content_for_header }}
+
+    {%if template contains "product" and product.tags contains "hidden" %}
+      <script> window.location.href ="/" ;</script>
+      {%endif %}
+
+<!-- ✅ Load jQuery first -->
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+  integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+
+<!-- ✅ Now load scripts that depend on jQuery -->
+<script src="{{ 'custom-jtpl.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+
+
+
+    {%- if settings.enable_tab_attention -%}
+      <script src="{{ 'tab-attention.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {%- if request.page_type contains 'customers/' -%}
+      <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {%- render 'js-variables' -%}
+
+    <!-- Begin Growth Head Scripts -->
+
+    <script>/* >> Heatmap.com :: Snippet << */(function (h,e,a,t,m,ap) {  (h._heatmap_paq = []).push([ 'setTrackerUrl', (h.heatUrl = e) + a]);  h.hErrorLogs=h.hErrorLogs || []; ap=t.createElement('script');   ap.src=h.heatUrl+'heatmap.min.js?sid='+m;   ap.defer=true; t.head.appendChild(ap);  ['error', 'unhandledrejection'].forEach(function (ty) {      h.addEventListener(ty, function (et) { h.hErrorLogs.push({ type: ty, event: et }); });  });})(window,'https://c.heatmap.com/scripts/','heatmap.php',document,2984);</script>
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5L5Q9Q66');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Begin Google Site Verification -->
+    <meta name="google-site-verification" content="Ol6QVPDhKeK20xAMrPK0v5JAiiLdUUR33rT1aqp222k">
+    <!-- End Google Site Verification -->
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-TQ92JQG');
+    </script>
+    <!-- End Google Tag Manager -->
+
+       <!-- begin magic links -->
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-991498054"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-991498054');
+      </script>
+ <!-- end magic links -->
+
+
+    <!-- Begin Instant -->
+    <script>
+      const ensureInstantJS=()=>{window.InstantJS||(window.InstantJS={}),window.InstantJS.track||(window.InstantJS.trackQueue=[],window.InstantJS.track=function(){window.InstantJS.trackQueue.push(arguments)})};ensureInstantJS();const trackEvent=(()=>{const t=new Set;return e=>{const n=JSON.stringify(e);t.has(n)||!e[0].includes("track")||(t.add(n),window.InstantJS.track("MARKETING_PIXEL_EVENT_FIRED",[{event:e,provider:"META_PLATFORMS"}]))}})();(function(){const e=()=>{if(window.fbq?.callMethod){const t=window.fbq,e=function(){trackEvent([...arguments]),t.apply(this,arguments)};for(const n in t)t.hasOwnProperty(n)&&(e[n]=t[n]);window.fbq=e}else setTimeout(e,1)},t=()=>{const{_fbq:e}=window;if(e&&e.queue){e.queue.forEach(t=>trackEvent([...t]));const n=e.queue.push;e.queue.push=function(...t){trackEvent([...t[0]]);return n.apply(e.queue,t)}}else setTimeout(t,1)};e(),t()})();
+    </script>
+    <!-- End Instant -->
+
+
+
+    <!-- Twitter conversion tracking base code -->
+    <script>
+      !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+      },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+      a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+      twq('config','p81b1');
+    </script>
+    <!-- End Twitter conversion tracking base code -->
+
+    <!-- begin edacious -->
+    <script src="https://cdn.edacious.com/embed/v1/product.js"></script>
+    <!-- end edacious -->
+<!-- posthog -->
+    <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Ei Ni init zi Gi Nr Ui Xi Hi capture calculateEventProperties tn register register_once register_for_session unregister unregister_for_session an getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync ln identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty nn Qi createPersonProfile setInternalOrTestUser sn qi cn opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Ji debug Fr rn getPageViewId captureTraceFeedback captureTraceMetric Bi".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_x4Efqnt6VV26VZP33tYdYdUSRYTSUmJTUr77bJHxk8vD', {
+        api_host: 'https://us.i.posthog.com',
+        defaults: '2026-01-30',
+        person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
+    })
+</script>
+<!-- end posthog --> 
+
+    <!-- End Growth Head Scripts -->
+
+    <!-- START Add to Cart - On Click event -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("click", function (e) {
+          const btn = e.target.closest('button[name="add"], .product-form__submit');
+          if (!btn) return;
+          gtag('event', 'conversion', {
+            'send_to': 'AW-991498054/niEYCOr42JwcEMae5NgD',
+            'value': 1.0,
+            'currency': 'USD'
+          });
+        });
+      });
+    </script>  
+    <!-- END Add to Cart - On Click event -->
+
+
+  </head>
+
+  <body
+    class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if request.path == '/challenge' %} template-challange{% endif %}{% if request.design_mode %} shopify-design-mode{% endif %} {{ template.suffix }}"
+    data-rounded-button="{{ settings.rounded_button }}"
+    data-rounded-input="{{ settings.rounded_input }}"
+    data-rounded-block="{{ settings.rounded_block }}"
+    data-rounded-card="{{ settings.rounded_card }}"
+    data-button-hover="{{ settings.buttons_hover }}"
+    {% if settings.enable_lazy_image %}
+      data-lazy-image
+    {% endif %}
+    data-title-animation
+    data-page-rendering
+  >
+    <!-- Begin Growth Body Scripts -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-5L5Q9Q66"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- End Growth Body Scripts -->
+
+    <a class="sr-only skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+
+    {%- liquid
+      if settings.enable_page_transition
+        render 'loading-bar'
+      endif
+
+      render 'mouse-cursor'
+
+      sections 'header-group'
+      sections 'overlay-group'
+    -%}
+
+    <div class="page-container" id="PageContainer">
+      <main class="main-content relative" id="MainContent" role="main">
+        {{ content_for_layout }}
+      </main>
+
+      <footer-group class="footer-group block w-full">
+        {%- sections 'footer-group' -%}
+      </footer-group>
+    </div>
+
+    <ul hidden>
+      <li id="a11y-refresh-page-message">{{ 'general.accessibility.refresh_page' | t }}</li>
+      <li id="a11y-new-window-message">{{ 'general.accessibility.link_messages.new_window' | t }}</li>
+    </ul>
+
+    {%- if request.design_mode == false and settings.preload_links -%}
+      <script src="{{ 'instant-page.js' | asset_url }}" type="module" fetchpriority="low" defer="defer"></script>
+    {%- endif -%}
+
+    <!-- Begin Growth Footer Scripts -->
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/45964107.js"></script>
+    <!-- End of HubSpot Embed Code -->
+    <!-- End Growth Footer Scripts -->
+
+<!-- begin light labs -->
+    <script async src="https://app.lightlabs.com/assets/ll-pip-widget-v5.js"></script>
+
+  {% comment %} Meta and GA4 event tracking for Alia popup {% endcomment %}
+   <script>
+    (function () {
+      window.dataLayer = window.dataLayer || [];
+
+      var firedSignups = new Set();
+
+      document.addEventListener('alia:signup', function (e) {
+        if (!e.detail) return;
+
+        var detail = e.detail;
+
+        // Deduplication key
+        var email = detail.email ? String(detail.email).toLowerCase().trim() : '';
+        var phone = detail.phone ? String(detail.phone).trim() : '';
+        var identity = email || phone || 'unknown';
+        var signupKey = String(detail.popupID || '') + '|' + identity;
+
+        if (firedSignups.has(signupKey)) return;
+        firedSignups.add(signupKey);
+
+        var eventPayload = {
+            popup_id: detail.popupID || '',
+            campaign_id: detail.campaignID || '',
+            campaign_title: detail.campaignTitle || ''
+        };
+
+        // ── Meta (Facebook) Event ──
+        if (typeof fbq === 'function') {
+            fbq('trackCustom', 'Email Signup', eventPayload);
+        } else {
+            console.warn('fbq not loaded — Meta event skipped');
+        }
+
+        // ── GA4 Event via dataLayer ──
+        window.dataLayer.push({
+            event: 'email_signup',
+            ...eventPayload
+        });
+      });
+    })();
+   </script>
+
+<!-- BEGIN Free Gift Script -->
+<!-- <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const productAVariantIds = [
+    47154926649595, // Variant 1
+    47154926682363, // Variant 2
+    47154926715131  // Variant 3
+  ];
+  const productBVariantId = 47173638521083; // Free gift
+
+  document.querySelectorAll('form[action^="/cart/add"]').forEach(form => {
+    form.addEventListener('submit', function (event) {
+      const formData = new FormData(form);
+      const variantId = parseInt(formData.get('id'));
+
+      if (productAVariantIds.includes(variantId)) {
+        // 👇 Prevent default form submission
+        event.preventDefault();
+
+        // Convert full form data to object (preserves all fields)
+        const formBody = {};
+        formData.forEach((value, key) => {
+          if (formBody[key]) {
+            // Handle array fields like properties[]
+            if (!Array.isArray(formBody[key])) {
+              formBody[key] = [formBody[key]];
+            }
+            formBody[key].push(value);
+          } else {
+            formBody[key] = value;
+          }
+        });
+
+        // Step 1: Add original product
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formBody)
+        })
+        .then(() => {
+          // Step 2: Add free gift if not already in cart
+          return fetch('/cart.js');
+        })
+        .then(response => response.json())
+        .then(cart => {
+          const alreadyInCart = cart.items.some(item => item.variant_id === productBVariantId);
+          if (!alreadyInCart) {
+            return fetch('/cart/add.js', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                id: productBVariantId,
+                quantity: 1
+              })
+            });
+          }
+        })
+        .then(() => {
+          // Step 3: Redirect to cart
+          window.location.href = '/cart';
+        })
+        .catch(error => {
+          console.error('Error adding items to cart:', error);
+        });
+      }
+    });
+  });
+});
+</script>
+<!-- END Free Gift Script -->
+
+<!-- free caviar -->
+
+{% comment %} <script>
+(function () {
+  // ===== CONFIG =====
+  // Only run on these paths (edit to your landing page URL path)
+  var ALLOWED_PATHS = [
+    '/pages/free-caviar',                              // example landing page
+    '/collections/essentials/products/salmon-roe-caviar-2' // or product LP
+  ];
+
+  // Your FREE gift variant (numeric variant id)
+  var GIFT_VARIANT_ID = 47549112385787;
+
+  // Optional: properties to tag the line for reporting
+  var GIFT_PROPERTIES = { _promo: 'Free Caviar', _limit: '1' };
+
+  // ===== GUARDS =====
+  var pathOk = ALLOWED_PATHS.some(function(p){ return location.pathname.startsWith(p); });
+  if (!pathOk) return;
+
+  if (!GIFT_VARIANT_ID || isNaN(GIFT_VARIANT_ID)) {
+    console.warn('[Seatopia Gift] Invalid GIFT_VARIANT_ID'); return;
+  }
+
+  var REMOVAL_FLAG = 'seatopia_gift_removed_' + GIFT_VARIANT_ID;
+
+  function getCart() {
+    return fetch('/cart.js', { credentials: 'same-origin' }).then(function(r){
+      if (!r.ok) throw new Error('cart.js ' + r.status);
+      return r.json();
+    });
+  }
+  function addToCart(payload) {
+    return fetch('/cart/add.js', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function(r){
+      return r.json().then(function(j){
+        if (!r.ok || j.status === 422) {
+          console.warn('[Seatopia Gift] add.js error:', j);
+          throw new Error((j && j.description) || 'Add failed');
+        }
+        return j;
+      });
+    });
+  }
+  function hasGift(items) {
+    return (items || []).some(function(i){ return String(i.variant_id) === String(GIFT_VARIANT_ID); });
+  }
+  function shouldSkip() {
+    try { return sessionStorage.getItem(REMOVAL_FLAG) === '1'; } catch(e){ return false; }
+  }
+
+  // Auto-add once on page load (respect removal + no duplicates)
+  document.addEventListener('DOMContentLoaded', function(){
+    if (shouldSkip()) return;
+    getCart().then(function(cart){
+      if (hasGift(cart.items)) return;
+      return addToCart({ id: GIFT_VARIANT_ID, quantity: 1, properties: GIFT_PROPERTIES });
+    }).catch(function(err){
+      console.warn('[Seatopia Gift] flow error:', err);
+    });
+  });
+
+  // If your theme dispatches a cart replaced event, you could set removal flag
+  // document.addEventListener('seatopia:cart:replaced', function (e) {
+  //   var prev = e.detail && e.detail.prev ? e.detail.prev.items : [];
+  //   var next = e.detail && e.detail.next ? e.detail.next.items : [];
+  //   var prevHad = hasGift(prev), nextHas = hasGift(next);
+  //   if (prevHad && !nextHas) { try { sessionStorage.setItem(REMOVAL_FLAG, '1'); } catch(e){} }
+  // });
+})();
+</script> {% endcomment %}
+
+
+<!-- end free caviar -->
+{% render 'inf-footer-scripts' %}
+  </body>
+</html>

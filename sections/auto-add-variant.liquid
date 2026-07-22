@@ -1,0 +1,216 @@
+{% comment %}
+Section: Auto-add a single variant to cart (max qty 1)
+Usage:
+- Add this section to the specific page in the Theme Editor.
+- Set the Variant ID in the section settings.
+- Optional: toggle "Run only once per session" to avoid re-adding on refreshes.
+
+Notes:
+- Enforces max quantity = 1 (will reduce if already >1).
+- Uses Shopify AJAX Cart (/cart.js, /cart/add.js, /cart/change.js).
+{% endcomment %}
+
+<section id="auto-add-variant-{{ section.id }}" style="display:none" aria-hidden="true"></section>
+
+<script>
+(function() {
+  // ---- Config from section settings ----
+  var VARIANT_ID = {{ section.settings.variant_id | json }};
+  var RUN_ONCE_PER_SESSION = {{ section.settings.run_once | json }};
+  var REDIRECT_TO_CART = {{ section.settings.redirect_to_cart | json }}; // optional
+
+  if (!VARIANT_ID || typeof fetch !== 'function') return;
+
+  var FLAG_KEY = 'autoAddVariant:' + VARIANT_ID + ':{{ section.id }}';
+
+  // sessionStorage helpers for browsers that block/disable it
+  function safeSessionGet(key) {
+    try {
+      return window.sessionStorage ? window.sessionStorage.getItem(key) : null;
+    } catch (err) {
+      return null;
+    }
+  }
+
+  function safeSessionSet(key, value) {
+    try {
+      if (window.sessionStorage) {
+        window.sessionStorage.setItem(key, value);
+      }
+    } catch (err) {
+      // no-op when storage is disabled/full
+    }
+  }
+
+  // If set to run only once per session and we've already done it, bail.
+  if (RUN_ONCE_PER_SESSION && safeSessionGet(FLAG_KEY)) return;
+
+  // Idempotency guard so we don’t double-fire in hydrated themes
+  if (window.__autoAddLock__) { return; }
+  window.__autoAddLock__ = true;
+
+  // Helpers
+  function getCart() {
+    return fetch('/cart.js', { credentials: 'same-origin', cache: 'no-store' })
+      .then(function(r){ return r.json(); });
+  }
+
+  function changeLine(lineItem, qty) {
+    return fetch('/cart/change.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
+      body: JSON.stringify({ id: lineItem.key, quantity: qty })
+    }).then(function(r){
+      if (!r.ok) {
+        return r.json().catch(function(){ return { status: r.status }; }).then(function(e){
+          throw e;
+        });
+      }
+      return r.json();
+    });
+  }
+
+  function addVariant(variantId) {
+    return fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
+      body: JSON.stringify({ id: variantId, quantity: 1 })
+    }).then(function(r){
+      if (!r.ok) { return r.json().then(function(e){ throw e; }); }
+      return r.json();
+    });
+  }
+
+  function refreshThemeCartUI() {
+    // Best-effort signals for common themes; safe if no listeners exist
+    dispatchEventSafe('cart:refresh');
+    dispatchEventSafe('theme:cart:refresh');
+  }
+
+  function dispatchEventSafe(name) {
+    try {
+      if (typeof window.CustomEvent === 'function') {
+        document.dispatchEvent(new CustomEvent(name));
+      } else {
+        var evt = document.createEvent('Event');
+        evt.initEvent(name, true, true);
+        document.dispatchEvent(evt);
+      }
+    } catch (err) {
+      // Swallow errors from older browsers that block custom events
+    }
+  }
+
+  // Reload-once guard to ensure UI shows the change on first visit
+  function reloadOnceGuard() {
+    if (typeof URL === 'function') {
+      var url = new URL(window.location.href);
+      if (!url.searchParams.has('cart_synced')) {
+        url.searchParams.set('cart_synced', '1');
+        window.location.replace(url.toString()); // hard replace keeps back button clean
+        return true; // triggered a reload
+      }
+      return false; // already reloaded once
+    }
+
+    // Fallback for browsers without URL constructor
+    var loc = window.location;
+    if (!/[?&]cart_synced=1/.test(loc.search)) {
+      var connector = loc.search ? '&' : '?';
+      var next = loc.href + connector + 'cart_synced=1';
+      window.location.replace(next);
+      return true;
+    }
+    return false;
+  }
+
+  // Main flow
+  getCart().then(function(cart){
+    // Find this variant if present
+    var line = (cart.items || []).find(function(item){
+      return String(item.variant_id) === String(VARIANT_ID);
+    });
+
+    if (line) {
+      // If already in cart, enforce max quantity 1
+      if (line.quantity > 1) {
+        return changeLine(line, 1).then(function(){
+          refreshThemeCartUI();
+          if (RUN_ONCE_PER_SESSION) safeSessionSet(FLAG_KEY, '1');
+
+          // reload once so the mini-cart/cart drawer reflects immediately
+          if (!reloadOnceGuard() && REDIRECT_TO_CART) {
+            window.location.href = '/cart';
+          }
+        });
+      } else {
+        // quantity already 1 — nothing to do besides sync UI
+        refreshThemeCartUI();
+        if (RUN_ONCE_PER_SESSION) safeSessionSet(FLAG_KEY, '1');
+
+        if (!reloadOnceGuard() && REDIRECT_TO_CART) {
+          window.location.href = '/cart';
+        }
+        return;
+      }
+    } else {
+      // Not in cart — add it
+      return addVariant(VARIANT_ID).then(function(){
+        // After add, enforce max qty 1 across the board (future-proof)
+        return getCart().then(function(newCart){
+          var same = (newCart.items || []).find(function(i){ return String(i.variant_id) === String(VARIANT_ID); });
+          if (same && same.quantity > 1) {
+            return changeLine(same, 1);
+          }
+        }).then(function(){
+          refreshThemeCartUI();
+          if (RUN_ONCE_PER_SESSION) safeSessionSet(FLAG_KEY, '1');
+
+          if (!reloadOnceGuard() && REDIRECT_TO_CART) {
+            window.location.href = '/cart';
+          }
+        });
+      }).catch(function(err){
+        // Silently fail to avoid blocking page
+        console.warn('Auto-add variant error:', err);
+      });
+    }
+  }).finally(function(){
+    // release lock in case the page reuses this script block
+    window.__autoAddLock__ = false;
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Auto-add variant (max 1)",
+  "settings": [
+    {
+      "type": "text",
+      "id": "variant_id",
+      "label": "Variant ID to add",
+      "info": "Paste the exact numeric Variant ID (e.g., 47549112385787)"
+    },
+    {
+      "type": "checkbox",
+      "id": "run_once",
+      "label": "Run only once per session",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "redirect_to_cart",
+      "label": "Redirect to cart after add/enforce",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Auto-add variant (max 1)"
+    }
+  ]
+}
+{% endschema %}

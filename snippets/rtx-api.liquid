@@ -1,0 +1,104 @@
+{%- comment -%}
+  RTX API Snippet
+  v1.0.2-221208
+
+  Snippet provides a common/global API for JS that can be added at any level to
+  make a standard interface for the subscriptions. Can be included as many times
+  as desired without causing conflicts.
+  You may opt to override or hook into exisiting logic by assigning to the
+  window.retextionApi object prior to this snippet loading.
+{%- endcomment -%}
+<script type="text/javascript">
+    (function() {
+      window.retextionApi = Object.assign({
+        productData: [],
+        variants: {},
+        queryParamsGet: function() {
+          let [location, searchHash] = window.location.toString().split('?');
+          let [search] = (searchHash || "").split('#');
+          return(search || '').split('&').reduce((o, e) => {
+            let [key, value] = e.split('=').map(x => decodeURIComponent(x));
+            if (!key || !value)
+              return o;
+
+            o[key] = value;
+            return o;
+          }, {});
+        },
+        queryParamsGenerate: function(params) {
+          let {queryParams} = params;
+          queryParams = queryParams || {};
+
+  // Remove undefined
+          Object.keys(queryParams).forEach(key => {
+            if (typeof queryParams[key] !== typeof undefined)
+              return;
+
+            delete queryParams[key];
+          });
+          return Object.keys(queryParams).reduce((x, key, i) => {
+            let value = queryParams[key];
+            if (i != 0)
+              x += '&';
+
+            return x += encodeURIComponent(key) + '=' + encodeURIComponent(value);
+          }, '');
+        },
+        sellingPlanPushHistory: function(params) {
+          const {sellingPlan} = params;
+          let queryParams = window.retextionApi.queryParamsGet();
+          if (sellingPlan) {
+            queryParams['selling_plan'] = sellingPlan.id || sellingPlan;
+          } else {
+            delete queryParams['selling_plan'];
+          }
+          const qs = window.retextionApi.queryParamsGenerate({queryParams});
+          try {
+            let hash;
+            hash = (hash = window.location.toString().split('#')).length > 1
+              ? hash[1]
+              : null;
+            const url = (window.location.toString().split('?')[0] + (
+              qs.length
+                ? '?' + qs
+                : ''
+            ) + (
+              hash
+                ? '#' + hash
+                : ''
+            ));
+            window.history.pushState(queryParams, '', url);
+          } catch (e) { // Catching since older browsers and iOS can have issues
+            console.error(e);
+          }
+        },
+        productAdd: function(params) {
+          const {product} = params;
+          if (!product)
+            return;
+
+          window.retextionApi.productData.push(product);
+          product.variants.forEach(variant => {
+            window.retextionApi.variants[variant.id] = product.id;
+          });
+        },
+        formatMoney: function(money) {
+          try {
+            if (window && window.Shopify && typeof window.Shopify.formatMoney === 'function')
+              return window.Shopify.formatMoney(money);
+
+            if (window && window.theme && window.theme.utils && typeof window.theme.utils === 'function')
+              return theme.utils.formatMoney(money);
+
+            return '$' + (
+              money / 100
+            ).toFixed(2);
+          } catch (e) {
+            return '$' + (
+              money / 100
+            ).toFixed(2);
+          }
+        }
+      }, window.retextionApi);
+    })();
+</script>

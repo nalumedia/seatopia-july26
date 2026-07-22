@@ -1,0 +1,423 @@
+{% comment %}
+  ═══════════════════════════════════════════════════════════════
+  SEATOPIA OMEGA-3 MAP — Shopify Liquid Section
+  ═══════════════════════════════════════════════════════════════
+  Total Omega-3 = EPA + DHA + ALA  ·  Marine Omega = EPA + DHA
+  Canonical basis: mg per 100 g edible portion (values stored per 100 g)
+  Display toggle: Per Seatopia Recommended Serving (default) or Per 100 g
+
+  DATA PROVENANCE (single source of truth — do not edit values by hand)
+  • EPA / DHA / ALA: seatopianutritionresolved.csv, last updated June 2, 2026.
+      - Edacious = product-level mean across n third-party samples.
+      - Light Labs = single-sample fallback where Edacious was 0 / <LOQ,
+        or product exists only in Light Labs (Regal, Smoke in Chimneys).
+  • Microplastics: microplasticsreference.csv (Light Labs / EMSL), 6-polymer
+      FTIR panel, all results ND (not detected), LOD 1 microparticle.
+  • Serving sizes: nutrition_products.csv "Serving Size (oz)".
+  • Microplastics COA PDF links + test dates: Seatopia master sheet
+      (gid=0, "Microplastics COA Link" column).
+
+  CHANGES FROM PRIOR VERSION (2026-07-11 rebuild)
+  1. Brand: Seatopia palette + type (Crimson Pro display / DM Sans body).
+  2. Data: every omega value re-derived from the June 2 2026 canonical
+     resolved file. Values now stored per 100 g; per-serving is derived.
+  3. Data-viz best practices: title states the takeaway; source + sample
+     count + basis shown on every view; removed the avg/"last test" toggle
+     (a single sample was overstating some products — we now show the
+     aggregated mean with n, per project data rules); EPA/DHA/ALA use
+     redundant direct labels + a legend (colorblind-safe); bars sorted and
+     zero-based; a Reference footer cites files + dates.
+  4. Microplastics: COA PDF links + test date surfaced where published.
+  5. 2026-07-11 COA link update: full set of microplastics COA links from
+     the master sheet added for every tested farm; Esteros Lubimar now has
+     per-product COAs (Branzino Lot BZ_EST_0001 vs Sea Bream Lot BR0001);
+     Tarakan Black Tiger Shrimp COA now on file — shown as tested.
+     Marshallberg Osetra: tested (Test #22503) but no published COA link
+     yet (master-sheet cell blank).
+  6. 2026-07-11: product/sample/COA count line moved from under the basis
+     toggle into the Reference footer to reduce clutter at the top.
+
+  SERVING-SIZE / DATA NOTES FOR REVIEW
+  • Ora King serving shown as 7.5 oz (matches product page + master sheet);
+    nutrition_products.csv lists an 8.5 oz pack — confirm which is canonical.
+  • Caviar servings use the catalog 0.25 oz (30 g tin ÷ 4) — prior file used
+    1 oz. Per-serving omega for caviar drops accordingly.
+  • McFarland Springs microplastics result is the Trout Dogs variant, not the
+    rainbow-trout fillet (see Claude.md mapping caveat) — flagged in tooltip.
+  • Caleta Bay microplastics: COA on file (EMSL, 2025-11-06); per-polymer
+    detail is on the linked COA (not in microplasticsreference.csv).
+  • Black Tiger Shrimp (Tarakan): microplastics COA now on file
+    (Tarakan_Monodan_ShellOff.pdf, per 2026-07-11 master sheet) — shown as
+    tested; no Light Labs test # published for this one.
+
+  INSTALL
+  1. Shopify Admin → Online Store → Themes → Edit Code
+  2. Create: sections/omega-map.liquid
+  3. Paste this file
+  4. Add via theme editor or: {% section 'omega-map' %}
+  ═══════════════════════════════════════════════════════════════
+{% endcomment %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+{% stylesheet %}
+.omega-map {
+  /* Seatopia palette */
+  --c: #2E4B59;   /* Deep Deep Blue — EPA, headings, default text */
+  --ce: #497991;  /* Reef Blue — DHA, secondary */
+  --bb: #5C8DA5;  /* Bright Blue — mid-tone */
+  --m: #7BC3F3;   /* Sky Blue — ALA, light accent */
+  --kelp: #CDD9D1;/* Kelp — dividers */
+  --l: #F7EFE6;   /* Sand — brand background */
+  --w: #FFFFFF;
+  --t: #FF7755;   /* Salmon — CTA / active */
+  --rust: #D45A3C;
+  --g: #1D3D3E;   /* Rich Green — scientific / microplastics */
+  --gold: #BB8F50;
+  --smoke: #6B8588;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--c); max-width: 980px; margin: 0 auto; padding: 40px 20px;
+  background: var(--l); border-radius: 12px;
+}
+.omega-map * { box-sizing: border-box; margin: 0; padding: 0; }
+.om-eyebrow { text-align:center; font-size:12px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--ce); margin-bottom:8px; }
+.om-h { text-align: center; margin-bottom: 26px; }
+.om-h h2 { font-family: 'Crimson Pro', Georgia, serif; font-size: 40px; font-weight: 300; line-height:1.1; margin-bottom: 10px; color:var(--c); }
+.om-h p { font-size: 16px; color: var(--ce); max-width: 600px; margin: 0 auto; line-height: 1.5; }
+.om-formula {
+  display: inline-block; margin: 14px 0 4px; padding: 7px 18px;
+  background: var(--w); border-radius: 8px; font-size: 13px; font-weight: 600; color:var(--c);
+  box-shadow: 0 2px 6px rgba(46,75,89,0.06);
+}
+.om-ctrl { display: flex; justify-content: center; gap: 14px; align-items: center; margin: 22px 0 18px; flex-wrap: wrap; }
+.om-tog { display: inline-flex; background: var(--w); border-radius: 8px; padding: 3px; box-shadow:0 1px 4px rgba(46,75,89,0.06); }
+.om-tog button {
+  padding: 9px 16px; font-size: 13px; font-weight: 600; font-family: inherit;
+  border: none; border-radius: 6px; cursor: pointer; background: transparent;
+  color: var(--ce); transition: all 0.18s;
+}
+.om-tog button.active { background: var(--c); color: var(--w); }
+.om-leg { display: flex; justify-content: center; gap: 22px; margin-bottom: 18px; font-size: 12px; color: var(--ce); flex-wrap:wrap; }
+.om-leg-i { display: flex; align-items: center; gap: 6px; }
+.om-sw { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+.om-tabs { display: flex; justify-content: center; gap: 0; margin-bottom: 22px; }
+.om-tab {
+  padding: 10px 22px; font-size: 12px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--ce); cursor: pointer; border-bottom: 2px solid transparent;
+}
+.om-tab:hover { color: var(--c); }
+.om-tab.active { color: var(--c); border-bottom-color: var(--t); }
+.om-row { display: flex; align-items: center; margin-bottom: 9px; cursor: pointer; transition: transform 0.12s; }
+.om-row:hover { transform: translateX(3px); }
+.om-lbl { width: 220px; flex-shrink: 0; text-align: right; padding-right: 14px; }
+.om-sp { font-weight: 600; font-size: 13px; line-height: 1.25; }
+.om-fm { font-size: 11px; color: var(--ce); }
+.om-bw {
+  flex: 1; height: 40px; background: rgba(73,121,145,0.06);
+  border-radius: 6px; position: relative; overflow: visible;
+}
+.om-bar { height: 100%; border-radius: 6px; display: flex; overflow: hidden; transition: width 0.5s ease; }
+.om-bar-epa { height:100%; background:var(--c); display:flex; align-items:center; justify-content:center; min-width:0; }
+.om-bar-epa:first-child { border-radius: 6px 0 0 6px; }
+.om-bar-dha { height:100%; background:var(--ce); display:flex; align-items:center; justify-content:center; min-width:0; }
+.om-bar-ala { height:100%; background:var(--m); border-radius:0 6px 6px 0; display:flex; align-items:center; justify-content:center; min-width:0; }
+.om-sl { font-size:10px; font-weight:700; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; padding:0 5px; }
+.om-bar-ala .om-sl { color: var(--c); }
+.om-val {
+  position: absolute; right: 0; top: 50%;
+  transform: translate(calc(100% + 10px), -50%);
+  font-size: 13px; font-weight: 700; white-space: nowrap; color:var(--c);
+}
+.om-ts { width: 54px; flex-shrink: 0; text-align: center; margin-left: 78px; font-size: 10px; color: var(--ce); }
+.om-ts strong { display: block; font-size: 14px; color: var(--c); }
+.om-det {
+  display: none; background: var(--w); border-radius: 10px; padding: 22px;
+  margin: 6px 0 16px 220px; box-shadow: 0 4px 16px rgba(46,75,89,0.08);
+  animation: omFade 0.2s ease;
+}
+.om-det.open { display: block; }
+@keyframes omFade { from { opacity:0; transform:translateY(-4px); } to { opacity:1; } }
+.om-det-g { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; text-align: center; }
+.om-det-b { padding: 14px; background: var(--l); border-radius: 8px; }
+.om-det-b .lb { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 4px; }
+.om-det-b .lb.epa { color: var(--c); }
+.om-det-b .lb.dha { color: var(--ce); }
+.om-det-b .lb.ala { color: var(--bb); }
+.om-det-b .nm { font-family: 'Crimson Pro', Georgia, serif; font-size: 30px; font-weight: 400; }
+.om-det-b .un { font-size: 11px; color: var(--ce); }
+.om-det-m { margin-top: 12px; font-size: 11px; color: var(--ce); text-align: center; }
+/* Microplastics COA */
+.om-mp-link { color: var(--g); font-weight:700; text-decoration:none; border-bottom:1px solid rgba(29,61,62,0.35); }
+.om-mp-link:hover { border-bottom-color: var(--g); }
+/* Data table */
+.om-tbl-wrap { overflow-x: auto; }
+.om-tbl {
+  width: 100%; border-collapse: separate; border-spacing: 0;
+  background: var(--w); border-radius: 10px; box-shadow: 0 2px 12px rgba(46,75,89,0.06);
+  font-size: 13px;
+}
+.om-tbl thead th {
+  background: var(--c); color: var(--w); padding: 10px 14px; text-align: left;
+  font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px;
+  white-space: nowrap; cursor: pointer;
+}
+.om-tbl thead th:first-child { border-radius: 10px 0 0 0; }
+.om-tbl thead th:last-child { border-radius: 0 10px 0 0; }
+.om-tbl td { padding: 8px 14px; border-bottom: 1px solid rgba(46,75,89,0.06); }
+.om-tbl tr:hover { background: rgba(123,195,243,0.08); }
+.om-tbl .n { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+.om-ref { margin-top:22px; padding:14px 16px; background:var(--w); border-left:3px solid var(--kelp); border-radius:6px; font-size:11px; color:var(--smoke); line-height:1.6; }
+.om-ref strong { color:var(--c); }
+@media (max-width: 640px) {
+  .om-lbl { width: 130px; }
+  .om-sp { font-size: 11px; }
+  .om-ts { width: 40px; margin-left: 30px; }
+  .om-det { margin-left: 0; }
+  .om-det-g { grid-template-columns: 1fr; }
+  .om-h h2 { font-size: 30px; }
+}
+{% endstylesheet %}
+
+<div class="omega-map" id="omega-map-root">
+  <div class="om-eyebrow">Verified Marine Nutrition</div>
+  <div class="om-h">
+    <h2>{{ section.settings.heading | default: 'The Omega-3 Map' }}</h2>
+    <p>{{ section.settings.subheading | default: 'Every fillet, third-party lab verified for EPA, DHA and ALA — measured, not estimated.' }}</p>
+    <div class="om-formula">Marine Omega = EPA + DHA &middot; Total Omega-3 = EPA + DHA + ALA</div>
+  </div>
+  <div class="om-ctrl">
+    <div class="om-tog">
+      <button class="active" onclick="omBasis('serving',this)">Per Seatopia Serving</button>
+      <button onclick="omBasis('100g',this)">Per 100 g</button>
+    </div>
+  </div>
+  <div class="om-tabs">
+    <div class="om-tab active" onclick="omTab('chart',this)">Chart</div>
+    <div class="om-tab" onclick="omTab('table',this)">Data</div>
+  </div>
+  <div class="om-leg">
+    <div class="om-leg-i"><div class="om-sw" style="background:#2E4B59"></div> EPA</div>
+    <div class="om-leg-i"><div class="om-sw" style="background:#497991"></div> DHA</div>
+    <div class="om-leg-i"><div class="om-sw" style="background:#7BC3F3"></div> ALA</div>
+    <div class="om-leg-i"><div class="om-sw" style="background:#1D3D3E"></div> Microplastics tested (0 / 6 ND)</div>
+  </div>
+  <div id="om-chart"></div>
+  <div id="om-table" style="display:none"></div>
+  <div class="om-ref" id="om-ref"></div>
+</div>
+
+{% javascript %}
+(function(){
+  // ── Canonical omega values (mg per 100 g edible portion) ──────────────
+  // Source: seatopianutritionresolved.csv, last updated June 2, 2026.
+  // src "Edacious" = mean of n third-party samples; "Light Labs" = single-sample fallback.
+  const P=[
+    {s:"Steelhead Trout",   f:"Hudson Valley",     oz:6,    src:"Edacious",  n:3, e:332, d:919,  a:1430},
+    {s:"King Salmon",       f:"Ora King",          oz:7.5,  src:"Edacious",  n:2, e:474, d:951,  a:1072},
+    {s:"King Salmon",       f:"Mt Cook",           oz:7,    src:"Edacious",  n:2, e:404, d:763,  a:1010},
+    {s:"Atlantic Salmon",   f:"Bakkafrost",        oz:6,    src:"Edacious",  n:6, e:417, d:738,  a:840},
+    {s:"Steelhead Trout",   f:"Caleta Bay",        oz:6,    src:"Edacious",  n:3, e:231, d:521,  a:1173},
+    {s:"King Salmon",       f:"Regal",             oz:7.5,  src:"Light Labs",n:1, e:276, d:750,  a:999},
+    {s:"Osetra Caviar",     f:"Marshallberg",      oz:0.25, src:"Edacious",  n:3, e:434, d:1042, a:158},
+    {s:"Branzino",          f:"Esteros Lubimar",   oz:6,    src:"Edacious",  n:6, e:269, d:529,  a:779},
+    {s:"Sea Bream",         f:"Esteros Lubimar",   oz:6,    src:"Edacious",  n:6, e:196, d:502,  a:569},
+    {s:"Salmon Roe Caviar", f:"Yarra Valley",      oz:0.25, src:"Edacious",  n:3, e:447, d:1306, a:135},
+    {s:"Rainbow Trout",     f:"McFarland Springs", oz:6,    src:"Edacious",  n:6, e:241, d:591,  a:1127},
+    {s:"Yellowtail",        f:"The Kingfish Co.",  oz:8,    src:"Edacious",  n:3, e:165, d:483,  a:138},
+    {s:"Rainbow Trout",     f:"Smoke in Chimneys", oz:6,    src:"Light Labs",n:1, e:86,  d:404,  a:33},
+    {s:"Barramundi",        f:"Australis",         oz:6,    src:"Edacious",  n:3, e:27,  d:82,   a:29},
+    {s:"Black Tiger Shrimp",f:"Tarakan",           oz:4,    src:"Edacious",  n:3, e:17,  d:20,   a:8},
+    {s:"Peruvian Scallops", f:"Seacorp",           oz:2,    src:"Edacious",  n:3, e:60,  d:41,   a:3}
+  ];
+
+  const OZ_TO_G=28.3495;
+
+  // ── Microplastics (Light Labs / EMSL) ────────────────────────────────
+  // 6-polymer FTIR panel, LOD = 1 microparticle. All tested products read ND
+  // (0 of 6 polymers detected). Per-polymer source: microplasticsreference.csv
+  // (last updated June 2, 2026). COA PDF links + test dates from the master sheet.
+  const MP_PANEL = {
+    lod: 1, unit: 'microparticles',
+    lab: 'EMSL Analytical (via Light Labs)', method: 'FTIR / optical microscopy',
+    polymers: [
+      {a:'HDPE', n:'High-Density Polyethylene',  s:'milk jugs, bottle caps'},
+      {a:'LDPE', n:'Low-Density Polyethylene',   s:'plastic bags, films'},
+      {a:'PET',  n:'Polyethylene Terephthalate', s:'water bottles, fishing line'},
+      {a:'PP',   n:'Polypropylene',              s:'caps, ropes, fishing nets'},
+      {a:'PS',   n:'Polystyrene',                s:'foam packaging, pen floats'},
+      {a:'PVC',  n:'Polyvinyl Chloride',         s:'pipes, liners'}
+    ]
+  };
+  // r: result ('ND'); code: Light Labs test #; coa: published COA PDF URL;
+  // date: microplastics test date (ISO); note: caveat shown in tooltip.
+  const MP_BY_FARM = {
+    "Hudson Valley":     {r:'ND', code:'21516', coa:'https://cdn.shopify.com/s/files/1/0222/9882/0682/files/MP-Hudson_Valley-Steelhead_Trout-Lot_2352361.pdf?v=1783783882', lot:'2352361'},
+    "Ora King":          {r:'ND', code:'21518', coa:'https://cdn.shopify.com/s/files/1/0222/9882/0682/files/Seatopia___Ora_King___King_Salmon_Seatopia___Ora_King___King_Salmon_-_Lot_5668_-_COA.pdf?v=1783709287', lot:'5668'},
+    "Mt Cook":           {r:'ND', code:'21517', coa:'https://cdn.shopify.com/s/files/1/0222/9882/0682/files/Seatopia___Mt._Cook___Alpine_King_Salmon_Seatopia___Mt._Cook___Alpine_King_Salmon_-_Lot_730924_-_COA.pdf?v=1783707143', lot:'730924'},
+    "Bakkafrost":        {r:'ND', code:'21521', coa:'https://cdn.shopify.com/s/files/1/0222/9882/0682/files/Seatopia___Bakkafrost___Atlantic_Salmon_Seatopia___Bakkafrost___Atlantic_Salmon_-_Lot_4467_-_COA.pdf?v=1783721092', lot:'4467'},
+    "Caleta Bay":        {r:'ND', coa:'https://cdn.shopify.com/s/files/1/0222/9882/0682/files/EMSL_CaletaBay_110625.pdf?v=1783722341', date:'2025-11-06', note:'Per-polymer detail is on the linked EMSL COA (not in the resolved microplastics reference).'},
+    "Regal":             {r:'ND', code:'21524'},
+    "Marshallberg":      {r:'ND', code:'22503'},
+    "Esteros Lubimar":   {r:'ND', code:'21525/21526'},
+    "Yarra Valley":      {r:'ND', code:'21527', coa:'https://cdn.shopify.com/s/files/1/0222/9882/0682/files/MP-Yarra_Valley-Salmon_Roe_Caviar-Lot_1965.pdf?v=1783790527', lot:'1965'},
+    "McFarland Springs": {r:'ND', code:'22135', coa:'https://cdn.shopify.com/s/files/1/0222/9882/0682/files/Seatopia___McFarland_Springs___Rainbow_Trout_McFarland_Springs_Trout_Dogs_-_-_COA.pdf?v=1783790934', note:'Microplastics panel was run on the McFarland Springs Trout Dogs variant, not the rainbow-trout fillet.'},
+    "The Kingfish Co.":  {r:'ND', code:'21520', coa:'https://cdn.shopify.com/s/files/1/0222/9882/0682/files/MP-Kingfish_Co-Yellowtail-Lot_3089.pdf?v=1783790169', lot:'3089'},
+    "Smoke in Chimneys": {r:'ND', code:'21519', coa:'https://cdn.shopify.com/s/files/1/0222/9882/0682/files/MP-Smoke_in_Chimneys-Rainbow_Trout-Lot_RBT0001.pdf?v=1783789920', lot:'RBT0001'},
+    "Australis":         {r:'ND', code:'21514', coa:'https://cdn.shopify.com/s/files/1/0222/9882/0682/files/MP-Australis-Barramundi-Lot_83142422204.pdf?v=1783785720', lot:'83142422204'},
+    "Tarakan":           {r:'ND', coa:'https://cdn.shopify.com/s/files/1/0222/9882/0682/files/Tarakan_Monodan_ShellOff.pdf?v=1783784622'},
+    "Seacorp":           {r:'ND', code:'21523', coa:'https://cdn.shopify.com/s/files/1/0222/9882/0682/files/MP-Seacorp-Peruvian_Scallops-Lot_935.pdf?v=1783786078', lot:'935'}
+    // Marshallberg + Regal: tested (test # above) but no published COA link on the master sheet yet.
+  };
+  // Per-product COA overrides — same farm, different lot/COA per species:
+  const MP_BY_PRODUCT = {
+    "Branzino|Esteros Lubimar":  {coa:'https://cdn.shopify.com/s/files/1/0222/9882/0682/files/MP-Esteros_Lubimar-Branzino-Lot_BZ_EST_0001.pdf?v=1783785282', lot:'BZ_EST_0001'},
+    "Sea Bream|Esteros Lubimar": {coa:'https://cdn.shopify.com/s/files/1/0222/9882/0682/files/MP-Esteros_Lubimar-Sea_Bream-Lot_BR0001.pdf?v=1783785488', lot:'BR0001'}
+  };
+  P.forEach(p => {
+    const base = MP_BY_FARM[p.f], ov = MP_BY_PRODUCT[p.s+'|'+p.f];
+    if (base || ov) {
+      const m = Object.assign({}, base||{}, ov||{});
+      p.mp=m.r; p.mpCode=m.code||''; p.mpCoa=m.coa||''; p.mpDate=m.date||''; p.mpLot=m.lot||''; p.mpNote=m.note||'';
+    }
+  });
+
+  const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function fmtDate(iso){ if(!iso) return ''; const d=new Date(iso+'T00:00:00'); return MONTHS[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear(); }
+
+  let basis='serving', openIdx=-1, view='chart', sortK='total', sortA=false;
+
+  // Scale a per-100g value to the current basis
+  function sc(v100,oz){ return basis==='100g' ? v100 : Math.round(v100*oz*OZ_TO_G/100); }
+  function gs(p){const e=sc(p.e,p.oz),d=sc(p.d,p.oz),a=sc(p.a,p.oz);return{e:e,d:d,a:a,t:e+d+a};}
+  function basisLabel(p){return basis==='100g'?'mg / 100 g':'mg / '+p.oz+' oz';}
+
+  function renderChart(){
+    const sorted=[...P].sort((a,b)=>gs(b).t-gs(a).t);
+    const mx=Math.max(...sorted.map(p=>gs(p).t));
+
+    let h='';
+    sorted.forEach((p,i)=>{
+      const d=gs(p);
+      const bw=mx>0?(d.t/mx)*68:0;
+      const ep=d.t>0?(d.e/d.t*100):0;
+      const dp=d.t>0?(d.d/d.t*100):0;
+      const ap=Math.max(0,100-ep-dp);
+      const eL=ep>12?'<span class="om-sl">EPA '+d.e.toLocaleString()+'</span>':'';
+      const dL=dp>14?'<span class="om-sl">DHA '+d.d.toLocaleString()+'</span>':'';
+      const aL=ap>14?'<span class="om-sl">ALA '+d.a.toLocaleString()+'</span>':'';
+      const servInfo=basis==='100g'?'per 100 g':p.oz+' oz serving';
+
+      const mpBadge = p.mp
+        ? '<span style="display:inline-block;background:#1D3D3E;color:#fff;font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:6px;letter-spacing:0.3px" title="0 of 6 polymers detected &middot; LOD 1 microparticle &middot; EMSL FTIR">0 / 6 MP</span>'
+        : '';
+
+      h+='<div class="om-row" onclick="omDet('+i+')">'
+        +'<div class="om-lbl"><div class="om-sp">'+p.s+', '+p.f+mpBadge+'</div><div class="om-fm">'+servInfo+' &middot; '+p.src+'</div></div>'
+        +'<div class="om-bw"><div class="om-bar" style="width:'+bw+'%">'
+        +'<div class="om-bar-epa" style="width:'+ep+'%">'+eL+'</div>'
+        +'<div class="om-bar-dha" style="width:'+dp+'%">'+dL+'</div>'
+        +'<div class="om-bar-ala" style="width:'+ap+'%">'+aL+'</div>'
+        +'</div><div class="om-val">'+d.t.toLocaleString()+' mg</div></div>'
+        +'<div class="om-ts"><strong>'+p.n+'</strong>sample'+(p.n>1?'s':'')+'</div></div>';
+
+      const ul=basisLabel(p);
+      const polyChips = MP_PANEL.polymers.map(pp =>
+        '<span style="display:inline-block;background:#fff;border:1px solid rgba(29,61,62,0.3);border-radius:3px;padding:1px 5px;margin:1px 3px 1px 0;font-size:10px" title="'+pp.n+' — '+pp.s+'"><strong style="color:#1D3D3E">'+pp.a+'</strong> <span style="color:#1D3D3E;font-weight:700">ND</span></span>'
+      ).join('');
+      let mpMeta='EMSL FTIR / optical microscopy';
+      if(p.mpCode) mpMeta+=' &middot; Test #'+p.mpCode;
+      if(p.mpDate) mpMeta+=' &middot; Tested '+fmtDate(p.mpDate);
+      else if(p.mpLot) mpMeta+=' &middot; Lot '+p.mpLot;
+      mpMeta+=' &middot; Light Labs';
+      const coaLink = p.mpCoa ? ' &middot; <a class="om-mp-link" href="'+p.mpCoa+'" target="_blank" rel="noopener">View Certificate of Analysis (PDF)</a>' : '';
+      const noteLine = p.mpNote ? '<div style="font-size:10px;color:#6B8588;font-style:italic;margin-top:3px">'+p.mpNote+'</div>' : '';
+      const mpLine = p.mp
+        ? '<div style="margin-top:8px;padding:10px 12px;background:rgba(29,61,62,0.06);border-left:3px solid #1D3D3E;border-radius:4px;font-size:11px;color:#1D3D3E">'
+          +'<div style="font-weight:700;margin-bottom:3px">Microplastics: 0 microparticles detected <span style="font-weight:400;color:#555">&middot; 0 of 6 polymers &middot; LOD 1 microparticle</span></div>'
+          +'<div style="margin:4px 0">'+polyChips+'</div>'
+          +'<div style="font-size:10px;color:#555">'+mpMeta+coaLink+'</div>'
+          +noteLine
+          +'</div>'
+        : '<div style="margin-top:8px;padding:8px 12px;background:rgba(0,0,0,0.03);border-left:3px solid #CDD9D1;border-radius:4px;font-size:11px;color:#6B8588;font-style:italic">Microplastics screening not yet on file for this farm.</div>';
+      h+='<div class="om-det" id="om-d-'+i+'"><div class="om-det-g">'
+        +'<div class="om-det-b"><div class="lb epa">EPA</div><div class="nm">'+d.e.toLocaleString()+'</div><div class="un">'+ul+'</div></div>'
+        +'<div class="om-det-b"><div class="lb dha">DHA</div><div class="nm">'+d.d.toLocaleString()+'</div><div class="un">'+ul+'</div></div>'
+        +'<div class="om-det-b"><div class="lb ala">ALA</div><div class="nm">'+d.a.toLocaleString()+'</div><div class="un">'+ul+'</div></div>'
+        +'</div><div class="om-det-m">Marine omega (EPA + DHA): <strong>'+(d.e+d.d).toLocaleString()+' '+ul.replace('mg ','mg')+'</strong> &middot; '+p.n+' sample'+(p.n>1?'s':'')+' &middot; '+p.f+' &middot; '+servInfo+' &middot; '+p.src+'</div>'+mpLine+'</div>';
+    });
+    document.getElementById('om-chart').innerHTML=h;
+  }
+
+  function renderTable(){
+    let rows=[];
+    P.forEach(p=>{
+      rows.push({s:p.s,f:p.f,src:p.src,oz:p.oz,assay:'Fatty Acids',n:p.n,
+        e:sc(p.e,p.oz),d:sc(p.d,p.oz),a:sc(p.a,p.oz),t:sc(p.e,p.oz)+sc(p.d,p.oz)+sc(p.a,p.oz),mp:null,coa:'',date:''});
+      if (p.mp) rows.push({s:p.s,f:p.f,src:'Light Labs (EMSL)',oz:p.oz,assay:'Microplastics',n:'',
+        e:null,d:null,a:null,t:null,mp:p.mp,coa:p.mpCoa,date:p.mpDate});
+    });
+    rows.sort((a,b)=>{let va=a[sortK],vb=b[sortK];if(va==null)va=-Infinity;if(vb==null)vb=-Infinity;if(typeof va==='string'){va=va.toLowerCase();vb=vb.toLowerCase();}return sortA?(va<vb?-1:va>vb?1:0):(va>vb?-1:va<vb?1:0);});
+
+    const uLbl=basis==='100g'?' (mg/100 g)':' (mg/serving)';
+    let h='<div class="om-tbl-wrap"><table class="om-tbl"><thead><tr>';
+    [{k:'s',l:'Species'},{k:'f',l:'Farm'},{k:'src',l:'Lab / Source'},{k:'assay',l:'Assay'},{k:'n',l:'n'},{k:'oz',l:'Serving'},{k:'e',l:'EPA'+uLbl},{k:'d',l:'DHA'+uLbl},{k:'a',l:'ALA'+uLbl},{k:'t',l:'Total'+uLbl},{k:'mp',l:'MP (COA)'}].forEach(c=>{
+      h+='<th onclick="omSort(\''+c.k+'\')">'+c.l+(sortK===c.k?(sortA?' ▲':' ▼'):' ⇅')+'</th>';
+    });
+    h+='</tr></thead><tbody>';
+    const fmtCell=v=>v==null?'<span style="color:#bbb">&mdash;</span>':v.toLocaleString();
+    rows.forEach(r=>{
+      const servTxt=basis==='100g'?'100 g':r.oz+' oz';
+      const isMP=r.assay==='Microplastics';
+      let mpCell='<span style="color:#bbb">&mdash;</span>';
+      if(r.mp){
+        const label='0 / 6'+(r.date?' &middot; '+fmtDate(r.date):'');
+        mpCell = r.coa
+          ? '<a class="om-mp-link" href="'+r.coa+'" target="_blank" rel="noopener" title="View Certificate of Analysis">'+label+' ↗</a>'
+          : '<span title="0 of 6 polymers detected &middot; LOD 1 microparticle" style="background:#1D3D3E;color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px">'+label+'</span>';
+      }
+      const assayCell=isMP?'<span style="background:rgba(29,61,62,0.1);color:#1D3D3E;font-size:10px;font-weight:600;padding:1px 6px;border-radius:3px">Microplastics</span>':'Fatty Acids';
+      const rowStyle=isMP?' style="background:rgba(29,61,62,0.03)"':'';
+      h+='<tr'+rowStyle+'><td><strong>'+r.s+'</strong></td><td style="color:var(--ce)">'+r.f+'</td><td>'+r.src+'</td><td>'+assayCell+'</td><td class="n">'+(r.n||'')+'</td><td>'+servTxt+'</td>'
+        +'<td class="n">'+fmtCell(r.e)+'</td><td class="n">'+fmtCell(r.d)+'</td><td class="n">'+fmtCell(r.a)+'</td>'
+        +'<td class="n" style="font-weight:700">'+fmtCell(r.t)+'</td><td class="n">'+mpCell+'</td></tr>';
+    });
+    h+='</tbody></table></div>';
+    document.getElementById('om-table').innerHTML=h;
+  }
+
+  function renderRef(){
+    let tt=0; P.forEach(p=>tt+=p.n);
+    const mpTested=P.filter(p=>p.mp).length, coaCount=P.filter(p=>p.mpCoa).length;
+    document.getElementById('om-ref').innerHTML=
+      '<strong>'+P.length+'</strong> products &middot; <strong>'+tt+'</strong> lab samples &middot; <strong>'+mpTested+'</strong> microplastics-screened (0 of 6 polymers detected, LOD 1 microparticle) &middot; <strong>'+coaCount+'</strong> with published COA<br>'
+      +'<strong>Reference.</strong> Omega values are product-level results from Seatopia’s third-party lab program, reported '
+      +(basis==='100g'?'per 100 g edible portion':'per recommended serving (derived from the per-100 g value × serving size)')
+      +'. Edacious values are the mean of n samples; Light Labs values are single-sample. Below-detection results are reported as such, never as zero.<br>'
+      +'seatopianutritionresolved.csv &middot; last updated June 2, 2026<br>'
+      +'microplasticsreference.csv (Light Labs / EMSL) &middot; last updated June 2, 2026<br>'
+      +'nutrition_products.csv &middot; last updated June 2, 2026<br>'
+      +'Microplastics: third-party lab tested; zero detectable microplastics (0 of 6 polymers, LOD 1 microparticle) in the samples analyzed.';
+  }
+
+  function render(){renderChart();renderTable();renderRef();}
+
+  window.omBasis=function(b,btn){basis=b;openIdx=-1;btn.parentElement.querySelectorAll('button').forEach(x=>x.classList.remove('active'));btn.classList.add('active');render();};
+  window.omDet=function(i){document.querySelectorAll('.om-det.open').forEach(d=>d.classList.remove('open'));if(openIdx===i){openIdx=-1;return;}openIdx=i;var el=document.getElementById('om-d-'+i);if(el)el.classList.add('open');};
+  window.omTab=function(v,btn){view=v;btn.parentElement.querySelectorAll('.om-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.getElementById('om-chart').style.display=v==='chart'?'':'none';document.getElementById('om-table').style.display=v==='table'?'':'none';};
+  window.omSort=function(k){if(sortK===k)sortA=!sortA;else{sortK=k;sortA=k==='s'||k==='f';}renderTable();};
+  render();
+})();
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Omega-3 Map",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The Omega-3 Map" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Every fillet, third-party lab verified for EPA, DHA and ALA — measured, not estimated." }
+  ],
+  "presets": [{ "name": "Omega-3 Map", "category": "Seatopia" }]
+}
+{% endschema %}

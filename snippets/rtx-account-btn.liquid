@@ -1,0 +1,61 @@
+<p class="rtxn_customer_portal_login" style="display: none;">
+  <a class="rtxn_manage_subscriptions_btn button button--secondary icon-with-text"
+     href="#"
+     is="hover-link">
+    <span class="btn-fill" data-fill></span>
+    <span class="btn-text">
+      {%- render 'icon', icon: 'reorder', size: 'xs' -%}
+      Manage Subscriptions
+    </span>
+  </a>
+</p>
+
+
+
+<script>
+  function loginRetextionCustomerPortal() {
+    const appName = "retextion";
+    const customerId = {% if customer.id %}
+      {{ customer.id }}
+    {% else %}
+      null
+    {% endif %};
+    if (customerId) { // Construct an HTTP request
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/apps/" + appName + "/login", true);
+      xhr.setRequestHeader("Accept", "application/json; charset=utf-8");
+      xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+
+// Send the collected data as JSON
+      const data = {
+        customerId
+      };
+      xhr.send(JSON.stringify(data));
+      xhr.onloadend = function(response) {
+        if (response.target.status === 200) {
+          const data = JSON.parse(xhr.responseText);
+          if (data.token) {
+            const oneHour = 60 * 60 * 1000;
+            localStorage
+              .setItem('customer-portal-token', data.token)
+              localStorage
+              .setItem('customer-portal-token-expiration', new Date().getTime() + oneHour)
+              window
+              .location
+              .replace("/apps/" + appName + "/#/shop/subscriptions");
+          }
+        }
+      };
+    } else {
+      window.location.replace("/apps/" + appName + "/#/login");
+    }
+    window.addEventListener("load", loginRetextionCustomerPortal);
+  }
+  function checkShowCustomerPortalStatus() {
+    document.querySelector('.rtxn_customer_portal_login').style.display = "block";
+    document.querySelector('.rtxn_manage_subscriptions_btn').addEventListener("click", loginRetextionCustomerPortal);
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    checkShowCustomerPortalStatus();
+  })
+</script>

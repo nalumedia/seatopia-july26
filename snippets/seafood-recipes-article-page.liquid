@@ -1,0 +1,54 @@
+<div data-section-id="{{ section.id }}" data-section-type="article">
+  {%- assign rk_resource_id = article.id | downcase -%}
+  {%- assign rk_mf = article.metafields.recipekit[rk_resource_id] -%}
+  {% if rk_mf != blank %}
+    {% render 'recipekit-new' %}
+  {% else %}
+    {% if article.image %}
+      <div class="cstm-blog-post-description">
+        {%- assign img_url = article.image.src | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+        <div class="cstm-image-video-main">
+          <div class="rk_column rk_image">
+            <img
+              loading="eager"
+              width="100%"
+              height="auto"
+              src="{{ article.image.src | img_url:'master' }}"
+              alt="Image of {{ article.title}}"
+            >
+          </div>
+
+          <div class="cstm-image-content">
+            <div class="cstm-image-content-wrapper">
+              {% if article.author != blank %}
+                <p class="article__card__meta mb-3">
+                  {% assign article_author = article.author %}
+                  <span class="text-light">{{ article_author }}</span>
+                </p>
+              {% endif %}
+              <h1 class="rk_heading text-light line-height-1">{{- article.title -}}</h1>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+    {% comment %}
+      <div class="wrapper page-margin--article">
+       <div class="grid">
+         <article class="grid__item large-up--two-thirds large-up--push-one-sixth" role="article">
+         <header role="banner">
+            {% unless article.image %}
+             <h1 class="h3 article__title">{{ article.title }}</h1>
+           {% endunless %}
+            </header>
+
+           <div class="rte cstm-article-content text-center">
+             {{ article.content }}
+           </div>
+           </article>
+       </div>
+      </div>
+    {% endcomment %}
+    </div>
+  {% endif %}
+</div>

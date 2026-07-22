@@ -1,0 +1,173 @@
+{
+    "sections": {
+        "main-blog": {
+            "type": "main-blog",
+            "disabled": true,
+            "settings": {
+                "heading_size": "title-md",
+                "heading_alignment": "text-center justify-center",
+                "heading_tag": "h2",
+                "subheading": "",
+                "description": "",
+                "show_tag_filter": true,
+                "per_page": 9,
+                "layout": "collage",
+                "image_ratio": "landscape",
+                "show_tags": true,
+                "show_date": true,
+                "show_comments": true,
+                "show_author": false,
+                "show_excerpt": true,
+                "padding_top": 72,
+                "padding_bottom": 120,
+                "divider": false,
+                "full_width": false,
+                "rounded": false
+            }
+        },
+        "custom_main_blog_p6xCj8": {
+            "type": "custom-main-blog",
+            "blocks": {
+                "cstm_bnJLyA": {
+                    "type": "cstm",
+                    "disabled": true,
+                    "settings": {
+                        "menu_img": "shopify://shop_images/Ellipse_1.png",
+                        "menu": "buy-mt-cook-salmon"
+                    }
+                },
+                "cstm_EprJKp": {
+                    "type": "cstm",
+                    "disabled": true,
+                    "settings": {
+                        "menu_img": "shopify://shop_images/Ellipse_1_1.png",
+                        "menu": "buy-mt-cook-salmon"
+                    }
+                },
+                "cstm_aMdDzF": {
+                    "type": "cstm",
+                    "disabled": true,
+                    "settings": {
+                        "menu_img": "shopify://shop_images/Ellipse_1_2.png",
+                        "menu": "buy-mt-cook-salmon"
+                    }
+                },
+                "cstm_PkYDQ3": {
+                    "type": "cstm",
+                    "disabled": true,
+                    "settings": {
+                        "menu_img": "shopify://shop_images/Ellipse_1_3.png",
+                        "menu": "buy-mt-cook-salmon"
+                    }
+                },
+                "cstm_iHnEfR": {
+                    "type": "cstm",
+                    "disabled": true,
+                    "settings": {
+                        "menu_img": "shopify://shop_images/Ellipse_1_4.png",
+                        "menu": "buy-mt-cook-salmon"
+                    }
+                }
+            },
+            "block_order": [
+                "cstm_bnJLyA",
+                "cstm_EprJKp",
+                "cstm_aMdDzF",
+                "cstm_PkYDQ3",
+                "cstm_iHnEfR"
+            ],
+            "name": "Custom Main Blog",
+            "settings": {
+                "heading_size": "title-md",
+                "heading_alignment": "text-center justify-center",
+                "heading_tag": "h2",
+                "subheading": "",
+                "description": "",
+                "glorry_txt": "",
+                "show_tag_filter": false,
+                "title1": "Seafood",
+                "filter1tags": "Scallops\nBranzino Sea Bream,\nYellowtail,\nShrimp,\nTrout,\nBarramundi",
+                "title2": "Technique",
+                "filter2tags": "",
+                "title3": "Effort",
+                "filter3tags": "Quick and easy,\nAn Hourish,\nPlan Ahead,",
+                "show_cstm_filter": false,
+                "filter_type": "drawer",
+                "enable_sorting": true,
+                "per_page": 9,
+                "layout": "collage",
+                "image_ratio": "square",
+                "show_tags": true,
+                "show_date": false,
+                "show_comments": false,
+                "show_author": false,
+                "show_excerpt": true,
+                "padding_top": 0,
+                "padding_bottom": 120,
+                "divider": false,
+                "full_width": false,
+                "rounded": false,
+                "title4": "Chef",
+                "filter4tags": "",
+                "use_recipe_nav": true,
+                "enable_recipe_search": true,
+                "recipe_search_placeholder": "Search recipes, species, chefs…"
+            }
+        },
+        "newsletter_banner_6AkitK": {
+            "type": "newsletter-banner",
+            "blocks": {
+                "heading_cKLhhn": {
+                    "type": "heading",
+                    "settings": {
+                        "heading": "Receive Seatopia recipes right to your inbox, weekly.",
+                        "heading_size": "title-lg tracking-heading",
+                        "heading_tag": "h2",
+                        "highlighted_text": "none",
+                        "highlighted_scribble": "circle"
+                    }
+                },
+                "form_Wet8NH": {
+                    "type": "form",
+                    "settings": {}
+                }
+            },
+            "block_order": [
+                "heading_cKLhhn",
+                "form_Wet8NH"
+            ],
+            "name": "t:sections.newsletter-banner.presets.name",
+            "settings": {
+                "transparent_header": false,
+                "transparent_footer": false,
+                "image": "shopify://shop_images/Page_Product.png",
+                "image_height": "650px",
+                "content_width": "medium",
+                "content_position": "md:items-center md:justify-start",
+                "text_alignment": "left",
+                "image_height_mobile": "auto",
+                "content_position_mobile": "items-end justify-start",
+                "text_alignment_mobile": "left",
+                "color_text": "#ffffff",
+                "color_highlight": "#e0a580",
+                "gradient_highlight": "",
+                "color_button_text": "#171717",
+                "color_button_background": "#ffffff",
+                "color_button_gradient": "",
+                "color_overlay": "#171717",
+                "padding_top": 0,
+                "padding_bottom": 0,
+                "divider": false,
+                "full_width": true,
+                "rounded": true,
+                "enable_parallax": false,
+                "parallax_direction": "vertical"
+            }
+        }
+    },
+    "order": [
+        "main-blog",
+        "custom_main_blog_p6xCj8",
+        "newsletter_banner_6AkitK"
+    ]
+}

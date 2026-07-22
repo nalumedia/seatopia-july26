@@ -1,0 +1,17 @@
+{% comment %} <link rel="preconnect" href="https://cleanseafoodtoyourdoor.com" crossorigin>
+<script src="https://cleanseafoodtoyourdoor.com/core/modals.min.js" async></script> {% endcomment %}
+{%- liquid
+  assign load_inflektion = true
+
+  if request.page_type == 'page'
+    assign announcement_value = page.metafields.custom.enable_announcement_bar.value
+    if announcement_value == false
+      assign load_inflektion = false
+    endif
+  endif
+-%}
+
+{% if load_inflektion %}
+  <link rel="preconnect" href="https://cleanseafoodtoyourdoor.com" crossorigin>
+  <script src="https://cleanseafoodtoyourdoor.com/core/modals.min.js" async></script>
+{% endif %}

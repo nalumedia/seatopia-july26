@@ -1,0 +1,245 @@
+{% comment %}
+  Seatopia Mangrove Impact Widget
+  
+  INSTALLATION:
+  1. In Shopify Admin, go to Online Store > Themes > Edit Code
+  2. Create a new section or paste this into a page template
+  3. Update the API_URL below with your DeepBlue dashboard URL
+  
+  This widget displays real-time mangrove planting impact metrics
+  pulled directly from your Shopify order data.
+{% endcomment %}
+
+<style>
+  .seatopia-mangrove-widget {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  
+  .mangrove-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  
+  .mangrove-header h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #0d3330;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.5px;
+  }
+  
+  .mangrove-header p {
+    font-size: 16px;
+    color: #4a6f6d;
+    margin: 0;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+  
+  .mangrove-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  
+  @media (max-width: 768px) {
+    .mangrove-metrics {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .mangrove-metrics {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .metric-card {
+    background: linear-gradient(135deg, #f0f9f7 0%, #e8f5f2 100%);
+    border: 1px solid #d0e8e4;
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(13, 51, 48, 0.08);
+  }
+  
+  .metric-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+    display: block;
+  }
+  
+  .metric-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0d3330;
+    margin: 0 0 4px 0;
+    line-height: 1.2;
+  }
+  
+  .metric-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #4a6f6d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
+  
+  .mangrove-methodology {
+    background: #fafcfb;
+    border: 1px solid #e5ede9;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-top: 16px;
+  }
+  
+  .methodology-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b8a87;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 12px 0;
+  }
+  
+  .methodology-text {
+    font-size: 13px;
+    color: #5a7a77;
+    line-height: 1.7;
+    margin: 0;
+  }
+  
+  .methodology-text strong {
+    color: #0d3330;
+    font-weight: 600;
+  }
+  
+  .mangrove-loading {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6b8a87;
+  }
+  
+  .mangrove-loading .spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid #e5ede9;
+    border-top-color: #2d9d92;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 16px;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  .mangrove-error {
+    text-align: center;
+    padding: 40px 20px;
+    color: #8b5a5a;
+    background: #fdf5f5;
+    border-radius: 12px;
+    border: 1px solid #f0dede;
+  }
+</style>
+
+<div class="seatopia-mangrove-widget" id="seatopia-mangrove-widget">
+  <div class="mangrove-loading">
+    <div class="spinner"></div>
+    <p>Loading impact data...</p>
+  </div>
+</div>
+
+<script>
+(function() {
+  // UPDATE THIS URL to your DeepBlue dashboard URL
+  const API_URL = 'https://getdeep.blue/api/public/mangrove-widget';
+  
+  const container = document.getElementById('seatopia-mangrove-widget');
+  
+  function formatNumber(num) {
+    if (num >= 1000000) {
+      return (num / 1000000).toFixed(1) + 'M';
+    } else if (num >= 1000) {
+      return (num / 1000).toFixed(1) + 'K';
+    }
+    return num.toLocaleString();
+  }
+  
+  function renderWidget(data) {
+    container.innerHTML = `
+      <div class="mangrove-header">
+        <h2>Our Mangrove Impact</h2>
+        <p>Every bag of Seatopia mangrove shrimp plants one mangrove tree in coastal restoration zones</p>
+      </div>
+      
+      <div class="mangrove-metrics">
+        <div class="metric-card">
+          <span class="metric-icon">🌱</span>
+          <p class="metric-value">${formatNumber(data.totalMangroves)}</p>
+          <p class="metric-label">Mangroves Planted</p>
+        </div>
+        
+        <div class="metric-card">
+          <span class="metric-icon">👥</span>
+          <p class="metric-value">${formatNumber(data.totalCustomers)}</p>
+          <p class="metric-label">Ocean Guardians</p>
+        </div>
+        
+        <div class="metric-card">
+          <span class="metric-icon">🌍</span>
+          <p class="metric-value">${formatNumber(Math.round(data.co2eLifetimeTons))}</p>
+          <p class="metric-label">Tons CO₂ Absorbed</p>
+        </div>
+        
+        <div class="metric-card">
+          <span class="metric-icon">🌊</span>
+          <p class="metric-value">${data.acresEquivalent.toFixed(1)}</p>
+          <p class="metric-label">Acres Restored</p>
+        </div>
+      </div>
+      
+      <div class="mangrove-methodology">
+        <p class="methodology-title">How We Calculate Impact</p>
+        <p class="methodology-text">
+          <strong>Mangroves:</strong> 1 mangrove planted per pound of mangrove shrimp purchased. 
+          <strong>CO₂:</strong> Each mangrove absorbs ~150 kg of CO₂ over its lifetime (source: Blue Carbon Initiative). 
+          <strong>Acres:</strong> Calculated at 800 mangrove trees per acre, based on optimal coastal density for restoration projects.
+        </p>
+      </div>
+    `;
+  }
+  
+  function renderError() {
+    container.innerHTML = `
+      <div class="mangrove-error">
+        <p>Unable to load impact data. Please try again later.</p>
+      </div>
+    `;
+  }
+  
+  // Fetch and render
+  fetch(API_URL)
+    .then(response => {
+      if (!response.ok) throw new Error('Failed to fetch');
+      return response.json();
+    })
+    .then(data => renderWidget(data))
+    .catch(error => {
+      console.error('Mangrove widget error:', error);
+      renderError();
+    });
+})();
+</script>

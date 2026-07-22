@@ -1,0 +1,706 @@
+{% doc %}
+  @prompt
+    An image carousel, Add a 4:5 image aspect ratio, The images should be visible in multiple columns that I should be able to select, as many as the viewport holds. Considering a more or less standard size, one would likely see 4-5 images next to each other before needing to scroll
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-carousel-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ai-carousel-container-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+  }
+
+  .ai-carousel-track-{{ ai_gen_id }} {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: {{ block.settings.image_spacing }}px;
+  }
+
+  .ai-carousel-slide-{{ ai_gen_id }} {
+    flex: 0 0 calc((100% - ({{ block.settings.columns_desktop | minus: 1 }} * {{ block.settings.image_spacing }}px)) / {{ block.settings.columns_desktop }});
+    min-width: calc((100% - ({{ block.settings.columns_desktop | minus: 1 }} * {{ block.settings.image_spacing }}px)) / {{ block.settings.columns_desktop }});
+  }
+
+  .ai-carousel-image-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: {% if block.settings.rounded_corners %}12px{% else %}0{% endif %};
+  }
+
+  .ai-carousel-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .ai-carousel-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: {{ block.settings.aspect_ratio }};
+    background-color: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ai-carousel-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    max-height: 400px;
+  }
+
+  .ai-carousel-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .ai-carousel-nav-{{ ai_gen_id }} {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: {{ block.settings.nav_button_color }};
+    color: {{ block.settings.nav_button_icon_color }};
+    border: none;
+    width: {{ block.settings.nav_button_size }}px;
+    height: {{ block.settings.nav_button_size }}px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0.9;
+  }
+
+  .ai-carousel-nav-{{ ai_gen_id }}:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .ai-carousel-nav-{{ ai_gen_id }}:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .ai-carousel-nav-{{ ai_gen_id }}:disabled:hover {
+    transform: translateY(-50%) scale(1);
+  }
+
+  .ai-carousel-nav-prev-{{ ai_gen_id }} {
+    left: {{ block.settings.nav_button_offset }}px;
+  }
+
+  .ai-carousel-nav-next-{{ ai_gen_id }} {
+    right: {{ block.settings.nav_button_offset }}px;
+  }
+
+  .ai-carousel-nav-{{ ai_gen_id }} svg {
+    width: calc({{ block.settings.nav_button_size }}px * 0.5);
+    height: calc({{ block.settings.nav_button_size }}px * 0.5);
+  }
+
+  .ai-carousel-dots-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: {{ block.settings.dots_spacing }}px;
+  }
+
+  .ai-carousel-dot-{{ ai_gen_id }} {
+    width: {{ block.settings.dot_size }}px;
+    height: {{ block.settings.dot_size }}px;
+    border-radius: 50%;
+    background-color: {{ block.settings.dot_color }};
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    opacity: 0.4;
+  }
+
+  .ai-carousel-dot-{{ ai_gen_id }}.active {
+    background-color: {{ block.settings.dot_active_color }};
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  .ai-carousel-dot-{{ ai_gen_id }}:hover {
+    opacity: 0.7;
+  }
+
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    .ai-carousel-slide-{{ ai_gen_id }} {
+      flex: 0 0 calc((100% - ({{ block.settings.columns_tablet | minus: 1 }} * {{ block.settings.image_spacing }}px)) / {{ block.settings.columns_tablet }});
+      min-width: calc((100% - ({{ block.settings.columns_tablet | minus: 1 }} * {{ block.settings.image_spacing }}px)) / {{ block.settings.columns_tablet }});
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-carousel-slide-{{ ai_gen_id }} {
+      {% if block.settings.columns_mobile == '1' %}
+        flex: 0 0 100%;
+        min-width: 100%;
+      {% else %}
+        flex: 0 0 calc((100% - {{ block.settings.image_spacing }}px) / 2);
+        min-width: calc((100% - {{ block.settings.image_spacing }}px) / 2);
+      {% endif %}
+    }
+
+    .ai-carousel-nav-{{ ai_gen_id }} {
+      width: calc({{ block.settings.nav_button_size }}px * 0.8);
+      height: calc({{ block.settings.nav_button_size }}px * 0.8);
+    }
+
+    .ai-carousel-nav-prev-{{ ai_gen_id }} {
+      left: calc({{ block.settings.nav_button_offset }}px * 0.5);
+    }
+
+    .ai-carousel-nav-next-{{ ai_gen_id }} {
+      right: calc({{ block.settings.nav_button_offset }}px * 0.5);
+    }
+  }
+{% endstyle %}
+
+<image-carousel-{{ ai_gen_id }} class="ai-carousel-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-carousel-container-{{ ai_gen_id }}">
+    <div class="ai-carousel-track-{{ ai_gen_id }}">
+      {% liquid
+        assign has_images = false
+        for i in (1..10)
+          assign image_key = 'image_' | append: i
+          if block.settings[image_key] != blank
+            assign has_images = true
+            break
+          endif
+        endfor
+      %}
+
+      {% if has_images %}
+        {% for i in (1..10) %}
+          {% liquid
+            assign image_key = 'image_' | append: i
+            assign image = block.settings[image_key]
+          %}
+          {% if image != blank %}
+            <div class="ai-carousel-slide-{{ ai_gen_id }}">
+              <div class="ai-carousel-image-wrapper-{{ ai_gen_id }}">
+                <img
+                  src="{{ image | image_url: width: 1000 }}"
+                  alt="{{ image.alt | escape }}"
+                  loading="lazy"
+                  width="{{ image.width }}"
+                  height="{{ image.height }}"
+                  class="ai-carousel-image-{{ ai_gen_id }}"
+                  style="aspect-ratio: {{ block.settings.aspect_ratio }};"
+                >
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <div class="ai-carousel-slide-{{ ai_gen_id }}">
+          <div class="ai-carousel-image-wrapper-{{ ai_gen_id }}">
+            <div class="ai-carousel-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+              <div class="ai-carousel-empty-state-{{ ai_gen_id }}">
+                Next, add images to your carousel
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if block.settings.show_navigation and has_images %}
+      <button
+        class="ai-carousel-nav-{{ ai_gen_id }} ai-carousel-nav-prev-{{ ai_gen_id }}"
+        aria-label="Previous slide"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button
+        class="ai-carousel-nav-{{ ai_gen_id }} ai-carousel-nav-next-{{ ai_gen_id }}"
+        aria-label="Next slide"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    {% endif %}
+  </div>
+
+  {% if block.settings.show_dots and has_images %}
+    <div class="ai-carousel-dots-{{ ai_gen_id }}"></div>
+  {% endif %}
+</image-carousel-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class ImageCarousel{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.currentIndex = 0;
+        this.autoplayInterval = null;
+        this.columnsDesktop = {{ block.settings.columns_desktop }};
+        this.columnsTablet = {{ block.settings.columns_tablet }};
+        this.columnsMobile = {{ block.settings.columns_mobile }};
+      }
+
+      connectedCallback() {
+        this.track = this.querySelector('.ai-carousel-track-{{ ai_gen_id }}');
+        this.slides = this.querySelectorAll('.ai-carousel-slide-{{ ai_gen_id }}');
+        this.prevButton = this.querySelector('.ai-carousel-nav-prev-{{ ai_gen_id }}');
+        this.nextButton = this.querySelector('.ai-carousel-nav-next-{{ ai_gen_id }}');
+        this.dotsContainer = this.querySelector('.ai-carousel-dots-{{ ai_gen_id }}');
+
+        if (this.slides.length <= this.getColumnsPerView()) return;
+
+        this.setupDots();
+        this.setupEventListeners();
+        this.updateCarousel();
+
+        {% if block.settings.autoplay %}
+          this.startAutoplay();
+        {% endif %}
+      }
+
+      getColumnsPerView() {
+        const width = window.innerWidth;
+        if (width < 750) return this.columnsMobile;
+        if (width < 990) return this.columnsTablet;
+        return this.columnsDesktop;
+      }
+
+      getTotalPages() {
+        const columnsPerView = this.getColumnsPerView();
+        return Math.ceil(this.slides.length / columnsPerView);
+      }
+
+      setupDots() {
+        if (!this.dotsContainer) return;
+
+        const totalPages = this.getTotalPages();
+        for (let i = 0; i < totalPages; i++) {
+          const dot = document.createElement('button');
+          dot.classList.add('ai-carousel-dot-{{ ai_gen_id }}');
+          if (i === 0) dot.classList.add('active');
+          dot.setAttribute('aria-label', `Go to page ${i + 1}`);
+          dot.addEventListener('click', () => this.goToPage(i));
+          this.dotsContainer.appendChild(dot);
+        }
+
+        this.dots = this.querySelectorAll('.ai-carousel-dot-{{ ai_gen_id }}');
+      }
+
+      setupEventListeners() {
+        if (this.prevButton) {
+          this.prevButton.addEventListener('click', () => this.prev());
+        }
+
+        if (this.nextButton) {
+          this.nextButton.addEventListener('click', () => this.next());
+        }
+
+        {% if block.settings.autoplay %}
+          this.addEventListener('mouseenter', () => this.stopAutoplay());
+          this.addEventListener('mouseleave', () => this.startAutoplay());
+        {% endif %}
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        this.track.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        });
+
+        this.track.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          this.handleSwipe(touchStartX, touchEndX);
+        });
+
+        window.addEventListener('resize', () => {
+          this.updateCarousel();
+        });
+      }
+
+      handleSwipe(startX, endX) {
+        const swipeThreshold = 50;
+        const diff = startX - endX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+          if (diff > 0) {
+            this.next();
+          } else {
+            this.prev();
+          }
+        }
+      }
+
+      prev() {
+        const columnsPerView = this.getColumnsPerView();
+        this.currentIndex = Math.max(0, this.currentIndex - columnsPerView);
+        this.updateCarousel();
+        {% if block.settings.autoplay %}
+          this.resetAutoplay();
+        {% endif %}
+      }
+
+      next() {
+        const columnsPerView = this.getColumnsPerView();
+        const maxIndex = this.slides.length - columnsPerView;
+        this.currentIndex = Math.min(maxIndex, this.currentIndex + columnsPerView);
+        this.updateCarousel();
+        {% if block.settings.autoplay %}
+          this.resetAutoplay();
+        {% endif %}
+      }
+
+      goToPage(pageIndex) {
+        const columnsPerView = this.getColumnsPerView();
+        this.currentIndex = pageIndex * columnsPerView;
+        this.updateCarousel();
+        {% if block.settings.autoplay %}
+          this.resetAutoplay();
+        {% endif %}
+      }
+
+      updateCarousel() {
+        const slideWidth = this.slides[0].offsetWidth;
+        const gap = {{ block.settings.image_spacing }};
+        const offset = -(this.currentIndex * (slideWidth + gap));
+        this.track.style.transform = `translateX(${offset}px)`;
+
+        if (this.dots) {
+          const columnsPerView = this.getColumnsPerView();
+          const currentPage = Math.floor(this.currentIndex / columnsPerView);
+          this.dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentPage);
+          });
+        }
+
+        if (this.prevButton) {
+          this.prevButton.disabled = this.currentIndex === 0;
+        }
+
+        if (this.nextButton) {
+          const columnsPerView = this.getColumnsPerView();
+          const maxIndex = this.slides.length - columnsPerView;
+          this.nextButton.disabled = this.currentIndex >= maxIndex;
+        }
+      }
+
+      startAutoplay() {
+        this.autoplayInterval = setInterval(() => {
+          const columnsPerView = this.getColumnsPerView();
+          const maxIndex = this.slides.length - columnsPerView;
+          if (this.currentIndex >= maxIndex) {
+            this.currentIndex = 0;
+          } else {
+            this.next();
+          }
+        }, {{ block.settings.autoplay_speed }} * 1000);
+      }
+
+      stopAutoplay() {
+        if (this.autoplayInterval) {
+          clearInterval(this.autoplayInterval);
+          this.autoplayInterval = null;
+        }
+      }
+
+      resetAutoplay() {
+        this.stopAutoplay();
+        this.startAutoplay();
+      }
+
+      disconnectedCallback() {
+        this.stopAutoplay();
+      }
+    }
+
+    customElements.define('image-carousel-{{ ai_gen_id }}', ImageCarousel{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Image carousel",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Image 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_5",
+      "label": "Image 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_6",
+      "label": "Image 6"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_7",
+      "label": "Image 7"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_8",
+      "label": "Image 8"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_9",
+      "label": "Image 9"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_10",
+      "label": "Image 10"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns on desktop",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "columns_tablet",
+      "label": "Columns on tablet",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Columns on mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "Aspect ratio",
+      "options": [
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "16/9",
+          "label": "Wide (16:9)"
+        },
+        {
+          "value": "3/4",
+          "label": "Portrait (3:4)"
+        },
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "range",
+      "id": "image_spacing",
+      "label": "Image spacing",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "rounded_corners",
+      "label": "Rounded corners",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "label": "Show navigation arrows",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "nav_button_size",
+      "label": "Button size",
+      "min": 30,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "nav_button_offset",
+      "label": "Button offset",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "nav_button_color",
+      "label": "Button color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "nav_button_icon_color",
+      "label": "Button icon color",
+      "default": "#252525"
+    },
+    {
+      "type": "header",
+      "content": "Dots"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "Show dots",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "dot_size",
+      "label": "Dot size",
+      "min": 6,
+      "max": 16,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "dots_spacing",
+      "label": "Spacing from carousel",
+      "min": 10,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "dot_color",
+      "label": "Dot color",
+      "default": "#252525"
+    },
+    {
+      "type": "color",
+      "id": "dot_active_color",
+      "label": "Active dot color",
+      "default": "#ff7755"
+    },
+    {
+      "type": "header",
+      "content": "Autoplay"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Autoplay speed",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "default": 5
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image carousel"
+    }
+  ]
+}
+{% endschema %}

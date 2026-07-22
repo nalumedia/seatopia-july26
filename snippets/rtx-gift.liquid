@@ -1,0 +1,158 @@
+{% assign has_upgradeable = false %}
+{% for item in cart.items %}
+  {% if item.selling_plan_allocation == null %}
+    {% comment %} Check karo selling plans available hain ya nahi {% endcomment %}
+    {% assign item_has_plans = false %}
+    {% for group in item.product.selling_plan_groups %}
+      {% assign item_has_plans = true %}
+    {% endfor %}
+    
+    {% if item_has_plans %}
+      {% assign has_upgradeable = true %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% if has_upgradeable %}
+<div class="sub-upgrade-global">
+
+  <div class="sub-upgrade-global__left">
+    <span class="sub-upgrade-global__tag">Subscribe & Save</span>
+    <p class="sub-upgrade-global__headline">Save <strong>10%</strong> on every order!</p>
+    <p class="sub-upgrade-global__sub">Cancel anytime. No commitment.</p>
+  </div>
+
+  <button class="sub-upgrade-global__btn" type="button">
+    🔁 Subscribe All & Save
+  </button>
+
+</div>
+{% endif %}
+
+{% style %}
+  .sub-upgrade-global {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border: 1.5px solid #FF7755;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-size: 13px;
+  }
+  .sub-upgrade-global__tag {
+    display: inline-block;
+    background: #7bc3f3;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-bottom: 4px;
+  }
+  .sub-upgrade-global__headline { margin: 0 0 2px 0; font-size: 13px; color: #000000; }
+  .sub-upgrade-global__headline strong { color: #FF7755; font-weight: 700; }
+  .sub-upgrade-global__sub { margin: 0; font-size: 11px; color: #000000; }
+  .sub-upgrade-global__btn {
+    background: #7bc3f3;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s, transform 0.12s;
+  }
+  .sub-upgrade-global__btn:hover { background: #FF7755; transform: translateY(-1px); }
+  .sub-upgrade-global__btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+{% endstyle %}
+
+<script>
+(function() {
+  if (window._subUpgradeGlobalInit) return;
+  window._subUpgradeGlobalInit = true;
+
+  document.addEventListener('click', async function(e) {
+    const btn = e.target.closest('.sub-upgrade-global__btn');
+    if (!btn) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Subscribing...';
+
+    try {
+      // Step 1: Cart fetch karo
+      const cartRes = await fetch('/cart.js');
+      const cart = await cartRes.json();
+
+      // Step 2: Saare non-subscribed items lo (one-time + normal dono)
+      const nonSubscribedItems = cart.items.filter(i => !i.selling_plan_allocation);
+
+      if (!nonSubscribedItems.length) {
+        btn.textContent = '✓ Already Subscribed!';
+        return;
+      }
+
+      let subscribedCount = 0;
+      let skippedCount = 0;
+
+      // Step 3: Har item ke liye selling plan fetch karo aur subscribe karo
+      for (const item of nonSubscribedItems) {
+
+        // Product ka selling plan fetch karo
+        const pRes = await fetch(`/products/${item.handle}.js`);
+        const product = await pRes.json();
+        const planId = product?.selling_plan_groups?.[0]?.selling_plans?.[0]?.id;
+
+        // Agar koi selling plan nahi hai to skip
+        if (!planId) {
+          console.log('⚪ No selling plan for:', item.title, '— skipping');
+          skippedCount++;
+          continue;
+        }
+
+        // Subscribe karo
+        const res = await fetch('/cart/change.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            id: item.key,
+            selling_plan: planId
+          })
+        });
+
+        const data = await res.json();
+        if (data.errors) throw new Error(JSON.stringify(data.errors));
+
+        console.log('✅ Subscribed:', item.title, '→ Plan ID:', planId);
+        subscribedCount++;
+      }
+
+      // Step 4: Result message
+      if (subscribedCount > 0 && skippedCount === 0) {
+        btn.textContent = '✓ All Subscribed!';
+      } else if (subscribedCount > 0 && skippedCount > 0) {
+        btn.textContent = `✓ ${subscribedCount} Subscribed!`;
+      } else {
+        // Koi bhi subscribe nahi hua (saare skip ho gaye)
+        btn.textContent = 'No Plans Available';
+        btn.disabled = false;
+      }
+
+      // Step 5: Cart drawer refresh
+      document.dispatchEvent(new CustomEvent('cart:refresh'));
+
+    } catch(err) {
+      console.error('Subscription upgrade error:', err);
+      btn.disabled = false;
+      btn.textContent = '🔁 Subscribe All & Save';
+    }
+  });
+})();
+</script>

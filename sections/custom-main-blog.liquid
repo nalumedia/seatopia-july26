@@ -1,0 +1,924 @@
+{%- comment -%} Recipe filter nav enabled via section setting `use_recipe_nav`. {%- endcomment -%}
+<style>
+  #shopify-section-{{ section.id }} {
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+</style>
+
+{{ 'custom-blog.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'custom-blog.js' | asset_url }}" defer></script>
+  <script>
+console.log('articles_count = {{ blog.articles_count }}');
+console.log('articles_size = {{ blog.articles.size }}');
+</script>
+
+
+{%- paginate blog.articles by section.settings.per_page -%}
+   
+
+  <div class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}">
+    <div class="page-width{% if section.settings.full_width %} page-width--full{% endif %} relative">
+      <div class="title-wrapper{% if section.settings.heading_size == 'title-xl' %} title-wrapper-lg{% endif %} {{ section.settings.heading_alignment }} grid gap-4">
+        {%- if section.settings.subheading != blank -%}
+          {%- liquid
+            if section.settings.heading_size == 'title-sm'
+              assign subtext_size = 'subtext-md'
+            else
+              assign subtext_size = 'subtext-lg'
+            endif
+          -%}
+          <p class="heading normal-case font-medium {{ subtext_size }} leading-none tracking-none">
+            {{- section.settings.subheading | escape -}}
+          </p>
+        {%- endif -%}
+
+        <{{ section.settings.heading_tag }} class="heading {{ section.settings.heading_size }}">
+          <split-words class="split-words block" data-animate="fade-up-large">{{ blog.title }}</split-words>
+        </{{ section.settings.heading_tag }}>
+
+        {% comment %}   Start Custom Tag filter  {% endcomment %}
+        {%- unless section.settings.use_recipe_nav -%}
+              <div class="blog-filter-mobile field md:hidden text-center">
+        <div class="inline-block relative">
+
+          <label for="TagFilterMobile" class="sr-only">
+            {{ 'blogs.article.filter' | t }}
+          </label>
+
+          <select id="TagFilterMobile" class="select mobile-tag-filter" is="tag-filter">
+
+            <!-- All Tags -->
+            <option value="{{ blog.url }}" {% if current_tags == blank %}selected{% endif %}>
+              {{ 'blogs.article.all_tags' | t }}
+            </option>
+            {% assign new_tag = section.settings.filter2tags | split: ',' %}
+            {% for tag in new_tag %}
+              {% assign tag_clean = tag | strip %}
+              {% assign article_count = 0 %}
+              {% paginate blogs[blog.handle].articles by 1000 %}
+                {% for article in blogs[blog.handle].articles %}
+                  {% if article.tags contains tag_clean %}
+                    {% assign article_count = article_count | plus: 1 %}
+                  {% endif %}
+                {% endfor %}
+              {% endpaginate %}
+              {% if article_count > 0 %}
+                <option
+                  value="{{ blog.url }}/tagged/{{ tag_clean | handleize }}"
+                  {% if current_tags contains tag_clean %}selected{% endif %}
+                >
+                  {{ tag_clean }}
+                </option>
+              {% endif %}
+            {% endfor %}
+          </select>
+
+          {%- render 'icon', icon: 'chevron-up', size: 'sm', class: 'absolute pointer-events-none' -%}
+
+        </div>
+      </div>
+
+        {%- endunless -%}
+        {% comment %}   End Custom Tag filter  {% endcomment %}
+
+        {%- if section.settings.description != blank -%}
+          {%- liquid
+            if section.settings.heading_size == 'title-sm' or section.settings.heading_size == 'title-md'
+              assign subtext_size = 'subtext-md'
+            else
+              assign subtext_size = 'subtext-lg'
+            endif
+          -%}
+          <div class="inline-flex justify-center rte">
+            <div class="page-width--narrow rte leading-normal {{ subtext_size }}">
+              {{ section.settings.description }}
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- unless section.settings.use_recipe_nav -%}
+        {%- if section.settings.show_tag_filter and blog.tags.size > 0 -%}
+          <div class="hidden md:block">
+            <ul class="subcollections inline-flex flex-wrap justify-center max-w-full">
+              <li class="flex items-center justify-center relative{% if current_tags == blank %} active{% endif %}">
+                <a href="{{ blog.url }}" class="subcollection flex items-center relative leading-tight text-lg-2xl">
+                  <span class="btn-text">{{ 'blogs.article.all_tags' | t }}</span>
+                </a>
+              </li>
+              {%- for tag in blog.all_tags -%}
+                <li class="flex items-center justify-center relative{% if current_tags contains tag %} active{% endif %}">
+                  <a
+                    href="{{ blog.url }}/tagged/{{ tag | handleize }}"
+                    class="subcollection flex items-center relative leading-tight text-lg-2xl"
+                  >
+                    <span class="btn-text">{{ tag }}</span>
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+
+          <div class="blog-filter field md:hidden">
+            <div class="inline-block relative">
+              <label for="TagFilter" class="sr-only">{{ 'blogs.article.filter' | t }}</label>
+              <select id="TagFilter" class="select" is="tag-filter">
+                <option value="{{ blog.url }}">{{ 'blogs.article.all_tags' | t }}</option>
+                {%- for tag in blog.all_tags -%}
+                  <option
+                    value="{{ blog.url }}/tagged/{{ tag | handleize }}"
+                    {% if current_tags contains tag %}
+                      selected
+                    {% endif %}
+                  >
+                    {{ tag }}
+                  </option>
+                {%- endfor -%}
+              </select>
+              {%- render 'icon', icon: 'chevron-up', size: 'sm', class: 'absolute pointer-events-none' -%}
+            </div>
+          </div>
+        {%- endif -%}
+
+        {% comment %}   Start custom filter  {% endcomment %}
+        {%- if blog.tags.size > 0 -%}
+          {%- render 'cstm-blog-facets-sticky',
+            results: blogs,
+            collapsed: section.settings.filter_collapsed,
+            enable_filtering: section.settings.show_cstm_filter,
+            enable_sorting: section.settings.enable_sorting,
+            section_id: section.id
+          -%}
+        {%- endif -%}
+
+        {%- if section.settings.show_cstm_filter or section.settings.show_cstm_filter or blog.tags.size > 0 -%}
+          <div class="cstm-blog-topbar collection__topbar hidden xl:flex items-center gap-2 desktop">
+            {%- if section.settings.show_cstm_filter and blog.tags.size > 0 -%}
+              {%- if section.settings.filter_type == 'drawer' -%}
+                {%- render 'cstm-blog-facets-drawer',
+                  collapsed: section.settings.filter_collapsed,
+                  enable_filtering: section.settings.filter_type,
+                  enable_sorting: section.settings.enable_sorting,
+                  section_id: section.id,
+                  section: section  
+                -%}
+              {%- endif -%}
+            {%- endif -%}
+
+               
+            {%- if section.settings.title2 != blank or section.settings.filter2tags != blank or blog.tags.size > 0 -%}
+           <div class="hidden md:block" id="blog-filters">
+           <ul class="cstm-blog-tag-filter cstm-test-class subcollections inline-flex flex-wrap max-w-full">
+
+           <li class="flex items-center justify-center relative{% if current_tags == blank %} active{% endif %}">
+           <a href="{{ blog.url }}" class="subcollection flex items-center relative leading-tight text-lg-xl">
+          <span class="btn-text">
+            {{ 'blogs.article.all_tags' | t }}
+          </span>
+        </a>
+      </li>
+                {% assign new_tag = section.settings.filter2tags | split: ',' %}
+
+          {% for tag in new_tag %}
+
+            {% assign tag_clean = tag | strip %}
+            {% assign article_count = 0 %}
+
+            {% paginate blogs[blog.handle].articles by 1000 %}
+
+              {% for article in blogs[blog.handle].articles %}
+
+                {% if article.tags contains tag_clean %}
+                  {% assign article_count = article_count | plus: 1 %}
+                {% endif %}
+
+              {% endfor %}
+
+            {% endpaginate %}
+
+            {% if article_count > 0 %}
+
+              <li class="flex items-center justify-center relative{% if current_tags contains tag_clean %} active{% endif %}">
+                <a  href="javascript:void(0)"
+                  class="subcollection flex items-center relative leading-tight text-lg-xl"
+                  tag-name="{{ tag_clean | downcase | replace: ' ','-' }}"
+                >
+                  <span class="btn-text">
+                    {{ tag_clean }}
+
+                    <span class="count absolute text-xs testttt">
+                      {{ article_count }}
+                    </span>
+                  </span>
+                </a>
+              </li>
+
+            {% endif %}
+
+          {% endfor %}
+
+              </ul>
+            </div>
+          {%- endif -%}  
+
+            {%- if section.settings.enable_sorting or blog.tags.size > 0 -%}
+              {%- liquid
+                assign current_tag = current_tags.first
+                if current_tag and section.settings.filter3tags contains current_tag
+                  assign sort_by_name = current_tag
+                else
+                  assign sort_by_name = section.settings.title3
+                endif
+              -%}
+              <div class="facet-sorting inline-flex items-center gap-3" id="SortByContainer">
+                <span>{{ 'collections.sorting.sort_by_label' | t }}</span>
+                <facet-sort class="sort-wrapper relative">
+                  <hover-element class="button button--secondary sort-by whitespace-nowrap overflow-hidden z-3">
+                    <span class="btn-fill" data-fill></span>
+                    <div class="btn-text">
+                      <span class="sort-header flex items-center relative justify-center gap-5 w-full">
+                        <span class="sort-selection" id="currentSort">{{ sort_by_name | escape }}</span>
+                        <span class="sort-title text-sm uppercase absolute left-0 opacity-0 tracking-widest">
+                          {{ 'collections.sorting.sort_button' | t }}
+                        </span>
+                        <span class="cstm-blog-sort sort-close flex items-center justify-center rounded-full">
+                          {%- render 'icon', icon: 'close', size: 'sm' -%}
+                        </span>
+                      </span>
+                      <ul
+                        class="sort-listbox text-left grid gap-2 absolute left-0 opacity-0 invisible w-full h-auto"
+                        id="sortOptions"
+                      >
+                        {% assign short_tags = section.settings.filter3tags | split: ',' %}
+                        {%- for tag in short_tags -%}
+                          {% assign tag_clean = tag | strip %}
+                          {%- if current_tags contains tag_clean -%}
+                            <li class="flex relative active">
+                              <a
+                                href="{{ blog.url }}/tagged/{{ tag_clean | replace: '&amp;', '-' | handleize }}"
+                                class="subcollection flex items-center relative leading-tight text-lg-xl"
+                              >
+                                <span class="btn-text">{{ tag_clean }}</span>
+                              </a>
+                            </li>
+                          {%- else -%}
+                            <li class="flex relative">
+                            
+
+                              <a
+                              {% comment %}
+                              href="{{ blog.url }}/tagged/{{ tag_clean | replace: '&amp;', '-' | handleize }}" {% endcomment %}
+                              class="subcollection flex items-center relative leading-tight text-lg-xl" tag-name="{{- tag_clean | downcase | replace: ' ','-'-}}"
+                              >
+                              <span class="btn-text">
+                                {{- tag_clean -}}
+                              </span>
+                              </a>
+
+                            
+                            </li>
+                          {%- endif -%}
+                        {%- endfor -%}
+                      </ul>
+                    </div>
+                  </hover-element>
+                </facet-sort>
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+        {% comment %}   End custom filter  {% endcomment %}
+        {%- endunless -%}
+        {% assign t = 0 | plus: 0 %}
+      </div>
+
+      {%- if section.settings.use_recipe_nav -%}
+        {%- render 'blog-recipe-nav',
+          blog: blog,
+          label1: section.settings.title1,
+          tags1: section.settings.filter1tags,
+          label2: section.settings.title2,
+          tags2: section.settings.filter2tags,
+          label3: section.settings.title4,
+          tags3: section.settings.filter4tags,
+          label4: section.settings.title3,
+          tags4: section.settings.filter3tags,
+          enable_search: section.settings.enable_recipe_search,
+          search_placeholder: section.settings.recipe_search_placeholder
+        -%}
+      {%- endif -%}
+
+      <div class="blog flex flex-col gap-12">
+
+      {% if t == 0 and current_tags %}
+          <div class="cstm-selected-tag">
+            <ul class="list-unstyled current-tags">
+              {% for tag in current_tags %}
+                <li class="current--pill-new" data-tag="{{ tag | handle }}">
+                  {{ tag | link_to_remove_tag: tag }}
+                  <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.646446 1.35355C0.451184 1.15829 0.451184 0.841709 0.646446 0.646447C0.841709 0.451185 1.15829 0.451185 1.35355 0.646447L4 3.29289L6.64645 0.646447C6.84171 0.451185 7.15829 0.451185 7.35355 0.646447C7.54882 0.841709 7.54882 1.15829 7.35355 1.35355L4.70711 4L7.35355 6.64645C7.54882 6.84171 7.54882 7.15829 7.35355 7.35355C7.15829 7.54882 6.84171 7.54882 6.64645 7.35355L4 4.70711L1.35355 7.35355C1.15829 7.54882 0.841709 7.54882 0.646447 7.35355C0.451185 7.15829 0.451185 6.84171 0.646447 6.64645L3.29289 4L0.646446 1.35355Z" fill="#53555C"></path>
+                  </svg>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+        
+        <motion-list class="blog-grid{% if section.settings.layout == 'collage' %} blog-collage{% if blog.articles_count == 1 %} with-only1{% endif %}{% endif %} card-grid card-grid--3 mobile:card-grid--1 grid">
+         {%- for article in blog.articles -%}  
+           
+            {%- if section.settings.layout == 'collage' and forloop.first -%}
+              {%- capture sizes -%}(max-width: 1023px) 100vw, calc(min(100vw, {{ settings.page_width }}px) * 0.65){%- endcapture -%}
+            {%- else -%}
+              {%- capture sizes -%}(max-width: 639px) 100vw, (max-width: 1023px) calc(100vw / 2 - 40px), (max-width: 1535px) calc(min(100vw, {{ settings.page_width }}px) / 3 - 40px), calc(min(100vw, {{ settings.page_width }}px) / 3 - 80px){%- endcapture -%}
+            {%- endif -%}
+
+            {%- render 'article-card',
+              article: article,
+              blog: blog,
+              sizes: sizes,
+              image_ratio: section.settings.image_ratio,
+              show_tags: section.settings.show_tags,
+              show_date: section.settings.show_date,
+              show_author: section.settings.show_author,
+              show_comments: section.settings.show_comments,
+              show_excerpt: section.settings.show_excerpt
+            -%}
+          {%- endfor -%}
+          
+        </motion-list>
+
+        {%- if blog.articles_count == 0 -%}
+  <h3 class="no-data" style="text-align:center">No Blog post Found</h3>
+{%- endif -%}
+     {% if section.settings.glorry_txt != blank %}
+       <h2 class="cstm-glossary-txt" style="text-align:center">{{ section.settings.glorry_txt }}</h2>
+       {% endif %}
+        
+                <slider-element id="Slider-{{ section.id }}" class="cstm-glorry-outer page-width  grid slider slider--tablet" selector=".card-grid>.card">
+                <div class="cstm-glorry-inner multicolumn with-{{ section.blocks.size }} card-grid mobile:card-grid--{{ section.settings.columns_mobile }} grid relative z-1">
+                {%- for block in section.blocks -%}
+                <div class="cstm-glosarry-content{{ block.shopify_attributes }}">
+                <div class="grid gap-4 lg:gap-4 w-full">
+                {% if block.settings.menu_img != blank %}
+                <img src="{{ block.settings.menu_img | img_url: 'master'}}"/>
+                {% endif %}
+                {% if block.settings.menu != blank %}
+                <div class="details__content">
+                <h2 class="menu-title text-lg font-semibold mb-3">{{ block.settings.menu.title }}</h2>
+                <ul class="flex flex-col gap-4">
+                {%- for link in block.settings.menu.links -%}
+                <li class="inline-flex">
+                <a href="{{ link.url }}" class="block reversed-link text-sm-lg leading-tight">{{ link.title }}</a>
+                </li>
+                {%- endfor -%}
+                </ul>
+                </div>
+                {% endif %}
+                </div>
+                </div>
+                {%- endfor -%}
+                </div>
+                </slider-element>
+    
+        {%- liquid
+          if paginate.pages > 1
+            render 'pagination', paginate: paginate
+          endif
+        -%}
+      </div>
+    </div>
+  </div>
+{%- endpaginate -%}
+
+  <script>       
+$(document).ready(function () {
+    let selectedTags = [];
+    function getData(url) {
+        $('.blog').addClass('loading');
+        var urlnew = url.indexOf('view=') > -1 ? url :
+                     url.indexOf('?') > -1 ? url + '&view=recepies-data' :
+                     url;
+        $.ajax({
+            url: urlnew,
+            type: 'GET',
+            dataType: 'html',
+            async: false,
+              success: function (data) {
+                $('.blog').html($('.blog', data).html());
+                $('.blog').removeClass('loading');
+                $('.current-tags').html($('.current-tags', data).html());
+                history.pushState({}, "", url); 
+            },  
+
+            
+
+            error: function (request, error) {
+                console.log("Request Error: " + JSON.stringify(request));
+            }
+        });
+    }
+    function updateSelectedTags() {
+        selectedTags = [];
+        $('.sort-listbox li.active a, .cstm-test-class li.active a, .cstm-blog-tag-filter-drawer  li.active a, .cstm-blog-tag-filter-sticky li.active a, .cstm-mb-top-filter li.active a').each(function () {
+            const tag = $(this).attr('tag-name');
+            if (tag) {
+                selectedTags.push(tag);
+            }
+        });
+    }
+    function handleClick(containerSelector) {
+        $(document).on('click', containerSelector + ' li a', function (e) {
+            e.preventDefault();
+            $(containerSelector + ' li').removeClass('active');
+            $(this).closest('li').addClass('active');
+            updateSelectedTags();
+            const tagString = selectedTags.join('+');
+            const url = '/blogs/{{ blog.handle }}/tagged/' + tagString;
+            setTimeout(function () {
+                $('.current-tags').show();
+            }, 500);
+            console.log("Generated URL: ", url);
+            getData(url);
+        });
+    }
+    handleClick('.sort-listbox');
+    handleClick('.cstm-test-class');
+    handleClick('.cstm-blog-tag-filter-drawer');
+    handleClick('.cstm-blog-tag-filter-sticky');
+    handleClick('.cstm-mb-top-filter');
+  });
+</script>           
+
+{% schema %}
+{
+  "name": "Custom Main Blog",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__heading.content"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "title-sm",
+          "label": "t:sections.global.settings.heading_size.options__1.label"
+        },
+        {
+          "value": "title-md",
+          "label": "t:sections.global.settings.heading_size.options__2.label"
+        },
+        {
+          "value": "title-lg tracking-heading",
+          "label": "t:sections.global.settings.heading_size.options__3.label"
+        },
+        {
+          "value": "title-xl tracking-heading",
+          "label": "t:sections.global.settings.heading_size.options__4.label"
+        }
+      ],
+      "default": "title-xl tracking-heading",
+      "label": "t:sections.global.settings.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "t:sections.global.settings.heading_alignment.label",
+      "options": [
+        {
+          "value": "text-left justify-start",
+          "label": "t:sections.global.settings.heading_alignment.options__1.label"
+        },
+        {
+          "value": "text-center justify-center",
+          "label": "t:sections.global.settings.heading_alignment.options__2.label"
+        },
+        {
+          "value": "text-right justify-end",
+          "label": "t:sections.global.settings.heading_alignment.options__3.label"
+        }
+      ],
+      "default": "text-center justify-center"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "options": [
+        {
+          "value": "h1",
+          "label": "t:sections.global.settings.heading_tag.options__1.label"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.global.settings.heading_tag.options__2.label"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.global.settings.heading_tag.options__3.label"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.global.settings.heading_tag.options__4.label"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.global.settings.heading_tag.options__5.label"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.global.settings.heading_tag.options__6.label"
+        },
+        {
+          "value": "div",
+          "label": "t:sections.global.settings.heading_tag.options__7.label"
+        },
+        {
+          "value": "span",
+          "label": "t:sections.global.settings.heading_tag.options__8.label"
+        },
+        {
+          "value": "p",
+          "label": "t:sections.global.settings.heading_tag.options__9.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.global.settings.heading_tag.label",
+      "info": "t:sections.global.settings.heading_tag.info"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.global.settings.subheading.label"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.global.settings.description.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "glorry_txt",
+      "label": "Glossary Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tag_filter",
+      "label": "t:sections.main-blog.settings.show_tag_filter.label",
+      "default": true
+    },
+
+
+
+  {
+    "type": "header",
+    "content": "Filters"
+  },
+  {
+      "type": "text",
+      "id": "title1",
+      "default":"Types of cooking",
+      "label": "Filter 1 Title"
+    },
+    {
+      "type": "html",
+      "id": "filter1tags",
+      "label": "Filter 1 (options) Tags",
+      "info": "Add the options comma (,) seprated like Curdo,Baking"
+    },
+    {
+      "type": "text",
+      "id": "title2",
+      "default":"Types of cooking",
+      "label": "Filter 2 Title"
+    },
+    {
+      "type": "html",
+      "id": "filter2tags",
+      "label": "Filter 2 (options) Tags",
+       "info": "Add the options comma (,) seprated like Curdo,Baking"
+    },
+    {
+      "type": "text",
+      "id": "title3",
+      "default":"Effort",
+      "label": "Filter 3 Title (Effort / Cooking Time)"
+    },
+    {
+      "type": "html",
+      "id": "filter3tags",
+      "label": "Filter 3 (options) Tags",
+       "info": "Add the options comma (,) seprated like Curdo,Baking"
+    },
+    {
+      "type": "text",
+      "id": "title4",
+      "default":"Chef",
+      "label": "Filter 4 Title (Chef)"
+    },
+    {
+      "type": "html",
+      "id": "filter4tags",
+      "label": "Filter 4 (options) Tags",
+       "info": "Add the options comma (,) seprated like Curdo,Baking"
+    },
+    {
+      "type": "header",
+      "content": "Recipe navigation bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_recipe_nav",
+      "label": "Use recipe navigation bar (dropdowns + search)",
+      "info": "Replaces the old tag filter / sort bar with the Seafood / Technique / Chef / Effort dropdown menus and a search field.",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_recipe_search",
+      "label": "Show search field",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "recipe_search_placeholder",
+      "label": "Search placeholder",
+      "default": "Search recipes, species, chefs…"
+    },
+
+
+
+
+
+
+
+
+
+
+
+    {
+      "type": "header",
+      "content": "t:sections.main-collection.settings.header__filtering_sorting.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cstm_filter",
+      "label": "Enable filters",
+      "default": false
+    },
+
+
+    {
+    "type": "select",
+    "id": "filter_type",
+    "label": "t:sections.main-collection.settings.filter_type.label",
+    "default": "drawer",
+    "options": [
+    {
+    "value": "drawer",
+    "label": "t:sections.main-collection.settings.filter_type.options__2.label"
+    }
+    ]
+    },
+
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "label": "t:sections.main-collection.settings.enable_sorting.label",
+      "default": true
+    },
+
+
+
+    {
+      "type": "range",
+      "id": "per_page",
+      "min": 6,
+      "max": 48,
+      "step": 3,
+      "label": "t:sections.main-blog.settings.per_page.label",
+      "default": 9
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__post.content"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "grid",
+          "label": "t:sections.main-blog.settings.layout.options__1.label"
+        },
+        {
+          "value": "collage",
+          "label": "t:sections.main-blog.settings.layout.options__2.label"
+        }
+      ],
+      "default": "collage",
+      "label": "t:sections.main-blog.settings.layout.label",
+      "info": "t:sections.main-blog.settings.layout.info"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.global.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.global.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.global.settings.image_ratio.options__3.label"
+        },
+        {
+          "value": "landscape",
+          "label": "t:sections.global.settings.image_ratio.options__4.label"
+        },
+        {
+          "value": "wide",
+          "label": "t:sections.global.settings.image_ratio.options__5.label"
+        }
+      ],
+      "default": "landscape",
+      "label": "t:sections.global.settings.image_ratio.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tags",
+      "label": "t:sections.main-blog.settings.show_tags.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "t:sections.main-blog.settings.show_date.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_comments",
+      "label": "t:sections.main-blog.settings.show_comments.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "t:sections.main-blog.settings.show_author.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_excerpt",
+      "label": "t:sections.main-blog.settings.show_excerpt.label",
+      "default": true
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-blog.settings.paragraph.content"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__section.content"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_top.label",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_bottom.label",
+      "default": 120
+    },
+    {
+      "type": "checkbox",
+      "id": "divider",
+      "label": "t:sections.global.settings.divider.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.global.settings.full_width.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "rounded",
+      "default": false,
+      "label": "t:sections.global.settings.rounded.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "cstm",
+      "name":"menus",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "menu_img",
+          "label": "Image"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Custom Main Blog"
+    }
+  ],
+
+}
+{% endschema %}
+
+{% comment %}
+            {
+    "type": "checkbox",
+    "id": "filter_collapsed",
+    "label": "t:sections.main-collection.settings.filter_collapsed.label",
+    "default": false
+  },
+              {
+    "type": "select",
+    "id": "filter_type",
+    "label": "t:sections.main-collection.settings.filter_type.label",
+    "default": "sidebar",
+    "options": [
+      {
+        "value": "sidebar",
+        "label": "t:sections.main-collection.settings.filter_type.options__1.label"
+      },
+      {
+        "value": "drawer",
+        "label": "t:sections.main-collection.settings.filter_type.options__2.label"
+      }
+    ]
+  },
+{% endcomment %}
+{% comment %}
+  {% assign target_blog = blogs['regenerative-aquaculture'] %}
+  {% if target_blog %}
+    <p>Blog found: {{ target_blog.title }} | Total articles: {{ target_blog.articles_count }}</p>
+
+    {% paginate target_blog.articles by 11 %}
+      {% for article in target_blog.articles %}
+        <div class="article">
+          <h2>
+            <a href="{{ article.url }}">{{ article.title }}</a>
+          </h2>
+          <p>{{ article.excerpt }}</p>
+          <a href="{{ article.url }}">Read more</a>
+        </div>
+      {% endfor %}
+
+      <!-- Pagination Controls -->
+      {% if paginate.pages > 1 %}
+        <div class="pagination">
+          {% if paginate.previous %}
+            <a href="{{ paginate.previous.url }}">Previous</a>
+          {% endif %}
+
+          {% for part in paginate.parts %}
+            {% if part.is_link %}
+              <a href="{{ part.url }}">{{ part.title }}</a>
+            {% else %}
+              <span>{{ part.title }}</span>
+            {% endif %}
+          {% endfor %}
+
+          {% if paginate.next %}
+            <a href="{{ paginate.next.url }}">Next</a>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endpaginate %}
+  {% else %}
+    <p>Blog not found.</p>
+  {% endif %}
+{% endcomment %}
+

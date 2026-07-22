@@ -1,0 +1,9 @@
+<!-- Start of Judge.me code -->
+ <div class='jdgm-widget jdgm-all-reviews-text'>
+ <a href='javascript:void(0)'>
+ <span data-score='{{ shop.metafields.judgeme.all_reviews_rating }}' class='jdgm-all-reviews-rating'></span>
+<span class='jdgm-all-reviews-text__text' data-score='{{ shop.metafields.judgeme.all_reviews_rating }}' data-number-of-reviews='{{ shop.metafields.judgeme.all_reviews_count }}' data-locale='en'>{{ shop.metafields.judgeme.all_reviews_rating | round: 1 }} out of 5 </span>
+</a>
+   <div class="cstm-based-review" style="text-align: center;">Based on {{ shop.metafields.judgeme.all_reviews_count }} reviews.</div>
+  <a href='https://judge.me/reviews/stores/seatopia' target="_blank" class="cstm-review-link" style="text-align: center;"> Collected by Judge.me </a>
+</div><!-- End of Judge.me code -->

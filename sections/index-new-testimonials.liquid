@@ -1,0 +1,536 @@
+<!-- /sections/new-testimonial.liquid -->
+<style>
+    #shopify-section-{{ section.id }} {
+      --section-padding-top: {{ section.settings.padding_top }}px;
+      --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+      {%- render 'section-variables', section: section -%}
+    }
+    .cstm-testimonial-review .review__item {
+      width: 33.33%;
+    }
+    .review__card__text__contents {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      /* gap: 26px; */
+  }
+    ul.review__stars {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 4px;
+  }
+    .index-reviews .flickity-prev-next-button.next, .index-reviews .flickity-prev-next-button.previous {
+      z-index: 9;
+    }
+    .star-review-outer{
+      display: flex;
+      text-align: center;
+      justify-content: flex-start;
+      gap: 10px;
+    }
+    .cstm-index-review .reviews {
+      margin: 0 -9.5px;
+    }
+    .cstm-index-review .reviews .review__card__text__contents {
+        gap: 0;
+        border-radius: 16px;
+        border: 1px solid #E5E5E5;
+        align-items: stretch;
+    }
+    .cstm-index-review .reviews .review__card__text__contents .cstm-testimonial-img-block * {
+        display: flex;
+        height: 100%;
+        width: 100%;
+    }
+    .cstm-index-review .reviews .review__card__text__contents .cstm-testimonial-img-block {
+        flex: 0 0 45%;
+    }
+    .cstm-index-review .reviews .review__card__text__contents .cstm-testimonial-img-block img {
+        border-radius: 16px 0 0 16px;
+        object-fit: cover;
+    }
+  .cstm-index-review .reviews .review__card__text__contents .review_image_wrapp_main {
+      {% comment %} padding: 0 33px; {% endcomment %}
+       padding: 0 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .cstm-index-review .reviews .review__card__text__contents .review_image_wrapp_main .review__name {
+        font-family: var(--font-body-family);
+        font-size: var(--text-base);
+        font-weight: 700;
+        line-height: var(--text-base);
+    }
+    .cstm-index-review .reviews .review__card__text__contents .review_image_wrapp_main .title_job_wrapp {
+        margin-top: 30px;
+    }
+    .cstm-index-review .reviews .review__card__text__contents .review_image_wrapp_main .title_job_wrapp .review__title {
+        font-style: italic;
+    }
+    .cstm-index-review .reviews .review__card__text__contents .review_image_wrapp_main .title_job_wrapp .star-review-outer {
+        margin-top: 30px;
+    }
+    ul.review__stars li .icon-star {
+        width: var(--text-base);
+        height: var(--text-base);
+    }
+    .csrm-review.number {
+        font-size: 14px;
+    }
+    .cstm-testimonial-review .review__item {
+        padding: 0 9.5px;
+    }
+   .cstm-testimonial-review .flickity-page-dots {
+      display: flex;
+    }
+    
+    @media screen and (min-width: 990px) {
+      .cstm-index-review .cstm-testimonial-review * {
+        cursor: default;
+        user-select: auto;
+      }
+      .cstm-index-review .cstm-testimonial-review * a{
+        cursor: pointer;
+      }
+    }
+    @media screen and (max-width: 1401px) {
+      .cstm-index-review .reviews .review__card__text__contents  .review_image_wrapp_main {
+          padding: 15px 25px;
+      }
+    }
+    @media screen and (max-width: 1199px) {
+      .cstm-index-review .reviews .review__card__text__contents  .review_image_wrapp_main {
+          padding: 10px 15px;
+      }
+    }
+    @media screen and (max-width: 989px) {
+      .cstm-testimonial-review .review__item {
+        width: 50%;
+      }
+    }
+    @media screen and (max-width: 767px) {
+      .cstm-testimonial-review .review__item {
+        width: 100%;
+      }
+      .cstm-testimonial-review .flickity-page-dots {
+        display: flex;
+      }
+    }
+    @media screen and (max-width: 475px) {
+      .cstm-index-review .reviews .review__card__text__contents .review_image_wrapp_main .title_job_wrapp .star-review-outer {
+          margin-top: 10px;
+      }
+    }
+    @media screen and (max-width: 374px) {
+      .cstm-index-review .reviews .review__card__text__contents .review_image_wrapp_main .title_job_wrapp {
+          margin-top: 10px;
+      }
+      .cstm-index-review .reviews .review__card__text__contents  .review_image_wrapp_main {
+        padding: 10px 14px;
+      }
+      .cstm-index-review .reviews .review__card__text__contents .review_image_wrapp_main p {
+        font-size: 14px;
+      }
+    }
+</style>
+
+<div
+  class="cstm-index-review section--padding {% if section.settings.rounded %} section--rounded relative{% endif %}  {{ section.settings.custom_class }}"
+  data-section-id="{{ section.id }}"
+  style="{% if section.settings.banner_img != blank %} background-image: url('{{ section.settings.banner_img | img_url: 'master' }}');{% else %}background-color:{{ section.settings.section_background }} !important;{% endif %} "
+  {% if section.settings.section_id != blank %}
+    id="{{ section.settings.section_id }}"
+  {% endif %}
+>
+  <div class="index-reviews page-width" data-section-type="cstm-reviews">
+    <div class="wrapper">
+      {% if section.settings.title != blank %}
+        <h2
+          class="title--decorated"
+          style="color:{{ section.settings.text_color }}; text-align:{{ section.settings.section_cont_position }}"
+        >
+          {{ section.settings.title | escape }}
+        </h2>
+      {% endif %}
+      {% if section.settings.sub_title != blank %}
+        <div
+          class="cstm-textmonial-subtitle"
+          style="color:{{ section.settings.text_color }}; text-align:{{ section.settings.section_cont_position }}"
+        >
+          {{ section.settings.sub_title }}
+        </div>
+      {% endif %}
+
+      <div class="reviews reviews--{{ section.blocks.size }}">
+        <div
+          class="cstm-testimonial-review"
+          data-block-count="{{ section.blocks.size }}"
+        >
+          {% for block in section.blocks %}
+            <div class="grid__item review__item slide--{{ block.id }} slide--left" {{ block.shopify_attributes }}>
+              <div class="review__card">
+                <div class="review__card__text">
+                  <div
+                    class="review__card__text__contents"
+                    style="background-color:{{ block.settings.block_background }};"
+                  >
+                    {% if  block.settings.image %}  {% comment %} block.settings.image_url != blank and {% endcomment %}
+                      <div class="cstm-testimonial-img-block">
+                        <a
+                          {% if block.settings.image_url != blank %}
+                            href="{{ block.settings.image_url }}"
+                          {% endif %}
+                        >
+                          <div class="review__image__align">
+                            <div class="review__image__wrapper">
+                              <img
+                                src="{{ block.settings.image | img_url: '540x540', crop: 'center' }}"
+                                alt="{{ block.settings.image.alt | default: block.settings.title }}"
+                              >
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    {% endif %}
+
+                    <div class="review_image_wrapp_main">
+                      {% if block.settings.text != blank %}
+                        <div class="review__content rte" style="color:{{ block.settings.block_text_color }};" >{{ block.settings.text }}</div>
+                      {% endif %}
+
+                      <div class="title_job_wrapp">
+                        {% if block.settings.title != blank %}
+                          <h2 class="review__name h3" style="color:{{ block.settings.block_text_color }};">
+                            {{ block.settings.title | escape }}
+                          </h2>
+                        {% endif %}
+                        {% if block.settings.job != blank %}
+                          <p class="review__title rte--index" style="color:{{ block.settings.block_text_color }};">
+                            {{ block.settings.job | escape }}
+                          </p>
+                        {% endif %}
+
+                        <div class="star-review-outer">
+                          <div class="cstm-stars-reviews">
+                            {% comment %} {%- if block.settings.stars > 0 -%}
+                              <ul class="review__stars unstyled">
+                                {% for i in (1..block.settings.stars) %}
+                                  <li style="color:{{ section.settings.star_color }} !important;">
+                                    {% render 'icon-star' %}
+                                  </li>
+                                {% endfor %}
+                              </ul>
+                            {%- endif -%} {% endcomment %}
+
+
+
+                            {% assign stars_no =  block.settings.Start_number | plus:0 %}
+                            {%- if stars_no > 0 -%}
+                              <ul class="review__stars unstyled">
+                                {% for i in (1..stars_no) %}
+                                  <li style="color:{{ section.settings.star_color }} !important;">
+                                    {% render 'icon-star' %}
+                                  </li>
+                                {% endfor %}
+                              </ul>
+                            {%- endif -%}
+                          </div>
+                          {%- if stars_no != blank -%}
+                            <div class="csrm-review number" style="color:{{ block.settings.block_text_color }}; {% if stars_no == 0 %} display: none; {% endif %}" >{{ stars_no }}.0</div>
+                          {%- endif -%}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JS to control Flickity based on screen size and block count -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sliders = document.querySelectorAll(".cstm-testimonial-review");
+
+    sliders.forEach(slider => {
+      const blockCount = parseInt(slider.getAttribute("data-block-count"), 10);
+      const isMobile = window.innerWidth <= 992;
+
+      // Only initialize Flickity if:
+      // - It's mobile (always allow slider)
+      // - Or there are more than 3 blocks
+      if (isMobile || blockCount > 3) {
+        new Flickity(slider, {
+          prevNextButtons: false,
+          autoPlay: false,
+          cellAlign: "left",
+          wrapAround: true,
+          pageDots: true,
+          contain: false
+        });
+      } else {
+        // On desktop with 3 or fewer blocks, add layout styling
+        slider.classList.add("desktop-slider-disabled");
+      }
+    });
+  });
+</script>
+
+<!-- Optional CSS for static layout when slider is disabled -->
+<style>
+  .desktop-slider-disabled {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .desktop-slider-disabled .grid__item {
+    flex: 1 1 30%;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "New Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom class"
+    },
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info":"Please enter a unique value in each section"
+    },
+        {
+      "type": "image_picker",
+      "id": "banner_img",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Testimonials"
+    },
+    {
+      "type": "richtext",
+      "id": "sub_title",
+      "label": "SubHeading",
+    },
+    {
+      "type": "select",
+      "id": "section_cont_position",
+      "options": [
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Right",
+          "value": "right"
+        }
+      ],
+      "default": "center",
+      "label": "Section Content position"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__section.content"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_top.label",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_bottom.label",
+      "default": 100
+    },
+      {
+        "type": "color",
+        "id": "section_background",
+        "label": "Section Background Color"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color"
+      },
+      {
+        "type": "color",
+        "id": "star_color",
+        "label": "Star Color"
+      },
+        {
+      "type": "checkbox",
+      "id": "rounded",
+      "default": false,
+      "label": "t:sections.global.settings.rounded.label"
+    }
+    ],
+    "blocks": [
+      {
+        "type": "review",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+                    {
+            "type": "url",
+            "id": "image_url",
+            "label": "Image URL"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Name",
+            "default": "Testimonial name"
+          },
+          {
+            "type": "text",
+            "id": "job",
+            "label": "Context",
+            "default": "Founder, Company"
+          },
+
+          {
+            "type": "text",
+            "id": "Start_number",
+            "label": "Stars",
+            "info": "Enter how many stars to show (1 to 5). Set to 0 to disable.",
+            "default": "5"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Testimonial",
+            "default": "<p>Use this text to showcase a review from one of your customers.  A great review is honest and relatable.  A great reviewer is a person who represents your target audience and can speak to concerns that might block your customers from buying.</p>"
+          },
+                {
+        "type": "color",
+        "id": "block_background",
+        "label": "Block background color"
+      },
+      {
+        "type": "color",
+        "id": "block_text_color",
+        "label": "Block Text Color",
+        "default": "#252525"
+      }
+        ]
+      }
+    ],
+      "presets": [
+      {
+        "name": "New Testimonials",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "review"
+          },
+          {
+            "type": "review"
+          },
+          {
+            "type": "review"
+          },
+          {
+            "type": "review"
+          },
+          {
+            "type": "review"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+{% comment %}
+  <div class="for_mobile_only grid {% unless section.blocks.size == 5 %}grid--uniform{% endunless %}" data-flickity='{ "prevNextButtons": true  ,"autoPlay": false, "groupCells": true }'>
+    {% for block in section.blocks %}
+      {% if block.settings.image != blank %}
+        {% assign img_object = block.settings.image %}
+      {% else %}
+        {%- assign img_object = 'blank.svg' | asset_url -%}
+      {% endif %}
+      <div class="grid__item review__item slide--{{ block.id }} slide--left" {{ block.shopify_attributes }}>
+        <div class="review__card">
+          <div class="review__card__text">
+            <div class="review__card__text__contents">
+
+              {%- if block.settings.stars > 0 -%}
+                <ul class="review__stars unstyled">
+                  {% for i in (1..block.settings.stars) %}
+                    <li style="color:{{ section.settings.star_color }}">{% render 'icon-star' %}</li>
+                  {% endfor %}
+                </ul>
+              {%- endif -%}
+                        {% if block.settings.text != blank %}
+                <div class="review__content rte">{{ block.settings.text }}</div>
+              {% endif %}
+      <div class="review_image_wrapp_main">
+
+                           <a {% if block.settings.image_url != blank %} href="{{ block.settings.image_url }}" {% endif %}> <div class="review__image__align">
+            <div class="review__image__wrapper">
+                <img src="{{ block.settings.image | img_url: '540x540', crop: 'center' }}" alt="{{ block.settings.image.alt | default: block.settings.title }}"/>
+            </div>
+          </div></a>
+        <div class="title_job_wrapp">
+              {% if block.settings.title != blank %}
+                <h2 class="review__name h3" style="color:{{ section.settings.text_color }};">{{ block.settings.title | escape }}</h2>
+              {% endif %}
+
+              {% if block.settings.job != blank %}
+                <p class="review__title rte--index" style="color:{{ section.settings.text_color }};">{{ block.settings.job | escape }}</p>
+              {% endif %}
+        </div>
+                           </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endcomment %}
+{% comment %}
+           {
+            "type":    "range",
+            "id":      "stars",
+            "min":     0,
+            "max":     5,
+            "step":    1,
+            "label":   "Stars",
+            "info":    "Set to zero to disable",
+            "default":  5
+          },
+ {%  endcomment %}

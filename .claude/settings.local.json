@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -m json.tool)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('ORDER:', d.get\\('order'\\)\\); print\\('SECTIONS:'\\); [print\\(' ', k, '->', v.get\\('type'\\), '\\(disabled\\)' if v.get\\('disabled'\\) else ''\\) for k,v in d['sections'].items\\(\\)]\")",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 *)",
+      "Bash(command -v shopify)",
+      "Bash(command -v theme-check)",
+      "Bash(theme-check sections/custom-main-blog.liquid)",
+      "Bash(shopify theme *)"
+    ]
+  }
+}

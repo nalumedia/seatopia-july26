@@ -1,0 +1,876 @@
+{%- comment -%}
+  RTX PDP Snippet
+    v1.0.2-221208
+{%- endcomment -%}
+{%- liquid
+  assign retextionAppId = '5859381'
+   assign modalContent = pages['retextion-popup'].content
+  assign currentVariant = variant | default: product.selected_or_first_available_variant
+  assign requiresPlan = product.requires_selling_plan
+  assign selectedAllocation = null
+  assign selectedOrFirstAllocation = null
+  assign sellingPlanGroups = product.selling_plan_groups | where: 'app_id', retextionAppId
+
+  for allocation in currentVariant.selling_plan_allocations
+    
+    assign group = sellingPlanGroups | where: 'id', allocation.selling_plan_group_id | first
+    if group == blank or group.app_id != retextionAppId
+      continue
+    endif
+    if allocation.selling_plan.selected
+      assign selectedAllocation = allocation
+      assign selectedOrFirstAllocation = allocation
+      break
+    endif
+  endfor
+-%}
+
+{% comment %} {% for sellingPlanGroup in sellingPlanGroups %}
+=== {{ sellingPlanGroup.name }}
+{% endfor %} {% endcomment %}
+ 
+{% comment %} {% assign provided_names = block.settings.hide_product_id | downcase | strip | split: "," %}
+{% for sellingPlanGroup in sellingPlanGroups %}
+  {% assign current_product_selling_name = sellingPlanGroup.name | downcase | strip %}
+  {% for provided_name in provided_names %}
+    {% assign provided_name = provided_name | strip %}
+    {% if provided_name == current_product_selling_name %}
+      {% assign match_name =  provided_name %}
+    {% endif %}
+  {% endfor %}
+{% endfor %} {% endcomment %}
+
+
+{% comment %}{{ product }}{% endcomment %}
+{% unless product.handle == 'add-on-seatopia-salmon-sampler' %}
+  {%- if sellingPlanGroups.size > 0 -%}
+    {%- comment -%} Shorthand Variables {%- endcomment -%}
+   {% comment %} {%- liquid
+      render 'rtx-api'
+      assign allocationCount = 0
+      capture sellingPlanOptions
+        for allocation in currentVariant.selling_plan_allocations
+          assign plan = allocation.selling_plan
+         
+          assign group = sellingPlanGroups | where: 'id', allocation.selling_plan_group_id | first
+         
+
+          if group == blank or group.app_id != retextionAppId
+            continue
+          endif
+
+
+          # Check if any option's value is "Prepaid 6 Months"
+          assign exclude_plan = false
+          for option in plan.options
+           echo  option.value 
+            assign option_value_downcase = option.value | downcase
+            if option_value_downcase == match_name
+              assign exclude_plan = true
+            endif
+          endfor
+          if exclude_plan
+            continue
+          endif
+         
+          if selectedOrFirstAllocation == blank
+            assign selectedOrFirstAllocation = allocation
+          endif
+
+          echo '<option'
+          if allocation == selectedAllocation
+            echo ' selected'
+          endif
+          echo ' value="' | append: plan.id | append: '">'
+          echo plan.name | escape
+          echo '</option>'
+          assign allocationCount = allocationCount | plus: 1
+        endfor
+      endcapture
+-%} {% endcomment %}
+
+{% assign provided_names = block.settings.hide_product_id | downcase | strip | split: "," %}
+{%- liquid
+  capture sellingPlanOptions
+    for allocation in currentVariant.selling_plan_allocations
+      assign plan = allocation.selling_plan
+      assign group = sellingPlanGroups | where: 'id', allocation.selling_plan_group_id | first
+
+      if group == blank or group.app_id != retextionAppId
+        continue
+      endif
+
+      # Downcase and strip group name
+      assign group_name = group.name | downcase | strip
+
+      # Check if group name is in provided_names (hide groups)
+      assign exclude_group = false
+      for provided_name in provided_names
+        assign pn = provided_name | strip
+        if pn == group_name
+          assign exclude_group = true
+        endif
+      endfor
+
+      # Skip allocation if group name is in hide list
+      if exclude_group
+        continue
+      endif
+
+      # Check if any option value equals any provided name (case insensitive)
+      assign exclude_plan = false
+      for option in plan.options
+        assign option_value_downcase = option.value | downcase | strip
+        for provided_name in provided_names
+          assign pn = provided_name | strip
+          if option_value_downcase == pn
+            assign exclude_plan = true
+          endif
+        endfor
+      endfor
+
+      if exclude_plan
+        continue
+      endif
+
+      # Render option normally
+      echo '<option'
+      if allocation == selectedAllocation
+        echo ' selected'
+      endif
+      echo ' value="' | append: plan.id | append: '">'
+      echo plan.name | escape
+      echo '</option>'
+
+    endfor
+  endcapture
+-%}
+
+
+
+    <script>
+      console.log('prod', {{product | json}});
+      console.log('prod-selling-plan-id', {{product.id}});
+    </script>
+    {%- comment -%} Buy Box Styles {%- endcomment -%}
+    <style type="text/css">
+      .rtx-subscription,.rtx-subcription * {
+        box-sizing: border-box;
+      }
+      .rtx-subscription {
+        margin-bottom: 1.5rem;
+      }
+      .rtx-subscription-box {
+        display: none;
+      }
+      .rtx-subscription-box.is-visible {
+        display: block;
+        padding-left: 30px;
+      }
+      .rtx-subscription-label {
+        padding: 1rem;
+        border-radius: 0.25rem;
+        display: block;
+      }
+      .rtx-subscription-label__inner {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        cursor: pointer;
+      }
+      .rtx-subscription-label.is-selected {
+        background: #EEE;
+        color: #000;
+      }
+      .rtx-subscription-label__inner > span {
+        display: block;
+        margin-left: 0.5rem;
+      }
+      .rtx-subscription-dropdown.is-hidden {
+        display: none;
+      }
+      .rtx-subscription-single-label {
+        display: none;
+        padding: 1rem 0 0 1.8rem;
+      }
+      .rtx-subscription-single-label.is-visible {
+        display: block;
+      }
+      .subs-details{
+        white-space: nowrap;
+        padding: 8px;
+      }
+      div.rtx_popup__hover{
+        display: inline-block;
+        position: relative;
+        height: 35px;
+        clear: both;
+        cursor: pointer;
+        padding-left:8px;
+      }
+      .rtx_popup_label_wrapper{
+        background: rgba(0,0,0,0);
+        border: 0;
+        outline: 0;
+      }
+      .rtx_popup__block{
+        font-size: 12px;
+        padding: 12px;
+        width: 300px;
+        z-index: 1000;
+      }
+      div.rtx_popup__block {
+        display: none;
+        position: absolute;
+        top: 100%;
+        cursor: default;
+        left: 0;
+        text-align: left;
+        white-space: normal;
+        background-color: #191D48 !important;
+      }
+      div.rtx_popup__block:before {
+          display: block;
+          content: "";
+          color:#fff;
+          width: 1px;
+          border: 10px solid transparent;
+          position: absolute;
+          top: -20px;
+          left: 0;
+      }
+      div.rtx_popup__block:hover,div.rtx_popup__hover:hover .rtx_popup__block {
+          display: block
+      }
+
+      div.rtx_popup__hover--mobile div.rtx_popup__block:hover {
+          display: none
+      }
+      .rtx_popup__hover:after {
+        display: none;
+        content: "";
+        width: 1px;
+        border: 10px solid rgba(0,0,0,0);
+        position: absolute;
+        top: 18px;
+        border-bottom-color: #191D48;
+      }
+      .rtx_popup__hover:hover:after,  .rtx_popup__hover:hover div.rtx_popup__block__content {
+        display: block;
+        color: #fff;
+      }
+    </style>
+
+{% assign current_product_id_new = product.id | string | strip%}
+
+{% assign provided_ids = block.settings.hide_product_id  | string | strip | split: ", " %}
+{% assign hide_product = false %}
+{%  for provided_id_new in provided_ids %}
+  {% assign provided_id = provided_id_new %}
+    {% if provided_id == current_product_id_new %}
+        {% assign provided_id_new = provided_id %}
+    {% assign hide_product = true %}
+  {% endif %}
+{% endfor %}
+
+
+    <div  data-rtx-subscription-{{ product.id }}-product- class="rtx-subscription" original-product-price="{{ product.price | money }}" product-id-new="{{ provided_id_new }}" current-product-id-new="{{ product.id }}" {%comment %}{% if hide_product %} style="display: none;"{% endif %}{% endcomment %}>
+      {%- comment -%} Subscription type toggle {%- endcomment -%}
+    {% if block.settings.subscription-title != blank %} 
+      <h5 class="subscription-box-title">{{ block.settings.subscription-title }}</h5>
+      {% endif %}
+      <div>
+
+
+        {%- unless requiresPlan -%}
+          <label
+            for="purchaseTypeOneTime"
+            class="rtx-subscription-label {% if sellingPlanGroups.size == 0 %}is-selected{% endif %} cstm-purchaseTypeOneTimeid"
+          >
+            <div class="rtx-subscription-label__inner" id= "purchaseTypeOneTimeid">
+              {% comment %} <input
+                type="radio"
+                id="purchaseTypeOneTime"
+                name="purchaseType"
+                value="purchaseTypeOneTime"
+                {% if sellingPlanGroups.size == 0 %}
+                  checked
+                {% endif %}
+              > {% endcomment %}
+              <input
+                type="radio"
+                id="purchaseTypeOneTime"
+                name="purchaseType"
+                value="purchaseTypeOneTime"
+                {% if sellingPlanGroups.size == 0 %}
+                  checked
+                {% endif %}
+              >    
+              <span class="subscription-title-new">
+                {{- settings['buybox--onetime'] | default: 'One-time purchase ' | escape -}}
+                <span data-rtx-onetime-price>{{ currentVariant.price | money }}</span></span
+              >
+            </div>
+          </label>
+        {%- endunless -%}
+
+        <label
+          class="rtx-subscription-label {% if sellingPlanGroups.size > 0 %}is-selected{% endif %} cstm-purchaseTypeSubscription "
+          for="purchaseTypeSubscription" 
+        >
+          <div class="rtx-subscription-label__inner-new" id= "purchaseTypeSubscriptionid">
+            <div class="rtx-subscription-label__inner">
+              {% comment %} <input
+                type="radio"
+                id="purchaseTypeSubscription"
+                name="purchaseType"
+                value="purchaseTypeSubscription"
+                {% if sellingPlanGroups.size > 0 %}
+                  checked
+                {% endif %}
+              > {% endcomment %}
+              <input
+                type="radio"
+                id="purchaseTypeSubscription"
+                name="purchaseType"
+                value="purchaseTypeSubscription"
+                {% if sellingPlanGroups.size > 0 %}
+                  checked
+                {% endif %}
+              >  
+              <span class="subscription-title-new">
+                <span class="sub-title-inner">
+
+                  {% if sellingPlanGroups.first.name contains 'Prepay' %}
+                    {{ sellingPlanGroups[1].name | escape }}
+                  {% else %}
+                      {% if sellingPlanGroups[0].name contains 'Prepaid' %}
+                        {{ sellingPlanGroups[1].name | escape }}
+                    {% else %}  
+                    {{ sellingPlanGroups[0].name | escape }}
+                  {% endif %}
+                 
+                  {% endif %}
+                  {%- liquid
+                    assign strSavePercentage = ''
+                    assign opt = selectedOrFirstAllocation.selling_plan.price_adjustments.first
+                    if opt.value_type == 'percentage'
+                      assign strSavePercentage = opt.value
+                    endif
+                    if strSavePercentage != blank
+                      echo "<span class='percentage-off'>"
+                      echo strSavePercentage | append: '% '
+                      echo '</span>'
+                    endif
+                  -%}
+                </span>
+                <span data-rtx-subscription-price>
+                  {%- liquid
+                    assign strSavePercentage = ''
+                    assign opt = selectedOrFirstAllocation.selling_plan.price_adjustments.first
+                    if opt.value_type == 'percentage'
+                      assign strSavePercentage = opt.value
+                    endif
+                    if strSavePercentage != blank
+                      echo selectedOrFirstAllocation.price | money
+                      echo '<del>'
+                      echo currentVariant.price | money
+                      echo '</del>'
+                    elsif selectedOrFirstAllocation.price != currentVariant.price
+                      echo selectedOrFirstAllocation.price | money
+                    endif
+                  -%}
+                </span>
+              </span>
+            </div>
+            {%- comment -%} Subscription Box {%- endcomment -%}
+            <div
+              data-retextion-subscription-box
+              class="
+                rtx-subscription-box
+                {% if requiresPlan or sellingPlanGroups.size > 0 %}
+                  is-visible
+                {% endif %}
+              "
+            >
+              <span class="rtx-subscription-single-label {% if allocationCount == 1 %}is-visible{% endif %}">
+                {{- selectedOrFirstAllocation.selling_plan.name | escape -}}
+              </span>
+              <select
+                class="rtx-subscription-dropdown {% if allocationCount == 1 %}is-hidden{% endif %}"
+                name="selling_plan"
+              >
+                <option
+                  {% if selectedAllocation == blank %}
+                    selected
+                  {% endif %}
+                  value=""
+                >
+                </option>
+                {{- sellingPlanOptions -}}
+              </select>
+            </div>
+          </div>
+          {% if selectedOrFirstAllocation.selling_plan.name contains '3' %}
+            {% assign freq_days = 90 %}
+          {% elsif selectedOrFirstAllocation.selling_plan.name contains '2' %}
+            {% assign freq_days = 60 %}
+          {% else %}
+            {% assign freq_days = 30 %}
+          {% endif %}
+          <ul class="subscription-content">
+            <!-- <li>
+              Every <span class="subscription_day">{{ freq_days }}</span> days receive a
+              <span class="selected-variant-text">{{ product.selected_or_first_available_variant.title }}</span>
+            </li> -->
+            <li>Free member gifts, rewards & access to exclusive products 🎁</li>
+            <li>Improve your health by eating clean seafood regularly</li>
+             <li>
+              Every <span class="subscription_day">{{ freq_days }}</span> days receive a
+              <span class="selected-variant-text">
+                {% assign variant_title = product.selected_or_first_available_variant.title %}
+                {% if variant_title == "Default Title" or variant_title == blank %}
+                  box
+                {% else %}
+                  {{ variant_title }}
+                {% endif %}
+                - Pause, skip, or cancel anytime.
+              </span>
+            </li>
+          </ul>
+        </label>
+
+        
+
+        {%- comment -%} Subscription Information Modal {%- endcomment -%}
+        <div class="subs-details" style="display:none">
+          <div class="rtx_popup__hover">
+            <button
+              class="rtx_popup_label_wrapper row"
+              aria-label="Subscription details"
+              aria-expanded="false"
+              aria-controls="rtx_popup__block__content"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="#191D48"
+                xmlns="http://www.w3.org/2000/svg"
+                class="reload-icon"
+                data-test-popup-icon=""
+              >
+                <path fill="currentColor" d="M13.64 2.35C12.19 0.9 10.2 0 7.99 0C3.57 0 0 3.58 0 8C0 12.42 3.57 16 7.99 16C11.72 16 14.83 13.45 15.72 10H13.64C12.82 12.33 10.6 14 7.99 14C4.68 14 1.99 11.31 1.99 8C1.99 4.69 4.68 2 7.99 2C9.65 2 11.13 2.69 12.21 3.78L8.99 7H15.99V0L13.64 2.35Z"></path>
+              </svg>
+              Subscription details
+            </button>
+            <div class="rtx_popup__block">
+              <div class="rtx_popup__block__content">
+                <b>PAUSE OR CANCEL ANYTIME</b>
+                <p>
+                  We think you'll love Seatopia - your satisfaction is 100% guaranteed. You can pause or cancel anytime.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% if product_type =="featured" %}
+ {% assign product = all_products[product] %}   
+{% endif %}
+
+ {% if product_type =="product-modal" %}
+ {% assign product = all_products[product] %}   
+{% endif %}   
+    {% assign testVariable = current_variant.id | json %}  
+    <script
+      type="text/javascript"
+    >
+  var test = {{ testVariable }};
+  console.log(test,"----testing");
+  document.addEventListener('DOMContentLoaded', () => {
+ console.log("working rtx-pdp");
+    // Fallback for Retextion API if not loaded
+  if (!window.retextionApi) {
+    console.warn('Retextion API not loaded, using fallback');
+    window.retextionApi = {
+      formatMoney: (price) => `$${(price / 100).toFixed(2)}`,
+      sellingPlanPushHistory: () => {},
+      productAdd: () => {}
+    };
+  }
+
+  // Utility to wait for dynamically loaded elements (e.g., Replo components)
+  const waitForElement = (selector, callback, timeout = 5000) => {
+    const start = Date.now();
+    const interval = setInterval(() => {
+      const element = document.querySelector(selector);
+      if (element) {
+        clearInterval(interval);
+        callback(element);
+      } else if (Date.now() - start > timeout) {
+        clearInterval(interval);
+        console.warn(`Element ${selector} not found within ${timeout}ms`);
+      }
+    }, 100);
+  };
+
+  // Initialize buyBox for subscription functionality
+  ((buyBoxes) => {
+    const buyBox = {
+      boxId: "{{ product.id }}-product-" // Matches data-rtx-subscription-<product.id>-product-
+    };
+
+    // Initialize product and variant data
+    buyBox.product = {{ product | json }};
+    buyBox.variantId = {{ product.first_available_variant.id | json }};
+    buyBox.root = null;
+    buyBox.form = null;
+    buyBox.subscriptionBox = null;
+    buyBox.sellingPlanSelector = null;
+    buyBox.quantitySelector = null;
+    buyBox.purchaseType = null;
+    buyBox.variantSelectors = null;
+    buyBox.labelOneTime = null;
+    buyBox.labelSubscription = null;
+    buyBox.cachedSellingPlanId = '';
+
+    // Initialize elements with retries for dynamic rendering
+    const initElements = () => {
+      buyBox.root = document.querySelector(`[data-rtx-subscription-${buyBox.boxId}]`);
+      buyBox.form = buyBox.root?.closest('form[action="/cart/add"]') || 
+                    document.querySelector('form[action="/cart/add"]') || 
+                    document.documentElement;
+      buyBox.subscriptionBox = buyBox.root?.querySelector('[data-retextion-subscription-box]');
+      buyBox.sellingPlanSelector = buyBox.root?.querySelector('[name="selling_plan"]');
+      buyBox.quantitySelector = buyBox.form.querySelector('[name="quantity"]');
+      buyBox.purchaseType = buyBox.form.querySelectorAll('[name="purchaseType"]');
+      buyBox.variantSelectors = buyBox.form.querySelectorAll('[name="id"]');
+      buyBox.labelOneTime = buyBox.form.querySelector('[for="purchaseTypeOneTime"]');
+      buyBox.labelSubscription = buyBox.form.querySelector('[for="purchaseTypeSubscription"]');
+      buyBox.cachedSellingPlanId = buyBox.sellingPlanSelector?.value || '';
+buyBox.removeEmptyOption();
+      // Log initialization status
+      console.log('buyBox initialized:', {
+        root: !!buyBox.root,
+        form: !!buyBox.form,
+        subscriptionBox: !!buyBox.subscriptionBox,
+        sellingPlanSelector: !!buyBox.sellingPlanSelector,
+        variantSelectors: buyBox.variantSelectors?.length || 0
+      });
+    };
+
+    // Wait for root element to ensure Replo or dynamic elements are loaded
+    waitForElement(`[data-rtx-subscription-${buyBox.boxId}]`, () => {
+      initElements();
+      setupEventListeners();
+      buyBox.updateSellingPlan(); // Initial update
+    });
+
+    // Remove empty selling plan option
+    buyBox.removeEmptyOption = () => {
+      if (!buyBox.sellingPlanSelector) return;
+      const optEmpty = buyBox.sellingPlanSelector.querySelectorAll('[value=""]');
+      optEmpty?.forEach(e => e.remove());
+    };
+
+    // Add empty selling plan option for one-time purchase
+    buyBox.addEmptyOption = () => {
+      if (!buyBox.sellingPlanSelector) return;
+      let optEmpty = buyBox.sellingPlanSelector.querySelector('[value=""]');
+      if (optEmpty) return;
+      optEmpty = document.createElement('option');
+      optEmpty.value = '';
+      optEmpty.textContent = 'One-time purchase';
+      buyBox.sellingPlanSelector.appendChild(optEmpty);
+    };
+
+    // Hide subscription box
+    buyBox.hideSubscriptionBox = () => {
+      if (!buyBox.subscriptionBox) return;
+      buyBox.cachedSellingPlanId = buyBox.sellingPlanSelector?.value || '';
+      buyBox.subscriptionBox.classList.remove('is-visible');
+      // buyBox.addEmptyOption();
+      buyBox.sellingPlanSelector.value = '';
+      buyBox.updateSellingPlan();
+      buyBox.labelOneTime?.classList.add('is-selected');
+      buyBox.labelSubscription?.classList.remove('is-selected');
+    };
+
+    // Show subscription box
+    buyBox.showSubscriptionBox = () => {
+      if (!buyBox.subscriptionBox) return;
+      buyBox.subscriptionBox.classList.add('is-visible');
+      buyBox.sellingPlanSelector.value = buyBox.cachedSellingPlanId;
+      buyBox.removeEmptyOption();
+      buyBox.updateSellingPlan();
+      buyBox.labelOneTime?.classList.remove('is-selected');
+      buyBox.labelSubscription?.classList.add('is-selected');
+    };
+
+    // Check if subscription box is visible
+    buyBox.isSubscriptionBoxVisible = () => {
+      return buyBox.subscriptionBox?.classList.contains('is-visible') || false;
+    };
+
+    // Get current selling plan ID
+    buyBox.getSellingPlanId = () => {
+      return parseInt(buyBox.sellingPlanSelector?.value) || 0;
+    };
+
+    // Set selling plan
+    buyBox.setSellingPlan = (sellingPlan) => {
+      if (!buyBox.sellingPlanSelector) return;
+      sellingPlan = sellingPlan && sellingPlan.id ? sellingPlan.id : sellingPlan;
+      buyBox.sellingPlanSelector.value = sellingPlan.toString();
+    };
+
+    // Update selling plan and prices
+    buyBox.updateSellingPlan = () => {
+      try {
+        console.log('updateSellingPlan called, variantId:', buyBox.variantId);
+
+        // Selectors for price display
+        const discountLabels = buyBox.root?.querySelectorAll('[data-rtx-subscription-price]') || [];
+        const percentageOff = buyBox.root?.querySelectorAll('.percentage-off') || [];
+        const fullPriceLabels = buyBox.root?.querySelectorAll('[data-rtx-onetime-price]') || [];
+        const prodPrice = document.querySelector('[data-product-price]') || 
+                         document.querySelector('.product__price') || 
+                         document.querySelector('[id^="Price-"]');
+        const btnPrice = document.querySelector('.btn-price') || 
+                        document.querySelector('.button--primary .btn-text') || 
+                        document.querySelector('[id^="StickyPrice-"]');
+
+        // Get selected variant
+        let variant = buyBox.product.variants.find(v => v.id == buyBox.variantId) || {};
+        const selectElement = document.querySelector('select[name="id"]') || 
+                             document.querySelector('input[name="id"]:checked') || 
+                             document.querySelector('[name="id"]') || 
+                             document.querySelector('[data-replo-variant-select] [name="id"]') || 
+                             document.querySelector('.replo-variant-picker [name="id"]');
+
+        if (selectElement) {
+          const variantSelect = selectElement.tagName === 'SELECT' ? selectElement.selectedOptions[0] : selectElement;
+          console.log('Select Element:', selectElement, 'Variant Select:', variantSelect);
+
+          // Try parsing data-json if available
+          if (variantSelect && variantSelect.getAttribute('data-json')) {
+            try {
+              variant = JSON.parse(variantSelect.getAttribute('data-json')) || variant;
+            } catch (jsonError) {
+              console.warn('Failed to parse variant JSON:', jsonError);
+            }
+          } else if (selectElement.value) {
+            variant = buyBox.product.variants.find(v => v.id == parseInt(selectElement.value)) || variant;
+          }
+        } else {
+          console.warn('No variant selector found, falling back to default variant');
+        }
+        console.log('Selected Variant:', variant);
+
+        // Ensure selling_plan_allocations exists
+        variant.selling_plan_allocations = variant.selling_plan_allocations || [];
+
+        // Get selling plan details
+        const sellingPlanId = buyBox.isSubscriptionBoxVisible() ? buyBox.getSellingPlanId() : undefined;
+        console.log('Selling Plan ID:', sellingPlanId);
+        const sellingPlanAllocation = sellingPlanId
+          ? variant.selling_plan_allocations.find(spa => spa.selling_plan_id == sellingPlanId)
+          : undefined;
+        const firstSellingPlanAllocation = variant.selling_plan_allocations.find(spa => spa.selling_plan_id == buyBox.getSellingPlanId()) ||
+                                          variant.selling_plan_allocations[0] || { price: variant.price || 0 };
+
+        // Calculate discount and percentage
+        let strDiscount = '', strPercentage = '';
+        if (firstSellingPlanAllocation && firstSellingPlanAllocation.price && variant.price && firstSellingPlanAllocation.price != variant.price) {
+          let percentage = Math.round((1.0 - (firstSellingPlanAllocation.price / variant.price)) * 100);
+          if (percentage != 0) {
+            strPercentage = `${percentage.toFixed(0)}%`;
+            strDiscount = `${window.retextionApi.formatMoney(firstSellingPlanAllocation.price)} <del>${window.retextionApi.formatMoney(variant.price)}</del>`;
+          } else {
+            strDiscount = `${window.retextionApi.formatMoney(firstSellingPlanAllocation.price)}`;
+          }
+        } else {
+          strDiscount = variant.price ? window.retextionApi.formatMoney(variant.price) : '';
+        }
+
+        let strFullPrice = variant.price ? window.retextionApi.formatMoney(variant.price) : '';
+
+        // Update price displays
+        percentageOff.forEach(dl => dl.textContent = strPercentage);
+        discountLabels.forEach(dl => dl.innerHTML = strDiscount);
+        fullPriceLabels.forEach(fp => fp.textContent = strFullPrice);
+        setTimeout(function(){
+          
+        
+        const price_addCart = window.retextionApi.formatMoney(firstSellingPlanAllocation.price);
+const getAddToBtn = document.querySelector('product-buy-price'); 
+console.log(price_addCart)
+if (price_addCart && getAddToBtn) {
+  getAddToBtn.textContent = price_addCart;
+  console.log("checkeddddd")
+}
+          },500)
+
+
+        if (buyBox.isSubscriptionBoxVisible() && firstSellingPlanAllocation) {
+          if (btnPrice) btnPrice.innerHTML = window.retextionApi.formatMoney(firstSellingPlanAllocation.price);
+          if (prodPrice) prodPrice.innerHTML = window.retextionApi.formatMoney(firstSellingPlanAllocation.price);
+        } else {
+          if (btnPrice && strFullPrice) btnPrice.innerHTML = strFullPrice;
+          if (prodPrice && strFullPrice) prodPrice.innerHTML = strFullPrice;
+        }
+
+        // Update selling plan history
+        window.retextionApi.sellingPlanPushHistory({ sellingPlan: sellingPlanId });
+
+        // Update subscription frequency display
+        const selectedOption = buyBox.sellingPlanSelector?.querySelector(`[value="${buyBox.sellingPlanSelector.value}"]`);
+        if (selectedOption) {
+          const selectedFrequency = selectedOption.textContent;
+          const subscriptionDay = buyBox.root?.querySelector('.subscription_day');
+          if (subscriptionDay) {
+            if (selectedFrequency.includes('2')) {
+              subscriptionDay.textContent = '60';
+            } else if (selectedFrequency.includes('3')) {
+              subscriptionDay.textContent = '90';
+            } else {
+              subscriptionDay.textContent = '30';
+            }
+          }
+        }
+      } catch (error) {
+        console.error('Error in updateSellingPlan:', error);
+      }
+    };
+
+    // Setup event listeners
+    const setupEventListeners = () => {
+      // Purchase type change (one-time vs subscription)
+      buyBox.purchaseType?.forEach(el => {
+        el.addEventListener('change', e => {
+          console.log('Purchase type changed:', el.value);
+          if (el.value === 'purchaseTypeSubscription') {
+            buyBox.showSubscriptionBox();
+          } else {
+            buyBox.hideSubscriptionBox();
+          }
+        });
+      });
+
+      // Selling plan change
+      if (buyBox.sellingPlanSelector) {
+        buyBox.sellingPlanSelector.addEventListener('change', () => {
+          console.log('Selling plan changed:', buyBox.sellingPlanSelector.value);
+          buyBox.updateSellingPlan();
+        });
+      } else {
+        console.warn('Selling plan selector not found');
+      }
+
+      // Variant change
+      buyBox.variantSelectors?.forEach(vs => {
+        vs.addEventListener('change', e => {
+
+
+          const button = $('#purchaseTypeSubscriptionid');
+          function safeClick() {
+            const scrollTop = $(window).scrollTop();
+            button.trigger('click');
+            $(window).scrollTop(scrollTop);
+          }
+          [0, 500, 510].forEach(function(delay) {
+            setTimeout(safeClick, delay);
+          });
+
+          console.log('Variant changed:', e.target.value);
+          buyBox.variantId = e.target.value;
+          const variant = buyBox.product.variants.find(v => v.id == buyBox.variantId) || {};
+          let selectedPlanId = buyBox.getSellingPlanId();
+          if (!variant.selling_plan_allocations?.some(spa => spa.selling_plan_id == selectedPlanId)) {
+            selectedPlanId = variant.selling_plan_allocations?.[0]?.selling_plan_id || '';
+          }
+          buyBox.setSellingPlan(selectedPlanId);
+
+          // Update selling plan options
+          if (buyBox.sellingPlanSelector) {
+            buyBox.sellingPlanSelector.innerHTML = '';
+            variant.selling_plan_allocations?.forEach(spa => {
+              const sellingGroup = buyBox.product.selling_plan_groups.find(spg => spg.id === spa.selling_plan_group_id);
+              if (sellingGroup?.app_id != {{ retextionAppId | json }}) return;
+              const sellingPlan = sellingGroup.selling_plans.find(sp => sp.id === spa.selling_plan_id);
+              const opt = document.createElement('option');
+              opt.value = sellingPlan.id;
+              opt.textContent = sellingPlan.name || 'Subscription';
+              if (sellingPlan.id == selectedPlanId) opt.setAttribute('selected', 'selected');
+              buyBox.sellingPlanSelector.appendChild(opt);
+            });
+            buyBox.updateSellingPlan();
+          }
+        });
+      });
+
+      // Handle Replo click events
+      document.addEventListener('replo.click', (e) => {
+        const target = e.target.closest('[data-replo-variant-select] [name="id"]');
+        if (target) {
+          console.log('Replo variant click detected:', target.value);
+          buyBox.variantId = target.value;
+          buyBox.updateSellingPlan();
+        }
+      });
+    };
+
+    $(document).on("change", '[name="purchaseType"]', function () {
+  console.log("Purchase type changed:", this.value);
+
+  if (this.value === "purchaseTypeOneTime") {
+    // Activate One-time
+    $(".cstm-purchaseTypeOneTimeid").addClass("active is-selected");
+    $(".cstm-purchaseTypeSubscription").removeClass("active is-selected");
+
+    // Hide subscription UI
+    $(".rtx-subscription-box").removeClass("is-visible");
+
+    // Reset selling plan
+    const sellingPlan = document.querySelector('[name="selling_plan"]');
+    if (sellingPlan) sellingPlan.value = "";
+
+    // Sync with main logic
+    if (typeof buyBox !== "undefined") {
+      buyBox.hideSubscriptionBox();
+    }
+
+  } else {
+    // Activate Subscription
+    $(".cstm-purchaseTypeSubscription").addClass("active is-selected");
+    $(".cstm-purchaseTypeOneTimeid").removeClass("active is-selected");
+
+    // Show subscription UI
+    $(".rtx-subscription-box").addClass("is-visible");
+
+    // Restore selling plan if exists
+    const sellingPlan = document.querySelector('[name="selling_plan"]');
+    if (sellingPlan && !sellingPlan.value) {
+      let firstOption = sellingPlan.querySelector("option");
+      if (firstOption) sellingPlan.value = firstOption.value;
+    }
+
+    // Sync with main logic
+    if (typeof buyBox !== "undefined") {
+      buyBox.showSubscriptionBox();
+    }
+  }
+});
+
+  })();
+}); 
+
+    </script>
+  {%- endif -%}
+{% endunless %}
+
+
+
+

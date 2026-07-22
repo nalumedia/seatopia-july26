@@ -1,0 +1,13 @@
+{%- if block.settings.image -%}
+  <div class="cstm_footer__image" {{ block.shopify_attributes }}>
+    {%- if block.settings.image -%}
+      <div class="cstm-image-footer">
+        {{-
+          block.settings.image
+          | image_url: width: block.settings.image.width
+          | image_tag: loading: 'lazy', widths: widths, sizes: sizes, style: style, preload: true, is: 'lazy-image'
+        -}}
+      </div>
+    {%- endif -%}
+  </div>
+{%- endif -%}
