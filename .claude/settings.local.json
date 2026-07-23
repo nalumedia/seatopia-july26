@@ -14,7 +14,11 @@
       "Bash(python3 -)",
       "Bash(awk '{print $5, $9}')",
       "Bash(python3 -c \"import json;d=json.load\\(open\\('config/settings_data.json'\\)\\)['current'];print\\('heading:',d.get\\('type_heading_font'\\),'| body:',d.get\\('type_body_font'\\)\\)\")",
-      "Bash(grep -nA6 -E \"^\\\\.heading[ ,\\\\{]\" assets/theme.css)"
+      "Bash(grep -nA6 -E \"^\\\\.heading[ ,\\\\{]\" assets/theme.css)",
+      "mcp__claude_ai_Shopify__search_docs_chunks",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "mcp__claude_ai_Shopify__graphql_query"
     ]
   }
 }
