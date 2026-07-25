@@ -18,7 +18,14 @@
       "mcp__claude_ai_Shopify__search_docs_chunks",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "mcp__claude_ai_Shopify__graphql_query"
+      "mcp__claude_ai_Shopify__graphql_query",
+      "mcp__claude_ai_Heatmap_MCP__get_active_site",
+      "mcp__claude_ai_Heatmap_MCP__list_sites",
+      "Bash(grep -v ':0$')",
+      "Bash(mktemp -d)",
+      "Bash(curl -s -H 'Accept-Encoding: gzip' -o __CMDSUB_OUTPUT__/oaiq.gz -w 'wire_transfer_gzip=%{size_download} bytes\\\\n' https://bzrcdn.openai.com/sdk/oaiq.min.js)",
+      "Bash(curl -s --compressed -o __CMDSUB_OUTPUT__/oaiq.js -w 'decoded_size=%{size_download} bytes\\\\n' https://bzrcdn.openai.com/sdk/oaiq.min.js)",
+      "Bash(grep -oaE 'oaiq\\\\.min\\\\.js|/sdk/[a-zA-Z0-9._-]+\\\\.js|createElement\\\\\\(.script.\\\\\\)|bzrcdn\\\\.openai\\\\.com' __CMDSUB_OUTPUT__/oaiq.js)"
     ]
   }
 }

@@ -133,17 +133,6 @@
       </script>
  <!-- end magic links -->
 
-    <!-- Begin OpenAI Ads Measurement Pixel (base) -->
-    <script>
-      window.oaiq = window.oaiq || function () {
-        (window.oaiq.q = window.oaiq.q || []).push(arguments);
-      };
-      oaiq("init", { pixelId: "AuoyzYEEgsYQm9rGgehzmm" });
-    </script>
-    <script async src="https://bzrcdn.openai.com/sdk/oaiq.min.js"></script>
-    <!-- End OpenAI Ads Measurement Pixel (base) -->
-
-
     <!-- Begin Instant -->
     <script>
       const ensureInstantJS=()=>{window.InstantJS||(window.InstantJS={}),window.InstantJS.track||(window.InstantJS.trackQueue=[],window.InstantJS.track=function(){window.InstantJS.trackQueue.push(arguments)})};ensureInstantJS();const trackEvent=(()=>{const t=new Set;return e=>{const n=JSON.stringify(e);t.has(n)||!e[0].includes("track")||(t.add(n),window.InstantJS.track("MARKETING_PIXEL_EVENT_FIRED",[{event:e,provider:"META_PLATFORMS"}]))}})();(function(){const e=()=>{if(window.fbq?.callMethod){const t=window.fbq,e=function(){trackEvent([...arguments]),t.apply(this,arguments)};for(const n in t)t.hasOwnProperty(n)&&(e[n]=t[n]);window.fbq=e}else setTimeout(e,1)},t=()=>{const{_fbq:e}=window;if(e&&e.queue){e.queue.forEach(t=>trackEvent([...t]));const n=e.queue.push;e.queue.push=function(...t){trackEvent([...t[0]]);return n.apply(e.queue,t)}}else setTimeout(t,1)};e(),t()})();
