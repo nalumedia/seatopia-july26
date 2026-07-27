@@ -174,8 +174,10 @@
     {%- endif -%}
 
     {%- if show_account and shop.customer_accounts_enabled -%}
-      <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="hidden lg:flex items-center justify-center" is="magnet-link" rel="nofollow">
-        <span class="sr-only">
+      {% comment %} <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="hidden lg:flex items-center justify-center" is="magnet-link" rel="nofollow"> {% endcomment %}
+      <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="flex items-center justify-center" is="magnet-link" rel="nofollow">
+ 
+      <span class="sr-only">
           {%- liquid
             if customer
               echo 'customer.account.title' | t
