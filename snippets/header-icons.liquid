@@ -198,12 +198,12 @@
       </a>
     {%- endif -%}
 
-    {% comment %} {%- if show_hamburger -%}
+    {%- if show_hamburger -%}
       <button class="menu-drawer-button flex items-center justify-center ---mbile" type="button" is="magnet-button" aria-controls="MenuDrawer" aria-expanded="false">
         <span class="sr-only">{{ 'general.drawers.navigation' | t }}</span>
         {%- render 'icon', icon: 'hamburger', size: 'lg' -%}
       </button>
-    {%- endif -%} {% endcomment %}
+    {%- endif -%}
     
   </div>
 </div>
