@@ -74,7 +74,7 @@
 
 <header data-section-id="{{ section.id }}" class="header header--{{ header_layout }} mobile:header--{{ section.settings.logo_position_mobile }} page-width{% if section.settings.full_width %} page-width--full{% endif %} section{% if section.settings.rounded %} section--rounded{% endif %} section--padding grid items-center z-20 relative w-full"{% if section.settings.sticky_header_type != 'none' %} is="sticky-header" data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %} is="custom-header"{% endif %}>
   {%- liquid
-    render 'header-icons', show_search: true, show_hamburger: true, show_toggle: show_toggle, dir: 'start'
+    render 'header-icons', show_search: true,  show_account: true, show_hamburger: true, show_toggle: show_toggle, dir: 'start'
 
     if header_layout != 'center-left' and header_layout != 'center-split'
       render 'header-logo'
