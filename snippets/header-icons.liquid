@@ -198,12 +198,45 @@
       </a>
     {%- endif -%}
 
-    {%- if show_hamburger -%}
+    {% comment %} {%- if show_hamburger -%}
       <button class="menu-drawer-button flex items-center justify-center ---mbile" type="button" is="magnet-button" aria-controls="MenuDrawer" aria-expanded="false">
         <span class="sr-only">{{ 'general.drawers.navigation' | t }}</span>
         {%- render 'icon', icon: 'hamburger', size: 'lg' -%}
       </button>
-    {%- endif -%}
+    {%- endif -%} {% endcomment %}
+
+    {%- if show_hamburger -%}
+  <button
+    class="menu-drawer-button flex items-center justify-center --mbile"
+    type="button"
+    is="magnet-button"
+    aria-controls="MenuDrawer"
+    aria-expanded="false">
+    <span class="sr-only">{{ 'general.drawers.navigation' | t }}</span>
+    {%- render 'icon', icon: 'hamburger', size: 'lg' -%}
+  </button>
+
+  {%- if show_account and shop.customer_accounts_enabled -%}
+    <a
+      href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+      class="flex lg:hidden items-center justify-center"
+      is="magnet-link"
+      rel="nofollow">
+
+      <span class="sr-only">
+        {%- liquid
+          if customer
+            echo 'customer.account.title' | t
+          else
+            echo 'customer.login.title' | t
+          endif
+        -%}
+      </span>
+
+      {%- render 'icon', icon: 'account', size: 'lg' -%}
+    </a>
+  {%- endif -%}
+{%- endif -%}
     
   </div>
 </div>
