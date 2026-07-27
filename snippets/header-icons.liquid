@@ -204,5 +204,25 @@
         {%- render 'icon', icon: 'hamburger', size: 'lg' -%}
       </button>
     {%- endif -%}
+    {%- if show_account and shop.customer_accounts_enabled -%}
+  <a
+    href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+    class="flex lg:hidden items-center justify-center"
+    is="magnet-link"
+    rel="nofollow">
+
+    <span class="sr-only">
+      {%- liquid
+        if customer
+          echo 'customer.account.title' | t
+        else
+          echo 'customer.login.title' | t
+        endif
+      -%}
+    </span>
+
+    {%- render 'icon', icon: 'account', size: 'lg' -%}
+  </a>
+{%- endif -%}
   </div>
 </div>
