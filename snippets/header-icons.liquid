@@ -174,8 +174,8 @@
     {%- endif -%}
 
     {%- if show_account and shop.customer_accounts_enabled -%}
-      {% comment %} <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="hidden lg:flex items-center justify-center" is="magnet-link" rel="nofollow"> {% endcomment %}
-      <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="flex items-center justify-center" is="magnet-link" rel="nofollow">
+      <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="hidden lg:flex items-center justify-center" is="magnet-link" rel="nofollow">
+      {% comment %} <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="flex items-center justify-center" is="magnet-link" rel="nofollow"> {% endcomment %}
  
       <span class="sr-only">
           {%- liquid
