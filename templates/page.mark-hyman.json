@@ -592,7 +592,7 @@
             "button_link": "https://seatopia.fish/blogs/seafood-recipes/broiled-miso-salmon-bowl-sushi-rice-avocado",
             "button_style": "primary",
             "button_size": "md",
-            "button_external": false,
+            "button_external": true,
             "button_icon": false
           }
         }
@@ -615,6 +615,7 @@
         "text_alignment": "left",
         "content_position": "align-self-center",
         "video_mobile": "shopify://files/videos/98876DE4-2464-47AB-A927-10066D3FD784.mov",
+        "video_url_mobile": "",
         "image_height_mobile": "auto",
         "text_alignment_mobile": "left",
         "color_text": "",
