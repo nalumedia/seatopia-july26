@@ -560,10 +560,10 @@
         "rounded": true
       }
     },
-    "image_with_text_6B4LCL": {
-      "type": "image-with-text",
+    "video_with_text_TJNVqG": {
+      "type": "video-with-text",
       "blocks": {
-        "heading_qXAC3i": {
+        "heading_NMXH7U": {
           "type": "heading",
           "settings": {
             "heading": "Mark's favorite recipe",
@@ -573,10 +573,10 @@
             "highlighted_scribble": "circle"
           }
         },
-        "text_a3VCAT": {
+        "text_Cw4Q3b": {
           "type": "text",
           "settings": {
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text": "<p>Mark knows that food is medicine, and this Nobu-Style Miso-Glazed King Salmon is one of his go-to recipes for putting that philosophy into practice. </p><p>Our King Salmon is marinated for 48 hours in saké, miso, and coconut sugar until it turns deeply caramelized, then broiled and built into a bento box with sushi rice, blanched broccolini, pickled red onions, avocado, and salmon roe. A complete, nutrient-dense meal that holds up beautifully whether served warm or at room temperature. </p><p>It's the kind of dish that makes Mark's meal-prep rhythm effortless: marinate once, and you've got a week of restaurant-quality, omega-3-rich lunches and dinners ready to go.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -585,32 +585,36 @@
             "highlighted_scribble": "circle"
           }
         },
-        "button_yXYFpT": {
+        "button_AUn8PA": {
           "type": "button",
           "settings": {
-            "button_label": "Button label",
-            "button_link": "",
+            "button_label": "Get the recipe",
+            "button_link": "https://seatopia.fish/blogs/seafood-recipes/broiled-miso-salmon-bowl-sushi-rice-avocado",
             "button_style": "primary",
             "button_size": "md",
             "button_external": false,
-            "button_icon": true
+            "button_icon": false
           }
         }
       },
       "block_order": [
-        "heading_qXAC3i",
-        "text_a3VCAT",
-        "button_yXYFpT"
+        "heading_NMXH7U",
+        "text_Cw4Q3b",
+        "button_AUn8PA"
       ],
-      "disabled": true,
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "t:sections.video-with-text.presets.name",
       "settings": {
-        "custom_class": "",
-        "image_height": "650px",
-        "image_width": "medium",
-        "layout": "image_first",
+        "video": "shopify://files/videos/98876DE4-2464-47AB-A927-10066D3FD784.mov",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "enable_video_autoplay": false,
+        "enable_video_looping": false,
+        "image_height": "750px",
+        "video_width": "small",
+        "layout": "video_first",
         "text_alignment": "left",
         "content_position": "align-self-center",
+        "video_mobile": "shopify://files/videos/98876DE4-2464-47AB-A927-10066D3FD784.mov",
         "image_height_mobile": "auto",
         "text_alignment_mobile": "left",
         "color_text": "",
@@ -628,7 +632,7 @@
         "divider": false,
         "full_width": false,
         "rounded": false,
-        "enable_parallax": true,
+        "enable_parallax": false,
         "parallax_direction": "vertical"
       }
     },
@@ -1523,7 +1527,7 @@
     "s2_hook",
     "s1_hero_overlay",
     "featured_product_WTfyAg",
-    "image_with_text_6B4LCL",
+    "video_with_text_TJNVqG",
     "s7_proof",
     "image_with_text_688xHz",
     "s4_standard",
