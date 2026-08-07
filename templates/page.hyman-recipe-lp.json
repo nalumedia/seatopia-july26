@@ -1,0 +1,1096 @@
+{
+  "sections": {
+    "announce_bar": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_8fca562_hymanrec": {
+          "type": "ai_gen_block_8fca562",
+          "settings": {
+            "message": "<p>Free shipping on your first box with code HYMAN 🎁</p>",
+            "link": "https://seatopia.fish/discount/HYMAN?redirect=/products/salmon-box",
+            "desktop_width_percent": 100,
+            "background_color": "#bb8f50",
+            "text_color": "#ffffff",
+            "link_color": "#ffffff",
+            "font_size": 15,
+            "font_weight": "500",
+            "padding_vertical": 12,
+            "padding_horizontal": 20
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_8fca562_hymanrec"
+      ],
+      "settings": {}
+    },
+    "s1_hero": {
+      "type": "image-with-text",
+      "blocks": {
+        "hero_eyebrow": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Mark&rsquo;s Kitchen &times; Seatopia</strong></p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "hero_h": {
+          "type": "heading",
+          "settings": {
+            "heading": "The miso-glazed salmon from Mark&rsquo;s Kitchen &mdash; and the only seafood Dr. Mark Hyman personally verified.",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h1",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "hero_t": {
+          "type": "text",
+          "settings": {
+            "text": "<p>You came for the recipe. It&rsquo;s right below, in full.</p><p>The reason it works is the fish: one filet of Seatopia King Salmon delivers <strong>3,414 mg of lab-verified EPA + DHA</strong>, with a published Certificate of Analysis for mercury, microplastics, and omega-3s on <em>every batch</em>. Not estimated. Measured.</p>",
+            "text_size": "subtext-lg",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "hero_cta": {
+          "type": "button",
+          "settings": {
+            "button_label": "Get the recipe",
+            "button_link": "#recipe",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        },
+        "hero_cta2": {
+          "type": "button",
+          "settings": {
+            "button_label": "See the lab results",
+            "button_link": "#lab-results",
+            "button_style": "secondary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "hero_eyebrow",
+        "hero_h",
+        "hero_t",
+        "hero_cta",
+        "hero_cta2"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/Untitled_design_1.png",
+        "image_height": "750px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "350px",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 72,
+        "padding_bottom": 48,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "s2_proof_chips": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "",
+        "liquid": "\n<style>\n  .sea-hlp { --ink:#171717; --muted:#5c5c5c; --line:#e5e2dc; --gold:#bb8f50;\n             --wash:#faf8f4; max-width:1100px; margin:0 auto; padding:0 20px;\n             color:var(--ink); }\n  .sea-hlp *{box-sizing:border-box;}\n  .sea-hlp h2,.sea-hlp h3,.sea-hlp h4{margin:0 0 .5em;line-height:1.15;}\n  .sea-hlp p{margin:0 0 1em;line-height:1.6;}\n  .sea-hlp a{color:inherit;}\n\n  /* --- proof chip bar --- */\n  .sea-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}\n  .sea-chip{border:1px solid var(--line);border-radius:999px;\n            padding:9px 16px;font-size:14px;line-height:1.3;background:#fff;\n            display:flex;align-items:center;gap:8px;}\n  .sea-chip b{font-weight:600;}\n  .sea-chip-note{display:block;text-align:center;font-size:13px;\n                 color:var(--muted);margin-top:14px;}\n\n  /* --- recipe card --- */\n  .sea-recipe{border:1px solid var(--line);border-radius:14px;background:#fff;\n              overflow:hidden;}\n  .sea-recipe-head{padding:32px 32px 24px;border-bottom:1px solid var(--line);}\n  .sea-eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;\n               color:var(--gold);font-weight:600;margin:0 0 10px;}\n  .sea-recipe-meta{display:flex;flex-wrap:wrap;gap:0;margin:20px 0 0;\n                   border-top:1px solid var(--line);padding-top:20px;}\n  .sea-recipe-meta div{flex:1 1 120px;min-width:110px;}\n  .sea-recipe-meta dt{font-size:12px;letter-spacing:.1em;text-transform:uppercase;\n                      color:var(--muted);margin:0 0 4px;}\n  .sea-recipe-meta dd{margin:0;font-size:17px;font-weight:600;}\n  .sea-recipe-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);}\n  .sea-ing{padding:32px;background:var(--wash);border-right:1px solid var(--line);}\n  .sea-ing h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;\n              color:var(--muted);margin:24px 0 10px;}\n  .sea-ing h4:first-of-type{margin-top:16px;}\n  .sea-ing ul{list-style:none;margin:0;padding:0;}\n  .sea-ing li{padding:7px 0;border-bottom:1px solid var(--line);font-size:15px;}\n  .sea-ing li:last-child{border-bottom:0;}\n  .sea-steps{padding:32px;}\n  .sea-steps ol{margin:0;padding:0;counter-reset:s;list-style:none;}\n  .sea-steps li{counter-increment:s;position:relative;padding:0 0 20px 44px;\n                font-size:15px;line-height:1.55;}\n  .sea-steps li::before{content:counter(s);position:absolute;left:0;top:-2px;\n        width:29px;height:29px;border-radius:50%;background:var(--ink);\n        color:#fff;font-size:13px;font-weight:600;display:flex;\n        align-items:center;justify-content:center;}\n  .sea-recipe-foot{padding:24px 32px;border-top:1px solid var(--line);\n                   display:flex;flex-wrap:wrap;gap:16px;align-items:center;\n                   justify-content:space-between;}\n  .sea-btn{display:inline-block;background:var(--ink);color:#fff;\n           text-decoration:none;padding:14px 26px;border-radius:8px;\n           font-size:15px;font-weight:600;}\n  .sea-btn-ghost{background:transparent;color:var(--ink);\n                 border:1px solid var(--ink);}\n  .sea-note{background:var(--wash);border-left:3px solid var(--gold);\n            padding:18px 22px;margin:24px 0 0;font-size:15px;border-radius:0 8px 8px 0;}\n\n  /* --- comparison table --- */\n  .sea-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}\n  .sea-table{width:100%;min-width:720px;border-collapse:collapse;font-size:15px;}\n  .sea-table th,.sea-table td{padding:14px 16px;text-align:left;\n        border-bottom:1px solid var(--line);vertical-align:top;}\n  .sea-table thead th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;\n        color:var(--muted);font-weight:600;border-bottom:2px solid var(--ink);}\n  .sea-table thead th:first-child{width:26%;}\n  .sea-table .sea-us{background:var(--wash);font-weight:600;}\n  .sea-table thead .sea-us{color:var(--ink);}\n  .sea-table tbody th{font-weight:500;color:var(--muted);}\n  .sea-y::before{content:\"\\2713\";color:#2f7d4f;font-weight:700;margin-right:7px;}\n  .sea-n::before{content:\"\\2717\";color:#b23b3b;font-weight:700;margin-right:7px;}\n  .sea-table-foot{font-size:13px;color:var(--muted);margin-top:14px;}\n\n  /* --- data room --- */\n  .sea-dr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));\n               gap:14px;margin:0 0 28px;}\n  .sea-dr-stat{border:1px solid var(--line);border-radius:12px;padding:20px;\n               background:#fff;}\n  .sea-dr-stat .n{font-size:30px;font-weight:700;line-height:1.05;\n                  display:block;margin-bottom:6px;}\n  .sea-dr-stat .l{font-size:13px;color:var(--muted);line-height:1.4;display:block;}\n\n  @media (max-width:749px){\n    .sea-recipe-body{grid-template-columns:1fr;}\n    .sea-ing{border-right:0;border-bottom:1px solid var(--line);}\n    .sea-recipe-head,.sea-ing,.sea-steps,.sea-recipe-foot{padding:24px 20px;}\n    .sea-recipe-foot{flex-direction:column;align-items:stretch;}\n    .sea-recipe-foot .sea-btn{text-align:center;}\n  }\n</style>\n\n<div class=\"sea-hlp\">\n  <div class=\"sea-chips\">\n    <span class=\"sea-chip\"><b>3,414 mg</b> verified EPA + DHA per serving</span>\n    <span class=\"sea-chip\"><b>&lt;0.1 ppm</b> mercury &mdash; 10&times; under the FDA action level</span>\n    <span class=\"sea-chip\"><b>0</b> detectable microplastics</span>\n    <span class=\"sea-chip\"><b>Certificate of Analysis</b> published every batch</span>\n  </div>\n  <span class=\"sea-chip-note\">\n    Independently tested by Light Labs and Edacious.\n    <a href=\"#lab-results\">See this batch's numbers &rarr;</a>\n  </span>\n</div>\n",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 56,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "s3_recipe": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "recipe",
+        "liquid": "\n<style>\n  .sea-hlp { --ink:#171717; --muted:#5c5c5c; --line:#e5e2dc; --gold:#bb8f50;\n             --wash:#faf8f4; max-width:1100px; margin:0 auto; padding:0 20px;\n             color:var(--ink); }\n  .sea-hlp *{box-sizing:border-box;}\n  .sea-hlp h2,.sea-hlp h3,.sea-hlp h4{margin:0 0 .5em;line-height:1.15;}\n  .sea-hlp p{margin:0 0 1em;line-height:1.6;}\n  .sea-hlp a{color:inherit;}\n\n  /* --- proof chip bar --- */\n  .sea-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}\n  .sea-chip{border:1px solid var(--line);border-radius:999px;\n            padding:9px 16px;font-size:14px;line-height:1.3;background:#fff;\n            display:flex;align-items:center;gap:8px;}\n  .sea-chip b{font-weight:600;}\n  .sea-chip-note{display:block;text-align:center;font-size:13px;\n                 color:var(--muted);margin-top:14px;}\n\n  /* --- recipe card --- */\n  .sea-recipe{border:1px solid var(--line);border-radius:14px;background:#fff;\n              overflow:hidden;}\n  .sea-recipe-head{padding:32px 32px 24px;border-bottom:1px solid var(--line);}\n  .sea-eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;\n               color:var(--gold);font-weight:600;margin:0 0 10px;}\n  .sea-recipe-meta{display:flex;flex-wrap:wrap;gap:0;margin:20px 0 0;\n                   border-top:1px solid var(--line);padding-top:20px;}\n  .sea-recipe-meta div{flex:1 1 120px;min-width:110px;}\n  .sea-recipe-meta dt{font-size:12px;letter-spacing:.1em;text-transform:uppercase;\n                      color:var(--muted);margin:0 0 4px;}\n  .sea-recipe-meta dd{margin:0;font-size:17px;font-weight:600;}\n  .sea-recipe-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);}\n  .sea-ing{padding:32px;background:var(--wash);border-right:1px solid var(--line);}\n  .sea-ing h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;\n              color:var(--muted);margin:24px 0 10px;}\n  .sea-ing h4:first-of-type{margin-top:16px;}\n  .sea-ing ul{list-style:none;margin:0;padding:0;}\n  .sea-ing li{padding:7px 0;border-bottom:1px solid var(--line);font-size:15px;}\n  .sea-ing li:last-child{border-bottom:0;}\n  .sea-steps{padding:32px;}\n  .sea-steps ol{margin:0;padding:0;counter-reset:s;list-style:none;}\n  .sea-steps li{counter-increment:s;position:relative;padding:0 0 20px 44px;\n                font-size:15px;line-height:1.55;}\n  .sea-steps li::before{content:counter(s);position:absolute;left:0;top:-2px;\n        width:29px;height:29px;border-radius:50%;background:var(--ink);\n        color:#fff;font-size:13px;font-weight:600;display:flex;\n        align-items:center;justify-content:center;}\n  .sea-recipe-foot{padding:24px 32px;border-top:1px solid var(--line);\n                   display:flex;flex-wrap:wrap;gap:16px;align-items:center;\n                   justify-content:space-between;}\n  .sea-btn{display:inline-block;background:var(--ink);color:#fff;\n           text-decoration:none;padding:14px 26px;border-radius:8px;\n           font-size:15px;font-weight:600;}\n  .sea-btn-ghost{background:transparent;color:var(--ink);\n                 border:1px solid var(--ink);}\n  .sea-note{background:var(--wash);border-left:3px solid var(--gold);\n            padding:18px 22px;margin:24px 0 0;font-size:15px;border-radius:0 8px 8px 0;}\n\n  /* --- comparison table --- */\n  .sea-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}\n  .sea-table{width:100%;min-width:720px;border-collapse:collapse;font-size:15px;}\n  .sea-table th,.sea-table td{padding:14px 16px;text-align:left;\n        border-bottom:1px solid var(--line);vertical-align:top;}\n  .sea-table thead th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;\n        color:var(--muted);font-weight:600;border-bottom:2px solid var(--ink);}\n  .sea-table thead th:first-child{width:26%;}\n  .sea-table .sea-us{background:var(--wash);font-weight:600;}\n  .sea-table thead .sea-us{color:var(--ink);}\n  .sea-table tbody th{font-weight:500;color:var(--muted);}\n  .sea-y::before{content:\"\\2713\";color:#2f7d4f;font-weight:700;margin-right:7px;}\n  .sea-n::before{content:\"\\2717\";color:#b23b3b;font-weight:700;margin-right:7px;}\n  .sea-table-foot{font-size:13px;color:var(--muted);margin-top:14px;}\n\n  /* --- data room --- */\n  .sea-dr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));\n               gap:14px;margin:0 0 28px;}\n  .sea-dr-stat{border:1px solid var(--line);border-radius:12px;padding:20px;\n               background:#fff;}\n  .sea-dr-stat .n{font-size:30px;font-weight:700;line-height:1.05;\n                  display:block;margin-bottom:6px;}\n  .sea-dr-stat .l{font-size:13px;color:var(--muted);line-height:1.4;display:block;}\n\n  @media (max-width:749px){\n    .sea-recipe-body{grid-template-columns:1fr;}\n    .sea-ing{border-right:0;border-bottom:1px solid var(--line);}\n    .sea-recipe-head,.sea-ing,.sea-steps,.sea-recipe-foot{padding:24px 20px;}\n    .sea-recipe-foot{flex-direction:column;align-items:stretch;}\n    .sea-recipe-foot .sea-btn{text-align:center;}\n  }\n</style>\n\n<div class=\"sea-hlp\">\n  <div class=\"sea-recipe\">\n\n    <div class=\"sea-recipe-head\">\n      <p class=\"sea-eyebrow\">Mark&rsquo;s Kitchen &times; Seatopia</p>\n      <h2 style=\"font-size:34px;\">Nobu-Style Miso-Glazed King Salmon Bento Box</h2>\n      <p style=\"max-width:66ch;color:var(--muted);\">\n        Marinated 48 hours in sak&eacute;, miso, and coconut sugar, then broiled until\n        the edges caramelize. It is just as good at room temperature as it is warm,\n        which is what makes it one of our favorite proteins to prep ahead for the week.\n      </p>\n      <dl class=\"sea-recipe-meta\">\n        <div><dt>Marinate</dt><dd>48 hours</dd></div>\n        <div><dt>Broil</dt><dd>10 minutes</dd></div>\n        <div><dt>Serves</dt><dd>4 bento boxes</dd></div>\n        <div><dt>Recipe by</dt><dd>Chef Miriam Thom</dd></div>\n      </dl>\n    </div>\n\n    <div class=\"sea-recipe-body\">\n      <div class=\"sea-ing\">\n        <h4>For the salmon</h4>\n        <ul>\n          <li>4 King Salmon fillets, defrosted</li>\n          <li>&frac12; cup organic sak&eacute;</li>\n          <li>&frac14; cup organic miso paste</li>\n          <li>2 tbsp organic coconut sugar</li>\n        </ul>\n        <h4>For the bento boxes</h4>\n        <ul>\n          <li>1 cup cooked organic sushi rice</li>\n          <li>1 bunch organic purple broccolini, blanched</li>\n          <li>1 organic avocado, sliced</li>\n          <li>&frac12; cup organic pickled red onions</li>\n          <li>2 tbsp organic scallions, chopped</li>\n          <li>A spoonful of salmon roe</li>\n        </ul>\n      </div>\n\n      <div class=\"sea-steps\">\n        <ol>\n          <li><b>Build the glaze.</b> Simmer the sak&eacute; over medium heat, whisk in the\n              miso until dissolved, then add the coconut sugar. Reduce by half,\n              about 10 minutes, stirring so it does not catch.</li>\n          <li><b>Cool it completely.</b> Transfer to a shallow bowl and refrigerate\n              10&ndash;15 minutes. Warm marinade starts cooking the fish &mdash; do not skip this.</li>\n          <li><b>Prep the fillets.</b> Rinse under cold water, pat dry, and run your\n              fingers over the flesh to find any pin bones. Tweezers for strays.</li>\n          <li><b>Marinate 48 hours.</b> Coat every side, cover, refrigerate, and turn\n              once at the halfway mark.</li>\n          <li><b>Broil about 5 minutes.</b> Scrape the excess marinade, brush on a thin\n              fresh layer, and broil until the edges go deep golden. Pull at\n              <b>130&deg;F</b> and rotate the pan halfway through.</li>\n          <li><b>Rest, then build.</b> Five minutes of carryover brings it to roughly\n              150&deg;F. Layer rice, broccolini, avocado, and pickled onions, set the\n              salmon on top, and finish with roe and scallions.</li>\n        </ol>\n        <div class=\"sea-note\">\n          <b>Our meal-prep rhythm:</b> defrost Friday morning, marinate Friday evening,\n          build the boxes Sunday. A little rhythm now means effortless meals all week.\n        </div>\n      </div>\n    </div>\n\n    <div class=\"sea-recipe-foot\">\n      <a class=\"sea-btn sea-btn-ghost\" href=\"/blogs/seafood-recipes/broiled-miso-salmon-bowl-sushi-rice-avocado\">\n        Full recipe, step-by-step photos &amp; video &rarr;\n      </a>\n      <a class=\"sea-btn\" href=\"#boxes\">Get the salmon &rarr;</a>\n    </div>\n\n  </div>\n</div>\n",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 8,
+        "padding_bottom": 72,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "s4_bridge": {
+      "type": "image-with-text",
+      "blocks": {
+        "br_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "The one ingredient you can't buy at the grocery store",
+            "subheading_size": "subtitle-md",
+            "secondary_color": false
+          }
+        },
+        "br_h": {
+          "type": "heading",
+          "settings": {
+            "heading": "A 48-hour marinade is only as good as the fish under it.",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "br_t": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This recipe leans on a long cure and a hard broil. That is unforgiving on a mediocre fillet &mdash; and spectacular on a great one.</p><p>Seatopia King Salmon comes from <a href=\"/pages/mt-cook-alpine-salmon\" title=\"Mt. Cook Alpine King Salmon\">Mt. Cook Alpine Salmon</a>, raised in glacier-fed freshwater canals in New Zealand&rsquo;s Southern Alps &mdash; no antibiotics, no hormones, constantly flowing alpine water. That is where the fat marbling comes from, and the marbling is what caramelizes.</p><p>It is sushi-grade, so the same filet you broil tonight can be sliced raw tomorrow.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "br_b": {
+          "type": "button",
+          "settings": {
+            "button_label": "See what's in the box",
+            "button_link": "#boxes",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "br_sub",
+        "br_h",
+        "br_t",
+        "br_b"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/king_salmon_3.png",
+        "image_height": "700px",
+        "image_width": "large",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "300px",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": false,
+        "parallax_direction": "vertical"
+      }
+    },
+    "s5_data_room": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "lab-results",
+        "liquid": "\n<style>\n  .sea-hlp { --ink:#171717; --muted:#5c5c5c; --line:#e5e2dc; --gold:#bb8f50;\n             --wash:#faf8f4; max-width:1100px; margin:0 auto; padding:0 20px;\n             color:var(--ink); }\n  .sea-hlp *{box-sizing:border-box;}\n  .sea-hlp h2,.sea-hlp h3,.sea-hlp h4{margin:0 0 .5em;line-height:1.15;}\n  .sea-hlp p{margin:0 0 1em;line-height:1.6;}\n  .sea-hlp a{color:inherit;}\n\n  /* --- proof chip bar --- */\n  .sea-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}\n  .sea-chip{border:1px solid var(--line);border-radius:999px;\n            padding:9px 16px;font-size:14px;line-height:1.3;background:#fff;\n            display:flex;align-items:center;gap:8px;}\n  .sea-chip b{font-weight:600;}\n  .sea-chip-note{display:block;text-align:center;font-size:13px;\n                 color:var(--muted);margin-top:14px;}\n\n  /* --- recipe card --- */\n  .sea-recipe{border:1px solid var(--line);border-radius:14px;background:#fff;\n              overflow:hidden;}\n  .sea-recipe-head{padding:32px 32px 24px;border-bottom:1px solid var(--line);}\n  .sea-eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;\n               color:var(--gold);font-weight:600;margin:0 0 10px;}\n  .sea-recipe-meta{display:flex;flex-wrap:wrap;gap:0;margin:20px 0 0;\n                   border-top:1px solid var(--line);padding-top:20px;}\n  .sea-recipe-meta div{flex:1 1 120px;min-width:110px;}\n  .sea-recipe-meta dt{font-size:12px;letter-spacing:.1em;text-transform:uppercase;\n                      color:var(--muted);margin:0 0 4px;}\n  .sea-recipe-meta dd{margin:0;font-size:17px;font-weight:600;}\n  .sea-recipe-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);}\n  .sea-ing{padding:32px;background:var(--wash);border-right:1px solid var(--line);}\n  .sea-ing h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;\n              color:var(--muted);margin:24px 0 10px;}\n  .sea-ing h4:first-of-type{margin-top:16px;}\n  .sea-ing ul{list-style:none;margin:0;padding:0;}\n  .sea-ing li{padding:7px 0;border-bottom:1px solid var(--line);font-size:15px;}\n  .sea-ing li:last-child{border-bottom:0;}\n  .sea-steps{padding:32px;}\n  .sea-steps ol{margin:0;padding:0;counter-reset:s;list-style:none;}\n  .sea-steps li{counter-increment:s;position:relative;padding:0 0 20px 44px;\n                font-size:15px;line-height:1.55;}\n  .sea-steps li::before{content:counter(s);position:absolute;left:0;top:-2px;\n        width:29px;height:29px;border-radius:50%;background:var(--ink);\n        color:#fff;font-size:13px;font-weight:600;display:flex;\n        align-items:center;justify-content:center;}\n  .sea-recipe-foot{padding:24px 32px;border-top:1px solid var(--line);\n                   display:flex;flex-wrap:wrap;gap:16px;align-items:center;\n                   justify-content:space-between;}\n  .sea-btn{display:inline-block;background:var(--ink);color:#fff;\n           text-decoration:none;padding:14px 26px;border-radius:8px;\n           font-size:15px;font-weight:600;}\n  .sea-btn-ghost{background:transparent;color:var(--ink);\n                 border:1px solid var(--ink);}\n  .sea-note{background:var(--wash);border-left:3px solid var(--gold);\n            padding:18px 22px;margin:24px 0 0;font-size:15px;border-radius:0 8px 8px 0;}\n\n  /* --- comparison table --- */\n  .sea-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}\n  .sea-table{width:100%;min-width:720px;border-collapse:collapse;font-size:15px;}\n  .sea-table th,.sea-table td{padding:14px 16px;text-align:left;\n        border-bottom:1px solid var(--line);vertical-align:top;}\n  .sea-table thead th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;\n        color:var(--muted);font-weight:600;border-bottom:2px solid var(--ink);}\n  .sea-table thead th:first-child{width:26%;}\n  .sea-table .sea-us{background:var(--wash);font-weight:600;}\n  .sea-table thead .sea-us{color:var(--ink);}\n  .sea-table tbody th{font-weight:500;color:var(--muted);}\n  .sea-y::before{content:\"\\2713\";color:#2f7d4f;font-weight:700;margin-right:7px;}\n  .sea-n::before{content:\"\\2717\";color:#b23b3b;font-weight:700;margin-right:7px;}\n  .sea-table-foot{font-size:13px;color:var(--muted);margin-top:14px;}\n\n  /* --- data room --- */\n  .sea-dr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));\n               gap:14px;margin:0 0 28px;}\n  .sea-dr-stat{border:1px solid var(--line);border-radius:12px;padding:20px;\n               background:#fff;}\n  .sea-dr-stat .n{font-size:30px;font-weight:700;line-height:1.05;\n                  display:block;margin-bottom:6px;}\n  .sea-dr-stat .l{font-size:13px;color:var(--muted);line-height:1.4;display:block;}\n\n  @media (max-width:749px){\n    .sea-recipe-body{grid-template-columns:1fr;}\n    .sea-ing{border-right:0;border-bottom:1px solid var(--line);}\n    .sea-recipe-head,.sea-ing,.sea-steps,.sea-recipe-foot{padding:24px 20px;}\n    .sea-recipe-foot{flex-direction:column;align-items:stretch;}\n    .sea-recipe-foot .sea-btn{text-align:center;}\n  }\n</style>\n\n<div class=\"sea-hlp\">\n  <p class=\"sea-eyebrow\">The receipts</p>\n  <h2 style=\"font-size:34px;max-width:20ch;\">Every batch is tested. Here are the actual numbers.</h2>\n  <p style=\"max-width:64ch;color:var(--muted);\">\n    Not a claim, not a badge &mdash; the lab analysis itself. Named labs, named analytes,\n    published thresholds. This is what the fish in the recipe above was measured at.\n  </p>\n\n  <div class=\"sea-dr-grid\">\n    <div class=\"sea-dr-stat\">\n      <span class=\"n\">3,414 mg</span>\n      <span class=\"l\">Bioavailable EPA + DHA per serving. A typical fish-oil capsule\n      carries roughly 300 mg.</span>\n    </div>\n    <div class=\"sea-dr-stat\">\n      <span class=\"n\">&lt;0.1 ppm</span>\n      <span class=\"l\">Mercury. The FDA action level for fish is 1.0 ppm &mdash;\n      this tests about ten times under it.</span>\n    </div>\n    <div class=\"sea-dr-stat\">\n      <span class=\"n\">None detected</span>\n      <span class=\"l\">Microplastics, screened at the tightest detection threshold\n      available to us.</span>\n    </div>\n    <div class=\"sea-dr-stat\">\n      <span class=\"n\">Per batch</span>\n      <span class=\"l\">A Certificate of Analysis is published for every harvest,\n      not once a year.</span>\n    </div>\n  </div>\n\n  <div data-edacious-results='{\"brand\": \"seatopia\", \"product\": \"ora-king-salmon\", \"config\": \"w9b6lk\"}'></div>\n\n  <div id=\"lightlabs-widget-container\" style=\"display:flex;justify-content:center;text-align:center;margin:2.5rem auto 0;\">\n    <lightlabs-widget company-id=\"83\"></lightlabs-widget>\n    <noscript><p>Please enable JavaScript to view our verified mercury testing results from Light Labs.</p></noscript>\n  </div>\n</div>\n",
+        "color_text": "",
+        "color_background": "#fafafa",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "s6_standard": {
+      "type": "multicolumn",
+      "blocks": {
+        "ic1": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "image_ratio": "adapt",
+            "heading": "EPA + DHA Verified",
+            "heading_size": "text-lg-2xl",
+            "text": "<p>We lab-verify omega-3 levels. You know exactly what you&rsquo;re getting per serving.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "secondary",
+            "button_external": false,
+            "button_icon": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "ic2": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "image_ratio": "adapt",
+            "heading": "Mercury Safe",
+            "heading_size": "text-lg-2xl",
+            "text": "<p>Tested to &le;0.1 ppm &mdash; well below FDA limits and safer than most wild seafood.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "secondary",
+            "button_external": false,
+            "button_icon": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "ic3": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "image_ratio": "adapt",
+            "heading": "Zero Detectable Microplastics",
+            "heading_size": "text-lg-2xl",
+            "text": "<p>Screened to the most stringent detection threshold in the industry. If it&rsquo;s there, we find it.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "secondary",
+            "button_external": false,
+            "button_icon": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "ic4": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "image_ratio": "adapt",
+            "heading": "Certificate of Analysis Published",
+            "heading_size": "text-lg-2xl",
+            "text": "<p>Every test result is published. Named labs, named analytes, pass/fail thresholds. <a href=\"/pages/why-clean-seafood-matters\" title=\"Why Clean Seafood Matters\">No secrets.</a></p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "secondary",
+            "button_external": false,
+            "button_icon": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "ic1",
+        "ic2",
+        "ic3",
+        "ic4"
+      ],
+      "settings": {
+        "custom_class": "",
+        "gap": "large",
+        "columns": 4,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "The Seatopia Standard™",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "Not estimated. Not assumed. Verified.",
+        "description": "",
+        "button_label": "Read the full testing protocol",
+        "button_link": "shopify://pages/seatopia-testing-commitment",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_text_card": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "overlay_opacity_new": 10,
+        "padding_top": 80,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "s7_comparison": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "",
+        "liquid": "\n<style>\n  .sea-hlp { --ink:#171717; --muted:#5c5c5c; --line:#e5e2dc; --gold:#bb8f50;\n             --wash:#faf8f4; max-width:1100px; margin:0 auto; padding:0 20px;\n             color:var(--ink); }\n  .sea-hlp *{box-sizing:border-box;}\n  .sea-hlp h2,.sea-hlp h3,.sea-hlp h4{margin:0 0 .5em;line-height:1.15;}\n  .sea-hlp p{margin:0 0 1em;line-height:1.6;}\n  .sea-hlp a{color:inherit;}\n\n  /* --- proof chip bar --- */\n  .sea-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}\n  .sea-chip{border:1px solid var(--line);border-radius:999px;\n            padding:9px 16px;font-size:14px;line-height:1.3;background:#fff;\n            display:flex;align-items:center;gap:8px;}\n  .sea-chip b{font-weight:600;}\n  .sea-chip-note{display:block;text-align:center;font-size:13px;\n                 color:var(--muted);margin-top:14px;}\n\n  /* --- recipe card --- */\n  .sea-recipe{border:1px solid var(--line);border-radius:14px;background:#fff;\n              overflow:hidden;}\n  .sea-recipe-head{padding:32px 32px 24px;border-bottom:1px solid var(--line);}\n  .sea-eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;\n               color:var(--gold);font-weight:600;margin:0 0 10px;}\n  .sea-recipe-meta{display:flex;flex-wrap:wrap;gap:0;margin:20px 0 0;\n                   border-top:1px solid var(--line);padding-top:20px;}\n  .sea-recipe-meta div{flex:1 1 120px;min-width:110px;}\n  .sea-recipe-meta dt{font-size:12px;letter-spacing:.1em;text-transform:uppercase;\n                      color:var(--muted);margin:0 0 4px;}\n  .sea-recipe-meta dd{margin:0;font-size:17px;font-weight:600;}\n  .sea-recipe-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);}\n  .sea-ing{padding:32px;background:var(--wash);border-right:1px solid var(--line);}\n  .sea-ing h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;\n              color:var(--muted);margin:24px 0 10px;}\n  .sea-ing h4:first-of-type{margin-top:16px;}\n  .sea-ing ul{list-style:none;margin:0;padding:0;}\n  .sea-ing li{padding:7px 0;border-bottom:1px solid var(--line);font-size:15px;}\n  .sea-ing li:last-child{border-bottom:0;}\n  .sea-steps{padding:32px;}\n  .sea-steps ol{margin:0;padding:0;counter-reset:s;list-style:none;}\n  .sea-steps li{counter-increment:s;position:relative;padding:0 0 20px 44px;\n                font-size:15px;line-height:1.55;}\n  .sea-steps li::before{content:counter(s);position:absolute;left:0;top:-2px;\n        width:29px;height:29px;border-radius:50%;background:var(--ink);\n        color:#fff;font-size:13px;font-weight:600;display:flex;\n        align-items:center;justify-content:center;}\n  .sea-recipe-foot{padding:24px 32px;border-top:1px solid var(--line);\n                   display:flex;flex-wrap:wrap;gap:16px;align-items:center;\n                   justify-content:space-between;}\n  .sea-btn{display:inline-block;background:var(--ink);color:#fff;\n           text-decoration:none;padding:14px 26px;border-radius:8px;\n           font-size:15px;font-weight:600;}\n  .sea-btn-ghost{background:transparent;color:var(--ink);\n                 border:1px solid var(--ink);}\n  .sea-note{background:var(--wash);border-left:3px solid var(--gold);\n            padding:18px 22px;margin:24px 0 0;font-size:15px;border-radius:0 8px 8px 0;}\n\n  /* --- comparison table --- */\n  .sea-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}\n  .sea-table{width:100%;min-width:720px;border-collapse:collapse;font-size:15px;}\n  .sea-table th,.sea-table td{padding:14px 16px;text-align:left;\n        border-bottom:1px solid var(--line);vertical-align:top;}\n  .sea-table thead th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;\n        color:var(--muted);font-weight:600;border-bottom:2px solid var(--ink);}\n  .sea-table thead th:first-child{width:26%;}\n  .sea-table .sea-us{background:var(--wash);font-weight:600;}\n  .sea-table thead .sea-us{color:var(--ink);}\n  .sea-table tbody th{font-weight:500;color:var(--muted);}\n  .sea-y::before{content:\"\\2713\";color:#2f7d4f;font-weight:700;margin-right:7px;}\n  .sea-n::before{content:\"\\2717\";color:#b23b3b;font-weight:700;margin-right:7px;}\n  .sea-table-foot{font-size:13px;color:var(--muted);margin-top:14px;}\n\n  /* --- data room --- */\n  .sea-dr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));\n               gap:14px;margin:0 0 28px;}\n  .sea-dr-stat{border:1px solid var(--line);border-radius:12px;padding:20px;\n               background:#fff;}\n  .sea-dr-stat .n{font-size:30px;font-weight:700;line-height:1.05;\n                  display:block;margin-bottom:6px;}\n  .sea-dr-stat .l{font-size:13px;color:var(--muted);line-height:1.4;display:block;}\n\n  @media (max-width:749px){\n    .sea-recipe-body{grid-template-columns:1fr;}\n    .sea-ing{border-right:0;border-bottom:1px solid var(--line);}\n    .sea-recipe-head,.sea-ing,.sea-steps,.sea-recipe-foot{padding:24px 20px;}\n    .sea-recipe-foot{flex-direction:column;align-items:stretch;}\n    .sea-recipe-foot .sea-btn{text-align:center;}\n  }\n</style>\n\n<div class=\"sea-hlp\">\n  <p class=\"sea-eyebrow\" style=\"text-align:center;\">The honest comparison</p>\n  <h2 style=\"font-size:34px;text-align:center;max-width:24ch;margin:0 auto .4em;\">\n    What else can tell you this much about itself?\n  </h2>\n  <p style=\"text-align:center;color:var(--muted);max-width:60ch;margin:0 auto 34px;\">\n    The question is not whether other salmon is good. It is whether anyone can\n    show you the data.\n  </p>\n\n  <div class=\"sea-table-wrap\">\n    <table class=\"sea-table\">\n      <thead>\n        <tr>\n          <th scope=\"col\"></th>\n          <th scope=\"col\" class=\"sea-us\">Seatopia</th>\n          <th scope=\"col\">Premium grocery salmon</th>\n          <th scope=\"col\">Wild-caught</th>\n          <th scope=\"col\">Fish-oil capsule</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr>\n          <th scope=\"row\">Per-batch Certificate of Analysis</th>\n          <td class=\"sea-us\"><span class=\"sea-y\"></span>Published</td>\n          <td><span class=\"sea-n\"></span>Not published</td>\n          <td><span class=\"sea-n\"></span>Not published</td>\n          <td><span class=\"sea-n\"></span>Rarely published</td>\n        </tr>\n        <tr>\n          <th scope=\"row\">Mercury level disclosed</th>\n          <td class=\"sea-us\"><span class=\"sea-y\"></span>&lt;0.1 ppm, per batch</td>\n          <td><span class=\"sea-n\"></span>Not disclosed</td>\n          <td><span class=\"sea-n\"></span>Varies by catch</td>\n          <td><span class=\"sea-n\"></span>Not disclosed</td>\n        </tr>\n        <tr>\n          <th scope=\"row\">Microplastics screened</th>\n          <td class=\"sea-us\"><span class=\"sea-y\"></span>None detected</td>\n          <td><span class=\"sea-n\"></span>Not screened</td>\n          <td><span class=\"sea-n\"></span>Not screened</td>\n          <td><span class=\"sea-n\"></span>Not screened</td>\n        </tr>\n        <tr>\n          <th scope=\"row\">EPA + DHA per serving</th>\n          <td class=\"sea-us\"><span class=\"sea-y\"></span>3,414 mg, measured</td>\n          <td>Not measured</td>\n          <td>Varies widely</td>\n          <td>~300 mg per capsule</td>\n        </tr>\n        <tr>\n          <th scope=\"row\">Traceable to a named farm</th>\n          <td class=\"sea-us\"><span class=\"sea-y\"></span>Yes, by name</td>\n          <td><span class=\"sea-n\"></span>Country of origin only</td>\n          <td><span class=\"sea-n\"></span>Ocean region only</td>\n          <td><span class=\"sea-n\"></span>Blended sources</td>\n        </tr>\n        <tr>\n          <th scope=\"row\">Whole-food nutrient matrix</th>\n          <td class=\"sea-us\"><span class=\"sea-y\"></span>Complete protein, selenium, minerals</td>\n          <td><span class=\"sea-y\"></span>Yes</td>\n          <td><span class=\"sea-y\"></span>Yes</td>\n          <td><span class=\"sea-n\"></span>Isolated oil only</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n  <p class=\"sea-table-foot\">\n    Comparison reflects what each category publicly discloses at point of sale.\n    Seatopia figures are from independent Light Labs and Edacious analyses and\n    vary by lot. Capsule figure reflects a typical 1,000 mg fish-oil softgel.\n  </p>\n</div>\n",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 40,
+        "padding_bottom": 80,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "s8_offer": {
+      "type": "featured-product",
+      "blocks": {
+        "text_eyebrow": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "text": "AS FEATURED IN MARK'S KITCHEN",
+            "text_size": "text-base"
+          }
+        },
+        "title_b": {
+          "type": "title",
+          "settings": {
+            "title_size": "product-title-md",
+            "title_size_mobile": "product-title-md",
+            "show_price": true,
+            "show_rating": true
+          }
+        },
+        "description_b": {
+          "type": "description",
+          "settings": {
+            "text_size": "text-base"
+          }
+        },
+        "variant_picker_b": {
+          "type": "variant_picker",
+          "settings": {
+            "show_variant_labels": true,
+            "picker_type": "button",
+            "enable_color_swatches": true,
+            "color_swatch_type": "color",
+            "size_chart": ""
+          }
+        },
+        "collapsible_ship": {
+          "type": "collapsible_tab",
+          "settings": {
+            "style": "with-background",
+            "icon": "truck",
+            "heading": "Orders ship Tuesday & Wednesday",
+            "content": "",
+            "page": "",
+            "liquid": "Snap Frozen Guaranteed - Our seafood arrives super frozen or we will refund or send a replacement\n\nWe ship nationwide. Orders arrive 1-3 days after shipment. Orders received Tuesday prior to 12pm est will ship this week.",
+            "opened": false
+          }
+        },
+        "subscription_b": {
+          "type": "subscription",
+          "settings": {
+            "subscription-title": ""
+          }
+        },
+        "buy_buttons_b": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": false,
+            "show_price": true,
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false,
+            "enable_back_in_stock": false,
+            "show_back_in_stock_name": false,
+            "show_back_in_stock_phone": false
+          }
+        },
+        "pickup_b": {
+          "type": "pickup_availability",
+          "settings": {}
+        },
+        "text_ship": {
+          "type": "text",
+          "settings": {
+            "icon": "box",
+            "icon_width": 20,
+            "text": "Free shipping on your first order with code HYMAN",
+            "text_size": "text-base"
+          }
+        },
+        "text_lab": {
+          "type": "text",
+          "settings": {
+            "icon": "check_mark",
+            "icon_width": 20,
+            "text": "Certificate of Analysis published for every batch",
+            "text_size": "text-base"
+          }
+        },
+        "text_frozen": {
+          "type": "text",
+          "settings": {
+            "icon": "truck",
+            "icon_width": 20,
+            "text": "Arrives snap frozen guaranteed",
+            "text_size": "text-base"
+          }
+        },
+        "text_class": {
+          "type": "text",
+          "settings": {
+            "icon": "check_mark",
+            "icon_width": 20,
+            "text": "Includes a FREE 1-on-1 virtual session with a Seatopia chef",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "text_eyebrow",
+        "title_b",
+        "description_b",
+        "variant_picker_b",
+        "collapsible_ship",
+        "subscription_b",
+        "buy_buttons_b",
+        "pickup_b",
+        "text_ship",
+        "text_lab",
+        "text_frozen",
+        "text_class"
+      ],
+      "settings": {
+        "section_id": "boxes",
+        "product": "salmon-box",
+        "enable_sticky_info": true,
+        "show_chef_notes": false,
+        "media_size": 64,
+        "gallery_layout": "thumbnail",
+        "thumbnail_position": "beside",
+        "image_ratio": "square",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_autoplay": true,
+        "enable_video_looping": true,
+        "mobile_layout": "full_width",
+        "image_ratio_mobile": "square",
+        "mobile_thumbnail": false,
+        "padding_top": 64,
+        "padding_bottom": 32,
+        "divider": false,
+        "full_width": false,
+        "rounded": true
+      }
+    },
+    "s9_offer_math": {
+      "type": "rich-text",
+      "blocks": {
+        "om_h": {
+          "type": "heading",
+          "settings": {
+            "heading": "Which box should I start with?",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "om_t": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The Salmon Lover&rsquo;s Box is the one from Mark&rsquo;s Kitchen &mdash; it is what the recipe above is built on.</p><p><strong>12 servings ($250)</strong> &mdash; roughly three weeks of bento boxes for one person. This is the right first box if you are testing the rhythm.<br/><strong>18 servings ($364)</strong> &mdash; you and a partner, eating salmon twice a week.<br/><strong>24 servings ($476)</strong> &mdash; a family, or a serious meal-prep habit.</p><p>Every box works out to about $20 per restaurant-quality, lab-verified serving &mdash; less than a single salmon entr&eacute;e out, and the only one that arrives with its own lab report. <a href=\"/products/salmon-box\">Subscribe and save 10%</a>, pause or cancel anytime.</p><p><strong>Use code HYMAN for free shipping on your first order.</strong></p>",
+            "text_size": "subtext-md",
+            "text_max_size": 44,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "om_b": {
+          "type": "button",
+          "settings": {
+            "button_label": "Start with the Salmon Lover's Box",
+            "button_link": "https://seatopia.fish/discount/HYMAN?redirect=/products/salmon-box",
+            "button_style": "primary",
+            "button_size": "lg",
+            "button_external": false,
+            "button_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "om_h",
+        "om_t",
+        "om_b"
+      ],
+      "settings": {
+        "custom-class": "",
+        "section_id": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-start",
+        "heading_width": "medium",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 8,
+        "padding_bottom": 72,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
+    "s10_reviews": {
+      "type": "multicolumn",
+      "blocks": {
+        "rev_trust": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "image_ratio": "adapt",
+            "heading": "&ldquo;Safe to feed our kids&rdquo;",
+            "heading_size": "text-lg-2xl",
+            "text": "<p>&ldquo;I appreciate the knowledge that it&rsquo;s lab tested and safe to feed our kids. We buy all our seafood from Seatopia.&rdquo;</p><p><em>&mdash; Tara W., verified buyer</em></p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "secondary",
+            "button_external": false,
+            "button_icon": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "rev_hyman": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "image_ratio": "adapt",
+            "heading": "&ldquo;Heard it on the Hyman podcast&rdquo;",
+            "heading_size": "text-lg-2xl",
+            "text": "<p>&ldquo;Heard James on the Hyman podcast. Raving fan &mdash; already turned my trainer on to it.&rdquo;</p><p><em>&mdash; Gaith T., verified buyer</em></p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "secondary",
+            "button_external": false,
+            "button_icon": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "rev_quality": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "image_ratio": "adapt",
+            "heading": "&ldquo;The quality is beyond words&rdquo;",
+            "heading_size": "text-lg-2xl",
+            "text": "<p>&ldquo;I will never feed my kids any other fish that isn&rsquo;t from Seatopia. We are a heavily pescatarian household and the quality is beyond words.&rdquo;</p><p><em>&mdash; Melissa G., verified buyer</em></p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "secondary",
+            "button_external": false,
+            "button_icon": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "rev_placeholder": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "show_border": false,
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "image_ratio": "adapt",
+            "heading": "PLACEHOLDER — price / fish-oil objection",
+            "heading_size": "text-lg-2xl",
+            "text": "<p>TO DO: pull a real Judge.me review that answers the price objection or the &lsquo;I just take fish oil&rsquo; objection, then enable this column. Do not ship invented copy here.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "secondary",
+            "button_external": false,
+            "button_icon": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "rev_trust",
+        "rev_hyman",
+        "rev_quality",
+        "rev_placeholder"
+      ],
+      "settings": {
+        "custom_class": "",
+        "gap": "large",
+        "columns": 3,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "The objections, answered by people who ordered.",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "50,000+ customers. 4.9★ over 1,000+ reviews.",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_text_card": "",
+        "color_background": "#fafafa",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "overlay_opacity_new": 10,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "s11_faq": {
+      "type": "rich-text",
+      "blocks": {
+        "faq_h": {
+          "type": "heading",
+          "settings": {
+            "heading": "The questions you're actually asking",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "faq_t": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Why not just take a fish-oil capsule?</strong><br/>You would need roughly <strong>11 capsules</strong> to match the verified EPA + DHA in one Seatopia filet &mdash; 3,414 mg per serving against about 300 mg in a typical softgel. And capsules oxidize: extraction concentrates whatever was in the source fish, most brands never publish a mercury or microplastic screen, and you lose the complete protein, selenium, and mineral matrix that comes with eating the whole fish.</p><p><strong>Why farmed and not wild?</strong><br/>Wild fish accumulate whatever is in the open ocean, and nobody can control that or test each catch before it ships. Regenerative farming inverts the problem: clean feed, managed water, and a known harvest date mean the batch can be tested before it reaches you. Done right, farming is the only way &ldquo;clean&rdquo; becomes a guarantee instead of a gamble &mdash; which is exactly why Dr. Hyman changed his own position on it.</p><p><strong>How do I know the tests are real?</strong><br/>The Certificates of Analysis come from ISO 17025-accredited third-party labs &mdash; Light Labs and Edacious &mdash; and we publish them per batch, with the analyte, the method, and the threshold. They are embedded <a href=\"#lab-results\">higher up this page</a> and on every product page. You do not have to take our word for any of it.</p><p><strong>Is it worth the premium?</strong><br/>About $20 a serving buys sushi-grade fish, frozen at peak freshness, from a named farm, with a lab report attached. That is less than the same fish costs in a restaurant, and it is the only version of it that can tell you its own mercury level. If the testing is not worth anything to you, cheaper salmon exists &mdash; it just cannot answer these questions.</p><p><strong>What does &le;0.1 ppm mercury actually mean?</strong><br/>Parts per million, relative to the weight of the fish. The FDA action level is 1.0 ppm, and tuna or swordfish routinely test well above 0.1. Testing under 0.1 ppm puts it roughly ten times below the high-risk threshold &mdash; low enough to be considered safe for sensitive groups, including pregnancy.</p><p><strong>I'm not confident cooking fish. Will I ruin it?</strong><br/>Every Seatopia box includes a free one-on-one virtual session with one of our chefs, and this exact recipe is walked through step by step with photos and video <a href=\"/blogs/seafood-recipes/broiled-miso-salmon-bowl-sushi-rice-avocado\">here</a>. For the miso salmon specifically: pull it at 130&deg;F and let it rest. That is the whole trick.</p><p><strong>How do I defrost it?</strong><br/>Overnight in the refrigerator, wrapped in paper, keeps the texture intact. In a hurry, put the vacuum-sealed portion in a bowl of cold water for 30&ndash;60 minutes. For the 48-hour marinade, defrost Friday morning and you are on schedule.</p><p><strong>What if I don't like it?</strong><br/>100% satisfaction guarantee. If your order does not arrive snap-frozen and in perfect condition, we make it right.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 52,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "faq_h",
+        "faq_t"
+      ],
+      "settings": {
+        "custom-class": "",
+        "section_id": "faq",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-start",
+        "heading_width": "medium",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
+    "s12_farm": {
+      "type": "image-with-text",
+      "blocks": {
+        "farm_h": {
+          "type": "heading",
+          "settings": {
+            "heading": "The farm behind the fish.",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "farm_t": {
+          "type": "text",
+          "settings": {
+            "text": "<p>In 2011, Dr. Mark Hyman visited Veta la Palma &mdash; a regenerative farm in the marshlands of southern Spain, credentialed by chef Dan Barber and Blue Hill as a model for what aquaculture could be. That same farm operates today as Estero Lubimar, one of Seatopia&rsquo;s core partners.</p><p>Same water. Same principles. Same extraordinary fish &mdash; now lab-tested to prove it.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "farm_b": {
+          "type": "button",
+          "settings": {
+            "button_label": "Read the full farm story",
+            "button_link": "shopify://pages/esteros-lubimar",
+            "button_style": "secondary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "farm_h",
+        "farm_t",
+        "farm_b"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/flamingos-esteros-lubimar.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "300px",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "#fafafa",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "s13_ebook": {
+      "type": "image-with-text",
+      "blocks": {
+        "ebook_h": {
+          "type": "heading",
+          "settings": {
+            "heading": "Want the science before the salmon?",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "ebook_t": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Download the free Mercury Detox Guide, co-developed with Dr. Mark Hyman.</p><ul><li>How mercury enters your body through seafood &mdash; and how to reduce exposure</li><li>Which fish to eat, which to avoid, and why the label tells you almost nothing</li><li>How omega-3 levels are measured, and what your Omega-3 Index number means</li></ul>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "ebook_b": {
+          "type": "button",
+          "settings": {
+            "button_label": "Get the free guide",
+            "button_link": "https://seatopia.fish/pages/mercury-detox-guide-for-sushi-lovers",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "ebook_h",
+        "ebook_t",
+        "ebook_b"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/seatopia-sushi-date-night-box-8.jpg",
+        "image_height": "550px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "300px",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": false,
+        "parallax_direction": "vertical"
+      }
+    },
+    "s14_final_cta": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "fc_h": {
+          "type": "heading",
+          "settings": {
+            "heading": "Marinate Friday. Eat like this all week.",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "fc_t": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Free shipping on your first order with code HYMAN.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 36,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "fc_cta": {
+          "type": "button",
+          "settings": {
+            "button_label": "Get the Salmon Lover's Box",
+            "button_link": "https://seatopia.fish/discount/HYMAN?redirect=/products/salmon-box",
+            "button_style": "primary",
+            "button_size": "lg",
+            "button_external": false,
+            "button_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "fc_h",
+        "fc_t",
+        "fc_cta"
+      ],
+      "settings": {
+        "section_id": "",
+        "transparent_header": false,
+        "image": "shopify://shop_images/Untitled_design_1.png",
+        "image_height": "100vh",
+        "content_width": "small",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "center",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "center",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "overlay_opacity": 30,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "narrow": false,
+        "parallax_direction": "vertical"
+      }
+    },
+    "legal_footer": {
+      "type": "rich-text",
+      "blocks": {
+        "lf": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>Nutrient values are based on independent lab analyses (Light Labs and Edacious Certificates of Analysis) and may vary by lot. Fish-oil capsule comparison reflects a typical 1,000 mg softgel delivering approximately 300 mg combined EPA + DHA. These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Consult your healthcare provider for personalised guidance.</em></p>",
+            "text_size": "subtext-sm",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "lf"
+      ],
+      "settings": {
+        "custom-class": "",
+        "section_id": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_width": "medium",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    }
+  },
+  "order": [
+    "announce_bar",
+    "s1_hero",
+    "s2_proof_chips",
+    "s3_recipe",
+    "s4_bridge",
+    "s5_data_room",
+    "s6_standard",
+    "s7_comparison",
+    "s8_offer",
+    "s9_offer_math",
+    "s10_reviews",
+    "s11_faq",
+    "s12_farm",
+    "s13_ebook",
+    "s14_final_cta",
+    "legal_footer"
+  ]
+}
