@@ -25,7 +25,17 @@
       "Bash(mktemp -d)",
       "Bash(curl -s -H 'Accept-Encoding: gzip' -o __CMDSUB_OUTPUT__/oaiq.gz -w 'wire_transfer_gzip=%{size_download} bytes\\\\n' https://bzrcdn.openai.com/sdk/oaiq.min.js)",
       "Bash(curl -s --compressed -o __CMDSUB_OUTPUT__/oaiq.js -w 'decoded_size=%{size_download} bytes\\\\n' https://bzrcdn.openai.com/sdk/oaiq.min.js)",
-      "Bash(grep -oaE 'oaiq\\\\.min\\\\.js|/sdk/[a-zA-Z0-9._-]+\\\\.js|createElement\\\\\\(.script.\\\\\\)|bzrcdn\\\\.openai\\\\.com' __CMDSUB_OUTPUT__/oaiq.js)"
+      "Bash(grep -oaE 'oaiq\\\\.min\\\\.js|/sdk/[a-zA-Z0-9._-]+\\\\.js|createElement\\\\\\(.script.\\\\\\)|bzrcdn\\\\.openai\\\\.com' __CMDSUB_OUTPUT__/oaiq.js)",
+      "Bash(git fetch *)",
+      "Bash(git rev-list *)",
+      "Bash(md5 -q config/settings_data.json config/settings_schema.json layout/theme.liquid sections/header.liquid templates/index.json templates/product.bundle.json)",
+      "Bash(./pdfenv/bin/pip install *)",
+      "Bash(./pdfenv/bin/python -c ' *)",
+      "Bash(shopify version *)",
+      "mcp__claude_ai_Shopify__get-shop-info",
+      "Read(//Users/ryan/.config/**)",
+      "Read(//Users/ryan/Library/Preferences/**)",
+      "Read(//Users/ryan/.cache/**)"
     ]
   }
 }
