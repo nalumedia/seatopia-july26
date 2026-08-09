@@ -90,7 +90,8 @@
       "Bash(xargs -I{} echo \" en.default.json lines: {}\")",
       "Bash(curl -s -L \"http://127.0.0.1:9292/pages/clean-seafood-2?view=curated-boxes\" -o /tmp/cb.html -w \"http %{http_code} \")",
       "Bash(curl -s -L \"http://127.0.0.1:9292/pages/clean-seafood-2?view=curated-boxes\" -o /tmp/cb.html)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "mcp__claude_ai_Shopify__graphql_mutation"
     ]
   }
 }
