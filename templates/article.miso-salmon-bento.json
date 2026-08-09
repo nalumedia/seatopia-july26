@@ -21,7 +21,10 @@
           }
         }
       },
-      "block_order": ["spacing", "title"],
+      "block_order": [
+        "spacing",
+        "title"
+      ],
       "settings": {
         "transparent_header": true,
         "show_image": true,
@@ -60,7 +63,7 @@
         "text_intro": {
           "type": "text",
           "settings": {
-            "text": "<p>Make our Nobu-style Miso-Glazed King Salmon Bento Box — a 48-hour saké and miso marinade that caramelizes deeply under the broiler, then holds beautifully warm or at room temperature, making it one of our favorite proteins for meal prep. Built on clean, regenerative, sushi-grade seafood tested to the <a href=\"\/pages\/why-clean-seafood-matters\" title=\"Why Clean Seafood Matters\">Seatopia Standard™<\/a>. Seatopia King Salmon comes from <a href=\"\/pages\/mt-cook-alpine-salmon\" title=\"Mt. Cook Alpine King Salmon\">Mt. Cook Alpine Salmon<\/a>, raised in the glacial-fed freshwater canals of New Zealand's Southern Alps. Grown without antibiotics or hormones in constantly flowing alpine water, this King Salmon is prized for its exceptionally high omega-3 content, buttery marbling, and silken texture — equally at home served raw as sashimi or broiled to a golden, umami-rich glaze.<\/p>",
+            "text": "<p>Make our Nobu-style Miso-Glazed King Salmon Bento Box — a 48-hour saké and miso marinade that caramelizes deeply under the broiler, then holds beautifully warm or at room temperature, making it one of our favorite proteins for meal prep. Built on clean, regenerative, sushi-grade seafood tested to the <a href=\"/pages/why-clean-seafood-matters\" title=\"Why Clean Seafood Matters\">Seatopia Standard™</a>. Seatopia King Salmon comes from <a href=\"/pages/mt-cook-alpine-salmon\" title=\"Mt. Cook Alpine King Salmon\">Mt. Cook Alpine Salmon</a>, raised in the glacial-fed freshwater canals of New Zealand's Southern Alps. Grown without antibiotics or hormones in constantly flowing alpine water, this King Salmon is prized for its exceptionally high omega-3 content, buttery marbling, and silken texture — equally at home served raw as sashimi or broiled to a golden, umami-rich glaze.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -82,7 +85,11 @@
           }
         }
       },
-      "block_order": ["heading_intro", "text_intro", "button_intro"],
+      "block_order": [
+        "heading_intro",
+        "text_intro",
+        "button_intro"
+      ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "custom-class": "",
@@ -132,7 +139,7 @@
         "text_standard": {
           "type": "text",
           "settings": {
-            "text": "<p>We lab test our seafood and provide a detailed Certificate of Analysis for every product which quantifies nutrient density, and that your King Salmon is mercury safe and free from detectable microplastics. Our King Salmon has been tested by Light Labs to ensure it meets the <a href=\"\/pages\/seatopia-testing-commitment\" title=\"Seatopia's Testing Commitment\">Seatopia Standard<\/a>.<\/p>",
+            "text": "<p>We lab test our seafood and provide a detailed Certificate of Analysis for every product which quantifies nutrient density, and that your King Salmon is mercury safe and free from detectable microplastics. Our King Salmon has been tested by Light Labs to ensure it meets the <a href=\"/pages/seatopia-testing-commitment\" title=\"Seatopia's Testing Commitment\">Seatopia Standard</a>.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -154,7 +161,11 @@
           }
         }
       },
-      "block_order": ["heading_standard", "text_standard", "button_standard"],
+      "block_order": [
+        "heading_standard",
+        "text_standard",
+        "button_standard"
+      ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "custom-class": "",
@@ -188,36 +199,20 @@
         "rounded": false
       }
     },
-    "custom_liquid_lightlabs": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "liquid": "<div id=\"lightlabs-widget-container\" style=\"display: flex; justify-content: center; text-align: center; margin: 2rem auto;\">\n  <lightlabs-widget company-id=\"83\"><\/lightlabs-widget>\n  <noscript>\n    <p>Please enable JavaScript to view our verified mercury testing results from LightLabs.<\/p>\n  <\/noscript>\n<\/div>",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "divider": false,
-        "narrow": false,
-        "rounded": false
-      }
-    },
     "1745469964dc16d5a5": {
       "type": "apps",
       "blocks": {
         "recipe_kit_app_block_z8LH7c": {
-          "type": "shopify:\/\/apps\/recipe-kit\/blocks\/app-block\/0afa374e-81c7-4989-96de-e1ac84640954",
+          "type": "shopify://apps/recipe-kit/blocks/app-block/0afa374e-81c7-4989-96de-e1ac84640954",
           "settings": {
             "custom_js": "",
             "custom_css": ""
           }
         }
       },
-      "block_order": ["recipe_kit_app_block_z8LH7c"],
+      "block_order": [
+        "recipe_kit_app_block_z8LH7c"
+      ],
       "settings": {
         "color_text": "",
         "color_background": "",
@@ -241,7 +236,7 @@
           "type": "image",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_1577707802.png"
+            "image": "shopify://shop_images/Frame_1577707802.png"
           }
         },
         "share": {
@@ -266,7 +261,12 @@
           }
         }
       },
-      "block_order": ["image_fRrHyX", "share", "next_previous_posts", "comments"],
+      "block_order": [
+        "image_fRrHyX",
+        "share",
+        "next_previous_posts",
+        "comments"
+      ],
       "disabled": true,
       "custom_css": [],
       "settings": {
@@ -282,7 +282,7 @@
       "disabled": true,
       "settings": {
         "transparent_header": false,
-        "image": "shopify:\/\/shop_images\/Frame_1577707802.png",
+        "image": "shopify://shop_images/Frame_1577707802.png",
         "image_height": "650px",
         "content_width": "small",
         "content_position": "md:items-end md:justify-start",
@@ -352,11 +352,14 @@
       "type": "apps",
       "blocks": {
         "judge_me_reviews_testimonials_carousel_xAyhW3": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/testimonials_carousel\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "type": "shopify://apps/judge-me-reviews/blocks/testimonials_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "show_sample_reviews": false,
             "reviews_selection": "custom_products",
-            "products": ["mt-cook-alpine-salmon-7oz-filet", "king-salmon"],
+            "products": [
+              "mt-cook-alpine-salmon-7oz-filet",
+              "king-salmon"
+            ],
             "star_rating": "all",
             "max_reviews": 20,
             "quote_marks_size": "small",
@@ -382,7 +385,9 @@
           }
         }
       },
-      "block_order": ["judge_me_reviews_testimonials_carousel_xAyhW3"],
+      "block_order": [
+        "judge_me_reviews_testimonials_carousel_xAyhW3"
+      ],
       "settings": {
         "color_text": "",
         "color_background": "",
@@ -420,7 +425,7 @@
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
         "subheading": "",
-        "description": "<p>Love this miso salmon recipe? There's more. We 💙 inspiring you to prepare clean seafood at home. Don't forget, every Seatopia box comes with a <a href=\"\/pages\/seatopia-member-cooking-classes\" title=\"Seatopia Member Cooking Classes\">FREE Virtual Cooking Class<\/a> where you will learn more about preparing delicious King Salmon recipes at home.<\/p>",
+        "description": "<p>Love this miso salmon recipe? There's more. We 💙 inspiring you to prepare clean seafood at home. Don't forget, every Seatopia box comes with a <a href=\"/pages/seatopia-member-cooking-classes\" title=\"Seatopia Member Cooking Classes\">FREE Virtual Cooking Class</a> where you will learn more about preparing delicious King Salmon recipes at home.</p>",
         "highlighted_text": "none",
         "highlighted_scribble": "circle",
         "color_text": "",
@@ -445,7 +450,7 @@
           "type": "question",
           "settings": {
             "title": "How long should I marinate miso salmon?",
-            "text": "<p>The classic Nobu method calls for a full <strong>48 hours<\/strong>. The saké, miso, and coconut sugar need that time to fully penetrate the fillet, which is what creates the deep caramelization under the broiler. In a hurry? Even 24 hours delivers excellent flavor — but plan for two days if you can.<\/p>",
+            "text": "<p>The classic Nobu method calls for a full <strong>48 hours</strong>. The saké, miso, and coconut sugar need that time to fully penetrate the fillet, which is what creates the deep caramelization under the broiler. In a hurry? Even 24 hours delivers excellent flavor — but plan for two days if you can.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -454,7 +459,7 @@
           "type": "question",
           "settings": {
             "title": "What internal temperature should King Salmon be cooked to?",
-            "text": "<p>Pull the salmon at around <strong>130°F<\/strong> for medium-rare. Residual heat will carry it to roughly 150°F as it rests for 3–5 minutes, giving you a tender, flaky finish without drying out the fillet. See our full <a href=\"\/pages\/the-ultimate-guide-to-salmon-internal-temp\" title=\"The Ultimate Guide to Salmon Internal Temp\">guide to salmon internal temp<\/a>.<\/p>",
+            "text": "<p>Pull the salmon at around <strong>130°F</strong> for medium-rare. Residual heat will carry it to roughly 150°F as it rests for 3–5 minutes, giving you a tender, flaky finish without drying out the fillet. See our full <a href=\"/pages/the-ultimate-guide-to-salmon-internal-temp\" title=\"The Ultimate Guide to Salmon Internal Temp\">guide to salmon internal temp</a>.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -463,7 +468,7 @@
           "type": "question",
           "settings": {
             "title": "What makes King Salmon different from Atlantic salmon?",
-            "text": "<p>King Salmon (<em>Oncorhynchus tshawytscha<\/em>, also called Chinook) is the largest and fattiest of the Pacific salmon species. That higher fat content means significantly more omega-3s, richer marbling, and a silkier texture — which is why it holds up so well to a 48-hour marinade and a hard broil.<\/p>",
+            "text": "<p>King Salmon (<em>Oncorhynchus tshawytscha</em>, also called Chinook) is the largest and fattiest of the Pacific salmon species. That higher fat content means significantly more omega-3s, richer marbling, and a silkier texture — which is why it holds up so well to a 48-hour marinade and a hard broil.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -472,7 +477,7 @@
           "type": "question",
           "settings": {
             "title": "How long do the bento boxes keep in the fridge?",
-            "text": "<p>Sealed and refrigerated, the assembled bento boxes hold for <strong>3–4 days<\/strong>. The miso-glazed salmon is delicious warm or at room temperature, so there's no need to reheat. Our rhythm: defrost Friday morning, marinate Friday evening, assemble Sunday for the week ahead.<\/p>",
+            "text": "<p>Sealed and refrigerated, the assembled bento boxes hold for <strong>3–4 days</strong>. The miso-glazed salmon is delicious warm or at room temperature, so there's no need to reheat. Our rhythm: defrost Friday morning, marinate Friday evening, assemble Sunday for the week ahead.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -481,7 +486,7 @@
           "type": "question",
           "settings": {
             "title": "How do I defrost sushi-grade King Salmon?",
-            "text": "<p>Defrost Seatopia seafood in the refrigerator overnight, wrapped in paper, to preserve nutrient integrity and texture. For a faster method, place the vacuum-sealed fish in a bowl of cold water for 30–60 minutes.<\/p>",
+            "text": "<p>Defrost Seatopia seafood in the refrigerator overnight, wrapped in paper, to preserve nutrient integrity and texture. For a faster method, place the vacuum-sealed fish in a bowl of cold water for 30–60 minutes.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -542,7 +547,7 @@
         "text_newsletter": {
           "type": "text",
           "settings": {
-            "text": "<p>Get on the list and receive more King Salmon recipes delivered to your inbox.<\/p>",
+            "text": "<p>Get on the list and receive more King Salmon recipes delivered to your inbox.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -556,12 +561,16 @@
           "settings": {}
         }
       },
-      "block_order": ["heading_newsletter", "text_newsletter", "form_newsletter"],
+      "block_order": [
+        "heading_newsletter",
+        "text_newsletter",
+        "form_newsletter"
+      ],
       "name": "t:sections.newsletter-banner.presets.name",
       "settings": {
         "transparent_header": false,
         "transparent_footer": false,
-        "image": "shopify:\/\/shop_images\/Untitled_design_1.png",
+        "image": "shopify://shop_images/Untitled_design_1.png",
         "image_height": "650px",
         "content_width": "medium",
         "content_position": "md:items-center md:justify-center",
@@ -590,7 +599,6 @@
     "main-article-banner",
     "rich_text_intro",
     "rich_text_standard",
-    "custom_liquid_lightlabs",
     "1745469964dc16d5a5",
     "main-article",
     "image_with_text_overlay_Exf3jA",

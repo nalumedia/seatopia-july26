@@ -36,12 +36,6 @@
             "text_size": "text-base"
           }
         },
-        "liquid_pfaBpf": {
-          "type": "liquid",
-          "settings": {
-            "liquid": "<div id=\"lightlabs-widget-container\">\n  <lightlabs-widget company-id=\"83\"></lightlabs-widget>\n  <noscript>\n    <p>Please enable JavaScript to view our verified mercury testing results from LightLabs.</p>\n  </noscript>\n</div>"
-          }
-        },
         "countdown": {
           "type": "countdown",
           "settings": {
@@ -247,7 +241,6 @@
         "vendor",
         "title",
         "description",
-        "liquid_pfaBpf",
         "countdown",
         "variant_picker",
         "product_bundle_6wW6de",
