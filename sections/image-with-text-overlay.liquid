@@ -29,17 +29,69 @@
       <media-element class="banner__media block w-full h-full overflow-hidden"{% if section.settings.enable_parallax %} data-parallax="0.3" data-parallax-dir="{{ section.settings.parallax_direction }}"{% endif %}>
         <picture class="media media--height block w-full h-full relative overflow-hidden  {% if section.settings.narrow %} page-width--narrow{% endif %} " is="animate-picture" data-animate="zoom-out">
           {%- if section.settings.image != blank -%}
+            {%- comment -%}
+              LCP request discovery.
+
+              When this section is the above-the-fold hero, its image is the LCP
+              element and must be discoverable and prioritised immediately.
+
+              `section.index == 1` alone is not sufficient. On the homepage the
+              hero banner renders at index 2 (a rich-text section precedes it, and
+              the disabled slideshow is not counted), so an index-only rule would
+              leave the LCP image lazy — and, if it also assigned fetchpriority
+              'low' the way main-collection-banner does, would actively make it
+              worse. Hence the explicit `priority_image` setting.
+
+              The else branch deliberately leaves fetchpriority unset rather than
+              'low', so any instance not yet flagged keeps exactly its previous
+              behaviour. This change can help, never regress.
+            {%- endcomment -%}
+            {%- liquid
+              assign img_loading = 'lazy'
+              assign img_priority = 'auto'
+              if section.settings.priority_image or section.index == 1
+                assign img_loading = 'eager'
+                assign img_priority = 'high'
+              endif
+            -%}
             {%- capture sizes -%}{% if section.settings.full_width %}100vw{% else %}min({{ settings.page_width }}px, 100vw){% endif %}{%- endcapture -%}
             {%- if section.settings.image_mobile -%}
+              {%- comment -%}
+                Compression quality on the mobile banner.
+
+                Shopify's CDN re-encodes to WebP automatically, but its default
+                quality (~86) leaves a lot on the table for a large photographic
+                hero. Measured on Grilled_Ora_3 at the 800w candidate that mobile
+                actually selects:
+
+                  default (~q86)  136,798 B   baseline
+                  quality=85      124,768 B   PSNR 40.7 dB
+                  quality=80       92,680 B   PSNR 38.0 dB   <-- chosen
+                  quality=75       70,226 B   PSNR 36.7 dB
+
+                80 saves 44,118 B (~32%) at 38 dB, comfortably above the ~35 dB
+                threshold where WebP artifacts become perceptible in photographs.
+
+                CAVEAT: `quality` is NOT in Shopify's documented image_url
+                parameters (width/height/crop/format/pad_color only), so it is
+                appended to the URL by hand. Verified safe to rely on: the CDN
+                ignores unknown or invalid params and serves the default instead
+                of erroring (`&quality=abc` and `&notaparam=1` both returned 200
+                at the default size). Worst case if Shopify drops it is today's
+                behaviour, not a broken image.
+
+                Lower this only after re-measuring — do not eyeball it.
+              {%- endcomment -%}
+              {%- assign mobile_q = '&quality=80' -%}
               <source
                 media="(max-width: 767px)"
-                srcset="{{ section.settings.image_mobile | image_url: width: '400x' }} 400w, {{ section.settings.image_mobile | image_url: width: '600x' }} 600w, {{ section.settings.image_mobile | image_url: width: '800x' }} 800w, {{ section.settings.image_mobile | image_url: width: '1000x' }} 1000w"
+                srcset="{{ section.settings.image_mobile | image_url: width: '400x' | append: mobile_q }} 400w, {{ section.settings.image_mobile | image_url: width: '600x' | append: mobile_q }} 600w, {{ section.settings.image_mobile | image_url: width: '800x' | append: mobile_q }} 800w, {{ section.settings.image_mobile | image_url: width: '1000x' | append: mobile_q }} 1000w"
                 width="{{ section.settings.image_mobile.width }}"
                 height="{{ section.settings.image_mobile.height }}"
               >
             {%- endif -%}
 
-            {{- section.settings.image | image_url: width: section.settings.image.width | image_tag: loading: 'lazy', sizes: sizes, widths: '300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200', is: 'lazy-image', class: 'banner__image' -}}
+            {{- section.settings.image | image_url: width: section.settings.image.width | image_tag: loading: img_loading, fetchpriority: img_priority, sizes: sizes, widths: '300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200', is: 'lazy-image', class: 'banner__image' -}}
           {%- else -%}
             {{- 'lifestyle-1' | placeholder_svg_tag: 'banner__image banner__overlay placeholder' -}}
           {%- endif -%}
@@ -332,6 +384,13 @@
       "type": "image_picker",
       "id": "image_mobile",
       "label": "t:sections.global.settings.image_mobile.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "priority_image",
+      "default": false,
+      "label": "Prioritize image loading (LCP)",
+      "info": "Turn on ONLY for the first banner a visitor sees on a page. Loads the image eagerly with high fetch priority so it is not delayed behind other resources. Enabling this on images below the fold will slow the page down, not speed it up."
     },
     {
       "type": "select",

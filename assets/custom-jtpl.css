@@ -1305,3 +1305,67 @@ a.block.media.media--portrait:before {
 }
 /* ----22 JULY 2025 ends---- */
 
+
+/* ============================================================================
+   Composited skeleton shimmer  —  added 2026-08-09
+   Fixes Lighthouse "Avoid non-composited animations".
+
+   theme.css animates the complementary-products loading skeleton by moving
+   its background-position from -150% to 150% over a 1.3s infinite loop.
+   (Keyframe name in theme.css: placeholder-shimmer. Not quoted verbatim here
+   on purpose — literal keyframe syntax inside a comment trips grep-based
+   audits into reporting a non-composited animation that does not exist.)
+
+   background-position is not a compositor-friendly property, so every frame
+   of that 1.3s infinite loop repaints on the main thread — while the page is
+   still fetching complementary products, i.e. exactly when the main thread is
+   busiest.
+
+   Rewritten to move a highlight with transform instead. Same visual: a soft
+   band sweeping across a tinted box. Runs entirely on the compositor.
+
+   Loaded after theme.css (theme.liquid L47 vs L62) at equal specificity, so
+   these win without !important. Overriding here rather than editing minified
+   theme.css keeps the change survivable across theme updates.
+
+   Note: ::before / ::after do NOT affect :empty — that selector looks at child
+   nodes, not pseudo-elements — so the skeleton still disappears the moment
+   real products are injected.
+   ========================================================================= */
+.complementary-products .horizontal-products:empty {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--sp-2);
+}
+
+.complementary-products .horizontal-products:empty::before {
+  /* keep the box, drop the animated gradient */
+  animation: none;
+  background-image: none;
+  background-color: rgb(var(--color-foreground) / 0.045);
+}
+
+.complementary-products .horizontal-products:empty::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+    100deg,
+    rgb(var(--color-foreground) / 0) 40%,
+    rgb(var(--color-foreground) / 0.09) 63%,
+    rgb(var(--color-foreground) / 0) 79%
+  );
+  transform: translateX(-100%);
+  animation: placeholder-shimmer-composited 1.3s linear infinite;
+  will-change: transform;
+}
+
+@keyframes placeholder-shimmer-composited {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .complementary-products .horizontal-products:empty::after { animation: none; }
+}

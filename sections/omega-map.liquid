@@ -58,9 +58,40 @@
   ═══════════════════════════════════════════════════════════════
 {% endcomment %}
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+{%- comment -%}
+  Google Fonts removed 2026-08-09.
+
+  This section was loading Crimson Pro + DM Sans from fonts.googleapis.com —
+  the same two families the theme already serves from fonts.shopifycdn.com.
+  That meant this page downloaded its typefaces twice, from two origins, behind
+  a render-blocking third-party stylesheet, and spent two of the browser's
+  scarce preconnect slots doing it (Lighthouse: "More than 4 preconnect
+  connections were found").
+
+  The theme's global @font-face set covers 400/500/700. This section also uses
+  Crimson Pro 300 (the display heading) and DM Sans 600 (labels, tabs, table
+  headers). Rather than restyle those to the nearest available weight — which
+  would have made the hero heading heavier and flattened the type hierarchy —
+  both weights are declared here from Shopify's own font CDN via font_modify.
+
+  Verified Shopify serves them: font_modify returns weight 300 for Crimson Pro
+  and 600 for DM Sans.
+
+  Net effect: identical rendering, 7 Google font files replaced by 2 Shopify
+  ones on an origin already preconnected, one render-blocking third-party
+  stylesheet gone, two preconnects freed.
+
+  Declared here rather than in css-variables.liquid on purpose — that snippet
+  renders on every page, and these two extra weights are only used here.
+{%- endcomment -%}
+{%- liquid
+  assign om_heading_light = settings.type_header_font | font_modify: 'weight', '300'
+  assign om_body_semibold = settings.type_body_font | font_modify: 'weight', '600'
+-%}
+<style>
+  {{ om_heading_light | font_face: font_display: 'swap' }}
+  {{ om_body_semibold | font_face: font_display: 'swap' }}
+</style>
 
 {% stylesheet %}
 .omega-map {

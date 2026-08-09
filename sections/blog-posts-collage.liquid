@@ -6,13 +6,25 @@
   }
 </style>
 
-{{ 'custom-blog.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'custom-blog.js' | asset_url }}" defer></script>
 
+{%- comment -%}
+  custom-blog.css (8,815 B) was loading render-blocking unconditionally, while
+  blog.css directly below it already used the deferred pattern. Same section,
+  same stylesheets, two different loading strategies — an oversight rather than
+  a decision. On the homepage this section sits at position 23, far below the
+  fold, so it was blocking first paint for content nobody had scrolled to.
+
+  Both now follow the same rule: blocking only when the section is near the top
+  of the page (index <= 2), deferred otherwise, with a noscript fallback.
+{%- endcomment -%}
 {%- if section.index > 2 -%}
+  <link rel="stylesheet" href="{{ 'custom-blog.css' | asset_url }}" media="print" onload="this.media='all'">
+  <noscript>{{ 'custom-blog.css' | asset_url | stylesheet_tag }}</noscript>
   <link rel="stylesheet" href="{{ 'blog.css' | asset_url }}" media="print" onload="this.media='all'">
   <noscript>{{ 'blog.css' | asset_url | stylesheet_tag }}</noscript>
 {%- else -%}
+  {{ 'custom-blog.css' | asset_url | stylesheet_tag }}
   {{ 'blog.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 

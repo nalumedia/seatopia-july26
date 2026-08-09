@@ -185,9 +185,21 @@
                         >
                           <div class="review__image__align">
                             <div class="review__image__wrapper">
+                              {%- comment -%}
+                                width/height match the 540x540 crop requested
+                                above, so this is the image's true intrinsic
+                                size — the browser reserves the correct box
+                                before the file loads instead of reflowing
+                                after it. Rendered size is unchanged: the rule
+                                `.cstm-testimonial-img-block * { width:100%;
+                                height:100% }` (specificity 0,4,0) still wins.
+                                If the crop dimensions change, change these.
+                              {%- endcomment -%}
                               <img
                                 src="{{ block.settings.image | img_url: '540x540', crop: 'center' }}"
                                 alt="{{ block.settings.image.alt | default: block.settings.title }}"
+                                width="540"
+                                height="540"
                               >
                             </div>
                           </div>
@@ -500,7 +512,8 @@
 
                            <a {% if block.settings.image_url != blank %} href="{{ block.settings.image_url }}" {% endif %}> <div class="review__image__align">
             <div class="review__image__wrapper">
-                <img src="{{ block.settings.image | img_url: '540x540', crop: 'center' }}" alt="{{ block.settings.image.alt | default: block.settings.title }}"/>
+                {%- comment -%} 540x540 = the crop requested in the URL; see note on the sibling img above. {%- endcomment -%}
+                <img src="{{ block.settings.image | img_url: '540x540', crop: 'center' }}" alt="{{ block.settings.image.alt | default: block.settings.title }}" width="540" height="540"/>
             </div>
           </div></a>
         <div class="title_job_wrapp">

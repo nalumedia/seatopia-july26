@@ -58,10 +58,48 @@
       fetchpriority="low"
       onload="this.media='all'"
     >
-    {% comment %}  {{ 'custom.css' | asset_url | stylesheet_tag > }}   {% endcomment %}
-    {{ 'custom-jtpl.css' | asset_url | stylesheet_tag > }}
+    {% comment %}  {{ 'custom.css' | asset_url | stylesheet_tag }}   {% endcomment %}
 
-    {{ 'recipekit.css' | asset_url | stylesheet_tag > }}
+    {%- comment -%}
+      custom-jtpl.css deferred 2026-08-09.
+
+      Lighthouse measured this file at 1,650ms of render-blocking time — the
+      single largest blocking stylesheet on the site.
+
+      Safe to defer because it is almost entirely below-the-fold styling. Every
+      one of its 230 top-level rules was tested against the above-the-fold DOM
+      of five templates (home, product, collection, cart, blog). The same and
+      only 2 rules can match up there on every template:
+
+        html { scroll-behavior: smooth }        -> behavioural, not paint
+        .rtx-subscription input:…:after { … }   -> inside the hidden cart drawer
+
+      Neither affects first paint, so nothing flashes. `scroll-behavior` is
+      inlined below so smooth scrolling is live immediately rather than after
+      the deferred fetch.
+
+      The noscript fallback matches the pattern already used by blog.css and
+      mobile-dock.css elsewhere in this theme.
+
+      If a future edit adds above-the-fold rules to this file, they will paint
+      late. Re-run the above-fold rule test before assuming it is still safe.
+    {%- endcomment -%}
+    <style>html{scroll-behavior:smooth}</style>
+    <link rel="stylesheet" href="{{ 'custom-jtpl.css' | asset_url }}" media="print" onload="this.media='all'">
+    <noscript>{{ 'custom-jtpl.css' | asset_url | stylesheet_tag }}</noscript>
+
+    {%- comment -%}
+      recipekit.css (7,989 B) styles the RecipeKit app block, which is rendered
+      only by sections/main-article-overlay.liquid — and that section is used
+      only by article.*.json templates. It was loading render-blocking on every
+      page: home, product, collection, cart, account. Now scoped to articles.
+
+      If RecipeKit is ever added to a page or product template, widen this
+      condition or the recipe card will render unstyled. Nothing warns you.
+    {%- endcomment -%}
+    {%- if request.page_type == 'article' -%}
+      {{ 'recipekit.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
 
     {{ content_for_header }}
 
@@ -297,8 +335,13 @@
     <!-- End of HubSpot Embed Code -->
     <!-- End Growth Footer Scripts -->
 
-<!-- begin light labs -->
-    <script async src="https://app.lightlabs.com/assets/ll-pip-widget-v5.js"></script>
+{%- comment -%}
+  Light Labs removed 2026-08-09. The ll-pip-widget-v5.js loader (39.4 KB decoded)
+  was loading on every page to serve <lightlabs-widget> embeds that existed in 17
+  templates. Both the loader and every embed were removed together — see
+  THIRD-PARTY-SCRIPTS.md. Do not re-add the loader without also restoring the
+  embeds; on its own it is 39 KB that renders nothing.
+{%- endcomment -%}
 
   {% comment %} Meta and GA4 event tracking for Alia popup {% endcomment %}
    <script>

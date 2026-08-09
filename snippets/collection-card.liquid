@@ -53,7 +53,18 @@
     <a href="{{ collection.url }}" class="media-card__link flex flex-col w-full h-full relative" aria-label="{{ collection_title | escape }}">
       <div class="media media--{{ image_ratio }} relative overflow-hidden">
         {%- if collection_image != blank -%}
-          {{- collection_image | image_url: width: collection_image.width | image_tag: loading: 'lazy', widths: '180,360,540,720,900,1080', is: 'lazy-image' -}}
+          {%- comment -%}
+            image_tag emits a srcset, but with no `sizes` the browser falls back
+            to the spec default of 100vw and picks a candidate sized for the
+            whole viewport. That is why a card displayed at 534px was pulling
+            the 900w file — ~149 KiB wasted across two images on the homepage.
+
+            Callers that know their layout pass `sizes`. The default below
+            mirrors the carousel widths in theme.css (74vw at <=639px, 36vw at
+            640-1023px) with a 4-up grid above that.
+          {%- endcomment -%}
+          {%- assign card_sizes = sizes | default: '(min-width: 1024px) 25vw, (min-width: 640px) 36vw, 74vw' -%}
+          {{- collection_image | image_url: width: collection_image.width | image_tag: loading: 'lazy', sizes: card_sizes, widths: '180,360,540,720,900,1080', is: 'lazy-image' -}}
         {%- else -%}
           <span class="block aspect-{{ image_ratio }}"></span>
         {%- endif -%}

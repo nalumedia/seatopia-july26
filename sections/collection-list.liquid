@@ -50,6 +50,42 @@
 
     <slider-element id="Slider-{{ section.id }}" class="grid slider{% if section.settings.carousel_on_desktop %} slider--desktop{% endif %}{% if section.settings.swipe_on_mobile %} slider--tablet{% endif %}" selector=".card-grid>.card">
       <motion-list class="card-grid card-grid--{{ section.settings.columns }} mobile:card-grid--{{ section.settings.columns_mobile }} grid">
+        {%- comment -%}
+          Derive `sizes` from this section's own layout settings so the browser
+          requests a candidate matching the rendered card instead of assuming
+          100vw. Computed from settings rather than hard-coded, so changing the
+          column count or toggling swipe keeps it accurate.
+
+          At <=639px and 640-1023px the carousel governs item width (74vw / 36vw
+          per theme.css) when swipe is on; otherwise it is a plain grid.
+        {%- endcomment -%}
+        {%- liquid
+          assign cl_cols = section.settings.columns | default: 4
+          assign cl_desktop_pct = 100 | divided_by: cl_cols | plus: 2
+
+          assign cl_cols_mobile = section.settings.columns_mobile | times: 1
+          if cl_cols_mobile < 1
+            assign cl_cols_mobile = 1
+          endif
+
+          if section.settings.swipe_on_mobile
+            assign cl_tablet = '36vw'
+            assign cl_mobile = '74vw'
+          else
+            assign cl_tablet = '50vw'
+            assign cl_mobile_pct = 100 | divided_by: cl_cols_mobile
+            assign cl_mobile = cl_mobile_pct | append: 'vw'
+          endif
+
+          capture cl_sizes
+            echo '(min-width: 1024px) '
+            echo cl_desktop_pct
+            echo 'vw, (min-width: 640px) '
+            echo cl_tablet
+            echo ', '
+            echo cl_mobile
+          endcapture
+        -%}
         {%- for block in section.blocks -%}
           {%- assign collection = collections[block.settings.collection] -%}
           {%- render 'collection-card',
@@ -58,6 +94,7 @@
             image_type: section.settings.image_type,
             image_ratio: section.settings.image_ratio,
             show_products_count: section.settings.show_products_count,
+            sizes: cl_sizes,
             position: forloop.index,
           -%}
         {%- endfor -%}

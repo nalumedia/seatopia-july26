@@ -12,6 +12,21 @@
 -%}
 
 {% if load_inflektion %}
-  <link rel="preconnect" href="https://cleanseafoodtoyourdoor.com" crossorigin>
+  {%- comment -%}
+    preconnect removed 2026-08-09 — Lighthouse: "More than 4 preconnect
+    connections were found."
+
+    A preconnect opens a DNS + TCP + TLS handshake immediately, competing for
+    the browser's limited early connection budget. That budget should go to
+    origins on the critical rendering path: the asset CDN and the font CDN.
+
+    modals.min.js is `async` affiliate tooling — it neither blocks render nor
+    paints anything above the fold, so warming its connection ahead of the
+    fonts was actively counterproductive. The script still loads exactly as
+    before; it just no longer jumps the queue.
+
+    dns-prefetch is deliberately NOT used as a substitute. It carries its own
+    (smaller) cost and this origin does not need the head start.
+  {%- endcomment -%}
   <script src="https://cleanseafoodtoyourdoor.com/core/modals.min.js" async></script>
 {% endif %}
