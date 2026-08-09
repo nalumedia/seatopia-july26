@@ -1,0 +1,776 @@
+{%- comment -%}
+  ============================================================================
+  Curated Boxes Funnel
+  ============================================================================
+  Three-step wizard (Seafood -> Size -> Checkout) over ONE Shopify product with
+  two options: Style x Size = 9 variants.
+
+  DESIGN CONSTRAINT: build on the theme's existing design system. This section
+  reuses `section section--padding`, `page-width`, `card-grid`, and the
+  `button button--primary` markup (including the btn-fill / btn-text spans the
+  theme's button styles expect). The only new CSS is in the {% stylesheet %}
+  block at the bottom — ~40 lines, all expressed in existing theme tokens
+  (--sp-*, --card-radius, --color-base-*) so it inherits the design system
+  rather than introducing a parallel one. It compiles into the theme's section
+  CSS bundle, so it costs no extra request.
+
+  DATA THIS SECTION READS (and degrades gracefully without):
+    variant.metafields.custom.box_components  JSON: [{sku,name,quantity}, ...]
+    shop.metafields.custom.omega_by_sku       JSON: {SKU: {epaDhaMg, servingOz}}
+  Neither exists yet. When absent, the "What's inside" and "Omega-3" blocks are
+  omitted entirely — never estimated. See the README block in the schema.
+{%- endcomment -%}
+
+{%- liquid
+  assign product = all_products[section.settings.product]
+  assign style_option = null
+  assign size_option = null
+
+  for opt in product.options_with_values
+    if opt.name == section.settings.style_option_name
+      assign style_option = opt
+    endif
+    if opt.name == section.settings.size_option_name
+      assign size_option = opt
+    endif
+  endfor
+
+  assign omega_raw = shop.metafields.custom.omega_by_sku
+  assign target_mg = section.settings.daily_target_mg | default: 2000
+-%}
+
+{%- if product == blank or style_option == blank or size_option == blank -%}
+  {%- comment -%} Editor-visible guidance rather than a silent blank section. {%- endcomment -%}
+  {%- if request.design_mode -%}
+    <div class="section section--padding">
+      <div class="page-width">
+        <p class="rte">
+          <strong>Curated Boxes Funnel:</strong>
+          {% if product == blank %}
+            select a product in this section's settings.
+          {% else %}
+            this product needs options named
+            &ldquo;{{ section.settings.style_option_name }}&rdquo; and
+            &ldquo;{{ section.settings.size_option_name }}&rdquo;. It currently has:
+            {% for o in product.options_with_values %}&ldquo;{{ o.name }}&rdquo;{% unless forloop.last %}, {% endunless %}{% endfor %}.
+          {% endif %}
+        </p>
+      </div>
+    </div>
+  {%- endif -%}
+{%- else -%}
+
+  {%- comment -%} ---- variant data for the client, built once ---- {%- endcomment -%}
+  {%- capture variant_json -%}
+    [
+    {%- comment -%}
+      Index by option POSITION. Liquid's variant.options is a flat array of
+      value strings — the {name, value} objects only exist in the GraphQL API,
+      so matching on so.name silently yields empty strings here.
+    {%- endcomment -%}
+    {%- assign style_idx = style_option.position | minus: 1 -%}
+    {%- assign size_idx = size_option.position | minus: 1 -%}
+    {%- for v in product.variants -%}
+      {%- liquid
+        assign v_style = v.options[style_idx]
+        assign v_size = v.options[size_idx]
+      -%}
+      {
+        "id": {{ v.id }},
+        "style": {{ v_style | json }},
+        "size": {{ v_size | json }},
+        "sku": {{ v.sku | json }},
+        "price": {{ v.price }},
+        "priceText": {{ v.price | money | json }},
+        "available": {{ v.available }},
+        "image": {{ v.image | default: product.featured_image | image_url: width: 900 | json }},
+        "components": {{ v.metafields.custom.box_components.value | default: nil | json }},
+        "plans": [
+          {%- for alloc in v.selling_plan_allocations -%}
+            {
+              "id": {{ alloc.selling_plan.id }},
+              "name": {{ alloc.selling_plan.name | json }},
+              "price": {{ alloc.price }},
+              "priceText": {{ alloc.price | money | json }}
+            }{% unless forloop.last %},{% endunless %}
+          {%- endfor -%}
+        ]
+      }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+    ]
+  {%- endcapture -%}
+
+  <section
+    class="section section--padding{% if section.settings.divider %} section--divider{% endif %}"
+    id="CuratedFunnel-{{ section.id }}"
+  >
+    <div class="page-width">
+      <curated-funnel
+        class="cbf block"
+        data-target-mg="{{ target_mg }}"
+        data-style-name="{{ section.settings.style_option_name | escape }}"
+        data-size-name="{{ section.settings.size_option_name | escape }}"
+      >
+        <script type="application/json" data-cbf-variants>{{ variant_json }}</script>
+        {%- if omega_raw != blank -%}
+          <script type="application/json" data-cbf-omega>{{ omega_raw }}</script>
+        {%- endif -%}
+
+        {%- comment -%} ---------- progress ---------- {%- endcomment -%}
+        <ol class="cbf-progress flex items-center gap-2 md:gap-4" aria-label="Progress">
+          {%- assign step_labels = section.settings.step_labels | default: 'Seafood,Size,Checkout' | split: ',' -%}
+          {%- for label in step_labels -%}
+            <li class="cbf-progress__item flex items-center gap-2 grow" data-cbf-progress="{{ forloop.index }}">
+              <button
+                type="button"
+                class="cbf-progress__btn link text-sm leading-tight"
+                data-cbf-goto="{{ forloop.index }}"
+                aria-current="{% if forloop.first %}step{% else %}false{% endif %}"
+              >
+                <span class="cbf-progress__num">{{ forloop.index }}</span>
+                <span>{{ label | strip | escape }}</span>
+              </button>
+            </li>
+          {%- endfor -%}
+        </ol>
+
+        <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data" data-cbf-form>
+          <input type="hidden" name="id" value="" data-cbf-variant-id>
+          <input type="hidden" name="selling_plan" value="" data-cbf-selling-plan>
+          <input type="hidden" name="quantity" value="1">
+          <input type="hidden" name="properties[_funnel]" value="curated-boxes">
+
+          {%- comment -%} ================= STEP 1 : STYLE ================= {%- endcomment -%}
+          <div class="cbf-step" data-cbf-step="1">
+            <div class="cbf-head">
+              <h2 class="heading title-md">{{ section.settings.step1_heading | escape }}</h2>
+              {%- if section.settings.step1_subheading != blank -%}
+                <p class="rte">{{ section.settings.step1_subheading }}</p>
+              {%- endif -%}
+            </div>
+
+            <fieldset class="cbf-fieldset">
+              <legend class="sr-only">{{ section.settings.step1_heading | escape }}</legend>
+              <div class="card-grid card-grid--3 mobile:card-grid--1 grid">
+                {%- for value in style_option.values -%}
+                  {%- liquid
+                    assign vstr = value | downcase
+                    assign img = null
+                    assign blurb = ''
+                    for block in section.blocks
+                      assign bname = block.settings.style_value | downcase | strip
+                      if bname == vstr
+                        assign img = block.settings.image
+                        assign blurb = block.settings.description
+                      endif
+                    endfor
+
+                    assign s_idx = style_option.position | minus: 1
+                    assign lowest = nil
+                    for v in product.variants
+                      if v.options[s_idx] == value
+                        if lowest == nil or v.price < lowest
+                          assign lowest = v.price
+                        endif
+                      endif
+                    endfor
+                  -%}
+                  <label class="cbf-opt card">
+                    <input
+                      type="radio"
+                      class="sr-only"
+                      name="cbf-style"
+                      value="{{ value | escape }}"
+                      data-cbf-style
+                      {% if forloop.first %}checked{% endif %}
+                    >
+                    <span class="cbf-card">
+                      <span class="cbf-card__media media media--square block relative overflow-hidden">
+                        {%- if img != blank -%}
+                          {{ img | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 33vw, 100vw', widths: '300,400,600,800', class: 'w-full h-full' }}
+                        {%- elsif product.featured_image -%}
+                          {{ product.featured_image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 33vw, 100vw', widths: '300,400,600,800', class: 'w-full h-full' }}
+                        {%- endif -%}
+                      </span>
+                      <span class="cbf-card__body">
+                        <span class="cbf-card__title heading text-base-xl font-medium">{{ value | escape }}</span>
+                        {%- if blurb != blank -%}
+                          <span class="cbf-card__text rte text-sm">{{ blurb }}</span>
+                        {%- endif -%}
+                        {%- if lowest != nil -%}
+                          {%- comment -%}
+                            Reuse the theme's own key. Note `| t | default:` is a
+                            trap here: a missing key returns the truthy string
+                            "Translation missing: ...", so `default` never fires.
+                          {%- endcomment -%}
+                          {%- comment -%}
+                            Format first. In a filter chain `| t: price: lowest | money`
+                            the money filter applies to t's OUTPUT, not to lowest,
+                            which silently renders $0.00.
+                          {%- endcomment -%}
+                          {%- assign lowest_money = lowest | money -%}
+                          <span class="cbf-card__price font-medium">
+                            {{- 'products.price.from_price_html' | t: price: lowest_money -}}
+                          </span>
+                        {%- endif -%}
+                        <span class="cbf-card__omega text-sm" data-cbf-style-omega="{{ value | escape }}" hidden></span>
+                      </span>
+                    </span>
+                  </label>
+                {%- endfor -%}
+              </div>
+            </fieldset>
+
+            <div class="cbf-actions">
+              <button type="button" class="button button--primary button--md" data-cbf-next="2">
+                <span class="btn-fill" data-fill></span>
+                <span class="btn-text">{{ section.settings.continue_label | escape }}</span>
+              </button>
+            </div>
+          </div>
+
+          {%- comment -%} ================= STEP 2 : SIZE ================= {%- endcomment -%}
+          <div class="cbf-step" data-cbf-step="2" hidden>
+            <div class="cbf-head">
+              <h2 class="heading title-md">{{ section.settings.step2_heading | escape }}</h2>
+              {%- if section.settings.step2_subheading != blank -%}
+                <p class="rte">{{ section.settings.step2_subheading }}</p>
+              {%- endif -%}
+            </div>
+
+            <fieldset class="cbf-fieldset">
+              <legend class="sr-only">{{ section.settings.step2_heading | escape }}</legend>
+              <div class="card-grid card-grid--3 mobile:card-grid--1 grid">
+                {%- for value in size_option.values -%}
+                  {%- liquid
+                    assign vstr = value | downcase
+                    assign tagline = ''
+                    assign detail = ''
+                    assign badge = ''
+                    for block in section.blocks
+                      assign bname = block.settings.size_value | downcase | strip
+                      if bname == vstr
+                        assign tagline = block.settings.tagline
+                        assign detail = block.settings.description
+                        assign badge = block.settings.badge
+                      endif
+                    endfor
+                    assign portions = value | split: ' ' | first
+                  -%}
+                  <label class="cbf-opt card">
+                    <input
+                      type="radio"
+                      class="sr-only"
+                      name="cbf-size"
+                      value="{{ value | escape }}"
+                      data-cbf-size
+                      {% if forloop.first %}checked{% endif %}
+                    >
+                    <span class="cbf-card cbf-card--plain">
+                      <span class="cbf-card__body">
+                        {%- if badge != blank -%}
+                          <span class="cbf-badge text-sm font-medium">{{ badge | escape }}</span>
+                        {%- endif -%}
+                        <span class="cbf-portions heading title-lg">{{ portions }}</span>
+                        <span class="cbf-card__title font-medium">{{ 'Portions' }}</span>
+                        {%- if tagline != blank -%}<span class="cbf-card__text">{{ tagline | escape }}</span>{%- endif -%}
+                        {%- if detail != blank -%}<span class="cbf-card__text text-sm">{{ detail }}</span>{%- endif -%}
+                        <span class="cbf-card__price font-medium" data-cbf-size-price="{{ value | escape }}"></span>
+                        <span class="cbf-card__omega text-sm" data-cbf-size-omega="{{ value | escape }}" hidden></span>
+                      </span>
+                    </span>
+                  </label>
+                {%- endfor -%}
+              </div>
+            </fieldset>
+
+            {%- if section.settings.omega_footnote != blank -%}
+              <div class="cbf-note rte text-sm" data-cbf-omega-note hidden>{{ section.settings.omega_footnote }}</div>
+            {%- endif -%}
+
+            <div class="cbf-actions">
+              <button type="button" class="button button--secondary button--md" data-cbf-next="1">
+                <span class="btn-fill" data-fill></span>
+                <span class="btn-text">{{ section.settings.back_label | escape }}</span>
+              </button>
+              <button type="button" class="button button--primary button--md" data-cbf-next="3">
+                <span class="btn-fill" data-fill></span>
+                <span class="btn-text">{{ section.settings.continue_label | escape }}</span>
+              </button>
+            </div>
+          </div>
+
+          {%- comment -%} ================= STEP 3 : REVIEW ================= {%- endcomment -%}
+          <div class="cbf-step" data-cbf-step="3" hidden>
+            <div class="cbf-head">
+              <h2 class="heading title-md">{{ section.settings.step3_heading | escape }}</h2>
+              {%- if section.settings.step3_subheading != blank -%}
+                <p class="rte">{{ section.settings.step3_subheading }}</p>
+              {%- endif -%}
+            </div>
+
+            {%- comment -%} a) summary {%- endcomment -%}
+            <div class="cbf-summary card">
+              {%- comment -%}
+                Render a real initial image rather than src="". An empty src is
+                not merely a lint warning — browsers may resolve it against the
+                current document and re-request the page. JS swaps this per
+                variant; declaring the true intrinsic dimensions keeps the box
+                reserved before it loads.
+              {%- endcomment -%}
+              {%- assign summary_img = product.selected_or_first_available_variant.image | default: product.featured_image -%}
+              <span class="cbf-summary__media media media--square block relative overflow-hidden">
+                {%- if summary_img != blank -%}
+                  <img
+                    src="{{ summary_img | image_url: width: 600 }}"
+                    alt="{{ product.title | escape }}"
+                    width="{{ summary_img.width }}"
+                    height="{{ summary_img.height }}"
+                    loading="lazy"
+                    data-cbf-summary-image
+                  >
+                {%- endif -%}
+              </span>
+              <div class="cbf-summary__body">
+                <p class="heading text-base-xl font-medium" data-cbf-summary-title></p>
+                <p class="text-sm" data-cbf-summary-size></p>
+                {%- if section.settings.ship_copy != blank -%}
+                  <p class="text-sm">{{ section.settings.ship_copy }}</p>
+                {%- endif -%}
+                {%- if product.metafields.reviews.rating_count.value > 0 -%}
+                  <p class="text-sm">
+                    {{ product.metafields.reviews.rating.value.rating }} / {{ product.metafields.reviews.rating.value.scale_max }}
+                    &middot; {{ product.metafields.reviews.rating_count.value }} reviews
+                  </p>
+                {%- endif -%}
+                <p class="heading title-sm" data-cbf-summary-price></p>
+              </div>
+            </div>
+
+            {%- comment -%} b) contents — only when the metafield exists {%- endcomment -%}
+            <div class="cbf-block" data-cbf-contents hidden>
+              <h3 class="heading title-sm">{{ section.settings.contents_heading | escape }}</h3>
+              <ul class="cbf-list" data-cbf-contents-list></ul>
+              {%- if section.settings.contents_disclaimer != blank -%}
+                <div class="cbf-note rte text-sm">{{ section.settings.contents_disclaimer }}</div>
+              {%- endif -%}
+            </div>
+
+            {%- comment -%} c) omega — only when lab data exists {%- endcomment -%}
+            <div class="cbf-block" data-cbf-omega-block hidden>
+              <h3 class="heading title-sm">{{ section.settings.omega_heading | escape }}</h3>
+              <div class="card-grid card-grid--3 mobile:card-grid--1 grid">
+                <div class="cbf-stat card">
+                  <span class="heading title-sm" data-cbf-omega-total></span>
+                  <span class="text-sm">Total EPA + DHA</span>
+                </div>
+                <div class="cbf-stat card">
+                  <span class="heading title-sm" data-cbf-omega-days></span>
+                  <span class="text-sm">at the ~{{ target_mg }} mg/day target</span>
+                </div>
+                <div class="cbf-stat card">
+                  <span class="heading title-sm" data-cbf-omega-servings></span>
+                  <span class="text-sm">Lab-tested servings</span>
+                </div>
+              </div>
+              {%- if section.settings.omega_disclaimer != blank -%}
+                <div class="cbf-note rte text-sm">{{ section.settings.omega_disclaimer }}</div>
+              {%- endif -%}
+              <div class="cbf-note rte text-sm" data-cbf-omega-partial hidden>
+                {{ section.settings.omega_partial_note }}
+              </div>
+            </div>
+
+            {%- comment -%} d) purchase type {%- endcomment -%}
+            {%- if product.selling_plan_groups.size > 0 -%}
+              <fieldset class="cbf-block cbf-fieldset">
+                <legend class="heading title-sm">{{ section.settings.purchase_heading | escape }}</legend>
+
+                <label class="cbf-opt cbf-opt--row card">
+                  <input type="radio" class="sr-only" name="cbf-purchase" value="subscription" data-cbf-purchase checked>
+                  <span class="cbf-card cbf-card--plain">
+                    <span class="cbf-card__body">
+                      <span class="font-medium">{{ section.settings.subscribe_label | escape }}</span>
+                      <span class="cbf-plans" data-cbf-plans></span>
+                      {%- if section.settings.subscribe_benefits != blank -%}
+                        <span class="rte text-sm">{{ section.settings.subscribe_benefits }}</span>
+                      {%- endif -%}
+                    </span>
+                  </span>
+                </label>
+
+                <label class="cbf-opt cbf-opt--row card">
+                  <input type="radio" class="sr-only" name="cbf-purchase" value="onetime" data-cbf-purchase>
+                  <span class="cbf-card cbf-card--plain">
+                    <span class="cbf-card__body">
+                      <span class="font-medium">{{ section.settings.onetime_label | escape }}</span>
+                    </span>
+                  </span>
+                </label>
+              </fieldset>
+            {%- endif -%}
+
+            {%- comment -%} e) email + checkout {%- endcomment -%}
+            <div class="cbf-block">
+              {%- if section.settings.email_label != blank -%}
+                <label class="form__label" for="CbfEmail-{{ section.id }}">{{ section.settings.email_label }}</label>
+                <input
+                  id="CbfEmail-{{ section.id }}"
+                  class="input w-full"
+                  type="email"
+                  name="properties[Email]"
+                  autocomplete="email"
+                  placeholder="you@example.com"
+                  data-cbf-email
+                >
+                <p class="text-sm" data-cbf-email-error hidden>{{ section.settings.email_error | escape }}</p>
+              {%- endif -%}
+
+              <button type="submit" class="button button--primary button--lg w-full" data-cbf-submit>
+                <span class="btn-fill" data-fill></span>
+                <span class="btn-text" data-cbf-submit-text>{{ section.settings.checkout_label | escape }}</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </curated-funnel>
+
+      {%- comment -%} ---------- social proof: reuse Judge.me, every step ---------- {%- endcomment -%}
+      {%- if section.settings.show_reviews and product.metafields.judgeme.widget != blank -%}
+        <div class="cbf-block">{{ product.metafields.judgeme.widget }}</div>
+      {%- endif -%}
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      if (customElements.get('curated-funnel')) return;
+
+      customElements.define('curated-funnel', class extends HTMLElement {
+        connectedCallback() {
+          this.targetMg = parseInt(this.dataset.targetMg, 10) || 2000;
+          this.variants = this.readJSON('[data-cbf-variants]') || [];
+          this.omega = this.readJSON('[data-cbf-omega]') || null;
+          this.form = this.querySelector('[data-cbf-form]');
+          this.step = 1;
+
+          this.addEventListener('change', this.onChange.bind(this));
+          this.addEventListener('click', this.onClick.bind(this));
+
+          var email = this.querySelector('[data-cbf-email]');
+          if (email) email.addEventListener('blur', this.captureLead.bind(this));
+
+          this.renderStyleOmega();
+          this.update();
+          this.goto(1);
+        }
+
+        readJSON(sel) {
+          var el = this.querySelector(sel);
+          if (!el) return null;
+          try { return JSON.parse(el.textContent); } catch (e) { return null; }
+        }
+
+        val(name) {
+          var el = this.querySelector('[data-cbf-' + name + ']:checked');
+          return el ? el.value : null;
+        }
+
+        current() {
+          var s = this.val('style'), z = this.val('size');
+          return this.variants.filter(function (v) { return v.style === s && v.size === z; })[0] || null;
+        }
+
+        onChange(e) {
+          if (e.target.matches('[data-cbf-style],[data-cbf-size],[data-cbf-purchase],[data-cbf-plan]')) this.update();
+        }
+
+        onClick(e) {
+          var next = e.target.closest('[data-cbf-next]');
+          if (next) { e.preventDefault(); this.goto(parseInt(next.dataset.cbfNext, 10)); return; }
+          var goto = e.target.closest('[data-cbf-goto]');
+          if (goto) {
+            var n = parseInt(goto.dataset.cbfGoto, 10);
+            if (n < this.step) { e.preventDefault(); this.goto(n); }
+          }
+        }
+
+        goto(n) {
+          this.step = n;
+          this.querySelectorAll('[data-cbf-step]').forEach(function (el) {
+            el.hidden = parseInt(el.dataset.cbfStep, 10) !== n;
+          });
+          this.querySelectorAll('[data-cbf-progress]').forEach(function (el) {
+            var i = parseInt(el.dataset.cbfProgress, 10);
+            el.classList.toggle('is-active', i === n);
+            el.classList.toggle('is-done', i < n);
+            var b = el.querySelector('[data-cbf-goto]');
+            if (b) b.setAttribute('aria-current', i === n ? 'step' : 'false');
+          });
+          if (n > 1) this.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        /* ---- omega helpers. No lab data -> no numbers, ever. ---- */
+        omegaFor(components) {
+          if (!this.omega || !components || !components.length) return null;
+          var total = 0, servings = 0, noData = 0;
+          components.forEach(function (c) {
+            var rec = this.omega[c.sku];
+            var qty = parseInt(c.quantity, 10) || 0;
+            if (rec && typeof rec.epaDhaMg === 'number') { total += rec.epaDhaMg * qty; servings += qty; }
+            else { noData += qty; }
+          }, this);
+          if (!servings) return null;
+          return { total: total, servings: servings, noData: noData };
+        }
+
+        renderStyleOmega() {
+          if (!this.omega) return;
+          var self = this;
+          this.querySelectorAll('[data-cbf-style-omega]').forEach(function (el) {
+            var style = el.dataset.cbfStyleOmega;
+            var sum = 0, n = 0;
+            self.variants.filter(function (v) { return v.style === style; }).forEach(function (v) {
+              var o = self.omegaFor(v.components);
+              if (o) { sum += o.total / o.servings; n++; }
+            });
+            if (!n) return;
+            el.textContent = '≈ ' + Math.round(sum / n).toLocaleString() + ' mg EPA+DHA per serving';
+            el.hidden = false;
+          });
+        }
+
+        update() {
+          var v = this.current();
+          var self = this;
+
+          /* per-size prices on step 2, for the currently chosen style */
+          var style = this.val('style');
+          this.querySelectorAll('[data-cbf-size-price]').forEach(function (el) {
+            var match = self.variants.filter(function (x) {
+              return x.style === style && x.size === el.dataset.cbfSizePrice;
+            })[0];
+            el.textContent = match ? 'Starting at ' + match.priceText : '';
+          });
+          this.querySelectorAll('[data-cbf-size-omega]').forEach(function (el) {
+            var match = self.variants.filter(function (x) {
+              return x.style === style && x.size === el.dataset.cbfSizeOmega;
+            })[0];
+            var o = match ? self.omegaFor(match.components) : null;
+            if (!o) { el.hidden = true; return; }
+            el.textContent = Math.round(o.total / 1000) + 'g omega-3 · ~' +
+              Math.round(o.total / self.targetMg) + ' days';
+            el.hidden = false;
+          });
+          var note = this.querySelector('[data-cbf-omega-note]');
+          if (note) note.hidden = !this.omega;
+
+          if (!v) return;
+
+          /* selling plan */
+          var wantsSub = this.val('purchase') !== 'onetime' && v.plans.length > 0;
+          var plansEl = this.querySelector('[data-cbf-plans]');
+          if (plansEl && v.plans.length && !plansEl.dataset.built) {
+            plansEl.innerHTML = v.plans.map(function (p, i) {
+              return '<label class="cbf-plan text-sm"><input type="radio" name="cbf-plan" value="' + p.id +
+                '" data-cbf-plan' + (i === 0 ? ' checked' : '') + '> ' + p.name + '</label>';
+            }).join('');
+            plansEl.dataset.built = '1';
+          }
+          var planId = null;
+          if (wantsSub) {
+            var chosen = this.querySelector('[data-cbf-plan]:checked');
+            planId = chosen ? chosen.value : (v.plans[0] && v.plans[0].id);
+          }
+          var priceText = v.priceText;
+          if (planId) {
+            var p = v.plans.filter(function (x) { return String(x.id) === String(planId); })[0];
+            if (p) priceText = p.priceText;
+          }
+
+          this.querySelector('[data-cbf-variant-id]').value = v.id;
+          this.querySelector('[data-cbf-selling-plan]').value = planId || '';
+
+          var img = this.querySelector('[data-cbf-summary-image]');
+          if (img && v.image) { img.src = v.image; img.alt = v.style; }
+          this.setText('[data-cbf-summary-title]', v.style);
+          this.setText('[data-cbf-summary-size]', v.size);
+          this.setText('[data-cbf-summary-price]', priceText);
+          this.setText('[data-cbf-submit-text]',
+            (planId ? this.subLabel() : this.onceLabel()) + ' — ' + priceText);
+
+          /* contents */
+          var box = this.querySelector('[data-cbf-contents]');
+          var list = this.querySelector('[data-cbf-contents-list]');
+          if (box && list) {
+            if (v.components && v.components.length) {
+              list.innerHTML = v.components.map(function (c) {
+                return '<li class="cbf-list__row"><span>' + (c.name || c.sku) + '</span><span>×' + c.quantity + '</span></li>';
+              }).join('');
+              box.hidden = false;
+            } else { box.hidden = true; }
+          }
+
+          /* omega */
+          var ob = this.querySelector('[data-cbf-omega-block]');
+          var o = this.omegaFor(v.components);
+          if (ob) {
+            if (o) {
+              this.setText('[data-cbf-omega-total]', o.total.toLocaleString() + ' mg');
+              this.setText('[data-cbf-omega-days]', '~' + Math.round(o.total / this.targetMg) + ' days');
+              this.setText('[data-cbf-omega-servings]', String(o.servings));
+              var partial = this.querySelector('[data-cbf-omega-partial]');
+              if (partial) partial.hidden = o.noData === 0;
+              ob.hidden = false;
+            } else { ob.hidden = true; }
+          }
+
+          var submit = this.querySelector('[data-cbf-submit]');
+          if (submit) submit.disabled = !v.available;
+        }
+
+        subLabel() { return this.querySelector('[data-cbf-submit]').dataset.sub || 'Subscribe'; }
+        onceLabel() { return this.querySelector('[data-cbf-submit]').dataset.once || 'Checkout'; }
+
+        setText(sel, text) { var el = this.querySelector(sel); if (el) el.textContent = text; }
+
+        /* Klaviyo is already on every page — identify the lead without adding
+           a dependency. Fails silently if Klaviyo has not booted yet. */
+        captureLead(e) {
+          var email = (e.target.value || '').trim();
+          var ok = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+          var err = this.querySelector('[data-cbf-email-error]');
+          if (err) err.hidden = ok || !email;
+          if (!ok) return;
+          try {
+            window._learnq = window._learnq || [];
+            window._learnq.push(['identify', {
+              $email: email,
+              CuratedBoxStyle: this.val('style'),
+              CuratedBoxSize: this.val('size'),
+              LeadSource: 'curated-boxes-funnel'
+            }]);
+          } catch (_) {}
+        }
+      });
+    })();
+  </script>
+{%- endif -%}
+
+{% stylesheet %}
+/* Curated Boxes Funnel — minimal, expressed in existing theme tokens. */
+.cbf-progress { list-style: none; margin: 0 0 var(--sp-6); padding: 0; }
+.cbf-progress__item { opacity: 0.45; }
+.cbf-progress__item.is-active,
+.cbf-progress__item.is-done { opacity: 1; }
+.cbf-progress__btn { display: flex; align-items: center; gap: var(--sp-2); background: none; border: 0; padding: 0; cursor: default; }
+.cbf-progress__item.is-done .cbf-progress__btn { cursor: pointer; }
+.cbf-progress__num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.75rem; height: 1.75rem; border-radius: 50%;
+  border: 1px solid rgb(var(--color-base-text) / 0.35);
+}
+.cbf-progress__item.is-active .cbf-progress__num,
+.cbf-progress__item.is-done .cbf-progress__num {
+  background: rgb(var(--color-base-text)); color: rgb(var(--color-base-background));
+}
+
+.cbf-head { margin-bottom: var(--sp-4); }
+.cbf-fieldset { border: 0; margin: 0 0 var(--sp-4); padding: 0; }
+.cbf-block { margin-top: var(--sp-6); }
+.cbf-actions { display: flex; gap: var(--sp-3); margin-top: var(--sp-4); }
+.cbf-note { margin-top: var(--sp-3); opacity: 0.75; }
+
+.cbf-opt { display: block; cursor: pointer; height: 100%; }
+.cbf-card { display: flex; flex-direction: column; height: 100%; border-radius: var(--card-radius); overflow: hidden; }
+.cbf-card__body { display: flex; flex-direction: column; gap: var(--sp-2); padding: var(--sp-4); }
+.cbf-opt input:focus-visible + .cbf-card { outline: 2px solid rgb(var(--color-base-text)); outline-offset: 2px; }
+.cbf-opt input:checked + .cbf-card { box-shadow: inset 0 0 0 2px rgb(var(--color-base-text)); }
+.cbf-opt--row { margin-bottom: var(--sp-3); }
+
+.cbf-badge { align-self: flex-start; padding: 0 var(--sp-2); border-radius: var(--buttons-radius); background: rgb(var(--color-base-text)); color: rgb(var(--color-base-background)); }
+.cbf-summary { display: grid; grid-template-columns: minmax(0, 30%) minmax(0, 1fr); gap: var(--sp-4); border-radius: var(--card-radius); overflow: hidden; }
+.cbf-summary__body { display: flex; flex-direction: column; gap: var(--sp-2); padding: var(--sp-4) var(--sp-4) var(--sp-4) 0; }
+.cbf-stat { display: flex; flex-direction: column; gap: var(--sp-1); padding: var(--sp-4); border-radius: var(--card-radius); }
+.cbf-list { list-style: none; margin: 0; padding: 0; }
+.cbf-list__row { display: flex; justify-content: space-between; gap: var(--sp-4); padding: var(--sp-2) 0; border-bottom: 1px solid rgb(var(--color-base-text) / 0.12); }
+.cbf-plan { display: block; }
+
+@media screen and (max-width: 749px) {
+  .cbf-summary { grid-template-columns: 1fr; }
+  .cbf-summary__body { padding: 0 var(--sp-4) var(--sp-4); }
+  .cbf-actions { flex-direction: column; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Curated Boxes Funnel",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Three-step funnel over one product with a Style option and a Size option. Optional data: variant metafield custom.box_components (JSON list of {sku,name,quantity}) powers 'What's inside'; shop metafield custom.omega_by_sku (JSON map of SKU to {epaDhaMg}) powers the omega figures. Both blocks stay hidden until that data exists — values are never estimated."
+    },
+    { "type": "product", "id": "product", "label": "Curated box product" },
+    { "type": "text", "id": "style_option_name", "label": "Style option name", "default": "Style" },
+    { "type": "text", "id": "size_option_name", "label": "Size option name", "default": "Size" },
+    { "type": "text", "id": "step_labels", "label": "Progress labels (comma separated)", "default": "Seafood,Size,Checkout" },
+    { "type": "text", "id": "continue_label", "label": "Continue button", "default": "Continue" },
+    { "type": "text", "id": "back_label", "label": "Back button", "default": "Back" },
+
+    { "type": "header", "content": "Step 1 — Seafood" },
+    { "type": "text", "id": "step1_heading", "label": "Heading", "default": "Choose Your Seafood" },
+    { "type": "richtext", "id": "step1_subheading", "label": "Subheading", "default": "<p>Each box is chef-curated with hand-picked selections.</p>" },
+
+    { "type": "header", "content": "Step 2 — Size" },
+    { "type": "text", "id": "step2_heading", "label": "Heading", "default": "Choose Your Size" },
+    { "type": "richtext", "id": "step2_subheading", "label": "Subheading", "default": "<p>Choose the box size that fits your household.</p>" },
+    { "type": "richtext", "id": "omega_footnote", "label": "Omega footnote", "default": "<p>Omega-3 (EPA+DHA) is associated with better long-term heart and brain outcomes. Per-serving values from Edacious lab tests on box components.</p>" },
+
+    { "type": "header", "content": "Step 3 — Review" },
+    { "type": "text", "id": "step3_heading", "label": "Heading", "default": "Your Box is Built!" },
+    { "type": "richtext", "id": "step3_subheading", "label": "Subheading", "default": "<p>Review your selections and checkout.</p>" },
+    { "type": "richtext", "id": "ship_copy", "label": "Shipping copy", "default": "<p>Arrives snap frozen. Orders ship Tuesday & Wednesday.</p>" },
+    { "type": "text", "id": "contents_heading", "label": "Contents heading", "default": "What's inside this box" },
+    { "type": "richtext", "id": "contents_disclaimer", "label": "Contents disclaimer", "default": "<p>Chef-curated selection — exact varieties may shift slightly with the season and best available harvest.</p>" },
+    { "type": "text", "id": "omega_heading", "label": "Omega heading", "default": "Omega-3 in this box" },
+    { "type": "number", "id": "daily_target_mg", "label": "Daily EPA+DHA target (mg)", "default": 2000 },
+    { "type": "richtext", "id": "omega_disclaimer", "label": "Omega disclaimer", "default": "<p>Values from Edacious lab tests on box components.</p>" },
+    { "type": "richtext", "id": "omega_partial_note", "label": "Partial-data note", "default": "<p>Totals reflect lab-tested selections only.</p>" },
+
+    { "type": "header", "content": "Purchase" },
+    { "type": "text", "id": "purchase_heading", "label": "Heading", "default": "How would you like it?" },
+    { "type": "text", "id": "subscribe_label", "label": "Subscribe label", "default": "Subscribe & Save 10%" },
+    { "type": "richtext", "id": "subscribe_benefits", "label": "Subscribe benefits", "default": "<ul><li>FREE Cooking Class with every order</li><li>Arrives super frozen or we replace it</li><li>Pause or cancel anytime</li></ul>" },
+    { "type": "text", "id": "onetime_label", "label": "One-time label", "default": "One-time purchase" },
+    { "type": "text", "id": "email_label", "label": "Email label", "default": "Enter your email to unlock your FREE Seafood Detox eBook and continue checkout" },
+    { "type": "text", "id": "email_error", "label": "Email error", "default": "Please enter a valid email address." },
+    { "type": "text", "id": "checkout_label", "label": "Checkout button", "default": "Checkout" },
+    { "type": "checkbox", "id": "show_reviews", "label": "Show Judge.me reviews", "default": true },
+    { "type": "checkbox", "id": "divider", "label": "Show divider", "default": false }
+  ],
+  "blocks": [
+    {
+      "type": "style",
+      "name": "Style card",
+      "settings": [
+        { "type": "text", "id": "style_value", "label": "Matches Style option value" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "richtext", "id": "description", "label": "Description" }
+      ]
+    },
+    {
+      "type": "size",
+      "name": "Size card",
+      "settings": [
+        { "type": "text", "id": "size_value", "label": "Matches Size option value" },
+        { "type": "text", "id": "tagline", "label": "Tagline" },
+        { "type": "richtext", "id": "description", "label": "Detail line" },
+        { "type": "text", "id": "badge", "label": "Badge" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Curated Boxes Funnel" }]
+}
+{% endschema %}

@@ -1,0 +1,108 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "funnel": {
+      "type": "curated-boxes-funnel",
+      "blocks": {
+        "style_salmon": {
+          "type": "style",
+          "settings": {
+            "style_value": "Salmon Lovers",
+            "image": "shopify://shop_images/salmon-lovers-box-107176.jpg",
+            "description": "<p>Curated variety may include King Salmon, Atlantic Salmon, Steelhead, and Smoked Salmon selections.</p>"
+          }
+        },
+        "style_variety": {
+          "type": "style",
+          "settings": {
+            "style_value": "Fish & Shellfish Variety",
+            "image": "shopify://shop_images/curated-boxes-468512.jpg",
+            "description": "<p>Curated variety of salmon, whitefish, and Peruvian scallops for adventurous palates.</p>"
+          }
+        },
+        "style_white": {
+          "type": "style",
+          "settings": {
+            "style_value": "White Fish Box",
+            "image": "shopify://shop_images/curated-boxes-802289.jpg",
+            "description": "<p>Curated variety may include Sea Bream, Branzino, Yellowtail, and Barramundi.</p>"
+          }
+        },
+        "size_12": {
+          "type": "size",
+          "settings": {
+            "size_value": "12 Portions",
+            "tagline": "Perfect for you 🐟",
+            "description": "<p>~6-8 oz portions · A great way to start exploring the range.</p>",
+            "badge": ""
+          }
+        },
+        "size_18": {
+          "type": "size",
+          "settings": {
+            "size_value": "18 Portions",
+            "tagline": "For you to share 🐠🐠",
+            "description": "<p>~6-8 oz portions · More variety, better value — our most popular size.</p>",
+            "badge": "Most Popular"
+          }
+        },
+        "size_24": {
+          "type": "size",
+          "settings": {
+            "size_value": "24 Portions",
+            "tagline": "For your family 🐡🐡🐡",
+            "description": "<p>~6-8 oz portions · Stock your freezer with premium catches.</p>",
+            "badge": ""
+          }
+        }
+      },
+      "block_order": [
+        "style_salmon",
+        "style_variety",
+        "style_white",
+        "size_12",
+        "size_18",
+        "size_24"
+      ],
+      "settings": {
+        "product": "seatopia-regenerative-seafood-bundle",
+        "style_option_name": "Style",
+        "size_option_name": "Size",
+        "step_labels": "Seafood,Size,Checkout",
+        "continue_label": "Continue",
+        "back_label": "Back",
+        "step1_heading": "Choose Your Seafood",
+        "step1_subheading": "<p>Each box is chef-curated with hand-picked selections.</p>",
+        "step2_heading": "Choose Your Size",
+        "step2_subheading": "<p>Choose the box size that fits your household.</p>",
+        "omega_footnote": "<p>Omega-3 (EPA+DHA) is associated with better long-term heart and brain outcomes. Per-serving values from Edacious lab tests on box components.</p>",
+        "step3_heading": "Your Box is Built!",
+        "step3_subheading": "<p>Review your selections and checkout.</p>",
+        "ship_copy": "<p>Arrives snap frozen. Orders ship Tuesday &amp; Wednesday.</p>",
+        "contents_heading": "What's inside this box",
+        "contents_disclaimer": "<p>Chef-curated selection — exact varieties may shift slightly with the season and best available harvest.</p>",
+        "omega_heading": "Omega-3 in this box",
+        "daily_target_mg": 2000,
+        "omega_disclaimer": "<p>Values from Edacious lab tests on box components.</p>",
+        "omega_partial_note": "<p>Totals reflect lab-tested selections only.</p>",
+        "purchase_heading": "How would you like it?",
+        "subscribe_label": "Subscribe & Save 10%",
+        "subscribe_benefits": "<ul><li>FREE Cooking Class with every order</li><li>Arrives super frozen or we replace it</li><li>Pause or cancel anytime</li></ul>",
+        "onetime_label": "One-time purchase",
+        "email_label": "Enter your email to unlock your FREE Seafood Detox eBook and continue checkout",
+        "email_error": "Please enter a valid email address.",
+        "checkout_label": "Checkout",
+        "show_reviews": true,
+        "divider": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "funnel"
+  ]
+}
