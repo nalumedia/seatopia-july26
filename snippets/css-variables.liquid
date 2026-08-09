@@ -227,13 +227,42 @@
   }
 </style>
 
+{%- comment -%}
+  Font preloads.
+
+  The @font-face rules above are inside a <style> block, so the browser cannot
+  discover these files until it has parsed that CSS — which put four of them on
+  a sequential critical path (Network Dependency Tree audit: crimsonpro_n7
+  3,109ms, dmsans_i4 2,975ms, dmsans_n7 1,821ms, dmsans_n5 1,817ms, against a
+  6,437ms total critical path). Preloading lets the browser fetch them in
+  parallel as soon as the head is parsed.
+
+  Only the weights actually on the critical path are preloaded. crimsonpro_n5
+  and dmsans_i7 are declared above but deliberately NOT preloaded — a preload
+  for a font the page never renders still competes for bandwidth with the LCP
+  image, which makes LCP worse rather than better. If a future audit shows
+  either of them blocking, add it here; don't preload the whole set by reflex.
+
+  The variables below are assigned in the liquid block at the top of this file.
+{%- endcomment -%}
 {%- unless settings.type_body_font.system? -%}
   {% # theme-check-disable AssetPreload %}
   <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="{{ body_font_medium | font_url }}" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="{{ body_font_bold | font_url }}" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="{{ body_font_italic | font_url }}" type="font/woff2" crossorigin>
   {% # theme-check-enable AssetPreload %}
 {%- endunless -%}
 {%- unless settings.type_header_font.system? -%}
   {% # theme-check-disable AssetPreload %}
   <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
+  {%- comment -%}
+    Mirrors the guard on the @font-face rules above: the header weights are only
+    declared when the header family differs from the body family, so preloading
+    the bold outside that condition would fetch a file with no matching face.
+  {%- endcomment -%}
+  {%- if header_font.family != body_font.family -%}
+    <link rel="preload" as="font" href="{{ header_font_bold | font_url }}" type="font/woff2" crossorigin>
+  {%- endif -%}
   {% # theme-check-enable AssetPreload %}
 {%- endunless -%}

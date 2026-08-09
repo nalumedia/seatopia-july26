@@ -1,0 +1,165 @@
+{%- comment -%}
+  ===========================================================================
+  SERVING REFERENCE — servings per package
+  ===========================================================================
+
+  Returns the number of FDA RACC servings contained in ONE package of a
+  product. Used by snippets/product-card.liquid to turn a pack price into a
+  per-serving price:
+
+      per serving = variant price / (packages in variant x servings per package)
+
+  Example — McFarland Springs Trout Dogs, 12-Pack at $260.00:
+      26000 cents / (12 packages x 4 servings) = 541.67 -> $5.42 /serving
+
+  Usage:
+      {%- capture spp -%}
+        {%- render 'serving-reference', handle: product.handle -%}
+      {%- endcapture -%}
+
+  Return values:
+      1   (default) one package = one serving. Any handle not listed below
+          behaves exactly as it did before this snippet existed, so an
+          incomplete map is safe — never wrong, only less precise.
+      2+  one package contains this many servings.
+      0   SUPPRESS. Show no per-serving price at all; fall back to the normal
+          price display. Use for anything sold by the jar or bottle where a
+          per-serving figure is meaningless.
+
+  ---------------------------------------------------------------------------
+  HOW TO UPDATE
+  ---------------------------------------------------------------------------
+  The ops table below is the source of truth and is keyed by COMPONENT SKU.
+  The storefront is keyed by PRODUCT HANDLE. These do not match — multi-pack
+  variants get their own sequential SKUs (Trout Dogs single is
+  SF-MCF-RBT-BLK-001, but the 12-Pack is SF-MCF-RBT-BLK-005), and Seatopia-
+  branded duplicates are renumbered entirely (SF-SEA-RBT-BLK-004 is the same
+  fish as SF-SIC-RBT-BLK-001). So the handle map has to be maintained by hand.
+
+  To update: paste the refreshed ops table into the block below, then add or
+  correct any handle in the case statement. Only rows with servings per
+  package GREATER THAN 1 change what a customer sees.
+
+  ---------------------------------------------------------------------------
+  OPS REFERENCE TABLE — last updated 2026-08-07
+  ---------------------------------------------------------------------------
+  Component Product              SKU                    Farm            Spec                        Pkg oz  Svgs  Svg oz  COGS
+  Mt. Cook, Alpine Salmon 7oz    SF-MCA-KGS-SHP-001     Mt. Cook        Skin-on Portion              7.00   1.00   7.00   $13.85
+  Ora King, King Salmon 8.5oz    SF-OKS-KGS-SHP-001     Ora King        Skin-on Portion              8.50   1.00   8.50   $16.06
+  Bakkafrost, Atlantic 6oz       SF-BAK-ATS-SHP-002     Bakkafrost      Skin-off Portion             6.00   1.00   6.00   $5.73
+  Caleta Bay, Steelhead Loin     SF-CLB-STT-SHP-002     Caleta Bay      Skin-on Loin                10.00   2.00   5.00   $12.69
+  Caleta Bay, Cold Smoked 4oz    SF-CLB-STT-SHP-001     Caleta Bay      Cold-smoked (nova lox)       4.00   1.00   4.00   $5.07
+  Caleta Bay, Steelhead 6oz      SF-CLB-STT-SHP-009     Caleta Bay      Skin-on Portion              6.00   1.00   6.00   $4.75
+  Tarakan, Black Tiger 16oz      SF-TAR-BTS-SHP-001     Tarakan         Raw, easy-peel              16.00   4.00   4.00   $18.10
+  Esteros Lubimar, Branzino 6oz  SF-EST-BRZ-SHP-001     Esteros Lubimar Skin-on Filet                6.00   1.00   6.00   $17.13
+  Esteros Lubimar, Bream 6oz     SF-EST-BRE-SHP-001     Esteros Lubimar Skin-on Filet                6.00   1.00   6.00   $13.50
+  Australis, Barramundi 6oz      SF-AUS-BRM-SHP-001     Australis       Skin-on Portion              6.00   1.00   6.00   $5.24
+  Australis, Barramundi 8oz      SF-AUS-BRM-SHP-005     Australis       Skin-on Filet                8.00   1.00   8.00   $7.32
+  Australis, Barramundi 3-5oz    SF-AUS-BRM-SHP-009     Australis       Skin-off Filet               4.00   1.00   4.00   $2.44
+  HVF, Furikake Lox 4oz          SF-HVF-STT-BLK-007     Hudson Valley   Cold-smoked (nova lox)       4.00   1.00   4.00   (blank)
+  HVF, Pastrami Smoked 4oz       SF-HVF-STT-BLK-003     Hudson Valley   Cold-smoked (nova lox)       4.00   1.00   4.00   $18.31
+  HVF, Steelhead 6oz             SF-HVF-STT-SHP-001     Hudson Valley   Skin-on Portion              6.00   1.00   6.00   $10.84
+  McFarland, Trout Dogs 4-pack   SF-MCF-RBT-BLK-001     McFarland       Cold smoked hotdogs         12.80   4.00   3.20   $24.79
+  McFarland, Trout Fillet 6oz    SF-MCF-RBT-SHP-001     McFarland       Skin-on Fillet               6.00   1.00   6.00   $13.58
+  Seacorp, Half Shell 16oz       SF-SEC-SCL-SHP-001     Seacorp         Half shell scallops         16.00   1.00   4.00   $19.89  <-- see note 3
+  Seacorp, Scallop Meat 16oz     SF-SEC-SCL-SHP-009     Seacorp         Shell-off scallop meat      16.00   4.00   4.00   $25.22
+  Smoke in Chimneys, Whole 12oz  SF-SIC-RBT-BLK-001     Smoke in Chim.  Head on, gutted             12.00   2.00   6.00   $18.89
+  Smoke in Chimneys, Smoked 5.5  SF-SIC-RBT-BLK-005     Smoke in Chim.  Skin-on, hot smoked          5.50   1.00   5.50   $18.89
+  Kingfish, Yellowtail 8oz       SF-KFC-YLT-SHP-001     Kingfish Co.    Skin-off Loin                8.00   1.00   8.00   $18.86
+  Marshallberg, Osetra 30g       SF-MAR-OST-BLK-001     Marshallberg    30g Tin                      1.00   2.00   0.25   $90.01  <-- see note 3
+  Yarra Valley, Salmon Roe 30g   SF-YRV-SLC-BLK-001     Yarra Valley    30g Tin                      1.00   2.00   0.25   $16.06  <-- see note 3
+  Yuzu Kosho 4oz                 SP-KUR-YKS-BLK-001     Kurotakesou     Glass jar                    4.00  20.00   0.20   $9.56
+  Yugeta Shoyu 4oz               SP-YSH-SHO-SHP-001     Yugeta          Spray bottle atomizer        4.00  20.00   0.20   $7.65
+  Pickled Ginger 4oz             SP-DVG-GGG-SHP-001     Dave's Gourmet  Glass jar                    4.00   4.00   1.00   $7.33
+
+  NOTES ON THE SOURCE DATA (flagged 2026-08-07, not corrected here):
+  1. HVF Furikake Lox has no COGS value.
+  2. Caleta Steelhead Loin is named "(12oz)" but the package size column says
+     10.00 oz. The 10.00 figure is what drives 2 servings at 5 oz.
+  3. Three rows are internally inconsistent — package oz divided by servings
+     does not equal the stated serving size:
+       - Seacorp Half Shell: 16 oz / 1 serving, but serving size says 4 oz.
+         If 4 oz is right this should be 4 servings, which would cut the
+         displayed per-serving price by 75%. LEFT AT 1 pending confirmation.
+       - Marshallberg Osetra: 1 oz / 2 servings = 0.5 oz, not 0.25 oz.
+       - Yarra Valley Salmon Roe: same, 1 oz / 2 = 0.5 oz, not 0.25 oz.
+         (30 g is ~1.06 oz; 0.25 oz servings would imply 4 per tin.)
+     The servings column is what this file uses, so the serving-size column
+     being wrong is harmless — but if SERVINGS is the wrong one, prices are
+     wrong. Worth a look.
+{%- endcomment -%}
+
+{%- liquid
+  assign spp = 1
+
+  case handle
+
+    comment
+      -- 0 = SUPPRESS. No per-serving price at all; the card falls back to
+         the normal price display.
+
+         Condiments are bought by the jar or bottle. A "$0.69 /serving" on a
+         garnish is noise, and the 20-servings figure in the ops table is a
+         nutrition-label RACC, not a purchase decision. Their servings values
+         are kept in the reference table above for costing purposes only.
+    endcomment
+    when 'kurotakesou-yuzu-kosho-4oz'
+      assign spp = 0
+    when 'yugeta-shoyu-4oz'
+      assign spp = 0
+    when 'dave-s-gourmet-pickled-ginger-4oz'
+      assign spp = 0
+
+    comment
+      -- 4 servings per package --
+    endcomment
+    when 'black-tiger-shrimp-mangrove-regeneration'
+      assign spp = 4
+    when 'mcfarland-springs-trout-hot-dogs', 'mcfarland-springs-trout-dogs'
+      assign spp = 4
+    when 'scallop-meat-16oz', 'scallop-meat-regenerative-farmed-peruvian-scallops-no-shell-20-oz-bag-sunset'
+      assign spp = 4
+
+    comment
+      -- 2 servings per package --
+    endcomment
+    when 'whole-trout-12oz', 'smoke-in-chimneys-whole-trout-12-16oz', 'smoke-in-chimneys-whole-trout-12oz'
+      assign spp = 2
+    when 'steelhead-sashimi-loin-12oz', 'caleta-bay-a-i-steelhead-loin-12oz'
+      assign spp = 2
+    when 'lab-tested-salmon-roe-caviar'
+      assign spp = 2
+    when 'marshallberg-classic-osetra-caviar'
+      assign spp = 2
+
+  endcase
+
+  echo spp
+-%}
+
+{%- comment -%}
+  ---------------------------------------------------------------------------
+  UNMAPPED — reference rows with servings > 1 that have no confirmed ACTIVE
+  storefront handle. Add the handle and uncomment when the product is live.
+  ---------------------------------------------------------------------------
+    Marshallberg, Classic Osetra Caviar (30g) — 2 servings — handle unknown
+      (a product.ostera-caviar.json template exists, but no matching ACTIVE
+       product was found for SF-MAR-OST-BLK-001)
+
+  ARCHIVED / UNLISTED at time of writing — mapped above but not customer
+  facing, so they cost nothing to leave in:
+    scallop-meat-...-sunset          ARCHIVED (also: ops says 16oz, product
+                                     title says 20oz — reconcile before relist)
+    dave-s-gourmet-pickled-ginger-4oz ARCHIVED
+    caleta-bay-a-i-steelhead-loin-12oz UNLISTED
+
+  KNOWN LIMITATION — single-variant products never reach this snippet.
+  product-card.liquid only computes a per-serving price when it can parse a
+  pack count from a variant title ("12-Pack" -> 12). Products whose only
+  variant is "Default Title" fall back to the normal price display, so
+  yugeta-shoyu-4oz (20 servings) and dave-s-gourmet-pickled-ginger-4oz
+  (4 servings) will not show a per-serving price even though they are mapped.
+  Fixing that means treating an unparseable variant as 1 package, which would
+  add "/serving" to every single-variant product on the site — a bigger
+  change than this one, so it is deliberately not done here.
+{%- endcomment -%}

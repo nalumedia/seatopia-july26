@@ -96,7 +96,55 @@
 
     <!-- Begin Growth Head Scripts -->
 
-    <script>/* >> Heatmap.com :: Snippet << */(function (h,e,a,t,m,ap) {  (h._heatmap_paq = []).push([ 'setTrackerUrl', (h.heatUrl = e) + a]);  h.hErrorLogs=h.hErrorLogs || []; ap=t.createElement('script');   ap.src=h.heatUrl+'heatmap.min.js?sid='+m;   ap.defer=true; t.head.appendChild(ap);  ['error', 'unhandledrejection'].forEach(function (ty) {      h.addEventListener(ty, function (et) { h.hErrorLogs.push({ type: ty, event: et }); });  });})(window,'https://c.heatmap.com/scripts/','heatmap.php',document,2984);</script>
+    <script>
+      /* >> Heatmap.com :: Snippet (deferred) <<
+         Vendor default injects heatmap.min.js during head parsing. That loader
+         immediately pulls dashboard.heatmap.com/heatmap-light.min.js, which the
+         Forced Reflow audit measured at 348ms of layout thrashing — more than
+         every other script on the page combined — landing squarely inside Total
+         Blocking Time.
+
+         The cheap parts of the snippet (queue, tracker URL, global error
+         listeners) still run inline so no early errors are lost. Only the
+         script injection is moved to browser idle time after first paint.
+
+         To revert, restore the one-line vendor snippet from git history:
+           git log -S"_heatmap_paq" -- layout/theme.liquid
+      */
+      (function (h, e, a, t, m) {
+        /* -- runs immediately: no layout, no network -- */
+        (h._heatmap_paq = h._heatmap_paq || []).push(['setTrackerUrl', (h.heatUrl = e) + a]);
+        h.hErrorLogs = h.hErrorLogs || [];
+        ['error', 'unhandledrejection'].forEach(function (ty) {
+          h.addEventListener(ty, function (et) { h.hErrorLogs.push({ type: ty, event: et }); });
+        });
+
+        /* -- deferred: the actual tracker -- */
+        var loaded = false;
+        function loadHeatmap() {
+          if (loaded) { return; }
+          loaded = true;
+          var ap = t.createElement('script');
+          ap.src = h.heatUrl + 'heatmap.min.js?sid=' + m;
+          ap.defer = true;
+          t.head.appendChild(ap);
+        }
+        function schedule() {
+          /* timeout caps how long an always-busy main thread can starve it,
+             so sessions that bounce early still get tracked */
+          if (typeof h.requestIdleCallback === 'function') {
+            h.requestIdleCallback(loadHeatmap, { timeout: 3000 });
+          } else {
+            h.setTimeout(loadHeatmap, 1500);
+          }
+        }
+        if (t.readyState === 'complete') {
+          schedule();
+        } else {
+          h.addEventListener('load', schedule, { once: true });
+        }
+      })(window, 'https://c.heatmap.com/scripts/', 'heatmap.php', document, 2984);
+    </script>
 
     <!-- Google Tag Manager -->
     <script>

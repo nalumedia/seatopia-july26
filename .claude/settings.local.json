@@ -35,7 +35,28 @@
       "mcp__claude_ai_Shopify__get-shop-info",
       "Read(//Users/ryan/.config/**)",
       "Read(//Users/ryan/Library/Preferences/**)",
-      "Read(//Users/ryan/.cache/**)"
+      "Read(//Users/ryan/.cache/**)",
+      "Bash(git pull *)",
+      "Bash(git push *)",
+      "mcp__claude_ai_Notion__notion-search",
+      "mcp__claude_ai_Notion__notion-get-teams",
+      "mcp__claude_ai_Notion__notion-fetch",
+      "mcp__claude_ai_Notion__notion-create-database",
+      "mcp__claude_ai_Notion__notion-create-pages",
+      "Bash(curl -s -L \"http://127.0.0.1:9292/collections/build-your-own-box\" -o /tmp/byob.html -w \"http %{http_code} bytes %{size_download}\\\\n\")",
+      "Bash(curl -s -L \"http://127.0.0.1:9292/collections/build-your-own-box\" -o /tmp/v.html -w \"http %{http_code}\\\\n\")",
+      "Bash(curl -s -L \"http://127.0.0.1:9292/search?q=yuzu+kosho\" -o /tmp/y.html)",
+      "Bash(echo \"exit $?\")",
+      "Read(//tmp/**)",
+      "Bash(curl -s \"https://c.heatmap.com/scripts/heatmap.min.js?sid=2984\" -o /tmp/hm.js -w \"http %{http_code} bytes %{size_download}\\\\n\" --max-time 25)",
+      "Bash(grep -o \"heatmap-light.\\\\{0,520\\\\}\" /tmp/hm.js)",
+      "Bash(curl -s -L \"http://127.0.0.1:9292/\" -o /tmp/home.html -w \"http %{http_code}\\\\n\")",
+      "Bash(curl -s -L \"http://127.0.0.1:9292/\" -o /tmp/home2.html -w \"http %{http_code}\\\\n\")",
+      "Bash(node --check /tmp/hm_inline.js)",
+      "Bash(grep -o \"@font-face.\\\\{0,260\\\\}\" /tmp/home2.html)",
+      "Bash(curl -s -L \"http://127.0.0.1:9292/\" -o /tmp/home3.html -w \"http %{http_code}\\\\n\")",
+      "Bash(curl -s -L \"https://seatopia.fish/\" -o /tmp/live.html -w \"http %{http_code} bytes %{size_download}\\\\n\" --max-time 30)",
+      "Bash(curl -s \"https://www.googletagmanager.com/gtm.js?id=GTM-5L5Q9Q66\" -o /tmp/gtm.js -w \"http %{http_code} bytes %{size_download}\\\\n\" --max-time 30)"
     ]
   }
 }

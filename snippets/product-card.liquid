@@ -303,7 +303,13 @@ endif
         {%- comment -%}
           Lowest price per serving: find the variant with the largest pack quantity
           (parsed from the variant title, e.g. "12-Pack" -> 12), then divide that
-          variant's price by its quantity. Falls back to the standard price display
+          variant's price by the total number of SERVINGS it contains:
+
+              total servings = packages in variant x servings per package
+
+          Servings per package comes from snippets/serving-reference.liquid and
+          defaults to 1, so products absent from that reference behave exactly as
+          they did before it existed. Falls back to the standard price display
           when no pack quantity can be parsed.
         {%- endcomment -%}
         {%- liquid
@@ -317,8 +323,27 @@ endif
             endif
           endfor
         -%}
-        {%- if ps_max_qty > 0 -%}
-          {%- assign ps_per_serving = ps_max_price | times: 1.0 | divided_by: ps_max_qty | round -%}
+        {%- capture ps_spp_raw -%}{%- render 'serving-reference', handle: product.handle -%}{%- endcapture -%}
+        {%- liquid
+          assign ps_spp_str = ps_spp_raw | strip
+          comment
+            An empty string means the reference snippet is missing or errored.
+            Fall back to 1 (pre-reference behaviour) rather than 0, so a broken
+            include never silently strips per-serving pricing from the site.
+            A deliberate 0 from the reference DOES suppress — see below.
+          endcomment
+          if ps_spp_str == blank
+            assign ps_spp = 1
+          else
+            assign ps_spp = ps_spp_str | times: 1
+          endif
+          if ps_spp < 0
+            assign ps_spp = 1
+          endif
+          assign ps_total_servings = ps_max_qty | times: ps_spp
+        -%}
+        {%- if ps_max_qty > 0 and ps_spp > 0 -%}
+          {%- assign ps_per_serving = ps_max_price | times: 1.0 | divided_by: ps_total_servings | round -%}
           <div class="price flex flex-wrap lg:flex-col lg:items-end gap-2 md:gap-1d5">
             <span class="price__regular whitespace-nowrap">
               {%- if settings.currency_code_enabled -%}
