@@ -100,7 +100,14 @@
       "mcp__claude_ai_Heatmap_MCP__get_site_pages",
       "mcp__claude_ai_Heatmap_MCP__get_scroll_depth",
       "mcp__claude_ai_Heatmap_MCP__get_pageview_analytics",
-      "mcp__claude_ai_Heatmap_MCP__get_normalized_page_data"
+      "mcp__claude_ai_Heatmap_MCP__get_normalized_page_data",
+      "Bash(curl -s -L \"https://seatopia.fish/pages/fish-cooking-temperature-guide\" -o /tmp/ft.html -w \"http %{http_code} bytes %{size_download}\\\\n\")",
+      "Bash(curl -s -L \"http://127.0.0.1:9292/pages/fish-cooking-temperature-guide\" -o /tmp/ftdev.html)",
+      "Bash(curl -s -L --max-time 25 \"https://seatopia.fish/pages/fish-cooking-temperature-guide\" -o /tmp/live_ig.html)",
+      "Bash(awk '{print \" \",$9,$5\"B\"}')",
+      "Bash(awk '{print \"  \",$9,$5\"B\"}')",
+      "Bash(curl -s -L \"http://127.0.0.1:9292/pages/fish-cooking-temperature-guide\" -o /tmp/ftdev.html -w \"http %{http_code}\\\\n\")",
+      "Bash(curl -s -L \"http://127.0.0.1:9292/pages/fish-cooking-temperature-guide?view=fish-temp-cta\" -o /tmp/ftv.html -w \"http %{http_code}  \")"
     ]
   }
 }
