@@ -1,0 +1,65 @@
+{%- comment -%}
+  ============================================================================
+  Intelligems — A/B testing & price testing
+  ============================================================================
+  Added 2026-08-09. Rendered from layout/theme.liquid, high in <head>.
+
+  ⚠️ THIS SCRIPT IS INTENTIONALLY RENDER-BLOCKING.
+
+  `blocking="render"` holds first paint until the bundle executes. That is the
+  point: an A/B tool that loads asynchronously shows the control variant first
+  and then swaps it, which users see as a flicker and which corrupts the test.
+  Blocking is the accepted trade for a clean experiment.
+
+  It WILL show up in Lighthouse "Render-blocking requests" (350 KB decoded /
+  98.6 KB wire, the third-largest third party on the site). Do not "fix" it by
+  adding defer/async or removing blocking="render" — that breaks the tool.
+  If the performance cost outweighs the testing value, the correct move is to
+  remove Intelligems entirely, not to de-block it.
+
+  A preconnect to cdn.intelligems.io sits immediately before this in
+  theme.liquid. It is warranted precisely because this is render-blocking:
+  the DNS + TLS handshake would otherwise sit on the critical path. That keeps
+  the site at 4 preconnects, which is at — not over — Lighthouse's threshold.
+
+  Placement rules if this ever moves:
+  - Must stay inside <head>, as early as possible, but AFTER <meta charset>
+    (charset has to land in the first 1024 bytes).
+  - The preconnect must stay immediately before it, or it does nothing.
+{%- endcomment -%}
+<script>
+  window.Shopify = window.Shopify || {theme: {id: {{ theme.id }}, role: '{{ theme.role }}' } };
+  window._template = {
+      directory: "{{ template.directory }}",
+      name: "{{ template.name }}",
+      suffix: "{{ template.suffix }}"
+  };
+  window.__productIdFromTemplate = {{ product.id | json }};
+  window.__plpCollectionIdFromTemplate = {{ collection.id | json }};
+  window.igProductData = (function() {
+    const data = {};
+    {%- if template.name == 'collection' -%}
+      {%- for product in collection.products -%}
+        data["{{ product.id }}"] = {
+          productId: {{ product.id | json }},
+          handle: {{ product.handle | json }},
+          tags: {{ product.tags | json }},
+          collectionIds: [{% for col in product.collections %}{{ col.id }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+          inventory: {% assign total = 0 %}{% for v in product.variants %}{% assign total = total | plus: v.inventory_quantity %}{% endfor %}{{ total }},
+          lowestVariantPrice: {{ product.price_min }}
+        };
+      {%- endfor -%}
+    {%- elsif template.name == 'product' -%}
+      data["{{ product.id }}"] = {
+        productId: {{ product.id | json }},
+        handle: {{ product.handle | json }},
+        tags: {{ product.tags | json }},
+        collectionIds: [{% for col in product.collections %}{{ col.id }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+        inventory: {% assign total = 0 %}{% for v in product.variants %}{% assign total = total | plus: v.inventory_quantity %}{% endfor %}{{ total }},
+        lowestVariantPrice: {{ product.price_min }}
+      };
+    {%- endif -%}
+    return data;
+  })();
+</script>
+<script type="module" blocking="render" fetchpriority="high" src="https://cdn.intelligems.io/esm/9bd5b309eed8/bundle.js" data-em-disable async></script>

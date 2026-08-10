@@ -9,6 +9,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="{{ settings.color_button_background }}">
+
+    {%- comment -%}
+      Intelligems must run before first paint to avoid variant flicker, so it
+      sits as high as possible — after <meta charset> (which has to land in the
+      first 1024 bytes) and before everything else. The preconnect has to stay
+      directly above it or it buys nothing: the script is render-blocking, so
+      its DNS + TLS handshake is on the critical path.
+    {%- endcomment -%}
+    <link rel="preconnect" href="https://cdn.intelligems.io" crossorigin>
+    {% render 'intelligems' %}
+
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
     <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>

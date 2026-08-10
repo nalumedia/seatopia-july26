@@ -91,7 +91,16 @@
       "Bash(curl -s -L \"http://127.0.0.1:9292/pages/clean-seafood-2?view=curated-boxes\" -o /tmp/cb.html -w \"http %{http_code} \")",
       "Bash(curl -s -L \"http://127.0.0.1:9292/pages/clean-seafood-2?view=curated-boxes\" -o /tmp/cb.html)",
       "Bash(git commit *)",
-      "mcp__claude_ai_Shopify__graphql_mutation"
+      "mcp__claude_ai_Shopify__graphql_mutation",
+      "Bash(curl -s -L \"http://127.0.0.1:9292/?view=hero-test\" -o /tmp/hv.html)",
+      "Bash(curl -s -L \"http://127.0.0.1:9292/\" -o /tmp/ctl.html)",
+      "Bash(node --check /tmp/ig_inline.js)",
+      "Bash(node -e ' *)",
+      "mcp__claude_ai_Heatmap_MCP__set_active_site",
+      "mcp__claude_ai_Heatmap_MCP__get_site_pages",
+      "mcp__claude_ai_Heatmap_MCP__get_scroll_depth",
+      "mcp__claude_ai_Heatmap_MCP__get_pageview_analytics",
+      "mcp__claude_ai_Heatmap_MCP__get_normalized_page_data"
     ]
   }
 }
