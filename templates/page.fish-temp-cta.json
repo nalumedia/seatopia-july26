@@ -1,0 +1,130 @@
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "thermometer": {
+      "type": "featured-product",
+      "blocks": {
+        "title_b": {
+          "type": "title",
+          "settings": {
+            "title_size": "product-title-md",
+            "title_size_mobile": "product-title-md",
+            "show_price": true,
+            "show_rating": true
+          }
+        },
+        "desc_b": {
+          "type": "description",
+          "settings": {
+            "text_size": "text-base"
+          }
+        },
+        "buy_b": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": false,
+            "show_price": true,
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false,
+            "enable_back_in_stock": false,
+            "show_back_in_stock_name": false,
+            "show_back_in_stock_phone": false
+          }
+        }
+      },
+      "block_order": [
+        "title_b",
+        "desc_b",
+        "buy_b"
+      ],
+      "settings": {
+        "section_id": "thermometer",
+        "product": "digital-thermometer",
+        "enable_sticky_info": false,
+        "show_chef_notes": false,
+        "media_size": 50,
+        "gallery_layout": "stacked",
+        "thumbnail_position": "beside",
+        "image_ratio": "square",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_autoplay": false,
+        "enable_video_looping": false,
+        "mobile_layout": "full_width",
+        "image_ratio_mobile": "square",
+        "mobile_thumbnail": false,
+        "padding_top": 56,
+        "padding_bottom": 32,
+        "divider": true,
+        "full_width": false,
+        "rounded": true
+      }
+    },
+    "boxes": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "",
+        "products": [
+          "salmon-box",
+          "fish-shell-variety",
+          "white-fish-box"
+        ],
+        "product_limit": 3,
+        "columns": 3,
+        "carousel_on_desktop": false,
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "Now get fish worth cooking properly",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Sushi-grade and lab-tested, so you can cook to 125°F with confidence — every batch has a published Certificate of Analysis.</p>",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 32,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "faq_schema": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "",
+        "liquid": "{%- comment -%}\n  FAQPage structured data for the fish-temperature guide.\n\n  Every question and answer below is copied VERBATIM from the visible page\n  body. Google requires FAQ schema to match on-page content exactly; invented\n  or paraphrased Q&A is a manual-action risk. If the body copy is edited in\n  Shopify admin, this block MUST be updated to match or removed.\n\n  The page previously had zero structured data despite carrying 9 genuine\n  Q&A pairs — this is additive SEO, it changes nothing a visitor sees.\n{%- endcomment -%}\n<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"FAQPage\",\n  \"mainEntity\": [\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What is the cooking temperature for fish?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"The recommended cooking temperature for most fish is 145°F (63°C) when measured at the thickest part of the fish. However, certain fish like tuna, Hiramasa or Kanpachi can be served rare at 125°F (52°C).\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What is the temperature for cooking fish?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Fish should be cooked at varying temperatures depending on the method. For baking, an oven temperature of 350°F (175°C) is common. For frying, the oil should be between 350°F to 375°F (175°C to 190°C).\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What temperature is fish done?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Fish is considered done when it reaches an internal temperature of 145°F (63°C) at its thickest part. The flesh should be opaque and flake easily with a fork. Remember, fish continues to cook a little bit when removed from the heat.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"When is fish done temperature-wise?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"As mentioned, a fish is typically done when its internal temperature reads 145°F (63°C). However, personal preferences, or experimentation with rare or tataki preparation, might have different ideal temperatures.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What is the temperature for cooked fish?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Once cooked, fish should have an internal temperature of 145°F (63°C) to ensure it's fully cooked. But this may not always be the goal! Some fish do best at lower temperatures, served medium rare or rare.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What temperature to fry fish?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"When frying fish, the oil should be preheated to a temperature between 350°F to 375°F (175°C to 190°C) for optimal results.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What temperature should fish be cooked to?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"To reiterate, the safe and ideal internal temperature for most fish according to the FDA is 145°F (63°C). However, certain varieties like Ora King Salmon, kanpachi or hiramasa do well at lower internal temperatures if preferred.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What temperature is fish done in the oven?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"When baking fish in the oven, it's done when its fully cooked when its internal temperature reaches 145°F (63°C). This is usually achieved at an oven setting of around 350°F (175°C).\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What temperature is fish cooked?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"A fish is considered cooked when its internal temperature is 145°F (63°C). It should have an opaque appearance and should flake easily, if fully cooked is the desired doneness.\"\n      }\n    }\n  ]\n}\n</script>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "thermometer",
+    "boxes",
+    "faq_schema"
+  ]
+}
