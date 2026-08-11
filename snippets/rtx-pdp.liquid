@@ -501,7 +501,7 @@
     };
   }
 
-  // Utility to wait for dynamically loaded elements (e.g., Replo components)
+  // Utility to wait for dynamically loaded elements
   const waitForElement = (selector, callback, timeout = 5000) => {
     const start = Date.now();
     const interval = setInterval(() => {
@@ -561,7 +561,7 @@ buyBox.removeEmptyOption();
       });
     };
 
-    // Wait for root element to ensure Replo or dynamic elements are loaded
+    // Wait for root element to ensure dynamic elements are loaded
     waitForElement(`[data-rtx-subscription-${buyBox.boxId}]`, () => {
       initElements();
       setupEventListeners();
@@ -646,9 +646,7 @@ buyBox.removeEmptyOption();
         let variant = buyBox.product.variants.find(v => v.id == buyBox.variantId) || {};
         const selectElement = document.querySelector('select[name="id"]') || 
                              document.querySelector('input[name="id"]:checked') || 
-                             document.querySelector('[name="id"]') || 
-                             document.querySelector('[data-replo-variant-select] [name="id"]') || 
-                             document.querySelector('.replo-variant-picker [name="id"]');
+                             document.querySelector('[name="id"]');
 
         if (selectElement) {
           const variantSelect = selectElement.tagName === 'SELECT' ? selectElement.selectedOptions[0] : selectElement;
@@ -811,15 +809,6 @@ if (price_addCart && getAddToBtn) {
         });
       });
 
-      // Handle Replo click events
-      document.addEventListener('replo.click', (e) => {
-        const target = e.target.closest('[data-replo-variant-select] [name="id"]');
-        if (target) {
-          console.log('Replo variant click detected:', target.value);
-          buyBox.variantId = target.value;
-          buyBox.updateSellingPlan();
-        }
-      });
     };
 
     $(document).on("change", '[name="purchaseType"]', function () {
