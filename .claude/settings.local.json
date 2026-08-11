@@ -107,7 +107,8 @@
       "Bash(awk '{print \" \",$9,$5\"B\"}')",
       "Bash(awk '{print \"  \",$9,$5\"B\"}')",
       "Bash(curl -s -L \"http://127.0.0.1:9292/pages/fish-cooking-temperature-guide\" -o /tmp/ftdev.html -w \"http %{http_code}\\\\n\")",
-      "Bash(curl -s -L \"http://127.0.0.1:9292/pages/fish-cooking-temperature-guide?view=fish-temp-cta\" -o /tmp/ftv.html -w \"http %{http_code}  \")"
+      "Bash(curl -s -L \"http://127.0.0.1:9292/pages/fish-cooking-temperature-guide?view=fish-temp-cta\" -o /tmp/ftv.html -w \"http %{http_code}  \")",
+      "Bash(grep -vE \"^\\\\s*$\")"
     ]
   }
 }
