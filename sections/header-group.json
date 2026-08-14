@@ -1,1 +1,283 @@
-{"type":"header","name":"t:sections.header-group.name","sections":{"announcement-bar":{"type":"announcement-bar","blocks":{"announcement-2":{"type":"announcement","disabled":true,"settings":{"icon":"none","text":"Plant a mangrove with every order! We are planting 2500 mangroves.","link":"shopify:\/\/pages\/we-plant-mangroves","hide_icon_mobile":false,"text_mobile":"Plant a mangrove with every order! We are planting 2500 mangroves.","highlighted_text":"none","highlighted_scribble":"circle"}},"announcement_FUzXrK":{"type":"announcement","settings":{"icon":"none","text":"Celebrate Summer with us and get a free dinner guide","link":"shopify:\/\/pages\/summer-solstice","hide_icon_mobile":false,"text_mobile":"Get a free summer dinner guide ☀️","highlighted_text":"none","highlighted_scribble":"circle"}},"announcement-1":{"type":"announcement","settings":{"icon":"none","text":"🚀 FREE Overnight Shipping on orders over $500","link":"shopify:\/\/collections\/build-your-own-box","hide_icon_mobile":false,"text_mobile":"🚀 FREE Overnight Shipping on orders over $500","highlighted_text":"none","highlighted_scribble":"circle"}}},"block_order":["announcement-2","announcement_FUzXrK","announcement-1"],"settings":{"show_social":false,"enable_language_selector":false,"enable_country_selector":false,"invert_icons_selectors":false,"announcement_position":"center","autoplay":true,"autoplay_speed":5,"show_navigation":true,"color_text":"#fafafa","color_background":"#bb8f50","gradient_background":"","color_highlight":"rgba(0,0,0,0)","gradient_highlight":"","hide_homepage":false,"full_width":true,"rounded":false}},"header":{"type":"header","blocks":{"mega_menu_xLL84H":{"type":"mega_menu","settings":{"menu_title":"Buy Seafood","menu_width":"medium","show_menu_image":true,"button_label":"Shop Our Seafood","button_link":"shopify:\/\/collections\/all-seafood","promo_image_1":"shopify:\/\/shop_images\/fa7b6b02865abcf5244197f7ce28ef145993f7d8.jpg","promo_image_ratio_1":"square","promo_heading_1":"Shop Curated Boxes","promo_subtext_1":"Get started with our favorites","promo_overlay_content_1":true,"promo_link_1":"shopify:\/\/collections\/curated-boxes","promo_tag_1":"","promo_color_text_1":"#ffffff","promo_color_overlay_1":"#000000","promo_overlay_opacity_1":40,"promo_image_2":"shopify:\/\/shop_images\/collection-02.webp_2.png","promo_image_ratio_2":"square","promo_heading_2":"Build Your Own Box","promo_subtext_2":"Choose your favorites","promo_overlay_content_2":true,"promo_link_2":"shopify:\/\/collections\/build-your-own-box","promo_tag_2":"","promo_color_text_2":"#ffffff","promo_color_overlay_2":"#000000","promo_overlay_opacity_2":40,"promo_image_ratio_3":"square","promo_heading_3":"","promo_subtext_3":"","promo_overlay_content_3":true,"promo_link_3":"","promo_tag_3":"","promo_color_text_3":"#ffffff","promo_color_overlay_3":"#000000","promo_overlay_opacity_3":40,"promo_image_ratio_4":"adapt","promo_heading_4":"","promo_subtext_4":"","promo_overlay_content_4":true,"promo_link_4":"","promo_tag_4":"","promo_color_text_4":"#ffffff","promo_color_overlay_4":"#000000","promo_overlay_opacity_4":40,"promo_image_ratio_5":"adapt","promo_heading_5":"","promo_subtext_5":"","promo_overlay_content_5":true,"promo_link_5":"","promo_tag_5":"","promo_color_text_5":"#ffffff","promo_color_overlay_5":"#000000","promo_overlay_opacity_5":40}},"mega_menu_tab_H9mjWr":{"type":"mega_menu_tab","disabled":true,"settings":{"menu_title":"Buy Seafood","button_label":"Shop All Seafood","button_link":"shopify:\/\/collections\/all","heading_1":"Categories","heading_2":"Curated Boxes","show_vendor":true,"show_price":true,"tab_target_1":"Build Your Own Box","tab_target_link_1":"shopify:\/\/collections\/build-your-own-box","tab_products_1":["salmon-box","white-fish-box","fish-shellfish-variety-box"],"tab_icon_1":"shopify:\/\/shop_images\/Vector.svg","tab_icon_width_1":20,"promo_image_1":"shopify:\/\/shop_images\/23b87f4515171d0c3874ed99a6dcedb820f85c55.jpg","promo_image_ratio_1":"square","promo_heading_1":"Build your box","promo_subtext_1":"","promo_overlay_content_1":true,"promo_link_1":"shopify:\/\/collections\/build-your-own-box","promo_tag_1":"","promo_color_text_1":"#ffffff","promo_color_overlay_1":"#000000","promo_overlay_opacity_1":50,"tab_target_2":"Curated Boxes","tab_target_link_2":"shopify:\/\/products\/seatopia-regenerative-seafood-bundle","tab_products_2":["big-glory-bay-new-zealand-king-salmon","seatopia-regenerative-seafood-bundle","classic-white-fish-box-12-servings"],"tab_icon_2":"shopify:\/\/shop_images\/Vector_1_8740d7f6-1e48-4268-b5eb-e65c71072157.png","tab_icon_width_2":20,"promo_image_2":"shopify:\/\/shop_images\/Photo_Aug_07_2024_1_56_18_PM.jpg","promo_image_ratio_2":"square","promo_heading_2":"Build your box","promo_subtext_2":"Buy 3 and save 30%","promo_overlay_content_2":true,"promo_link_2":"shopify:\/\/products\/seatopia-regenerative-seafood-bundle","promo_tag_2":"","promo_color_text_2":"#ffffff","promo_color_overlay_2":"#000000","promo_overlay_opacity_2":40,"tab_target_3":"Best Selling Seafood","tab_target_link_3":"shopify:\/\/collections\/seafood-best-sellers","tab_products_3":["caleta-bay-a-i-steelhead-loin-12oz","salmon-lovers-box-12-servings","fish-shellfish-variety-box-18-servings","gourmet-white-fish-box-18-servings"],"tab_icon_3":"shopify:\/\/shop_images\/Vector_2_71515330-5f84-44bf-8c25-e2e96f1fc53d.png","tab_icon_width_3":20,"promo_image_3":"shopify:\/\/shop_images\/caviar-first-harvest-yarravalley_seatopia_1080.jpg","promo_image_ratio_3":"square","promo_heading_3":"Build your bundle","promo_subtext_3":"Buy 3 and save 30%","promo_overlay_content_3":true,"promo_link_3":"shopify:\/\/collections\/add-ons-1","promo_tag_3":"","promo_color_text_3":"#ffffff","promo_color_overlay_3":"#000000","promo_overlay_opacity_3":40,"tab_target_4":"Seasonal Features","tab_target_link_4":"shopify:\/\/collections\/add-ons-1","tab_products_4":["classic-white-fish-box-12-servings","salmon-lovers-box-12-servings","fish-shellfish-variety-box-18-servings"],"tab_icon_4":"shopify:\/\/shop_images\/Vector_3_d2248f85-d495-4e05-bc65-d0aedfdaab47.png","tab_icon_width_4":20,"promo_image_4":"shopify:\/\/shop_images\/23b87f4515171d0c3874ed99a6dcedb820f85c55.jpg","promo_image_ratio_4":"square","promo_heading_4":"Build your box","promo_subtext_4":"Buy 3 and save 30%","promo_overlay_content_4":true,"promo_link_4":"shopify:\/\/products\/seatopia-regenerative-seafood-bundle","promo_tag_4":"","promo_color_text_4":"#ffffff","promo_color_overlay_4":"#000000","promo_overlay_opacity_4":40,"tab_target_5":"Essentials","tab_target_link_5":"shopify:\/\/collections\/essentials","tab_products_5":["aria-extra-virgin-olive-oil-organic","add-on-barramundi-filet-5oz-each","bushcraft-fillet-knife","black-garlic-shoyu"],"tab_icon_5":"shopify:\/\/shop_images\/Frame_1577707911.png","tab_icon_width_5":20,"promo_image_5":"shopify:\/\/shop_images\/23b87f4515171d0c3874ed99a6dcedb820f85c55.jpg","promo_image_ratio_5":"square","promo_heading_5":"","promo_subtext_5":"","promo_overlay_content_5":true,"promo_link_5":"","promo_tag_5":"","promo_color_text_5":"#ffffff","promo_color_overlay_5":"#000000","promo_overlay_opacity_5":40}}},"block_order":["mega_menu_xLL84H","mega_menu_tab_H9mjWr"],"settings":{"menu":"v2-header-new","menu_mobile":"v2-header-new","menu_active":"dot","hover_menu":true,"header_layout":"left-center","sticky_header_type":"always","enable_language_selector_desktop":false,"enable_country_selector_desktop":false,"show_country_name_dekstop":false,"show_country_flag_desktop":false,"logo_position_mobile":"center","show_social":true,"enable_language_selector":true,"enable_country_selector":true,"transparent_color_text":"#ffffff","color_text":"#2e4b59","color_background":"#ffffff","padding_top":32,"padding_bottom":32,"full_width":true,"rounded":false}}},"order":["announcement-bar","header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "t:sections.header-group.name",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_mrCFnq": {
+          "type": "announcement",
+          "settings": {
+            "icon": "none",
+            "text": "Breakfast, handled. FREE Cold Smoked Lox 2-pack with any Fish & Shell Box",
+            "link": "https://seatopia.fish/collections/curated-boxes/products/fish-shell-variety",
+            "hide_icon_mobile": true,
+            "text_mobile": "Breakfast, handled — free Cold Smoked Lox 2-pack with any Fish & Shell Box",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "announcement-2": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "text": "Plant a mangrove with every order! We are planting 2500 mangroves.",
+            "link": "shopify://pages/we-plant-mangroves",
+            "hide_icon_mobile": false,
+            "text_mobile": "Plant a mangrove with every order! We are planting 2500 mangroves.",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "announcement-1": {
+          "type": "announcement",
+          "settings": {
+            "icon": "none",
+            "text": "🚀 FREE Overnight Shipping on orders over $500",
+            "link": "shopify://collections/build-your-own-box",
+            "hide_icon_mobile": false,
+            "text_mobile": "🚀 FREE Overnight Shipping on orders over $500",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_mrCFnq",
+        "announcement-2",
+        "announcement-1"
+      ],
+      "settings": {
+        "show_social": false,
+        "enable_language_selector": false,
+        "enable_country_selector": false,
+        "invert_icons_selectors": false,
+        "announcement_position": "center",
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "show_navigation": true,
+        "color_text": "#fafafa",
+        "color_background": "#bb8f50",
+        "gradient_background": "",
+        "color_highlight": "rgba(0,0,0,0)",
+        "gradient_highlight": "",
+        "hide_homepage": false,
+        "full_width": true,
+        "rounded": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "mega_menu_xLL84H": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_title": "Buy Seafood",
+            "menu_width": "medium",
+            "show_menu_image": true,
+            "button_label": "Shop Our Seafood",
+            "button_link": "shopify://collections/all-seafood",
+            "promo_image_1": "shopify://shop_images/fa7b6b02865abcf5244197f7ce28ef145993f7d8.jpg",
+            "promo_image_ratio_1": "square",
+            "promo_heading_1": "Shop Curated Boxes",
+            "promo_subtext_1": "Get started with our favorites",
+            "promo_overlay_content_1": true,
+            "promo_link_1": "shopify://collections/curated-boxes",
+            "promo_tag_1": "",
+            "promo_color_text_1": "#ffffff",
+            "promo_color_overlay_1": "#000000",
+            "promo_overlay_opacity_1": 40,
+            "promo_image_2": "shopify://shop_images/collection-02.webp_2.png",
+            "promo_image_ratio_2": "square",
+            "promo_heading_2": "Build Your Own Box",
+            "promo_subtext_2": "Choose your favorites",
+            "promo_overlay_content_2": true,
+            "promo_link_2": "shopify://collections/build-your-own-box",
+            "promo_tag_2": "",
+            "promo_color_text_2": "#ffffff",
+            "promo_color_overlay_2": "#000000",
+            "promo_overlay_opacity_2": 40,
+            "promo_image_ratio_3": "square",
+            "promo_heading_3": "",
+            "promo_subtext_3": "",
+            "promo_overlay_content_3": true,
+            "promo_link_3": "",
+            "promo_tag_3": "",
+            "promo_color_text_3": "#ffffff",
+            "promo_color_overlay_3": "#000000",
+            "promo_overlay_opacity_3": 40,
+            "promo_image_ratio_4": "adapt",
+            "promo_heading_4": "",
+            "promo_subtext_4": "",
+            "promo_overlay_content_4": true,
+            "promo_link_4": "",
+            "promo_tag_4": "",
+            "promo_color_text_4": "#ffffff",
+            "promo_color_overlay_4": "#000000",
+            "promo_overlay_opacity_4": 40,
+            "promo_image_ratio_5": "adapt",
+            "promo_heading_5": "",
+            "promo_subtext_5": "",
+            "promo_overlay_content_5": true,
+            "promo_link_5": "",
+            "promo_tag_5": "",
+            "promo_color_text_5": "#ffffff",
+            "promo_color_overlay_5": "#000000",
+            "promo_overlay_opacity_5": 40
+          }
+        },
+        "mega_menu_tab_H9mjWr": {
+          "type": "mega_menu_tab",
+          "disabled": true,
+          "settings": {
+            "menu_title": "Buy Seafood",
+            "button_label": "Shop All Seafood",
+            "button_link": "shopify://collections/all",
+            "heading_1": "Categories",
+            "heading_2": "Curated Boxes",
+            "show_vendor": true,
+            "show_price": true,
+            "tab_target_1": "Build Your Own Box",
+            "tab_target_link_1": "shopify://collections/build-your-own-box",
+            "tab_products_1": [
+              "salmon-box",
+              "white-fish-box",
+              "fish-shellfish-variety-box"
+            ],
+            "tab_icon_1": "shopify://shop_images/Vector.svg",
+            "tab_icon_width_1": 20,
+            "promo_image_1": "shopify://shop_images/23b87f4515171d0c3874ed99a6dcedb820f85c55.jpg",
+            "promo_image_ratio_1": "square",
+            "promo_heading_1": "Build your box",
+            "promo_subtext_1": "",
+            "promo_overlay_content_1": true,
+            "promo_link_1": "shopify://collections/build-your-own-box",
+            "promo_tag_1": "",
+            "promo_color_text_1": "#ffffff",
+            "promo_color_overlay_1": "#000000",
+            "promo_overlay_opacity_1": 50,
+            "tab_target_2": "Curated Boxes",
+            "tab_target_link_2": "shopify://products/seatopia-regenerative-seafood-bundle",
+            "tab_products_2": [
+              "big-glory-bay-new-zealand-king-salmon",
+              "seatopia-regenerative-seafood-bundle",
+              "classic-white-fish-box-12-servings"
+            ],
+            "tab_icon_2": "shopify://shop_images/Vector_1_8740d7f6-1e48-4268-b5eb-e65c71072157.png",
+            "tab_icon_width_2": 20,
+            "promo_image_2": "shopify://shop_images/Photo_Aug_07_2024_1_56_18_PM.jpg",
+            "promo_image_ratio_2": "square",
+            "promo_heading_2": "Build your box",
+            "promo_subtext_2": "Buy 3 and save 30%",
+            "promo_overlay_content_2": true,
+            "promo_link_2": "shopify://products/seatopia-regenerative-seafood-bundle",
+            "promo_tag_2": "",
+            "promo_color_text_2": "#ffffff",
+            "promo_color_overlay_2": "#000000",
+            "promo_overlay_opacity_2": 40,
+            "tab_target_3": "Best Selling Seafood",
+            "tab_target_link_3": "shopify://collections/seafood-best-sellers",
+            "tab_products_3": [
+              "caleta-bay-a-i-steelhead-loin-12oz",
+              "salmon-lovers-box-12-servings",
+              "fish-shellfish-variety-box-18-servings",
+              "gourmet-white-fish-box-18-servings"
+            ],
+            "tab_icon_3": "shopify://shop_images/Vector_2_71515330-5f84-44bf-8c25-e2e96f1fc53d.png",
+            "tab_icon_width_3": 20,
+            "promo_image_3": "shopify://shop_images/caviar-first-harvest-yarravalley_seatopia_1080.jpg",
+            "promo_image_ratio_3": "square",
+            "promo_heading_3": "Build your bundle",
+            "promo_subtext_3": "Buy 3 and save 30%",
+            "promo_overlay_content_3": true,
+            "promo_link_3": "shopify://collections/add-ons-1",
+            "promo_tag_3": "",
+            "promo_color_text_3": "#ffffff",
+            "promo_color_overlay_3": "#000000",
+            "promo_overlay_opacity_3": 40,
+            "tab_target_4": "Seasonal Features",
+            "tab_target_link_4": "shopify://collections/add-ons-1",
+            "tab_products_4": [
+              "classic-white-fish-box-12-servings",
+              "salmon-lovers-box-12-servings",
+              "fish-shellfish-variety-box-18-servings"
+            ],
+            "tab_icon_4": "shopify://shop_images/Vector_3_d2248f85-d495-4e05-bc65-d0aedfdaab47.png",
+            "tab_icon_width_4": 20,
+            "promo_image_4": "shopify://shop_images/23b87f4515171d0c3874ed99a6dcedb820f85c55.jpg",
+            "promo_image_ratio_4": "square",
+            "promo_heading_4": "Build your box",
+            "promo_subtext_4": "Buy 3 and save 30%",
+            "promo_overlay_content_4": true,
+            "promo_link_4": "shopify://products/seatopia-regenerative-seafood-bundle",
+            "promo_tag_4": "",
+            "promo_color_text_4": "#ffffff",
+            "promo_color_overlay_4": "#000000",
+            "promo_overlay_opacity_4": 40,
+            "tab_target_5": "Essentials",
+            "tab_target_link_5": "shopify://collections/essentials",
+            "tab_products_5": [
+              "aria-extra-virgin-olive-oil-organic",
+              "add-on-barramundi-filet-5oz-each",
+              "bushcraft-fillet-knife",
+              "black-garlic-shoyu"
+            ],
+            "tab_icon_5": "shopify://shop_images/Frame_1577707911.png",
+            "tab_icon_width_5": 20,
+            "promo_image_5": "shopify://shop_images/23b87f4515171d0c3874ed99a6dcedb820f85c55.jpg",
+            "promo_image_ratio_5": "square",
+            "promo_heading_5": "",
+            "promo_subtext_5": "",
+            "promo_overlay_content_5": true,
+            "promo_link_5": "",
+            "promo_tag_5": "",
+            "promo_color_text_5": "#ffffff",
+            "promo_color_overlay_5": "#000000",
+            "promo_overlay_opacity_5": 40
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_xLL84H",
+        "mega_menu_tab_H9mjWr"
+      ],
+      "settings": {
+        "menu": "v2-header-new",
+        "menu_mobile": "v2-header-new",
+        "menu_active": "dot",
+        "hover_menu": true,
+        "header_layout": "left-center",
+        "sticky_header_type": "always",
+        "enable_language_selector_desktop": false,
+        "enable_country_selector_desktop": false,
+        "show_country_name_dekstop": false,
+        "show_country_flag_desktop": false,
+        "logo_position_mobile": "center",
+        "show_social": true,
+        "enable_language_selector": true,
+        "enable_country_selector": true,
+        "transparent_color_text": "#ffffff",
+        "color_text": "#2e4b59",
+        "color_background": "#ffffff",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "full_width": true,
+        "rounded": false
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}
