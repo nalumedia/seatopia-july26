@@ -256,7 +256,24 @@
         person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
     })
 </script>
-<!-- end posthog --> 
+<!-- end posthog -->
+
+    <!-- begin postpilot -->
+    {%- comment -%}
+      PostPilot tracker (px_Bjkaz.js). Added 2026-08-14.
+      Vendor snippet, kept verbatim. The injected script is async by default
+      (dynamically inserted scripts always are), so it does not block render.
+      No preconnect on purpose: the site sits at Lighthouse's 4-preconnect
+      threshold and a 5th would trip "More than 4 preconnect connections".
+      Origin is a raw S3 bucket, not a CDN — expect slower TTFB than the
+      other vendors here. 7,591 bytes.
+    {%- endcomment -%}
+    <script type="text/javascript">
+        var script = document.createElement('script');
+        script.src = "https://xp2023-pix.s3.amazonaws.com/px_Bjkaz.js";
+        document.getElementsByTagName('head')[0].appendChild(script);
+    </script>
+    <!-- end postpilot -->
 
     <!-- End Growth Head Scripts -->
 

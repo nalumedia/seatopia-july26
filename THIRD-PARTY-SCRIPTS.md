@@ -120,6 +120,30 @@ https://us-assets.i.posthog.com/static/array.js
 
 Fourth-largest payload. The bundle includes session-replay and survey machinery whether or not those features are in use. **Worth asking who actually reads PostHog** — it overlaps heavily with Heatmap.com (session behaviour) and GA4 (funnels). If nobody is querying it, this is 243 KB for nothing.
 
+### PostPilot — `theme.liquid` (Growth Head Scripts) ⬅ ADDED 2026-08-14
+
+```
+https://xp2023-pix.s3.amazonaws.com/px_Bjkaz.js
+```
+
+- **Size:** 7,591 bytes (uncompressed — raw S3 serves no gzip/brotli here)
+- **Guard:** none · **Loading:** async (dynamically inserted script, so async by default)
+- **Origin:** a raw **S3 bucket, not a CDN** — no edge caching, so expect worse TTFB than every other vendor in this list
+- **Purpose:** direct-mail retargeting — identifies visitors so PostPilot can send physical postcards
+- **Suggested owner:** Growth / Paid Media
+
+**What it actually does**, read out of the bundle rather than assumed:
+
+- Session state in `localStorage`: `_pxSessionStart`, `_pxPageVisited`, `_pxPixelSent`, `_pxTimeBeforeUnload`
+- Rule engine over `time_spent`, `number_of_pages`, `page_visited` — fires once a visitor matches a configured trigger
+- `_px.ipRetargetingTriggers` and `_px.isUsaBased` — **IP-based identity resolution**, gated to US visitors
+- Writes `document.cookie`, reads `navigator.language`, drops an `<img>` beacon on match
+- `verifyStore()` POSTs `store_id` to a **base64-obfuscated endpoint** (`atob(_px.verificationUrl)`)
+
+⚠️ **Two things to be deliberate about.** The base64-wrapped endpoint means the destination isn't visible in the source — that's obfuscation, not encryption, but it does mean nobody reviewing the theme can see where data goes without decoding it. And IP-based identity resolution infers who an anonymous visitor is; that has a different privacy profile from cookie analytics and is worth a look against your CCPA/California disclosures, given `/pages/california-privacy-policy` exists. This is a business/legal call, not a technical blocker — flagging it so it's a decision rather than an accident.
+
+No preconnect was added on purpose: the site sits at Lighthouse's 4-preconnect threshold and a fifth would re-trigger the "More than 4 preconnect connections" audit resolved on 2026-08-09.
+
 ### Twitter / X conversion tracking — `theme.liquid:195`
 
 - `https://static.ads-twitter.com/uwt.js` · 50.1 KB decoded / 13.7 KB wire
