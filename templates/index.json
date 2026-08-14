@@ -358,6 +358,221 @@
         "rounded": false
       }
     },
+    "featured-product": {
+      "type": "featured-product",
+      "blocks": {
+        "text": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "text": "GET STARTED",
+            "text_size": "text-base"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "product-title-md",
+            "title_size_mobile": "product-title-md",
+            "show_price": true,
+            "show_rating": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "text_size": "text-base"
+          }
+        },
+        "countdown": {
+          "type": "countdown",
+          "settings": {
+            "heading": "Hurry up!",
+            "subheading": "Sale end in:",
+            "color_text": "#e11d48",
+            "color_background": "#fff1f2",
+            "gradient_background": ""
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "show_variant_labels": true,
+            "picker_type": "button",
+            "enable_color_swatches": true,
+            "color_swatch_type": "color",
+            "size_chart": ""
+          }
+        },
+        "collapsible_tab_94PV74": {
+          "type": "collapsible_tab",
+          "settings": {
+            "style": "with-background",
+            "icon": "truck",
+            "heading": "Orders Ship on Tuesday & Wednesday",
+            "content": "",
+            "page": "",
+            "liquid": "Snap Frozen Guaranteed - Our seafood arrives super frozen or we will refund or send a replacement\n\nWe ship nationwide. Orders arrive 1-3 days after shipment. Orders received Tuesday prior to 12pm est will ship this week.",
+            "opened": false
+          }
+        },
+        "subscription_nDxw7e": {
+          "type": "subscription",
+          "settings": {
+            "subscription-title": ""
+          }
+        },
+        "inventory": {
+          "type": "inventory",
+          "disabled": true,
+          "settings": {
+            "inventory_threshold": 15,
+            "show_inventory_transfer": true,
+            "show_inventory_quantity": "low",
+            "color_scheme": "accent-1"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": false,
+            "show_price": true,
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false,
+            "enable_back_in_stock": false,
+            "show_back_in_stock_name": false,
+            "show_back_in_stock_phone": false
+          }
+        },
+        "complementary_8QrM9h": {
+          "type": "complementary",
+          "disabled": true,
+          "settings": {
+            "heading": "Pairs well with",
+            "product_limit": 10,
+            "show_vendor": true,
+            "show_price": true
+          }
+        },
+        "pickup_availability": {
+          "type": "pickup_availability",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share",
+            "show_help_desk": true,
+            "help_label": "Need help?",
+            "help_page": ""
+          }
+        },
+        "text_RbNKi8": {
+          "type": "text",
+          "settings": {
+            "icon": "truck",
+            "icon_width": 20,
+            "text": "Arrives snap frozen guaranteed",
+            "text_size": "text-base"
+          }
+        },
+        "text_8JLWWR": {
+          "type": "text",
+          "settings": {
+            "icon": "check_mark",
+            "icon_width": 20,
+            "text": "Lab tested to ensure it's mercury safe and free from detectable microplastics",
+            "text_size": "text-base"
+          }
+        },
+        "text_pctWtm": {
+          "type": "text",
+          "settings": {
+            "icon": "truck",
+            "icon_image": "shopify://shop_images/Screenshot_2025-05-12_at_4.28.22_PM.png",
+            "icon_width": 20,
+            "text": "FREE virtual cooking class",
+            "text_size": "text-base"
+          }
+        },
+        "icon_list_zgxTmd": {
+          "type": "icon_list",
+          "disabled": true,
+          "settings": {
+            "heading": "Lab Tested, Nutrient Rich & Certified Clean",
+            "enable_carousel": false,
+            "show_below_media": true
+          }
+        },
+        "text_Yjjd4e": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "icon": "box",
+            "icon_width": 20,
+            "text": "Complimentary shipping & returns",
+            "text_size": "text-base"
+          }
+        },
+        "read_more": {
+          "type": "read_more",
+          "disabled": true,
+          "settings": {}
+        },
+        "spinning_text": {
+          "type": "spinning_text",
+          "settings": {
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "text",
+        "title",
+        "description",
+        "countdown",
+        "variant_picker",
+        "collapsible_tab_94PV74",
+        "subscription_nDxw7e",
+        "inventory",
+        "buy_buttons",
+        "complementary_8QrM9h",
+        "pickup_availability",
+        "share",
+        "text_RbNKi8",
+        "text_8JLWWR",
+        "text_pctWtm",
+        "icon_list_zgxTmd",
+        "text_Yjjd4e",
+        "read_more",
+        "spinning_text"
+      ],
+      "settings": {
+        "section_id": "",
+        "product": "seatopia-regenerative-seafood-bundle",
+        "enable_sticky_info": true,
+        "show_chef_notes": false,
+        "media_size": 64,
+        "gallery_layout": "thumbnail",
+        "thumbnail_position": "beside",
+        "image_ratio": "square",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_autoplay": true,
+        "enable_video_looping": true,
+        "mobile_layout": "full_width",
+        "image_ratio_mobile": "square",
+        "mobile_thumbnail": false,
+        "padding_top": 120,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": false,
+        "rounded": true
+      }
+    },
     "collection-list": {
       "type": "collection-list",
       "blocks": {
@@ -779,221 +994,6 @@
         "enable_parallax": true,
         "narrow": false,
         "parallax_direction": "vertical"
-      }
-    },
-    "featured-product": {
-      "type": "featured-product",
-      "blocks": {
-        "text": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "icon": "none",
-            "icon_width": 20,
-            "text": "GET STARTED",
-            "text_size": "text-base"
-          }
-        },
-        "title": {
-          "type": "title",
-          "settings": {
-            "title_size": "product-title-md",
-            "title_size_mobile": "product-title-md",
-            "show_price": true,
-            "show_rating": true
-          }
-        },
-        "description": {
-          "type": "description",
-          "settings": {
-            "text_size": "text-base"
-          }
-        },
-        "countdown": {
-          "type": "countdown",
-          "settings": {
-            "heading": "Hurry up!",
-            "subheading": "Sale end in:",
-            "color_text": "#e11d48",
-            "color_background": "#fff1f2",
-            "gradient_background": ""
-          }
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "show_variant_labels": true,
-            "picker_type": "button",
-            "enable_color_swatches": true,
-            "color_swatch_type": "color",
-            "size_chart": ""
-          }
-        },
-        "collapsible_tab_94PV74": {
-          "type": "collapsible_tab",
-          "settings": {
-            "style": "with-background",
-            "icon": "truck",
-            "heading": "Orders Ship on Tuesday & Wednesday",
-            "content": "",
-            "page": "",
-            "liquid": "Snap Frozen Guaranteed - Our seafood arrives super frozen or we will refund or send a replacement\n\nWe ship nationwide. Orders arrive 1-3 days after shipment. Orders received Tuesday prior to 12pm est will ship this week.",
-            "opened": false
-          }
-        },
-        "subscription_nDxw7e": {
-          "type": "subscription",
-          "settings": {
-            "subscription-title": ""
-          }
-        },
-        "inventory": {
-          "type": "inventory",
-          "disabled": true,
-          "settings": {
-            "inventory_threshold": 15,
-            "show_inventory_transfer": true,
-            "show_inventory_quantity": "low",
-            "color_scheme": "accent-1"
-          }
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_quantity_selector": false,
-            "show_price": true,
-            "show_dynamic_checkout": false,
-            "show_gift_card_recipient": false,
-            "enable_back_in_stock": false,
-            "show_back_in_stock_name": false,
-            "show_back_in_stock_phone": false
-          }
-        },
-        "complementary_8QrM9h": {
-          "type": "complementary",
-          "disabled": true,
-          "settings": {
-            "heading": "Pairs well with",
-            "product_limit": 10,
-            "show_vendor": true,
-            "show_price": true
-          }
-        },
-        "pickup_availability": {
-          "type": "pickup_availability",
-          "settings": {}
-        },
-        "share": {
-          "type": "share",
-          "disabled": true,
-          "settings": {
-            "share_label": "Share",
-            "show_help_desk": true,
-            "help_label": "Need help?",
-            "help_page": ""
-          }
-        },
-        "text_RbNKi8": {
-          "type": "text",
-          "settings": {
-            "icon": "truck",
-            "icon_width": 20,
-            "text": "Arrives snap frozen guaranteed",
-            "text_size": "text-base"
-          }
-        },
-        "text_8JLWWR": {
-          "type": "text",
-          "settings": {
-            "icon": "check_mark",
-            "icon_width": 20,
-            "text": "Lab tested to ensure it's mercury safe and free from detectable microplastics",
-            "text_size": "text-base"
-          }
-        },
-        "text_pctWtm": {
-          "type": "text",
-          "settings": {
-            "icon": "truck",
-            "icon_image": "shopify://shop_images/Screenshot_2025-05-12_at_4.28.22_PM.png",
-            "icon_width": 20,
-            "text": "FREE virtual cooking class",
-            "text_size": "text-base"
-          }
-        },
-        "icon_list_zgxTmd": {
-          "type": "icon_list",
-          "disabled": true,
-          "settings": {
-            "heading": "Lab Tested, Nutrient Rich & Certified Clean",
-            "enable_carousel": false,
-            "show_below_media": true
-          }
-        },
-        "text_Yjjd4e": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "icon": "box",
-            "icon_width": 20,
-            "text": "Complimentary shipping & returns",
-            "text_size": "text-base"
-          }
-        },
-        "read_more": {
-          "type": "read_more",
-          "disabled": true,
-          "settings": {}
-        },
-        "spinning_text": {
-          "type": "spinning_text",
-          "settings": {
-            "text": ""
-          }
-        }
-      },
-      "block_order": [
-        "text",
-        "title",
-        "description",
-        "countdown",
-        "variant_picker",
-        "collapsible_tab_94PV74",
-        "subscription_nDxw7e",
-        "inventory",
-        "buy_buttons",
-        "complementary_8QrM9h",
-        "pickup_availability",
-        "share",
-        "text_RbNKi8",
-        "text_8JLWWR",
-        "text_pctWtm",
-        "icon_list_zgxTmd",
-        "text_Yjjd4e",
-        "read_more",
-        "spinning_text"
-      ],
-      "settings": {
-        "section_id": "",
-        "product": "seatopia-regenerative-seafood-bundle",
-        "enable_sticky_info": true,
-        "show_chef_notes": false,
-        "media_size": 64,
-        "gallery_layout": "thumbnail",
-        "thumbnail_position": "beside",
-        "image_ratio": "square",
-        "image_zoom": "lightbox",
-        "hide_variants": true,
-        "enable_video_autoplay": true,
-        "enable_video_looping": true,
-        "mobile_layout": "full_width",
-        "image_ratio_mobile": "square",
-        "mobile_thumbnail": false,
-        "padding_top": 120,
-        "padding_bottom": 0,
-        "divider": false,
-        "full_width": false,
-        "rounded": true
       }
     },
     "image_with_text_overlay_XfR4my": {
@@ -1902,13 +1902,13 @@
     "image_with_text_overlay_k6LEdr",
     "multicolumn_with_icons_WdipEA",
     "custom_liquid_UB8bMU",
+    "featured-product",
     "collection-list",
     "rich_text_BFR9mU",
     "blocks_NJcBb9",
     "image_with_text_zXfLwQ",
     "custom_image_with_txt_founder_inQRng",
     "image_with_text_overlay_PdbJRa",
-    "featured-product",
     "image_with_text_overlay_XfR4my",
     "rich_text_i7ywpp",
     "index_new_testimonials_pzqmAP",
