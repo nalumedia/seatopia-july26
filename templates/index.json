@@ -235,7 +235,7 @@
         "section_id": "",
         "transparent_header": true,
         "image": "shopify://shop_images/Grilled_Ora_6.png",
-        "image_height": "100vh",
+        "image_height": "600px",
         "content_width": "medium",
         "content_position": "md:items-center md:justify-start",
         "text_alignment": "left",
@@ -257,7 +257,7 @@
         "divider": false,
         "full_width": true,
         "rounded": true,
-        "enable_parallax": false,
+        "enable_parallax": true,
         "narrow": false,
         "parallax_direction": "vertical"
       }
