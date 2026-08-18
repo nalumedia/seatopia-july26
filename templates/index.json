@@ -737,8 +737,8 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "padding_top": 44,
-        "padding_bottom": 32,
+        "padding_top": 56,
+        "padding_bottom": 56,
         "divider": false,
         "narrow": false,
         "rounded": false
@@ -834,6 +834,79 @@
         "parallax_direction": "vertical"
       }
     },
+    "image_with_text_overlay_PdbJRa": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_LcKj9f": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Very Best of Seafood",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_xKYH7T": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Through remarkable dedication to natural feeds and regenerative practices, our farm partners produce the world's cleanest seafood.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_bNYkiz": {
+          "type": "button",
+          "settings": {
+            "button_label": "Meet our Farms",
+            "button_link": "shopify://pages/meet-our-farms",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_LcKj9f",
+        "text_xKYH7T",
+        "button_bNYkiz"
+      ],
+      "name": "t:sections.image-with-text-overlay.presets.name",
+      "settings": {
+        "section_id": "",
+        "transparent_header": false,
+        "image": "shopify://shop_images/flamingos-esteros-lubimar.jpg",
+        "image_height": "650px",
+        "content_width": "small",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "center",
+        "priority_image": false,
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#ffffff",
+        "color_button_background": "#bb8f50",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "overlay_opacity": 19,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "narrow": false,
+        "parallax_direction": "vertical"
+      }
+    },
     "custom_image_with_txt_founder_inQRng": {
       "type": "custom-image-with-txt-founder",
       "blocks": {
@@ -920,79 +993,6 @@
         "full_width": false,
         "rounded": false,
         "enable_parallax": false,
-        "parallax_direction": "vertical"
-      }
-    },
-    "image_with_text_overlay_PdbJRa": {
-      "type": "image-with-text-overlay",
-      "blocks": {
-        "heading_LcKj9f": {
-          "type": "heading",
-          "settings": {
-            "heading": "The Very Best of Seafood",
-            "heading_size": "title-lg tracking-heading",
-            "heading_tag": "h2",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "text_xKYH7T": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Through remarkable dedication to natural feeds and regenerative practices, our farm partners produce the world's cleanest seafood.</p>",
-            "text_size": "subtext-md",
-            "text_max_size": 32,
-            "text_font": "body",
-            "secondary_color": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "button_bNYkiz": {
-          "type": "button",
-          "settings": {
-            "button_label": "Meet our Farms",
-            "button_link": "shopify://pages/meet-our-farms",
-            "button_style": "primary",
-            "button_size": "md",
-            "button_external": false,
-            "button_icon": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_LcKj9f",
-        "text_xKYH7T",
-        "button_bNYkiz"
-      ],
-      "name": "t:sections.image-with-text-overlay.presets.name",
-      "settings": {
-        "section_id": "",
-        "transparent_header": false,
-        "image": "shopify://shop_images/flamingos-esteros-lubimar.jpg",
-        "image_height": "650px",
-        "content_width": "small",
-        "content_position": "md:items-center md:justify-center",
-        "text_alignment": "center",
-        "priority_image": false,
-        "image_height_mobile": "auto",
-        "content_position_mobile": "items-end justify-start",
-        "text_alignment_mobile": "left",
-        "color_text": "#ffffff",
-        "color_highlight": "#e0a580",
-        "gradient_highlight": "",
-        "color_button_text": "#ffffff",
-        "color_button_background": "#bb8f50",
-        "color_button_gradient": "",
-        "color_overlay": "#171717",
-        "overlay_opacity": 19,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "divider": false,
-        "full_width": true,
-        "rounded": false,
-        "enable_parallax": true,
-        "narrow": false,
         "parallax_direction": "vertical"
       }
     },
@@ -1907,8 +1907,8 @@
     "rich_text_BFR9mU",
     "blocks_NJcBb9",
     "image_with_text_zXfLwQ",
-    "custom_image_with_txt_founder_inQRng",
     "image_with_text_overlay_PdbJRa",
+    "custom_image_with_txt_founder_inQRng",
     "image_with_text_overlay_XfR4my",
     "rich_text_i7ywpp",
     "index_new_testimonials_pzqmAP",
