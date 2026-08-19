@@ -14,6 +14,18 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
+        "announcement-2": {
+          "type": "announcement",
+          "settings": {
+            "icon": "none",
+            "text": "👉🏾 New Recipe! Chef Lottie's Hot Honey Salmon",
+            "link": "shopify://blogs/seafood-recipes/hot-honey-salmon-bowl-with-coconut-rice-mango-salsa",
+            "hide_icon_mobile": false,
+            "text_mobile": "👉🏾 New Recipe! Chef Lottie's Hot Honey Salmon",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
         "announcement_mrCFnq": {
           "type": "announcement",
           "settings": {
@@ -22,19 +34,6 @@
             "link": "https://seatopia.fish/collections/curated-boxes/products/fish-shell-variety",
             "hide_icon_mobile": true,
             "text_mobile": "Breakfast, handled — free Cold Smoked Lox 2-pack with any Fish & Shell Box",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "announcement-2": {
-          "type": "announcement",
-          "disabled": true,
-          "settings": {
-            "icon": "none",
-            "text": "Plant a mangrove with every order! We are planting 2500 mangroves.",
-            "link": "shopify://pages/we-plant-mangroves",
-            "hide_icon_mobile": false,
-            "text_mobile": "Plant a mangrove with every order! We are planting 2500 mangroves.",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -53,8 +52,8 @@
         }
       },
       "block_order": [
-        "announcement_mrCFnq",
         "announcement-2",
+        "announcement_mrCFnq",
         "announcement-1"
       ],
       "settings": {
