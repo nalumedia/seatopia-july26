@@ -1,0 +1,979 @@
+{
+  "sections": {
+    "main-article-banner": {
+      "type": "main-article-banner",
+      "blocks": {
+        "spacing": {
+          "type": "spacing",
+          "settings": {
+            "height": 68,
+            "height_mobile": 0
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "title-lg tracking-heading",
+            "show_tags": true,
+            "show_date": false,
+            "show_comments": false,
+            "show_author": true
+          }
+        }
+      },
+      "block_order": [
+        "spacing",
+        "title"
+      ],
+      "settings": {
+        "transparent_header": true,
+        "show_image": true,
+        "image": "shopify://shop_images/hot-honey-salmon-bowl-overhead.jpg",
+        "image_height": "750px",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-center",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_overlay": "#000000",
+        "overlay_opacity": 40,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "collab_card": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "recipe-collab",
+        "liquid": "\n<style>\n  .sea-collab {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    border: 1px solid var(--line);\n    border-radius: 18px;\n    background: var(--wash);\n    padding: 24px 28px;\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n    color: var(--ink);\n  }\n  .sea-collab__avatar {\n    flex: 0 0 auto;\n    width: 68px;\n    height: 68px;\n    border-radius: 50%;\n    overflow: hidden;\n    border: 2px solid #fff;\n    box-shadow: 0 0 0 2px var(--gold);\n    background: #eee;\n  }\n  .sea-collab__avatar img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    display: block;\n  }\n  .sea-collab__body {\n    flex: 1 1 260px;\n    min-width: 0;\n  }\n  .sea-collab__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 5px;\n  }\n  .sea-collab__name {\n    font-size: 21px;\n    font-weight: 600;\n    line-height: 1.2;\n    margin: 0 0 4px;\n  }\n  .sea-collab__role {\n    font-size: 15px;\n    color: var(--muted);\n    line-height: 1.45;\n    margin: 0;\n  }\n  .sea-collab__cred {\n    font-size: 13px;\n    color: var(--muted);\n    line-height: 1.5;\n    margin: 10px 0 0;\n    padding-top: 10px;\n    border-top: 1px solid var(--line);\n  }\n  .sea-collab__follow {\n    flex: 0 0 auto;\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    padding: 11px 20px;\n    border: 1px solid var(--ink);\n    border-radius: 999px;\n    font-size: 15px;\n    font-weight: 600;\n    text-decoration: none;\n    color: var(--ink);\n    background: #fff;\n    transition: background .18s ease, color .18s ease;\n  }\n  .sea-collab__follow:hover {\n    background: var(--ink);\n    color: #fff;\n  }\n  .sea-collab__follow svg {\n    width: 18px;\n    height: 18px;\n  }\n  @media (max-width: 749px) {\n    .sea-collab {\n      padding: 20px;\n      gap: 16px;\n    }\n    .sea-collab__follow {\n      width: 100%;\n      justify-content: center;\n    }\n    .sea-collab__name {\n      font-size: 19px;\n    }\n  }\n</style>\n\n<div class=\"sea-collab\">\n  <div class=\"sea-collab__avatar\">\n    <img\n      src=\"{{ 'lottie-bildirici-running-on-veggies.jpg' | file_url }}\"\n      alt=\"Lottie Bildirici, author of Running on Veggies\"\n      width=\"150\"\n      height=\"150\"\n      loading=\"lazy\"\n      decoding=\"async\">\n  </div>\n\n  <div class=\"sea-collab__body\">\n    <p class=\"sea-collab__eyebrow\">Running on Veggies &times; Seatopia</p>\n    <p class=\"sea-collab__name\">Recipe by Lottie Bildirici</p>\n    <p class=\"sea-collab__role\">Holistic Nutritionist &amp; Recipe Creator for Athletes &middot; Author of the best-selling <em>Running on Veggies</em></p>\n    <p class=\"sea-collab__cred\">Ironman &amp; marathoner &middot; In motion with @on &middot; NYC &amp; beyond</p>\n  </div>\n\n  <a class=\"sea-collab__follow\"\n     href=\"https://www.instagram.com/runningonveggies/\"\n     target=\"_blank\"\n     rel=\"noopener noreferrer\">\n    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n      <rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\"></rect>\n      <circle cx=\"12\" cy=\"12\" r=\"4\"></circle>\n      <circle cx=\"17.5\" cy=\"6.5\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"></circle>\n    </svg>\n    <span>Follow</span>\n  </a>\n</div>\n",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 28,
+        "padding_bottom": 8,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
+    "rich_text_intro": {
+      "type": "rich-text",
+      "blocks": {
+        "text_intro": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sweet, spicy, and on the table in about 45 minutes. The glaze here is three pantry ingredients in equal parts — Dijon, honey, and sriracha — brushed onto sushi-grade salmon, crusted with sesame seeds, and baked until the sugars catch and caramelize. It lands on creamy coconut jasmine rice with a bright mango salsa, cool cucumber, and edamame, so every bite has heat, sweetness, acid, and crunch at once.</p><p>We built this recipe around Seatopia <a href=\"/products/atlantic-salmon-2x-6oz-portions\" title=\"Seatopia Atlantic Salmon\">Atlantic Salmon</a> from <a href=\"/pages/bakkafrost-atlantic-salmon\" title=\"Bakkafrost, Faroe Islands\">Bakkafrost</a> in the Faroe Islands — 6 oz skin-off, sushi-grade portions that go from thawed to done in 10–12 minutes and are lab tested to the <a href=\"/pages/why-clean-seafood-matters\" title=\"Why Clean Seafood Matters\">Seatopia Standard™</a> for mercury, microplastics, and nutrient density.</p><p>This one is a collaboration with <a href=\"https://www.instagram.com/runningonveggies/\" target=\"_blank\" rel=\"noopener\" title=\"Lottie Bildirici on Instagram\">Lottie Bildirici</a> of <em>Running on Veggies</em> — holistic nutritionist, Ironman, marathoner, and author of the best-selling cookbook of the same name. Lottie builds food around how it makes you perform, which is exactly the brief here: a bowl that eats like a treat and still loads you up with marine omega-3s, fiber, and slow carbs.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "text_intro"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "at_a_glance": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "glance_time": {
+          "type": "column",
+          "settings": {
+            "icon": "time",
+            "custom_icon": "",
+            "heading": "45 minutes, start to finish",
+            "text": "<p>30 minutes of prep — most of which is the salmon marinating hands-off — plus 15 minutes of cooking. Start the rice first and every component finishes at the same time.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "glance_serves": {
+          "type": "column",
+          "settings": {
+            "icon": "users",
+            "custom_icon": "",
+            "heading": "Serves 3 generously",
+            "text": "<p>Two 6 oz salmon portions, 1 cup of dry jasmine rice, and one ripe mango. Everything doubles cleanly — no recalculating the coconut milk ratio.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "glance_heat": {
+          "type": "column",
+          "settings": {
+            "icon": "lightning",
+            "custom_icon": "",
+            "heading": "400°F for 10–12 minutes",
+            "text": "<p>One pan, no flipping, no searing, no splatter. Bake until the salmon flakes with a fork — about 130°F at the thickest point before it rests.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "glance_spice": {
+          "type": "column",
+          "settings": {
+            "icon": "alert",
+            "custom_icon": "",
+            "heading": "Heat you control",
+            "text": "<p>The glaze is 1:1:1 Dijon, honey, and sriracha. Move the sriracha up or down and nothing else in the recipe has to change — see the heat chart below.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "glance_time",
+        "glance_serves",
+        "glance_heat",
+        "glance_spice"
+      ],
+      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "settings": {
+        "custom_class": "",
+        "section_id": "at-a-glance",
+        "style": "with-border",
+        "columns": 4,
+        "text_alignment": "left",
+        "dt_txt_alignment": "left",
+        "heading": "At a glance",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "build_the_bowl": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "part_rice": {
+          "type": "column",
+          "settings": {
+            "icon": "box",
+            "custom_icon": "",
+            "heading": "1. Coconut jasmine rice",
+            "text": "<p>Jasmine rice simmered in ½ cup full-fat canned coconut milk plus 1 cup water. It is the creamy, faintly sweet base that absorbs the glaze and tempers the heat.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "part_salmon": {
+          "type": "column",
+          "settings": {
+            "icon": "lightning",
+            "custom_icon": "",
+            "heading": "2. Hot honey salmon",
+            "text": "<p>Equal parts Dijon, honey, and sriracha, brushed on and rested 30 minutes so it actually sticks. Sesame seeds toast into a crust while the honey caramelizes.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "part_salsa": {
+          "type": "column",
+          "settings": {
+            "icon": "organic",
+            "custom_icon": "",
+            "heading": "3. Mango salsa",
+            "text": "<p>Mango, red bell pepper, red onion, tomato, cilantro, and lime. This is the acid — it cuts the honey and is the difference between a balanced bowl and a heavy one.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "part_crunch": {
+          "type": "column",
+          "settings": {
+            "icon": "star",
+            "custom_icon": "",
+            "heading": "4. Crunch and cool",
+            "text": "<p>Shelled edamame, thin-sliced Persian cucumber, and a hard squeeze of lime. Cheap, fast, and the reason the bowl stays refreshing all the way to the last bite.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "part_rice",
+        "part_salmon",
+        "part_salsa",
+        "part_crunch"
+      ],
+      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "settings": {
+        "custom_class": "",
+        "section_id": "four-parts",
+        "style": "with-background",
+        "columns": 4,
+        "text_alignment": "left",
+        "dt_txt_alignment": "left",
+        "heading": "Four parts, one bowl",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Every Seatopia bowl is built the same way: a base, a protein, something bright, and something cold and crunchy. Learn the four parts and you can rebuild this bowl with whatever is in the fridge.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "padding_top": 24,
+        "padding_bottom": 48,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "recipe_kit_card": {
+      "type": "apps",
+      "blocks": {
+        "recipe_kit_app_block_hothoney": {
+          "type": "shopify://apps/recipe-kit/blocks/app-block/0afa374e-81c7-4989-96de-e1ac84640954",
+          "settings": {
+            "custom_js": "",
+            "custom_css": ".rk_direction_image { margin-top: 14px; }\n.rk_direction_image img { max-height: 400px; width: 100%; object-fit: cover; border-radius: 12px; }\n@media (max-width: 749px) {\n  .rk_direction_image img { max-height: 280px; }\n}\n"
+          }
+        }
+      },
+      "block_order": [
+        "recipe_kit_app_block_hothoney"
+      ],
+      "settings": {
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "shop_the_bowl": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "",
+        "products": [
+          "atlantic-salmon-2x-6oz-portions",
+          "king-salmon",
+          "mt-cook-alpine-salmon-7oz-filet",
+          "salmon-lovers-box-12-servings",
+          "digital-thermometer"
+        ],
+        "product_limit": 6,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "Shop the salmon in this bowl",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Developed with Seatopia Atlantic Salmon — 6 oz skin-off, sushi-grade portions that bake in 10–12 minutes straight from an overnight thaw. King Salmon and Alpine King work beautifully under the same glaze, and a <a href=\"/products/digital-thermometer\" title=\"Digital Thermometer\">digital thermometer</a> takes the last bit of guesswork out of it.</p>",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "game_plan": {
+      "type": "timeline",
+      "blocks": {
+        "step_rice": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/hot-honey-salmon-bowl-hero.jpg",
+            "subheading": "Minute 0",
+            "heading": "Start the coconut rice",
+            "heading_tag": "h3",
+            "text": "<p>Rinse 1 cup of jasmine rice until the water runs clear — this is what keeps it from going gluey. Add ½ cup full-fat coconut milk, 1 cup water, and ½ tsp kosher salt. Bring to a boil, drop to low, cover, and simmer 15 minutes. Then let it sit covered off the heat for 10 more minutes before fluffing with a fork.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "step_glaze": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/hot-honey-salmon-glaze-closeup.jpg",
+            "subheading": "Minute 2",
+            "heading": "Glaze the salmon and walk away",
+            "heading_tag": "h3",
+            "text": "<p>Whisk 2 Tbsp Dijon, 2 Tbsp honey, and 2 Tbsp sriracha. Coat both fillets evenly, scatter 2 tsp sesame seeds over the top, and leave them to marinate at least 30 minutes while you handle everything else. The mustard helps the glaze cling instead of sliding off in the oven.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "step_salsa": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/hot-honey-mango-salsa-ingredients.jpg",
+            "subheading": "Minute 10",
+            "heading": "Build the mango salsa",
+            "heading_tag": "h3",
+            "text": "<p>Dice one ripe mango, one red bell pepper, ¼ red onion, and ½ tomato. Add ½ cup chopped cilantro, the juice of one lime, and salt and pepper to taste. Jalapeño is optional. Toss it and let it sit — the salt draws out juice and it genuinely improves in the 20 minutes it waits.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "step_assemble": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/hot-honey-salmon-bowl-overhead.jpg",
+            "subheading": "Minute 32",
+            "heading": "Bake, then assemble",
+            "heading_tag": "h3",
+            "text": "<p>Bake the salmon at 400°F for 10–12 minutes, until it flakes easily with a fork. Divide the coconut rice among three bowls, lay the salmon alongside, and pile on the mango salsa, cooked edamame, and sliced cucumber. Finish with a hard squeeze of lime, extra cilantro, and a pinch more sesame.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "step_rice",
+        "step_glaze",
+        "step_salsa",
+        "step_assemble"
+      ],
+      "name": "t:sections.timeline.presets.name",
+      "settings": {
+        "image_ratio": "square",
+        "image_ratio_mobile": "landscape",
+        "heading": "The 45-minute game plan",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Work in this order and everything lands hot at the same time. The salmon marinates while the rice simmers and you chop the salsa — no step is wasted waiting on another.</p>",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "heat_chart": {
+      "type": "table-content",
+      "blocks": {
+        "heat_head": {
+          "type": "row",
+          "settings": {
+            "feature": "",
+            "version1": "Mild",
+            "version2": "As written",
+            "version3": "Fire"
+          }
+        },
+        "heat_sriracha": {
+          "type": "row",
+          "settings": {
+            "feature": "Sriracha in the glaze",
+            "version1": "2 teaspoons",
+            "version2": "2 tablespoons",
+            "version3": "3 tablespoons + a pinch of chili flake"
+          }
+        },
+        "heat_honey": {
+          "type": "row",
+          "settings": {
+            "feature": "Honey",
+            "version1": "2 tablespoons",
+            "version2": "2 tablespoons",
+            "version3": "2 tablespoons"
+          }
+        },
+        "heat_dijon": {
+          "type": "row",
+          "settings": {
+            "feature": "Dijon mustard",
+            "version1": "2 tablespoons",
+            "version2": "2 tablespoons",
+            "version3": "2 tablespoons"
+          }
+        },
+        "heat_jalapeno": {
+          "type": "row",
+          "settings": {
+            "feature": "Jalapeño in the salsa",
+            "version1": "Leave it out",
+            "version2": "½, seeded and fine-diced",
+            "version3": "1 whole, seeds in"
+          }
+        },
+        "heat_taste": {
+          "type": "row",
+          "settings": {
+            "feature": "Tastes like",
+            "version1": "Sweet and tangy — kid-safe",
+            "version2": "Balanced sweet heat",
+            "version3": "A real, lingering burn"
+          }
+        }
+      },
+      "block_order": [
+        "heat_head",
+        "heat_sriracha",
+        "heat_honey",
+        "heat_dijon",
+        "heat_jalapeno",
+        "heat_taste"
+      ],
+      "name": "Table content",
+      "settings": {
+        "custom_class": "",
+        "heading": "Dial in your heat",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>The glaze is three ingredients in equal parts, so one number controls the whole bowl. Pick a column and change nothing else in the recipe.</p>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "meal_prep": {
+      "type": "image-with-text",
+      "blocks": {
+        "mp_subheading": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Make it a week",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "mp_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Every part of this bowl holds",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "mp_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Coconut rice keeps 4 days refrigerated. The glaze can be whisked and stored for a week. The salsa is best on days one and two, and the salmon is genuinely good cold — this is a bowl we eat straight out of the fridge at 2pm without reheating anything.</p><p>Our rhythm: thaw Sunday morning, cook a double batch of rice and salmon Sunday afternoon, chop fresh salsa midweek. About an hour of work for four lunches.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "mp_button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop the Salmon Lovers Box",
+            "button_link": "/products/salmon-lovers-box-12-servings",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "mp_subheading",
+        "mp_heading",
+        "mp_text",
+        "mp_button"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/hot-honey-salmon-bowl-overhead.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "rich_text_standard": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_standard": {
+          "type": "heading",
+          "settings": {
+            "heading": "Salmon clean enough to eat three times a week",
+            "heading_size": "title-sm",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_standard": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Every Seatopia product ships with a Certificate of Analysis. The Atlantic Salmon in this recipe is third-party lab tested to be mercury-safe (≤ 0.1 ppm) with zero detectable microplastics in the samples tested — and each 6 oz portion delivers roughly 1,960 mg of marine omega-3s (about 709 mg EPA and 1,254 mg DHA) plus around 28 mcg of selenium. That is the <a href=\"/pages/seatopia-testing-commitment\" title=\"Seatopia's Testing Commitment\">Seatopia Standard</a>, and it is why we are comfortable telling you to put this bowl on repeat.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_standard",
+        "text_standard"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "reviews_salmon": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_testimonials_carousel_hothoney": {
+          "type": "shopify://apps/judge-me-reviews/blocks/testimonials_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": false,
+            "reviews_selection": "custom_products",
+            "products": [
+              "atlantic-salmon-2x-6oz-portions",
+              "king-salmon"
+            ],
+            "star_rating": "all",
+            "max_reviews": 20,
+            "quote_marks_size": "small",
+            "product_name_text_size": "small",
+            "verified_badge_style": "icon",
+            "card_height": "medium",
+            "text_size": "small",
+            "stars_size": "medium",
+            "arrows_position": "bottom",
+            "max_width": 1100,
+            "corner_styling": "soft",
+            "quote_marks_style": "serif",
+            "card_color": "#f9f9f9",
+            "stars_and_quote_marks_color": "#7bc3f3",
+            "text_color": "#000000",
+            "arrows_color": "#000000",
+            "show_border": false,
+            "border_color": "#108474",
+            "show_drop_shadow": false,
+            "transition_speed": 5,
+            "header_text": "Seatopians on this salmon",
+            "show_average_rating": true
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_testimonials_carousel_hothoney"
+      ],
+      "settings": {
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "faq_hot_honey": {
+      "type": "faq",
+      "blocks": {
+        "q_spice": {
+          "type": "question",
+          "settings": {
+            "title": "Can I make the hot honey glaze milder — or hotter?",
+            "text": "<p>Yes, and it is the easiest change in the recipe. Drop the sriracha to <strong>2 teaspoons</strong> and leave the jalapeño out of the salsa for a kid-friendly version that still tastes like hot honey. For real heat, push it to <strong>3 tablespoons</strong> plus a pinch of chili flake and leave the jalapeño seeds in. The Dijon and honey stay at 2 tablespoons either way — see the heat chart above.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_temp": {
+          "type": "question",
+          "settings": {
+            "title": "What internal temperature should the salmon reach?",
+            "text": "<p>Bake at 400°F for <strong>10–12 minutes</strong> and pull it at around <strong>130°F</strong> at the thickest point. Carryover heat brings it to roughly 145–150°F while it rests for 3–5 minutes, which gives you a moist, flaky fillet instead of a dry one. Read our full <a href=\"/pages/the-ultimate-guide-to-salmon-internal-temp\" title=\"The Ultimate Guide to Salmon Internal Temp\">guide to salmon internal temp</a>.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_marinate": {
+          "type": "question",
+          "settings": {
+            "title": "Do I really have to marinate for 30 minutes?",
+            "text": "<p>Thirty minutes is the sweet spot — long enough for the Dijon to grip the fillet so the glaze does not slide off in the oven. In a rush, 10 minutes still works. Going much past an hour is not useful here: unlike a miso marinade, the acid in the mustard starts to firm up the surface of the fish.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_mango": {
+          "type": "question",
+          "settings": {
+            "title": "My mango is not ripe. What now?",
+            "text": "<p>Leave it in a paper bag on the counter for a day or two — it should give slightly when you press near the stem. If you need salsa tonight, thawed frozen mango chunks work well; drain them and pat dry so the salsa does not go watery. If the mango is still a little tart, a ½ teaspoon of honey in the salsa closes the gap.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_ahead": {
+          "type": "question",
+          "settings": {
+            "title": "How far ahead can I make each component?",
+            "text": "<p>Coconut rice holds <strong>4 days</strong> refrigerated. The glaze keeps <strong>1 week</strong> whisked and sealed. Salsa is best on <strong>days 1–2</strong> — after that the mango softens and the cucumber weeps. Cooked salmon keeps <strong>3 days</strong> and is delicious cold, so assembled bowls make excellent lunches with no reheating at all.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_defrost": {
+          "type": "question",
+          "settings": {
+            "title": "How do I defrost Seatopia salmon?",
+            "text": "<p>Defrost in the refrigerator overnight, wrapped in paper, to preserve texture and nutrient integrity. For a faster option, drop the vacuum-sealed portion into a bowl of cold water for 30–60 minutes. Never thaw at room temperature or in the microwave.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "q_spice",
+        "q_temp",
+        "q_marinate",
+        "q_mango",
+        "q_ahead",
+        "q_defrost"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "style": "with-border",
+        "heading": "Questions cooks actually ask about this bowl",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_overlay": "#ffffff",
+        "overlay_opacity": 4,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "seafood-recipes",
+        "post_limit": 8,
+        "columns": 3,
+        "carousel_on_desktop": true,
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "landscape",
+        "show_tags": false,
+        "show_date": false,
+        "show_comments": false,
+        "show_author": false,
+        "show_excerpt": false,
+        "heading": "More clean seafood bowls to cook this week",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Loved this one? There is more where it came from. Every Seatopia box also includes a <a href=\"/pages/seatopia-member-cooking-classes\" title=\"Seatopia Member Cooking Classes\">FREE virtual cooking class</a>, where we walk through glazes, temps, and knife work live.</p>",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "newsletter_banner_hot_honey": {
+      "type": "newsletter-banner",
+      "blocks": {
+        "heading_newsletter": {
+          "type": "heading",
+          "settings": {
+            "heading": "Be the first to know",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_newsletter": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get on the list for more 30-minute seafood bowls, glazes, and cooking temps delivered straight to your inbox.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "form_newsletter": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_newsletter",
+        "text_newsletter",
+        "form_newsletter"
+      ],
+      "name": "t:sections.newsletter-banner.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "transparent_footer": false,
+        "image": "shopify://shop_images/hot-honey-salmon-bowl-overhead.jpg",
+        "image_height": "650px",
+        "content_width": "medium",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    }
+  },
+  "order": [
+    "main-article-banner",
+    "collab_card",
+    "rich_text_intro",
+    "at_a_glance",
+    "build_the_bowl",
+    "recipe_kit_card",
+    "shop_the_bowl",
+    "game_plan",
+    "heat_chart",
+    "meal_prep",
+    "rich_text_standard",
+    "reviews_salmon",
+    "faq_hot_honey",
+    "blog-posts",
+    "newsletter_banner_hot_honey"
+  ]
+}
