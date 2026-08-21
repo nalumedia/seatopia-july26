@@ -1,0 +1,1535 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "heading_size": "title-xl tracking-heading",
+        "heading_alignment": "text-left",
+        "heading_tag": "h1",
+        "text_size": "text-base",
+        "padding_top": 72,
+        "padding_bottom": 120,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
+    "hero": {
+      "type": "rich-text",
+      "blocks": {
+        "h1_hero": {
+          "type": "heading",
+          "settings": {
+            "heading": "Mercury under 0.1 ppm. Ten times stricter than the FDA.",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h1",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_hero": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sashimi-grade seafood from named farms, third-party lab tested, blast-frozen at &minus;10&deg;F, delivered. Ora King came back at <strong>0.017 ppm mercury</strong> and <strong>3,430 mg EPA+DHA per serving</strong> &mdash; about eleven fish-oil capsules in one portion.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_hero": {
+          "type": "button",
+          "settings": {
+            "button_label": "Start with a 12-portion box — $225",
+            "button_link": "/products/seatopia-regenerative-seafood-bundle",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        },
+        "button2_hero": {
+          "type": "button",
+          "settings": {
+            "button_label": "Read the lab results",
+            "button_link": "/pages/seatopia-testing-commitment",
+            "button_style": "secondary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "h1_hero",
+        "text_hero",
+        "button_hero",
+        "button2_hero"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "padding_top": 56,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "hero_chips": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "chip_mercury": {
+          "type": "column",
+          "settings": {
+            "icon": "shield",
+            "custom_icon": "",
+            "heading": "Mercury &le; 0.1 ppm",
+            "text": "<p>Our ceiling is 10&times; stricter than the FDA&rsquo;s 1.0 ppm action level. Ora King&rsquo;s last harvest came back at 0.017 ppm. <a href=\"/pages/epa-mercury-calculator\">Run the numbers yourself</a>.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "chip_micro": {
+          "type": "column",
+          "settings": {
+            "icon": "recycling",
+            "custom_icon": "",
+            "heading": "Microplastics tested to 1 micron",
+            "text": "<p>Not detected in the samples analyzed. We publish the report either way &mdash; that is the point of publishing it.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "chip_omega": {
+          "type": "column",
+          "settings": {
+            "icon": "award",
+            "custom_icon": "",
+            "heading": "3,430 mg EPA+DHA per serving",
+            "text": "<p>One Ora King portion carries roughly eleven fish-oil capsules&rsquo; worth of omega-3s, plus 34 g protein and 10 mcg vitamin D.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "chip_farms": {
+          "type": "column",
+          "settings": {
+            "icon": "map_pin",
+            "custom_icon": "",
+            "heading": "Named farms, every box",
+            "text": "<p><a href=\"/pages/bakkafrost-atlantic-salmon\">Bakkafrost</a> &middot; <a href=\"/pages/ora-king-salmon-new-zealand\">Ora King</a> &middot; <a href=\"/pages/mt-cook-alpine-salmon\">Mt. Cook</a> &middot; Marshallberg. You get the farm name, not &ldquo;responsibly sourced.&rdquo;</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "chip_mercury",
+        "chip_micro",
+        "chip_omega",
+        "chip_farms"
+      ],
+      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "settings": {
+        "custom_class": "",
+        "section_id": "chip",
+        "style": "with-border",
+        "columns": 4,
+        "text_alignment": "left",
+        "dt_txt_alignment": "left",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "hero_image": {
+      "type": "image-with-text-overlay",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "section_id": "",
+        "transparent_header": false,
+        "image": "shopify://shop_images/lp-hero-family-kitchen.jpg",
+        "image_height": "700px",
+        "content_width": "medium",
+        "content_position": "md:items-end md:justify-start",
+        "text_alignment": "left",
+        "image_mobile": "shopify://shop_images/lp-hero-family-kitchen.jpg",
+        "priority_image": false,
+        "image_height_mobile": "400px",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#bb8f50",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "overlay_opacity": 0,
+        "padding_top": 0,
+        "padding_bottom": 16,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": false,
+        "narrow": false,
+        "parallax_direction": "vertical"
+      }
+    },
+    "proof_rail": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "proof-rail",
+        "liquid": "\n<style>\n  .sea-rail {\n    --navy: #2e4b59;\n    --gold: #bb8f50;\n    background: var(--navy);\n    color: #fff;\n    border-radius: 14px;\n    padding: 22px 28px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-wrap: wrap;\n    gap: 10px 22px;\n    font-size: 15px;\n    line-height: 1.35;\n    text-align: center;\n  }\n  .sea-rail__item {\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    white-space: nowrap;\n  }\n  .sea-rail__item + .sea-rail__item::before {\n    content: \"\";\n    width: 4px;\n    height: 4px;\n    border-radius: 50%;\n    background: var(--gold);\n    display: inline-block;\n    margin-right: 14px;\n  }\n  .sea-rail__num {\n    font-weight: 700;\n  }\n  .sea-rail a {\n    color: #fff;\n    text-decoration: underline;\n    text-underline-offset: 3px;\n  }\n  @media (max-width: 749px) {\n    .sea-rail { font-size: 14px; padding: 18px 18px; gap: 8px 14px; }\n    .sea-rail__item { white-space: normal; }\n    .sea-rail__item + .sea-rail__item::before { margin-right: 10px; }\n  }\n</style>\n\n<div class=\"sea-rail\">\n  <span class=\"sea-rail__item\"><span class=\"sea-rail__num\">3,065</span> members</span>\n  <span class=\"sea-rail__item\"><span class=\"sea-rail__num\">4.96&#9733;</span> across 80 reviews</span>\n  <span class=\"sea-rail__item\">Bakkafrost &middot; Ora King &middot; Mt. Cook &middot; Marshallberg</span>\n  <span class=\"sea-rail__item\">Recommended by <a href=\"/pages/mark-favorite-seafood-seatopia\">Dr. Mark Hyman</a></span>\n</div>\n",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 32,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "press_logos": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_goop": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/goop.png",
+            "height": 40,
+            "link": ""
+          }
+        },
+        "logo_forbes": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/forbes.png",
+            "height": 40,
+            "link": ""
+          }
+        },
+        "logo_hyman": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/hyman2.png",
+            "height": 40,
+            "link": ""
+          }
+        },
+        "logo_huberman": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/sm-699e378d3f92f-Huberman-Lab.webp",
+            "height": 40,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_goop",
+        "logo_forbes",
+        "logo_hyman",
+        "logo_huberman"
+      ],
+      "name": "t:sections.logo-list.presets.name",
+      "settings": {
+        "layout": "default",
+        "grid_horizontal": 70,
+        "direction": "left",
+        "speed": 20,
+        "heading": "Featured In",
+        "heading_size": "title-sm",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "padding_top": 8,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "endorsers": {
+      "type": "index-new-testimonials",
+      "blocks": {
+        "rev_hyman": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Mark_hyman.png",
+            "image_url": "",
+            "title": "Dr. Mark Hyman",
+            "job": "Neuroscientist",
+            "Start_number": "5",
+            "text": "<p>&ldquo;Thanks to Seatopia the next generation of omega-rich, microalgae-fed seafood can help us live more vital lives.&rdquo;</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        },
+        "rev_johanna": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Mark_hyman.jpg",
+            "image_url": "",
+            "title": "Johanna Hellrigl",
+            "job": "Chef &amp; Owner of Ama Restaurant",
+            "Start_number": "5",
+            "text": "<p>&ldquo;As a Chef, I believe true sustainability must nourish both people and the planet. They lab-test every harvest to ensure seafood that&rsquo;s omega-rich, mercury-safe, and free from detectable microplastics.&rdquo;</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        },
+        "rev_ben": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Ben_greenfield_89fa6ea5-3395-4d81-975e-1f952ba5b657.png",
+            "image_url": "",
+            "title": "Ben Greenfield",
+            "job": "Health &amp; Fitness Coach",
+            "Start_number": "5",
+            "text": "<p>&ldquo;If you want healthy, gourmet-style seafood, in the comfort of your own home, seafood that goes above and beyond any you&rsquo;ve tasted before, you need Seatopia in your life!&rdquo;</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "rev_hyman",
+        "rev_johanna",
+        "rev_ben"
+      ],
+      "settings": {
+        "custom_class": "",
+        "section_id": "endorsers",
+        "banner_img": "",
+        "title": "The people who read lab reports for a living buy this",
+        "sub_title": "<p>4.96&#9733; across 80 reviews &mdash; and three names who had to check the numbers first.</p>",
+        "section_cont_position": "center",
+        "padding_top": 24,
+        "padding_bottom": 40,
+        "section_background": "",
+        "text_color": "",
+        "star_color": "#bb8f50",
+        "rounded": false
+      }
+    },
+    "buy_leadin": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_buylead": {
+          "type": "heading",
+          "settings": {
+            "heading": "Every box ships with the lab report for what&rsquo;s inside it.",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_buylead"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "padding_top": 48,
+        "padding_bottom": 8,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "buy_box": {
+      "type": "featured-product",
+      "blocks": {
+        "rating": {
+          "type": "rating",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "product-title-lg",
+            "title_size_mobile": "product-title-md",
+            "show_price": true,
+            "show_rating": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "text_size": "text-base lg:text-lg"
+          }
+        },
+        "icon_list": {
+          "type": "icon_list",
+          "settings": {
+            "heading": "",
+            "enable_carousel": false,
+            "show_below_media": false
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "show_variant_labels": true,
+            "picker_type": "button",
+            "enable_color_swatches": false,
+            "color_swatch_type": "color",
+            "size_chart": ""
+          }
+        },
+        "subscription": {
+          "type": "subscription",
+          "settings": {
+            "subscription-title": "HOW SUBSCRIPTIONS WORK"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "show_price": false,
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false,
+            "enable_back_in_stock": true,
+            "show_back_in_stock_name": false,
+            "show_back_in_stock_phone": false
+          }
+        }
+      },
+      "block_order": [
+        "rating",
+        "title",
+        "description",
+        "icon_list",
+        "variant_picker",
+        "subscription",
+        "buy_buttons"
+      ],
+      "settings": {
+        "section_id": "buy",
+        "product": "seatopia-regenerative-seafood-bundle",
+        "enable_sticky_info": false,
+        "show_chef_notes": false,
+        "media_size": 50,
+        "gallery_layout": "thumbnail",
+        "thumbnail_position": "below",
+        "image_ratio": "portrait",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_autoplay": false,
+        "enable_video_looping": false,
+        "mobile_layout": "full_width",
+        "image_ratio_mobile": "square",
+        "mobile_thumbnail": true,
+        "padding_top": 8,
+        "padding_bottom": 48,
+        "divider": false,
+        "full_width": false,
+        "rounded": true
+      }
+    },
+    "coa_preview": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "coa",
+        "liquid": "\n<style>\n  .sea-coa {\n    --navy: #2e4b59;\n    --gold: #bb8f50;\n    --muted: #6F6F6F;\n    --line: #E9E9E9;\n    border: 1px solid var(--line);\n    border-radius: 16px;\n    overflow: hidden;\n    background: #fff;\n  }\n  .sea-coa__head {\n    background: var(--navy);\n    color: #fff;\n    padding: 26px 30px;\n  }\n  .sea-coa__eyebrow {\n    font-size: 11px;\n    letter-spacing: .16em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-coa__title {\n    font-size: 25px;\n    line-height: 1.2;\n    margin: 0;\n    font-weight: 500;\n  }\n  .sea-coa__row {\n    display: flex;\n    align-items: flex-start;\n    gap: 18px;\n    padding: 22px 30px;\n    border-bottom: 1px solid var(--line);\n  }\n  .sea-coa__row:last-of-type { border-bottom: 0; }\n  .sea-coa__doc {\n    flex: 0 0 auto;\n    width: 46px;\n    height: 58px;\n    border: 1px solid var(--line);\n    border-radius: 4px;\n    background: #f7f6f3;\n    position: relative;\n  }\n  .sea-coa__doc::after {\n    content: \"PDF\";\n    position: absolute;\n    bottom: 6px;\n    left: 0;\n    right: 0;\n    text-align: center;\n    font-size: 9px;\n    letter-spacing: .08em;\n    color: var(--muted);\n  }\n  .sea-coa__meta { flex: 1 1 auto; min-width: 0; }\n  .sea-coa__sku {\n    font-weight: 600;\n    font-size: 16px;\n    margin: 0 0 4px;\n  }\n  .sea-coa__lab {\n    font-size: 13px;\n    color: var(--muted);\n    margin: 0 0 8px;\n  }\n  .sea-coa__nums {\n    font-size: 14px;\n    margin: 0;\n  }\n  .sea-coa__nums b { color: var(--navy); }\n  .sea-coa__foot {\n    padding: 20px 30px;\n    background: #faf8f4;\n    font-size: 14px;\n    color: var(--muted);\n  }\n  .sea-coa__foot a {\n    color: #171717;\n    font-weight: 600;\n  }\n  @media (max-width: 749px) {\n    .sea-coa__row { padding: 18px 18px; gap: 14px; }\n    .sea-coa__head, .sea-coa__foot { padding: 20px 18px; }\n    .sea-coa__title { font-size: 21px; }\n  }\n</style>\n\n<div class=\"sea-coa\">\n  <div class=\"sea-coa__head\">\n    <p class=\"sea-coa__eyebrow\">Certificates of analysis</p>\n    <p class=\"sea-coa__title\">134+ published lab reports. Read the result before you eat.</p>\n  </div>\n\n  <div class=\"sea-coa__row\">\n    <div class=\"sea-coa__doc\" aria-hidden=\"true\"></div>\n    <div class=\"sea-coa__meta\">\n      <p class=\"sea-coa__sku\">Ora King Salmon</p>\n      <p class=\"sea-coa__lab\">Edacious + Light Labs &middot; June 2, 2026</p>\n      <p class=\"sea-coa__nums\">Mercury <b>0.017 ppm</b> &middot; EPA+DHA <b>1.43 g / 100 g</b> &middot; Microplastics <b>not detected</b></p>\n    </div>\n  </div>\n\n  <div class=\"sea-coa__foot\">\n    Reports span Ora King, Bakkafrost, Mt. Cook and Caleta Bay &mdash; every harvest lot, whatever the number says.\n    <a href=\"/pages/seatopia-testing-commitment\">Browse the full library &rarr;</a>\n  </div>\n</div>\n",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 8,
+        "padding_bottom": 56,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "prenatal": {
+      "type": "image-with-text",
+      "blocks": {
+        "pn_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "For the expecting parent",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "pn_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your prenatal has 300 mg DHA. One Ora King portion has 3,430 mg.",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "pn_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pregnancy is the one case where the mercury-versus-omega-3 trade-off actually matters, and it is the reason the FDA publishes a <strong>&ldquo;Best Choice&rdquo;</strong> tier at all: maximum omega-3s, minimum mercury.</p><p>Ora King&rsquo;s last harvest tested at <strong>0.017 ppm mercury</strong> &mdash; roughly 1/59th of the FDA&rsquo;s 1.0 ppm action level &mdash; while delivering about <strong>11&times; the DHA of a standard prenatal capsule</strong> per serving. You do not have to choose between the two, and you do not have to take our word for it: the lab report ships with the box.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "pn_button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Pregnancy-safe seafood guide",
+            "button_link": "/pages/pregnancy-safe-seafood",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "pn_sub",
+        "pn_head",
+        "pn_text",
+        "pn_button"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/lp-lifestyle-band.jpg",
+        "image_height": "650px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "shopify://shop_images/lp-lifestyle-band.jpg",
+        "image_height_mobile": "400px",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "comparison_intro": {
+      "type": "rich-text",
+      "blocks": {
+        "text_cmp": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Side by Side Comparison</strong></p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "heading_cmp": {
+          "type": "heading",
+          "settings": {
+            "heading": "Every claim on this page has a number behind it. Here is how that compares.",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text2_cmp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Most seafood brands and grocers never have to tell you what is actually in your fish. We publish it. Below is the head-to-head against what you would otherwise buy &mdash; the counter at Whole Foods, a wild-Alaskan subscription, or a bottle of fish-oil capsules.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "text_cmp",
+        "heading_cmp",
+        "text2_cmp"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "padding_top": 64,
+        "padding_bottom": 24,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "comparison_table": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "comparison",
+        "liquid": "\n<style>\n  .sea-cmp {\n    --navy: #2e4b59;\n    --sky: #7bc3f3;\n    --muted: #6F6F6F;\n    --line: #E9E9E9;\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  .sea-cmp table {\n    width: 100%;\n    min-width: 880px;\n    border-collapse: separate;\n    border-spacing: 0;\n    font-size: 14px;\n    line-height: 1.45;\n  }\n  .sea-cmp th,\n  .sea-cmp td {\n    padding: 18px 18px;\n    text-align: left;\n    vertical-align: top;\n    border-bottom: 1px solid var(--line);\n  }\n  .sea-cmp thead th {\n    padding: 26px 18px;\n    font-size: 15px;\n    font-weight: 600;\n    vertical-align: bottom;\n  }\n  .sea-cmp thead th.sea-cmp__seatopia {\n    background: var(--navy);\n    color: #fff;\n    border-top-left-radius: 14px;\n    border-top-right-radius: 14px;\n    font-size: 17px;\n    letter-spacing: .1em;\n    text-transform: uppercase;\n  }\n  .sea-cmp__label {\n    font-weight: 600;\n    color: #171717;\n    width: 200px;\n  }\n  .sea-cmp td.sea-cmp__seatopia {\n    background: var(--navy);\n    color: #fff;\n  }\n  .sea-cmp tbody tr:last-child td.sea-cmp__seatopia {\n    border-bottom-left-radius: 14px;\n    border-bottom-right-radius: 14px;\n  }\n  .sea-cmp tbody tr:last-child th,\n  .sea-cmp tbody tr:last-child td { border-bottom: 0; }\n  .sea-cmp td.sea-cmp__seatopia b { color: #fff; }\n  .sea-cmp__y,\n  .sea-cmp__n {\n    display: inline-block;\n    margin-right: 9px;\n    font-weight: 700;\n  }\n  .sea-cmp__y { color: var(--sky); }\n  .sea-cmp__n { color: var(--muted); }\n  .sea-cmp__note {\n    margin: 16px 0 0;\n    font-size: 13px;\n    color: var(--muted);\n  }\n  @media (max-width: 749px) {\n    .sea-cmp th, .sea-cmp td { padding: 14px 12px; font-size: 13px; }\n    .sea-cmp thead th { padding: 18px 12px; font-size: 14px; }\n    .sea-cmp__label { width: 150px; }\n  }\n</style>\n\n<div class=\"sea-cmp\">\n  <table>\n    <thead>\n      <tr>\n        <td></td>\n        <th scope=\"col\" class=\"sea-cmp__seatopia\">Seatopia</th>\n        <th scope=\"col\">Whole Foods counter</th>\n        <th scope=\"col\">Wild Alaskan</th>\n        <th scope=\"col\">Fish-oil capsules</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <th scope=\"row\" class=\"sea-cmp__label\">Mercury, tested per harvest</th>\n        <td class=\"sea-cmp__seatopia\"><span class=\"sea-cmp__y\">&#10003;</span>&le; 0.1 ppm ceiling<br>Ora King at <b>0.017 ppm</b></td>\n        <td><span class=\"sea-cmp__n\">&#10007;</span>Not published</td>\n        <td><span class=\"sea-cmp__n\">&#10007;</span>Not published</td>\n        <td><span class=\"sea-cmp__n\">&#10007;</span>Not applicable</td>\n      </tr>\n      <tr>\n        <th scope=\"row\" class=\"sea-cmp__label\">EPA+DHA per serving</th>\n        <td class=\"sea-cmp__seatopia\"><span class=\"sea-cmp__y\">&#10003;</span><b>3,430 mg</b> (Ora King)</td>\n        <td><span class=\"sea-cmp__n\">&#10007;</span>Not published</td>\n        <td><span class=\"sea-cmp__n\">&#10007;</span>Not published</td>\n        <td><span class=\"sea-cmp__n\">&#10007;</span>~300 mg per capsule</td>\n      </tr>\n      <tr>\n        <th scope=\"row\" class=\"sea-cmp__label\">Microplastics tested</th>\n        <td class=\"sea-cmp__seatopia\"><span class=\"sea-cmp__y\">&#10003;</span>Yes &mdash; to 1 micron</td>\n        <td><span class=\"sea-cmp__n\">&#10007;</span>No</td>\n        <td><span class=\"sea-cmp__n\">&#10007;</span>No</td>\n        <td><span class=\"sea-cmp__n\">&#10007;</span>No</td>\n      </tr>\n      <tr>\n        <th scope=\"row\" class=\"sea-cmp__label\">Provenance named</th>\n        <td class=\"sea-cmp__seatopia\"><span class=\"sea-cmp__y\">&#10003;</span>Farm named on every box</td>\n        <td><span class=\"sea-cmp__n\">&#10007;</span>Country of origin only</td>\n        <td><span class=\"sea-cmp__n\">&#10007;</span>Region, not farm</td>\n        <td><span class=\"sea-cmp__n\">&#10007;</span>Undisclosed blend</td>\n      </tr>\n      <tr>\n        <th scope=\"row\" class=\"sea-cmp__label\">Lab report published</th>\n        <td class=\"sea-cmp__seatopia\"><span class=\"sea-cmp__y\">&#10003;</span>134+ reports, every lot</td>\n        <td><span class=\"sea-cmp__n\">&#10007;</span>No</td>\n        <td><span class=\"sea-cmp__n\">&#10007;</span>No</td>\n        <td><span class=\"sea-cmp__n\">&#10007;</span>No</td>\n      </tr>\n      <tr>\n        <th scope=\"row\" class=\"sea-cmp__label\">Price per verified serving</th>\n        <td class=\"sea-cmp__seatopia\"><span class=\"sea-cmp__y\">&#10003;</span><b>$18.75</b><br>12-portion box at $225</td>\n        <td><span class=\"sea-cmp__n\">&#10007;</span>Unverified</td>\n        <td><span class=\"sea-cmp__n\">&#10007;</span>Unverified</td>\n        <td><span class=\"sea-cmp__n\">&#10007;</span>Cheap &mdash; but it is not food</td>\n      </tr>\n    </tbody>\n  </table>\n  <p class=\"sea-cmp__note\">&ldquo;Not published&rdquo; means exactly that: we could not find a per-harvest mercury or omega-3 figure to compare against. If a competitor starts publishing theirs, we will put the real number in this table.</p>\n</div>\n",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 8,
+        "padding_bottom": 56,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "honesty": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "hon_test": {
+          "type": "column",
+          "settings": {
+            "icon": "clipboard",
+            "custom_icon": "",
+            "heading": "What we test",
+            "text": "<p>Mercury and microplastics on every harvest lot, plus EPA+DHA, protein, selenium and vitamin D per serving. Third-party labs &mdash; Edacious and Light Labs &mdash; not our own bench.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "hon_dont": {
+          "type": "column",
+          "settings": {
+            "icon": "eye",
+            "custom_icon": "",
+            "heading": "What we don&rsquo;t",
+            "text": "<p>We test per harvest lot, not per individual portion, and results describe the samples analyzed. We do not screen for every heavy metal &mdash; mercury is the one that matters most in seafood, so it is the one we hold a ceiling on.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "hon_publish": {
+          "type": "column",
+          "settings": {
+            "icon": "file_text",
+            "custom_icon": "",
+            "heading": "What we publish",
+            "text": "<p>The report, whatever it says. 134+ certificates and counting, each with the lab letterhead, the SKU and the date on it. <a href=\"/pages/seatopia-testing-commitment\">Read them here</a>.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "hon_test",
+        "hon_dont",
+        "hon_publish"
+      ],
+      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "settings": {
+        "custom_class": "",
+        "section_id": "hon",
+        "style": "with-background",
+        "columns": 3,
+        "text_alignment": "left",
+        "dt_txt_alignment": "left",
+        "heading": "What we test, what we don&rsquo;t",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>A number is only worth something if you know its limits. Here are ours.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "padding_top": 48,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "protein_grid": {
+      "type": "multicolumn",
+      "blocks": {
+        "prot_eggs": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "image": "shopify://shop_images/lp-protein-eggs.png",
+            "image_ratio": "square",
+            "video": "",
+            "heading": "6 large eggs",
+            "heading_size": "text-base-xl",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "button_external": false,
+            "button_icon": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "prot_cottage": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "image": "shopify://shop_images/lp-protein-cottage-cheese.png",
+            "image_ratio": "square",
+            "video": "",
+            "heading": "1 1/2 cups cottage cheese",
+            "heading_size": "text-base-xl",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "button_external": false,
+            "button_icon": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "prot_chia": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "image": "shopify://shop_images/lp-protein-chia-seeds.png",
+            "image_ratio": "square",
+            "video": "",
+            "heading": "1.3 cups of chia seeds",
+            "heading_size": "text-base-xl",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "button_external": false,
+            "button_icon": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "prot_yogurt": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "image": "shopify://shop_images/lp-protein-yogurt.png",
+            "image_ratio": "square",
+            "video": "",
+            "heading": "3 1/2 bowls of yogurt",
+            "heading_size": "text-base-xl",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "button_external": false,
+            "button_icon": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "prot_eggs",
+        "prot_cottage",
+        "prot_chia",
+        "prot_yogurt"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "custom_class": "",
+        "gap": "medium",
+        "columns": 4,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "heading": "Up to 36 g of protein per piece. No supplements required.",
+        "heading_size": "title-lg tracking-heading",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>One piece of Seatopia Atlantic Salmon gives you as much protein as:</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text_card": "",
+        "color_overlay": "#ffffff",
+        "overlay_opacity_new": 0,
+        "padding_top": 56,
+        "padding_bottom": 64,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "sashimi": {
+      "type": "image-with-text",
+      "blocks": {
+        "sa_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Sashimi-grade is a lab result, not a menu word.",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "sa_sub": {
+          "type": "text",
+          "settings": {
+            "text": "<p>It means the mercury and microplastic numbers came back clean enough to eat it raw &mdash; so the easiest preparations are the best ones.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "sa_steps": {
+          "type": "text",
+          "settings": {
+            "text": "<ol><li>Slice the filet thin and garnish with caviar, wasabi and soy</li><li>Pan sear with sea salt and pepper, then squeeze lemon</li><li>Drizzle scallops with olive oil, grate lime, add salt</li><li>Bake a filet with garlic and onions</li></ol>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "sa_button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop the boxes",
+            "button_link": "/collections/curated-boxes",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "sa_head",
+        "sa_sub",
+        "sa_steps",
+        "sa_button"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/lp-michelin-carousel.jpg",
+        "image_height": "700px",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "shopify://shop_images/lp-michelin-carousel.jpg",
+        "image_height_mobile": "400px",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 24,
+        "padding_bottom": 64,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "box_chooser": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_chooser": {
+          "type": "heading",
+          "settings": {
+            "heading": "Choose a box, or build your own.",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_chooser": {
+          "type": "text",
+          "settings": {
+            "text": "<p>12, 18 or 24 verified portions, blast-frozen at &minus;10&deg;F and shipped Tuesday and Wednesday. Every box carries the lab report for what is in it.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_chooser": {
+          "type": "button",
+          "settings": {
+            "button_label": "Choose a box",
+            "button_link": "/collections/curated-boxes",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        },
+        "button2_chooser": {
+          "type": "button",
+          "settings": {
+            "button_label": "Build your own box",
+            "button_link": "/collections/build-your-own-box",
+            "button_style": "secondary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_chooser",
+        "text_chooser",
+        "button_chooser",
+        "button2_chooser"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "padding_top": 56,
+        "padding_bottom": 16,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "box_three_up": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "",
+        "products": [
+          "salmon-lovers-box-12-servings",
+          "fish-shellfish-variety-box",
+          "classic-white-fish-box-12-servings"
+        ],
+        "product_limit": 3,
+        "columns": 3,
+        "carousel_on_desktop": false,
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "padding_top": 8,
+        "padding_bottom": 64,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "how_three_up": {
+      "type": "multicolumn",
+      "blocks": {
+        "how_01": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "image": "shopify://shop_images/lp-how-01-regenerative-farms.jpg",
+            "image_ratio": "landscape",
+            "video": "",
+            "heading": "01 &nbsp; We source from named regenerative farms",
+            "heading_size": "text-lg-2xl",
+            "text": "<p>Bakkafrost, Ora King, Mt. Cook, Marshallberg. After each harvest we lab test the lot for mercury, microplastics and omega-3s &mdash; and publish the certificate.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "button_external": false,
+            "button_icon": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "how_02": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "image": "shopify://shop_images/lp-how-02-choose-your-box.jpg",
+            "image_ratio": "landscape",
+            "video": "",
+            "heading": "02 &nbsp; Choose a curated box, or build your own",
+            "heading_size": "text-lg-2xl",
+            "text": "<p>12, 18 or 24 portions. Order by Tuesday 12pm EST for delivery that week.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "button_external": false,
+            "button_icon": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "how_03": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "image": "shopify://shop_images/lp-how-03-arrives-doorstep.jpg",
+            "image_ratio": "landscape",
+            "video": "",
+            "heading": "03 &nbsp; It arrives blast-frozen at &minus;10&deg;F",
+            "heading_size": "text-lg-2xl",
+            "text": "<p>Flash-frozen guaranteed, with the lab report for what is inside. Learn recipes from top chefs and book a free 1-on-1 cooking class.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "button_external": false,
+            "button_icon": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "how_01",
+        "how_02",
+        "how_03"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "custom_class": "",
+        "gap": "large",
+        "columns": 3,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "How Seatopia works",
+        "heading_size": "title-lg tracking-heading",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "Get started",
+        "button_link": "/pages/how-it-works",
+        "button_external": false,
+        "button_icon": true,
+        "color_text_card": "",
+        "color_overlay": "#ffffff",
+        "overlay_opacity_new": 0,
+        "padding_top": 56,
+        "padding_bottom": 64,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "founder_quote": {
+      "type": "image-with-text",
+      "blocks": {
+        "f_quote": {
+          "type": "heading",
+          "settings": {
+            "heading": "&ldquo;We believe in eating with intention, sourcing with integrity, and restoring what has been lost.&rdquo;",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We choose to be stewards of the ocean and architects of a regenerative seafood system. When we make intentional choices about what we eat we are investing in the health of our planet and ourselves.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_name": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "James Arthur Smith · Co-Founder & CEO",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        }
+      },
+      "block_order": [
+        "f_quote",
+        "f_body",
+        "f_name"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/lp-founder-james-smith.jpg",
+        "image_height": "650px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "shopify://shop_images/lp-founder-james-smith.jpg",
+        "image_height_mobile": "400px",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 32,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "farms_copy": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_farms": {
+          "type": "heading",
+          "settings": {
+            "heading": "Factory farms pollute. Seatopia farms protect.",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_farms": {
+          "type": "text",
+          "settings": {
+            "text": "<p>You hear it everywhere: &ldquo;I only eat wild caught fish.&rdquo; But &ldquo;if current trends continue, we will see virtually all fish stocks collapse by the year 2048&rdquo; &mdash; Dr. Boris Worm, Marine Biologist, Dalhousie University. The solution is clean regenerative aquaculture &mdash; not the factory fish farms that gave farming a bad name.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_farms",
+        "text_farms"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "padding_top": 56,
+        "padding_bottom": 24,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "farms_image": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "caption": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This is farmer Chris, at one of our favorite farms, Smoking Chimney&rsquo;s.</p>",
+            "text_size": "subtext-sm",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "caption"
+      ],
+      "settings": {
+        "section_id": "",
+        "transparent_header": false,
+        "image": "shopify://shop_images/lp-farm-chris-smoking-chimneys.jpg",
+        "image_height": "700px",
+        "content_width": "medium",
+        "content_position": "md:items-end md:justify-start",
+        "text_alignment": "left",
+        "image_mobile": "shopify://shop_images/lp-farm-chris-smoking-chimneys.jpg",
+        "priority_image": false,
+        "image_height_mobile": "400px",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#bb8f50",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "overlay_opacity": 0,
+        "padding_top": 0,
+        "padding_bottom": 48,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": false,
+        "narrow": false,
+        "parallax_direction": "vertical"
+      }
+    },
+    "closing_cta": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_close": {
+          "type": "heading",
+          "settings": {
+            "heading": "Mercury under 0.1 ppm. Read the report, then eat.",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_close": {
+          "type": "button",
+          "settings": {
+            "button_label": "Start with a 12-portion box — $225",
+            "button_link": "/products/seatopia-regenerative-seafood-bundle",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        },
+        "button2_close": {
+          "type": "button",
+          "settings": {
+            "button_label": "Browse the lab reports",
+            "button_link": "/pages/seatopia-testing-commitment",
+            "button_style": "secondary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_close",
+        "button_close",
+        "button2_close"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "padding_top": 48,
+        "padding_bottom": 72,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero",
+    "hero_chips",
+    "hero_image",
+    "proof_rail",
+    "press_logos",
+    "endorsers",
+    "buy_leadin",
+    "buy_box",
+    "coa_preview",
+    "prenatal",
+    "comparison_intro",
+    "comparison_table",
+    "honesty",
+    "protein_grid",
+    "sashimi",
+    "box_chooser",
+    "box_three_up",
+    "how_three_up",
+    "founder_quote",
+    "farms_copy",
+    "farms_image",
+    "closing_cta"
+  ]
+}
