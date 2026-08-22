@@ -1,0 +1,1139 @@
+{%- comment -%}
+  ────────────────────────────────────────────────────────────────
+  Build a Box — reusable box builder
+  ────────────────────────────────────────────────────────────────
+  Source of components (first non-empty wins):
+    1. settings.products   (explicit product list)
+    2. settings.collection (collection of components)
+
+  Optional settings.sku_allowlist restricts which VARIANTS are
+  offered — paste component SKUs, one per line or comma separated.
+  Leave blank to offer every available variant.
+
+  Uses the theme's AJAX cart (theme.routes.*, theme.utils.fetchConfig)
+  and the 'cart:bundled-sections' contract so the header count and
+  cart drawer stay in sync.
+{%- endcomment -%}
+
+{%- liquid
+  assign src = section.settings.products
+  if src == blank and section.settings.collection != blank
+    assign src = section.settings.collection.products
+  endif
+
+  assign blob = section.settings.sku_allowlist | newline_to_br | replace: '<br />', ',' | replace: '<br/>', ',' | replace: '<br>', ',' | strip_newlines | replace: ' ', '' | upcase
+  assign sku_hay = ',' | append: blob | append: ','
+  assign blob_test = blob | replace: ',', '' | strip
+  assign filtering = false
+  if blob_test != blank
+    assign filtering = true
+  endif
+
+  assign mf_parts = section.settings.omega3_metafield | split: '.'
+  assign mf_ns = mf_parts[0]
+  assign mf_key = mf_parts[1]
+
+  assign min_cents = section.settings.min_subtotal | times: 100
+-%}
+
+{%- capture offered -%}
+  [
+  {%- assign first_row = true -%}
+  {%- for product in src -%}
+    {%- if product == blank -%}{%- continue -%}{%- endif -%}
+    {%- assign o3 = 0 -%}
+    {%- if mf_ns != blank and mf_key != blank -%}
+      {%- assign mf = product.metafields[mf_ns][mf_key] -%}
+      {%- if mf != blank -%}{%- assign o3 = mf.value | plus: 0 -%}{%- endif -%}
+    {%- endif -%}
+    {%- for variant in product.variants -%}
+      {%- unless variant.available -%}{%- continue -%}{%- endunless -%}
+      {%- if filtering -%}
+        {%- assign needle = ',' | append: variant.sku | upcase | append: ',' -%}
+        {%- unless sku_hay contains needle -%}{%- continue -%}{%- endunless -%}
+      {%- endif -%}
+      {%- unless first_row -%},{%- endunless -%}{%- assign first_row = false -%}
+      {%- assign img = variant.image | default: product.featured_image -%}
+      {%- assign plan_id = '' -%}
+      {%- for alloc in variant.selling_plan_allocations -%}
+        {%- if forloop.first -%}{%- assign plan_id = alloc.selling_plan.id -%}{%- endif -%}
+      {%- endfor -%}
+      {
+        "id": {{ variant.id }},
+        "sku": {{ variant.sku | json }},
+        "product_id": {{ product.id }},
+        "product": {{ product.title | json }},
+        "variant": {{ variant.title | json }},
+        "single": {% if product.has_only_default_variant %}true{% else %}false{% endif %},
+        "price": {{ variant.price }},
+        "url": {{ product.url | json }},
+        "img": {{ img | image_url: width: 200 | json }},
+        "omega3": {{ o3 }},
+        "plan": {{ plan_id | json }}
+      }
+    {%- endfor -%}
+  {%- endfor -%}
+  ]
+{%- endcapture -%}
+
+{%- capture tiers -%}
+  [
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'tier' -%}
+      {%- unless forloop.first -%},{%- endunless -%}
+      { "amount": {{ block.settings.amount | times: 100 }},
+        "label": {{ block.settings.label | json }},
+        "icon": {{ block.settings.icon | json }} }
+    {%- endif -%}
+  {%- endfor -%}
+  ]
+{%- endcapture -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    {%- render 'section-variables', section: section -%}
+  }
+  .bab {
+    --navy: #2e4b59;
+    --gold: #bb8f50;
+    --sky: #7bc3f3;
+    --muted: #6f6f6f;
+    --line: #e5e2dc;
+    --wash: #faf8f4;
+    --ink: #171717;
+    color: var(--ink);
+  }
+  .bab *, .bab *::before, .bab *::after { box-sizing: border-box; }
+
+  /* progress rail */
+  .bab__rail {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: #fff;
+    padding: 22px 24px;
+    margin-bottom: 26px;
+  }
+  .bab__rail-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .bab__notice {
+    border: 1px solid #f0e2c2;
+    background: #fdf8ec;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .bab__notice[hidden] { display: none; }
+  .bab__bar {
+    position: relative;
+    height: 8px;
+    border-radius: 99px;
+    background: var(--line);
+    overflow: hidden;
+  }
+  .bab__bar-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0%;
+    background: var(--gold);
+    border-radius: 99px;
+    transition: width .35s ease;
+  }
+  .bab__tiers {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .bab__tier {
+    flex: 1 1 0;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.35;
+  }
+  .bab__tier b { display: block; color: var(--ink); font-size: 13px; }
+  .bab__tier--hit b { color: var(--gold); }
+
+  /* layout */
+  .bab__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+    align-items: start;
+  }
+  @media screen and (min-width: 990px) {
+    .bab__layout { grid-template-columns: minmax(0, 1fr) 360px; }
+    .bab__aside { position: sticky; top: 100px; }
+  }
+
+  /* grid */
+  .bab__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  @media screen and (min-width: 750px) {
+    .bab__grid { grid-template-columns: repeat({{ section.settings.columns }}, minmax(0, 1fr)); }
+  }
+  .bab__card {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: border-color .18s ease, box-shadow .18s ease;
+  }
+  .bab__card.is-in-box {
+    border-color: var(--navy);
+    box-shadow: 0 0 0 1px var(--navy);
+  }
+  .bab__media {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background: var(--wash);
+  }
+  .bab__media img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+  .bab__badge {
+    position: absolute;
+    top: 10px; left: 10px;
+    background: #fff;
+    border-radius: 99px;
+    padding: 5px 11px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .02em;
+    box-shadow: 0 1px 3px rgba(0,0,0,.08);
+  }
+  .bab__count {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 99px;
+    padding: 5px 11px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .bab__count[hidden] { display: none; }
+  .bab__body {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1 1 auto;
+  }
+  .bab__name {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+  }
+  .bab__name a { color: inherit; text-decoration: none; }
+  .bab__select {
+    width: 100%;
+    font-size: 13px;
+    padding: 9px 10px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--wash);
+    color: var(--ink);
+  }
+  .bab__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: auto;
+  }
+  .bab__price { font-size: 16px; font-weight: 600; }
+  .bab__add {
+    border: 0;
+    background: var(--gold);
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .bab__add:hover { filter: brightness(.95); }
+  .bab__add:disabled { opacity: .5; cursor: default; }
+  .bab__step {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--wash);
+  }
+  .bab__step button {
+    border: 0; background: transparent; cursor: pointer;
+    width: 30px; height: 34px; font-size: 16px; line-height: 1;
+    color: var(--ink);
+  }
+  .bab__step span { min-width: 22px; text-align: center; font-size: 14px; font-weight: 600; }
+
+  /* aside */
+  .bab__box {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: #fff;
+    overflow: hidden;
+  }
+  .bab__box-head {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 10px; padding: 16px 18px; border-bottom: 1px solid var(--line);
+  }
+  .bab__box-title { font-size: 16px; font-weight: 700; margin: 0; }
+  .bab__pill {
+    background: var(--wash); border-radius: 99px;
+    padding: 3px 10px; font-size: 12px; font-weight: 600;
+  }
+  .bab__clear {
+    border: 0; background: transparent; cursor: pointer;
+    color: var(--muted); font-size: 13px; text-decoration: underline;
+  }
+  .bab__lines { margin: 0; padding: 0; list-style: none; }
+  .bab__line {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+    gap: 12px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .bab__line-img {
+    width: 44px; height: 44px; border-radius: 8px;
+    object-fit: cover; background: var(--wash);
+  }
+  .bab__line-name { font-size: 14px; font-weight: 600; margin: 0 0 2px; }
+  .bab__line-each { font-size: 12px; color: var(--muted); margin: 0 0 8px; }
+  .bab__line-total { font-size: 14px; font-weight: 600; white-space: nowrap; }
+  .bab__empty { padding: 26px 18px; font-size: 14px; color: var(--muted); text-align: center; }
+  .bab__line[data-provisional] { opacity: .72; }
+  .bab__omega {
+    padding: 14px 18px;
+    background: var(--wash);
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+  }
+  .bab__omega[hidden] { display: none; }
+  .bab__omega-top {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 10px; font-weight: 600; margin-bottom: 5px;
+  }
+  .bab__omega-val { color: var(--navy); }
+  .bab__omega-note { color: var(--muted); line-height: 1.45; margin: 0; font-size: 12px; }
+  .bab__totals { padding: 14px 18px; font-size: 14px; }
+  .bab__totals-row {
+    display: flex; justify-content: space-between; gap: 10px; margin-bottom: 6px;
+  }
+  .bab__totals-row--big { font-size: 17px; font-weight: 700; margin-top: 8px; }
+  .bab__plan { padding: 0 18px 14px; display: grid; gap: 8px; }
+  .bab__plan[hidden] { display: none; }
+  .bab__plan label {
+    display: flex; align-items: center; gap: 10px;
+    border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px 14px; font-size: 14px; cursor: pointer;
+  }
+  .bab__plan label.is-active { border-color: var(--navy); box-shadow: 0 0 0 1px var(--navy); }
+  .bab__plan-price { margin-left: auto; font-weight: 600; }
+  .bab__plan-was { color: var(--muted); text-decoration: line-through; font-weight: 400; margin-left: 6px; }
+  .bab__email { padding: 0 18px 14px; }
+  .bab__email[hidden] { display: none; }
+  .bab__email label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+  .bab__email input {
+    width: 100%; padding: 11px 12px; font-size: 14px;
+    border: 1px solid var(--line); border-radius: 8px; background: var(--wash);
+  }
+  .bab__cta { padding: 0 18px 18px; }
+  .bab__checkout {
+    width: 100%; border: 0; border-radius: 99px;
+    background: var(--gold); color: #fff;
+    padding: 15px 18px; font-size: 15px; font-weight: 700; cursor: pointer;
+  }
+  .bab__checkout:disabled { opacity: .55; cursor: default; }
+  .bab__fine { margin: 9px 0 0; font-size: 12px; color: var(--muted); text-align: center; }
+</style>
+
+<div class="section section--padding{% if section.settings.divider %} section--divider{% endif %}">
+  <div class="page-width{% if section.settings.full_width %} page-width--full{% endif %}">
+    {%- render 'section-heading', section: section -%}
+
+    <build-a-box
+      class="bab"
+      data-section="{{ section.id }}"
+      data-min="{{ min_cents }}"
+      data-omega-target="{{ section.settings.omega3_target }}"
+      data-subscribe-pct="{{ section.settings.subscribe_discount }}"
+      data-checkout-label="{{ section.settings.checkout_label | default: 'Checkout' | escape }}">
+
+      <script type="application/json" data-bab-variants>{{ offered | strip_newlines }}</script>
+      <script type="application/json" data-bab-tiers-data>{{ tiers | strip_newlines }}</script>
+      <script type="application/json" data-bab-cart>{{ cart | json }}</script>
+
+      {%- comment -%} ── threshold rail ── {%- endcomment -%}
+      <div class="bab__rail">
+        <div class="bab__rail-top">
+          <span data-bab-summary>0 items · {{ 0 | money }}</span>
+          <span class="bab__pill" data-bab-remaining></span>
+        </div>
+        <div class="bab__notice" data-bab-notice hidden></div>
+        <div class="bab__bar"><span class="bab__bar-fill" data-bab-fill></span></div>
+        <div class="bab__tiers" data-bab-tiers></div>
+      </div>
+
+      <div class="bab__layout">
+        {%- comment -%} ── component grid ── {%- endcomment -%}
+        <div class="bab__grid" data-bab-grid>
+          {%- assign rendered = 0 -%}
+          {%- for product in src -%}
+            {%- if product == blank -%}{%- continue -%}{%- endif -%}
+
+            {%- liquid
+              assign shown = ''
+              for variant in product.variants
+                unless variant.available
+                  continue
+                endunless
+                if filtering
+                  assign needle = ',' | append: variant.sku | upcase | append: ','
+                  unless sku_hay contains needle
+                    continue
+                  endunless
+                endif
+                assign shown = shown | append: variant.id | append: ','
+              endfor
+            -%}
+            {%- if shown == '' -%}{%- continue -%}{%- endif -%}
+            {%- assign shown_ids = shown | split: ',' -%}
+            {%- assign rendered = rendered | plus: 1 -%}
+            {%- assign first_id = shown_ids[0] | plus: 0 -%}
+
+            <div class="bab__card" data-bab-card data-product="{{ product.id }}">
+              <div class="bab__media">
+                {%- if product.featured_image -%}
+                  <img src="{{ product.featured_image | image_url: width: 500 }}"
+                       alt="{{ product.featured_image.alt | default: product.title | escape }}"
+                       width="500" height="500" loading="lazy">
+                {%- endif -%}
+                {%- if section.settings.badge_label != blank -%}
+                  <span class="bab__badge">{{ section.settings.badge_label }}</span>
+                {%- endif -%}
+                <span class="bab__count" data-bab-card-count hidden></span>
+              </div>
+              <div class="bab__body">
+                <p class="bab__name"><a href="{{ product.url }}">{{ product.title }}</a></p>
+
+                {%- if shown_ids.size > 1 -%}
+                  <select class="bab__select" data-bab-variant aria-label="{{ product.title | escape }} option">
+                    {%- for vid in shown_ids -%}
+                      {%- assign vid_n = vid | plus: 0 -%}
+                      {%- for variant in product.variants -%}
+                        {%- if variant.id == vid_n -%}
+                          <option value="{{ variant.id }}">{{ variant.title }} &ndash; {{ variant.price | money }}</option>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    {%- endfor -%}
+                  </select>
+                {%- else -%}
+                  <input type="hidden" data-bab-variant value="{{ first_id }}">
+                {%- endif -%}
+
+                <div class="bab__foot">
+                  <span class="bab__price" data-bab-card-price></span>
+                  <button type="button" class="bab__add" data-bab-add>
+                    + {{ section.settings.add_label | default: 'Add' }}
+                  </button>
+                  <span class="bab__step" data-bab-card-step hidden>
+                    <button type="button" data-bab-dec aria-label="Decrease">&minus;</button>
+                    <span data-bab-card-qty>0</span>
+                    <button type="button" data-bab-inc aria-label="Increase">+</button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+
+          {%- if rendered == 0 -%}
+            <p class="bab__empty">
+              No purchasable components found. Pick a collection or product list in the theme editor —
+              and note that products which are not published to the Online Store cannot be added to cart.
+            </p>
+          {%- endif -%}
+        </div>
+
+        {%- comment -%} ── your box ── {%- endcomment -%}
+        <aside class="bab__aside">
+          <div class="bab__box">
+            <div class="bab__box-head">
+              <p class="bab__box-title">{{ section.settings.box_title | default: 'Your Box' }}</p>
+              <span class="bab__pill" data-bab-count>0 items</span>
+              <button type="button" class="bab__clear" data-bab-clear>Clear</button>
+            </div>
+
+            <ul class="bab__lines" data-bab-lines></ul>
+            <p class="bab__empty" data-bab-box-empty>Your box is empty — add a few portions to get started.</p>
+
+            <div class="bab__omega" data-bab-omega hidden>
+              <div class="bab__omega-top">
+                <span>{{ section.settings.omega3_title | default: 'Omega-3 in this box' }}</span>
+                <span class="bab__omega-val" data-bab-omega-val></span>
+              </div>
+              <p class="bab__omega-note">{{ section.settings.omega3_note }}</p>
+            </div>
+
+            <div class="bab__totals">
+              <div class="bab__totals-row"><span>Subtotal</span><span data-bab-subtotal>{{ 0 | money }}</span></div>
+              <div class="bab__totals-row bab__totals-row--big"><span>Total</span><span data-bab-total>{{ 0 | money }}</span></div>
+            </div>
+
+            {%- if section.settings.show_subscribe -%}
+              <div class="bab__plan" data-bab-plan>
+                <label class="is-active" data-bab-plan-option="onetime">
+                  <input type="radio" name="bab-plan-{{ section.id }}" value="onetime" checked>
+                  <span>One-time purchase</span>
+                  <span class="bab__plan-price" data-bab-price-onetime>{{ 0 | money }}</span>
+                </label>
+                <label data-bab-plan-option="subscribe">
+                  <input type="radio" name="bab-plan-{{ section.id }}" value="subscribe">
+                  <span>{{ section.settings.subscribe_label | default: 'Subscribe & Save' }}</span>
+                  <span class="bab__plan-price">
+                    <span data-bab-price-sub>{{ 0 | money }}</span>
+                    <span class="bab__plan-was" data-bab-price-was>{{ 0 | money }}</span>
+                  </span>
+                </label>
+              </div>
+            {%- endif -%}
+
+            {%- if section.settings.show_email -%}
+              <div class="bab__email">
+                <label for="bab-email-{{ section.id }}">{{ section.settings.email_label }}</label>
+                <input id="bab-email-{{ section.id }}" type="email" inputmode="email"
+                       placeholder="{{ section.settings.email_placeholder | escape }}" data-bab-email>
+              </div>
+            {%- endif -%}
+
+            <div class="bab__cta">
+              <button type="button" class="bab__checkout" data-bab-checkout disabled>
+                {{ section.settings.checkout_label | default: 'Checkout' }}
+              </button>
+              {%- if section.settings.fine_print != blank -%}
+                <p class="bab__fine">{{ section.settings.fine_print }}</p>
+              {%- endif -%}
+            </div>
+          </div>
+        </aside>
+      </div>
+    </build-a-box>
+  </div>
+</div>
+
+<script>
+(function () {
+  if (window.__babDefined) return;
+  window.__babDefined = true;
+
+  const money = (cents) => {
+    const v = (Math.round(cents) / 100).toFixed(2);
+    return '$' + v.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
+  const FLUSH_MS = 260;
+
+  class BuildABox extends HTMLElement {
+    connectedCallback() {
+      const readJson = (sel, fallback) => {
+        const el = this.querySelector(sel);
+        if (!el) return fallback;
+        try { return JSON.parse(el.textContent) || fallback; } catch (e) { return fallback; }
+      };
+
+      this.variants = new Map(
+        readJson('[data-bab-variants]', []).map((v) => [String(v.id), v])
+      );
+      this.tiers = readJson('[data-bab-tiers-data]', []).sort((a, b) => a.amount - b.amount);
+
+      /* cart comes from Liquid — no network request on load */
+      this.cart = readJson('[data-bab-cart]', { items: [], item_count: 0, items_subtotal_price: 0 });
+
+      this.min = parseInt(this.dataset.min || '0', 10);
+      this.omegaTarget = parseInt(this.dataset.omegaTarget || '2000', 10) || 2000;
+      this.subPct = parseFloat(this.dataset.subscribePct || '0') || 0;
+      this.plan = 'onetime';
+
+      /* variantId -> absolute desired qty, awaiting flush */
+      this.pending = new Map();
+      this.flushTimer = null;
+      this.inFlight = false;
+      this.linesSig = null;
+
+      this.cacheDom();
+      this.renderTiers();
+      this.bind();
+      this.paint();
+    }
+
+    cacheDom() {
+      this.el = {
+        summary: this.querySelector('[data-bab-summary]'),
+        remaining: this.querySelector('[data-bab-remaining]'),
+        notice: this.querySelector('[data-bab-notice]'),
+        fill: this.querySelector('[data-bab-fill]'),
+        tierWrap: this.querySelector('[data-bab-tiers]'),
+        lines: this.querySelector('[data-bab-lines]'),
+        boxEmpty: this.querySelector('[data-bab-box-empty]'),
+        count: this.querySelector('[data-bab-count]'),
+        omega: this.querySelector('[data-bab-omega]'),
+        omegaVal: this.querySelector('[data-bab-omega-val]'),
+        subtotal: this.querySelector('[data-bab-subtotal]'),
+        total: this.querySelector('[data-bab-total]'),
+        priceOne: this.querySelector('[data-bab-price-onetime]'),
+        priceSub: this.querySelector('[data-bab-price-sub]'),
+        priceWas: this.querySelector('[data-bab-price-was]'),
+        plan: this.querySelector('[data-bab-plan]'),
+        cta: this.querySelector('[data-bab-checkout]'),
+        email: this.querySelector('[data-bab-email]')
+      };
+      this.cards = [...this.querySelectorAll('[data-bab-card]')].map((card) => ({
+        root: card,
+        input: card.querySelector('[data-bab-variant]'),
+        price: card.querySelector('[data-bab-card-price]'),
+        add: card.querySelector('[data-bab-add]'),
+        step: card.querySelector('[data-bab-card-step]'),
+        qty: card.querySelector('[data-bab-card-qty]'),
+        badge: card.querySelector('[data-bab-card-count]')
+      }));
+    }
+
+    /* ── derived view: server cart + optimistic pending overrides ── */
+    view() {
+      const out = [];
+      const seen = new Set();
+      for (const l of this.cart.items || []) {
+        const vid = String(l.variant_id);
+        let qty = l.quantity;
+        if (this.pending.has(vid)) { qty = this.pending.get(vid); seen.add(vid); }
+        if (qty <= 0) continue;
+        out.push({
+          key: l.key,
+          variant_id: vid,
+          title: l.product_title,
+          each: l.final_price,
+          qty: qty,
+          line: l.final_price * qty,
+          image: l.image,
+          sub: !!l.selling_plan_allocation
+        });
+      }
+      for (const [vid, qty] of this.pending) {
+        if (seen.has(vid) || qty <= 0) continue;
+        const v = this.variants.get(vid);
+        if (!v) continue;
+        out.push({
+          key: 'pending:' + vid,
+          variant_id: vid,
+          title: v.single ? v.product : v.product + ' · ' + v.variant,
+          each: v.price,
+          qty: qty,
+          line: v.price * qty,
+          image: v.img,
+          sub: false,
+          provisional: true
+        });
+      }
+      return out;
+    }
+
+    qtyFor(vid) {
+      vid = String(vid);
+      if (this.pending.has(vid)) return this.pending.get(vid);
+      const l = (this.cart.items || []).find((x) => String(x.variant_id) === vid);
+      return l ? l.quantity : 0;
+    }
+
+    lineFor(vid) {
+      vid = String(vid);
+      return (this.cart.items || []).find((x) => String(x.variant_id) === vid) || null;
+    }
+
+    cardVariantId(card) {
+      const el = card.querySelector('[data-bab-variant]');
+      return el ? String(el.value) : null;
+    }
+
+    fetchCfg(type, method) {
+      if (window.theme && theme.utils && theme.utils.fetchConfig) {
+        return theme.utils.fetchConfig(type, method);
+      }
+      return { method: method || 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' } };
+    }
+
+    route(name, fallback) {
+      return (window.theme && theme.routes && theme.routes[name]) || fallback;
+    }
+
+    notify(msg, isError) {
+      const n = this.el.notice;
+      if (!n) return;
+      n.textContent = msg || '';
+      n.hidden = !msg;
+      n.style.borderColor = isError ? '#e2b8b8' : '';
+      n.style.background = isError ? '#fdf1f1' : '';
+    }
+
+    /* ── user intent: instant, no await ── */
+    setQty(vid, qty) {
+      vid = String(vid);
+      this.pending.set(vid, Math.max(0, qty));
+      this.paint();
+      this.scheduleFlush();
+    }
+
+    scheduleFlush() {
+      clearTimeout(this.flushTimer);
+      this.flushTimer = setTimeout(() => this.flush(), FLUSH_MS);
+    }
+
+    bundledSections() {
+      const sections = [];
+      document.documentElement.dispatchEvent(
+        new CustomEvent('cart:bundled-sections', { bubbles: true, detail: { sections } })
+      );
+      return sections;
+    }
+
+    publishCart(parsed) {
+      if (!parsed) return;
+      if (window.theme && theme.pubsub && theme.pubsub.PUB_SUB_EVENTS) {
+        theme.pubsub.publish(theme.pubsub.PUB_SUB_EVENTS.cartUpdate, { source: 'build-a-box', cart: parsed });
+      }
+      document.documentElement.dispatchEvent(
+        new CustomEvent('cart:refresh', { bubbles: true, detail: { source: 'build-a-box' } })
+      );
+    }
+
+    /* ── one settled write per burst ── */
+    async flush() {
+      if (this.inFlight) { this.scheduleFlush(); return; }
+      if (!this.pending.size) return;
+
+      const batch = new Map(this.pending);
+      this.inFlight = true;
+
+      /* first-time adds need add.js so a selling plan can attach */
+      const planAdds = [];
+      const updates = {};
+      for (const [vid, qty] of batch) {
+        const existing = this.lineFor(vid);
+        const v = this.variants.get(vid);
+        if (!existing && qty > 0 && this.plan === 'subscribe' && v && v.plan) {
+          planAdds.push({ id: Number(vid), quantity: qty, selling_plan: Number(v.plan) });
+        } else {
+          updates[vid] = qty;
+        }
+      }
+
+      try {
+        let parsed = null;
+
+        if (planAdds.length) {
+          const res = await fetch(this.route('cart_add_url', '/cart/add') + '.js', {
+            ...this.fetchCfg('javascript', 'POST'),
+            body: JSON.stringify({ items: planAdds })
+          });
+          const j = await res.json().catch(() => null);
+          if (!res.ok || (j && j.status)) throw new Error((j && j.description) || 'Could not add that item.');
+        }
+
+        if (Object.keys(updates).length) {
+          const res = await fetch(this.route('cart_update_url', '/cart/update') + '.js', {
+            ...this.fetchCfg('javascript', 'POST'),
+            body: JSON.stringify({
+              updates,
+              sections: this.bundledSections(),
+              sections_url: window.location.pathname
+            })
+          });
+          parsed = await res.json().catch(() => null);
+          if (!res.ok) throw new Error('Could not update your box.');
+        } else if (planAdds.length) {
+          /* subscription-only burst: one cheap read to settle truth */
+          const res = await fetch(this.route('cart_url', '/cart') + '.js', {
+            headers: { Accept: 'application/json' }
+          });
+          parsed = await res.json().catch(() => null);
+        }
+
+        if (parsed && parsed.items) this.cart = parsed;
+        for (const [vid] of batch) {
+          if (this.pending.get(vid) === batch.get(vid)) this.pending.delete(vid);
+        }
+        this.notify('');
+        this.publishCart(parsed);
+      } catch (err) {
+        /* roll back to server truth */
+        for (const [vid] of batch) {
+          if (this.pending.get(vid) === batch.get(vid)) this.pending.delete(vid);
+        }
+        this.notify(err.message || 'Something went wrong.', true);
+      } finally {
+        this.inFlight = false;
+        this.paint();
+        if (this.pending.size) this.scheduleFlush();
+      }
+    }
+
+    /* ── events ── */
+    bind() {
+      this.addEventListener('click', (e) => {
+        const card = e.target.closest('[data-bab-card]');
+
+        if (card && e.target.closest('[data-bab-add]')) {
+          const vid = this.cardVariantId(card);
+          this.setQty(vid, this.qtyFor(vid) + 1);
+          return;
+        }
+        if (card && e.target.closest('[data-bab-inc]')) {
+          const vid = this.cardVariantId(card);
+          this.setQty(vid, this.qtyFor(vid) + 1);
+          return;
+        }
+        if (card && e.target.closest('[data-bab-dec]')) {
+          const vid = this.cardVariantId(card);
+          this.setQty(vid, this.qtyFor(vid) - 1);
+          return;
+        }
+
+        const inc = e.target.closest('[data-bab-line-inc]');
+        if (inc) { this.setQty(inc.dataset.vid, this.qtyFor(inc.dataset.vid) + 1); return; }
+        const dec = e.target.closest('[data-bab-line-dec]');
+        if (dec) { this.setQty(dec.dataset.vid, this.qtyFor(dec.dataset.vid) - 1); return; }
+        const rm = e.target.closest('[data-bab-line-remove]');
+        if (rm) { this.setQty(rm.dataset.vid, 0); return; }
+
+        if (e.target.closest('[data-bab-clear]')) {
+          for (const l of this.view()) this.pending.set(String(l.variant_id), 0);
+          this.paint();
+          this.scheduleFlush();
+          return;
+        }
+
+        if (e.target.closest('[data-bab-checkout]')) {
+          this.checkout();
+        }
+      });
+
+      this.addEventListener('change', (e) => {
+        if (e.target.matches('[data-bab-variant]')) this.paint();
+        if (e.target.matches('[name^="bab-plan-"]')) {
+          this.plan = e.target.value;
+          this.querySelectorAll('[data-bab-plan-option]').forEach((l) => {
+            l.classList.toggle('is-active', l.dataset.babPlanOption === this.plan);
+          });
+          this.paint();
+        }
+      });
+    }
+
+    async checkout() {
+      clearTimeout(this.flushTimer);
+      if (this.pending.size || this.inFlight) await this.flush();
+      const email = this.el.email;
+      if (email && email.value) {
+        try {
+          await fetch(this.route('cart_update_url', '/cart/update') + '.js', {
+            ...this.fetchCfg('javascript', 'POST'),
+            body: JSON.stringify({ attributes: { 'Box builder email': email.value } })
+          });
+        } catch (e) {}
+      }
+      window.location.href = this.route('cart_url', '/cart');
+    }
+
+    /* ── render ── */
+    renderTiers() {
+      if (!this.el.tierWrap) return;
+      this.el.tierWrap.innerHTML = this.tiers.map((t) =>
+        `<div class="bab__tier" data-amt="${t.amount}"><b>${money(t.amount)}</b>${t.label || ''}</div>`
+      ).join('');
+      this.tierNodes = [...this.el.tierWrap.querySelectorAll('.bab__tier')];
+    }
+
+    paint() {
+      if (this._raf) cancelAnimationFrame(this._raf);
+      this._raf = requestAnimationFrame(() => this.paintNow());
+    }
+
+    paintNow() {
+      const lines = this.view();
+      const subtotal = lines.reduce((n, l) => n + l.line, 0);
+      const count = lines.reduce((n, l) => n + l.qty, 0);
+
+      if (this.el.summary) this.el.summary.textContent = `${count} item${count === 1 ? '' : 's'} · ${money(subtotal)}`;
+
+      const top = this.tiers.length ? this.tiers[this.tiers.length - 1].amount : this.min;
+      if (this.el.fill) this.el.fill.style.width = Math.min(100, top ? (subtotal / top) * 100 : 0) + '%';
+
+      const next = this.tiers.find((t) => subtotal < t.amount);
+      if (this.el.remaining) {
+        this.el.remaining.textContent = next ? `${money(next.amount - subtotal)} to ${next.label}` : 'All rewards unlocked';
+      }
+      if (this.tierNodes) {
+        for (const el of this.tierNodes) {
+          el.classList.toggle('bab__tier--hit', subtotal >= parseInt(el.dataset.amt, 10));
+        }
+      }
+
+      const gap = this.min - subtotal;
+      if (count > 0 && gap > 0) this.notify(`${money(gap)} more to unlock checkout`);
+      else if (count > 0) this.notify('');
+
+      /* cards */
+      for (const c of this.cards) {
+        const vid = c.input ? String(c.input.value) : null;
+        const v = this.variants.get(vid);
+        const qty = this.qtyFor(vid);
+        if (c.price) c.price.textContent = v ? money(v.price) : '';
+        const inBox = qty > 0;
+        c.root.classList.toggle('is-in-box', inBox);
+        if (c.add) c.add.hidden = inBox;
+        if (c.step) c.step.hidden = !inBox;
+        if (c.qty) c.qty.textContent = qty;
+        if (c.badge) { c.badge.hidden = !inBox; c.badge.textContent = '✓ ' + qty; }
+      }
+
+      /* lines — skip DOM work when nothing changed */
+      const sig = lines.map((l) => l.variant_id + ':' + l.qty).join('|');
+      if (this.el.lines && sig !== this.linesSig) {
+        this.linesSig = sig;
+        this.el.lines.innerHTML = lines.map((l) => `
+          <li class="bab__line"${l.provisional ? ' data-provisional' : ''}>
+            <img class="bab__line-img" src="${l.image || ''}" alt="" width="44" height="44" loading="lazy">
+            <div>
+              <p class="bab__line-name">${l.title}</p>
+              <p class="bab__line-each">${money(l.each)} each${l.sub ? ' · subscription' : ''}</p>
+              <span class="bab__step">
+                <button type="button" data-bab-line-dec data-vid="${l.variant_id}" aria-label="Decrease">&minus;</button>
+                <span>${l.qty}</span>
+                <button type="button" data-bab-line-inc data-vid="${l.variant_id}" aria-label="Increase">+</button>
+              </span>
+            </div>
+            <div>
+              <div class="bab__line-total">${money(l.line)}</div>
+              <button type="button" class="bab__clear" data-bab-line-remove data-vid="${l.variant_id}">Remove</button>
+            </div>
+          </li>`).join('');
+      }
+      if (this.el.boxEmpty) this.el.boxEmpty.hidden = count > 0;
+      if (this.el.count) this.el.count.textContent = `${count} item${count === 1 ? '' : 's'}`;
+
+      /* omega — hidden unless every line has data, so the number is never a lie */
+      if (this.el.omega) {
+        let total = 0;
+        let complete = count > 0;
+        for (const l of lines) {
+          const v = this.variants.get(String(l.variant_id));
+          if (!v || !v.omega3) { complete = false; break; }
+          total += v.omega3 * l.qty;
+        }
+        this.el.omega.hidden = !complete;
+        if (complete && this.el.omegaVal) {
+          const days = total / this.omegaTarget;
+          this.el.omegaVal.textContent = `${total.toLocaleString()} mg · ~${days < 1 ? days.toFixed(1) : Math.round(days)} days`;
+        }
+      }
+
+      if (this.el.subtotal) this.el.subtotal.textContent = money(subtotal);
+      if (this.el.total) this.el.total.textContent = money(subtotal);
+      if (this.el.priceOne) this.el.priceOne.textContent = money(subtotal);
+      if (this.el.priceSub) this.el.priceSub.textContent = money(subtotal * (1 - this.subPct / 100));
+      if (this.el.priceWas) this.el.priceWas.textContent = money(subtotal);
+
+      if (this.el.plan) {
+        const anyPlan = lines.some((l) => {
+          const v = this.variants.get(String(l.variant_id));
+          return v && v.plan;
+        });
+        this.el.plan.hidden = count > 0 && !anyPlan;
+      }
+
+      if (this.el.cta) {
+        const short = this.min - subtotal;
+        this.el.cta.disabled = count === 0 || short > 0;
+        this.el.cta.textContent = count === 0
+          ? 'Add items to your box'
+          : short > 0
+            ? `${money(short)} more to checkout`
+            : (this.getAttribute('data-checkout-label') || 'Checkout');
+      }
+    }
+  }
+
+  if (!customElements.get('build-a-box')) customElements.define('build-a-box', BuildABox);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Build a Box",
+  "tag": "section",
+  "class": "spaced-section",
+  "settings": [
+    { "type": "header", "content": "Components" },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Component collection",
+      "info": "Products offered in the builder. Only products published to the Online Store can be added to cart."
+    },
+    {
+      "type": "product_list",
+      "id": "products",
+      "label": "Or pick products explicitly",
+      "limit": 50,
+      "info": "Overrides the collection when set."
+    },
+    {
+      "type": "textarea",
+      "id": "sku_allowlist",
+      "label": "Restrict to these SKUs",
+      "info": "Optional. One SKU per line (or comma separated). Only matching variants are offered. Leave blank to offer all available variants."
+    },
+    { "type": "range", "id": "columns", "label": "Columns on desktop", "min": 2, "max": 5, "step": 1, "default": 4 },
+    { "type": "text", "id": "badge_label", "label": "Card badge", "default": "Omega-3" },
+    { "type": "text", "id": "add_label", "label": "Add button label", "default": "Add" },
+
+    { "type": "header", "content": "Your Box panel" },
+    { "type": "text", "id": "box_title", "label": "Panel title", "default": "Your Box" },
+    {
+      "type": "number",
+      "id": "min_subtotal",
+      "label": "Minimum subtotal to checkout",
+      "default": 125,
+      "info": "In your store currency. Set 0 for no minimum."
+    },
+    { "type": "text", "id": "checkout_label", "label": "Checkout button label", "default": "Checkout" },
+    { "type": "text", "id": "fine_print", "label": "Fine print under button", "default": "$125 minimum for flat rate shipping" },
+
+    { "type": "header", "content": "Subscribe toggle" },
+    {
+      "type": "checkbox",
+      "id": "show_subscribe",
+      "label": "Show one-time vs subscribe",
+      "default": true,
+      "info": "Only appears when the components carry a subscription selling plan."
+    },
+    { "type": "text", "id": "subscribe_label", "label": "Subscribe label", "default": "Subscribe & Save 10%" },
+    { "type": "range", "id": "subscribe_discount", "label": "Displayed subscribe discount", "min": 0, "max": 50, "step": 1, "unit": "%", "default": 10 },
+
+    { "type": "header", "content": "Omega-3 panel" },
+    {
+      "type": "text",
+      "id": "omega3_metafield",
+      "label": "Omega-3 metafield",
+      "default": "custom.omega3",
+      "info": "namespace.key holding EPA+DHA mg per portion. The panel stays hidden unless EVERY item in the box has a value, so the total is never wrong."
+    },
+    { "type": "text", "id": "omega3_title", "label": "Panel title", "default": "Omega-3 in this box" },
+    { "type": "number", "id": "omega3_target", "label": "Daily target (mg)", "default": 2000 },
+    {
+      "type": "richtext",
+      "id": "omega3_note",
+      "label": "Panel note",
+      "default": "<p>EPA+DHA per serving, lab-tested, against a daily target per person.</p>"
+    },
+
+    { "type": "header", "content": "Email capture" },
+    { "type": "checkbox", "id": "show_email", "label": "Show email field", "default": false },
+    { "type": "text", "id": "email_label", "label": "Field label", "default": "Your email" },
+    { "type": "text", "id": "email_placeholder", "label": "Placeholder", "default": "you@email.com" },
+
+    { "type": "header", "content": "t:sections.global.settings.header__heading.content" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading" },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "title-sm", "label": "Small" },
+        { "value": "title-md", "label": "Medium" },
+        { "value": "title-lg tracking-heading", "label": "Large" },
+        { "value": "title-xl tracking-heading", "label": "Extra large" }
+      ],
+      "default": "title-md"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        { "value": "text-left md:items-end md:flex-row", "label": "Left" },
+        { "value": "text-center md:items-center", "label": "Center" },
+        { "value": "text-right md:items-end md:flex-row-reverse", "label": "Right" }
+      ],
+      "default": "text-center md:items-center"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading tag",
+      "options": [
+        { "value": "h1", "label": "h1" }, { "value": "h2", "label": "h2" },
+        { "value": "h3", "label": "h3" }, { "value": "div", "label": "div" }
+      ],
+      "default": "h2"
+    },
+    { "type": "text", "id": "subheading", "label": "Subheading" },
+    { "type": "richtext", "id": "description", "label": "Description" },
+
+    { "type": "header", "content": "t:sections.global.settings.header__colors.content" },
+    { "type": "color", "id": "color_text", "label": "Text" },
+    { "type": "color", "id": "color_background", "label": "Background" },
+    { "type": "color_background", "id": "gradient_background", "label": "Background gradient" },
+
+    { "type": "header", "content": "t:sections.global.settings.header__section.content" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 128, "step": 4, "default": 56, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 128, "step": 4, "default": 56, "unit": "px" },
+    { "type": "checkbox", "id": "divider", "label": "Show divider", "default": false },
+    { "type": "checkbox", "id": "full_width", "label": "Full width", "default": false }
+  ],
+  "blocks": [
+    {
+      "type": "tier",
+      "name": "Reward tier",
+      "settings": [
+        { "type": "number", "id": "amount", "label": "Unlocks at subtotal", "default": 125 },
+        { "type": "text", "id": "label", "label": "Label", "default": "Flat Rate Shipping" },
+        { "type": "text", "id": "icon", "label": "Icon name (optional)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Build a Box",
+      "blocks": [
+        { "type": "tier", "settings": { "amount": 125, "label": "Flat Rate Shipping" } },
+        { "type": "tier", "settings": { "amount": 300, "label": "Free Salmon Roe Caviar" } },
+        { "type": "tier", "settings": { "amount": 500, "label": "Free Shipping" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
