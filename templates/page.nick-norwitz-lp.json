@@ -197,7 +197,7 @@
         "heading_UL8nJq": {
           "type": "heading",
           "settings": {
-            "heading": "Meet Dr. Nick Norwitz, MD PHD",
+            "heading": "Meet Nick Norwitz, MD PHD",
             "heading_size": "title-lg tracking-heading",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -309,7 +309,7 @@
         "heading_igXbXd": {
           "type": "heading",
           "settings": {
-            "heading": "The one number Nick tracks",
+            "heading": "The Number Behind Every Fish He Chooses",
             "heading_size": "title-lg tracking-heading",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -319,7 +319,7 @@
         "text_TyNqBx": {
           "type": "text",
           "settings": {
-            "text": "<p>Most adults test in the \"danger zone\", a 4 to 5 percent Omega-3 Index against a healthy range of 8 to 12 percent, according to OmegaQuant's population data. Norwitz has spent years pushing his own index well past that range (currently sitting at 15.68%), pointing to the research on long-chain omega-3s and long-term health as anything but subtle.</p>",
+            "text": "<p>Most adults test in the \"danger zone,\" a 4 to 5 percent Omega-3 Index against a healthy range of 8 to 12 percent, according to OmegaQuant's population data. Nick has spent years pushing his own index well past that range (currently sitting at 15.68%), and the way he gets there comes down to one principle:<strong> bioaccumulation. </strong></p><p>Mercury enters the food chain at the bottom and concentrates as it moves up, so bigger, longer-lived fish carry more of it. He'll point out that a single serving of swordfish carries as much mercury as 77 servings of sardines, which is why species selection, not the label, decides whether a high-omega diet is actually safe.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -569,7 +569,7 @@
         "heading_gqh97J": {
           "type": "heading",
           "settings": {
-            "heading": "What Nick looks for",
+            "heading": "His Shift Toward Seatopia Wasn't About One Reason",
             "heading_size": "title-lg tracking-heading",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -579,7 +579,7 @@
         "text_bTHRcq": {
           "type": "text",
           "settings": {
-            "text": "<p>Bioaccumulation is his starting point. Mercury enters the food chain at the bottom and concentrates as it moves up, so bigger, longer-lived fish carry more of it. He'll point out that a single serving of swordfish carries as much mercury as 77 servings of sardines, which is why he says species selection matters more than almost anything printed on a label.</p>",
+            "text": "<p>It was watching our company solve the problem in order: human health first, with regeneration as the result rather than the pitch. </p><p>He describes James Arthur Smith, a surfer and sailor who spent years vetting aquaculture farms, as someone building toward measurable outcomes rather than a story built on buzzwords, and that's what moved him from a wild-salmon purist to a customer.</p>",
             "text_size": "subtext-lg",
             "text_max_size": 32,
             "text_font": "body",
@@ -630,7 +630,7 @@
         "heading_Q4dhj8": {
           "type": "heading",
           "settings": {
-            "heading": "His shift toward Seatopia wasn't about one reason.",
+            "heading": "Get $20 off first-time Seatopia orders $125+ with code 'STAYCURIOUS'.",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -639,6 +639,7 @@
         },
         "text_QW79Jm": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>It was watching our company solve the problem in order: human health first, with regeneration as the result rather than the pitch.</p>",
             "text_size": "subtext-lg",
@@ -651,21 +652,34 @@
         },
         "text_tARFcj": {
           "type": "text",
+          "disabled": true,
           "settings": {
-            "text": "<p>He describes James Arthur Smith, a surfer and sailor who spent years vetting aquaculture farms, as someone building toward measurable outcomes rather than a story built on buzzwords, and that's what moved him from a wild-salmon purist to a customer.</p>",
+            "text": "<p>Get $20 Off First-time Seatopia Orders $125+ With Code STAYCURIOUS.</p>",
             "text_size": "subtext-lg",
             "text_max_size": 32,
-            "text_font": "body",
+            "text_font": "heading",
             "secondary_color": false,
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
+          }
+        },
+        "button_R8NHLM": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Seatopia's Seafood",
+            "button_link": "https://seatopia.fish/staycurious",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": true,
+            "button_icon": true
           }
         }
       },
       "block_order": [
         "heading_Q4dhj8",
         "text_QW79Jm",
-        "text_tARFcj"
+        "text_tARFcj",
+        "button_R8NHLM"
       ],
       "name": "Hero",
       "settings": {
