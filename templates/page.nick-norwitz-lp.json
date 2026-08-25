@@ -38,7 +38,7 @@
         "heading_f9jhgT": {
           "type": "heading",
           "settings": {
-            "heading": "The Only Omega-3 Standard Dr. Nick Norwitz Trusts",
+            "heading": "The Only Omega-3 Standard Nick Norwitz Trusts",
             "heading_size": "title-md",
             "heading_tag": "h1",
             "highlighted_text": "none",
@@ -261,7 +261,7 @@
         "image_EdbLP3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/MWH_LOGO_EMAIL_HEADER-01.png",
+            "image": "shopify://shop_images/nick_logo.jpg",
             "image_width": "custom",
             "image_max_width": 240,
             "image_max_width_mobile": 50
@@ -275,10 +275,10 @@
       "settings": {
         "section_id": "",
         "transparent_header": false,
-        "image": "shopify://shop_images/2O6A4722.png",
+        "image": "shopify://shop_images/unnamed.jpg",
         "image_height": "750px",
         "content_width": "small",
-        "content_position": "md:items-center md:justify-center",
+        "content_position": "md:items-start md:justify-start",
         "text_alignment": "left",
         "image_mobile": "shopify://shop_images/Creators-Free.jpg",
         "priority_image": false,
@@ -785,7 +785,7 @@
           "type": "text",
           "settings": {
             "text": "<p>Join a community that is transforming their health</p>",
-            "text_size": "subtext-md",
+            "text_size": "subtext-xl",
             "text_max_size": 32,
             "text_font": "body",
             "secondary_color": false,
