@@ -30,7 +30,7 @@
         "subheading_T6xMzr": {
           "type": "subheading",
           "settings": {
-            "subheading": "Seatopia × Melissa Wood Health",
+            "subheading": "SEATOPIA × DR. NICK NORWITZ, MD PHD",
             "subheading_size": "subtitle-md",
             "secondary_color": true
           }
@@ -38,7 +38,7 @@
         "heading_f9jhgT": {
           "type": "heading",
           "settings": {
-            "heading": "Fuel your body. Move with intention.",
+            "heading": "The Only Omega-3 Standard Dr. Nick Norwitz Trusts",
             "heading_size": "title-md",
             "heading_tag": "h1",
             "highlighted_text": "none",
@@ -48,7 +48,7 @@
         "text_Fppygg": {
           "type": "text",
           "settings": {
-            "text": "<p>What you eat and how you move determines how you feel — and that's where it all starts. Seatopia brings you clean, quantifiable marine nutrition. Melissa Wood Health brings you the mindful movement practice to match. This is where nourishment comes full circle.</p>",
+            "text": "<p>\"I eat fish literally every day. So quality matters. Seatopia is setting a new standard for nutrient-rich, pollutant-free, and ethical seafood.\" — Dr. Nick Norwitz, MD PhD</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -66,12 +66,12 @@
       "settings": {
         "section_id": "",
         "transparent_header": true,
-        "image": "shopify://shop_images/2O6A4690.png",
+        "image": "shopify://shop_images/Nick_1.webp",
         "image_height": "100vh",
         "content_width": "large",
         "content_position": "md:items-end md:justify-center",
         "text_alignment": "center",
-        "image_mobile": "shopify://shop_images/2O6A5658.png",
+        "image_mobile": "shopify://shop_images/Nick_1.webp",
         "priority_image": false,
         "image_height_mobile": "auto",
         "content_position_mobile": "items-end justify-start",
@@ -207,7 +207,7 @@
         "text_FDmm8T": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Why a Harvard-trained physician built his seafood standards around one number, and where he actually shops.</strong></p><p><em>\"I eat fish literally every day. So quality matters. Seatopia is setting a new standard for nutrient-rich, pollutant-free, and ethical seafood.\" </em>— Dr. Nick Norwitz, MD PhD<br/><br/>Dr. Nick Norwitz spends a lot of time in the corners of nutrition social media, and he hears no shortage of opinions about seafood. Wild versus conventionally raised. Mercury. Microplastics. Sustainability claims that mean nothing once you look closely.</p><p>For Norwitz, an MD PhD who trained at Harvard and Oxford, one number matters more than any of it: his omega-3 index. Here's what he looks for, why it matters, and where he gets his seafood.</p>",
+            "text": "<p><strong>Why a Harvard-trained physician built his seafood standards around one number, and where he actually shops.</strong></p><p>Dr. Nick Norwitz spends a lot of time in the corners of nutrition social media, and he hears no shortage of opinions about seafood. Wild versus conventionally raised. Mercury. Microplastics. Sustainability claims that mean nothing once you look closely.</p><p>For Norwitz, an MD PhD who trained at Harvard and Oxford, one number matters more than any of it: his omega-3 index. Here's what he looks for, why it matters, and where he gets his seafood.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
