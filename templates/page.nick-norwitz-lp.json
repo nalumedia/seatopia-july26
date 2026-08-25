@@ -591,8 +591,8 @@
         "button_Aikq4g": {
           "type": "button",
           "settings": {
-            "button_label": "Meet Your Match",
-            "button_link": "shopify://products/salmon-box",
+            "button_label": "Why Seatopia",
+            "button_link": "",
             "button_style": "primary",
             "button_size": "md",
             "button_external": false,
