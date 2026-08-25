@@ -261,7 +261,7 @@
         "image_EdbLP3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/twitter.jpg",
+            "image": "shopify://shop_images/stay_curious.png",
             "image_width": "custom",
             "image_max_width": 240,
             "image_max_width_mobile": 50
