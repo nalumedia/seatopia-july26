@@ -630,7 +630,7 @@
         "heading_Q4dhj8": {
           "type": "heading",
           "settings": {
-            "heading": "His shift toward Seatopia wasn't about one reason. It was watching our company solve the problem in order: human health first, with regeneration as the result rather than the pitch.",
+            "heading": "His shift toward Seatopia wasn't about one reason.",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -640,8 +640,20 @@
         "text_QW79Jm": {
           "type": "text",
           "settings": {
+            "text": "<p>It was watching our company solve the problem in order: human health first, with regeneration as the result rather than the pitch.</p>",
+            "text_size": "subtext-lg",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_tARFcj": {
+          "type": "text",
+          "settings": {
             "text": "<p>He describes James Arthur Smith, a surfer and sailor who spent years vetting aquaculture farms, as someone building toward measurable outcomes rather than a story built on buzzwords, and that's what moved him from a wild-salmon purist to a customer.</p>",
-            "text_size": "subtext-md",
+            "text_size": "subtext-lg",
             "text_max_size": 32,
             "text_font": "body",
             "secondary_color": false,
@@ -652,7 +664,8 @@
       },
       "block_order": [
         "heading_Q4dhj8",
-        "text_QW79Jm"
+        "text_QW79Jm",
+        "text_tARFcj"
       ],
       "name": "Hero",
       "settings": {
