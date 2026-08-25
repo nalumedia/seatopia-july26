@@ -64,6 +64,7 @@
         "text_Fppygg"
       ],
       "settings": {
+        "section_id": "",
         "transparent_header": true,
         "image": "shopify://shop_images/2O6A4690.png",
         "image_height": "100vh",
@@ -71,6 +72,7 @@
         "content_position": "md:items-end md:justify-center",
         "text_alignment": "center",
         "image_mobile": "shopify://shop_images/2O6A5658.png",
+        "priority_image": false,
         "image_height_mobile": "auto",
         "content_position_mobile": "items-end justify-start",
         "text_alignment_mobile": "left",
@@ -195,7 +197,7 @@
         "heading_UL8nJq": {
           "type": "heading",
           "settings": {
-            "heading": "Meet Melissa Wood Health",
+            "heading": "SEATOPIA × DR. NICK NORWITZ, MD PHD",
             "heading_size": "title-lg tracking-heading",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -205,7 +207,7 @@
         "text_FDmm8T": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>The #1 at-home Pilates app built to help you build a better, stronger relationship with yourself.</strong></p><p>Melissa created MWH because she knows firsthand that mindful movement changes everything. She used to believe you had to push yourself to the point of exhaustion to see results — until daily meditation and movement showed her another way. Now, MWH has become a way of life for hundreds of thousands of members worldwide.</p><p>From Pilates and Sculpt to Strength, Yoga, Meditation, Pre & Postnatal, and more — MWH meets you where you are. Because consistent habits lead to lasting shifts.</p>",
+            "text": "<p><strong>Why a Harvard-trained physician built his seafood standards around one number, and where he actually shops.</strong></p><p><em>\"I eat fish literally every day. So quality matters. Seatopia is setting a new standard for nutrient-rich, pollutant-free, and ethical seafood.\" </em>— Dr. Nick Norwitz, MD PhD<br/><br/>Dr. Nick Norwitz spends a lot of time in the corners of nutrition social media, and he hears no shortage of opinions about seafood. Wild versus conventionally raised. Mercury. Microplastics. Sustainability claims that mean nothing once you look closely.</p><p>For Norwitz, an MD PhD who trained at Harvard and Oxford, one number matters more than any of it: his omega-3 index. Here's what he looks for, why it matters, and where he gets his seafood.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -222,6 +224,7 @@
       "name": "Hero",
       "settings": {
         "custom-class": "",
+        "section_id": "",
         "text_alignment": "center",
         "text_alignment_mobile": "center",
         "heading": "",
@@ -270,6 +273,7 @@
       ],
       "name": "t:sections.image-with-text-overlay.presets.name",
       "settings": {
+        "section_id": "",
         "transparent_header": false,
         "image": "shopify://shop_images/2O6A4722.png",
         "image_height": "750px",
@@ -277,6 +281,7 @@
         "content_position": "md:items-center md:justify-center",
         "text_alignment": "left",
         "image_mobile": "shopify://shop_images/Creators-Free.jpg",
+        "priority_image": false,
         "image_height_mobile": "600px",
         "content_position_mobile": "items-center justify-center",
         "text_alignment_mobile": "left",
@@ -331,6 +336,7 @@
       "name": "Hero",
       "settings": {
         "custom-class": "",
+        "section_id": "",
         "text_alignment": "center",
         "text_alignment_mobile": "center",
         "heading": "",
@@ -407,6 +413,7 @@
       "custom_css": [],
       "settings": {
         "custom_class": "cstm-index-multi-icon",
+        "section_id": "",
         "style": "with-border",
         "columns": 3,
         "text_alignment": "center",
@@ -529,6 +536,7 @@
       "disabled": true,
       "name": "t:sections.featured-product.presets.name",
       "settings": {
+        "section_id": "",
         "product": "marshallberg-classic-osetra-caviar",
         "enable_sticky_info": true,
         "show_chef_notes": true,
@@ -599,12 +607,14 @@
       ],
       "name": "t:sections.image-with-text-overlay.presets.name",
       "settings": {
+        "section_id": "",
         "transparent_header": false,
         "image": "shopify://shop_images/smoke-in-chimneys-smoked-trout-filet-8556067.png",
         "image_height": "650px",
         "content_width": "small",
         "content_position": "md:items-center md:justify-center",
         "text_alignment": "center",
+        "priority_image": false,
         "image_height_mobile": "auto",
         "content_position_mobile": "items-end justify-start",
         "text_alignment_mobile": "left",
@@ -739,6 +749,7 @@
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "custom-class": "",
+        "section_id": "",
         "text_alignment": "center",
         "text_alignment_mobile": "center",
         "heading": "",
@@ -849,6 +860,7 @@
       "name": "testimonials",
       "settings": {
         "custom_class": "",
+        "section_id": "",
         "title": "",
         "sub_title": "",
         "section_cont_position": "center",
@@ -863,6 +875,7 @@
     "index_review_judge_me_CGWRxy": {
       "type": "Index-review-judge_me",
       "settings": {
+        "section_id": "",
         "section_background": "#fafafa",
         "padding_top": 32,
         "padding_bottom": 40
