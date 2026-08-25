@@ -48,7 +48,7 @@
         "text_Fppygg": {
           "type": "text",
           "settings": {
-            "text": "<p>\"I eat fish literally every day. So quality matters. Seatopia is setting a new standard for nutrient-rich, pollutant-free, and ethical seafood.\" — Dr. Nick Norwitz, MD PhD</p>",
+            "text": "<p>A Harvard-trained physician on the seafood standard he built his own health around.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -197,7 +197,7 @@
         "heading_UL8nJq": {
           "type": "heading",
           "settings": {
-            "heading": "SEATOPIA × DR. NICK NORWITZ, MD PHD",
+            "heading": "Meet Dr. Nick Norwitz, MD PHD",
             "heading_size": "title-lg tracking-heading",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -207,7 +207,7 @@
         "text_FDmm8T": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Why a Harvard-trained physician built his seafood standards around one number, and where he actually shops.</strong></p><p>Dr. Nick Norwitz spends a lot of time in the corners of nutrition social media, and he hears no shortage of opinions about seafood. Wild versus conventionally raised. Mercury. Microplastics. Sustainability claims that mean nothing once you look closely.</p><p>For Norwitz, an MD PhD who trained at Harvard and Oxford, one number matters more than any of it: his omega-3 index. Here's what he looks for, why it matters, and where he gets his seafood.</p>",
+            "text": "<p>Dr. Nick Norwitz is a researcher and science educator whose mission is to make metabolic health mainstream. He graduated valedictorian from Dartmouth, earned his PhD in metabolism from Oxford, and completed his MD at Harvard. His YouTube channel reaches over 1.2 million subscribers, and his newsletter, Stay Curious Metabolism, has ranked among the top science publications on Substack. </p><p>Metabolic health, and the food choices behind it, are his life's work.</p><p><em>\"I eat fish literally every day. So quality matters. Seatopia is setting a new standard for nutrient-rich, pollutant-free, and ethical seafood.\" </em>—<em> </em>Dr. Nick Norwitz, MD PhD</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -309,7 +309,7 @@
         "heading_igXbXd": {
           "type": "heading",
           "settings": {
-            "heading": "The nutrition foundation your routine deserves.",
+            "heading": "The one number Nick tracks",
             "heading_size": "title-lg tracking-heading",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -319,7 +319,7 @@
         "text_TyNqBx": {
           "type": "text",
           "settings": {
-            "text": "<p>Every piece of seafood from Seatopia is third-party lab tested for mercury, microplastics, and omega-3 levels — so you know exactly what you're getting. No guesswork. No compromises. Just clean, quantifiable marine nutrition sourced from rigorously vetted aquaculture farms.</p>",
+            "text": "<p>Most adults test in the danger zone, a 4 to 5 percent Omega-3 Index against a healthy range of 8 to 12 percent, according to OmegaQuant's population data. Norwitz has spent years pushing his own index well past that range (currently sitting at 15.68%), pointing to the research on long-chain omega-3s and long-term health as anything but subtle.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -569,7 +569,7 @@
         "heading_gqh97J": {
           "type": "heading",
           "settings": {
-            "heading": "Pilates pairs well with protein.",
+            "heading": "What Nick looks for (and what he doesn't)",
             "heading_size": "title-lg tracking-heading",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -579,8 +579,8 @@
         "text_bTHRcq": {
           "type": "text",
           "settings": {
-            "text": "<p>Fuel your practice with marine nutrition that works as hard as you do. Our Salmon Lover's Box delivers clean, protein-rich portions straight to your door — exactly what your body needs to recover, rebuild, and show up again tomorrow.</p>",
-            "text_size": "subtext-md",
+            "text": "<p>Bioaccumulation is the whole story, according to Nick. Mercury enters the food chain at the bottom and concentrates as it moves up. Bigger, longer-lived fish carry more of it, which is why species selection matters more than almost anything printed on a label.</p><p>Contaminant levels that once ran high in conventionally raised salmon, largely tied to older feed sources, have come down across parts of the industry over the past two decades, he notes. But not every supplier made that shift, and the label rarely tells you which ones did.</p>",
+            "text_size": "subtext-lg",
             "text_max_size": 32,
             "text_font": "body",
             "secondary_color": false,
@@ -609,7 +609,7 @@
       "settings": {
         "section_id": "",
         "transparent_header": false,
-        "image": "shopify://shop_images/smoke-in-chimneys-smoked-trout-filet-8556067.png",
+        "image": "shopify://shop_images/CPRINTS--6.jpg",
         "image_height": "650px",
         "content_width": "small",
         "content_position": "md:items-center md:justify-center",
