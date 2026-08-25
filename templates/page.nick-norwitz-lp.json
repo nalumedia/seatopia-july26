@@ -261,7 +261,7 @@
         "image_EdbLP3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/nick_logo.jpg",
+            "image": "shopify://shop_images/twitter.jpg",
             "image_width": "custom",
             "image_max_width": 240,
             "image_max_width_mobile": 50
@@ -278,7 +278,7 @@
         "image": "shopify://shop_images/unnamed.jpg",
         "image_height": "750px",
         "content_width": "small",
-        "content_position": "md:items-start md:justify-start",
+        "content_position": "md:items-start md:justify-end",
         "text_alignment": "left",
         "image_mobile": "shopify://shop_images/Creators-Free.jpg",
         "priority_image": false,
