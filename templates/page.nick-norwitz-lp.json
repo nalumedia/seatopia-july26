@@ -319,7 +319,7 @@
         "text_TyNqBx": {
           "type": "text",
           "settings": {
-            "text": "<p>Most adults test in the danger zone, a 4 to 5 percent Omega-3 Index against a healthy range of 8 to 12 percent, according to OmegaQuant's population data. Norwitz has spent years pushing his own index well past that range (currently sitting at 15.68%), pointing to the research on long-chain omega-3s and long-term health as anything but subtle.</p>",
+            "text": "<p>Most adults test in the \"danger zone\", a 4 to 5 percent Omega-3 Index against a healthy range of 8 to 12 percent, according to OmegaQuant's population data. Norwitz has spent years pushing his own index well past that range (currently sitting at 15.68%), pointing to the research on long-chain omega-3s and long-term health as anything but subtle.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -569,7 +569,7 @@
         "heading_gqh97J": {
           "type": "heading",
           "settings": {
-            "heading": "What Nick looks for (and what he doesn't)",
+            "heading": "What Nick looks for",
             "heading_size": "title-lg tracking-heading",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -579,7 +579,7 @@
         "text_bTHRcq": {
           "type": "text",
           "settings": {
-            "text": "<p>Bioaccumulation is the whole story, according to Nick. Mercury enters the food chain at the bottom and concentrates as it moves up. Bigger, longer-lived fish carry more of it, which is why species selection matters more than almost anything printed on a label.</p><p>Contaminant levels that once ran high in conventionally raised salmon, largely tied to older feed sources, have come down across parts of the industry over the past two decades, he notes. But not every supplier made that shift, and the label rarely tells you which ones did.</p>",
+            "text": "<p>Bioaccumulation is his starting point. Mercury enters the food chain at the bottom and concentrates as it moves up, so bigger, longer-lived fish carry more of it. He'll point out that a single serving of swordfish carries as much mercury as 77 servings of sardines, which is why he says species selection matters more than almost anything printed on a label.</p>",
             "text_size": "subtext-lg",
             "text_max_size": 32,
             "text_font": "body",
@@ -587,23 +587,11 @@
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
-        },
-        "button_Aikq4g": {
-          "type": "button",
-          "settings": {
-            "button_label": "Why Seatopia",
-            "button_link": "",
-            "button_style": "primary",
-            "button_size": "md",
-            "button_external": false,
-            "button_icon": false
-          }
         }
       },
       "block_order": [
         "heading_gqh97J",
-        "text_bTHRcq",
-        "button_Aikq4g"
+        "text_bTHRcq"
       ],
       "name": "t:sections.image-with-text-overlay.presets.name",
       "settings": {
@@ -634,6 +622,70 @@
         "enable_parallax": true,
         "narrow": false,
         "parallax_direction": "vertical"
+      }
+    },
+    "rich_text_3WLUiw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Q4dhj8": {
+          "type": "heading",
+          "settings": {
+            "heading": "His shift toward Seatopia wasn't about one reason. It was watching our company solve the problem in order: human health first, with regeneration as the result rather than the pitch.",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_QW79Jm": {
+          "type": "text",
+          "settings": {
+            "text": "<p>He describes James Arthur Smith, a surfer and sailor who spent years vetting aquaculture farms, as someone building toward measurable outcomes rather than a story built on buzzwords, and that's what moved him from a wild-salmon purist to a customer.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Q4dhj8",
+        "text_QW79Jm"
+      ],
+      "name": "Hero",
+      "settings": {
+        "custom-class": "",
+        "section_id": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "medium",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 100,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
       }
     },
     "images_with_text_7NyEJN": {
@@ -1003,6 +1055,7 @@
     "featured_product_HwA8bm",
     "blocks_7JNMfB",
     "image_with_text_overlay_NhgHbB",
+    "rich_text_3WLUiw",
     "images_with_text_7NyEJN",
     "rich_text_dAFeMT",
     "index_new_testimonials_ByRMjq",
