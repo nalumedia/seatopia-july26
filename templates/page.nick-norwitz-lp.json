@@ -215,11 +215,23 @@
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
+        },
+        "button_R3cDPi": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Seatopia's Seafood",
+            "button_link": "",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": true,
+            "button_icon": true
+          }
         }
       },
       "block_order": [
         "heading_UL8nJq",
-        "text_FDmm8T"
+        "text_FDmm8T",
+        "button_R3cDPi"
       ],
       "name": "Hero",
       "settings": {
@@ -663,7 +675,7 @@
             "highlighted_scribble": "circle"
           }
         },
-        "button_R8NHLM": {
+        "button_fBY7kX": {
           "type": "button",
           "settings": {
             "button_label": "Shop Seatopia's Seafood",
@@ -679,7 +691,7 @@
         "heading_Q4dhj8",
         "text_QW79Jm",
         "text_tARFcj",
-        "button_R8NHLM"
+        "button_fBY7kX"
       ],
       "name": "Hero",
       "settings": {
