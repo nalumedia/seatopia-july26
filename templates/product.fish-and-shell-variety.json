@@ -286,43 +286,6 @@
     },
     "177160596145a347bb": {
       "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_9c49efa_wKE3Y8": {
-          "type": "ai_gen_block_9c49efa",
-          "settings": {
-            "image_1": "shopify://shop_images/1_9474bba5-e15d-4a34-a90c-4d3e46bdbe68.png",
-            "image_2": "shopify://shop_images/2_188f1a31-c5e1-4577-9dc9-164b1072c97b.png",
-            "image_3": "shopify://shop_images/3_fc0b48c7-f4bd-449a-8a0b-b1ce554a5e3d.png",
-            "image_4": "shopify://shop_images/4_3a287781-2f34-4e58-9666-28bebc09953e.png",
-            "image_5": "shopify://shop_images/5_44b481a7-f8e3-4b1b-827a-b454d673acac.png",
-            "image_6": "shopify://shop_images/6_0e54e2e4-13db-477f-b805-3929beef7396.png",
-            "image_7": "shopify://shop_images/7_ed03e2df-1e6c-45bc-86dd-36e2d9000a69.png",
-            "columns_desktop": 4,
-            "columns_tablet": 3,
-            "columns_mobile": "1",
-            "aspect_ratio": "4/5",
-            "image_spacing": 8,
-            "rounded_corners": true,
-            "desktop_width_percent": 100,
-            "show_navigation": true,
-            "nav_button_size": 45,
-            "nav_button_offset": 20,
-            "nav_button_color": "#ffffff",
-            "nav_button_icon_color": "#252525",
-            "show_dots": true,
-            "dot_size": 10,
-            "dots_spacing": 20,
-            "dot_color": "#252525",
-            "dot_active_color": "#ff7755",
-            "autoplay": false,
-            "autoplay_speed": 5
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_9c49efa_wKE3Y8"
-      ],
       "settings": {}
     },
     "help-drawer": {
@@ -541,6 +504,73 @@
         "divider": false,
         "full_width": true,
         "rounded": false
+      }
+    },
+    "images_with_text_tzQUNW": {
+      "type": "images-with-text",
+      "blocks": {
+        "heading_AGG3hQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Free cold smoked lox with every order",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_yxYCJM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_hXUynU": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_AGG3hQ",
+        "text_yxYCJM",
+        "button_hXUynU"
+      ],
+      "name": "t:sections.images-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/ocean-lovers-box-with-free-cold-smoked-salmon-2902027.jpg",
+        "image_2": "shopify://shop_images/caleta-bay-cold-smoked-ai-steelhead-4oz-418512.jpg",
+        "image_ratio": "portrait",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true
       }
     },
     "collage": {
@@ -970,6 +1000,7 @@
     "help-drawer",
     "video_with_text_overlay_jH8bXm",
     "video-hero",
+    "images_with_text_tzQUNW",
     "collage",
     "product-details",
     "faq",
