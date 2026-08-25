@@ -512,7 +512,7 @@
         "heading_AGG3hQ": {
           "type": "heading",
           "settings": {
-            "heading": "Free cold smoked lox with every order",
+            "heading": "FREE GIFT:  Cold-Smoked Lox with Every Order",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -522,7 +522,7 @@
         "text_yxYCJM": {
           "type": "text",
           "settings": {
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text": "<p><strong>FOR A LIMITED TIME ONLY: </strong>Get a free two-pack of cold-smoked lox added to your Fish & Shell Box. Cold-smoked Steelhead is the easiest add-on to any routine or diet; ready to be eaten straight from the pack; perfect on bagels in the morning, on crackers over lunch, or into summer rice rolls for dinner. </p><p>Each 4 oz cold-smoked portion delivers approximately 260 mg EPA and 590 mg DHA - about 850 mg of marine omega-3s - plus roughly 22 mcg selenium.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -534,7 +534,7 @@
         "button_hXUynU": {
           "type": "button",
           "settings": {
-            "button_label": "Button label",
+            "button_label": "View Steelhead, Cold-Smoked Lox",
             "button_link": "",
             "button_style": "primary",
             "button_size": "md",
