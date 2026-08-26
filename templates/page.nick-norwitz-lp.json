@@ -652,7 +652,7 @@
         "text_QW79Jm": {
           "type": "text",
           "settings": {
-            "text": "<p>He describes James Arthur Smith as a surfer and sailor who spent years vetting aquaculture farms, as someone building toward measurable outcomes rather than a story built on buzzwords, and that's what moved him from a wild-salmon purist to a customer.</p><p><strong>The Seatopia's Standard<br/>Mercury-safe (&lt;0.1 ppm): </strong>10x stricter than the FDA action limit.<br/><strong>Zero detectable microplastics:</strong> Lab-verified down to 1/1000th of a millimeter.<br/><strong>Nutrient-dense:</strong> Rich in DHA and EPA, selenium, B12, and astaxanthin.<br/><strong>Sushi-grade by design: </strong>Parasite-safe feeds and FDA-grade blast freezing protocols.</p>",
+            "text": "<p>He describes James Arthur Smith as a surfer and sailor who spent years vetting aquaculture farms, as someone building toward measurable outcomes rather than a story built on buzzwords, and that's what moved him from a wild-salmon purist to a customer.</p><p></p><p></p>",
             "text_size": "subtext-lg",
             "text_max_size": 32,
             "text_font": "body",
@@ -723,6 +723,109 @@
         "padding_bottom": 100,
         "divider": false,
         "narrow": true,
+        "rounded": false
+      }
+    },
+    "multicolumn_ihHrTd": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_EMRJ8B": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "image_ratio": "adapt",
+            "heading": "Certified Clean",
+            "heading_size": "text-lg-2xl",
+            "text": "<ul><li>Mercury-Safe &lt;01.ppm</li><li>Free of detectable microplastics</li><li>FDA parasite-destruction protocols</li></ul>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "secondary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "column_B7jc4C": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "image_ratio": "adapt",
+            "heading": "Quantified Nutrient-Density",
+            "heading_size": "text-lg-2xl",
+            "text": "<ul><li>Quantified EPA & DHA + Omega 3: 6 Ratios</li><li>Micronutrients (vitamins D, B12, iron, iodine, selenium, calcium, & zinc) </li></ul>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "secondary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "column_kPqmdN": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "image_ratio": "adapt",
+            "heading": "Ocean Positive Impact",
+            "heading_size": "text-lg-2xl",
+            "text": "<ul><li>New Wave of Farming Aquaculture 3.0</li><li>Algae Oils and Insect Proteins</li><li>No antibiotics, hormones or GMOs</li></ul>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "secondary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "column_EMRJ8B",
+        "column_B7jc4C",
+        "column_kPqmdN"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "custom_class": "",
+        "gap": "large",
+        "columns": 3,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "SEATOPIA STANDARD™",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_text_card": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "overlay_opacity_new": 10,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
         "rounded": false
       }
     },
@@ -1095,6 +1198,7 @@
     "blocks_7JNMfB",
     "image_with_text_overlay_NhgHbB",
     "rich_text_3WLUiw",
+    "multicolumn_ihHrTd",
     "images_with_text_7NyEJN",
     "rich_text_dAFeMT",
     "index_new_testimonials_ByRMjq",
