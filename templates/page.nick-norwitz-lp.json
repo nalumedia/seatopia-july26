@@ -845,7 +845,7 @@
         "text_Vat3rC": {
           "type": "text",
           "settings": {
-            "text": "<p>Dr. Norwitz built his Omega-3 Index around one principle: species selection decides the outcome, not the label. Build Your Own lets you apply the same logic — choose the exact species and cuts that fit your numbers, your household, your goals. Every option still meets the Seatopia Standard: mercury-safe, quantified EPA/DHA, lab-tested for microplastics.</p>",
+            "text": "<p>Dr. Norwitz built his Omega-3 Index around one principle: species selection decides the outcome, not the label. Our Curated boxes lets you apply the same logic - choose the exact species and cuts that fit your numbers, your household, your goals. </p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -873,8 +873,8 @@
       ],
       "name": "t:sections.images-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Screenshot_2026-03-17_at_15.43.50.png",
-        "image_2": "shopify://shop_images/Screenshot_2026-03-17_at_15.44.02.png",
+        "image": "shopify://shop_images/box-seatopia-5.jpg",
+        "image_2": "shopify://shop_images/Sushi-DateNight-Packages_v1080.jpg",
         "image_ratio": "adapt",
         "image_width": "large",
         "layout": "image_first",
