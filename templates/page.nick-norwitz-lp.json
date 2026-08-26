@@ -835,7 +835,7 @@
         "heading_6MCHbk": {
           "type": "heading",
           "settings": {
-            "heading": "Your Guide to Perfect Seafood",
+            "heading": "Build Your Own",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -845,7 +845,7 @@
         "text_Vat3rC": {
           "type": "text",
           "settings": {
-            "text": "<p>To do your favorite Seafood justice, we have created a handy free guide that teaches you everything you need to know about cooking great Seeafood at home.</p>",
+            "text": "<p>Dr. Norwitz built his Omega-3 Index around one principle: species selection decides the outcome, not the label. Build Your Own lets you apply the same logic — choose the exact species and cuts that fit your numbers, your household, your goals. Every option still meets the Seatopia Standard: mercury-safe, quantified EPA/DHA, lab-tested for microplastics.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -857,11 +857,11 @@
         "button_QjgcgT": {
           "type": "button",
           "settings": {
-            "button_label": "Cook Perfect Seafood",
+            "button_label": "Build Your Box",
             "button_link": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/SeatopiaSimpleRecipes.pdf?v=1764516761",
             "button_style": "primary",
             "button_size": "md",
-            "button_external": false,
+            "button_external": true,
             "button_icon": false
           }
         }
@@ -871,7 +871,6 @@
         "text_Vat3rC",
         "button_QjgcgT"
       ],
-      "disabled": true,
       "name": "t:sections.images-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/Screenshot_2026-03-17_at_15.43.50.png",
