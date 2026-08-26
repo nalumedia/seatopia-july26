@@ -591,7 +591,7 @@
         "text_bTHRcq": {
           "type": "text",
           "settings": {
-            "text": "<p>It was watching Seatopia solve the problem in order: human health first -&gt; regeneration as the result rather than the pitch. </p>",
+            "text": "<p>It was watching Seatopia solve the problem in order: human health first, and regeneration as the result rather than the pitch. </p>",
             "text_size": "subtext-lg",
             "text_max_size": 32,
             "text_font": "body",
