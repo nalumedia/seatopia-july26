@@ -345,7 +345,7 @@
         "text_TyNqBx": {
           "type": "text",
           "settings": {
-            "text": "<p>Most adults test in the \"danger zone,\" a 4 to 5 percent Omega-3 Index against a healthy range of 8 to 12 percent, according to OmegaQuant's population data. Nick has spent years pushing his own index well past that range, and the way he gets there comes down to one principle: <strong>bioaccumulation</strong>. </p><p>Mercury enters the food chain at the bottom and concentrates as it moves up, so bigger, longer-lived fish carry more of it. He'll point out that a single serving of swordfish carries as much mercury as 77 servings of sardines, which is why species selection, not the label, decides whether a high-omega diet is actually safe.</p>",
+            "text": "<p>Most adults test in the \"danger zone,\" a 4 to 5 percent Omega-3 Index against a healthy range of 8 to 12 percent, according to OmegaQuant's population data. Nick has spent years pushing his own index well past that range, and the way he gets there comes down to one principle: <strong>Bioaccumulation</strong>. </p><p>Mercury enters the food chain at the bottom and concentrates as it moves up, so bigger, longer-lived fish carry more of it. He'll point out that a single serving of swordfish carries as much mercury as 77 servings of sardines, which is why species selection, not the label, decides whether a high-omega diet is actually safe.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -358,7 +358,7 @@
           "type": "heading",
           "settings": {
             "heading": "<em>I eat fish literally every day. So quality matters. Seatopia is setting a new standard for nutrient-rich, pollutant-free, and ethical seafood.\" </em>—Nick Norwitz, MD PhD",
-            "heading_size": "title-md",
+            "heading_size": "title-sm",
             "heading_tag": "h5",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
@@ -641,6 +641,7 @@
       "block_order": [
         "image_EdbLP3"
       ],
+      "disabled": true,
       "name": "t:sections.image-with-text-overlay.presets.name",
       "settings": {
         "section_id": "",
@@ -730,6 +731,7 @@
         "text_tARFcj",
         "button_fBY7kX"
       ],
+      "disabled": true,
       "name": "Hero",
       "settings": {
         "custom-class": "",
