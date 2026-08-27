@@ -794,12 +794,12 @@
         "button_QjgcgT": {
           "type": "button",
           "settings": {
-            "button_label": "STAYCURIOUS",
+            "button_label": "'STAYCURIOUS'",
             "button_link": "https://seatopia.fish/collections/build-your-own-box",
             "button_style": "primary",
             "button_size": "md",
             "button_external": true,
-            "button_icon": false
+            "button_icon": true
           }
         }
       },
