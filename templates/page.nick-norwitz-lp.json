@@ -207,7 +207,7 @@
         "text_FDmm8T": {
           "type": "text",
           "settings": {
-            "text": "<p>Nick Norwitz is a Harvard MD, Oxford PhD, and the voice behind Stay Curious Metabolism, a newsletter ranked among the top science publications on Substack, with a YouTube audience of 1.2 million.</p>",
+            "text": "<p><em>Nick Norwitz is a Harvard MD, Oxford PhD, and the voice behind Stay Curious Metabolism, a newsletter ranked among the top science publications on Substack, with a YouTube audience of 1.2 million. He graduated valedictorian from Dartmouth before earning his PhD in metabolism at Oxford, research that's since expanded into cholesterol metabolism and neurodegenerative disease. </em></p><p><em><strong>His stated mission: make metabolic health mainstream.</strong></em></p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
