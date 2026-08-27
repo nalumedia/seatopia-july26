@@ -216,28 +216,6 @@
             "highlighted_scribble": "circle"
           }
         },
-        "heading_UETGh8": {
-          "type": "heading",
-          "settings": {
-            "heading": "His Shift Toward Seatopia Wasn't About One Reason",
-            "heading_size": "title-lg tracking-heading",
-            "heading_tag": "h2",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "text_NWfTpy": {
-          "type": "text",
-          "settings": {
-            "text": "<p>It was watching Seatopia solve the problem in order: human health first, and regeneration as the result rather than the pitch. Meeting founder James Arthur Smith sealed it. A surfer and sailor who spent years visiting farms in person, checking the water and the fish himself. </p><p><strong>For Nick, that hands-on vetting was more convincing than any pitch, enough to turn a wild-salmon purist into a customer.</strong></p><p><em>I eat fish literally every day. So quality matters. Seatopia is setting a new standard for nutrient-rich, pollutant-free, and ethical seafood.\" </em>—Nick Norwitz, MD PhD</p><p>And using code 'STAYCURIOUS' you'll get $20 off first-time Seatopia orders of  $125+.</p>",
-            "text_size": "subtext-md",
-            "text_max_size": 32,
-            "text_font": "body",
-            "secondary_color": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
         "button_R3cDPi": {
           "type": "button",
           "settings": {
@@ -253,8 +231,6 @@
       "block_order": [
         "heading_UL8nJq",
         "text_FDmm8T",
-        "heading_UETGh8",
-        "text_NWfTpy",
         "button_R3cDPi"
       ],
       "name": "Hero",
@@ -291,35 +267,48 @@
         "rounded": false
       }
     },
-    "image_with_text_overlay_VwpKKh": {
+    "image_with_text_overlay_NhgHbB": {
       "type": "image-with-text-overlay",
       "blocks": {
-        "image_EdbLP3": {
-          "type": "image",
+        "heading_gqh97J": {
+          "type": "heading",
           "settings": {
-            "image": "shopify://shop_images/stay_curious.png",
-            "image_width": "custom",
-            "image_max_width": 240,
-            "image_max_width_mobile": 50
+            "heading": "His Shift Toward Seatopia Wasn't About One Reason",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_bTHRcq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>It was watching Seatopia solve the problem in order: human health first, and regeneration as the result rather than the pitch. Meeting founder James Arthur Smith sealed it. A surfer and sailor who spent years visiting farms in person, checking the water and the fish himself. </p><p><strong>For Nick, that hands-on vetting was more convincing than any pitch, enough to turn a wild-salmon purist into a customer.</strong></p>",
+            "text_size": "subtext-lg",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
           }
         }
       },
       "block_order": [
-        "image_EdbLP3"
+        "heading_gqh97J",
+        "text_bTHRcq"
       ],
       "name": "t:sections.image-with-text-overlay.presets.name",
       "settings": {
         "section_id": "",
         "transparent_header": false,
-        "image": "shopify://shop_images/unnamed.jpg",
-        "image_height": "750px",
+        "image": "shopify://shop_images/CPRINTS--6.jpg",
+        "image_height": "650px",
         "content_width": "small",
-        "content_position": "md:items-start md:justify-end",
-        "text_alignment": "left",
-        "image_mobile": "shopify://shop_images/Creators-Free.jpg",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "center",
         "priority_image": false,
-        "image_height_mobile": "600px",
-        "content_position_mobile": "items-center justify-center",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
         "text_alignment_mobile": "left",
         "color_text": "#ffffff",
         "color_highlight": "#e0a580",
@@ -328,13 +317,13 @@
         "color_button_background": "#7bc3f3",
         "color_button_gradient": "",
         "color_overlay": "#171717",
-        "overlay_opacity": 16,
+        "overlay_opacity": 7,
         "padding_top": 0,
         "padding_bottom": 0,
         "divider": false,
         "full_width": true,
         "rounded": false,
-        "enable_parallax": false,
+        "enable_parallax": true,
         "narrow": false,
         "parallax_direction": "vertical"
       }
@@ -363,11 +352,24 @@
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
+        },
+        "text_QXjWBE": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>I eat fish literally every day. So quality matters. Seatopia is setting a new standard for nutrient-rich, pollutant-free, and ethical seafood.\" </em>—Nick Norwitz, MD PhD</p><p>And using code 'STAYCURIOUS' you'll get $20 off first-time Seatopia orders of  $125+.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
         }
       },
       "block_order": [
         "heading_igXbXd",
-        "text_TyNqBx"
+        "text_TyNqBx",
+        "text_QXjWBE"
       ],
       "name": "Hero",
       "settings": {
@@ -599,48 +601,35 @@
       "name": "Image carousel",
       "settings": {}
     },
-    "image_with_text_overlay_NhgHbB": {
+    "image_with_text_overlay_VwpKKh": {
       "type": "image-with-text-overlay",
       "blocks": {
-        "heading_gqh97J": {
-          "type": "heading",
+        "image_EdbLP3": {
+          "type": "image",
           "settings": {
-            "heading": "His Shift Toward Seatopia Wasn't About One Reason",
-            "heading_size": "title-lg tracking-heading",
-            "heading_tag": "h2",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "text_bTHRcq": {
-          "type": "text",
-          "settings": {
-            "text": "<p>It was watching Seatopia solve the problem in order: human health first, and regeneration as the result rather than the pitch. </p>",
-            "text_size": "subtext-lg",
-            "text_max_size": 32,
-            "text_font": "body",
-            "secondary_color": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
+            "image": "shopify://shop_images/stay_curious.png",
+            "image_width": "custom",
+            "image_max_width": 240,
+            "image_max_width_mobile": 50
           }
         }
       },
       "block_order": [
-        "heading_gqh97J",
-        "text_bTHRcq"
+        "image_EdbLP3"
       ],
       "name": "t:sections.image-with-text-overlay.presets.name",
       "settings": {
         "section_id": "",
         "transparent_header": false,
-        "image": "shopify://shop_images/CPRINTS--6.jpg",
-        "image_height": "650px",
+        "image": "shopify://shop_images/unnamed.jpg",
+        "image_height": "750px",
         "content_width": "small",
-        "content_position": "md:items-center md:justify-center",
-        "text_alignment": "center",
+        "content_position": "md:items-start md:justify-end",
+        "text_alignment": "left",
+        "image_mobile": "shopify://shop_images/Creators-Free.jpg",
         "priority_image": false,
-        "image_height_mobile": "auto",
-        "content_position_mobile": "items-end justify-start",
+        "image_height_mobile": "600px",
+        "content_position_mobile": "items-center justify-center",
         "text_alignment_mobile": "left",
         "color_text": "#ffffff",
         "color_highlight": "#e0a580",
@@ -649,13 +638,13 @@
         "color_button_background": "#7bc3f3",
         "color_button_gradient": "",
         "color_overlay": "#171717",
-        "overlay_opacity": 7,
+        "overlay_opacity": 16,
         "padding_top": 0,
         "padding_bottom": 0,
         "divider": false,
         "full_width": true,
         "rounded": false,
-        "enable_parallax": true,
+        "enable_parallax": false,
         "narrow": false,
         "parallax_direction": "vertical"
       }
@@ -1214,13 +1203,13 @@
     "image_with_text_overlay_6FtDzG",
     "free_featured_product_NQEnWF",
     "rich_text_My3AEL",
-    "image_with_text_overlay_VwpKKh",
+    "image_with_text_overlay_NhgHbB",
     "rich_text_qXH3qz",
     "multicolumn_with_icons_Yb6gYW",
     "empty_space_kx9VHU",
     "featured_product_HwA8bm",
     "blocks_7JNMfB",
-    "image_with_text_overlay_NhgHbB",
+    "image_with_text_overlay_VwpKKh",
     "rich_text_3WLUiw",
     "multicolumn_ihHrTd",
     "images_with_text_7NyEJN",
