@@ -218,6 +218,7 @@
         },
         "button_R3cDPi": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "button_label": "Shop Seatopia's Seafood",
             "button_link": "",
@@ -353,10 +354,20 @@
             "highlighted_scribble": "circle"
           }
         },
+        "heading_xiahkf": {
+          "type": "heading",
+          "settings": {
+            "heading": "<em>I eat fish literally every day. So quality matters. Seatopia is setting a new standard for nutrient-rich, pollutant-free, and ethical seafood.\" </em>—Nick Norwitz, MD PhD",
+            "heading_size": "title-sm",
+            "heading_tag": "h5",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
         "text_QXjWBE": {
           "type": "text",
           "settings": {
-            "text": "<p><em>I eat fish literally every day. So quality matters. Seatopia is setting a new standard for nutrient-rich, pollutant-free, and ethical seafood.\" </em>—Nick Norwitz, MD PhD</p><p>And using code 'STAYCURIOUS' you'll get $20 off first-time Seatopia orders of  $125+.</p>",
+            "text": "<p>And using code 'STAYCURIOUS' you'll get $20 off first-time Seatopia orders of  $125+.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -364,12 +375,25 @@
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
+        },
+        "button_HTHxmX": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Seatopia's Seafood",
+            "button_link": "",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
         }
       },
       "block_order": [
         "heading_igXbXd",
         "text_TyNqBx",
-        "text_QXjWBE"
+        "heading_xiahkf",
+        "text_QXjWBE",
+        "button_HTHxmX"
       ],
       "name": "Hero",
       "settings": {
