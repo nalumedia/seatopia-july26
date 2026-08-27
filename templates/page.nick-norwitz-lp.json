@@ -38,7 +38,7 @@
         "heading_f9jhgT": {
           "type": "heading",
           "settings": {
-            "heading": "The Only Omega-3 Standard Nick Norwitz Trusts",
+            "heading": "The Only Omega-3 Standard Nick Norwitz Actually Trusts",
             "heading_size": "title-md",
             "heading_tag": "h1",
             "highlighted_text": "none",
@@ -48,7 +48,7 @@
         "text_Fppygg": {
           "type": "text",
           "settings": {
-            "text": "<p>A Harvard-trained physician on the seafood standard he built his own health around.</p>",
+            "text": "<p><em><strong>A Harvard-trained physician on the seafood standard he built his own health around.</strong></em></p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -66,7 +66,7 @@
       "settings": {
         "section_id": "",
         "transparent_header": true,
-        "image": "shopify://shop_images/8b6b4dc11e33598b48b65a7524c14b8c.png",
+        "image": "shopify://shop_images/unnamed.jpg",
         "image_height": "100vh",
         "content_width": "large",
         "content_position": "md:items-end md:justify-center",
@@ -207,7 +207,29 @@
         "text_FDmm8T": {
           "type": "text",
           "settings": {
-            "text": "<p>Nick Norwitz is a researcher and science educator whose mission is to make metabolic health mainstream. He graduated valedictorian from Dartmouth, earned his PhD in metabolism from Oxford, and completed his MD at Harvard. His YouTube channel reaches over 1.2 million subscribers, and his newsletter, Stay Curious Metabolism, has ranked among the top science publications on Substack. </p><p>Metabolic health, and the food choices behind it, are his life's work.</p><p><em>\"I eat fish literally every day. So quality matters. Seatopia is setting a new standard for nutrient-rich, pollutant-free, and ethical seafood.\" </em>—<em> </em>Nick Norwitz, MD PhD</p><p>Get $20 off first-time Seatopia orders of  $125+ with code 'STAYCURIOUS'.</p>",
+            "text": "<p>Nick Norwitz is a Harvard MD, Oxford PhD, and the voice behind Stay Curious Metabolism, a newsletter ranked among the top science publications on Substack, with a YouTube audience of 1.2 million.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "heading_UETGh8": {
+          "type": "heading",
+          "settings": {
+            "heading": "His Shift Toward Seatopia Wasn't About One Reason",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_NWfTpy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>It was watching Seatopia solve the problem in order: human health first, and regeneration as the result rather than the pitch. Meeting founder James Arthur Smith sealed it. A surfer and sailor who spent years visiting farms in person, checking the water and the fish himself. </p><p><strong>For Nick, that hands-on vetting was more convincing than any pitch, enough to turn a wild-salmon purist into a customer.</strong></p><p><em>I eat fish literally every day. So quality matters. Seatopia is setting a new standard for nutrient-rich, pollutant-free, and ethical seafood.\" </em>—Nick Norwitz, MD PhD</p><p>And using code 'STAYCURIOUS' you'll get $20 off first-time Seatopia orders of  $125+.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -231,6 +253,8 @@
       "block_order": [
         "heading_UL8nJq",
         "text_FDmm8T",
+        "heading_UETGh8",
+        "text_NWfTpy",
         "button_R3cDPi"
       ],
       "name": "Hero",
@@ -331,7 +355,7 @@
         "text_TyNqBx": {
           "type": "text",
           "settings": {
-            "text": "<p>Most adults test in the \"danger zone,\" a 4 to 5 percent Omega-3 Index against a healthy range of 8 to 12 percent, according to OmegaQuant's population data. Nick has spent years pushing his own index well past that range (currently sitting at 15.68%), and the way he gets there comes down to one principle:<strong> bioaccumulation. </strong></p><p>Mercury enters the food chain at the bottom and concentrates as it moves up, so bigger, longer-lived fish carry more of it. He'll point out that a single serving of swordfish carries as much mercury as 77 servings of sardines, which is why species selection, not the label, decides whether a high-omega diet is actually safe.</p>",
+            "text": "<p>Most adults test in the \"danger zone,\" a 4 to 5 percent Omega-3 Index against a healthy range of 8 to 12 percent, according to OmegaQuant's population data. Nick has spent years pushing his own index well past that range, and the way he gets there comes down to one principle: <strong>bioaccumulation</strong>. </p><p>Mercury enters the food chain at the bottom and concentrates as it moves up, so bigger, longer-lived fish carry more of it. He'll point out that a single serving of swordfish carries as much mercury as 77 servings of sardines, which is why species selection, not the label, decides whether a high-omega diet is actually safe.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -642,7 +666,7 @@
         "heading_Q4dhj8": {
           "type": "heading",
           "settings": {
-            "heading": "Get $20 off first-time Seatopia orders $125+ with code 'STAYCURIOUS'.",
+            "heading": "Get $20 off first-time Seatopia orders of  $125+ with code 'STAYCURIOUS'.",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -651,6 +675,7 @@
         },
         "text_QW79Jm": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>Meeting Seatopia founder, James Arthur Smith, sealed the deal. A surfer and sailor who spent years visiting farms in person, checking the water and the fish himself - for Nick, that hands-on vetting was more convincing than any pitch - enough to turn a wild-salmon purist into a customer.</p>",
             "text_size": "subtext-lg",
