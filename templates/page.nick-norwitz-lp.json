@@ -379,7 +379,7 @@
         "button_HTHxmX": {
           "type": "button",
           "settings": {
-            "button_label": "Shop Seatopia's Seafood",
+            "button_label": "Shop Now",
             "button_link": "https://seatopia.fish/collections/all-seafood",
             "button_style": "primary",
             "button_size": "md",
@@ -782,7 +782,7 @@
         "text_Vat3rC": {
           "type": "text",
           "settings": {
-            "text": "<p>Dr. Norwitz built his Omega-3 Index around one principle: species selection decides the outcome, not the label. Our Curated boxes lets you apply the same logic - choose the exact species and cuts that fit your numbers, your household, your goals. </p>",
+            "text": "<p>Dr. Norwitz built his Omega-3 Index around one principle: species selection decides the outcome, not the label. Our Curated boxes lets you apply the same logic - choose the exact species and cuts that fit your numbers, your household, your goals. </p><p>Use code 'STAYCURIOUS' you'll get $20 off first-time Seatopia orders of  $125+.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -794,7 +794,7 @@
         "button_QjgcgT": {
           "type": "button",
           "settings": {
-            "button_label": "Build Your Box with 'STAYCURIOUS' Code",
+            "button_label": "STAYCURIOUS",
             "button_link": "https://seatopia.fish/collections/build-your-own-box",
             "button_style": "primary",
             "button_size": "md",
@@ -811,7 +811,7 @@
       "name": "t:sections.images-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/Untitled_design.png",
-        "image_2": "shopify://shop_images/Sushi-DateNight-Packages_v1080.jpg",
+        "image_2": "shopify://shop_images/seatopia-sushi-date-night-box-15_6db10296-2b90-4edd-87b3-8ec2ab3145dd.jpg",
         "image_ratio": "adapt",
         "image_width": "large",
         "layout": "image_first",
