@@ -941,14 +941,21 @@
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "",
-        "products": [],
+        "products": [
+          "fish-shell-variety",
+          "salmon-box",
+          "buy-ora-king-salmon-portion-new-zealand",
+          "scallop-meat-16oz",
+          "caleta-bay-cold-smoked-a-i-steelhead-4oz",
+          "caleta-bay-a-i-steelhead-loin-12oz"
+        ],
         "product_limit": 6,
         "columns": 4,
         "carousel_on_desktop": true,
         "show_view_all": false,
         "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "heading": "Featured collection",
+        "heading": "Discover Seatopia Seafood",
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
