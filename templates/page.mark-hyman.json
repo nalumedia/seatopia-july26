@@ -146,6 +146,7 @@
         "content_width": "small",
         "content_position": "md:items-end md:justify-start",
         "text_alignment": "left",
+        "priority_image": false,
         "image_height_mobile": "auto",
         "content_position_mobile": "items-end justify-start",
         "text_alignment_mobile": "left",
@@ -263,6 +264,104 @@
         "parallax_direction": "vertical"
       }
     },
+    "featured_product_kYHLNY": {
+      "type": "featured-product",
+      "blocks": {
+        "title_eBz8XM": {
+          "type": "title",
+          "settings": {
+            "title_size": "product-title-md",
+            "title_size_mobile": "product-title-md",
+            "show_price": true,
+            "show_rating": true
+          }
+        },
+        "description_R8QAxN": {
+          "type": "description",
+          "settings": {
+            "text_size": "text-base"
+          }
+        },
+        "variant_picker_AAPfK3": {
+          "type": "variant_picker",
+          "settings": {
+            "show_variant_labels": true,
+            "picker_type": "button",
+            "enable_color_swatches": true,
+            "color_swatch_type": "color",
+            "size_chart": ""
+          }
+        },
+        "buy_buttons_UUpdND": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "show_price": false,
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true,
+            "enable_back_in_stock": false,
+            "show_back_in_stock_name": false,
+            "show_back_in_stock_phone": false
+          }
+        },
+        "pickup_availability_Ny33z4": {
+          "type": "pickup_availability",
+          "settings": {}
+        },
+        "share_tnt9jT": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share",
+            "show_help_desk": true,
+            "help_label": "Need help?",
+            "help_page": ""
+          }
+        },
+        "read_more_EQ936U": {
+          "type": "read_more",
+          "settings": {}
+        },
+        "spinning_text_LdiVYH": {
+          "type": "spinning_text",
+          "settings": {
+            "text": "Featured product"
+          }
+        }
+      },
+      "block_order": [
+        "title_eBz8XM",
+        "description_R8QAxN",
+        "variant_picker_AAPfK3",
+        "buy_buttons_UUpdND",
+        "pickup_availability_Ny33z4",
+        "share_tnt9jT",
+        "read_more_EQ936U",
+        "spinning_text_LdiVYH"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "section_id": "",
+        "product": "the-seatopia-longevity-box",
+        "enable_sticky_info": true,
+        "show_chef_notes": true,
+        "media_size": 66,
+        "gallery_layout": "thumbnail",
+        "thumbnail_position": "beside",
+        "image_ratio": "adapt_first",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_autoplay": false,
+        "enable_video_looping": false,
+        "mobile_layout": "partial",
+        "image_ratio_mobile": "adapt_first",
+        "mobile_thumbnail": false,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
     "s1_hero_overlay": {
       "type": "image-with-text-overlay",
       "blocks": {
@@ -324,6 +423,7 @@
         "content_width": "small",
         "content_position": "md:items-end md:justify-center",
         "text_alignment": "center",
+        "priority_image": false,
         "image_height_mobile": "auto",
         "content_position_mobile": "items-end justify-start",
         "text_alignment_mobile": "center",
@@ -1446,6 +1546,7 @@
         "content_width": "small",
         "content_position": "md:items-center md:justify-center",
         "text_alignment": "center",
+        "priority_image": false,
         "image_height_mobile": "auto",
         "content_position_mobile": "items-end justify-start",
         "text_alignment_mobile": "center",
@@ -1526,6 +1627,7 @@
     "image_with_text_overlay_qJp7Kt",
     "blocks_QFRCiy",
     "s2_hook",
+    "featured_product_kYHLNY",
     "s1_hero_overlay",
     "featured_product_WTfyAg",
     "video_with_text_TJNVqG",
