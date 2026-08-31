@@ -569,6 +569,7 @@
         "text_Cw4Q3b",
         "button_AUn8PA"
       ],
+      "disabled": true,
       "name": "t:sections.video-with-text.presets.name",
       "settings": {
         "video": "shopify://files/videos/98876DE4-2464-47AB-A927-10066D3FD784.mov",
