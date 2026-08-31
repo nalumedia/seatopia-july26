@@ -323,6 +323,7 @@
         },
         "spinning_text_LdiVYH": {
           "type": "spinning_text",
+          "disabled": true,
           "settings": {
             "text": "Featured product"
           }
@@ -442,6 +443,165 @@
         "rounded": true,
         "enable_parallax": true,
         "narrow": false,
+        "parallax_direction": "vertical"
+      }
+    },
+    "image_with_text_bHEWNz": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_VUhUp3": {
+          "type": "heading",
+          "settings": {
+            "heading": "One-Pan Seafood Skillet with Cannellini & Jammy Tomatoes",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_f8WaMz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Mark knows that food is medicine, and this One-Pan Seafood Skillet is one of his go-to ways to eat toward long-term health.</p><p>King Salmon and Branzino seared skin-side down until crisp, then nestled into a skillet of jammy tomatoes, cannellini beans, wilted kale and black tiger shrimp folded in. Finished with parsley and a spoonful of salmon roe, it's a complete, nutrient-dense meal ready in 30 - all in one pan.</p><p>This all-in-one dish makes clean eating effortless: one skillet that's built around the omega-3s and high-quality protein that the longevity research keeps coming back to.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_hggXG3": {
+          "type": "button",
+          "settings": {
+            "button_label": "Get the recipe",
+            "button_link": "https://seatopia.fish/blogs/seafood-recipes/one-pan-seafood-skillet-with-cannellini-jammy-tomatoes",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_VUhUp3",
+        "text_f8WaMz",
+        "button_hggXG3"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/IMG_5347.heic",
+        "image_height": "650px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "video_with_text_TJNVqG": {
+      "type": "video-with-text",
+      "blocks": {
+        "image_ChGpmD": {
+          "type": "image",
+          "settings": {
+            "image_width": "custom",
+            "image_max_width": 50,
+            "image_max_width_mobile": 50
+          }
+        },
+        "heading_NMXH7U": {
+          "type": "heading",
+          "settings": {
+            "heading": "Mark's favorite recipe",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_Cw4Q3b": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Mark knows that food is medicine, and this Nobu-Style Miso-Glazed King Salmon is one of his go-to recipes for putting that philosophy into practice. </p><p>Our King Salmon is marinated for 48 hours in saké, miso, and coconut sugar until it turns deeply caramelized, then broiled and built into a bento box with sushi rice, blanched broccolini, pickled red onions, avocado, and salmon roe. A complete, nutrient-dense meal that holds up beautifully whether served warm or at room temperature. </p><p>It's the kind of dish that makes Mark's meal-prep rhythm effortless: marinate once, and you've got a week of restaurant-quality, omega-3-rich lunches and dinners ready to go.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_AUn8PA": {
+          "type": "button",
+          "settings": {
+            "button_label": "Get the recipe",
+            "button_link": "https://seatopia.fish/blogs/seafood-recipes/broiled-miso-salmon-bowl-sushi-rice-avocado",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": true,
+            "button_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "image_ChGpmD",
+        "heading_NMXH7U",
+        "text_Cw4Q3b",
+        "button_AUn8PA"
+      ],
+      "name": "t:sections.video-with-text.presets.name",
+      "settings": {
+        "video": "shopify://files/videos/98876DE4-2464-47AB-A927-10066D3FD784.mov",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "cover_image": "shopify://shop_images/IMG_5347.heic",
+        "description": "",
+        "enable_video_autoplay": false,
+        "enable_video_looping": false,
+        "image_height": "750px",
+        "video_width": "small",
+        "layout": "video_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "video_mobile": "shopify://files/videos/98876DE4-2464-47AB-A927-10066D3FD784.mov",
+        "video_url_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": false,
         "parallax_direction": "vertical"
       }
     },
@@ -611,8 +771,9 @@
         },
         "spinning_text_CBAycK": {
           "type": "spinning_text",
+          "disabled": true,
           "settings": {
-            "text": ""
+            "text": "Seatopie Longevity Box"
           }
         }
       },
@@ -658,83 +819,6 @@
         "divider": false,
         "full_width": false,
         "rounded": true
-      }
-    },
-    "video_with_text_TJNVqG": {
-      "type": "video-with-text",
-      "blocks": {
-        "heading_NMXH7U": {
-          "type": "heading",
-          "settings": {
-            "heading": "Mark's favorite recipe",
-            "heading_size": "title-md",
-            "heading_tag": "h2",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "text_Cw4Q3b": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Mark knows that food is medicine, and this Nobu-Style Miso-Glazed King Salmon is one of his go-to recipes for putting that philosophy into practice. </p><p>Our King Salmon is marinated for 48 hours in saké, miso, and coconut sugar until it turns deeply caramelized, then broiled and built into a bento box with sushi rice, blanched broccolini, pickled red onions, avocado, and salmon roe. A complete, nutrient-dense meal that holds up beautifully whether served warm or at room temperature. </p><p>It's the kind of dish that makes Mark's meal-prep rhythm effortless: marinate once, and you've got a week of restaurant-quality, omega-3-rich lunches and dinners ready to go.</p>",
-            "text_size": "subtext-md",
-            "text_max_size": 32,
-            "text_font": "body",
-            "secondary_color": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "button_AUn8PA": {
-          "type": "button",
-          "settings": {
-            "button_label": "Get the recipe",
-            "button_link": "https://seatopia.fish/blogs/seafood-recipes/broiled-miso-salmon-bowl-sushi-rice-avocado",
-            "button_style": "primary",
-            "button_size": "md",
-            "button_external": true,
-            "button_icon": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_NMXH7U",
-        "text_Cw4Q3b",
-        "button_AUn8PA"
-      ],
-      "name": "t:sections.video-with-text.presets.name",
-      "settings": {
-        "video": "shopify://files/videos/98876DE4-2464-47AB-A927-10066D3FD784.mov",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "description": "",
-        "enable_video_autoplay": false,
-        "enable_video_looping": false,
-        "image_height": "750px",
-        "video_width": "small",
-        "layout": "video_first",
-        "text_alignment": "left",
-        "content_position": "align-self-center",
-        "video_mobile": "shopify://files/videos/98876DE4-2464-47AB-A927-10066D3FD784.mov",
-        "video_url_mobile": "",
-        "image_height_mobile": "auto",
-        "text_alignment_mobile": "left",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_background_2": "",
-        "gradient_background_2": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "full_width": false,
-        "rounded": false,
-        "enable_parallax": false,
-        "parallax_direction": "vertical"
       }
     },
     "s7_proof": {
@@ -1629,8 +1713,9 @@
     "s2_hook",
     "featured_product_kYHLNY",
     "s1_hero_overlay",
-    "featured_product_WTfyAg",
+    "image_with_text_bHEWNz",
     "video_with_text_TJNVqG",
+    "featured_product_WTfyAg",
     "s7_proof",
     "image_with_text_688xHz",
     "s4_standard",
