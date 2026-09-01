@@ -1,0 +1,80 @@
+{%- comment -%}
+  RecipeKit → theme cart bridge.
+
+  RecipeKit adds items with its own fetch to /cart/add.js and then dispatches
+  only its private `rk_cart_event`. Nothing in this theme listens for that, so
+  the header count and the mini-cart keep showing the pre-add state and the
+  item reads as "not added" until the shopper reloads.
+
+  This forwards RecipeKit's event onto the two channels the theme actually
+  listens on:
+    - theme.pubsub `cartUpdate`  (assets/cart.js:141)
+    - DOM event `cart:refresh`   (assets/cart.js:64)
+
+  Note: cart.js `onCartRefresh` reads `event.detail.open`, so `detail` must
+  always be supplied or the handler throws.
+
+  Include once, near the end of layout/theme.liquid:
+    {%- render 'recipekit-cart-bridge' -%}
+{%- endcomment -%}
+
+<script>
+  (function () {
+    if (window.__rkCartBridge) return;
+    window.__rkCartBridge = true;
+
+    document.addEventListener('rk_cart_event', function (event) {
+      var cart = event && event.detail && event.detail.cart;
+
+      // 1. Tell any pubsub subscribers (mini-cart, volume pricing, etc.).
+      try {
+        if (window.theme && theme.pubsub && theme.pubsub.publish && cart) {
+          theme.pubsub.publish(theme.pubsub.PUB_SUB_EVENTS.cartUpdate, {
+            source: 'recipe-kit',
+            cart: cart
+          });
+        }
+      } catch (e) {
+        console.warn('[recipekit-cart-bridge] pubsub publish failed', e);
+      }
+
+      // 2. Re-render the mini-cart section. `detail` is required.
+      try {
+        document.dispatchEvent(
+          new CustomEvent('cart:refresh', {
+            bubbles: true,
+            detail: { source: 'recipe-kit', open: false }
+          })
+        );
+      } catch (e) {
+        console.warn('[recipekit-cart-bridge] cart:refresh failed', e);
+      }
+    });
+
+    // RecipeKit treats any HTTP response as success — a 422 still flips the
+    // button to "Added". Surface real failures instead of swallowing them.
+    var _fetch = window.fetch;
+    window.fetch = function (input, init) {
+      var url = typeof input === 'string' ? input : (input && input.url) || '';
+      var promise = _fetch.apply(this, arguments);
+
+      if (url.indexOf('/cart/add.js') !== -1) {
+        promise.then(function (response) {
+          if (!response.ok) {
+            response.clone().json().then(function (body) {
+              console.error('[recipekit-cart-bridge] add to cart FAILED', response.status, body);
+              document.dispatchEvent(
+                new CustomEvent('rk_cart_add_failed', {
+                  bubbles: true,
+                  detail: { status: response.status, body: body }
+                })
+              );
+            }).catch(function () {});
+          }
+        }).catch(function () {});
+      }
+
+      return promise;
+    };
+  })();
+</script>
