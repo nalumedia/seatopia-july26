@@ -1,0 +1,944 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-article-banner": {
+      "type": "main-article-banner",
+      "blocks": {
+        "spacing": {
+          "type": "spacing",
+          "settings": {
+            "height": 68,
+            "height_mobile": 0
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "title-lg tracking-heading",
+            "show_tags": true,
+            "show_date": false,
+            "show_comments": false,
+            "show_author": true
+          }
+        }
+      },
+      "block_order": [
+        "spacing",
+        "title"
+      ],
+      "settings": {
+        "transparent_header": true,
+        "show_image": true,
+        "image": "shopify://shop_images/sunny-fine-foods-shrimp-peach-salad-plated.jpg",
+        "image_height": "750px",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-center",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_overlay": "#000000",
+        "overlay_opacity": 40,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "collab_card": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "recipe-collab",
+        "liquid": "\n<style>\n  .sea-collab {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    border: 1px solid var(--line);\n    border-radius: 18px;\n    background: var(--wash);\n    padding: 24px 28px;\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n    color: var(--ink);\n  }\n  .sea-collab__avatar {\n    flex: 0 0 auto;\n    width: 68px;\n    height: 68px;\n    border-radius: 50%;\n    overflow: hidden;\n    border: 2px solid #fff;\n    box-shadow: 0 0 0 2px var(--gold);\n    background: #eee;\n  }\n  .sea-collab__avatar img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    display: block;\n  }\n  .sea-collab__body { flex: 1 1 260px; min-width: 0; }\n  .sea-collab__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 5px;\n  }\n  .sea-collab__name { font-size: 21px; font-weight: 600; line-height: 1.2; margin: 0 0 4px; }\n  .sea-collab__role { font-size: 15px; color: var(--muted); line-height: 1.45; margin: 0; }\n  .sea-collab__cred {\n    font-size: 13px;\n    color: var(--muted);\n    line-height: 1.5;\n    margin: 10px 0 0;\n    padding-top: 10px;\n    border-top: 1px solid var(--line);\n  }\n  .sea-collab__follow {\n    flex: 0 0 auto;\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    padding: 11px 20px;\n    border: 1px solid var(--ink);\n    border-radius: 999px;\n    font-size: 15px;\n    font-weight: 600;\n    text-decoration: none;\n    color: var(--ink);\n    background: #fff;\n    transition: background .18s ease, color .18s ease;\n  }\n  .sea-collab__follow:hover { background: var(--ink); color: #fff; }\n  .sea-collab__follow svg { width: 18px; height: 18px; }\n  @media (max-width: 749px) {\n    .sea-collab { padding: 20px; gap: 16px; }\n    .sea-collab__follow { width: 100%; justify-content: center; }\n    .sea-collab__name { font-size: 19px; }\n  }\n</style>\n\n{%- assign collab_avatar = 'sunny-fine-foods-logo.jpg' | file_url -%}\n\n<div class=\"sea-collab\">\n  {%- if collab_avatar != blank -%}\n    <div class=\"sea-collab__avatar\">\n      <img src=\"{{ collab_avatar }}\" alt=\"Sunny Fine Foods\" width=\"150\" height=\"150\" loading=\"lazy\" decoding=\"async\">\n    </div>\n  {%- endif -%}\n\n  <div class=\"sea-collab__body\">\n    <p class=\"sea-collab__eyebrow\">Sunny Fine Foods &times; Seatopia</p>\n    <p class=\"sea-collab__name\">Recipe by Sunny Fine Foods</p>\n    <p class=\"sea-collab__role\">Fresh dressings and sauces made from real ingredients &mdash; founded in Los Angeles by Matt and Nora Kramer</p>\n    <p class=\"sea-collab__cred\">Made with Sunny Ginger Ponzu &middot; never heat pasteurized, no added sugar &middot; <a href=\"https://www.sunnyfoods.us\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:inherit;\">sunnyfoods.us</a></p>\n  </div>\n\n  <a class=\"sea-collab__follow\" href=\"https://www.instagram.com/eat___sunny/\" target=\"_blank\" rel=\"noopener noreferrer\">\n    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n      <rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\"></rect>\n      <circle cx=\"12\" cy=\"12\" r=\"4\"></circle>\n      <circle cx=\"17.5\" cy=\"6.5\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"></circle>\n    </svg>\n    <span>Follow</span>\n  </a>\n</div>\n",
+        "padding_top": 28,
+        "padding_bottom": 8,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "rich_text_intro": {
+      "type": "rich-text",
+      "blocks": {
+        "text_intro": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This is a salad with no lettuce in it. Smashed Persian cucumbers, ripe summer peaches, avocado and a fistful of cilantro, with seared Black Tiger Shrimp on top and one big drizzle of ginger ponzu over the whole thing. Roughly twenty minutes, and the only thing that touches heat is the shrimp.</p><p>The shrimp cook in about four minutes total &mdash; one to two minutes a side in a hot cast iron pan, seasoned with nothing but salt, pepper and grated garlic. You are looking for bright orange with slightly crisp edges, then straight out of the pan while you build the bowl.</p><p>We made it with Seatopia <a href=\"/products/black-tiger-shrimp-mangrove-regeneration\" title=\"Mangrove Black Tiger Shrimp\">Mangrove Black Tiger Shrimp</a> from Tarakan, Indonesia &mdash; raw, easy-peel, head-off, and lab tested to the <a href=\"/pages/why-clean-seafood-matters\" title=\"Why Clean Seafood Matters\">Seatopia Standard&trade;</a>. The dressing is Ginger Ponzu from <a href=\"https://www.instagram.com/eat___sunny/\" target=\"_blank\" rel=\"noopener\" title=\"Sunny Fine Foods on Instagram\">Sunny Fine Foods</a>, the Los Angeles brand Matt and Nora Kramer built around dressings with nothing hiding in them &mdash; no gums, no fillers, no blanket &ldquo;natural flavors.&rdquo; Same instinct we have about fish.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "text_intro"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_width": "small",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "at_a_glance": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "g_time": {
+          "type": "column",
+          "settings": {
+            "icon": "time",
+            "custom_icon": "",
+            "heading": "About 20 minutes",
+            "text": "<p>Fifteen minutes of chopping and smashing, four minutes of actual cooking. Nothing marinates and nothing has to cool down before you eat it.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_serves": {
+          "type": "column",
+          "settings": {
+            "icon": "users",
+            "custom_icon": "",
+            "heading": "Serves 2",
+            "text": "<p>One cucumber, one peach, one avocado. A 16 oz bag of shrimp holds four 4 oz portions, so doubling it costs you one more peach.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_heat": {
+          "type": "column",
+          "settings": {
+            "icon": "lightning",
+            "custom_icon": "",
+            "heading": "1&ndash;2 minutes a side",
+            "text": "<p>Cast iron over medium-high, a slick of oil, and out again the moment the shrimp go bright orange with crisp edges. Overcooked shrimp is the only way to lose here.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_pantry": {
+          "type": "column",
+          "settings": {
+            "icon": "check_mark",
+            "custom_icon": "",
+            "heading": "Eight ingredients",
+            "text": "<p>Shrimp, cucumber, peach, avocado, cilantro, sesame seeds, lime, ginger ponzu. Salt, pepper and a clove of garlic from the cupboard.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "g_time",
+        "g_serves",
+        "g_heat",
+        "g_pantry"
+      ],
+      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "settings": {
+        "custom_class": "",
+        "section_id": "at-a-glance",
+        "style": "with-border",
+        "columns": 4,
+        "text_alignment": "left",
+        "dt_txt_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "At a glance",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "clip_strip": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "watch-the-salad",
+        "liquid": "\n<style>\n  .sea-clips { --ink:#171717; --muted:#5c5c5c; --line:#e5e2dc; --gold:#bb8f50; color: var(--ink); }\n  .sea-clips__grid {\n    display: grid;\n    grid-template-columns: repeat(3, minmax(0, 1fr));\n    gap: 18px;\n  }\n  .sea-clips__item { margin: 0; }\n  .sea-clips__frame {\n    position: relative;\n    aspect-ratio: 4 / 5;\n    border-radius: 14px;\n    overflow: hidden;\n    background: #efece7 center / cover no-repeat;\n    box-shadow: 0 0 0 1px var(--line);\n  }\n  .sea-clips__frame video {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    display: block;\n  }\n  .sea-clips__step {\n    position: absolute;\n    top: 10px;\n    left: 10px;\n    z-index: 2;\n    font-size: 11px;\n    font-weight: 700;\n    letter-spacing: .1em;\n    text-transform: uppercase;\n    color: #fff;\n    background: rgba(23,23,23,.6);\n    padding: 5px 10px;\n    border-radius: 999px;\n  }\n  .sea-clips__cap {\n    margin: 12px 0 0;\n    font-size: 14px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  .sea-clips__cap b { color: var(--ink); display: block; font-size: 15px; margin-bottom: 2px; }\n  @media (max-width: 749px) {\n    .sea-clips__grid { grid-template-columns: 1fr; gap: 22px; }\n    .sea-clips__frame { max-width: 340px; }\n  }\n  @media (prefers-reduced-motion: reduce) {\n    .sea-clips__frame video { display: none; }\n  }\n</style>\n\n{%- assign clip_base = 'https://cdn.shopify.com/videos/c/vp/' -%}\n\n<div class=\"sea-clips\">\n  <div class=\"sea-clips__grid\">\n\n    <figure class=\"sea-clips__item\">\n      <div class=\"sea-clips__frame\" data-sea-clip\n           style=\"background-image:url('{{ 'sunny-fine-foods-shrimp-salad-ingredients.jpg' | file_url }}');\">\n        <span class=\"sea-clips__step\">Step 1</span>\n        <video muted loop playsinline preload=\"none\" disablepictureinpicture\n               poster=\"{{ 'sunny-fine-foods-shrimp-salad-ingredients.jpg' | file_url }}\"\n               data-src-hd=\"{{ clip_base }}71ce79be93a14cc893e9eaf3a9eb375d/71ce79be93a14cc893e9eaf3a9eb375d.HD-720p-4.5Mbps-93420371.mp4\"\n               data-src-sd=\"{{ clip_base }}71ce79be93a14cc893e9eaf3a9eb375d/71ce79be93a14cc893e9eaf3a9eb375d.SD-480p-1.5Mbps-93420371.mp4\"\n               aria-label=\"Everything laid out: Seatopia Black Tiger Shrimp, cucumbers, peaches, avocado, cilantro, sesame, lime and Sunny Ginger Ponzu\"></video>\n      </div>\n      <figcaption class=\"sea-clips__cap\"><b>Everything on one tray</b>Eight ingredients. Nothing to marinate, nothing to reduce.</figcaption>\n    </figure>\n\n    <figure class=\"sea-clips__item\">\n      <div class=\"sea-clips__frame\" data-sea-clip\n           style=\"background-image:url('{{ 'sunny-fine-foods-ginger-ponzu-drizzle.jpg' | file_url }}');\">\n        <span class=\"sea-clips__step\">Step 2</span>\n        <video muted loop playsinline preload=\"none\" disablepictureinpicture\n               poster=\"{{ 'sunny-fine-foods-ginger-ponzu-drizzle.jpg' | file_url }}\"\n               data-src-hd=\"{{ clip_base }}56be5b5369ae4a9f83412c5bfe90c7e1/56be5b5369ae4a9f83412c5bfe90c7e1.HD-720p-4.5Mbps-93420370.mp4\"\n               data-src-sd=\"{{ clip_base }}56be5b5369ae4a9f83412c5bfe90c7e1/56be5b5369ae4a9f83412c5bfe90c7e1.SD-480p-1.5Mbps-93420370.mp4\"\n               aria-label=\"Sunny Ginger Ponzu being drizzled over the seared shrimp, cucumber, peach and avocado\"></video>\n      </div>\n      <figcaption class=\"sea-clips__cap\"><b>One big drizzle</b>Ginger ponzu goes on at the end, straight from the bottle.</figcaption>\n    </figure>\n\n    <figure class=\"sea-clips__item\">\n      <div class=\"sea-clips__frame\" data-sea-clip\n           style=\"background-image:url('{{ 'sunny-fine-foods-shrimp-peach-salad-plated.jpg' | file_url }}');\">\n        <span class=\"sea-clips__step\">Step 3</span>\n        <video muted loop playsinline preload=\"none\" disablepictureinpicture\n               poster=\"{{ 'sunny-fine-foods-shrimp-peach-salad-plated.jpg' | file_url }}\"\n               data-src-hd=\"{{ clip_base }}f51c0c2a8e8e40c6ac5f9e17beb4e805/f51c0c2a8e8e40c6ac5f9e17beb4e805.HD-720p-4.5Mbps-93420372.mp4\"\n               data-src-sd=\"{{ clip_base }}f51c0c2a8e8e40c6ac5f9e17beb4e805/f51c0c2a8e8e40c6ac5f9e17beb4e805.SD-480p-1.5Mbps-93420372.mp4\"\n               aria-label=\"The finished shrimp salad plated, with a lime wedge squeezed over the top\"></video>\n      </div>\n      <figcaption class=\"sea-clips__cap\"><b>Lime, sesame, flaky salt</b>The three finishes that make it taste like a restaurant salad.</figcaption>\n    </figure>\n\n  </div>\n</div>\n\n<script>\n  (function () {\n    var frames = document.querySelectorAll('[data-sea-clip]');\n    if (!frames.length) return;\n\n    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;\n    if (reduce) return;\n\n    if (!('IntersectionObserver' in window)) return;\n\n    var io = new IntersectionObserver(function (entries) {\n      entries.forEach(function (entry) {\n        var video = entry.target.querySelector('video');\n        if (!video) return;\n\n        if (entry.isIntersecting) {\n          if (!video.src) {\n            var wide = window.matchMedia('(min-width: 750px)').matches;\n            video.src = wide ? video.dataset.srcHd : video.dataset.srcSd;\n          }\n          var played = video.play();\n          if (played && played.catch) played.catch(function () {});\n        } else if (!video.paused) {\n          video.pause();\n        }\n      });\n    }, { rootMargin: '120px 0px', threshold: 0.25 });\n\n    frames.forEach(function (frame) { io.observe(frame); });\n  })();\n</script>\n",
+        "padding_top": 8,
+        "padding_bottom": 44,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "on_the_plate": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "p_shrimp": {
+          "type": "column",
+          "settings": {
+            "icon": "lightning",
+            "custom_icon": "",
+            "heading": "1. Seared shrimp",
+            "text": "<p>Salt, pepper, grated garlic, hot cast iron. Black Tiger Shrimp hold their snap instead of going rubbery, which is the whole reason they work cold in a salad.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "p_cuke": {
+          "type": "column",
+          "settings": {
+            "icon": "organic",
+            "custom_icon": "",
+            "heading": "2. Smashed cucumber",
+            "text": "<p>Smashed rather than sliced, so the ragged edges catch dressing. Persian cucumbers have thin skins and almost no seeds, so there is nothing to peel or scoop.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "p_fruit": {
+          "type": "column",
+          "settings": {
+            "icon": "star",
+            "custom_icon": "",
+            "heading": "3. Peach and avocado",
+            "text": "<p>The peach brings acid and perfume, the avocado brings fat. Together they do the job a creamy dressing would normally have to do.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "p_dressing": {
+          "type": "column",
+          "settings": {
+            "icon": "box",
+            "custom_icon": "",
+            "heading": "4. Ginger ponzu",
+            "text": "<p>Citrus, soy and fresh ginger, never heat pasteurized and with no added sugar. It goes on at the very end, straight from the bottle, in one generous pass.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "p_shrimp",
+        "p_cuke",
+        "p_fruit",
+        "p_dressing"
+      ],
+      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "settings": {
+        "custom_class": "",
+        "section_id": "on-the-plate",
+        "style": "with-background",
+        "columns": 4,
+        "text_alignment": "left",
+        "dt_txt_alignment": "left",
+        "padding_top": 24,
+        "padding_bottom": 48,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Every part here is doing a specific job. Learn what each one is for and you can rebuild this salad in February with whatever fruit is actually good.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "Four parts, no lettuce",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "recipe_kit_card": {
+      "type": "apps",
+      "blocks": {
+        "recipe_kit_app_block_sunny": {
+          "type": "shopify://apps/recipe-kit/blocks/app-block/0afa374e-81c7-4989-96de-e1ac84640954",
+          "settings": {
+            "custom_js": "",
+            "custom_css": ".rk_direction_image { margin-top: 14px; }\n.rk_direction_image img { max-height: 400px; width: 100%; object-fit: cover; border-radius: 12px; }\n@media (max-width: 749px) {\n  .rk_direction_image img { max-height: 280px; }\n}\n"
+          }
+        }
+      },
+      "block_order": [
+        "recipe_kit_app_block_sunny"
+      ],
+      "settings": {
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "shop_the_salad": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "",
+        "products": [
+          "black-tiger-shrimp-mangrove-regeneration",
+          "half-shell-scallops-2x-12oz-bag",
+          "scallop-meat-16oz",
+          "fish-shellfish-variety-box",
+          "fine-pure-natural-spring-salt-300g-microplastic-free"
+        ],
+        "product_limit": 6,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Developed with Mangrove Black Tiger Shrimp &mdash; raw, easy-peel, head-off 4 oz portions from Tarakan. Scallops sear on the same timeline if you want to swap, and a pinch of <a href=\"/products/fine-pure-natural-spring-salt-300g-microplastic-free\" title=\"Fine Pure Natural Spring Salt\">flaky spring salt</a> is the last thing that goes on top.</p>",
+        "heading": "Shop the shrimp in this salad",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "game_plan": {
+      "type": "timeline",
+      "blocks": {
+        "s_shrimp": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/sunny-fine-foods-shrimp-salad-ingredients.jpg",
+            "subheading": "Minute 0",
+            "heading": "Season and sear the shrimp",
+            "heading_tag": "h3",
+            "text": "<p>Toss the shrimp in a bowl with salt, pepper and a clove of grated garlic. Get a cast iron pan hot over medium-high, add a little oil, then the shrimp in a single layer. One to two minutes a side, until they are bright orange with slightly crisp edges. Out of the pan and onto a plate.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_cuke": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/sunny-fine-foods-smashed-cucumbers.jpg",
+            "subheading": "Minute 5",
+            "heading": "Smash the cucumbers",
+            "heading_tag": "h3",
+            "text": "<p>Lay a Persian cucumber on the board, press down with the flat of a knife until it splits, then tear or cut it into bite-sized pieces. The rough surfaces hold dressing in a way clean slices never do.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_fruit": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/sunny-fine-foods-cucumbers-and-peaches.jpg",
+            "subheading": "Minute 8",
+            "heading": "Add the peach, then everything green",
+            "heading_tag": "h3",
+            "text": "<p>Slice one ripe peach straight into the bowl, then a diced avocado and a generous handful of cilantro &mdash; stems included. Do not toss yet; the avocado will bruise if it sits in dressing while you finish the rest.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_finish": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/sunny-fine-foods-cucumber-peach-avocado-cilantro.jpg",
+            "subheading": "Minute 15",
+            "heading": "Dress, toss, finish",
+            "heading_tag": "h3",
+            "text": "<p>Pile the warm shrimp on top and drizzle the ginger ponzu generously. Toss once, gently, then finish with toasted sesame seeds, a hard squeeze of lime and a big pinch of flaky salt. Eat it immediately, while the shrimp are still warm and the cucumber is still cold.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "s_shrimp",
+        "s_cuke",
+        "s_fruit",
+        "s_finish"
+      ],
+      "name": "t:sections.timeline.presets.name",
+      "settings": {
+        "image_ratio": "square",
+        "image_ratio_mobile": "landscape",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Cook the shrimp first and let them rest while you build the bowl &mdash; warm shrimp against cold cucumber is the entire point of this salad. Thaw the shrimp overnight in the refrigerator before you start.</p>",
+        "heading": "The 20-minute game plan",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "fruit_table": {
+      "type": "table-content",
+      "blocks": {
+        "f_head": {
+          "type": "row",
+          "settings": {
+            "feature": "",
+            "version1": "Peach (as written)",
+            "version2": "Nectarine",
+            "version3": "Mango"
+          }
+        },
+        "f_texture": {
+          "type": "row",
+          "settings": {
+            "feature": "Texture",
+            "version1": "Soft, juicy, slightly fuzzy skin",
+            "version2": "Firmer, holds its edges when tossed",
+            "version3": "Dense and slippery"
+          }
+        },
+        "f_sweet": {
+          "type": "row",
+          "settings": {
+            "feature": "Sweetness",
+            "version1": "High, with real acid behind it",
+            "version2": "Slightly lower, cleaner finish",
+            "version3": "Highest &mdash; go easy"
+          }
+        },
+        "f_prep": {
+          "type": "row",
+          "settings": {
+            "feature": "Prep note",
+            "version1": "Leave the skin on, slice off the pit",
+            "version2": "Same as peach, no peeling",
+            "version3": "Peel it, and cut smaller than you think"
+          }
+        },
+        "f_when": {
+          "type": "row",
+          "settings": {
+            "feature": "Reach for it when",
+            "version1": "Peak summer, August into September",
+            "version2": "The peaches at the store are rock hard",
+            "version3": "It is February and stone fruit is a lie"
+          }
+        },
+        "f_watch": {
+          "type": "row",
+          "settings": {
+            "feature": "Watch out for",
+            "version1": "Underripe fruit turns the salad flat",
+            "version2": "Almost foolproof",
+            "version3": "Can tip the whole bowl sweet &mdash; add extra lime"
+          }
+        }
+      },
+      "block_order": [
+        "f_head",
+        "f_texture",
+        "f_sweet",
+        "f_prep",
+        "f_when",
+        "f_watch"
+      ],
+      "name": "Table content",
+      "settings": {
+        "custom_class": "",
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>The shrimp, cucumber, avocado and ginger ponzu are fixed. The stone fruit is the one variable, and it is the part most likely to be out of season when you want this.</p>",
+        "heading": "Swap the fruit, keep the formula",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "label_story": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "label-story",
+        "liquid": "\n<style>\n  .sea-story {\n    --ink:#171717; --muted:#5c5c5c; --line:#e5e2dc; --wash:#faf8f4; --gold:#bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-story__grid {\n    display: grid;\n    grid-template-columns: minmax(0, 260px) minmax(0, 1fr);\n    gap: 32px;\n    align-items: center;\n  }\n  .sea-story__player {\n    position: relative;\n    margin: 0;\n    aspect-ratio: 9 / 16;\n    border-radius: 16px;\n    overflow: hidden;\n    background: #111 center / cover no-repeat;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-story__player video {\n    width: 100%; height: 100%; object-fit: cover; display: block;\n    opacity: 0; transition: opacity .3s ease;\n  }\n  .sea-story__player.is-playing video { opacity: 1; }\n  .sea-story__play {\n    position: absolute; inset: 0; width: 100%; height: 100%;\n    display: flex; align-items: center; justify-content: center;\n    border: 0; padding: 0; cursor: pointer;\n    background: linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.34));\n    transition: opacity .25s ease;\n  }\n  .sea-story__player.is-playing .sea-story__play { opacity: 0; pointer-events: none; }\n  .sea-story__play span {\n    width: 60px; height: 60px; border-radius: 50%;\n    background: rgba(255,255,255,.94);\n    display: flex; align-items: center; justify-content: center;\n    box-shadow: 0 6px 18px -6px rgba(0,0,0,.5);\n    transition: transform .18s ease;\n  }\n  .sea-story__play:hover span { transform: scale(1.07); }\n  .sea-story__play svg { width: 20px; height: 20px; margin-left: 3px; fill: var(--ink); }\n  .sea-story__badge {\n    position: absolute; top: 12px; left: 12px; z-index: 2;\n    font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;\n    color: #fff; background: rgba(23,23,23,.62); padding: 5px 10px; border-radius: 999px;\n  }\n  .sea-story__player.is-playing .sea-story__badge { opacity: 0; transition: opacity .25s ease; }\n  .sea-story__eyebrow {\n    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;\n    color: var(--gold); font-weight: 600; margin: 0 0 10px;\n  }\n  .sea-story__heading {\n    font-size: clamp(24px, 3vw, 31px); line-height: 1.15; font-weight: 600; margin: 0 0 14px;\n  }\n  .sea-story__body { font-size: 16px; line-height: 1.6; color: var(--muted); margin: 0 0 14px; }\n  .sea-story__body strong { color: var(--ink); }\n  .sea-story__body:last-child { margin-bottom: 0; }\n  @media (max-width: 989px) {\n    .sea-story { padding: 22px; }\n    .sea-story__grid { grid-template-columns: 1fr; gap: 24px; justify-items: center; }\n    .sea-story__player { width: min(74vw, 260px); }\n  }\n</style>\n\n<div class=\"sea-story\">\n  <div class=\"sea-story__grid\">\n\n    <figure class=\"sea-story__player\" data-sea-story\n            style=\"background-image:url('{{ 'sunny-fine-foods-label-story-video-poster.jpg' | file_url }}');\">\n      <span class=\"sea-story__badge\">1:31</span>\n      <video preload=\"none\" playsinline\n             poster=\"{{ 'sunny-fine-foods-label-story-video-poster.jpg' | file_url }}\"\n             data-src-hd=\"https://cdn.shopify.com/videos/c/vp/1848d66f03d84b1fb9137637951fbedb/1848d66f03d84b1fb9137637951fbedb.HD-720p-1.6Mbps-93422812.mp4\"\n             data-src-sd=\"https://cdn.shopify.com/videos/c/vp/1848d66f03d84b1fb9137637951fbedb/1848d66f03d84b1fb9137637951fbedb.SD-480p-0.9Mbps-93422812.mp4\"\n             aria-label=\"Nora Kramer of Sunny Fine Foods on seafood mislabeling and why she cooks with Seatopia\"></video>\n      <button class=\"sea-story__play\" type=\"button\" aria-label=\"Play the video from Sunny Fine Foods\">\n        <span><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M8 5v14l11-7z\"></path></svg></span>\n      </button>\n    </figure>\n\n    <div>\n      <p class=\"sea-story__eyebrow\">Why we picked this partner</p>\n      <h2 class=\"sea-story__heading\">&ldquo;Two out of every five fish sold in the US isn&rsquo;t the fish on the label.&rdquo;</h2>\n      <p class=\"sea-story__body\">\n        That is the line Nora opens with, and it is the reason this collaboration exists. Sunny Fine Foods reads labels\n        for a living &mdash; their dressings skip the gums, fillers and blanket &ldquo;natural flavors&rdquo; that hide\n        in most bottles. We do the same thing with fish.\n      </p>\n      <p class=\"sea-story__body\">\n        Every Seatopia species is <strong>third-party lab tested</strong> and traceable to a single named farm. The\n        shrimp in this salad comes from <strong>Tarakan</strong>, raised in Indonesian mangroves on a natural diet of\n        neoplankton and phytoplankton &mdash; not a generic &ldquo;product of&rdquo; country label.\n      </p>\n    </div>\n\n  </div>\n</div>\n\n<script>\n  (function () {\n    document.querySelectorAll('[data-sea-story]').forEach(function (frame) {\n      var video = frame.querySelector('video');\n      var button = frame.querySelector('.sea-story__play');\n      if (!video || !button) return;\n\n      button.addEventListener('click', function () {\n        if (!video.currentSrc && !video.src) {\n          var wide = window.matchMedia('(min-width: 600px)').matches;\n          video.src = wide ? video.dataset.srcHd : video.dataset.srcSd;\n        }\n        frame.classList.add('is-playing');\n        video.controls = true;\n        var played = video.play();\n        if (played && played.catch) {\n          played.catch(function () { video.muted = true; video.play(); });\n        }\n      });\n\n      video.addEventListener('pause', function () {\n        if (video.currentTime === 0 || video.ended) {\n          frame.classList.remove('is-playing');\n          video.controls = false;\n        }\n      });\n    });\n  })();\n</script>\n",
+        "padding_top": 8,
+        "padding_bottom": 48,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "rich_text_standard": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_standard": {
+          "type": "heading",
+          "settings": {
+            "heading": "Shrimp raised in a mangrove, not a cleared one",
+            "heading_size": "title-sm",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_standard": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Most farmed shrimp comes from ponds cut out of mangrove forest. Ours is the opposite trade: Tarakan raises Black Tiger Shrimp <em>inside</em> standing Indonesian mangroves, where the shrimp feed on a natural diet of neoplankton and phytoplankton rather than on formulated pellets.</p><p>Third-party testing puts the mercury at <strong>0.017 ppm</strong>, comfortably inside the 0.1 ppm ceiling of the Seatopia Standard. Each 4 oz portion carries roughly <strong>18 mcg of selenium</strong> and about <strong>40 mg of marine omega-3s</strong>, and the bag ships with no added sulfites &mdash; the preservative that gives most supermarket shrimp its faintly chemical edge. You can read how we test on our <a href=\"/pages/seatopia-testing-commitment\" title=\"Seatopia's Testing Commitment\">testing commitment page</a>.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_standard",
+        "text_standard"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_width": "small",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "reviews_shrimp": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_testimonials_carousel_sunny": {
+          "type": "shopify://apps/judge-me-reviews/blocks/testimonials_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": false,
+            "reviews_selection": "custom_products",
+            "products": [
+              "black-tiger-shrimp-mangrove-regeneration"
+            ],
+            "star_rating": "all",
+            "max_reviews": 20,
+            "quote_marks_size": "small",
+            "product_name_text_size": "small",
+            "verified_badge_style": "icon",
+            "card_height": "medium",
+            "text_size": "small",
+            "stars_size": "medium",
+            "arrows_position": "bottom",
+            "max_width": 1100,
+            "corner_styling": "soft",
+            "quote_marks_style": "serif",
+            "card_color": "#f9f9f9",
+            "stars_and_quote_marks_color": "#7bc3f3",
+            "text_color": "#000000",
+            "arrows_color": "#000000",
+            "show_border": false,
+            "border_color": "#108474",
+            "show_drop_shadow": false,
+            "transition_speed": 5,
+            "header_text": "Seatopians on this shrimp",
+            "show_average_rating": true
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_testimonials_carousel_sunny"
+      ],
+      "settings": {
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "faq_sunny": {
+      "type": "faq",
+      "blocks": {
+        "q_dressing": {
+          "type": "question",
+          "settings": {
+            "title": "Where do I get the Sunny Ginger Ponzu?",
+            "text": "<p>Sunny Fine Foods stock it at <a href=\"https://www.sunnyfoods.us\" target=\"_blank\" rel=\"noopener\">sunnyfoods.us</a>, and it turns up at Whole Foods and Sprouts. If you cannot find it, whisk 3 Tbsp soy sauce, the juice of one lemon and one lime, 1 Tbsp rice vinegar, 1 Tbsp grated fresh ginger and 1 Tbsp neutral oil. It will not be identical &mdash; theirs is never heat pasteurized, which is why the ginger tastes raw &mdash; but it works.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_smash": {
+          "type": "question",
+          "settings": {
+            "title": "Why smash the cucumbers instead of slicing them?",
+            "text": "<p>Smashing tears the flesh open along its own grain, and those ragged surfaces hold dressing that would slide straight off a clean cut. Press down with the flat of a knife until the cucumber splits, then break it into bite-sized pieces. It is also faster than slicing.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_done": {
+          "type": "question",
+          "settings": {
+            "title": "How do I know when the shrimp are done?",
+            "text": "<p><strong>One to two minutes a side</strong> in a properly hot pan. They go from grey and translucent to bright orange and opaque, and the edges pick up a little colour. The reliable visual cue is shape: a shrimp curled into a loose <strong>C</strong> is cooked, one curled into a tight <strong>O</strong> has gone too far.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_ahead": {
+          "type": "question",
+          "settings": {
+            "title": "Can I make it ahead?",
+            "text": "<p>Not assembled &mdash; the avocado browns and the cucumber weeps, and the whole appeal is warm shrimp against cold, crunchy vegetables. You can cook the shrimp up to a day ahead and serve them cold, and you can smash the cucumbers a few hours early. Cut the peach and avocado and dress it only when you are ready to eat.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_swap": {
+          "type": "question",
+          "settings": {
+            "title": "My peaches are not ripe. What else works?",
+            "text": "<p>Nectarines are the closest swap and are often firmer at the store anyway. Mango works out of season, but peel it, cut it smaller and add extra lime because it runs much sweeter. See the comparison table above. Underripe stone fruit is the one substitution that will genuinely flatten this salad &mdash; if the fruit is hard, use mango instead.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_defrost": {
+          "type": "question",
+          "settings": {
+            "title": "How do I defrost Seatopia shrimp?",
+            "text": "<p>Overnight in the refrigerator, still in the bag, is best. In a hurry, drop the sealed bag in a bowl of cold water for 20&ndash;30 minutes. Then pat them properly dry &mdash; wet shrimp steam instead of searing, and you will never get the crisp edges. Never thaw at room temperature or in the microwave.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "q_dressing",
+        "q_smash",
+        "q_done",
+        "q_ahead",
+        "q_swap",
+        "q_defrost"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "style": "with-border",
+        "color_overlay": "#ffffff",
+        "overlay_opacity": 4,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "Questions cooks actually ask about this salad",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "seafood-recipes",
+        "post_limit": 8,
+        "columns": 3,
+        "carousel_on_desktop": true,
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "landscape",
+        "show_tags": false,
+        "show_date": false,
+        "show_comments": false,
+        "show_author": false,
+        "show_excerpt": false,
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Loved this one? There is more where it came from. Every Seatopia box also includes a <a href=\"/pages/seatopia-member-cooking-classes\" title=\"Seatopia Member Cooking Classes\">FREE virtual cooking class</a>, where we walk through searing, temps and knife work live.</p>",
+        "heading": "More clean seafood to cook this week",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "newsletter_banner_sunny": {
+      "type": "newsletter-banner",
+      "blocks": {
+        "heading_newsletter": {
+          "type": "heading",
+          "settings": {
+            "heading": "Be the first to know",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_newsletter": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get on the list for more 20-minute seafood dinners, searing temps and dressings worth keeping in the door of the fridge.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "form_newsletter": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_newsletter",
+        "text_newsletter",
+        "form_newsletter"
+      ],
+      "name": "t:sections.newsletter-banner.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "transparent_footer": false,
+        "image": "shopify://shop_images/sunny-fine-foods-ginger-ponzu-drizzle.jpg",
+        "image_height": "650px",
+        "content_width": "medium",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    }
+  },
+  "order": [
+    "main-article-banner",
+    "collab_card",
+    "rich_text_intro",
+    "at_a_glance",
+    "clip_strip",
+    "on_the_plate",
+    "recipe_kit_card",
+    "shop_the_salad",
+    "game_plan",
+    "fruit_table",
+    "label_story",
+    "rich_text_standard",
+    "reviews_shrimp",
+    "faq_sunny",
+    "blog-posts",
+    "newsletter_banner_sunny"
+  ]
+}
