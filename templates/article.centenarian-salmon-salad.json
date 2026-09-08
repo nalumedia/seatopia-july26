@@ -1,0 +1,1054 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-article-banner": {
+      "type": "main-article-banner",
+      "blocks": {
+        "spacing": {
+          "type": "spacing",
+          "settings": {
+            "height": 68,
+            "height_mobile": 0
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "title-lg tracking-heading",
+            "show_tags": true,
+            "show_date": false,
+            "show_comments": false,
+            "show_author": true
+          }
+        }
+      },
+      "block_order": [
+        "spacing",
+        "title"
+      ],
+      "settings": {
+        "transparent_header": true,
+        "show_image": true,
+        "image": "shopify://shop_images/centenarian-salmon-salad-platter.jpg",
+        "image_height": "750px",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-center",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_overlay": "#000000",
+        "overlay_opacity": 42,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "collab_card": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "recipe-collab",
+        "liquid": "\n<style>\n  .sea-collab {\n    --ink: #171717; --muted: #5c5c5c; --line: #e5e2dc; --wash: #faf8f4; --gold: #bb8f50;\n    border: 1px solid var(--line);\n    border-radius: 18px;\n    background: var(--wash);\n    padding: 24px 28px;\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n    color: var(--ink);\n  }\n  .sea-collab__avatars { flex: 0 0 auto; display: flex; align-items: center; }\n  .sea-collab__avatar {\n    width: 64px; height: 64px; border-radius: 50%; overflow: hidden;\n    border: 2px solid #fff; box-shadow: 0 0 0 2px var(--gold); background: #eee;\n  }\n  .sea-collab__avatar + .sea-collab__avatar { margin-left: -18px; }\n  .sea-collab__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }\n  .sea-collab__body { flex: 1 1 260px; min-width: 0; }\n  .sea-collab__eyebrow {\n    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;\n    color: var(--gold); font-weight: 600; margin: 0 0 5px;\n  }\n  .sea-collab__name { font-size: 21px; font-weight: 600; line-height: 1.2; margin: 0 0 4px; }\n  .sea-collab__role { font-size: 15px; color: var(--muted); line-height: 1.45; margin: 0; }\n  .sea-collab__cred {\n    font-size: 13px; color: var(--muted); line-height: 1.5;\n    margin: 10px 0 0; padding-top: 10px; border-top: 1px solid var(--line);\n  }\n  .sea-collab__follows { flex: 0 0 auto; display: flex; flex-direction: column; gap: 8px; }\n  .sea-collab__follow {\n    display: inline-flex; align-items: center; gap: 8px;\n    padding: 9px 18px; border: 1px solid var(--ink); border-radius: 999px;\n    font-size: 14px; font-weight: 600; text-decoration: none;\n    color: var(--ink); background: #fff;\n    transition: background .18s ease, color .18s ease;\n    white-space: nowrap;\n  }\n  .sea-collab__follow:hover { background: var(--ink); color: #fff; }\n  .sea-collab__follow svg { width: 16px; height: 16px; flex: 0 0 auto; }\n  @media (max-width: 749px) {\n    .sea-collab { padding: 20px; gap: 16px; }\n    .sea-collab__follows { width: 100%; }\n    .sea-collab__follow { width: 100%; justify-content: center; }\n    .sea-collab__name { font-size: 19px; }\n  }\n</style>\n\n{%- assign avatar_alex = 'alex-bolivar-headshot.jpg' | file_url -%}\n{%- assign avatar_jason = 'jason-pabst-headshot.jpg' | file_url -%}\n\n<div class=\"sea-collab\">\n  {%- if avatar_alex != blank or avatar_jason != blank -%}\n    <div class=\"sea-collab__avatars\">\n      {%- if avatar_alex != blank -%}\n        <div class=\"sea-collab__avatar\">\n          <img src=\"{{ avatar_alex }}\" alt=\"Alex Bolivar\" width=\"128\" height=\"128\" loading=\"lazy\" decoding=\"async\">\n        </div>\n      {%- endif -%}\n      {%- if avatar_jason != blank -%}\n        <div class=\"sea-collab__avatar\">\n          <img src=\"{{ avatar_jason }}\" alt=\"Jason Pabst\" width=\"128\" height=\"128\" loading=\"lazy\" decoding=\"async\">\n        </div>\n      {%- endif -%}\n    </div>\n  {%- endif -%}\n\n  <div class=\"sea-collab__body\">\n    <p class=\"sea-collab__eyebrow\">Alex Bolivar &amp; Jason Pabst &times; Seatopia</p>\n    <p class=\"sea-collab__name\">Recipe by Alex Bolivar &amp; Jason Pabst</p>\n    <p class=\"sea-collab__role\">Two Seatopia partners who cook around longevity &mdash; natural living, holistic health habits and single-ingredient food</p>\n    <p class=\"sea-collab__cred\">Built entirely from blue zone ingredients &middot; Mediterranean &middot; serves 3</p>\n  </div>\n\n  <div class=\"sea-collab__follows\">\n    <a class=\"sea-collab__follow\" href=\"https://www.instagram.com/alexcbolivar\" target=\"_blank\" rel=\"noopener noreferrer\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n        <rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\"></rect>\n        <circle cx=\"12\" cy=\"12\" r=\"4\"></circle>\n        <circle cx=\"17.5\" cy=\"6.5\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"></circle>\n      </svg>\n      <span>@alexcbolivar</span>\n    </a>\n    <a class=\"sea-collab__follow\" href=\"https://www.instagram.com/jasonpabst_\" target=\"_blank\" rel=\"noopener noreferrer\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n        <rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\"></rect>\n        <circle cx=\"12\" cy=\"12\" r=\"4\"></circle>\n        <circle cx=\"17.5\" cy=\"6.5\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"></circle>\n      </svg>\n      <span>@jasonpabst_</span>\n    </a>\n  </div>\n</div>\n",
+        "padding_top": 28,
+        "padding_bottom": 8,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "rich_text_intro": {
+      "type": "rich-text",
+      "blocks": {
+        "text_intro": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This is a Mediterranean platter built from the foods people actually eat in the world&rsquo;s blue zones &mdash; the handful of places where living past 100 is unremarkable. Okinawan sweet potatoes and chickpeas roast together on one sheet pan, Seatopia salmon bakes with nothing but olive oil, lemon and salt, and a honeyed dill tzatziki pulls the whole plate together.</p><p>It reads like a lot of components, and it is &mdash; but almost none of them need attention. The oven does the sweet potatoes and the salmon back to back on the same sheet pan. The eggs boil for seven minutes. The tzatziki and the cucumber salad are both stir-and-refrigerate. Fifteen minutes of hands-on prep, forty-five minutes of cooking, and it feeds three off one platter.</p><p>We built it around Seatopia <a href=\"/products/mt-cook-alpine-salmon-7oz-filet\" title=\"Alpine King Salmon from Mt. Cook\">Mt. Cook Alpine King Salmon</a> &mdash; 7 oz portions carrying roughly <strong>2,300 mg of marine omega-3s</strong> each, lab tested to the <a href=\"/pages/why-clean-seafood-matters\" title=\"Why Clean Seafood Matters\">Seatopia Standard&trade;</a>. Recipe by Seatopia partners <a href=\"https://www.instagram.com/alexcbolivar\" target=\"_blank\" rel=\"noopener\">Alex Bolivar</a> and <a href=\"https://www.instagram.com/jasonpabst_\" target=\"_blank\" rel=\"noopener\">Jason Pabst</a>.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "text_intro"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_width": "small",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "at_a_glance": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "g_time": {
+          "type": "column",
+          "settings": {
+            "icon": "time",
+            "custom_icon": "",
+            "heading": "1 hour, mostly hands-off",
+            "text": "<p>Fifteen minutes of prep and forty-five of cooking. The sweet potatoes and the salmon share one sheet pan back to back, so the oven is doing almost all of it.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_serves": {
+          "type": "column",
+          "settings": {
+            "icon": "users",
+            "custom_icon": "",
+            "heading": "Serves 3 off one platter",
+            "text": "<p>Two 7 oz salmon fillets, two sweet potatoes, four eggs. It is built to be set in the middle of the table rather than plated individually.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_heat": {
+          "type": "column",
+          "settings": {
+            "icon": "lightning",
+            "custom_icon": "",
+            "heading": "425&deg;F, then 350&deg;F",
+            "text": "<p>Sweet potatoes and chickpeas roast hot for 30 minutes. Drop the oven, swap in the salmon on the same pan, and it needs 15 minutes more.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_zones": {
+          "type": "column",
+          "settings": {
+            "icon": "planet",
+            "custom_icon": "",
+            "heading": "Every part from a blue zone",
+            "text": "<p>Legumes, ferments, purple produce, olive oil, sprouts and jammy pasture-raised eggs &mdash; each one borrowed from somewhere people routinely live past 100.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "g_time",
+        "g_serves",
+        "g_heat",
+        "g_zones"
+      ],
+      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "settings": {
+        "custom_class": "",
+        "section_id": "at-a-glance",
+        "style": "with-border",
+        "columns": 4,
+        "text_alignment": "left",
+        "dt_txt_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "At a glance",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "blue_zone_video": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "blue-zone-video",
+        "liquid": "\n<style>\n  .sea-story {\n    --ink:#171717; --muted:#5c5c5c; --line:#e5e2dc; --wash:#faf8f4; --gold:#bb8f50;\n    color: var(--ink); background: var(--wash);\n    border: 1px solid var(--line); border-radius: 20px; padding: 30px;\n  }\n  .sea-story__grid {\n    display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr);\n    gap: 32px; align-items: center;\n  }\n  .sea-story__player {\n    position: relative; margin: 0; aspect-ratio: 9 / 16;\n    border-radius: 16px; overflow: hidden;\n    background: #111 center / cover no-repeat;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-story__player video {\n    width: 100%; height: 100%; object-fit: cover; display: block;\n    opacity: 0; transition: opacity .3s ease;\n  }\n  .sea-story__player.is-playing video { opacity: 1; }\n  .sea-story__play {\n    position: absolute; inset: 0; width: 100%; height: 100%;\n    display: flex; align-items: center; justify-content: center;\n    border: 0; padding: 0; cursor: pointer;\n    background: linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.34));\n    transition: opacity .25s ease;\n  }\n  .sea-story__player.is-playing .sea-story__play { opacity: 0; pointer-events: none; }\n  .sea-story__play span {\n    width: 60px; height: 60px; border-radius: 50%;\n    background: rgba(255,255,255,.94);\n    display: flex; align-items: center; justify-content: center;\n    box-shadow: 0 6px 18px -6px rgba(0,0,0,.5);\n    transition: transform .18s ease;\n  }\n  .sea-story__play:hover span { transform: scale(1.07); }\n  .sea-story__play svg { width: 20px; height: 20px; margin-left: 3px; fill: var(--ink); }\n  .sea-story__badge {\n    position: absolute; top: 12px; left: 12px; z-index: 2;\n    font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;\n    color: #fff; background: rgba(23,23,23,.62); padding: 5px 10px; border-radius: 999px;\n  }\n  .sea-story__player.is-playing .sea-story__badge { opacity: 0; transition: opacity .25s ease; }\n  .sea-story__eyebrow {\n    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;\n    color: var(--gold); font-weight: 600; margin: 0 0 10px;\n  }\n  .sea-story__heading { font-size: clamp(24px, 3vw, 31px); line-height: 1.15; font-weight: 600; margin: 0 0 14px; }\n  .sea-story__body { font-size: 16px; line-height: 1.6; color: var(--muted); margin: 0 0 14px; }\n  .sea-story__body strong { color: var(--ink); }\n  .sea-story__zones {\n    margin: 0; padding: 0; list-style: none;\n    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 18px;\n  }\n  .sea-story__zones li {\n    font-size: 14px; line-height: 1.5; color: var(--muted);\n    padding-left: 14px; position: relative;\n  }\n  .sea-story__zones li:before {\n    content: \"\"; position: absolute; left: 0; top: 8px;\n    width: 5px; height: 5px; border-radius: 50%; background: var(--gold);\n  }\n  .sea-story__zones b { color: var(--ink); }\n  @media (max-width: 989px) {\n    .sea-story { padding: 22px; }\n    .sea-story__grid { grid-template-columns: 1fr; gap: 24px; justify-items: center; }\n    .sea-story__player { width: min(74vw, 260px); }\n    .sea-story__zones { grid-template-columns: 1fr; }\n  }\n</style>\n\n<div class=\"sea-story\">\n  <div class=\"sea-story__grid\">\n\n    <figure class=\"sea-story__player\" data-sea-story\n            style=\"background-image:url('{{ 'centenarian-salmon-salad-video-poster.jpg' | file_url }}');\">\n      <span class=\"sea-story__badge\">0:55</span>\n      <video preload=\"none\" playsinline\n             poster=\"{{ 'centenarian-salmon-salad-video-poster.jpg' | file_url }}\"\n             data-src-hd=\"https://cdn.shopify.com/videos/c/vp/4603ec21a267466a9c46d05a2056582f/4603ec21a267466a9c46d05a2056582f.HD-720p-4.5Mbps-93851834.mp4\"\n             data-src-sd=\"https://cdn.shopify.com/videos/c/vp/4603ec21a267466a9c46d05a2056582f/4603ec21a267466a9c46d05a2056582f.SD-480p-1.5Mbps-93851834.mp4\"\n             aria-label=\"Alex Bolivar and Jason Pabst building the Centenarian Salmon Salad\"></video>\n      <button class=\"sea-story__play\" type=\"button\" aria-label=\"Play the 55 second recipe video\">\n        <span><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M8 5v14l11-7z\"></path></svg></span>\n      </button>\n    </figure>\n\n    <div>\n      <p class=\"sea-story__eyebrow\">Fifty-five seconds, start to platter</p>\n      <h2 class=\"sea-story__heading\">Every ingredient is borrowed from a blue zone.</h2>\n      <p class=\"sea-story__body\">\n        Blue zones are the handful of places where living past 100 is unremarkable. This platter is assembled almost\n        entirely from what people actually eat there &mdash; and each part is pulling a specific nutritional thread.\n      </p>\n      <ul class=\"sea-story__zones\">\n        <li><b>Anthocyanins</b> &mdash; purple sweet potato, sauerkraut, wild blueberries, red onion</li>\n        <li><b>Legumes</b> &mdash; the one food common to every blue zone</li>\n        <li><b>Polyphenols and monounsaturated fat</b> &mdash; a generous pour of extra-virgin olive oil</li>\n        <li><b>Live ferments</b> &mdash; raw purple sauerkraut</li>\n        <li><b>Sulforaphane</b> &mdash; raw broccoli sprouts</li>\n        <li><b>Choline</b> &mdash; pasture-raised eggs, boiled jammy so the yolks stay soft</li>\n      </ul>\n    </div>\n\n  </div>\n</div>\n\n<script>\n  (function () {\n    document.querySelectorAll('[data-sea-story]').forEach(function (frame) {\n      var video = frame.querySelector('video');\n      var button = frame.querySelector('.sea-story__play');\n      if (!video || !button) return;\n\n      button.addEventListener('click', function () {\n        if (!video.currentSrc && !video.src) {\n          var wide = window.matchMedia('(min-width: 600px)').matches;\n          video.src = wide ? video.dataset.srcHd : video.dataset.srcSd;\n        }\n        frame.classList.add('is-playing');\n        video.controls = true;\n        var played = video.play();\n        if (played && played.catch) {\n          played.catch(function () { video.muted = true; video.play(); });\n        }\n      });\n\n      video.addEventListener('pause', function () {\n        if (video.currentTime === 0 || video.ended) {\n          frame.classList.remove('is-playing');\n          video.controls = false;\n        }\n      });\n    });\n  })();\n</script>\n",
+        "padding_top": 8,
+        "padding_bottom": 44,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "five_parts": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "p_salmon": {
+          "type": "column",
+          "settings": {
+            "icon": "lightning",
+            "custom_icon": "",
+            "heading": "1. Baked salmon",
+            "text": "<p>Olive oil, salt and thin lemon rounds, baked at 350&deg;F for 15 minutes. No glaze, no marinade &mdash; the whole point is to taste the fish.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "p_roast": {
+          "type": "column",
+          "settings": {
+            "icon": "organic",
+            "custom_icon": "",
+            "heading": "2. The sheet pan",
+            "text": "<p>Okinawan sweet potato in &frac12;-inch cubes and a jar of drained chickpeas, roasted hot until the chickpeas crisp and the potato edges brown. Same pan the salmon uses next.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "p_tzatziki": {
+          "type": "column",
+          "settings": {
+            "icon": "box",
+            "custom_icon": "",
+            "heading": "3. Honeyed dill tzatziki",
+            "text": "<p>Greek yogurt, a whole bunch of minced dill, garlic, lemon, olive oil and a tablespoon of raw honey. Thick enough to ribbon off a spoon.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "p_cold": {
+          "type": "column",
+          "settings": {
+            "icon": "star",
+            "custom_icon": "",
+            "heading": "4. Raw, cold and jammy",
+            "text": "<p>Cucumber-tomato salad, avocado, kalamata olives, wild blueberries, purple sauerkraut, broccoli sprouts &mdash; plus the seven-minute eggs, soft centres up.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "p_salmon",
+        "p_roast",
+        "p_tzatziki",
+        "p_cold"
+      ],
+      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "settings": {
+        "custom_class": "",
+        "section_id": "five-parts",
+        "style": "with-background",
+        "columns": 4,
+        "text_alignment": "left",
+        "dt_txt_alignment": "left",
+        "padding_top": 24,
+        "padding_bottom": 48,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Nothing here is difficult on its own. The trick is the order &mdash; the two things that need the oven go first and share a pan, and everything cold gets made while they cook.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "Four components, one sheet pan",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "recipe_kit_card": {
+      "type": "apps",
+      "blocks": {
+        "recipe_kit_app_block_centenarian": {
+          "type": "shopify://apps/recipe-kit/blocks/app-block/0afa374e-81c7-4989-96de-e1ac84640954",
+          "settings": {
+            "custom_js": "",
+            "custom_css": ".rk_direction_image { margin-top: 14px; }\n.rk_direction_image img { max-height: 400px; width: 100%; object-fit: cover; border-radius: 12px; }\n@media (max-width: 749px) {\n  .rk_direction_image img { max-height: 280px; }\n}\n"
+          }
+        }
+      },
+      "block_order": [
+        "recipe_kit_app_block_centenarian"
+      ],
+      "settings": {
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "shop_the_salad": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "",
+        "products": [
+          "mt-cook-alpine-salmon-7oz-filet",
+          "king-salmon",
+          "atlantic-salmon-2x-6oz-portions",
+          "salmon-lovers-box-12-servings",
+          "fine-pure-natural-spring-salt-300g-microplastic-free"
+        ],
+        "product_limit": 6,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Developed with Mt. Cook Alpine King Salmon &mdash; 7 oz portions from New Zealand&rsquo;s Southern Alps, roughly 2,300 mg of marine omega-3s each. Any Seatopia salmon works here; they are all mercury-safe with no detectable microplastics in the samples tested.</p>",
+        "heading": "Shop the salmon in this salad",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "game_plan": {
+      "type": "timeline",
+      "blocks": {
+        "s_roast": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/centenarian-salad-okinawan-sweet-potato-chickpeas.jpg",
+            "subheading": "Minute 0",
+            "heading": "Roast the sweet potatoes and chickpeas",
+            "heading_tag": "h3",
+            "text": "<p>Heat the oven to 425&deg;F and line a sheet pan with parchment. Toss two Okinawan sweet potatoes, cut into &frac12;-inch cubes, with a drained jar of chickpeas, 2 Tbsp olive oil and salt. Spread it out and roast <strong>30 minutes</strong>, until the chickpeas are crisp and the potato is browned.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_eggs": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/centenarian-salad-jammy-egg.jpg",
+            "subheading": "Minute 5",
+            "heading": "Soft boil the eggs",
+            "heading_tag": "h3",
+            "text": "<p>Bring a small pot to a boil, lower in four pasture-raised eggs and boil exactly <strong>7 minutes</strong>. Move them to cold water and leave them 15 minutes before peeling. You want the yolks jammy, not chalky &mdash; that soft centre is where the choline is.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_cold": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/centenarian-salad-honeyed-dill-tzatziki.jpg",
+            "subheading": "Minute 10",
+            "heading": "Tzatziki, then the cucumber salad",
+            "heading_tag": "h3",
+            "text": "<p>Stir together the Greek yogurt, a whole bunch of minced dill, two minced garlic cloves, the juice of a lemon, 2 Tbsp olive oil, 1 Tbsp raw honey and &frac12; tsp salt; refrigerate. Then chop the cherry tomatoes and cucumber, thinly slice the red onion, toss with olive oil and salt, and refrigerate that too.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_salmon": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/centenarian-salad-salmon-lemon-pre-bake.jpg",
+            "subheading": "Minute 30",
+            "heading": "Swap in the salmon",
+            "heading_tag": "h3",
+            "text": "<p>Move the roasted vegetables to a bowl and drop the oven to <strong>350&deg;F</strong>. Onto the same pan: the salmon, patted dry, drizzled with olive oil, salted, with a couple of thin lemon rounds laid on each fillet. Bake <strong>15 minutes</strong>, until just cooked through, then squeeze over the remaining lemon.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_base": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/centenarian-salad-arugula-chickpea-kraut-base.jpg",
+            "subheading": "Minute 45",
+            "heading": "Build the base",
+            "heading_tag": "h3",
+            "text": "<p>Spread two large handfuls of wild arugula across a big platter, then scatter over the roasted sweet potato and chickpeas. Add the purple sauerkraut, kalamata olives and wild blueberries.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_finish": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/centenarian-salmon-salad-finished-platter.jpg",
+            "subheading": "Minute 50",
+            "heading": "Finish and sit down",
+            "heading_tag": "h3",
+            "text": "<p>Add the cucumber-tomato salad, tuck in the avocado slices and broccoli sprouts, set the halved eggs cut side up and lay the salmon on top. Spoon over the tzatziki. Then do the most centenarian thing of all &mdash; sit down with someone and eat slowly.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "s_roast",
+        "s_eggs",
+        "s_cold",
+        "s_salmon",
+        "s_base",
+        "s_finish"
+      ],
+      "name": "t:sections.timeline.presets.name",
+      "settings": {
+        "image_ratio": "landscape",
+        "image_ratio_mobile": "landscape",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Work in this order and the oven never sits empty. Everything cold gets made in the thirty minutes the sweet potatoes are roasting.</p>",
+        "heading": "The one-hour game plan",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "prep_table": {
+      "type": "table-content",
+      "blocks": {
+        "t_head": {
+          "type": "row",
+          "settings": {
+            "feature": "",
+            "version1": "Make ahead",
+            "version2": "How long it keeps",
+            "version3": "Serve it"
+          }
+        },
+        "t_tzat": {
+          "type": "row",
+          "settings": {
+            "feature": "Honeyed dill tzatziki",
+            "version1": "Up to 4 days ahead",
+            "version2": "4 days refrigerated",
+            "version3": "Cold, spooned over at the table"
+          }
+        },
+        "t_roast": {
+          "type": "row",
+          "settings": {
+            "feature": "Sweet potato &amp; chickpeas",
+            "version1": "Morning of",
+            "version2": "3 days refrigerated",
+            "version3": "Room temperature or cold"
+          }
+        },
+        "t_eggs": {
+          "type": "row",
+          "settings": {
+            "feature": "Soft-boiled eggs",
+            "version1": "Day before, peeled",
+            "version2": "3 days refrigerated",
+            "version3": "Cold, halved cut side up"
+          }
+        },
+        "t_cuke": {
+          "type": "row",
+          "settings": {
+            "feature": "Cucumber-tomato salad",
+            "version1": "A few hours ahead",
+            "version2": "Best same day",
+            "version3": "Cold, drain off any pooled liquid"
+          }
+        },
+        "t_salmon": {
+          "type": "row",
+          "settings": {
+            "feature": "Baked salmon",
+            "version1": "Same day",
+            "version2": "3 days refrigerated",
+            "version3": "Warm or cold &mdash; both are good"
+          }
+        },
+        "t_last": {
+          "type": "row",
+          "settings": {
+            "feature": "Avocado, sprouts, arugula",
+            "version1": "Do not &mdash; cut fresh",
+            "version2": "&mdash;",
+            "version3": "Added last, right before serving"
+          }
+        }
+      },
+      "block_order": [
+        "t_head",
+        "t_tzat",
+        "t_roast",
+        "t_eggs",
+        "t_cuke",
+        "t_salmon",
+        "t_last"
+      ],
+      "name": "Table content",
+      "settings": {
+        "custom_class": "",
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>This is a genuinely good meal-prep platter, but not every part holds equally. Here is what to build early and what to leave until the last minute.</p>",
+        "heading": "What you can make ahead",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "meal_prep": {
+      "type": "image-with-text",
+      "blocks": {
+        "mp_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Leftovers",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "mp_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Better cold the next day",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "mp_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Store extras in the refrigerator for up to 3 days. We genuinely prefer this one cold &mdash; there is no reheating step and nothing in it suffers from a night in the fridge except the avocado, which you should slice fresh.</p><p>The tzatziki is the real prize. Keep it up to 4 days and spoon it over any protein or salad you have going; a whole bunch of dill and a spoon of raw honey makes it far more useful than the amount of effort suggests.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "mp_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop the Salmon Lovers Box",
+            "button_link": "/products/salmon-lovers-box-12-servings",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "mp_sub",
+        "mp_head",
+        "mp_text",
+        "mp_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/centenarian-salad-baked-salmon-closeup.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "rich_text_standard": {
+      "type": "rich-text",
+      "blocks": {
+        "h_std": {
+          "type": "heading",
+          "settings": {
+            "heading": "Salmon clean enough to eat on repeat",
+            "heading_size": "title-sm",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_std": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A longevity plate falls apart if the protein on it carries a contaminant load. The Mt. Cook Alpine King Salmon here is raised in glacial water in New Zealand&rsquo;s Southern Alps and third-party lab tested: mercury at <strong>0.033 ppm</strong>, inside the 0.1 ppm ceiling of the Seatopia Standard, and <strong>no detectable microplastics</strong> across all six polymers screened.</p><p>Each 7 oz portion delivers roughly <strong>2,300 mg of marine omega-3s</strong> (EPA + DHA) and about 39 g of protein. Any Seatopia salmon works in this recipe &mdash; they all clear the same testing. You can read exactly how we test on our <a href=\"/pages/seatopia-testing-commitment\" title=\"Seatopia's Testing Commitment\">testing commitment page</a>.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "h_std",
+        "t_std"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_width": "small",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "reviews_salmon": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_testimonials_carousel_cent": {
+          "type": "shopify://apps/judge-me-reviews/blocks/testimonials_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": false,
+            "reviews_selection": "custom_products",
+            "products": [
+              "mt-cook-alpine-salmon-7oz-filet",
+              "king-salmon"
+            ],
+            "star_rating": "all",
+            "max_reviews": 20,
+            "quote_marks_size": "small",
+            "product_name_text_size": "small",
+            "verified_badge_style": "icon",
+            "card_height": "medium",
+            "text_size": "small",
+            "stars_size": "medium",
+            "arrows_position": "bottom",
+            "max_width": 1100,
+            "corner_styling": "soft",
+            "quote_marks_style": "serif",
+            "card_color": "#f9f9f9",
+            "stars_and_quote_marks_color": "#7bc3f3",
+            "text_color": "#000000",
+            "arrows_color": "#000000",
+            "show_border": false,
+            "border_color": "#108474",
+            "show_drop_shadow": false,
+            "transition_speed": 5,
+            "header_text": "Seatopians on this salmon",
+            "show_average_rating": true
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_testimonials_carousel_cent"
+      ],
+      "settings": {
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "faq_cent": {
+      "type": "faq",
+      "blocks": {
+        "q_okinawan": {
+          "type": "question",
+          "settings": {
+            "title": "What is an Okinawan sweet potato, and can I substitute?",
+            "text": "<p>Purple-fleshed, nuttier and drier than an orange sweet potato, and the purple is the point &mdash; that colour is anthocyanins. They are often sold as Japanese or purple sweet potatoes; a purple-skinned, white-fleshed one is a different variety but works fine. A regular orange sweet potato substitutes cleanly on texture, you just lose that particular pigment.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_jammy": {
+          "type": "question",
+          "settings": {
+            "title": "How do I get the yolks jammy rather than chalky?",
+            "text": "<p><strong>Seven minutes</strong> at a genuine rolling boil, eggs lowered in rather than started cold, then straight into cold water for 15 minutes. The cold shock is what stops the cooking and makes them peel. Eight minutes gives you a firmer centre; ten and you are into hard-boiled and the choline argument gets weaker.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_onepan": {
+          "type": "question",
+          "settings": {
+            "title": "Do the sweet potatoes and salmon really share a pan?",
+            "text": "<p>Yes, and it is the reason this works on a weeknight. Roast the vegetables at 425&deg;F for 30 minutes, tip them into a bowl, drop the oven to 350&deg;F and put the salmon on the same parchment. The residual oil and salt on the sheet is a feature. One pan, one wash-up.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_ahead": {
+          "type": "question",
+          "settings": {
+            "title": "How much of this can I build ahead?",
+            "text": "<p>Most of it. Tzatziki keeps <strong>4 days</strong>, roasted sweet potato and chickpeas <strong>3 days</strong>, peeled eggs <strong>3 days</strong>, cooked salmon <strong>3 days</strong>. The cucumber-tomato salad is best the same day, and the avocado, sprouts and arugula should be cut and added right before serving. See the table above.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_salmon": {
+          "type": "question",
+          "settings": {
+            "title": "Does it have to be Mt. Cook salmon?",
+            "text": "<p>No. We developed it with Mt. Cook Alpine King Salmon for the fat content, but any Seatopia fillet works and they all clear the same testing. Adjust the bake by a couple of minutes for thickness &mdash; a 6 oz Atlantic portion is done a touch sooner than a 7 oz Alpine King.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_defrost": {
+          "type": "question",
+          "settings": {
+            "title": "How do I defrost Seatopia salmon?",
+            "text": "<p>Overnight in the refrigerator, wrapped, is best. In a hurry, put the vacuum-sealed portion in a bowl of cold water for 30&ndash;60 minutes. Pat it properly dry before it goes on the pan. Never thaw at room temperature or in the microwave.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "q_okinawan",
+        "q_jammy",
+        "q_onepan",
+        "q_ahead",
+        "q_salmon",
+        "q_defrost"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "style": "with-border",
+        "color_overlay": "#ffffff",
+        "overlay_opacity": 4,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "Questions cooks actually ask about this platter",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "seafood-recipes",
+        "post_limit": 8,
+        "columns": 3,
+        "carousel_on_desktop": true,
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "landscape",
+        "show_tags": false,
+        "show_date": false,
+        "show_comments": false,
+        "show_author": false,
+        "show_excerpt": false,
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Loved this one? There is more where it came from. Every Seatopia box also includes a <a href=\"/pages/seatopia-member-cooking-classes\" title=\"Seatopia Member Cooking Classes\">FREE virtual cooking class</a>, where we walk through temps, searing and knife work live.</p>",
+        "heading": "More clean seafood to cook this week",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "newsletter_banner_cent": {
+      "type": "newsletter-banner",
+      "blocks": {
+        "h_news": {
+          "type": "heading",
+          "settings": {
+            "heading": "Be the first to know",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_news": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get on the list for more longevity-minded seafood dinners, cooking temps and the odd blue zone rabbit hole, straight to your inbox.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_news": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "h_news",
+        "t_news",
+        "f_news"
+      ],
+      "name": "t:sections.newsletter-banner.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "transparent_footer": false,
+        "image": "shopify://shop_images/centenarian-salad-cucumber-tomato-red-onion.jpg",
+        "image_height": "650px",
+        "content_width": "medium",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    }
+  },
+  "order": [
+    "main-article-banner",
+    "collab_card",
+    "rich_text_intro",
+    "at_a_glance",
+    "blue_zone_video",
+    "five_parts",
+    "recipe_kit_card",
+    "shop_the_salad",
+    "game_plan",
+    "prep_table",
+    "meal_prep",
+    "rich_text_standard",
+    "reviews_salmon",
+    "faq_cent",
+    "blog-posts",
+    "newsletter_banner_cent"
+  ]
+}
