@@ -1502,33 +1502,6 @@
     },
     "1788969363678d36e7": {
       "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_7b3be4c_Bzx3zB": {
-          "type": "ai_gen_block_7b3be4c",
-          "settings": {
-            "blog": "seafood-recipes",
-            "filter_tag": "Trout",
-            "post_limit": 3,
-            "heading": "<p>Our favorite Trout recipes</p>",
-            "layout": "featured",
-            "desktop_width_percent": 100,
-            "padding_top": 40,
-            "padding_bottom": 40,
-            "gap": 20,
-            "border_radius": 12,
-            "title_size": 20,
-            "text_color": "#2E4B59",
-            "overlay_color": "rgba(46, 75, 89, 0.9)",
-            "overlay_text_color": "#FFFFFF",
-            "placeholder_color": "#CDD9D1",
-            "heading_alignment": "left"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_7b3be4c_Bzx3zB"
-      ],
       "settings": {}
     }
   },
