@@ -1,6 +1,182 @@
+{% doc %}
+  @prompt
+    Iterate on the existing "Blog posts collage" section to fix the following issues:
+    
+    1. Add left and right margins so the section matches the spacing of other sections on the site (consistent horizontal margins).
+    2. Add standard top and bottom margin/padding settings (with a settings control in the theme editor) so merchants can adjust the vertical spacing above and below the section, consistent with how other sections handle top/bottom spacing.
+    
+    Do not change any existing functionality or visual design — only add the missing horizontal margins and the top/bottom spacing controls., The left-rigth spacing is the problem. This section needs to inherit the same spacing rules as all other sections regarding left-right margin/padding to screen. , This section should be styled layout-wise just like the original blog posts collage here on the page and across the site
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-blog-collage-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: {{ block.settings.padding_top }}px 24px {{ block.settings.padding_bottom }}px;
+  }
+
+  .ai-blog-collage-{{ ai_gen_id }}__inner {
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .ai-blog-collage-{{ ai_gen_id }}__grid {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr 1fr;
+    grid-template-rows: repeat(2, minmax(190px, 1fr));
+    gap: 20px;
+  }
+
+  .ai-blog-collage-{{ ai_gen_id }}__card {
+    position: relative;
+    min-width: 0;
+    min-height: 190px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #cdd9d1;
+  }
+
+  .ai-blog-collage-{{ ai_gen_id }}__card:first-child {
+    grid-row: 1 / 3;
+  }
+
+  .ai-blog-collage-{{ ai_gen_id }}__image,
+  .ai-blog-collage-{{ ai_gen_id }}__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 190px;
+    object-fit: cover;
+  }
+
+  .ai-blog-collage-{{ ai_gen_id }}__placeholder svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .ai-blog-collage-{{ ai_gen_id }}__overlay {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 56px 22px 20px;
+    color: #ffffff;
+    background: linear-gradient(transparent, rgba(46, 75, 89, 0.9));
+  }
+
+  .ai-blog-collage-{{ ai_gen_id }}__title {
+    margin: 0;
+    color: inherit;
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  .ai-blog-collage-{{ ai_gen_id }}__card:first-child .ai-blog-collage-{{ ai_gen_id }}__title {
+    font-size: 28px;
+  }
+
+  .ai-blog-collage-{{ ai_gen_id }}__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-blog-collage-{{ ai_gen_id }} {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+
+    .ai-blog-collage-{{ ai_gen_id }}__inner {
+      width: 100%;
+    }
+
+    .ai-blog-collage-{{ ai_gen_id }}__grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .ai-blog-collage-{{ ai_gen_id }}__card,
+    .ai-blog-collage-{{ ai_gen_id }}__card:first-child {
+      min-height: 220px;
+    }
+
+    .ai-blog-collage-{{ ai_gen_id }}__card:first-child .ai-blog-collage-{{ ai_gen_id }}__title {
+      font-size: 24px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-blog-collage-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-blog-collage-{{ ai_gen_id }}__inner">
+    {% if block.settings.blog != blank %}
+      <div class="ai-blog-collage-{{ ai_gen_id }}__grid">
+        {% for article in block.settings.blog.articles limit: 5 %}
+          <article class="ai-blog-collage-{{ ai_gen_id }}__card">
+            {% if article.image %}
+              <img class="ai-blog-collage-{{ ai_gen_id }}__image" src="{{ article.image | image_url: width: 1200 }}" alt="{{ article.image.alt | default: article.title | escape }}" loading="lazy" width="{{ article.image.width }}" height="{{ article.image.height }}">
+            {% else %}
+              <div class="ai-blog-collage-{{ ai_gen_id }}__placeholder">{{ 'blog-apparel-1' | placeholder_svg_tag }}</div>
+            {% endif %}
+            <div class="ai-blog-collage-{{ ai_gen_id }}__overlay">
+              <h3 class="ai-blog-collage-{{ ai_gen_id }}__title"><a href="{{ article.url }}">{{ article.title }}</a></h3>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Blog posts collage",
+  "settings": [
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "presets": [{"name": "Blog posts collage"}],
+  "tag": null,
+  "class": "blog-posts-collage"
+}
 {% endschema %}
