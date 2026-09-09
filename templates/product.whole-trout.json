@@ -969,6 +969,11 @@
         "enable_parallax": true
       }
     },
+    "blocks_aME8Az": {
+      "type": "_blocks",
+      "name": "Blog posts collage",
+      "settings": {}
+    },
     "index_new_testimonials_gq9XBi": {
       "type": "index-new-testimonials",
       "blocks": {
@@ -1515,6 +1520,7 @@
     "product-details",
     "custom_liquid_mAH6fR",
     "collage_e3m7tK",
+    "blocks_aME8Az",
     "index_new_testimonials_gq9XBi",
     "blocks_Rbw8B9",
     "shop_the_feed_LYTGxr",
