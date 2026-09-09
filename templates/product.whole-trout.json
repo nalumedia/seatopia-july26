@@ -1046,6 +1046,38 @@
         "rounded": false
       }
     },
+    "blocks_Rbw8B9": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_5a7cecd_iPE34a": {
+          "type": "ai_gen_block_5a7cecd",
+          "settings": {
+            "blog": "seafood-recipes",
+            "tag_filter": "Trout",
+            "heading": "Our best Trout recipes",
+            "post_count": 5,
+            "show_date": true,
+            "desktop_width_percent": 100,
+            "gap": 16,
+            "card_radius": 16,
+            "heading_color": "#2E4B59",
+            "text_color": "#2E4B59",
+            "card_background": "#F7EFE6",
+            "card_text_color": "#FFFFFF",
+            "placeholder_background": "#CDD9D1",
+            "muted_color": "#497991",
+            "heading_font": "crimson_pro_n4",
+            "heading_size": 40
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_5a7cecd_iPE34a"
+      ],
+      "name": "Blog posts collage",
+      "settings": {}
+    },
     "shop_the_feed_LYTGxr": {
       "type": "shop-the-feed",
       "blocks": {
@@ -1300,50 +1332,6 @@
         "rounded": false
       }
     },
-    "blog_posts_collage_VfYAtF": {
-      "type": "blog-posts-collage",
-      "name": "t:sections.blog-posts-collage.presets.name",
-      "settings": {
-        "section_id": "",
-        "blog": "seafood-recipes",
-        "post_limit": 3,
-        "show_view_all": false,
-        "title1": "Types of cooking",
-        "filter1tags": "Trout",
-        "title2": "",
-        "filter2tags": "",
-        "title3": "",
-        "filter3tags": "",
-        "image_ratio": "landscape",
-        "show_tags": true,
-        "show_date": true,
-        "show_comments": false,
-        "show_author": false,
-        "show_excerpt": false,
-        "show_tag_filter": false,
-        "heading": "Our best Trout recipes",
-        "heading_size": "title-md",
-        "heading_alignment": "text-left md:items-end md:flex-row",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "full_width": false,
-        "rounded": false
-      }
-    },
     "faq": {
       "type": "faq",
       "blocks": {
@@ -1551,8 +1539,8 @@
     "custom_liquid_mAH6fR",
     "collage_e3m7tK",
     "index_new_testimonials_gq9XBi",
+    "blocks_Rbw8B9",
     "shop_the_feed_LYTGxr",
-    "blog_posts_collage_VfYAtF",
     "faq",
     "product-recommendations",
     "175815325305d321d0",
