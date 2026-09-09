@@ -439,83 +439,6 @@
         "rounded": true
       }
     },
-    "index_new_testimonials_gq9XBi": {
-      "type": "index-new-testimonials",
-      "blocks": {
-        "review_WcBNGj": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/Mark_hyman.png",
-            "image_url": "shopify://blogs/seafood-recipes/asian-scallop-crudo-with-citrus-soy-marinade",
-            "title": "Dr. Mark Hyman",
-            "job": "Leader in Functional Medicine",
-            "Start_number": "5",
-            "text": "<p>“We are what foods we eats and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
-            "block_background": "",
-            "block_text_color": ""
-          }
-        },
-        "review_QzQ8nr": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/Lisa_giffen.png",
-            "image_url": "shopify://blogs/regenerative-aquaculture/are-we-still-mermaids-embracing-our-aquatic-roots-for-modern-health",
-            "title": "Lisa Giffen",
-            "job": "The Audrey",
-            "Start_number": "5",
-            "text": "<p>\"It's rare to find consistent seafood with clean and unique flavors that's also sustainable. Without a doubt Seatopia meets such high standards. Looking forward to anything and everything Seatopia has to offer.\"</p>",
-            "block_background": "",
-            "block_text_color": ""
-          }
-        },
-        "review_NAxiAW": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/Ben_greenfield_89fa6ea5-3395-4d81-975e-1f952ba5b657.png",
-            "image_url": "shopify://blogs/regenerative-aquaculture",
-            "title": "Ben Greenfield",
-            "job": "Health & Fitness Coach",
-            "Start_number": "5",
-            "text": "<p>\"If you want healthy, gourmet-style seafood, in the comfort of your own home, seafood that goes above and beyond any you've tasted before, you need Seatopia in your life!\"</p>",
-            "block_background": "",
-            "block_text_color": ""
-          }
-        },
-        "review_YtwkVt": {
-          "type": "review",
-          "disabled": true,
-          "settings": {
-            "image_url": "",
-            "title": "Testimonial name",
-            "job": "Founder, Company",
-            "Start_number": "5",
-            "text": "<p>Use this text to showcase a review from one of your customers.  A great review is honest and relatable.  A great reviewer is a person who represents your target audience and can speak to concerns that might block your customers from buying.</p>",
-            "block_background": "",
-            "block_text_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "review_WcBNGj",
-        "review_QzQ8nr",
-        "review_NAxiAW",
-        "review_YtwkVt"
-      ],
-      "name": "Testimonials",
-      "settings": {
-        "custom_class": "",
-        "section_id": "",
-        "title": "",
-        "sub_title": "",
-        "section_cont_position": "center",
-        "padding_top": 0,
-        "padding_bottom": 28,
-        "section_background": "#fafafa",
-        "text_color": "#171717",
-        "star_color": "#f59e0b",
-        "rounded": false
-      }
-    },
     "video-hero": {
       "type": "video-hero",
       "blocks": {
@@ -912,6 +835,83 @@
         "padding_bottom": 40,
         "divider": false,
         "narrow": false,
+        "rounded": false
+      }
+    },
+    "index_new_testimonials_gq9XBi": {
+      "type": "index-new-testimonials",
+      "blocks": {
+        "review_WcBNGj": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Mark_hyman.png",
+            "image_url": "shopify://blogs/seafood-recipes/asian-scallop-crudo-with-citrus-soy-marinade",
+            "title": "Dr. Mark Hyman",
+            "job": "Leader in Functional Medicine",
+            "Start_number": "5",
+            "text": "<p>“We are what foods we eats and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        },
+        "review_QzQ8nr": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Lisa_giffen.png",
+            "image_url": "shopify://blogs/regenerative-aquaculture/are-we-still-mermaids-embracing-our-aquatic-roots-for-modern-health",
+            "title": "Lisa Giffen",
+            "job": "The Audrey",
+            "Start_number": "5",
+            "text": "<p>\"It's rare to find consistent seafood with clean and unique flavors that's also sustainable. Without a doubt Seatopia meets such high standards. Looking forward to anything and everything Seatopia has to offer.\"</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        },
+        "review_NAxiAW": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Ben_greenfield_89fa6ea5-3395-4d81-975e-1f952ba5b657.png",
+            "image_url": "shopify://blogs/regenerative-aquaculture",
+            "title": "Ben Greenfield",
+            "job": "Health & Fitness Coach",
+            "Start_number": "5",
+            "text": "<p>\"If you want healthy, gourmet-style seafood, in the comfort of your own home, seafood that goes above and beyond any you've tasted before, you need Seatopia in your life!\"</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        },
+        "review_YtwkVt": {
+          "type": "review",
+          "disabled": true,
+          "settings": {
+            "image_url": "",
+            "title": "Testimonial name",
+            "job": "Founder, Company",
+            "Start_number": "5",
+            "text": "<p>Use this text to showcase a review from one of your customers.  A great review is honest and relatable.  A great reviewer is a person who represents your target audience and can speak to concerns that might block your customers from buying.</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_WcBNGj",
+        "review_QzQ8nr",
+        "review_NAxiAW",
+        "review_YtwkVt"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "custom_class": "",
+        "section_id": "",
+        "title": "",
+        "sub_title": "",
+        "section_cont_position": "center",
+        "padding_top": 0,
+        "padding_bottom": 28,
+        "section_background": "#fafafa",
+        "text_color": "#171717",
+        "star_color": "#f59e0b",
         "rounded": false
       }
     },
@@ -1368,12 +1368,12 @@
     "main-product",
     "help-drawer",
     "video_with_text_overlay_jH8bXm",
-    "index_new_testimonials_gq9XBi",
     "video-hero",
     "1758153577fa569f00",
     "collage_PtgD3p",
     "product-details",
     "custom_liquid_mAH6fR",
+    "index_new_testimonials_gq9XBi",
     "shop_the_feed_LYTGxr",
     "faq",
     "product-recommendations",
