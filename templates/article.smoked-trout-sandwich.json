@@ -1,0 +1,945 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-article-banner": {
+      "type": "main-article-banner",
+      "blocks": {
+        "spacing": {
+          "type": "spacing",
+          "settings": {
+            "height": 68,
+            "height_mobile": 0
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "title-lg tracking-heading",
+            "show_tags": true,
+            "show_date": false,
+            "show_comments": false,
+            "show_author": true
+          }
+        }
+      },
+      "block_order": [
+        "spacing",
+        "title"
+      ],
+      "settings": {
+        "transparent_header": true,
+        "show_image": true,
+        "image": "shopify://shop_images/smoked-trout-sandwich-halved-hero.jpg",
+        "image_height": "750px",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-center",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_overlay": "#000000",
+        "overlay_opacity": 40,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "collab_card": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "recipe-collab",
+        "liquid": "\n<style>\n  .sea-collab {\n    --ink: #171717; --muted: #5c5c5c; --line: #e5e2dc; --wash: #faf8f4; --gold: #bb8f50;\n    border: 1px solid var(--line);\n    border-radius: 18px;\n    background: var(--wash);\n    padding: 24px 28px;\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n    color: var(--ink);\n  }\n  .sea-collab__avatar {\n    flex: 0 0 auto;\n    width: 68px; height: 68px; border-radius: 50%; overflow: hidden;\n    border: 2px solid #fff; box-shadow: 0 0 0 2px var(--gold); background: #eee;\n  }\n  .sea-collab__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }\n  .sea-collab__body { flex: 1 1 260px; min-width: 0; }\n  .sea-collab__eyebrow {\n    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;\n    color: var(--gold); font-weight: 600; margin: 0 0 5px;\n  }\n  .sea-collab__name { font-size: 21px; font-weight: 600; line-height: 1.2; margin: 0 0 4px; }\n  .sea-collab__role { font-size: 15px; color: var(--muted); line-height: 1.45; margin: 0; }\n  .sea-collab__cred {\n    font-size: 13px; color: var(--muted); line-height: 1.5;\n    margin: 10px 0 0; padding-top: 10px; border-top: 1px solid var(--line);\n  }\n  .sea-collab__follow {\n    flex: 0 0 auto;\n    display: inline-flex; align-items: center; gap: 8px;\n    padding: 11px 20px; border: 1px solid var(--ink); border-radius: 999px;\n    font-size: 15px; font-weight: 600; text-decoration: none;\n    color: var(--ink); background: #fff;\n    transition: background .18s ease, color .18s ease;\n  }\n  .sea-collab__follow:hover { background: var(--ink); color: #fff; }\n  .sea-collab__follow svg { width: 18px; height: 18px; }\n  @media (max-width: 749px) {\n    .sea-collab { padding: 20px; gap: 16px; }\n    .sea-collab__follow { width: 100%; justify-content: center; }\n    .sea-collab__name { font-size: 19px; }\n  }\n</style>\n\n{%- assign collab_avatar = 'jason-pabst-headshot.jpg' | file_url -%}\n\n<div class=\"sea-collab\">\n  {%- if collab_avatar != blank -%}\n    <div class=\"sea-collab__avatar\">\n      <img src=\"{{ collab_avatar }}\" alt=\"Jason Pabst\" width=\"136\" height=\"136\" loading=\"lazy\" decoding=\"async\">\n    </div>\n  {%- endif -%}\n\n  <div class=\"sea-collab__body\">\n    <p class=\"sea-collab__eyebrow\">Jason Pabst &times; Seatopia</p>\n    <p class=\"sea-collab__name\">Recipe by Jason Pabst</p>\n    <p class=\"sea-collab__role\">Seatopia partner cooking seasonally and outdoors &mdash; garden produce, clean protein, no stove required</p>\n    <p class=\"sea-collab__cred\">Built and eaten on the rocks in coastal Maine &middot; no cooking &middot; serves 4 to 6</p>\n  </div>\n\n  <a class=\"sea-collab__follow\" href=\"https://www.instagram.com/jasonpabst_\" target=\"_blank\" rel=\"noopener noreferrer\">\n    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n      <rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\"></rect>\n      <circle cx=\"12\" cy=\"12\" r=\"4\"></circle>\n      <circle cx=\"17.5\" cy=\"6.5\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"></circle>\n    </svg>\n    <span>Follow</span>\n  </a>\n</div>\n",
+        "padding_top": 28,
+        "padding_bottom": 8,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "rich_text_intro": {
+      "type": "rich-text",
+      "blocks": {
+        "text_intro": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Nothing in this sandwich gets cooked. Smoke in Chimneys smoked trout comes out of the pack ready to eat, the herbs and vegetables get sliced on a board, and the only technique involved is mashing basil in a mortar. Jason built this one on the rocks in coastal Maine, which tells you what it is really for &mdash; you assemble it, wrap it, and carry it somewhere worth eating.</p><p>It is a deliberate answer to the lox bagel. Same idea &mdash; smoked fish, soft cheese, sharp allium, something acidic &mdash; but built along a whole sourdough loaf so it feeds four to six people from one sandwich, and hollowed out so the fillings sit down inside the bread instead of sliding out the sides.</p><p>The fish is Seatopia <a href=\"/products/smoke-in-chimneys-smoked-trout-filet\" title=\"Smoked Trout Filets from Smoke in Chimneys\">Smoked Trout Filets</a> &mdash; hot-smoked, ready to eat, and lab tested to the <a href=\"/pages/why-clean-seafood-matters\" title=\"Why Clean Seafood Matters\">Seatopia Standard&trade;</a>. Recipe by Seatopia partner <a href=\"https://www.instagram.com/jasonpabst_\" target=\"_blank\" rel=\"noopener\">Jason Pabst</a>.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "text_intro"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_width": "small",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "at_a_glance": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "g_nocook": {
+          "type": "column",
+          "settings": {
+            "icon": "check_mark",
+            "custom_icon": "",
+            "heading": "No cooking at all",
+            "text": "<p>Not a pan, not an oven, not a kettle. The trout arrives hot-smoked and ready to eat, so this works on a boat, a beach or a countertop with the power out.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_time": {
+          "type": "column",
+          "settings": {
+            "icon": "time",
+            "custom_icon": "",
+            "heading": "About 25 minutes",
+            "text": "<p>Almost all of it is slicing. Hollow the loaf, mix one spread, mash one mortar of basil, cut three vegetables thin, and layer.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_serves": {
+          "type": "column",
+          "settings": {
+            "icon": "users",
+            "custom_icon": "",
+            "heading": "Feeds 4 to 6",
+            "text": "<p>One large sourdough loaf or baguette, built full-length and cut into portions. Scale by loaf, not by person.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_travel": {
+          "type": "column",
+          "settings": {
+            "icon": "map_pin",
+            "custom_icon": "",
+            "heading": "Built to travel",
+            "text": "<p>Cheese against both cut faces, greens between the wet layer and the lid. Wrap it tight and it holds together on the walk.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "g_nocook",
+        "g_time",
+        "g_serves",
+        "g_travel"
+      ],
+      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "settings": {
+        "custom_class": "",
+        "section_id": "at-a-glance",
+        "style": "with-border",
+        "columns": 4,
+        "text_alignment": "left",
+        "dt_txt_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "At a glance",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "stack_video": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "the-stack",
+        "liquid": "\n<style>\n  .sea-stack {\n    --ink:#171717; --muted:#5c5c5c; --line:#e5e2dc; --wash:#faf8f4; --gold:#bb8f50;\n    color: var(--ink); background: var(--wash);\n    border: 1px solid var(--line); border-radius: 20px; padding: 30px;\n  }\n  .sea-stack__grid {\n    display: grid; grid-template-columns: minmax(0, 250px) minmax(0, 1fr);\n    gap: 34px; align-items: center;\n  }\n  .sea-stack__player {\n    position: relative; margin: 0; aspect-ratio: 9 / 16;\n    border-radius: 16px; overflow: hidden;\n    background: #111 center / cover no-repeat;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-stack__player video {\n    width: 100%; height: 100%; object-fit: cover; display: block;\n    opacity: 0; transition: opacity .3s ease;\n  }\n  .sea-stack__player.is-playing video { opacity: 1; }\n  .sea-stack__play {\n    position: absolute; inset: 0; width: 100%; height: 100%;\n    display: flex; align-items: center; justify-content: center;\n    border: 0; padding: 0; cursor: pointer;\n    background: linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.34));\n    transition: opacity .25s ease;\n  }\n  .sea-stack__player.is-playing .sea-stack__play { opacity: 0; pointer-events: none; }\n  .sea-stack__play span {\n    width: 58px; height: 58px; border-radius: 50%;\n    background: rgba(255,255,255,.94);\n    display: flex; align-items: center; justify-content: center;\n    box-shadow: 0 6px 18px -6px rgba(0,0,0,.5);\n    transition: transform .18s ease;\n  }\n  .sea-stack__play:hover span { transform: scale(1.07); }\n  .sea-stack__play svg { width: 19px; height: 19px; margin-left: 3px; fill: var(--ink); }\n  .sea-stack__badge {\n    position: absolute; top: 12px; left: 12px; z-index: 2;\n    font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;\n    color: #fff; background: rgba(23,23,23,.62); padding: 5px 10px; border-radius: 999px;\n  }\n  .sea-stack__player.is-playing .sea-stack__badge { opacity: 0; transition: opacity .25s ease; }\n  .sea-stack__eyebrow {\n    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;\n    color: var(--gold); font-weight: 600; margin: 0 0 8px;\n  }\n  .sea-stack__heading { font-size: clamp(23px, 2.8vw, 30px); line-height: 1.15; font-weight: 600; margin: 0 0 18px; }\n  .sea-stack__list { margin: 0; padding: 0; list-style: none; position: relative; }\n  .sea-stack__list:before {\n    content: \"\"; position: absolute; left: 7px; top: 10px; bottom: 10px;\n    width: 2px; background: linear-gradient(180deg, var(--gold), #e5d3b4);\n  }\n  .sea-stack__list li {\n    position: relative; padding: 0 0 13px 30px;\n    font-size: 15px; line-height: 1.5; color: var(--muted);\n  }\n  .sea-stack__list li:last-child { padding-bottom: 0; }\n  .sea-stack__list li:before {\n    content: \"\"; position: absolute; left: 2px; top: 7px;\n    width: 12px; height: 12px; border-radius: 50%;\n    background: #fff; border: 2px solid var(--gold);\n  }\n  .sea-stack__list b { color: var(--ink); }\n  .sea-stack__cap {\n    margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--line);\n    font-size: 13px; line-height: 1.55; color: var(--muted);\n  }\n  @media (max-width: 989px) {\n    .sea-stack { padding: 22px; }\n    .sea-stack__grid { grid-template-columns: 1fr; gap: 24px; justify-items: center; }\n    .sea-stack__player { width: min(74vw, 250px); }\n    .sea-stack__body { width: 100%; }\n  }\n</style>\n\n<div class=\"sea-stack\">\n  <div class=\"sea-stack__grid\">\n\n    <figure class=\"sea-stack__player\" data-sea-stack\n            style=\"background-image:url('{{ 'smoked-trout-sandwich-video-poster.jpg' | file_url }}');\">\n      <span class=\"sea-stack__badge\">0:52</span>\n      <video preload=\"none\" playsinline\n             poster=\"{{ 'smoked-trout-sandwich-video-poster.jpg' | file_url }}\"\n             data-src-hd=\"https://cdn.shopify.com/videos/c/vp/feef742c40bd4828820a9793b2f4ddc3/feef742c40bd4828820a9793b2f4ddc3.HD-720p-4.5Mbps-93920679.mp4\"\n             data-src-sd=\"https://cdn.shopify.com/videos/c/vp/feef742c40bd4828820a9793b2f4ddc3/feef742c40bd4828820a9793b2f4ddc3.SD-480p-1.5Mbps-93920679.mp4\"\n             aria-label=\"Jason Pabst building the smoked trout sandwich on the rocks in coastal Maine\"></video>\n      <button class=\"sea-stack__play\" type=\"button\" aria-label=\"Play the 52 second build video\">\n        <span><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M8 5v14l11-7z\"></path></svg></span>\n      </button>\n    </figure>\n\n    <div class=\"sea-stack__body\">\n      <p class=\"sea-stack__eyebrow\">The stack, bottom to top</p>\n      <h2 class=\"sea-stack__heading\">Order matters more than technique.</h2>\n      <ol class=\"sea-stack__list\">\n        <li><b>Hollowed sourdough base</b> &mdash; scoop out the crumb so the fillings sit down inside the loaf instead of sliding off it</li>\n        <li><b>Garlic scape and soft cheese</b> &mdash; on <em>both</em> cut faces; this is the waterproofing that stops the bread going soggy</li>\n        <li><b>Smoked trout, edge to edge</b> &mdash; laid flat in one even layer so every bite gets some</li>\n        <li><b>Fresh dill</b> &mdash; straight onto the fish, where the oil in the trout carries it</li>\n        <li><b>Tomato, cucumber, red onion</b> &mdash; sliced thin, seasoned on the sandwich rather than in a bowl</li>\n        <li><b>Greens and more dill</b> &mdash; the cushion between the wet layer and the lid</li>\n        <li><b>Basil oil on the top half</b> &mdash; mashed in a mortar, spread on the underside of the lid</li>\n      </ol>\n      <p class=\"sea-stack__cap\">\n        Cheese against bread on both halves, wet things in the middle, greens between the wet things and the lid.\n        Get that sequence right and it survives a walk to the water.\n      </p>\n    </div>\n\n  </div>\n</div>\n\n<script>\n  (function () {\n    document.querySelectorAll('[data-sea-stack]').forEach(function (frame) {\n      var video = frame.querySelector('video');\n      var button = frame.querySelector('.sea-stack__play');\n      if (!video || !button) return;\n\n      button.addEventListener('click', function () {\n        if (!video.currentSrc && !video.src) {\n          var wide = window.matchMedia('(min-width: 600px)').matches;\n          video.src = wide ? video.dataset.srcHd : video.dataset.srcSd;\n        }\n        frame.classList.add('is-playing');\n        video.controls = true;\n        var played = video.play();\n        if (played && played.catch) {\n          played.catch(function () { video.muted = true; video.play(); });\n        }\n      });\n\n      video.addEventListener('pause', function () {\n        if (video.currentTime === 0 || video.ended) {\n          frame.classList.remove('is-playing');\n          video.controls = false;\n        }\n      });\n    });\n  })();\n</script>\n",
+        "padding_top": 8,
+        "padding_bottom": 44,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "recipe_kit_card": {
+      "type": "apps",
+      "blocks": {
+        "recipe_kit_app_block_trout": {
+          "type": "shopify://apps/recipe-kit/blocks/app-block/0afa374e-81c7-4989-96de-e1ac84640954",
+          "settings": {
+            "custom_js": "",
+            "custom_css": ".rk_direction_image { margin-top: 14px; }\n.rk_direction_image img { max-height: 400px; width: 100%; object-fit: cover; border-radius: 12px; }\n@media (max-width: 749px) {\n  .rk_direction_image img { max-height: 280px; }\n}\n"
+          }
+        }
+      },
+      "block_order": [
+        "recipe_kit_app_block_trout"
+      ],
+      "settings": {
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "shop_the_trout": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "",
+        "products": [
+          "smoke-in-chimneys-smoked-trout-filet",
+          "lab-tested-salmon-roe-caviar",
+          "steelhead-2x-6oz-filets",
+          "fine-pure-natural-spring-salt-300g-microplastic-free",
+          "fish-shellfish-variety-box"
+        ],
+        "product_limit": 6,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Built with Smoke in Chimneys Smoked Trout Filets &mdash; hot-smoked, ready to eat straight from the pack, no cooking step at all. A spoon of <a href=\"/products/lab-tested-salmon-roe-caviar\" title=\"Salmon Roe Caviar\">salmon roe</a> on top is not a bad idea, and a pinch of flaky spring salt is the last thing that goes on.</p>",
+        "heading": "Shop the smoked fish in this sandwich",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "game_plan": {
+      "type": "timeline",
+      "blocks": {
+        "s_spread": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/smoked-trout-sandwich-scape-cheese-spread.jpg",
+            "subheading": "Step 1",
+            "heading": "Hollow the loaf, mix the scape cheese",
+            "heading_tag": "h3",
+            "text": "<p>Split the sourdough lengthwise and pull out some of the crumb from both halves so there is room for the filling &mdash; keep the scooped bread for croutons or breadcrumbs. Fold finely chopped garlic scapes (or chives) through a cup of soft cheese and spread it in an even layer on <strong>both</strong> cut faces.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_trout": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/smoked-trout-sandwich-trout-layer-dill.jpg",
+            "subheading": "Step 2",
+            "heading": "Lay the trout edge to edge",
+            "heading_tag": "h3",
+            "text": "<p>Flake or lay the smoked trout fillets flat across the bottom half so the coverage is even from end to end, then scatter a few sprigs of fresh dill straight onto the fish. The oil in hot-smoked trout is what carries the dill, so it goes on the fish rather than on the greens.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_basil": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/smoked-trout-sandwich-basil-mortar-pestle.jpg",
+            "subheading": "Step 3",
+            "heading": "Mash the basil in a mortar",
+            "heading_tag": "h3",
+            "text": "<p>Basil into the mortar with 2 Tbsp of the olive oil, the lemon juice and salt to taste. Mash rather than blend &mdash; you want a rough, bright green oil with texture, not a smooth pesto. Spread it on the underside of the top half.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_veg": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/smoked-trout-sandwich-sliced-vegetables.jpg",
+            "subheading": "Step 4",
+            "heading": "Slice thin, season on the sandwich",
+            "heading_tag": "h3",
+            "text": "<p>Tomato, cucumber and half a red onion, all sliced as thin as you can manage. Lay them over the trout and season there &mdash; cracked pepper, salt, the rest of the olive oil and lemon &mdash; rather than tossing them in a bowl first, which just leaves the dressing behind.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_close": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/smoked-trout-sandwich-loaded-open.jpg",
+            "subheading": "Step 5",
+            "heading": "Greens last, then the lid",
+            "heading_tag": "h3",
+            "text": "<p>A large handful of rainbow lettuce or spring mix and the remaining dill go on top of the wet layer, which keeps the lid dry. Close the sandwich, press it gently, then slice it and take it somewhere with a view.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "s_spread",
+        "s_trout",
+        "s_basil",
+        "s_veg",
+        "s_close"
+      ],
+      "name": "t:sections.timeline.presets.name",
+      "settings": {
+        "image_ratio": "square",
+        "image_ratio_mobile": "landscape",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>The only rule that really matters: cheese touches bread on both halves, and the greens sit between the wet layer and the lid.</p>",
+        "heading": "Five steps, no heat",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "swap_table": {
+      "type": "table-content",
+      "blocks": {
+        "w_head": {
+          "type": "row",
+          "settings": {
+            "feature": "",
+            "version1": "As Jason built it",
+            "version2": "Closest swap",
+            "version3": "In the depths of winter"
+          }
+        },
+        "w_bread": {
+          "type": "row",
+          "settings": {
+            "feature": "Bread",
+            "version1": "Large sourdough loaf, hollowed",
+            "version2": "Baguette, same treatment",
+            "version3": "Sturdy ciabatta &mdash; avoid anything soft"
+          }
+        },
+        "w_cheese": {
+          "type": "row",
+          "settings": {
+            "feature": "Soft cheese",
+            "version1": "Bovre or chevre",
+            "version2": "Plain cream cheese",
+            "version3": "Whipped ricotta with extra salt"
+          }
+        },
+        "w_allium": {
+          "type": "row",
+          "settings": {
+            "feature": "Allium",
+            "version1": "Garlic scapes",
+            "version2": "Chives",
+            "version3": "Finely sliced spring onion tops"
+          }
+        },
+        "w_herb": {
+          "type": "row",
+          "settings": {
+            "feature": "Herb oil",
+            "version1": "Basil, mashed in a mortar",
+            "version2": "Basil, chopped by hand with oil",
+            "version3": "Parsley and a little mint"
+          }
+        },
+        "w_greens": {
+          "type": "row",
+          "settings": {
+            "feature": "Greens",
+            "version1": "Rainbow lettuce, spring mix",
+            "version2": "Any tender leaf",
+            "version3": "Shaved fennel &mdash; holds up better than lettuce"
+          }
+        },
+        "w_fish": {
+          "type": "row",
+          "settings": {
+            "feature": "The fish",
+            "version1": "Hot-smoked trout filets",
+            "version2": "Any ready-to-eat smoked fish",
+            "version3": "Keeps frozen until the morning you want it"
+          }
+        }
+      },
+      "block_order": [
+        "w_head",
+        "w_bread",
+        "w_cheese",
+        "w_allium",
+        "w_herb",
+        "w_greens",
+        "w_fish"
+      ],
+      "name": "Table content",
+      "settings": {
+        "custom_class": "",
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Garlic scapes have a season of about three weeks and bovre is not in every shop. None of that matters much &mdash; here is what to reach for instead.</p>",
+        "heading": "Swap almost anything except the order",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "garden_story": {
+      "type": "image-with-text",
+      "blocks": {
+        "g_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Where it came from",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "g_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Picked in the garden, built on the rocks",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The scapes, basil, dill, tomatoes and lettuce in this sandwich came out of the garden in the first photo &mdash; a few dozen steps from where it got eaten. That is the whole argument for a no-cook recipe: when the produce is picked that morning, the less you do to it the better it tastes.</p><p>The one thing that cannot come from the garden is clean fish. Hot-smoked trout is the part we can promise for you &mdash; ready to eat, third-party tested, and stable in the freezer until the morning you want to carry a sandwich down to the water.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Smoked Trout Filets",
+            "button_link": "/products/smoke-in-chimneys-smoked-trout-filet",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "g_sub",
+        "g_head",
+        "g_text",
+        "g_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/smoked-trout-sandwich-garden.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "rich_text_standard": {
+      "type": "rich-text",
+      "blocks": {
+        "h_std": {
+          "type": "heading",
+          "settings": {
+            "heading": "Ready-to-eat fish you can actually trust",
+            "heading_size": "title-sm",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_std": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Smoked fish is eaten straight from the pack, with no cooking step in between, which makes the testing matter more rather than less. The Smoke in Chimneys trout in this sandwich is third-party lab tested: mercury at <strong>0.0097 ppm</strong> &mdash; roughly a tenth of the 0.1 ppm ceiling of the Seatopia Standard &mdash; and <strong>no detectable microplastics</strong> across all six polymers screened.</p><p>It carries about <strong>18 g of protein per 100 g</strong>, and it is farmed in spring-fed raceways in Virginia rather than netted at sea. You can read exactly how we test on our <a href=\"/pages/seatopia-testing-commitment\" title=\"Seatopia's Testing Commitment\">testing commitment page</a>.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "h_std",
+        "t_std"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_width": "small",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "reviews_trout": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_testimonials_carousel_trout": {
+          "type": "shopify://apps/judge-me-reviews/blocks/testimonials_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": false,
+            "reviews_selection": "custom_products",
+            "products": [
+              "smoke-in-chimneys-smoked-trout-filet"
+            ],
+            "star_rating": "all",
+            "max_reviews": 20,
+            "quote_marks_size": "small",
+            "product_name_text_size": "small",
+            "verified_badge_style": "icon",
+            "card_height": "medium",
+            "text_size": "small",
+            "stars_size": "medium",
+            "arrows_position": "bottom",
+            "max_width": 1100,
+            "corner_styling": "soft",
+            "quote_marks_style": "serif",
+            "card_color": "#f9f9f9",
+            "stars_and_quote_marks_color": "#7bc3f3",
+            "text_color": "#000000",
+            "arrows_color": "#000000",
+            "show_border": false,
+            "border_color": "#108474",
+            "show_drop_shadow": false,
+            "transition_speed": 5,
+            "header_text": "Seatopians on this smoked trout",
+            "show_average_rating": true
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_testimonials_carousel_trout"
+      ],
+      "settings": {
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "faq_trout": {
+      "type": "faq",
+      "blocks": {
+        "q_soggy": {
+          "type": "question",
+          "settings": {
+            "title": "How do I stop the bread going soggy?",
+            "text": "<p>Two things do the work. <strong>Hollow the loaf</strong> so the wet ingredients sit down inside the crumb rather than pressing against the crust, and <strong>spread the soft cheese on both cut faces</strong> &mdash; it is a fat barrier between the bread and everything juicy. Then keep the greens between the tomato layer and the top half. Built that way it will hold for a couple of hours.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_scapes": {
+          "type": "question",
+          "settings": {
+            "title": "What are garlic scapes, and what if I cannot find them?",
+            "text": "<p>The flower stalks garlic sends up in early summer &mdash; mild, green and faintly garlicky, with a season of about three weeks at farmers' markets. <strong>Chives are the direct swap</strong> and are in every shop year round. Spring onion tops work too. Do not substitute raw garlic; it is far too aggressive against smoked fish.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_ahead": {
+          "type": "question",
+          "settings": {
+            "title": "Can I make it ahead or pack it for later?",
+            "text": "<p>It is designed to travel. Build it whole, wrap it tightly in parchment or foil and leave it unsliced &mdash; the pressure of the wrap actually helps it set. A couple of hours at cool temperature is fine, and slicing just before you eat keeps the cut faces from drying. Overnight is too long; the cucumber starts weeping.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_cheese": {
+          "type": "question",
+          "settings": {
+            "title": "Bovre, chevre or cream cheese?",
+            "text": "<p>Any of them. Bovre and chevre are tangier and cut the smoke a little better; cream cheese is milder and closer to a classic lox bagel. Whichever you use, it needs to be genuinely soft and spreadable when it goes on, otherwise it tears the crumb of the hollowed loaf.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_mortar": {
+          "type": "question",
+          "settings": {
+            "title": "Do I need a mortar and pestle for the basil?",
+            "text": "<p>No, but do not reach for a blender. A mortar bruises the leaves and releases the oils while leaving texture; a blender turns it into a smooth, slightly bitter purée. Without a mortar, pile the basil up, chop it roughly with a sharp knife and stir the oil, lemon and salt through it. Same result.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_defrost": {
+          "type": "question",
+          "settings": {
+            "title": "How do I defrost Seatopia smoked trout?",
+            "text": "<p>Overnight in the refrigerator in its sealed pack. It is already hot-smoked and ready to eat, so there is no cooking step afterwards &mdash; just open it and layer it. In a hurry, the sealed pack in a bowl of cold water for 20&ndash;30 minutes works. Never thaw at room temperature or in the microwave.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "q_soggy",
+        "q_scapes",
+        "q_ahead",
+        "q_cheese",
+        "q_mortar",
+        "q_defrost"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "style": "with-border",
+        "color_overlay": "#ffffff",
+        "overlay_opacity": 4,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "Questions cooks actually ask about this sandwich",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "seafood-recipes",
+        "post_limit": 8,
+        "columns": 3,
+        "carousel_on_desktop": true,
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "landscape",
+        "show_tags": false,
+        "show_date": false,
+        "show_comments": false,
+        "show_author": false,
+        "show_excerpt": false,
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Loved this one? There is more where it came from. Every Seatopia box also includes a <a href=\"/pages/seatopia-member-cooking-classes\" title=\"Seatopia Member Cooking Classes\">FREE virtual cooking class</a>, where we walk through temps, searing and knife work live.</p>",
+        "heading": "More clean seafood to cook this week",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "newsletter_banner_trout": {
+      "type": "newsletter-banner",
+      "blocks": {
+        "h_news": {
+          "type": "heading",
+          "settings": {
+            "heading": "Be the first to know",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_news": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get on the list for more no-cook seafood, picnic builds and cooking temps delivered straight to your inbox.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_news": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "h_news",
+        "t_news",
+        "f_news"
+      ],
+      "name": "t:sections.newsletter-banner.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "transparent_footer": false,
+        "image": "shopify://shop_images/smoked-trout-sandwich-held-shore.jpg",
+        "image_height": "650px",
+        "content_width": "medium",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    }
+  },
+  "order": [
+    "main-article-banner",
+    "collab_card",
+    "rich_text_intro",
+    "at_a_glance",
+    "stack_video",
+    "recipe_kit_card",
+    "shop_the_trout",
+    "game_plan",
+    "swap_table",
+    "garden_story",
+    "rich_text_standard",
+    "reviews_trout",
+    "faq_trout",
+    "blog-posts",
+    "newsletter_banner_trout"
+  ]
+}
