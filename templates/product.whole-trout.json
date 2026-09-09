@@ -980,7 +980,7 @@
             "title": "Dr. Mark Hyman",
             "job": "Leader in Functional Medicine",
             "Start_number": "5",
-            "text": "<p>“We are what foods we eats and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
+            "text": "<p>“We are what foods we eat and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
             "block_background": "",
             "block_text_color": ""
           }
@@ -1038,8 +1038,8 @@
         "title": "",
         "sub_title": "",
         "section_cont_position": "center",
-        "padding_top": 0,
-        "padding_bottom": 28,
+        "padding_top": 52,
+        "padding_bottom": 52,
         "section_background": "#fafafa",
         "text_color": "#171717",
         "star_color": "#f59e0b",
