@@ -943,7 +943,7 @@
       "settings": {
         "heading": "Cold, clear water from the Blue Ridge Mountains",
         "heading_size": "title-md",
-        "heading_alignment": "text-center md:items-center",
+        "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
         "subheading": "",
         "description": "<p>Smoke in Chimneys operates in foothills of the Blue Ridge Mountains, on land that in many ways helped shape the history of mainland American aquaculture. Here, cold, clear spring water from limestone aquifers travels downhill through a gravity-powered raceway system first built in the late 1800s. This natural water flow oxygenates the trout and keeps their environment clean without the need for external energy inputs. </p>",
