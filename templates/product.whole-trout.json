@@ -666,7 +666,7 @@
       ],
       "settings": {
         "heading": "Delicious seafood that meets the Seatopia Standard™",
-        "heading_size": "title-sm",
+        "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h3",
         "subheading": "",
