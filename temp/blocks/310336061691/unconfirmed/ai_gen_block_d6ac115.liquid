@@ -1,6 +1,153 @@
+{% doc %}
+  @prompt
+    Iterate on the existing "Blog posts collage" section to fix the following issues:
+    
+    1. Add left and right margins so the section matches the spacing of other sections on the site (consistent horizontal margins).
+    2. Add standard top and bottom margin/padding settings (with a settings control in the theme editor) so merchants can adjust the vertical spacing above and below the section, consistent with how other sections handle top/bottom spacing.
+    
+    Do not change any existing functionality or visual design — only add the missing horizontal margins and the top/bottom spacing controls.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-blog-collage-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    padding-top: {{ block.settings.padding_top }}px;
+    padding-bottom: {{ block.settings.padding_bottom }}px;
+  }
+
+  .ai-blog-collage-{{ ai_gen_id }}__inner {
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ai-blog-collage-{{ ai_gen_id }}__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .ai-blog-collage-{{ ai_gen_id }}__card {
+    min-width: 0;
+  }
+
+  .ai-blog-collage-{{ ai_gen_id }}__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .ai-blog-collage-{{ ai_gen_id }}__placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #f4f4f4;
+  }
+
+  .ai-blog-collage-{{ ai_gen_id }}__placeholder svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .ai-blog-collage-{{ ai_gen_id }}__title {
+    margin: 14px 0 0;
+    color: #2e4b59;
+  }
+
+  .ai-blog-collage-{{ ai_gen_id }}__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-blog-collage-{{ ai_gen_id }}__inner {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .ai-blog-collage-{{ ai_gen_id }}__grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-blog-collage-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-blog-collage-{{ ai_gen_id }}__inner">
+    {% if block.settings.blog != blank %}
+      <div class="ai-blog-collage-{{ ai_gen_id }}__grid">
+        {% for article in block.settings.blog.articles limit: 6 %}
+          <article class="ai-blog-collage-{{ ai_gen_id }}__card">
+            {% if article.image %}
+              <img class="ai-blog-collage-{{ ai_gen_id }}__image" src="{{ article.image | image_url: width: 900 }}" alt="{{ article.image.alt | default: article.title | escape }}" loading="lazy" width="{{ article.image.width }}" height="{{ article.image.height }}">
+            {% else %}
+              <div class="ai-blog-collage-{{ ai_gen_id }}__placeholder">{{ 'blog-apparel-1' | placeholder_svg_tag }}</div>
+            {% endif %}
+            <h3 class="ai-blog-collage-{{ ai_gen_id }}__title"><a href="{{ article.url }}">{{ article.title }}</a></h3>
+          </article>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Blog posts collage",
+  "settings": [
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog posts collage"
+    }
+  ],
+  "tag": null,
+  "class": "blog-posts-collage"
+}
 {% endschema %}
