@@ -1,6 +1,98 @@
+{% doc %}
+  @prompt
+    Iterate on the existing "Blog posts collage" section to fix the following issues:
+    
+    1. Add left and right margins so the section matches the spacing of other sections on the site (consistent horizontal margins).
+    2. Add standard top and bottom margin/padding settings (with a settings control in the theme editor) so merchants can adjust the vertical spacing above and below the section, consistent with how other sections handle top/bottom spacing.
+    
+    Do not change any existing functionality or visual design — only add the missing horizontal margins and the top/bottom spacing controls., The left-rigth spacing is the problem. This section needs to inherit the same spacing rules as all other sections regarding left-right margin/padding to screen. , This section should be styled layout-wise just like the original blog posts collage here on the page and across the site, Ok - these were the original instructions. I need all of that to be true here too. The section was originally perfect, it just needed the left/right spacing this section has now. Lets get the rest of the functionality back
+    
+    "Create a "Blog Posts Collage" section that replicates the existing collage blog posts section layout and functionality, but adds the ability to filter blog posts by a specific tag. The section should have a setting where the merchant can enter a tag name, and only blog posts matching that tag will be displayed in the collage. All other existing collage settings (blog source, number of posts, heading, layout, colors, etc.) should remain intact."
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% assign filtered_count = 0 %}
+
+{% style %}
+  .ai-blog-collage-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: {{ block.settings.padding_top }}px 24px {{ block.settings.padding_bottom }}px;
+  }
+  .ai-blog-collage-{{ ai_gen_id }}__inner { width: {{ block.settings.desktop_width_percent }}%; max-width: 100%; margin: 0 auto; }
+  .ai-blog-collage-{{ ai_gen_id }}__heading { margin: 0 0 28px; color: {{ block.settings.text_color }}; text-align: {{ block.settings.heading_alignment }}; }
+  .ai-blog-collage-{{ ai_gen_id }}__grid { display: grid; gap: {{ block.settings.gap }}px; }
+  .ai-blog-collage-{{ ai_gen_id }}__grid--featured { grid-template-columns: 1.35fr 1fr 1fr; grid-template-rows: repeat(2, minmax(190px, 1fr)); }
+  .ai-blog-collage-{{ ai_gen_id }}__grid--equal { grid-template-columns: repeat(3, 1fr); }
+  .ai-blog-collage-{{ ai_gen_id }}__card { position: relative; min-width: 0; min-height: 190px; overflow: hidden; border-radius: {{ block.settings.border_radius }}px; background: {{ block.settings.placeholder_color }}; }
+  .ai-blog-collage-{{ ai_gen_id }}__grid--featured .ai-blog-collage-{{ ai_gen_id }}__card:first-child { grid-row: 1 / 3; }
+  .ai-blog-collage-{{ ai_gen_id }}__image, .ai-blog-collage-{{ ai_gen_id }}__placeholder { display: block; width: 100%; height: 100%; min-height: 190px; object-fit: cover; }
+  .ai-blog-collage-{{ ai_gen_id }}__placeholder svg { width: 100%; height: 100%; }
+  .ai-blog-collage-{{ ai_gen_id }}__overlay { position: absolute; right: 0; bottom: 0; left: 0; padding: 56px 22px 20px; color: {{ block.settings.overlay_text_color }}; background: linear-gradient(transparent, {{ block.settings.overlay_color }}); }
+  .ai-blog-collage-{{ ai_gen_id }}__title { margin: 0; color: inherit; font-size: {{ block.settings.title_size }}px; line-height: 1.25; }
+  .ai-blog-collage-{{ ai_gen_id }}__title a { color: inherit; text-decoration: none; }
+  .ai-blog-collage-{{ ai_gen_id }}__empty { color: {{ block.settings.text_color }}; text-align: center; }
+  @media screen and (max-width: 749px) {
+    .ai-blog-collage-{{ ai_gen_id }} { padding-right: 20px; padding-left: 20px; }
+    .ai-blog-collage-{{ ai_gen_id }}__inner { width: 100%; }
+    .ai-blog-collage-{{ ai_gen_id }}__grid, .ai-blog-collage-{{ ai_gen_id }}__grid--featured, .ai-blog-collage-{{ ai_gen_id }}__grid--equal { display: flex; flex-direction: column; }
+    .ai-blog-collage-{{ ai_gen_id }}__card { min-height: 220px; }
+  }
+{% endstyle %}
+
+<div class="ai-blog-collage-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-blog-collage-{{ ai_gen_id }}__inner">
+    {% if block.settings.heading != blank %}<h2 class="ai-blog-collage-{{ ai_gen_id }}__heading">{{ block.settings.heading }}</h2>{% endif %}
+    {% if block.settings.blog != blank %}
+      <div class="ai-blog-collage-{{ ai_gen_id }}__grid ai-blog-collage-{{ ai_gen_id }}__grid--{{ block.settings.layout }}">
+        {% for article in block.settings.blog.articles %}
+          {% assign show_article = true %}
+          {% if block.settings.filter_tag != blank %}
+            {% assign show_article = false %}
+            {% if article.tags contains block.settings.filter_tag %}{% assign show_article = true %}{% endif %}
+          {% endif %}
+          {% if show_article and filtered_count < block.settings.post_limit %}
+            {% assign filtered_count = filtered_count | plus: 1 %}
+            <article class="ai-blog-collage-{{ ai_gen_id }}__card">
+              {% if article.image %}
+                <img class="ai-blog-collage-{{ ai_gen_id }}__image" src="{{ article.image | image_url: width: 1200 }}" alt="{{ article.image.alt | default: article.title | escape }}" loading="lazy" width="{{ article.image.width }}" height="{{ article.image.height }}">
+              {% else %}
+                <div class="ai-blog-collage-{{ ai_gen_id }}__placeholder">{{ 'blog-apparel-1' | placeholder_svg_tag }}</div>
+              {% endif %}
+              <div class="ai-blog-collage-{{ ai_gen_id }}__overlay"><h3 class="ai-blog-collage-{{ ai_gen_id }}__title"><a href="{{ article.url }}">{{ article.title }}</a></h3></div>
+            </article>
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% if filtered_count == 0 %}<p class="ai-blog-collage-{{ ai_gen_id }}__empty">No posts match this tag.</p>{% endif %}
+    {% endif %}
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Blog posts collage",
+  "settings": [
+    {"type":"blog","id":"blog","label":"Blog"},
+    {"type":"text","id":"filter_tag","label":"Filter by tag"},
+    {"type":"range","id":"post_limit","label":"Number of posts","min":3,"max":12,"step":1,"default":5},
+    {"type":"richtext","id":"heading","label":"Heading","default":"<p>From the journal</p>"},
+    {"type":"select","id":"layout","label":"Layout","options":[{"value":"featured","label":"Featured collage"},{"value":"equal","label":"Equal columns"}],"default":"featured"},
+    {"type":"range","id":"desktop_width_percent","label":"Desktop width","min":50,"max":100,"step":5,"unit":"%","default":100},
+    {"type":"header","content":"Spacing"},
+    {"type":"range","id":"padding_top","label":"Top spacing","min":0,"max":120,"step":4,"unit":"px","default":40},
+    {"type":"range","id":"padding_bottom","label":"Bottom spacing","min":0,"max":120,"step":4,"unit":"px","default":40},
+    {"type":"range","id":"gap","label":"Card gap","min":8,"max":40,"step":4,"unit":"px","default":20},
+    {"type":"range","id":"border_radius","label":"Corner radius","min":0,"max":32,"step":2,"unit":"px","default":12},
+    {"type":"range","id":"title_size","label":"Title size","min":14,"max":32,"step":2,"unit":"px","default":20},
+    {"type":"color","id":"text_color","label":"Heading and empty state","default":"#2E4B59"},
+    {"type":"color","id":"overlay_color","label":"Overlay","default":"rgba(46, 75, 89, 0.9)"},
+    {"type":"color","id":"overlay_text_color","label":"Card text","default":"#FFFFFF"},
+    {"type":"color","id":"placeholder_color","label":"Placeholder","default":"#CDD9D1"},
+    {"type":"select","id":"heading_alignment","label":"Heading alignment","options":[{"value":"left","label":"Left"},{"value":"center","label":"Center"},{"value":"right","label":"Right"}],"default":"left"}
+  ],
+  "presets":[{"name":"Blog posts collage"}],
+  "tag":null,
+  "class":"blog-posts-collage"
+}
 {% endschema %}
