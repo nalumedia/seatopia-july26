@@ -1,0 +1,1030 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-article-banner": {
+      "type": "main-article-banner",
+      "blocks": {
+        "spacing": {
+          "type": "spacing",
+          "settings": {
+            "height": 68,
+            "height_mobile": 0
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "title-lg tracking-heading",
+            "show_tags": true,
+            "show_date": false,
+            "show_comments": false,
+            "show_author": true
+          }
+        }
+      },
+      "block_order": [
+        "spacing",
+        "title"
+      ],
+      "settings": {
+        "transparent_header": true,
+        "show_image": true,
+        "image": "shopify://shop_images/urfa-ora-king-salmon-farro-salad-plated.jpg",
+        "image_height": "750px",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-center",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_overlay": "#000000",
+        "overlay_opacity": 40,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "collab_card": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "recipe-collab",
+        "liquid": "\n<style>\n  .sea-collab {\n    --ink: #171717; --muted: #5c5c5c; --line: #e5e2dc; --wash: #faf8f4; --gold: #bb8f50;\n    border: 1px solid var(--line);\n    border-radius: 18px;\n    background: var(--wash);\n    padding: 24px 28px;\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n    color: var(--ink);\n  }\n  .sea-collab__avatar {\n    flex: 0 0 auto;\n    width: 68px; height: 68px; border-radius: 50%; overflow: hidden;\n    border: 2px solid #fff; box-shadow: 0 0 0 2px var(--gold); background: #eee;\n  }\n  .sea-collab__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }\n  .sea-collab__body { flex: 1 1 260px; min-width: 0; }\n  .sea-collab__eyebrow {\n    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;\n    color: var(--gold); font-weight: 600; margin: 0 0 5px;\n    display: flex; align-items: center; gap: 9px; flex-wrap: wrap;\n  }\n  .sea-collab__badge {\n    letter-spacing: .08em; font-size: 10px; font-weight: 700;\n    color: #fff; background: var(--ink);\n    padding: 3px 8px; border-radius: 999px;\n  }\n  .sea-collab__name { font-size: 21px; font-weight: 600; line-height: 1.2; margin: 0 0 4px; }\n  .sea-collab__role { font-size: 15px; color: var(--muted); line-height: 1.45; margin: 0; }\n  .sea-collab__role a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }\n  .sea-collab__cred {\n    font-size: 13px; color: var(--muted); line-height: 1.5;\n    margin: 10px 0 0; padding-top: 10px; border-top: 1px solid var(--line);\n  }\n  .sea-collab__follow {\n    flex: 0 0 auto;\n    display: inline-flex; align-items: center; gap: 8px;\n    padding: 11px 20px; border: 1px solid var(--ink); border-radius: 999px;\n    font-size: 15px; font-weight: 600; text-decoration: none;\n    color: var(--ink); background: #fff;\n    transition: background .18s ease, color .18s ease;\n  }\n  .sea-collab__follow:hover { background: var(--ink); color: #fff; }\n  .sea-collab__follow svg { width: 18px; height: 18px; }\n  @media (max-width: 749px) {\n    .sea-collab { padding: 20px; gap: 16px; }\n    .sea-collab__follow { width: 100%; justify-content: center; }\n    .sea-collab__name { font-size: 19px; }\n  }\n</style>\n\n{%- assign collab_avatar = 'miriam-thom-headshot.jpg' | file_url -%}\n\n<div class=\"sea-collab\">\n  {%- if collab_avatar != blank -%}\n    <div class=\"sea-collab__avatar\">\n      <img src=\"{{ collab_avatar }}\" alt=\"Miriam Thom\" width=\"136\" height=\"136\" loading=\"lazy\" decoding=\"async\">\n    </div>\n  {%- endif -%}\n\n  <div class=\"sea-collab__body\">\n    <p class=\"sea-collab__eyebrow\">\n      <span>From the Seatopia kitchen</span>\n      <span class=\"sea-collab__badge\">In-house</span>\n    </p>\n    <p class=\"sea-collab__name\">Recipe by Miriam Thom</p>\n    <p class=\"sea-collab__role\">Culinary Education at Seatopia &mdash; she develops the recipes that ship with the boxes and teaches the <a href=\"/pages/seatopia-member-cooking-classes\" title=\"Seatopia Member Cooking Classes\">member cooking classes</a></p>\n    <p class=\"sea-collab__cred\">Serves 2 generously &middot; about 40 minutes &middot; one pot, one oven-safe skillet</p>\n  </div>\n\n  <a class=\"sea-collab__follow\" href=\"https://www.instagram.com/miriamthom\" target=\"_blank\" rel=\"noopener noreferrer\">\n    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n      <rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\"></rect>\n      <circle cx=\"12\" cy=\"12\" r=\"4\"></circle>\n      <circle cx=\"17.5\" cy=\"6.5\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"></circle>\n    </svg>\n    <span>Follow</span>\n  </a>\n</div>\n",
+        "padding_top": 28,
+        "padding_bottom": 8,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "rich_text_intro": {
+      "type": "rich-text",
+      "blocks": {
+        "text_intro": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This is the salad you want when the weather turns and a cold plate stops sounding appealing. Farro cooked until it is tender but still chewy, loaded while it is hot so the raisins plump and the apple softens just at the edges, then dressed warm with lemon, Dijon and grated garlic. It is substantial without being heavy &mdash; the thing a grain salad is supposed to be and usually is not.</p><p>The fish is doing two jobs. Crisp skin gives the plate its texture, and the fat in a King Salmon fillet is what carries the Urfa pepper &mdash; a dark, raisiny Turkish chili that would disappear on anything leaner. Sear it skin-side down for two or three minutes, finish it in a 375&deg;F oven, and pull it at 120&ndash;125&deg;F.</p><p>Built on Seatopia <a href=\"/products/king-salmon\" title=\"King Salmon\">King Salmon</a>, tested to the <a href=\"/pages/why-clean-seafood-matters\" title=\"Why Clean Seafood Matters\">Seatopia Standard&trade;</a>. Recipe by Miriam Thom, who runs culinary education here and wrote the cooking classes that come with every box.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "text_intro"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_width": "small",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "at_a_glance": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "g_time": {
+          "type": "column",
+          "settings": {
+            "icon": "time",
+            "custom_icon": "",
+            "heading": "About 40 minutes",
+            "text": "<p>The farro sets the clock at 25 to 30 minutes. Prep the salad and whisk the dressing while it simmers, and the salmon only needs the last ten.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_serves": {
+          "type": "column",
+          "settings": {
+            "icon": "users",
+            "custom_icon": "",
+            "heading": "Serves 2 generously",
+            "text": "<p>Two 8.5&nbsp;oz fillets and a cup of dry farro. Doubles cleanly for four &mdash; use two skillets rather than crowding one.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_omega": {
+          "type": "column",
+          "settings": {
+            "icon": "heart",
+            "custom_icon": "",
+            "heading": "3.4 g EPA + DHA",
+            "text": "<p>Per 8.5&nbsp;oz fillet, marine-derived. That is the number on the pack, not a supplement equivalent.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_prep": {
+          "type": "column",
+          "settings": {
+            "icon": "check_mark",
+            "custom_icon": "",
+            "heading": "Better the next day",
+            "text": "<p>The farro keeps absorbing the dressing overnight. Pack the salad and the fish separately and eat it warm or cold.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "g_time",
+        "g_serves",
+        "g_omega",
+        "g_prep"
+      ],
+      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "settings": {
+        "custom_class": "",
+        "section_id": "at-a-glance",
+        "style": "with-border",
+        "columns": 4,
+        "text_alignment": "left",
+        "dt_txt_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "At a glance",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "pepper_note": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "know-the-pepper",
+        "liquid": "\n<style>\n  .sea-pepper {\n    --ink:#171717; --muted:#5c5c5c; --line:#e5e2dc; --wash:#faf8f4; --gold:#bb8f50;\n    color: var(--ink); background: var(--wash);\n    border: 1px solid var(--line); border-radius: 20px; padding: 30px;\n  }\n  .sea-pepper__grid {\n    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 300px);\n    gap: 34px; align-items: center;\n  }\n  .sea-pepper__eyebrow {\n    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;\n    color: var(--gold); font-weight: 600; margin: 0 0 8px;\n  }\n  .sea-pepper__heading { font-size: clamp(23px, 2.8vw, 30px); line-height: 1.15; font-weight: 600; margin: 0 0 10px; }\n  .sea-pepper__lede { font-size: 15px; line-height: 1.55; color: var(--muted); margin: 0 0 22px; }\n  .sea-pepper__rows { display: grid; gap: 14px; }\n  .sea-pepper__row {\n    background: #fff; border: 1px solid var(--line); border-radius: 14px;\n    padding: 15px 17px;\n    display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px 16px; align-items: center;\n  }\n  .sea-pepper__row--pick { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }\n  .sea-pepper__name {\n    grid-column: 1; margin: 0;\n    font-size: 15px; font-weight: 600; line-height: 1.3;\n    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;\n  }\n  .sea-pepper__tag {\n    font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;\n    color: #fff; background: var(--gold); padding: 3px 8px; border-radius: 999px;\n  }\n  .sea-pepper__meter { grid-column: 2; grid-row: 1; display: flex; gap: 4px; align-items: center; }\n  .sea-pepper__pip {\n    width: 9px; height: 9px; border-radius: 50%;\n    background: #fff; border: 1.5px solid #d8cfc0;\n  }\n  .sea-pepper__pip.is-on { background: #b8462f; border-color: #b8462f; }\n  .sea-pepper__note {\n    grid-column: 1 / -1; margin: 0;\n    font-size: 13.5px; line-height: 1.5; color: var(--muted);\n  }\n  .sea-pepper__legend {\n    margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--line);\n    font-size: 13px; line-height: 1.55; color: var(--muted);\n  }\n  .sea-pepper__figure { margin: 0; }\n  .sea-pepper__figure img {\n    width: 100%; height: auto; display: block;\n    border-radius: 16px; box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-pepper__cap { margin: 10px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--muted); }\n  @media (max-width: 989px) {\n    .sea-pepper { padding: 22px; }\n    .sea-pepper__grid { grid-template-columns: 1fr; gap: 24px; }\n    .sea-pepper__figure { order: -1; }\n  }\n</style>\n\n<div class=\"sea-pepper\">\n  <div class=\"sea-pepper__grid\">\n\n    <div class=\"sea-pepper__body\">\n      <p class=\"sea-pepper__eyebrow\">Know the pepper</p>\n      <h2 class=\"sea-pepper__heading\">Urfa is not a chili flake, and the difference is the whole dish.</h2>\n      <p class=\"sea-pepper__lede\">\n        Urfa (you will also see it sold as <em>isot</em>) is dried in the sun by day and wrapped to sweat overnight,\n        which is why it comes out almost black and tastes of raisin, tobacco and cocoa instead of straight heat.\n        The heat arrives late and stays low. That slow, dark sweetness is what makes it sit so well against\n        rich salmon and sweet apple &mdash; a hotter, brighter flake fights both.\n      </p>\n\n      <div class=\"sea-pepper__rows\">\n        <div class=\"sea-pepper__row sea-pepper__row--pick\">\n          <p class=\"sea-pepper__name\">\n            <span>Urfa / isot</span>\n            <span class=\"sea-pepper__tag\">As written</span>\n          </p>\n          <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Heat: 2 out of 5\">\n            <span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip\"></span>\n            <span class=\"sea-pepper__pip\"></span>\n            <span class=\"sea-pepper__pip\"></span>\n          </div>\n          <p class=\"sea-pepper__note\">Dark maroon, faintly oily, coarse. Raisin and cocoa up front, heat well behind it. Use a generous pinch &mdash; it is a finishing pepper, not a seasoning.</p>\n        </div>\n\n        <div class=\"sea-pepper__row\">\n          <p class=\"sea-pepper__name\"><span>Aleppo / pul biber</span></p>\n          <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Heat: 3 out of 5\">\n            <span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip\"></span>\n            <span class=\"sea-pepper__pip\"></span>\n          </div>\n          <p class=\"sea-pepper__note\">The closest easy swap and the one named in the recipe. Brighter red, fruitier, a little hotter and a lot less smoky. Use the same amount.</p>\n        </div>\n\n        <div class=\"sea-pepper__row\">\n          <p class=\"sea-pepper__name\"><span>Crushed red pepper flake</span></p>\n          <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Heat: 5 out of 5\">\n            <span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip is-on\"></span>\n          </div>\n          <p class=\"sea-pepper__note\">Works, but change the dose: use about a third as much, and add a pinch of smoked paprika to stand in for the missing depth.</p>\n        </div>\n      </div>\n\n      <p class=\"sea-pepper__legend\">\n        Pips are relative heat within this trio, not a measurement. If your jar of Urfa smells like tobacco and\n        leaves a little oil on your fingers, it is the good stuff.\n      </p>\n    </div>\n\n    <figure class=\"sea-pepper__figure\">\n      <img src=\"{{ 'urfa-farro-salad-mise-en-place.jpg' | file_url }}\"\n           alt=\"Mise en place on a wooden board: cilantro, avocado, sliced apple, sultana raisins, toasted pepitas, pickled red onions and Urfa pepper\"\n           width=\"1200\" height=\"900\" loading=\"lazy\" decoding=\"async\">\n      <p class=\"sea-pepper__cap\">Everything for the salad, prepped and portioned before the farro goes on.</p>\n    </figure>\n\n  </div>\n</div>\n",
+        "padding_top": 44,
+        "padding_bottom": 12,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "recipe_kit_card": {
+      "type": "apps",
+      "blocks": {
+        "recipe_kit_app_block_urfa": {
+          "type": "shopify://apps/recipe-kit/blocks/app-block/0afa374e-81c7-4989-96de-e1ac84640954",
+          "settings": {
+            "custom_js": "",
+            "custom_css": ".rk_direction_image { margin-top: 14px; }\n.rk_direction_image img { max-height: 400px; width: 100%; object-fit: cover; border-radius: 12px; }\n@media (max-width: 749px) {\n  .rk_direction_image img { max-height: 280px; }\n}\n"
+          }
+        }
+      },
+      "block_order": [
+        "recipe_kit_app_block_urfa"
+      ],
+      "settings": {
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "shop_the_plate": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "",
+        "products": [
+          "king-salmon",
+          "digital-thermometer",
+          "flake-spring-salt-180g-microplastic-free",
+          "cultured-ghee-grassfed-certified-organic-14-oz",
+          "salmon-lovers-box-12-servings"
+        ],
+        "product_limit": 6,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Two 8.5&nbsp;oz Seatopia <a href=\"/products/king-salmon\" title=\"King Salmon\">King Salmon</a> fillets is exactly one round of this recipe. A teaspoon of ghee is what crisps the skin without smoking, flake salt is the last thing that goes on, and the thermometer is the difference between 122&deg;F and guessing.</p>",
+        "heading": "Everything on this plate",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "game_plan": {
+      "type": "timeline",
+      "blocks": {
+        "s_thaw": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/urfa-farro-salad-salmon-and-mise.jpg",
+            "subheading": "The night before",
+            "heading": "Thaw the fillets in the refrigerator",
+            "heading_tag": "h3",
+            "text": "<p>Move the sealed packs from the freezer to the refrigerator about 12 hours ahead. In a hurry, submerge the sealed pack in cold water for 20&ndash;30 minutes. Never at room temperature, and never in the microwave &mdash; a King Salmon fillet is too fatty to survive a partial cook before it ever reaches the pan.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_farro": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/urfa-farro-raisins-added.jpg",
+            "subheading": "Step 1",
+            "heading": "Cook the farro, then load it while it is hot",
+            "heading_tag": "h3",
+            "text": "<p>A liter of generously salted water to the boil, then the farro for 25&ndash;30 minutes &mdash; tender but still pleasantly chewy. Drain well, return it to the pot and stir the sultanas through straight away. Sitting in the residual heat is what plumps them; add them to a cold salad and they stay leathery.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_apple": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/urfa-farro-apple-added.jpg",
+            "subheading": "Step 2",
+            "heading": "Apple, cilantro, pickled onion, pepitas",
+            "heading_tag": "h3",
+            "text": "<p>Into a large bowl and add the chopped apple, cilantro, pickled red onions and toasted pepitas. Toss gently. The apple wants to be cut small &mdash; you are after little sweet-tart interruptions the same size as the grains, not chunks you have to chase around the plate.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_dressing": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/urfa-lemon-mustard-dressing-mise.jpg",
+            "subheading": "Step 3",
+            "heading": "Whisk the lemon-mustard dressing",
+            "heading_tag": "h3",
+            "text": "<p>Olive oil, finely grated garlic, Dijon, the juice of half a lemon, sea salt and a few grinds of pepper. Grate the garlic rather than chopping it so it disappears into the emulsion instead of turning up raw in one bite. Dijon is the emulsifier here &mdash; do not leave it out.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_dress": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/urfa-farro-dressing-poured.jpg",
+            "subheading": "Step 4",
+            "heading": "Dress it warm, hold half back",
+            "heading_tag": "h3",
+            "text": "<p>Toss the still-warm farro with about half the dressing and reserve the rest. Warm grain drinks dressing the way cold grain will not, which is the entire reason this is a warm salad. The reserved half goes over the plate at the end, where you can taste it.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_sear": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/urfa-ora-king-salmon-skin-down-skillet.jpg",
+            "subheading": "Step 5",
+            "heading": "Dry the skin, sear it, finish in the oven",
+            "heading_tag": "h3",
+            "text": "<p>Oven to 375&deg;F. Pat the fillets completely dry &mdash; the skin especially &mdash; and salt both sides. Ghee into an oven-safe skillet over medium-high until it is glossy but not smoking, then lay the fillets in skin-side down and press gently with a spatula for the first 20&ndash;30 seconds so the skin stays flat. Two to three minutes without moving them, then the whole skillet into the oven for 6&ndash;9 minutes.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_serve": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/urfa-farro-salad-dressing-drizzle.jpg",
+            "subheading": "Step 6",
+            "heading": "Skin up, avocado, a generous pinch of Urfa",
+            "heading_tag": "h3",
+            "text": "<p>Divide the warm farro between two plates and set a fillet on each, crisp skin up and exposed &mdash; bury it under anything and you have wasted the sear. Sliced avocado, a generous pinch of Urfa pepper, and the reserved dressing over the top.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "s_thaw",
+        "s_farro",
+        "s_apple",
+        "s_dressing",
+        "s_dress",
+        "s_sear",
+        "s_serve"
+      ],
+      "name": "t:sections.timeline.presets.name",
+      "settings": {
+        "image_ratio": "square",
+        "image_ratio_mobile": "landscape",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Two things carry this dish, and both happen while something is still hot: the raisins go into the farro the moment it drains, and the farro gets dressed before it cools.</p>",
+        "heading": "The game plan",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "pull_temp": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "pull-temperature",
+        "liquid": "\n<style>\n  .sea-temp {\n    --ink:#171717; --muted:#5c5c5c; --line:#e5e2dc; --wash:#faf8f4; --gold:#bb8f50;\n    color: var(--ink); background: #fff;\n    border: 1px solid var(--line); border-radius: 20px; padding: 30px;\n  }\n  .sea-temp__eyebrow {\n    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;\n    color: var(--gold); font-weight: 600; margin: 0 0 8px;\n  }\n  .sea-temp__heading { font-size: clamp(23px, 2.8vw, 30px); line-height: 1.15; font-weight: 600; margin: 0 0 10px; }\n  .sea-temp__lede { font-size: 15px; line-height: 1.55; color: var(--muted); margin: 0 0 30px; max-width: 62ch; }\n\n  .sea-temp__rail { position: relative; margin: 0 0 12px; padding-top: 34px; }\n  .sea-temp__bar {\n    height: 14px; border-radius: 999px; overflow: hidden;\n    background: linear-gradient(90deg, #e7c9a8 0%, #dd9a5e 34%, #c96b3a 58%, #a8a29a 100%);\n  }\n  .sea-temp__zone {\n    position: absolute; top: 28px; bottom: -6px;\n    left: 25%; width: 25%;\n    border: 2px solid var(--ink); border-radius: 10px;\n    background: rgba(23,23,23,.05);\n    pointer-events: none;\n  }\n  .sea-temp__zone span {\n    position: absolute; left: 50%; top: -26px; transform: translateX(-50%);\n    white-space: nowrap;\n    font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;\n    color: #fff; background: var(--ink); padding: 4px 10px; border-radius: 999px;\n  }\n  .sea-temp__ticks {\n    display: grid; grid-template-columns: repeat(4, 1fr);\n    margin: 12px 0 0; padding: 0; list-style: none;\n    border-top: 1px solid var(--line);\n  }\n  .sea-temp__ticks li {\n    padding: 14px 14px 0 0; position: relative;\n  }\n  .sea-temp__ticks li:before {\n    content: \"\"; position: absolute; left: 0; top: -1px;\n    width: 2px; height: 9px; background: #cfc8bb;\n  }\n  .sea-temp__ticks li.is-target:before { background: var(--ink); height: 13px; width: 3px; }\n  .sea-temp__chip {\n    display: none;\n    font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;\n    color: #fff; background: var(--ink); padding: 3px 9px; border-radius: 999px;\n    margin: 0 0 7px;\n  }\n  .sea-temp__deg { display: block; font-size: 17px; font-weight: 700; line-height: 1.2; margin: 0 0 4px; }\n  .sea-temp__ticks li.is-target .sea-temp__deg { color: var(--ink); }\n  .sea-temp__what { display: block; font-size: 13.5px; font-weight: 600; line-height: 1.35; margin: 0 0 5px; }\n  .sea-temp__why { display: block; font-size: 13px; line-height: 1.5; color: var(--muted); margin: 0; }\n\n  .sea-temp__foot {\n    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 320px);\n    gap: 30px; align-items: center;\n    margin: 28px 0 0; padding-top: 22px; border-top: 1px solid var(--line);\n  }\n  .sea-temp__carry { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--muted); }\n  .sea-temp__carry b { color: var(--ink); }\n  .sea-temp__cta {\n    display: inline-flex; align-items: center; gap: 8px; margin-top: 14px;\n    padding: 11px 20px; border: 1px solid var(--ink); border-radius: 999px;\n    font-size: 14.5px; font-weight: 600; text-decoration: none;\n    color: var(--ink); background: #fff;\n    transition: background .18s ease, color .18s ease;\n  }\n  .sea-temp__cta:hover { background: var(--ink); color: #fff; }\n  .sea-temp__figure { margin: 0; }\n  .sea-temp__figure img {\n    width: 100%; height: auto; display: block;\n    border-radius: 16px; box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  @media (max-width: 989px) {\n    .sea-temp { padding: 22px; }\n    .sea-temp__rail { display: none; }\n    .sea-temp__chip { display: inline-block; }\n    .sea-temp__ticks { display: grid; grid-template-columns: 1fr; gap: 12px; border-top: 0; }\n    .sea-temp__ticks li {\n      padding: 15px 17px;\n      border: 1px solid var(--line); border-radius: 14px; background: var(--wash);\n    }\n    .sea-temp__ticks li:before { display: none; }\n    .sea-temp__ticks li.is-target { border-color: var(--ink); background: #fff; }\n    .sea-temp__foot { grid-template-columns: 1fr; gap: 22px; }\n    .sea-temp__figure { order: -1; }\n  }\n</style>\n\n<div class=\"sea-temp\">\n  <p class=\"sea-temp__eyebrow\">The only number that matters</p>\n  <h2 class=\"sea-temp__heading\">Pull it at 120&ndash;125&deg;F and let the plate do the rest.</h2>\n  <p class=\"sea-temp__lede\">\n    King Salmon is a fatty fillet, which buys you a little forgiveness &mdash; but not much. The window between\n    silky and chalky is about ten degrees wide, and it closes while the skillet is still in your hand.\n    Six to nine minutes in a 375&deg;F oven gets you there; a thermometer tells you when.\n  </p>\n\n  <div class=\"sea-temp__rail\">\n    <div class=\"sea-temp__bar\"></div>\n    <div class=\"sea-temp__zone\"><span>Pull here</span></div>\n  </div>\n\n  <ul class=\"sea-temp__ticks\">\n    <li>\n      <span class=\"sea-temp__deg\">110&deg;F</span>\n      <span class=\"sea-temp__what\">Not yet</span>\n      <span class=\"sea-temp__why\">Still raw through the middle and the flakes will not separate. Give it another two minutes.</span>\n    </li>\n    <li class=\"is-target\">\n      <span class=\"sea-temp__chip\">Pull here</span>\n      <span class=\"sea-temp__deg\">120&ndash;125&deg;F</span>\n      <span class=\"sea-temp__what\">Tender, just-set &mdash; the target</span>\n      <span class=\"sea-temp__why\">Slightly translucent at the very center, glossy, and it flakes under light pressure. Rest 2&ndash;3 minutes.</span>\n    </li>\n    <li>\n      <span class=\"sea-temp__deg\">130&deg;F</span>\n      <span class=\"sea-temp__what\">Fully opaque</span>\n      <span class=\"sea-temp__why\">Firmer and still good, but the fat has begun to render out rather than sit in the flesh.</span>\n    </li>\n    <li>\n      <span class=\"sea-temp__deg\">140&deg;F+</span>\n      <span class=\"sea-temp__what\">Past it</span>\n      <span class=\"sea-temp__why\">White albumin beading on the surface, dry mouthfeel. This is what most people mean by not liking salmon.</span>\n    </li>\n  </ul>\n\n  <div class=\"sea-temp__foot\">\n    <div>\n      <p class=\"sea-temp__carry\">\n        <b>Account for carryover.</b> A rested fillet climbs roughly 5&deg;F off the heat, so 122&deg;F in the skillet\n        lands near 127&deg;F on the plate. Probe the thickest point, angled in from the side rather than\n        straight down through the crisp skin you just worked for &mdash; and check the thin tail separately,\n        because it will be done first.\n      </p>\n      <a class=\"sea-temp__cta\" href=\"/products/digital-thermometer\" title=\"Digital Thermometer\">\n        <span>Shop the thermometer</span>\n        <svg viewBox=\"0 0 24 24\" width=\"17\" height=\"17\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n          <path d=\"M5 12h14\"></path><path d=\"m13 6 6 6-6 6\"></path>\n        </svg>\n      </a>\n    </div>\n    <figure class=\"sea-temp__figure\">\n      <img src=\"{{ 'urfa-ora-king-salmon-farro-salad-overhead.jpg' | file_url }}\"\n           alt=\"Overhead view of Urfa pepper King Salmon on warm apple and farro salad with avocado and pickled red onion\"\n           width=\"1200\" height=\"900\" loading=\"lazy\" decoding=\"async\">\n    </figure>\n  </div>\n</div>\n",
+        "padding_top": 12,
+        "padding_bottom": 44,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "swap_table": {
+      "type": "table-content",
+      "blocks": {
+        "w_head": {
+          "type": "row",
+          "settings": {
+            "feature": "",
+            "version1": "As written",
+            "version2": "Closest swap",
+            "version3": "If you are improvising"
+          }
+        },
+        "w_grain": {
+          "type": "row",
+          "settings": {
+            "feature": "The grain",
+            "version1": "1 cup pearled farro, 25&ndash;30 min",
+            "version2": "Barley &mdash; same time, same chew",
+            "version3": "Cooked brown rice or freekeh; skip the boil and warm it in the pot"
+          }
+        },
+        "w_pepper": {
+          "type": "row",
+          "settings": {
+            "feature": "The pepper",
+            "version1": "Urfa / isot, a generous pinch",
+            "version2": "Aleppo flakes, same amount",
+            "version3": "A third as much red pepper flake plus a pinch of smoked paprika"
+          }
+        },
+        "w_fruit": {
+          "type": "row",
+          "settings": {
+            "feature": "Dried fruit",
+            "version1": "&frac14; cup sultana raisins",
+            "version2": "Golden raisins or dried currants",
+            "version3": "Chopped dried apricot &mdash; sweeter, so cut the apple back a little"
+          }
+        },
+        "w_apple": {
+          "type": "row",
+          "settings": {
+            "feature": "The apple",
+            "version1": "1 small apple, finely chopped",
+            "version2": "Firm pear, cut the same size",
+            "version3": "Fennel and a squeeze more lemon when nothing crisp is around"
+          }
+        },
+        "w_fat": {
+          "type": "row",
+          "settings": {
+            "feature": "Searing fat",
+            "version1": "1 tsp ghee",
+            "version2": "Avocado oil or algae oil",
+            "version3": "Anything with a high smoke point &mdash; not olive oil, not butter"
+          }
+        },
+        "w_herb": {
+          "type": "row",
+          "settings": {
+            "feature": "The herb",
+            "version1": "&frac14; cup cilantro",
+            "version2": "Flat-leaf parsley",
+            "version3": "Mint and dill together, about half as much"
+          }
+        },
+        "w_fish": {
+          "type": "row",
+          "settings": {
+            "feature": "The fish",
+            "version1": "Seatopia King Salmon, 8.5&nbsp;oz fillets",
+            "version2": "Any skin-on salmon or steelhead portion",
+            "version3": "Keeps frozen until the night before you want it"
+          }
+        }
+      },
+      "block_order": [
+        "w_head",
+        "w_grain",
+        "w_pepper",
+        "w_fruit",
+        "w_apple",
+        "w_fat",
+        "w_herb",
+        "w_fish"
+      ],
+      "name": "Table content",
+      "settings": {
+        "custom_class": "",
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Urfa pepper and sultanas are not in every cupboard, and pearled farro is not in every shop. Almost everything here bends &mdash; what does not bend is dressing the grain while it is warm.</p>",
+        "heading": "Swap freely, except the warm part",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "meal_prep": {
+      "type": "image-with-text",
+      "blocks": {
+        "m_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Tomorrow's lunch",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "m_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "It is genuinely better the next day",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Most grain salads go one of two ways overnight &mdash; sodden or stiff. This one improves, because the farro keeps drinking the lemon and Dijon while it sits and the pickled onion keeps everything sharp. Make the full batch of salad even if you are only cooking one fillet tonight.</p><p>Store the salad and the salmon in separate containers. Eat the salad cold or let it come to room temperature; for the fish, a few minutes skin-side down in a dry pan brings the crackle back far better than a microwave, which turns crisp skin to leather. Add the avocado and the second Urfa pinch fresh &mdash; those two do not keep.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop King Salmon",
+            "button_link": "/products/king-salmon",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "m_sub",
+        "m_head",
+        "m_text",
+        "m_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/urfa-ora-king-salmon-farro-salad-two-plates.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "rich_text_standard": {
+      "type": "image-with-text",
+      "blocks": {
+        "f_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "The fish",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "f_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why the fat in this fillet matters",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A leaner fish would let the Urfa pepper sit on top and taste dusty. King Salmon is fatty enough to carry it, and that same fat is where the omega-3s live &mdash; one 8.5&nbsp;oz fillet carries <strong>3.4&nbsp;g of EPA&nbsp;+&nbsp;DHA</strong>, the marine-derived figure printed on the pack rather than a total-omega-3 number.</p><p>Seatopia King Salmon is tested to under 0.1&nbsp;ppm mercury &ndash; a tenth of the FDA limit, with no microplastics detected in third-party testing. Seatopia third-party lab tests every supplier, and then continues to audit them regularly to ensure that they consistently meet their standards. How that works is written out on our <a href=\"/pages/seatopia-testing-commitment\" title=\"Seatopia's Testing Commitment\">testing commitment page</a>.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Read the Seatopia Standard",
+            "button_link": "/pages/why-clean-seafood-matters",
+            "button_style": "secondary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "f_sub",
+        "f_head",
+        "f_text",
+        "f_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/urfa-farro-salad-ingredients.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "reviews_king_salmon": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_testimonials_carousel_urfa": {
+          "type": "shopify://apps/judge-me-reviews/blocks/testimonials_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": false,
+            "reviews_selection": "custom_products",
+            "products": [
+              "king-salmon"
+            ],
+            "star_rating": "all",
+            "max_reviews": 20,
+            "quote_marks_size": "small",
+            "product_name_text_size": "small",
+            "verified_badge_style": "icon",
+            "card_height": "medium",
+            "text_size": "small",
+            "stars_size": "medium",
+            "arrows_position": "bottom",
+            "max_width": 1100,
+            "corner_styling": "soft",
+            "quote_marks_style": "serif",
+            "card_color": "#f9f9f9",
+            "stars_and_quote_marks_color": "#7bc3f3",
+            "text_color": "#000000",
+            "arrows_color": "#000000",
+            "show_border": false,
+            "border_color": "#108474",
+            "show_drop_shadow": false,
+            "transition_speed": 5,
+            "header_text": "Seatopians on this King Salmon",
+            "show_average_rating": true
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_testimonials_carousel_urfa"
+      ],
+      "settings": {
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "faq_urfa": {
+      "type": "faq",
+      "blocks": {
+        "q_urfa": {
+          "type": "question",
+          "settings": {
+            "title": "Where do I find Urfa pepper, and what if I cannot?",
+            "text": "<p>Middle Eastern and Turkish grocers carry it as <strong>isot</strong>, and most spice retailers sell it online. <strong>Aleppo flakes are the swap named in the recipe</strong> and are far easier to find &mdash; brighter and slightly hotter, but the same job. If all you have is standard crushed red pepper, use about a third as much and add a pinch of smoked paprika to replace the depth you are missing.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_temp": {
+          "type": "question",
+          "settings": {
+            "title": "Why pull the salmon at 120&ndash;125&deg;F?",
+            "text": "<p>Because it keeps climbing after it leaves the heat. A rested fillet gains roughly 5&deg;F, so 122&deg;F in the skillet lands near 127&deg;F on the plate &mdash; opaque, flaking, still glossy. Wait until the thermometer reads 130&deg;F before pulling and you will eat it at 135&deg;F, which is where the fat renders out and the texture turns chalky. Probe the thickest point at an angle from the side so you do not puncture the skin you just crisped.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_skin": {
+          "type": "question",
+          "settings": {
+            "title": "My skin never gets crisp. What am I doing wrong?",
+            "text": "<p>Almost always moisture or movement. <strong>Pat the skin genuinely dry</strong> &mdash; drier than feels necessary &mdash; and get the ghee glossy before the fish goes in; a lukewarm pan steams the skin instead of searing it. Then press gently for the first 20&ndash;30 seconds so it does not curl away from the metal, and <strong>do not move the fillet</strong> for the next two to three minutes. Peeking is what tears the skin.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_warm": {
+          "type": "question",
+          "settings": {
+            "title": "Can I make the farro salad ahead?",
+            "text": "<p>Yes, and it is better for it. Cook the farro, load it and dress it with half the dressing while it is warm, then refrigerate &mdash; that warm-dressing step is the one thing you cannot do later. Up to three days. Hold back the avocado, the reserved dressing and the final pinch of Urfa until you plate it.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_farro": {
+          "type": "question",
+          "settings": {
+            "title": "Pearled, semi-pearled or whole farro?",
+            "text": "<p>The 25&ndash;30 minute timing here assumes <strong>pearled</strong>, which is what most shops sell. Semi-pearled takes closer to 35 minutes and whole farro wants an overnight soak and up to an hour. Whichever you buy, cook it in plenty of salted water like pasta and drain it &mdash; do not try to cook it in a measured amount of liquid.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_thaw": {
+          "type": "question",
+          "settings": {
+            "title": "How should I thaw Seatopia King Salmon?",
+            "text": "<p>Overnight in the refrigerator in its sealed pack, about 12 hours. In a hurry, put the sealed pack in a bowl of cold water for 20&ndash;30 minutes. Never at room temperature and never in the microwave. Then pat it dry properly before it goes anywhere near the skillet &mdash; a wet fillet will not take a sear.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "q_urfa",
+        "q_temp",
+        "q_skin",
+        "q_warm",
+        "q_farro",
+        "q_thaw"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "style": "with-border",
+        "color_overlay": "#ffffff",
+        "overlay_opacity": 4,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "Questions cooks actually ask about this one",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "seafood-recipes",
+        "post_limit": 8,
+        "columns": 3,
+        "carousel_on_desktop": true,
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "landscape",
+        "show_tags": false,
+        "show_date": false,
+        "show_comments": false,
+        "show_author": false,
+        "show_excerpt": false,
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Miriam writes these, and she also teaches them live. Every Seatopia box includes a <a href=\"/pages/seatopia-member-cooking-classes\" title=\"Seatopia Member Cooking Classes\">FREE virtual cooking class</a> where we work through temps, searing and knife work together.</p>",
+        "heading": "More clean seafood to cook this week",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "newsletter_banner_urfa": {
+      "type": "newsletter-banner",
+      "blocks": {
+        "h_news": {
+          "type": "heading",
+          "settings": {
+            "heading": "Be the first to know",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_news": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get on the list for more warm-weather-optional seafood, cooking temps and recipes from our kitchen, straight to your inbox.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_news": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "h_news",
+        "t_news",
+        "f_news"
+      ],
+      "name": "t:sections.newsletter-banner.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "transparent_footer": false,
+        "image": "shopify://shop_images/urfa-farro-salad-forkful.jpg",
+        "image_height": "650px",
+        "content_width": "medium",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    }
+  },
+  "order": [
+    "main-article-banner",
+    "collab_card",
+    "rich_text_intro",
+    "at_a_glance",
+    "pepper_note",
+    "recipe_kit_card",
+    "shop_the_plate",
+    "game_plan",
+    "pull_temp",
+    "swap_table",
+    "meal_prep",
+    "rich_text_standard",
+    "reviews_king_salmon",
+    "faq_urfa",
+    "blog-posts",
+    "newsletter_banner_urfa"
+  ]
+}
