@@ -5,28 +5,10 @@
  * This file may be updated by the Shopify admin theme editor
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
- *
- * Carries the September member rewards band (section
- * `member_rewards_home`) above the collection list.
  * ------------------------------------------------------------
  */
 {
   "sections": {
-    "member_rewards_home": {
-      "type": "member-rewards",
-      "settings": {
-        "variant": "full",
-        "constrain": true,
-        "heading": "",
-        "heading_tag": "h2",
-        "cta_link": "/pages/seatopia-membership",
-        "cta_label": "See how membership works",
-        "ebook_link": "",
-        "chef_link": "",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "slideshow": {
       "type": "slideshow",
       "blocks": {
@@ -1956,7 +1938,6 @@
     "custom_liquid_UB8bMU",
     "featured-product",
     "collection-list",
-    "member_rewards_home",
     "rich_text_BFR9mU",
     "blocks_NJcBb9",
     "image_with_text_zXfLwQ",
