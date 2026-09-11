@@ -1,3 +1,17 @@
+/*
+ * ------------------------------------------------------------
+ * Blast-Frozen Seafood: Why 'Frozen' Beats 'Fresh'
+ *
+ * Recipe-template pattern: the article copy lives in these
+ * sections, NOT in article.content. Nothing here renders the
+ * article body, so editing the post in Admin will not change
+ * this page — edit the section settings instead.
+ *
+ * The hero image setting is intentionally blank:
+ * main-article-banner prefers article.image and only falls
+ * back to the section setting.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main-article-banner": {
