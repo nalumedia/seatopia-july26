@@ -424,7 +424,7 @@
               <span class="selected-variant-text">{{ product.selected_or_first_available_variant.title }}</span>
             </li> -->
             <li>Free member gifts, rewards & access to exclusive products 🎁</li>
-            <li>Improve your health by eating clean seafood regularly</li>
+            <li>Make clean seafood a regular part of how you eat</li>
              <li>
               Every <span class="subscription_day">{{ freq_days }}</span> days receive a
               <span class="selected-variant-text">
@@ -439,6 +439,14 @@
             </li>
           </ul>
         </label>
+
+        {%- comment -%}
+          Membership link. Must stay OUTSIDE the <label> above — an anchor inside
+          a label both activates the label (selecting the plan) and navigates.
+        {%- endcomment -%}
+        <p class="rtx-membership-link" style="margin: 10px 0 0; font-size: 13px; line-height: 1.4;">
+          <a href="/pages/seatopia-membership" style="color: #335566; text-decoration: underline; text-underline-offset: 2px;">What membership includes &rarr;</a>
+        </p>
 
         
 
@@ -483,14 +491,10 @@
  {% if product_type =="product-modal" %}
  {% assign product = all_products[product] %}   
 {% endif %}   
-    {% assign testVariable = current_variant.id | json %}  
     <script
       type="text/javascript"
     >
-  var test = {{ testVariable }};
-  console.log(test,"----testing");
   document.addEventListener('DOMContentLoaded', () => {
- console.log("working rtx-pdp");
     // Fallback for Retextion API if not loaded
   if (!window.retextionApi) {
     console.warn('Retextion API not loaded, using fallback');
