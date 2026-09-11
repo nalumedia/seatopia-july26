@@ -21,6 +21,17 @@
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
     <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {% # theme-check-disable RemoteAsset %}
+    {%- comment -%}
+      jQuery is loaded further down as a render-blocking script from cdnjs, so its
+      DNS lookup sits on the critical path for first paint. Measured 2026-09-11:
+      ~202ms cold vs ~3ms warm, which matches the intermittent slow loads on the
+      subscription widget (it depends on jQuery).
+
+      dns-prefetch rather than preconnect on purpose — see the PostPilot note
+      below: the site is at Lighthouse's 4-preconnect threshold and a 5th would
+      trip "More than 4 preconnect connections".
+    {%- endcomment -%}
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://ajax.googleapis.com">
     <link rel="dns-prefetch" href="https://maps.googleapis.com">
     <link rel="dns-prefetch" href="https://maps.gstatic.com">
