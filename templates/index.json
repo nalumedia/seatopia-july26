@@ -5,6 +5,9 @@
  * This file may be updated by the Shopify admin theme editor
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
+ *
+ * Carries the September member rewards band (section
+ * `member_rewards_home`) above the collection list.
  * ------------------------------------------------------------
  */
 {
