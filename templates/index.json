@@ -1249,7 +1249,7 @@
           "type": "review",
           "settings": {
             "image": "shopify://shop_images/Mark_hyman.png",
-            "image_url": "shopify://blogs/seafood-recipes/asian-scallop-crudo-with-citrus-soy-marinade",
+            "image_url": "",
             "title": "Dr. Mark Hyman",
             "job": "Leader in Functional Medicine",
             "Start_number": "5",
@@ -1275,7 +1275,7 @@
           "type": "review",
           "settings": {
             "image": "shopify://shop_images/Ben_greenfield_89fa6ea5-3395-4d81-975e-1f952ba5b657.png",
-            "image_url": "shopify://blogs/regenerative-aquaculture",
+            "image_url": "",
             "title": "Ben Greenfield",
             "job": "Health & Fitness Coach",
             "Start_number": "5",
