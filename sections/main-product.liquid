@@ -301,6 +301,13 @@ ul.metafield-single_line_text_field-array {
 
             {% when 'subscription' %}
               {% render 'rtx-pdp', block: block %}
+              {%- comment -%}
+                September member rewards. Renders under the subscribe/one-time
+                selector — the moment the subscription decision is actually made.
+                Cart-aware, so it never sells an existing subscriber something
+                they already have. Remove this render when the campaign ends.
+              {%- endcomment -%}
+              {%- render 'member-rewards', variant: 'compact', spacing: true -%}
             
             
 

@@ -1,5 +1,20 @@
 {
   "sections": {
+    "member_rewards_banner": {
+      "type": "member-rewards",
+      "settings": {
+        "variant": "banner",
+        "constrain": true,
+        "heading": "",
+        "heading_tag": "h2",
+        "cta_link": "",
+        "cta_label": "",
+        "ebook_link": "",
+        "chef_link": "",
+        "padding_top": 8,
+        "padding_bottom": 0
+      }
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -103,6 +118,7 @@
   },
   "order": [
     "main",
+    "member_rewards_banner",
     "funnel"
   ]
 }

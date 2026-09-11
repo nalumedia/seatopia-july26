@@ -566,6 +566,12 @@
 
                   {%- when 'buttons' -%}
                     <div class="grid gap-3" {{ block.shopify_attributes }}>
+                      {%- comment -%}
+                        September member rewards — same placement rationale as
+                        sections/cart-drawer.liquid. Remove when the campaign ends.
+                      {%- endcomment -%}
+                      {%- render 'member-rewards', variant: 'compact' -%}
+
                       <noscript>
                         <button class="button button--secondary w-full" type="submit" name="update" form="cart">
                           {{- 'cart.general.update' | t -}}

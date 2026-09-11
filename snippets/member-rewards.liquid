@@ -6,11 +6,12 @@
   and a recipe to cook it with.
 
   Usage:
-    {%- render 'member-rewards' -%}                      full band (default)
-    {%- render 'member-rewards', variant: 'banner' -%}   slim bar for subscribe CTAs
+    {%- render 'member-rewards' -%}                       full band (default)
+    {%- render 'member-rewards', variant: 'banner' -%}    slim bar for subscribe CTAs
+    {%- render 'member-rewards', variant: 'compact' -%}   narrow chip for the cart rail
 
   Accepts:
-    variant     'full' (default) | 'banner'
+    variant     'full' (default) | 'banner' | 'compact'
     heading     override the h2 / banner title
     cta_link    override the CTA destination (default /collections/curated-boxes)
     cta_label   override the CTA label
@@ -18,6 +19,19 @@
     chef_link   booking URL for the 1:1 chef call  (falls back to a plain label)
     heading_tag 'h2' (default) | 'h3' — keep the document outline sane when this
                 sits inside a section that already owns the h2
+    spacing     compact variant only. The chip ships with margin:0 because both
+                cart placements sit inside gap grids that already space it. Pass
+                spacing: true in a plain flow container (the PDP) to add its own.
+
+  The 'compact' variant is cart-aware: it reads cart.items and flips from the
+  offer to a "you already have this" confirmation once the cart holds a
+  subscription line. It is the only variant that reads cart state.
+
+  PERFORMANCE: each variant emits ONLY its own CSS. That matters because the
+  compact variant ships inside the cart drawer, which renders on every page of
+  the site — pushing the full band's ~5KB of CSS onto every page load would
+  undo the render-blocking work documented in layout/theme.liquid. Keep the
+  compact branch small, and do not hoist these blocks into one shared <style>.
 
   When the campaign ends, delete the render tags — the section wrapper
   (sections/member-rewards.liquid) can also just be removed in the theme editor.
@@ -32,7 +46,7 @@
   if variant == 'banner_or_full'
     assign variant = 'full'
   endif
-  if variant == 'banner'
+  if variant == 'banner' or variant == 'compact'
     assign cta_link = cta_link | default: '/pages/seatopia-membership'
   else
     assign cta_link = cta_link | default: '/collections/curated-boxes'
@@ -42,7 +56,172 @@
 
   assign gift_months = '2,3,4,5,6,7' | split: ','
   assign gift_names = 'Steelhead Cold-Smoked Lox|Atlantic Salmon|Branzino|Salmon Roe Caviar|Steelhead Loin|King Salmon' | split: '|'
+
+  # Only the compact variant needs this, and walking the cart on every render
+  # of every other placement would be wasted work.
+  assign cart_has_subscription = false
+  if variant == 'compact'
+    for line_item in cart.items
+      if line_item.selling_plan_allocation != blank
+        assign cart_has_subscription = true
+        break
+      endif
+    endfor
+  endif
 -%}
+
+{%- if variant == 'compact' -%}
+
+<style>
+  .mrw {
+    --mrw-ink: #171717;
+    --mrw-deep: #335566;
+    --mrw-gold: #bb8f50;
+    --mrw-cream: #f7efe6;
+    --mrw-paper: #f8f6f3;
+    box-sizing: border-box;
+  }
+  .mrw *, .mrw *:before, .mrw *:after { box-sizing: border-box; }
+
+  /* ------------------------------------------------------------ compact */
+  .mrw--compact {
+    display: block; text-decoration: none;
+    background: var(--mrw-cream); color: var(--mrw-ink);
+    border: 1px solid rgba(187,143,80,.38);
+    border-radius: 12px; padding: 12px 14px; margin: 0;
+  }
+  .mrw--compact-spaced { margin: 14px 0 18px; }
+  a.mrw--compact { transition: border-color .16s ease; }
+  a.mrw--compact:hover { border-color: var(--mrw-gold); color: var(--mrw-ink); }
+  .mrw-compact__row { display: flex; align-items: center; gap: 11px; }
+  .mrw-compact__copy { display: block; min-width: 0; }
+  .mrw-compact__flag {
+    display: block; margin: 0 0 3px;
+    font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--mrw-gold);
+  }
+  .mrw-compact__title { display: block; margin: 0; font-size: 13px; line-height: 1.35; font-weight: 600; }
+  .mrw-compact__sub { display: block; margin: 3px 0 0; font-size: 12px; line-height: 1.4; color: #5c5c5c; }
+  .mrw-compact__thumbs { display: flex; flex: 0 0 auto; }
+  .mrw-compact__thumbs img {
+    width: 34px; height: 34px; display: block;
+    object-fit: cover; object-position: center bottom;
+    border-radius: 50%; border: 2px solid var(--mrw-cream);
+  }
+  .mrw-compact__thumbs img + img { margin-left: -14px; }
+  .mrw-compact__check {
+    flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%;
+    background: var(--mrw-gold); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; line-height: 1;
+  }
+</style>
+
+  {%- if cart_has_subscription -%}
+
+    <div class="mrw mrw--compact{% if spacing %} mrw--compact-spaced{% endif %}">
+      <span class="mrw-compact__row">
+        <span class="mrw-compact__check" aria-hidden="true">&#10003;</span>
+        <span class="mrw-compact__copy">
+          <span class="mrw-compact__title">Your member gifts are locked in</span>
+          <span class="mrw-compact__sub">Something extra rides along with each of your first seven boxes &mdash; the recipe book and your chef call first.</span>
+        </span>
+      </span>
+    </div>
+
+  {%- else -%}
+
+    <a class="mrw mrw--compact{% if spacing %} mrw--compact-spaced{% endif %}" href="{{ cta_link }}">
+      <span class="mrw-compact__row">
+        <span class="mrw-compact__thumbs">
+          {%- for m in gift_months limit: 3 -%}
+            {%- assign fname = 'member-reward-month-' | append: m | append: '.jpg' -%}
+            {%- assign fsrc = fname | file_url -%}
+            {%- if fsrc != blank -%}
+              <img src="{{ fsrc }}&width=100" alt="" width="34" height="34" loading="lazy" decoding="async">
+            {%- endif -%}
+          {%- endfor -%}
+        </span>
+        <span class="mrw-compact__copy">
+          <span class="mrw-compact__flag">September member rewards</span>
+          <span class="mrw-compact__title">Subscribe instead and each of your first seven boxes arrives with a free gift.</span>
+        </span>
+      </span>
+    </a>
+
+  {%- endif -%}
+
+{%- elsif variant == 'banner' -%}
+
+<style>
+  .mrw {
+    --mrw-ink: #171717;
+    --mrw-deep: #335566;
+    --mrw-gold: #bb8f50;
+    --mrw-cream: #f7efe6;
+    --mrw-paper: #f8f6f3;
+    box-sizing: border-box;
+  }
+  .mrw *, .mrw *:before, .mrw *:after { box-sizing: border-box; }
+
+  /* ------------------------------------------------------------- banner */
+  .mrw--banner {
+    display: block; text-decoration: none;
+    background: var(--mrw-deep); color: #fff;
+    border-radius: 16px; padding: 18px 22px;
+    margin: 18px 0;
+    transition: transform .16s ease, box-shadow .16s ease;
+  }
+  .mrw--banner:hover { transform: translateY(-1px); box-shadow: 0 14px 30px -20px rgba(0,0,0,.7); color: #fff; }
+  .mrw-banner__grid { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .mrw-banner__copy { display: block; flex: 1 1 260px; min-width: 0; }
+  .mrw-banner__flag {
+    display: inline-block; margin: 0 0 7px;
+    font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--mrw-deep); background: var(--mrw-gold);
+    padding: 4px 10px; border-radius: 999px;
+  }
+  .mrw-banner__title { display: block; font-size: 19px; line-height: 1.2; font-weight: 600; margin: 0 0 5px; color: #fff; }
+  .mrw-banner__sub { display: block; font-size: 14px; line-height: 1.45; margin: 0; color: rgba(255,255,255,.82); }
+  .mrw-banner__thumbs { display: flex; flex: 0 0 auto; }
+  .mrw-banner__thumbs img {
+    width: 54px; height: 42px; display: block;
+    object-fit: cover; object-position: center bottom;
+    border-radius: 7px; border: 2px solid var(--mrw-deep);
+  }
+  .mrw-banner__thumbs img + img { margin-left: -12px; }
+  .mrw-banner__go {
+    flex: 0 0 auto; display: inline-flex; align-items: center; gap: 7px;
+    font-size: 15px; font-weight: 600; color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,.5); padding-bottom: 2px;
+  }
+  @media (max-width: 749px) {
+    .mrw-banner__thumbs { order: 3; }
+    .mrw-banner__go { order: 2; }
+  }
+</style>
+
+    <a class="mrw mrw--banner" href="{{ cta_link }}">
+      <span class="mrw-banner__grid">
+        <span class="mrw-banner__copy">
+          <span class="mrw-banner__flag">September member rewards</span>
+          <span class="mrw-banner__title">{{ heading | default: 'Seven boxes. Seven gifts.' }}</span>
+          <span class="mrw-banner__sub">Start a subscription this month and every one of your first seven boxes arrives with something extra &mdash; the recipe book and your chef call first, then a free fish in each of the next six.</span>
+        </span>
+        <span class="mrw-banner__thumbs">
+          {%- for m in gift_months -%}
+            {%- assign fname = 'member-reward-month-' | append: m | append: '.jpg' -%}
+            {%- assign fsrc = fname | file_url -%}
+            {%- if fsrc != blank -%}
+              <img src="{{ fsrc }}&width=120" alt="{{ gift_names[forloop.index0] }}" width="54" height="42" loading="lazy" decoding="async">
+            {%- endif -%}
+          {%- endfor -%}
+        </span>
+        <span class="mrw-banner__go">See the gifts &rarr;</span>
+      </span>
+    </a>
+
+{%- else -%}
 
 <style>
   .mrw {
@@ -148,125 +327,65 @@
     .mrw__foot { gap: 16px; }
     .mrw__cta { width: 100%; justify-content: center; }
   }
-
-  /* ------------------------------------------------------------- banner */
-  .mrw--banner {
-    display: block; text-decoration: none;
-    background: var(--mrw-deep); color: #fff;
-    border-radius: 16px; padding: 18px 22px;
-    margin: 18px 0;
-    transition: transform .16s ease, box-shadow .16s ease;
-  }
-  .mrw--banner:hover { transform: translateY(-1px); box-shadow: 0 14px 30px -20px rgba(0,0,0,.7); color: #fff; }
-  .mrw-banner__grid { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-  .mrw-banner__copy { display: block; flex: 1 1 260px; min-width: 0; }
-  .mrw-banner__flag {
-    display: inline-block; margin: 0 0 7px;
-    font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
-    color: var(--mrw-deep); background: var(--mrw-gold);
-    padding: 4px 10px; border-radius: 999px;
-  }
-  .mrw-banner__title { display: block; font-size: 19px; line-height: 1.2; font-weight: 600; margin: 0 0 5px; color: #fff; }
-  .mrw-banner__sub { display: block; font-size: 14px; line-height: 1.45; margin: 0; color: rgba(255,255,255,.82); }
-  .mrw-banner__thumbs { display: flex; flex: 0 0 auto; }
-  .mrw-banner__thumbs img {
-    width: 54px; height: 42px; display: block;
-    object-fit: cover; object-position: center bottom;
-    border-radius: 7px; border: 2px solid var(--mrw-deep);
-  }
-  .mrw-banner__thumbs img + img { margin-left: -12px; }
-  .mrw-banner__go {
-    flex: 0 0 auto; display: inline-flex; align-items: center; gap: 7px;
-    font-size: 15px; font-weight: 600; color: #fff;
-    border-bottom: 1px solid rgba(255,255,255,.5); padding-bottom: 2px;
-  }
-  @media (max-width: 749px) {
-    .mrw-banner__thumbs { order: 3; }
-    .mrw-banner__go { order: 2; }
-  }
 </style>
 
-{%- if variant == 'banner' -%}
+    <section class="mrw mrw--full" aria-labelledby="mrw-title">
+      <div class="page-width">
 
-  <a class="mrw mrw--banner" href="{{ cta_link }}">
-    <span class="mrw-banner__grid">
-      <span class="mrw-banner__copy">
-        <span class="mrw-banner__flag">September member rewards</span>
-        <span class="mrw-banner__title">{{ heading | default: 'Seven boxes. Seven gifts.' }}</span>
-        <span class="mrw-banner__sub">Start a subscription this month and every one of your first seven boxes arrives with something extra &mdash; the recipe book and your chef call first, then a free fish in each of the next six.</span>
-      </span>
-      <span class="mrw-banner__thumbs">
-        {%- for m in gift_months -%}
-          {%- assign fname = 'member-reward-month-' | append: m | append: '.jpg' -%}
-          {%- assign fsrc = fname | file_url -%}
-          {%- if fsrc != blank -%}
-            <img src="{{ fsrc }}&width=120" alt="{{ gift_names[forloop.index0] }}" width="54" height="42" loading="lazy" decoding="async">
-          {%- endif -%}
-        {%- endfor -%}
-      </span>
-      <span class="mrw-banner__go">See the gifts &rarr;</span>
-    </span>
-  </a>
+        <div class="mrw__head">
+          <p class="mrw__eyebrow">New &mdash; September member rewards</p>
+          <{{ heading_tag }} class="mrw__title heading" id="mrw-title">{{ heading | default: 'Seven boxes. <em>Seven gifts.</em>' }}</{{ heading_tag }}>
+          <p class="mrw__lede">Start a subscription this month and every one of your first seven boxes arrives with something extra. Your first box brings the recipe book and your 1:1 chef call. The next six each bring a free fish &mdash; and a recipe to cook it with.</p>
+          <p class="mrw__lede">The whole membership is built around one rhythm: omega-rich seafood about three times a week. These gifts are how we say thanks for keeping it going.</p>
+        </div>
 
-{%- else -%}
+        <ol class="mrw__rail">
 
-  <section class="mrw mrw--full" aria-labelledby="mrw-title">
-    <div class="page-width">
+          <li class="mrw__card mrw__card--welcome">
+            <div class="mrw__gift">
+              <p class="mrw__welcome-title">Your welcome gifts</p>
+              <p class="mrw__welcome-lede">They arrive with your first box, so you have something to cook from on day one.</p>
+              <ul class="mrw__welcome-list">
+                <li>
+                  <span aria-hidden="true">&#127873;</span>
+                  <span>{% if ebook_link %}<a href="{{ ebook_link }}">The Seatopia Recipes eBook</a>{% else %}The Seatopia Recipes eBook{% endif %}</span>
+                </li>
+                <li>
+                  <span aria-hidden="true">&#127873;</span>
+                  <span>{% if chef_link %}<a href="{{ chef_link }}">A free 1:1 call with our chef</a>{% else %}A free 1:1 call with our chef{% endif %}</span>
+                </li>
+              </ul>
+            </div>
+            <span class="mrw__pill">Month 1</span>
+          </li>
 
-      <div class="mrw__head">
-        <p class="mrw__eyebrow">New &mdash; September member rewards</p>
-        <{{ heading_tag }} class="mrw__title heading" id="mrw-title">{{ heading | default: 'Seven boxes. <em>Seven gifts.</em>' }}</{{ heading_tag }}>
-        <p class="mrw__lede">Start a subscription this month and every one of your first seven boxes arrives with something extra. Your first box brings the recipe book and your 1:1 chef call. The next six each bring a free fish &mdash; and a recipe to cook it with.</p>
-        <p class="mrw__lede">The whole membership is built around one rhythm: omega-rich seafood about three times a week. These gifts are how we say thanks for keeping it going.</p>
-      </div>
-
-      <ol class="mrw__rail">
-
-        <li class="mrw__card mrw__card--welcome">
-          <div class="mrw__gift">
-            <p class="mrw__welcome-title">Your welcome gifts</p>
-            <p class="mrw__welcome-lede">They arrive with your first box, so you have something to cook from on day one.</p>
-            <ul class="mrw__welcome-list">
-              <li>
-                <span aria-hidden="true">&#127873;</span>
-                <span>{% if ebook_link %}<a href="{{ ebook_link }}">The Seatopia Recipes eBook</a>{% else %}The Seatopia Recipes eBook{% endif %}</span>
+          {%- for m in gift_months -%}
+            {%- assign fname = 'member-reward-month-' | append: m | append: '.jpg' -%}
+            {%- assign fsrc = fname | file_url -%}
+            {%- if fsrc != blank -%}
+              <li class="mrw__card">
+                <img src="{{ fsrc }}&width=600"
+                     srcset="{{ fsrc }}&width=400 400w, {{ fsrc }}&width=600 600w, {{ fsrc }}&width=900 900w"
+                     sizes="(max-width: 749px) 74vw, 272px"
+                     width="728" height="910" loading="lazy" decoding="async"
+                     alt="Month {{ m }} member gift: free {{ gift_names[forloop.index0] }}">
               </li>
-              <li>
-                <span aria-hidden="true">&#127873;</span>
-                <span>{% if chef_link %}<a href="{{ chef_link }}">A free 1:1 call with our chef</a>{% else %}A free 1:1 call with our chef{% endif %}</span>
-              </li>
-            </ul>
-          </div>
-          <span class="mrw__pill">Month 1</span>
-        </li>
+            {%- endif -%}
+          {%- endfor -%}
 
-        {%- for m in gift_months -%}
-          {%- assign fname = 'member-reward-month-' | append: m | append: '.jpg' -%}
-          {%- assign fsrc = fname | file_url -%}
-          {%- if fsrc != blank -%}
-            <li class="mrw__card">
-              <img src="{{ fsrc }}&width=600"
-                   srcset="{{ fsrc }}&width=400 400w, {{ fsrc }}&width=600 600w, {{ fsrc }}&width=900 900w"
-                   sizes="(max-width: 749px) 74vw, 272px"
-                   width="728" height="910" loading="lazy" decoding="async"
-                   alt="Month {{ m }} member gift: free {{ gift_names[forloop.index0] }}">
-            </li>
-          {%- endif -%}
-        {%- endfor -%}
+        </ol>
 
-      </ol>
+        <div class="mrw__foot">
+          <a class="mrw__cta" href="{{ cta_link }}">
+            <span>{{ cta_label }}</span>
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>
+            </svg>
+          </a>
+          <p class="mrw__note">One gift per box, with boxes 1&ndash;7 of a new subscription started in September 2026. Species may be substituted if a harvest sells out.</p>
+        </div>
 
-      <div class="mrw__foot">
-        <a class="mrw__cta" href="{{ cta_link }}">
-          <span>{{ cta_label }}</span>
-          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>
-          </svg>
-        </a>
-        <p class="mrw__note">One gift per box, with boxes 1&ndash;7 of a new subscription started in September 2026. Species may be substituted if a harvest sells out.</p>
       </div>
-
-    </div>
-  </section>
+    </section>
 
 {%- endif -%}
