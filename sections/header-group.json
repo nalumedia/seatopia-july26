@@ -16,6 +16,7 @@
       "blocks": {
         "announcement-2": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "icon": "none",
             "text": "👉🏾 New Recipe! Chef Lottie's Hot Honey Salmon",
@@ -30,10 +31,10 @@
           "type": "announcement",
           "settings": {
             "icon": "none",
-            "text": "Breakfast, handled. FREE Cold Smoked Lox 2-pack with any Fish & Shell Box",
-            "link": "https://seatopia.fish/collections/curated-boxes/products/fish-shell-variety",
+            "text": "Unlock FREE Gifts with your Seatopia Membership",
+            "link": "shopify://pages/seatopia-membership",
             "hide_icon_mobile": true,
-            "text_mobile": "Breakfast, handled — free Cold Smoked Lox 2-pack with any Fish & Shell Box",
+            "text_mobile": "Unlock FREE Gifts with your Seatopia Membership",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
