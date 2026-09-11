@@ -339,6 +339,39 @@
         "rounded": false
       }
     },
+    "1788968720a7a5a6cb": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_5a7cecd_RdL3Pm": {
+          "type": "ai_gen_block_5a7cecd",
+          "settings": {
+            "blog": "seafood-recipes",
+            "tag_filter": "Trout",
+            "heading": "From the journal",
+            "post_count": 5,
+            "show_date": true,
+            "desktop_width_percent": 100,
+            "gap": 16,
+            "card_radius": 16,
+            "heading_color": "#2e4b59",
+            "text_color": "#2e4b59",
+            "card_background": "#f7efe6",
+            "card_text_color": "#ffffff",
+            "placeholder_background": "#cdd9d1",
+            "muted_color": "#497991",
+            "heading_font": "crimson_pro_n4",
+            "heading_size": 40
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_5a7cecd_RdL3Pm"
+      ],
+      "disabled": true,
+      "name": "Custom tag recipe blog",
+      "settings": {}
+    },
     "custom_liquid_UB8bMU": {
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
@@ -1894,38 +1927,6 @@
         "full_width": false,
         "rounded": true
       }
-    },
-    "1788968720a7a5a6cb": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_5a7cecd_RdL3Pm": {
-          "type": "ai_gen_block_5a7cecd",
-          "settings": {
-            "blog": "seafood-recipes",
-            "tag_filter": "Trout",
-            "heading": "From the journal",
-            "post_count": 5,
-            "show_date": true,
-            "desktop_width_percent": 100,
-            "gap": 16,
-            "card_radius": 16,
-            "heading_color": "#2E4B59",
-            "text_color": "#2E4B59",
-            "card_background": "#F7EFE6",
-            "card_text_color": "#FFFFFF",
-            "placeholder_background": "#CDD9D1",
-            "muted_color": "#497991",
-            "heading_font": "crimson_pro_n4",
-            "heading_size": 40
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_5a7cecd_RdL3Pm"
-      ],
-      "name": "Custom tag recipe blog",
-      "settings": {}
     }
   },
   "order": [
