@@ -1,0 +1,132 @@
+{
+  "sections": {
+    "article_editorial": {
+      "type": "article-editorial",
+      "blocks": {
+        "stat_freeze": {
+          "type": "stat",
+          "settings": {
+            "value": "Minutes",
+            "label": "From harvest to deep-frozen at the source, not days in transit"
+          }
+        },
+        "stat_waste": {
+          "type": "stat",
+          "settings": {
+            "value": "43%",
+            "label": "Less household food waste when cooking from frozen"
+          }
+        },
+        "stat_box": {
+          "type": "stat",
+          "settings": {
+            "value": "Every box",
+            "label": "Ships snap-frozen, guaranteed direct to your door"
+          }
+        }
+      },
+      "block_order": [
+        "stat_freeze",
+        "stat_waste",
+        "stat_box"
+      ],
+      "settings": {
+        "show_hero": true,
+        "hero_height": "tall",
+        "eyebrow": "Blast freezing",
+        "show_author": true,
+        "show_date": true,
+        "show_reading_time": true,
+        "measure": 68,
+        "show_share": true,
+        "cta_heading": "Taste what blast freezing protects",
+        "cta_text": "Seatopia seafood is blast-frozen at the source on our partner farms wherever possible, and every box ships snap-frozen, guaranteed direct to your door.",
+        "cta_label": "Build your box",
+        "cta_link": "/collections/curated-boxes",
+        "color_deep": "#335566",
+        "color_accent": "#bb8f50",
+        "padding_top": 0,
+        "padding_bottom": 40
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "curated-boxes",
+        "products": [],
+        "product_limit": 4,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "Start with a curated box",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "blog_posts": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "blog",
+        "post_limit": 3,
+        "columns": 3,
+        "carousel_on_desktop": true,
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "landscape",
+        "show_tags": false,
+        "show_date": true,
+        "show_comments": false,
+        "show_author": false,
+        "show_excerpt": false,
+        "heading": "Keep reading",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "full_width": false,
+        "rounded": true
+      }
+    }
+  },
+  "order": [
+    "article_editorial",
+    "featured_collection",
+    "blog_posts"
+  ]
+}
