@@ -1,0 +1,447 @@
+{
+  "sections": {
+    "hero": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_njpMWK": {
+          "type": "heading",
+          "settings": {
+            "heading": "A Certified Clean Gourmet Seafood Experience",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_qrk3W3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Explore the essence of ethical seafood. Seatopia merges culinary excellence with a passion for preserving our oceans.</p><p>Tested to under 0.1 ppm mercury &ndash; a tenth of the FDA limit, with no microplastics detected in third-party testing.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_NwKrCA": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Explore the essence of ethical seafood. Seatopia merges culinary excellence with a passion for preserving our oceans.</p><p>Tested to under 0.1 ppm mercury &ndash; a tenth of the FDA limit, with no microplastics detected in third-party testing.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_njpMWK",
+        "text_qrk3W3",
+        "text_NwKrCA"
+      ],
+      "disabled": true,
+      "settings": {
+        "transparent_header": true,
+        "image": "shopify://shop_images/CPRINTS--6.jpg",
+        "image_height": "100vh",
+        "content_width": "medium",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "center",
+        "image_mobile": "shopify://shop_images/shutterstock_2567944699.jpg",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#1D3D3E",
+        "overlay_opacity": 34,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": false,
+        "narrow": false,
+        "parallax_direction": "vertical"
+      }
+    },
+    "certifications": {
+      "type": "logo-list",
+      "blocks": {
+        "c_coa": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/coa-hero.png",
+            "height": 56,
+            "link": ""
+          }
+        },
+        "c_asc": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/asc-hero.png",
+            "height": 56,
+            "link": ""
+          }
+        },
+        "c_bap": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/bap-hero.png",
+            "height": 56,
+            "link": ""
+          }
+        },
+        "c_fos": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/friendsofthesea-sustainable-certification.jpg",
+            "height": 56,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "c_coa",
+        "c_asc",
+        "c_bap",
+        "c_fos"
+      ],
+      "name": "t:sections.logo-list.presets.name",
+      "settings": {
+        "layout": "default",
+        "grid_horizontal": 70,
+        "direction": "left",
+        "speed": 20,
+        "heading": "",
+        "heading_size": "title-sm",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "padding_top": 8,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "press": {
+      "type": "index-new-testimonials",
+      "blocks": {
+        "review_DQbtRq": {
+          "type": "review",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Background_7_a87cc151-07cc-43b2-ab16-17a58aabbda1.png",
+            "image_url": "shopify://blogs/seatopia-collective-community/how-to-host-a-sushi-dinner-party-a-celebration-of-food-friends-amp-ritual",
+            "title": "Dr Casey Means",
+            "job": "Doctor & Chef",
+            "text": "<p>“Regenerative aquaculture is seafood production that enhances, rather than depletes the oceans.”</p>",
+            "block_background": "#ffffff",
+            "block_text_color": "#171717"
+          }
+        },
+        "review_fjJptb": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Background_8.png",
+            "image_url": "shopify://blogs/seatopia-collective-community/how-to-host-a-sushi-dinner-party-a-celebration-of-food-friends-amp-ritual",
+            "title": "Goop",
+            "job": "",
+            "text": "<p>“Gwyneth Paltrow turned us on to Seatopia’s mercury and microplastic lab-tested clean seafood!”</p>",
+            "block_background": "#ffffff",
+            "block_text_color": "#171717"
+          }
+        },
+        "review_CNdb4X": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Background_9.png",
+            "image_url": "shopify://blogs/seatopia-collective-community/how-to-host-a-sushi-dinner-party-a-celebration-of-food-friends-amp-ritual",
+            "title": "Ben Greenfield",
+            "job": "Health Expert",
+            "text": "<p>“Wild-Caught isn’t necessarily better. With Seatopia we always have guilt-free, gourmet seafood.”</p>",
+            "block_background": "#ffffff",
+            "block_text_color": "#171717"
+          }
+        }
+      },
+      "block_order": [
+        "review_DQbtRq",
+        "review_fjJptb",
+        "review_CNdb4X"
+      ],
+      "custom_css": [],
+      "settings": {
+        "custom_class": "ourstory-testimonial",
+        "banner_img": "shopify://shop_images/26a30af98a5bb4ae3ee41b50ecb5737a59b2c86b_1.png",
+        "title": "Join 100,000+ members transforming their health",
+        "sub_title": "<p>Seatopia customers are experts in healthy eating. </p>",
+        "section_cont_position": "center",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "section_background": "",
+        "text_color": "#ffffff",
+        "star_color": "#f59e0b",
+        "rounded": true
+      }
+    },
+    "how_it_works": {
+      "type": "multicolumn",
+      "blocks": {
+        "s1": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "text-center",
+            "text_alignment_mobile": "left",
+            "image_ratio": "adapt",
+            "heading": "1. We source, test and verify",
+            "heading_size": "text-lg-2xl",
+            "text": "<p>Our artisan-aquaculture partners raise some of the cleanest, most delicious seafood we have found. Seatopia third-party lab tests every supplier, and then continues to audit them regularly to ensure that they consistently meet their standards.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "secondary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "image": "shopify://shop_images/flamingos-esteros-lubimar.jpg"
+          }
+        },
+        "s2": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "text-center",
+            "text_alignment_mobile": "left",
+            "image_ratio": "adapt",
+            "heading": "2. You choose",
+            "heading_size": "text-lg-2xl",
+            "text": "<p>Choose from a selection of curated boxes, or build your own from salmon, yellowtail, branzino, scallops and other seasonal selections. Buy a la carte, or subscribe to save and unlock member benefits.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "secondary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "image": "shopify://shop_images/seatopia-sushi-date-night-box-8.jpg"
+          }
+        },
+        "s3": {
+          "type": "column",
+          "settings": {
+            "show_border": false,
+            "text_alignment": "text-center",
+            "text_alignment_mobile": "left",
+            "image_ratio": "adapt",
+            "heading": "3. We deliver",
+            "heading_size": "text-lg-2xl",
+            "text": "<p>Your seafood arrives snap-frozen on dry ice, guaranteed direct to your door, so you choose when to thaw and cook it.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "secondary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "image": "shopify://shop_images/CPRINTS--17.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "settings": {
+        "custom_class": "",
+        "gap": "large",
+        "columns": 3,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "How It Works",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_text_card": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "overlay_opacity_new": 10,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "better_seafood": {
+      "type": "image-with-text",
+      "blocks": {
+        "pd_h": {
+          "type": "heading",
+          "settings": {
+            "heading": "Better Seafood Delivered",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "pd_nutr": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>Third-party tested</h3><p>Seatopia third-party lab tests every supplier, and then continues to audit them regularly to ensure that they consistently meet their standards. Tested to under 0.1 ppm mercury &ndash; a tenth of the FDA limit, with no microplastics detected in third-party testing.</p><h3>Ethical sourcing</h3><p>We support marine habitat restoration, biodiversity and fair-trade jobs through regenerative aquaculture practices &mdash; a different model from commodity seafood.</p><h3>Uncompromising quality</h3><p>Meticulous farming practices and strict quality control, for an unmatched culinary experience with every bite.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "pd_cta": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "/collections/curated-boxes",
+            "button_style": "primary",
+            "button_size": "lg",
+            "button_external": false,
+            "button_icon": false
+          }
+        },
+        "pd_sub": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>Third-party tested</h3><p>Seatopia third-party lab tests every supplier, and then continues to audit them regularly to ensure that they consistently meet their standards. Tested to under 0.1 ppm mercury &ndash; a tenth of the FDA limit, with no microplastics detected in third-party testing.</p><h3>Ethical sourcing</h3><p>We support marine habitat restoration, biodiversity and fair-trade jobs through regenerative aquaculture practices &mdash; a different model from commodity seafood.</p><h3>Uncompromising quality</h3><p>Meticulous farming practices and strict quality control, for an unmatched culinary experience with every bite.</p>",
+            "text_size": "subtext-sm",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "pd_h",
+        "pd_nutr",
+        "pd_cta",
+        "pd_sub"
+      ],
+      "disabled": true,
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/Creators-Free.jpg",
+        "image_height": "650px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "400px",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "#F7EFE6",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "image_mobile": ""
+      }
+    },
+    "shop": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "curated-boxes",
+        "products": [],
+        "product_limit": 4,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "heading": "Start with a curated box",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "certifications",
+    "press",
+    "how_it_works",
+    "better_seafood",
+    "shop"
+  ]
+}
