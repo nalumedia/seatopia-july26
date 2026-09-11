@@ -473,116 +473,77 @@
       }
     },
     "defrost_steps": {
-      "type": "timeline",
+      "type": "image-with-text",
       "blocks": {
-        "d1": {
-          "type": "content",
+        "m_sub": {
+          "type": "subheading",
           "settings": {
-            "image": "",
-            "subheading": "Step 1",
-            "heading": "Unwrap it frozen",
-            "heading_tag": "h3",
-            "text": "<p>Remove the fish from its vacuum-sealed bag while it is still frozen.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true,
+            "subheading": "Do this first",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "m_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "How to Defrost It the Right Way",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
         },
-        "d2": {
-          "type": "content",
+        "m_text": {
+          "type": "text",
           "settings": {
-            "image": "",
-            "subheading": "Step 2",
-            "heading": "Wrap to limit oxygen",
-            "heading_tag": "h3",
-            "text": "<p>Wrap it in non-toxic paper towels or tuna paper.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true,
+            "text": "<p>Everything the freeze protects can still be undone in the last few hours before dinner. Thawing is the step most people rush, and it is the one that decides whether the texture you paid for actually reaches the plate.</p><p><strong>Best method &mdash; on a rack, 24&ndash;36 hours:</strong></p><ol><li>Remove the fish from its vacuum-sealed bag while it is still frozen.</li><li>Wrap it in non-toxic paper towels or tuna paper to limit oxygen exposure.</li><li>Set it on a wire rack over a tray so it drains as it thaws. This is the step most people skip &mdash; a flat plate holds the purge against the fish.</li><li>Refrigerate for 24&ndash;36 hours.</li><li>Change the paper towels once they are saturated, usually once along the way.</li></ol><p><strong>What to avoid:</strong> warm water, the microwave, and thawing on the counter. Rushing the thaw undoes the structure that careful freezing protected.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
         },
-        "d3": {
-          "type": "content",
+        "m_btn": {
+          "type": "button",
           "settings": {
-            "image": "",
-            "subheading": "Step 3",
-            "heading": "Raise it off the tray",
-            "heading_tag": "h3",
-            "text": "<p>Set it on a wire rack over a tray so it drains as it thaws. This is the step most people skip &mdash; a flat plate holds the purge against the fish.</p>",
-            "button_label": "",
-            "button_link": "",
+            "button_label": "Read the full defrosting guide",
+            "button_link": "https://seatopia.fish/blogs/seafood-recipes/best-ways-to-defrost-sushi-grade-seafood-for-sashimi-and-cooking",
             "button_style": "primary",
+            "button_size": "md",
             "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "d4": {
-          "type": "content",
-          "settings": {
-            "image": "",
-            "subheading": "Step 4",
-            "heading": "Refrigerate 24&ndash;36 hours",
-            "heading_tag": "h3",
-            "text": "<p>Slow and cold. Not overnight on the counter, and never in warm water.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "d5": {
-          "type": "content",
-          "settings": {
-            "image": "",
-            "subheading": "Step 5",
-            "heading": "Change the towels once",
-            "heading_tag": "h3",
-            "text": "<p>Swap the paper towels once they are saturated, usually once along the way.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
+            "button_icon": true
           }
         }
       },
       "block_order": [
-        "d1",
-        "d2",
-        "d3",
-        "d4",
-        "d5"
+        "m_sub",
+        "m_head",
+        "m_text",
+        "m_btn"
       ],
-      "name": "t:sections.timeline.presets.name",
+      "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image_ratio": "square",
-        "image_ratio_mobile": "landscape",
-        "padding_top": 56,
-        "padding_bottom": 56,
+        "custom_class": "",
+        "image": "shopify://shop_images/defrosting-esteros-lubimar-branzino.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
         "divider": false,
         "full_width": false,
         "rounded": true,
-        "heading_size": "title-md",
-        "heading_alignment": "text-center md:items-center",
-        "heading_tag": "h2",
-        "subheading": "The best method, step by step",
-        "description": "<p>Everything the freeze protects can still be undone in the last few hours before dinner. Thawing is the step most people rush, and it is the one that decides whether the texture you paid for actually reaches the plate.</p>",
-        "heading": "How to Defrost It the Right Way",
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -590,9 +551,7 @@
         "gradient_highlight": "",
         "color_button_text": "",
         "color_button_background": "",
-        "color_button_gradient": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle"
+        "color_button_gradient": ""
       }
     },
     "defrost_table": {
