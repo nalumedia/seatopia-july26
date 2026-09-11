@@ -1,55 +1,715 @@
 {
   "sections": {
-    "article_editorial": {
-      "type": "article-editorial",
+    "main-article-banner": {
+      "type": "main-article-banner",
       "blocks": {
-        "stat_freeze": {
-          "type": "stat",
+        "spacing": {
+          "type": "spacing",
           "settings": {
-            "value": "Minutes",
-            "label": "From harvest to deep-frozen at the source, not days in transit"
+            "height": 68,
+            "height_mobile": 0
           }
         },
-        "stat_waste": {
-          "type": "stat",
+        "title": {
+          "type": "title",
           "settings": {
-            "value": "43%",
-            "label": "Less household food waste when cooking from frozen"
-          }
-        },
-        "stat_box": {
-          "type": "stat",
-          "settings": {
-            "value": "Every box",
-            "label": "Ships snap-frozen, guaranteed direct to your door"
+            "title_size": "title-lg tracking-heading",
+            "show_tags": true,
+            "show_date": false,
+            "show_comments": false,
+            "show_author": true
           }
         }
       },
       "block_order": [
-        "stat_freeze",
-        "stat_waste",
-        "stat_box"
+        "spacing",
+        "title"
       ],
       "settings": {
-        "show_hero": true,
-        "hero_height": "tall",
-        "eyebrow": "Blast freezing",
-        "show_author": true,
-        "show_date": true,
-        "show_reading_time": true,
-        "measure": 68,
-        "show_share": true,
-        "cta_heading": "Taste what blast freezing protects",
-        "cta_text": "Seatopia seafood is blast-frozen at the source on our partner farms wherever possible, and every box ships snap-frozen, guaranteed direct to your door.",
-        "cta_label": "Build your box",
-        "cta_link": "/collections/curated-boxes",
-        "color_deep": "#335566",
-        "color_accent": "#bb8f50",
+        "transparent_header": true,
+        "show_image": true,
+        "image": "",
+        "image_height": "750px",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-center",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_overlay": "#000000",
+        "overlay_opacity": 40,
         "padding_top": 0,
-        "padding_bottom": 40
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
       }
     },
-    "featured_collection": {
+    "intro": {
+      "type": "rich-text",
+      "blocks": {
+        "h_intro": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why Frozen Seafood Can Be Fresher Than &ldquo;Fresh&rdquo;",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_intro": {
+          "type": "text",
+          "settings": {
+            "text": "<p>For decades, the seafood counter has carried an unspoken assumption: frozen means compromised, while &ldquo;fresh&rdquo; represents seafood at its best.</p><p>But &ldquo;never frozen&rdquo; does not necessarily mean recently harvested. Fresh seafood may spend days moving through processors, distributors, airplanes, trucks, and display cases &mdash; all while flavor and texture race against the clock.</p><p>Seatopia takes a different approach. We work with transparent, traceable aquaculture farms that freeze seafood as close to harvest as possible. Rapid freezing slows the processes that diminish quality, preserving the character of the fish until you are ready to enjoy it.</p><p><strong>Think of it as culinary time travel: peak freshness, paused.</strong></p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "h_intro",
+        "t_intro"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_width": "small",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "at_a_glance": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "g_speed": {
+          "type": "column",
+          "settings": {
+            "icon": "lightning",
+            "custom_icon": "",
+            "heading": "Minutes",
+            "text": "From harvest to deep-frozen at the source, not days in transit",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_waste": {
+          "type": "column",
+          "settings": {
+            "icon": "recycling",
+            "custom_icon": "",
+            "heading": "43% less",
+            "text": "Household food waste when cooking from frozen rather than fresh",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_box": {
+          "type": "column",
+          "settings": {
+            "icon": "box",
+            "custom_icon": "",
+            "heading": "Every box",
+            "text": "Ships snap-frozen, guaranteed direct to your door",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "g_speed",
+        "g_waste",
+        "g_box"
+      ],
+      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "settings": {
+        "custom_class": "",
+        "section_id": "at-a-glance",
+        "style": "with-border",
+        "columns": 3,
+        "text_alignment": "left",
+        "dt_txt_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "At a glance",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "speed": {
+      "type": "rich-text",
+      "blocks": {
+        "h_speed": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why Freezing Speed Matters",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_speed": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Seafood muscle contains a great deal of water. During freezing, that water forms ice crystals &mdash; and the speed at which those crystals form can make a meaningful difference.</p><p>Slow freezing generally allows larger crystals to develop. These crystals can disrupt the fish&rsquo;s delicate cellular structure, leading to greater moisture loss, or &ldquo;purge,&rdquo; as the seafood thaws.</p><p>Rapid freezing moves the fish through this critical temperature range much faster. The result is typically smaller ice crystals, less structural damage, and better retention of the seafood&rsquo;s natural moisture and texture.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "h_speed",
+        "t_speed"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_width": "small",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "infographic": {
+      "type": "image-with-text",
+      "blocks": {
+        "m_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "The science, simply",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "m_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Smaller crystals, better texture",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Research on Atlantic salmon and other foods supports the relationship between freezing conditions, ice-crystal size, drip loss, and texture. The exact result varies by species, equipment, handling, storage, and thawing method.</p><ul><li>Smaller ice crystals help protect the fish&rsquo;s cellular structure.</li><li>Less structural damage can mean less moisture lost during thawing.</li><li>Better moisture retention supports a firmer, more succulent texture.</li><li>Freezing close to harvest preserves quality before time can take its toll.</li></ul><p><strong>Not all frozen seafood is created equal. The difference is how &mdash; and when &mdash; it was frozen.</strong></p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Review the research",
+            "button_link": "https://pubmed.ncbi.nlm.nih.gov/17995727/",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": true,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "m_sub",
+        "m_head",
+        "m_text",
+        "m_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/why-freezing-speed-matters.png",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "#f7efe6",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "nutrition": {
+      "type": "rich-text",
+      "blocks": {
+        "h_nutrition": {
+          "type": "heading",
+          "settings": {
+            "heading": "Nutrition, Paused at Its Peak",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_nutrition": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The clock starts ticking the moment seafood is harvested. Exposure to oxygen, changing temperatures, and time can gradually affect its flavor, fats, and overall quality.</p><p>Whenever possible, Seatopia seafood is rapidly frozen at the source by our farm partners. From there, an unbroken cold chain protects each harvest on its journey to your freezer.</p><p>This gives you something the traditional fresh counter cannot: control over when you enjoy the fish. Instead of cooking because the seafood is about to expire, you can thaw only what you need, when you need it.</p><p><strong>Peak quality is not rushed to your plate. It waits for you.</strong></p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "h_nutrition",
+        "t_nutrition"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_width": "small",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "footprint": {
+      "type": "rich-text",
+      "blocks": {
+        "h_footprint": {
+          "type": "heading",
+          "settings": {
+            "heading": "A More Mindful Journey",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_footprint": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Highly perishable &ldquo;fresh&rdquo; seafood often depends on speed, frequent deliveries, and &mdash; in some international supply chains &mdash; carbon-intensive air freight. Frozen seafood can travel through slower, more efficient logistics while maintaining quality.</p><p>A European seafood supply-chain assessment estimated that air-freighted seafood can exceed 10 kilograms of CO2-equivalent per kilogram of product on some routes. The same assessment found refrigerated sea transport may produce only a small fraction of the emissions associated with air cargo, although the impact of any product depends on its complete supply chain.</p><p>A longer usable life can also help reduce avoidable waste. You thaw only the portions you intend to prepare, while the rest remains protected in the freezer.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "h_footprint",
+        "t_footprint"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_width": "small",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text": "",
+        "color_background": "#f7efe6",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "defrost_steps": {
+      "type": "timeline",
+      "blocks": {
+        "d1": {
+          "type": "content",
+          "settings": {
+            "image": "",
+            "subheading": "Step 1",
+            "heading": "Unwrap it frozen",
+            "heading_tag": "h3",
+            "text": "<p>Remove the fish from its vacuum-sealed bag while it is still frozen.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "d2": {
+          "type": "content",
+          "settings": {
+            "image": "",
+            "subheading": "Step 2",
+            "heading": "Wrap to limit oxygen",
+            "heading_tag": "h3",
+            "text": "<p>Wrap it in non-toxic paper towels or tuna paper.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "d3": {
+          "type": "content",
+          "settings": {
+            "image": "",
+            "subheading": "Step 3",
+            "heading": "Raise it off the tray",
+            "heading_tag": "h3",
+            "text": "<p>Set it on a wire rack over a tray so it drains as it thaws. This is the step most people skip &mdash; a flat plate holds the purge against the fish.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "d4": {
+          "type": "content",
+          "settings": {
+            "image": "",
+            "subheading": "Step 4",
+            "heading": "Refrigerate 24&ndash;36 hours",
+            "heading_tag": "h3",
+            "text": "<p>Slow and cold. Not overnight on the counter, and never in warm water.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "d5": {
+          "type": "content",
+          "settings": {
+            "image": "",
+            "subheading": "Step 5",
+            "heading": "Change the towels once",
+            "heading_tag": "h3",
+            "text": "<p>Swap the paper towels once they are saturated, usually once along the way.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "d1",
+        "d2",
+        "d3",
+        "d4",
+        "d5"
+      ],
+      "name": "t:sections.timeline.presets.name",
+      "settings": {
+        "image_ratio": "square",
+        "image_ratio_mobile": "landscape",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "The best method, step by step",
+        "description": "<p>Everything the freeze protects can still be undone in the last few hours before dinner. Thawing is the step most people rush, and it is the one that decides whether the texture you paid for actually reaches the plate.</p>",
+        "heading": "How to Defrost It the Right Way",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "defrost_table": {
+      "type": "table-content",
+      "blocks": {
+        "r_head": {
+          "type": "row",
+          "settings": {
+            "feature": "Method",
+            "version1": "Time",
+            "version2": "Bag on or off?",
+            "version3": "Best for"
+          }
+        },
+        "r_rack": {
+          "type": "row",
+          "settings": {
+            "feature": "On a rack",
+            "version1": "24&ndash;36 hours",
+            "version2": "Out of the bag",
+            "version3": "The best texture"
+          }
+        },
+        "r_ice": {
+          "type": "row",
+          "settings": {
+            "feature": "Ice bath",
+            "version1": "15+ minutes",
+            "version2": "Keep it sealed",
+            "version3": "When dinner is already decided"
+          }
+        },
+        "r_shrimp": {
+          "type": "row",
+          "settings": {
+            "feature": "Shrimp &amp; scallops",
+            "version1": "About 5 hours",
+            "version2": "Out of the packaging",
+            "version3": "Rinse under cool water first"
+          }
+        }
+      },
+      "block_order": [
+        "r_head",
+        "r_rack",
+        "r_ice",
+        "r_shrimp"
+      ],
+      "name": "Table content",
+      "settings": {
+        "custom_class": "",
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>One detail worth catching: the rack method takes the fish out of the bag, while the ice bath leaves it sealed. Thawing fish loose in water waterlogs it.</p>",
+        "heading": "Three ways to thaw",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "standard": {
+      "type": "rich-text",
+      "blocks": {
+        "h_standard": {
+          "type": "heading",
+          "settings": {
+            "heading": "From Regenerative Farms to Your Freezer",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_standard": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Freezing is only as meaningful as the seafood being preserved.</p><p>Seatopia partners with artisan aquaculture farms selected for traceability, responsible production, and continued progress toward ocean-positive practices. Seatopia third-party lab tests every supplier, and then continues to audit them regularly to ensure that they consistently meet their standards.</p><ul><li>Transparent sourcing</li><li>Certified-clean seafood</li><li>Quantified marine nutrition</li><li>Precision freezing and cold-chain protection</li><li>Farming practices working toward healthier oceans</li></ul><p><strong>Because &ldquo;premium&rdquo; should reflect how seafood is raised and handled &mdash; not merely a word printed on a package.</strong></p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "h_standard",
+        "t_standard"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_width": "small",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "shop_boxes": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
@@ -61,14 +721,17 @@
         "show_view_all": true,
         "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "heading": "Start with a curated box",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
         "heading_size": "title-md",
         "heading_alignment": "text-center md:items-center",
         "heading_tag": "h2",
         "subheading": "",
         "description": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
+        "heading": "Every box ships snap-frozen",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -77,14 +740,89 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "full_width": false,
-        "rounded": false
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
       }
     },
-    "blog_posts": {
+    "faq_blast": {
+      "type": "faq",
+      "blocks": {
+        "q_fresh": {
+          "type": "question",
+          "settings": {
+            "title": "Is frozen really better than fresh?",
+            "text": "<p>&ldquo;Fresh&rdquo; only tells you the fish was never frozen &mdash; not that it was recently harvested. Seafood frozen close to harvest can reach you in better condition than fish that spent days in transit.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_time": {
+          "type": "question",
+          "settings": {
+            "title": "How long does it keep in the freezer?",
+            "text": "<p>Fatty fish such as salmon and steelhead are best within 2&ndash;3 months. Lean white fish such as barramundi, branzino and bream within 6&ndash;8 months. Shellfish within 3&ndash;6 months. Keep your freezer at 0&deg;F or below and avoid repeated thawing and refreezing.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_rush": {
+          "type": "question",
+          "settings": {
+            "title": "Can I speed up thawing?",
+            "text": "<p>Yes &mdash; use an ice bath with the fish still sealed in its vacuum bag, for at least 15 minutes. Avoid warm water, the microwave, and thawing on the counter.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_refreeze": {
+          "type": "question",
+          "settings": {
+            "title": "Can I refreeze what I have thawed?",
+            "text": "<p>We do not recommend it. Each freeze-thaw cycle costs texture and moisture, which is exactly what careful freezing set out to protect.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "q_fresh",
+        "q_time",
+        "q_rush",
+        "q_refreeze"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "style": "with-border",
+        "color_overlay": "#ffffff",
+        "overlay_opacity": 4,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "Frequently asked",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "blog-posts": {
       "type": "blog-posts",
       "settings": {
         "blog": "blog",
@@ -96,18 +834,21 @@
         "swipe_on_mobile": true,
         "image_ratio": "landscape",
         "show_tags": false,
-        "show_date": true,
+        "show_date": false,
         "show_comments": false,
         "show_author": false,
         "show_excerpt": false,
-        "heading": "Keep reading",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
         "heading_size": "title-md",
         "heading_alignment": "text-center md:items-center",
         "heading_tag": "h2",
         "subheading": "",
         "description": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
+        "heading": "Keep reading",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -116,17 +857,88 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "padding_top": 32,
-        "padding_bottom": 32,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "newsletter_banner": {
+      "type": "newsletter-banner",
+      "blocks": {
+        "h_news": {
+          "type": "heading",
+          "settings": {
+            "heading": "Be the first to know",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_news": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get on the list for more warm-weather-optional seafood, cooking temps and recipes from our kitchen, straight to your inbox.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_news": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "h_news",
+        "t_news",
+        "f_news"
+      ],
+      "name": "t:sections.newsletter-banner.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "transparent_footer": false,
+        "image": "shopify://shop_images/urfa-farro-salad-forkful.jpg",
+        "image_height": "650px",
+        "content_width": "medium",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "padding_top": 0,
+        "padding_bottom": 0,
         "divider": false,
-        "full_width": false,
-        "rounded": true
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
       }
     }
   },
   "order": [
-    "article_editorial",
-    "featured_collection",
-    "blog_posts"
+    "main-article-banner",
+    "intro",
+    "at_a_glance",
+    "speed",
+    "infographic",
+    "nutrition",
+    "footprint",
+    "defrost_steps",
+    "defrost_table",
+    "standard",
+    "shop_boxes",
+    "faq_blast",
+    "blog-posts",
+    "newsletter_banner"
   ]
 }
