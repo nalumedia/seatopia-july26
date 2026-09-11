@@ -133,7 +133,7 @@
             "icon": "lightning",
             "custom_icon": "",
             "heading": "Minutes",
-            "text": "From harvest to deep-frozen at the source, not days in transit",
+            "text": "<p>From harvest to deep-frozen at the source, not days in transit</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -144,7 +144,7 @@
             "icon": "recycling",
             "custom_icon": "",
             "heading": "43% less",
-            "text": "Household food waste when cooking from frozen rather than fresh",
+            "text": "<p>Household food waste when cooking from frozen rather than fresh</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -155,7 +155,7 @@
             "icon": "box",
             "custom_icon": "",
             "heading": "Every box",
-            "text": "Ships snap-frozen, guaranteed direct to your door",
+            "text": "<p>Ships snap-frozen, guaranteed direct to your door</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
