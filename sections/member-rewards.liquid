@@ -1,0 +1,126 @@
+{%- comment -%}
+  Droppable wrapper around snippets/member-rewards.liquid so the September
+  rewards campaign can be added to any template from the theme editor without
+  a code change. All the campaign content lives in the snippet — edit it there
+  once and every placement updates.
+{%- endcomment -%}
+
+<div class="mrw-section" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+  {%- if section.settings.variant == 'banner' and section.settings.constrain -%}
+    <div class="page-width">
+      {%- render 'member-rewards',
+            variant: 'banner',
+            heading: section.settings.heading,
+            cta_link: section.settings.cta_link -%}
+    </div>
+  {%- else -%}
+    {%- render 'member-rewards',
+          variant: section.settings.variant,
+          heading: section.settings.heading,
+          cta_link: section.settings.cta_link,
+          cta_label: section.settings.cta_label,
+          ebook_link: section.settings.ebook_link,
+          chef_link: section.settings.chef_link,
+          heading_tag: section.settings.heading_tag -%}
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Member rewards",
+  "tag": "section",
+  "class": "section-member-rewards",
+  "settings": [
+    {
+      "type": "select",
+      "id": "variant",
+      "label": "Layout",
+      "options": [
+        { "value": "full", "label": "Full band (gift ladder)" },
+        { "value": "banner", "label": "Slim banner (for CTAs)" }
+      ],
+      "default": "full"
+    },
+    {
+      "type": "checkbox",
+      "id": "constrain",
+      "label": "Constrain banner to page width",
+      "info": "Only applies to the slim banner.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Leave blank to use the campaign default. Basic HTML such as <em> is allowed."
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading level",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button label"
+    },
+    {
+      "type": "header",
+      "content": "Welcome gift links"
+    },
+    {
+      "type": "url",
+      "id": "ebook_link",
+      "label": "Recipe eBook download"
+    },
+    {
+      "type": "url",
+      "id": "chef_link",
+      "label": "1:1 chef call booking"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Member rewards"
+    }
+  ]
+}
+{% endschema %}

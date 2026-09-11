@@ -53,6 +53,12 @@
     </div>
   </section>
 
+  {%- comment -%} ============== SEPTEMBER MEMBER REWARDS (campaign) ==============
+    Campaign content lives in snippets/member-rewards.liquid — one source of
+    truth for every placement. Remove this render when the campaign ends.
+  {%- endcomment -%}
+  {%- render 'member-rewards', cta_link: '/collections/curated-boxes' -%}
+
   {%- comment -%} ==================== USPs: three things ==================== {%- endcomment -%}
   <section class="mbr-band mbr-band--white" id="usps">
     <div class="page-width">
