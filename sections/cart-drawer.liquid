@@ -678,6 +678,15 @@
                   </div>
                 </div>
   
+                {%- comment -%}
+                  September member rewards. Sits at the one-time-vs-subscribe
+                  decision point. The compact variant is cart-aware: it flips to
+                  a confirmation once the cart holds a subscription line, so an
+                  existing subscriber is never sold something they already have.
+                  Remove this render when the campaign ends.
+                {%- endcomment -%}
+                {%- render 'member-rewards', variant: 'compact' -%}
+
                 {%- if section.settings.show_checkout_button or section.settings.show_view_cart_button -%}
                   <form action="{{ routes.cart_url }}" method="POST" novalidate class="drawer__footer-buttons grid grid-cols-12 gap-4">
                     {%- if section.settings.show_checkout_button -%}

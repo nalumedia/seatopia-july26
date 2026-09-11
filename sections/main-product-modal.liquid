@@ -573,6 +573,13 @@
                 {% render 'custom-rtx-pdp', product: product,product_id: product.id,
             section_id: section.id,
             product_form_id: product_form_id, type: "product-modal",  block: block  %}
+                {%- comment -%}
+                  September member rewards — same placement as sections/main-product.liquid,
+                  under the subscribe/one-time selector. The quick-view modal is a real
+                  conversion surface and was the only subscribe CTA without the promo.
+                  Remove this render when the campaign ends.
+                {%- endcomment -%}
+                {%- render 'member-rewards', variant: 'compact', spacing: true -%}
 
                 {%- when 'share' -%}
                   <div class="flex justify-between items-center" {{ block.shopify_attributes }}>

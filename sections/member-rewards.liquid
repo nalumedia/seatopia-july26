@@ -6,10 +6,10 @@
 {%- endcomment -%}
 
 <div class="mrw-section" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
-  {%- if section.settings.variant == 'banner' and section.settings.constrain -%}
+  {%- if section.settings.variant != 'full' and section.settings.constrain -%}
     <div class="page-width">
       {%- render 'member-rewards',
-            variant: 'banner',
+            variant: section.settings.variant,
             heading: section.settings.heading,
             cta_link: section.settings.cta_link -%}
     </div>
@@ -37,7 +37,8 @@
       "label": "Layout",
       "options": [
         { "value": "full", "label": "Full band (gift ladder)" },
-        { "value": "banner", "label": "Slim banner (for CTAs)" }
+        { "value": "banner", "label": "Slim banner (for CTAs)" },
+        { "value": "compact", "label": "Compact chip (narrow columns)" }
       ],
       "default": "full"
     },
@@ -45,7 +46,7 @@
       "type": "checkbox",
       "id": "constrain",
       "label": "Constrain banner to page width",
-      "info": "Only applies to the slim banner.",
+      "info": "Applies to the slim banner and compact chip. The full band sets its own width.",
       "default": true
     },
     {
