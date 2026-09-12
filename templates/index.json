@@ -782,89 +782,46 @@
       "name": "Custom announcement bar",
       "settings": {}
     },
-    "image_with_text_zXfLwQ": {
-      "type": "image-with-text",
+    "creator_quotes": {
+      "type": "creator-quote-slider",
       "blocks": {
-        "text_BGaC7r": {
-          "type": "text",
+        "slide_hyman": {
+          "type": "slide",
           "settings": {
-            "text": "<p><strong>Recommended by Dr. Mark Hyman, MD</strong></p>",
-            "text_size": "subtext-md",
-            "text_max_size": 32,
-            "text_font": "body",
-            "secondary_color": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "heading_NjKGNk": {
-          "type": "heading",
-          "settings": {
-            "heading": "“Thanks to Seatopia the next generation of omega-rich, microalgae-fed seafood can help us live more vital lives”",
-            "heading_size": "title-lg tracking-heading",
-            "heading_tag": "h1",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "text_Un7mim": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Clean Seafood, delivered to your door, with up to 3,414 mg bioavailable EPA + DHA per serving.</p>",
-            "text_size": "subtext-md",
-            "text_max_size": 32,
-            "text_font": "body",
-            "secondary_color": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "button_kWxa3z": {
-          "type": "button",
-          "settings": {
+            "image": "shopify://shop_images/05212021_Mark_Hyman9087-Edit.jpg",
+            "eyebrow": "Recommended by Dr. Mark Hyman, MD",
+            "quote": "“Thanks to Seatopia the next generation of omega-rich, microalgae-fed seafood can help us live more vital lives”",
+            "support": "<p>Clean Seafood, delivered to your door, with up to 3,414 mg bioavailable EPA + DHA per serving.</p>",
             "button_label": "Why Mark Hyman supports Seatopia",
-            "button_link": "shopify://pages/mark-hyman",
-            "button_style": "primary",
-            "button_size": "md",
-            "button_external": false,
-            "button_icon": true
+            "button_link": "shopify://pages/mark-hyman"
+          }
+        },
+        "slide_means": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Background_7_a87cc151-07cc-43b2-ab16-17a58aabbda1.png",
+            "eyebrow": "Recommended by Dr. Casey Means, MD",
+            "quote": "“Regenerative aquaculture is seafood production that enhances, rather than depletes, the oceans.”",
+            "support": "<p>Certified clean seafood from traceable, regenerative farms — delivered to your door.</p>",
+            "button_label": "Why Dr. Casey Means supports Seatopia",
+            "button_link": "/pages/casey-means-good-energy"
           }
         }
       },
       "block_order": [
-        "text_BGaC7r",
-        "heading_NjKGNk",
-        "text_Un7mim",
-        "button_kWxa3z"
+        "slide_hyman",
+        "slide_means"
       ],
-      "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "custom_class": "",
-        "image": "shopify://shop_images/05212021_Mark_Hyman9087-Edit.jpg",
-        "image_height": "650px",
-        "image_width": "medium",
-        "layout": "image_first",
-        "text_alignment": "left",
-        "content_position": "align-self-center",
-        "image_height_mobile": "auto",
-        "text_alignment_mobile": "left",
+        "aria_label": "Creator endorsements",
+        "image_ratio": "4 / 5",
+        "autoplay_seconds": 7,
+        "color_background": "#D45A3C",
         "color_text": "#ffffff",
-        "color_background": "#bb8f50",
-        "gradient_background": "",
-        "color_background_2": "",
-        "gradient_background_2": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "#bb8f50",
         "color_button_background": "#ffffff",
-        "color_button_gradient": "",
+        "color_button_text": "#D45A3C",
         "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "full_width": false,
-        "rounded": false,
-        "enable_parallax": true,
-        "parallax_direction": "vertical"
+        "padding_bottom": 72
       }
     },
     "image_with_text_overlay_PdbJRa": {
@@ -1940,7 +1897,7 @@
     "collection-list",
     "rich_text_BFR9mU",
     "blocks_NJcBb9",
-    "image_with_text_zXfLwQ",
+    "creator_quotes",
     "image_with_text_overlay_PdbJRa",
     "custom_image_with_txt_founder_inQRng",
     "image_with_text_overlay_XfR4my",
