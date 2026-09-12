@@ -32,7 +32,8 @@
       "block_order": [
         "ai_gen_block_8fca562_8iEBjF"
       ],
-      "settings": {}
+      "settings": {},
+      "disabled": true
     },
     "rich_text_pDf4g3": {
       "type": "rich-text",
@@ -74,7 +75,7 @@
         "button_yihg7q": {
           "type": "button",
           "settings": {
-            "button_label": "Order clean seafood and get free shipping",
+            "button_label": "Order Your Box",
             "button_link": "#curated-boxes",
             "button_style": "primary",
             "button_size": "md",
@@ -191,7 +192,8 @@
       "block_order": [
         "ai_gen_block_8fca562_4VPDAX"
       ],
-      "settings": {}
+      "settings": {},
+      "disabled": true
     },
     "s2_hook": {
       "type": "image-with-text",
@@ -1324,7 +1326,7 @@
         "pd_cta": {
           "type": "button",
           "settings": {
-            "button_label": "Get free shipping on my first order",
+            "button_label": "Order Your Box",
             "button_link": "/collections/curated-boxes/products/salmon-lovers-box",
             "button_style": "primary",
             "button_size": "lg",
@@ -1586,36 +1588,53 @@
         "rounded": false
       }
     },
-    "s10_final_cta": {
-      "type": "image-with-text-overlay",
+    "newsletter_capture": {
+      "type": "newsletter-banner",
       "blocks": {
-        "fc_cta": {
-          "type": "button",
+        "h_news": {
+          "type": "heading",
           "settings": {
-            "button_label": "Get free shipping on your first order",
-            "button_link": "/collections/curated-boxes",
-            "button_style": "primary",
-            "button_size": "lg",
-            "button_external": false,
-            "button_icon": false
+            "heading": "Be the first to know",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
           }
+        },
+        "t_news": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get on the list for new harvests, seafood recipes and cooking temperatures &mdash; straight from the Seatopia kitchen.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_news": {
+          "type": "form",
+          "settings": {}
         }
       },
       "block_order": [
-        "fc_cta"
+        "h_news",
+        "t_news",
+        "f_news"
       ],
+      "name": "t:sections.newsletter-banner.presets.name",
       "settings": {
-        "section_id": "",
         "transparent_header": false,
+        "transparent_footer": false,
         "image": "shopify://shop_images/DrCaseyMeans-Seatopia-33.jpg",
         "image_height": "650px",
-        "content_width": "small",
+        "content_width": "medium",
         "content_position": "md:items-center md:justify-center",
-        "text_alignment": "center",
-        "priority_image": false,
+        "text_alignment": "left",
         "image_height_mobile": "auto",
         "content_position_mobile": "items-end justify-start",
-        "text_alignment_mobile": "center",
+        "text_alignment_mobile": "left",
         "color_text": "#ffffff",
         "color_highlight": "#e0a580",
         "gradient_highlight": "",
@@ -1623,14 +1642,12 @@
         "color_button_background": "#ffffff",
         "color_button_gradient": "",
         "color_overlay": "#171717",
-        "overlay_opacity": 10,
         "padding_top": 0,
         "padding_bottom": 0,
         "divider": false,
         "full_width": true,
         "rounded": false,
         "enable_parallax": true,
-        "narrow": false,
         "parallax_direction": "vertical"
       }
     },
@@ -1708,7 +1725,7 @@
     "s6_farm",
     "s8_ebook",
     "s9_faq",
-    "s10_final_cta",
+    "newsletter_capture",
     "legal_footer"
   ]
 }
