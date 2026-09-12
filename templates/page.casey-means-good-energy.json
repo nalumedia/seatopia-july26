@@ -141,8 +141,8 @@
       "settings": {
         "section_id": "",
         "transparent_header": false,
-        "image": "shopify://shop_images/DrCaseyMeans-Seatopia.jpg",
-        "image_height": "650px",
+        "image": "shopify://shop_images/DrCaseyMeans-Seatopia-2.jpg",
+        "image_height": "adapt",
         "content_width": "small",
         "content_position": "md:items-end md:justify-start",
         "text_alignment": "left",
@@ -1607,8 +1607,8 @@
       "settings": {
         "section_id": "",
         "transparent_header": false,
-        "image": "shopify://shop_images/Grilled_Ora_6.png",
-        "image_height": "100vh",
+        "image": "shopify://shop_images/DrCaseyMeans-Seatopia-33.jpg",
+        "image_height": "650px",
         "content_width": "small",
         "content_position": "md:items-center md:justify-center",
         "text_alignment": "center",
