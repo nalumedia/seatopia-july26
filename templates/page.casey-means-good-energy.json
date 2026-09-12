@@ -43,10 +43,9 @@
         "text_qrk3W3",
         "text_NwKrCA"
       ],
-      "disabled": true,
       "settings": {
         "transparent_header": true,
-        "image": "shopify://shop_images/CPRINTS--6.jpg",
+        "image": "shopify://shop_images/DrCaseyMeans-Seatopia.jpg",
         "image_height": "100vh",
         "content_width": "medium",
         "content_position": "md:items-center md:justify-center",
@@ -153,7 +152,6 @@
       "blocks": {
         "review_DQbtRq": {
           "type": "review",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Background_7_a87cc151-07cc-43b2-ab16-17a58aabbda1.png",
             "image_url": "shopify://blogs/seatopia-collective-community/how-to-host-a-sushi-dinner-party-a-celebration-of-food-friends-amp-ritual",
@@ -218,7 +216,7 @@
             "show_border": false,
             "text_alignment": "center",
             "text_alignment_mobile": "left",
-            "image_ratio": "adapt",
+            "image_ratio": "square",
             "heading": "1. We source, test and verify",
             "heading_size": "text-lg-2xl",
             "text": "<p>Our artisan-aquaculture partners raise some of the cleanest, most delicious seafood we have found. Seatopia third-party lab tests every supplier, and then continues to audit them regularly to ensure that they consistently meet their standards.</p>",
@@ -238,7 +236,7 @@
             "show_border": false,
             "text_alignment": "center",
             "text_alignment_mobile": "left",
-            "image_ratio": "adapt",
+            "image_ratio": "square",
             "heading": "2. You choose",
             "heading_size": "text-lg-2xl",
             "text": "<p>Choose from a selection of curated boxes, or build your own from salmon, yellowtail, branzino, scallops and other seasonal selections. Buy a la carte, or subscribe to save and unlock member benefits.</p>",
@@ -249,7 +247,7 @@
             "button_icon": true,
             "highlighted_text": "none",
             "highlighted_scribble": "circle",
-            "image": "shopify://shop_images/seatopia-sushi-date-night-box-8.jpg"
+            "image": "shopify://shop_images/DrCaseyMeans-Seatopia-21.jpg"
           }
         },
         "s3": {
@@ -258,7 +256,7 @@
             "show_border": false,
             "text_alignment": "center",
             "text_alignment_mobile": "left",
-            "image_ratio": "adapt",
+            "image_ratio": "square",
             "heading": "3. We deliver",
             "heading_size": "text-lg-2xl",
             "text": "<p>Your seafood arrives snap-frozen on dry ice, guaranteed direct to your door, so you choose when to thaw and cook it.</p>",
@@ -269,7 +267,7 @@
             "button_icon": true,
             "highlighted_text": "none",
             "highlighted_scribble": "circle",
-            "image": "shopify://shop_images/CPRINTS--17.jpg"
+            "image": "shopify://shop_images/DrCaseyMeans-Seatopia-6.jpg"
           }
         }
       },
@@ -369,10 +367,9 @@
         "pd_cta",
         "pd_sub"
       ],
-      "disabled": true,
       "settings": {
         "custom_class": "",
-        "image": "shopify://shop_images/Creators-Free.jpg",
+        "image": "shopify://shop_images/DrCaseyMeans-Seatopia-4.jpg",
         "image_height": "650px",
         "image_width": "medium",
         "layout": "image_first",
