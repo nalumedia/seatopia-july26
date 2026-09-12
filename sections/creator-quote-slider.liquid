@@ -1,0 +1,313 @@
+{%- comment -%}
+  Creator Quote Slider
+  ============================================================================
+  Image-left / quote-right band that alternates between creator endorsements.
+  Built because nothing in the theme does this as a slider: image-with-text has
+  no carousel, and testimonial-with-background / reveal-testimonials /
+  testimonials / index-new-testimonials all render their blocks statically.
+
+  Replaces the single static image-with-text band on the homepage, so the
+  template's section count is unchanged — index.json sits exactly on Shopify's
+  25-section cap and adding a section there rejects the whole file.
+
+  Slider is CSS scroll-snap plus ~30 lines of vanilla JS. Deliberately no
+  jQuery: it loads render-blocking from cdnjs and is the documented cause of
+  intermittent widget failures on this theme.
+
+  NOTE: theme.css carries a sitewide `div:empty { display: none }` reset, so
+  every decorative element here is a <span> with content or a ::before.
+{%- endcomment -%}
+
+{%- liquid
+  assign bg = section.settings.color_background | default: '#D45A3C'
+  assign fg = section.settings.color_text | default: '#ffffff'
+  assign slide_count = 0
+  for block in section.blocks
+    if block.type == 'slide'
+      assign slide_count = slide_count | plus: 1
+    endif
+  endfor
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --cqs-bg: {{ bg }};
+    --cqs-fg: {{ fg }};
+    --cqs-pill-bg: {{ section.settings.color_button_background | default: '#ffffff' }};
+    --cqs-pill-fg: {{ section.settings.color_button_text | default: '#D45A3C' }};
+  }
+  .cqs {
+    background: var(--cqs-bg); color: var(--cqs-fg);
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  }
+  .cqs *, .cqs *:before, .cqs *:after { box-sizing: border-box; }
+
+  .cqs__track {
+    display: flex; margin: 0; padding: 0; list-style: none;
+    overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+  .cqs__track::-webkit-scrollbar { display: none; }
+
+  .cqs__slide {
+    flex: 0 0 100%; scroll-snap-align: center;
+    display: grid; gap: clamp(24px, 4vw, 56px); align-items: center;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 750px) {
+    .cqs__slide { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr); }
+  }
+
+  .cqs__media { margin: 0; }
+  .cqs__media img {
+    display: block; width: 100%; height: auto;
+    aspect-ratio: {{ section.settings.image_ratio }};
+    object-fit: cover; object-position: center top;
+    border-radius: 14px;
+  }
+
+  .cqs__eyebrow {
+    display: block; margin: 0 0 18px;
+    font-size: 14px; font-weight: 700; line-height: 1.4;
+  }
+  .cqs__quote {
+    margin: 0 0 22px; color: var(--cqs-fg);
+    font-size: clamp(24px, 3.2vw, 40px); line-height: 1.22;
+    font-weight: 400; letter-spacing: -0.01em; text-wrap: balance;
+  }
+  .cqs__support { margin: 0; font-size: clamp(14px, 1.1vw, 16px); line-height: 1.55; opacity: .92; }
+  .cqs__support p { margin: 0 0 .6em; }
+  .cqs__support > :last-child { margin-bottom: 0; }
+
+  .cqs__cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 28px; padding: 15px 30px; border-radius: 999px;
+    background: var(--cqs-pill-bg); color: var(--cqs-pill-fg);
+    font-size: 16px; font-weight: 600; text-decoration: none;
+    transition: transform .16s ease, box-shadow .16s ease;
+  }
+  .cqs__cta:hover {
+    transform: translateY(-1px); color: var(--cqs-pill-fg);
+    box-shadow: 0 12px 26px -14px rgba(0,0,0,.5);
+  }
+
+  /* ------------------------------------------------------------- controls */
+  .cqs__controls {
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    margin-top: clamp(24px, 3vw, 38px);
+  }
+  .cqs__arrow {
+    width: 44px; height: 44px; flex: 0 0 auto;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 50%; cursor: pointer;
+    background: transparent; color: var(--cqs-fg);
+    border: 1px solid rgba(255,255,255,.55);
+    transition: background .16s ease;
+  }
+  .cqs__arrow:hover { background: rgba(255,255,255,.16); }
+  .cqs__dots { display: flex; align-items: center; gap: 9px; margin: 0; padding: 0; list-style: none; }
+  .cqs__dot {
+    width: 9px; height: 9px; padding: 0; border-radius: 50%; cursor: pointer;
+    background: rgba(255,255,255,.42); border: 0;
+    transition: background .16s ease, transform .16s ease;
+  }
+  .cqs__dot[aria-current="true"] { background: var(--cqs-fg); transform: scale(1.25); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cqs__track { scroll-behavior: auto; }
+  }
+</style>
+
+{%- if slide_count > 0 -%}
+  <section class="cqs" aria-roledescription="carousel" aria-label="{{ section.settings.aria_label | escape }}">
+    <div class="page-width">
+
+      <ul class="cqs__track" id="cqs-track-{{ section.id }}">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'slide' -%}
+            <li class="cqs__slide"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="{{ forloop.index }} of {{ slide_count }}"
+                {{ block.shopify_attributes }}>
+
+              {%- if block.settings.image != blank -%}
+                <figure class="cqs__media">
+                  {{ block.settings.image
+                     | image_url: width: 1200
+                     | image_tag:
+                        widths: '400,600,800,1000,1200',
+                        sizes: '(max-width: 749px) 92vw, 44vw',
+                        loading: 'lazy',
+                        alt: block.settings.image.alt | default: block.settings.eyebrow }}
+                </figure>
+              {%- endif -%}
+
+              <div class="cqs__copy">
+                {%- if block.settings.eyebrow != blank -%}
+                  <span class="cqs__eyebrow">{{ block.settings.eyebrow }}</span>
+                {%- endif -%}
+                {%- if block.settings.quote != blank -%}
+                  <p class="cqs__quote heading">{{ block.settings.quote }}</p>
+                {%- endif -%}
+                {%- if block.settings.support != blank -%}
+                  <div class="cqs__support">{{ block.settings.support }}</div>
+                {%- endif -%}
+                {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}
+                  <a class="cqs__cta" href="{{ block.settings.button_link }}">
+                    <span>{{ block.settings.button_label }}</span>
+                    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor"
+                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>
+                    </svg>
+                  </a>
+                {%- endif -%}
+              </div>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+
+      {%- if slide_count > 1 -%}
+        <div class="cqs__controls">
+          <button class="cqs__arrow" type="button" data-cqs-prev aria-label="Previous quote">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m15 18-6-6 6-6"></path>
+            </svg>
+          </button>
+          <ul class="cqs__dots">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'slide' -%}
+                <li>
+                  <button class="cqs__dot" type="button"
+                          data-cqs-dot="{{ forloop.index0 }}"
+                          aria-current="{% if forloop.first %}true{% else %}false{% endif %}"
+                          aria-label="Go to quote {{ forloop.index }}"></button>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+          <button class="cqs__arrow" type="button" data-cqs-next aria-label="Next quote">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m9 18 6-6-6-6"></path>
+            </svg>
+          </button>
+        </div>
+      {%- endif -%}
+
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      // Vanilla on purpose — jQuery is render-blocking from cdnjs on this theme
+      // and is the documented cause of intermittent widget failures.
+      var root = document.getElementById('shopify-section-{{ section.id }}');
+      if (!root) return;
+      var track = root.querySelector('.cqs__track');
+      if (!track) return;
+      var slides = Array.prototype.slice.call(track.querySelectorAll('.cqs__slide'));
+      var dots = Array.prototype.slice.call(root.querySelectorAll('[data-cqs-dot]'));
+      if (slides.length < 2) return;
+
+      var index = 0;
+      function go(i) {
+        index = (i + slides.length) % slides.length;
+        track.scrollTo({ left: slides[index].offsetLeft - track.offsetLeft, behavior: 'smooth' });
+        sync();
+      }
+      function sync() {
+        dots.forEach(function (d, i) { d.setAttribute('aria-current', i === index ? 'true' : 'false'); });
+      }
+      var prev = root.querySelector('[data-cqs-prev]');
+      var next = root.querySelector('[data-cqs-next]');
+      if (prev) prev.addEventListener('click', function () { stop(); go(index - 1); });
+      if (next) next.addEventListener('click', function () { stop(); go(index + 1); });
+      dots.forEach(function (d) {
+        d.addEventListener('click', function () { stop(); go(parseInt(d.getAttribute('data-cqs-dot'), 10)); });
+      });
+
+      // Keep the dots honest when the track is swiped or scrolled directly.
+      var raf;
+      track.addEventListener('scroll', function () {
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(function () {
+          var nearest = 0, best = Infinity;
+          slides.forEach(function (s, i) {
+            var d = Math.abs(s.offsetLeft - track.offsetLeft - track.scrollLeft);
+            if (d < best) { best = d; nearest = i; }
+          });
+          if (nearest !== index) { index = nearest; sync(); }
+        });
+      }, { passive: true });
+
+      var timer = null;
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      var every = {{ section.settings.autoplay_seconds | times: 1000 }};
+      var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (every > 0 && !reduced) {
+        timer = setInterval(function () { go(index + 1); }, every);
+        root.addEventListener('mouseenter', stop);
+        root.addEventListener('focusin', stop);
+      }
+    })();
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Creator quote slider",
+  "tag": "section",
+  "class": "section-creator-quote-slider",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "aria_label", "label": "Accessible label", "default": "Creator endorsements" },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image shape",
+      "options": [
+        { "value": "3 / 2", "label": "Landscape" },
+        { "value": "1 / 1", "label": "Square" },
+        { "value": "4 / 5", "label": "Portrait" }
+      ],
+      "default": "4 / 5"
+    },
+    {
+      "type": "range",
+      "id": "autoplay_seconds",
+      "label": "Auto-advance",
+      "info": "0 turns autoplay off. Autoplay is always off for visitors who prefer reduced motion, and stops on hover or focus.",
+      "min": 0, "max": 12, "step": 1, "unit": "s", "default": 7
+    },
+    { "type": "header", "content": "Color" },
+    { "type": "color", "id": "color_background", "label": "Band", "default": "#D45A3C" },
+    { "type": "color", "id": "color_text", "label": "Text", "default": "#ffffff" },
+    { "type": "color", "id": "color_button_background", "label": "Button", "default": "#ffffff" },
+    { "type": "color", "id": "color_button_text", "label": "Button text", "default": "#D45A3C" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Quote",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Portrait" },
+        { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Recommended by" },
+        { "type": "textarea", "id": "quote", "label": "Quote" },
+        { "type": "richtext", "id": "support", "label": "Supporting text" },
+        { "type": "text", "id": "button_label", "label": "Button label" },
+        { "type": "url", "id": "button_link", "label": "Button link" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Creator quote slider", "blocks": [ { "type": "slide" }, { "type": "slide" } ] }
+  ]
+}
+{% endschema %}
