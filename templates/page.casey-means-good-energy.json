@@ -32,8 +32,8 @@
       "block_order": [
         "ai_gen_block_8fca562_8iEBjF"
       ],
-      "settings": {},
-      "disabled": true
+      "disabled": true,
+      "settings": {}
     },
     "rich_text_pDf4g3": {
       "type": "rich-text",
@@ -142,7 +142,7 @@
       "settings": {
         "section_id": "",
         "transparent_header": false,
-        "image": "shopify://shop_images/DrCaseyMeans-Seatopia-2.jpg",
+        "image": "shopify://shop_images/DrCaseyMeans-Seatopia.jpg",
         "image_height": "adapt",
         "content_width": "small",
         "content_position": "md:items-end md:justify-start",
@@ -192,8 +192,8 @@
       "block_order": [
         "ai_gen_block_8fca562_4VPDAX"
       ],
-      "settings": {},
-      "disabled": true
+      "disabled": true,
+      "settings": {}
     },
     "s2_hook": {
       "type": "image-with-text",
@@ -239,7 +239,7 @@
       ],
       "settings": {
         "custom_class": "",
-        "image": "shopify://shop_images/king_salmon_3.png",
+        "image": "shopify://shop_images/DrCaseyMeans-Seatopia-23.jpg",
         "image_height": "750px",
         "image_width": "large",
         "layout": "text_first",
@@ -372,7 +372,6 @@
         "image_d4Mwxt": {
           "type": "image",
           "settings": {
-            "image": "",
             "image_width": "custom",
             "image_max_width": 170,
             "image_max_width_mobile": 340
