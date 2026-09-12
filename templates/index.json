@@ -325,7 +325,7 @@
         "highlighted_text": "none",
         "highlighted_scribble": "circle",
         "color_text": "#ffffff",
-        "color_background": "#D45A3C",
+        "color_background": "#d45a3c",
         "gradient_background": "",
         "color_highlight": "",
         "gradient_highlight": "",
@@ -792,7 +792,7 @@
             "eyebrow": "Recommended by Dr. Mark Hyman, MD",
             "quote": "“Thanks to Seatopia the next generation of omega-rich, microalgae-fed seafood can help us live more vital lives”",
             "support": "<p>Clean Seafood, delivered to your door, with up to 3,414 mg bioavailable EPA + DHA per serving.</p>",
-            "button_label": "Why Mark Hyman supports Seatopia",
+            "button_label": "Why Dr. Mark Hyman Supports Seatopia",
             "button_link": "shopify://pages/mark-hyman"
           }
         },
@@ -816,10 +816,10 @@
         "aria_label": "Creator endorsements",
         "image_ratio": "4 / 5",
         "autoplay_seconds": 7,
-        "color_background": "#D45A3C",
+        "color_background": "#d45a3c",
         "color_text": "#ffffff",
         "color_button_background": "#ffffff",
-        "color_button_text": "#D45A3C",
+        "color_button_text": "#d45a3c",
         "padding_top": 72,
         "padding_bottom": 72
       }
@@ -883,7 +883,7 @@
         "color_highlight": "#e0a580",
         "gradient_highlight": "",
         "color_button_text": "#ffffff",
-        "color_button_background": "#D45A3C",
+        "color_button_background": "#d45a3c",
         "color_button_gradient": "",
         "color_overlay": "#171717",
         "overlay_opacity": 19,
@@ -1045,7 +1045,7 @@
         "color_highlight": "#e0a580",
         "gradient_highlight": "",
         "color_button_text": "#ffffff",
-        "color_button_background": "#D45A3C",
+        "color_button_background": "#d45a3c",
         "color_button_gradient": "",
         "color_overlay": "#171717",
         "overlay_opacity": 19,
@@ -1217,6 +1217,7 @@
         },
         "review_KMBfjf": {
           "type": "review",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Mark_hyman.jpg",
             "image_url": "shopify://blogs/regenerative-aquaculture/are-we-still-mermaids-embracing-our-aquatic-roots-for-modern-health",
@@ -1226,8 +1227,7 @@
             "text": "<p>\"As a Chef, I believe true sustainability must nourish both people and the planet. Seatopia aligns with this belief. They lab-test every harvest to ensure seafood that’s omega-rich, mercury-safe, and free from detectable microplastics while also regenerating ocean health. This is the future of seafood.\"</p>",
             "block_background": "",
             "block_text_color": ""
-          },
-          "disabled": true
+          }
         },
         "review_TYdHc7": {
           "type": "review",
@@ -1433,7 +1433,7 @@
         "color_highlight": "",
         "gradient_highlight": "",
         "color_button_text": "#ffffff",
-        "color_button_background": "#D45A3C",
+        "color_button_background": "#d45a3c",
         "color_button_gradient": "",
         "padding_top": 0,
         "padding_bottom": 92,
@@ -1700,6 +1700,7 @@
       "blocks": {
         "testimonial-1": {
           "type": "testimonial",
+          "disabled": true,
           "settings": {
             "icon": "quote",
             "text": "<p>Thanks to Seatopia, throughout my pregnancy and while breastfeeding, I’ve confidently enjoyed sushi-grade, mercury-free, omega-rich seafood from the comfort of my home!</p>",
@@ -1710,8 +1711,7 @@
             "image_ratio": "rounded",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
-          },
-          "disabled": true
+          }
         },
         "testimonial-2": {
           "type": "testimonial",
@@ -1835,7 +1835,7 @@
         "color_highlight": "",
         "gradient_highlight": "",
         "color_button_text": "#ffffff",
-        "color_button_background": "#D45A3C",
+        "color_button_background": "#d45a3c",
         "color_button_gradient": "",
         "padding_top": 100,
         "padding_bottom": 100,
