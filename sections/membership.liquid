@@ -26,12 +26,12 @@
           </div>
           <ul class="mbr-trust">
             <li>Third-party lab verified for DHA, EPA, mercury &amp; microplastics</li>
-            <li>Mercury-safe at &le; 0.1 ppm · zero detectable microplastics</li>
+            <li>Tested to under 0.1 ppm mercury &ndash; a tenth of the FDA limit &middot; no microplastics detected in third-party testing</li>
             <li>134+ published product quality reports</li>
           </ul>
         </div>
         <div class="mbr-hero__media">
-          <img src="https://seatopia.fish/cdn/shop/files/Grilled_Ora_6.png?v=1782148831&width=1400" alt="Seatopia salmon" loading="eager" width="700" height="560">
+          <img src="https://seatopia.fish/cdn/shop/files/DrCaseyMeans-Seatopia-29.jpg?width=1400" alt="Seatopia yellowtail crudo with herb oil and edible flowers" loading="eager" width="700" height="560">
         </div>
       </div>
 
@@ -40,7 +40,7 @@
         <p class="mbr-strip__eyebrow">SEATOPIA STANDARD™ · Verified clean · a certificate behind every claim</p>
         <div class="mbr-grid mbr-grid--4">
           {%- assign strip_n = 'Clean seafood, monthly|Member value|Guidance, not guesswork|On ocean time' | split: '|' -%}
-          {%- assign strip_d = 'Sashimi-grade seafood, verified clean per batch, delivered snap-frozen on a rhythm you set.|10% off every order, member gifts &amp; rewards, and quarterly access to limited harvests.|Free 1:1 chef classes and a dedicated concierge for questions, cooking, and scheduling.|Monthly or bi-monthly, pause up to 3 months, change size and cadence, or cancel anytime.' | split: '|' -%}
+          {%- assign strip_d = 'Clean seafood, third-party lab tested at the supplier level, delivered snap-frozen on a rhythm you set.|10% off every order, member gifts &amp; rewards, and quarterly access to limited harvests.|Free 1:1 chef classes and a dedicated concierge for questions, cooking, and scheduling.|Monthly or bi-monthly, pause up to 3 months, change size and cadence, or cancel anytime.' | split: '|' -%}
           {%- for item in strip_n -%}
             <div class="mbr-strip__item">
               <span class="mbr-num">{{ forloop.index | prepend: '0' }}</span>
@@ -76,12 +76,12 @@
         <div class="mbr-card">
           <p class="mbr-kicker">Verified Safe &amp; Clean</p>
           <h3 class="heading title-sm">When we say clean, there's a certificate behind it.</h3>
-          <p class="mbr-muted">Independent labs test every batch for mercury and microplastics. The result is a downloadable Certificate of Analysis, not a marketing word.</p>
+          <p class="mbr-muted">Seatopia third-party lab tests every supplier, and then continues to audit them regularly to ensure that they consistently meet their standards. The result is a downloadable Certificate of Analysis, not a marketing word.</p>
           <p class="mbr-pill">mercury &le; 0.1 ppm · 0 microplastics</p>
         </div>
         <div class="mbr-card">
-          <p class="mbr-kicker">Sashimi-Grade</p>
-          <h3 class="heading title-sm">Sashimi-grade confidence, at home.</h3>
+          <p class="mbr-kicker">Precision Frozen</p>
+          <h3 class="heading title-sm">Precision freezing you can taste.</h3>
           <p class="mbr-muted">From harvest to precision freezing and cold-chain delivery, every step protects quality, texture, and safety — meeting or exceeding FDA guidelines.</p>
           <p class="mbr-pill">snap-frozen at peak freshness</p>
         </div>
@@ -106,7 +106,7 @@
         <div class="mbr-card mbr-card--dark">
           <p class="mbr-kicker">The membership</p>
           <h3 class="heading title-sm">We make repetition effortless.</h3>
-          <p class="mbr-muted">A box you customize, delivered on ocean time and verified clean per batch — with chef classes and a concierge so cooking it stays a pleasure, not a project. The habit does the rest.</p>
+          <p class="mbr-muted">A box you customize, delivered on ocean time, third-party lab tested at the supplier level — with chef classes and a concierge so cooking it stays a pleasure, not a project. The habit does the rest.</p>
         </div>
       </div>
       <p class="mbr-tagline">Food as medicine, not marketing.</p>
@@ -128,7 +128,7 @@
           <span class="mbr-coa__tag">Within standard</span>
         </div>
         <div class="mbr-coa__row">
-          <div class="mbr-coa__data"><p class="mbr-coa__k">Microplastics</p><p class="mbr-coa__v">0 detected</p><p class="mbr-coa__d">Zero detectable microplastics above the laboratory's limit of detection.</p></div>
+          <div class="mbr-coa__data"><p class="mbr-coa__k">Microplastics</p><p class="mbr-coa__v">0 detected</p><p class="mbr-coa__d">No microplastics detected in third-party testing.</p></div>
           <span class="mbr-coa__tag">Within standard</span>
         </div>
         <div class="mbr-coa__row">
@@ -150,6 +150,10 @@
       </div>
       <div class="mbr-grid mbr-grid--2 mbr-health">
         <div class="mbr-card mbr-card--dark mbr-badge-card">
+          <img class="mbr-badge-card__img"
+               src="https://seatopia.fish/cdn/shop/files/DrCaseyMeans-Seatopia-34.jpg?width=1000"
+               alt="Dr. Casey Means and James Arthur Smith sharing a Seatopia meal"
+               loading="lazy" width="500" height="316">
           <span class="mbr-badge">8%</span>
           <p class="mbr-muted">Three to four Seatopia meals a week can help support an Omega-3 Index in the desirable range — an index above 8% is associated with better long-term heart and brain health. Consistency is the mechanism, and a monthly box is how you keep it.</p>
         </div>
@@ -245,7 +249,7 @@
         {%- assign box_url = 'salmon-box,fish-shell-variety,white-fish-box' | split: ',' -%}
         {%- assign box_name = 'Salmon Lovers|Fish &amp; Shellfish Variety|White Fish Box' | split: '|' -%}
         {%- assign box_sub = '≈ 1,960–3,434 mg EPA+DHA / portion|a rotating clean-seafood assortment|branzino, barramundi &amp; more' | split: '|' -%}
-        {%- assign box_desc = 'Atlantic &amp; King salmon, sashimi-grade — the most omega-dense box we make.|A diverse mix of species and farms — the easiest way to keep the habit interesting.|Delicate, versatile, weeknight-friendly white fish — clean and endlessly cookable.' | split: '|' -%}
+        {%- assign box_desc = 'Atlantic &amp; King salmon — the most omega-dense box we make.|A diverse mix of species and farms — the easiest way to keep the habit interesting.|Delicate, versatile, weeknight-friendly white fish — clean and endlessly cookable.' | split: '|' -%}
         {%- assign box_price = '$225|$194|$207' | split: '|' -%}
         {%- assign box_was = '$250|$215|$230' | split: '|' -%}
         {%- for handle in box_url -%}
@@ -283,10 +287,6 @@
           <figcaption><strong>Dr. Mark Hyman</strong><span>Leader in functional medicine</span></figcaption>
         </figure>
         <figure class="mbr-quote">
-          <blockquote>"Omega-rich, mercury-safe, and free from detectable microplastics. This is the future of seafood."</blockquote>
-          <figcaption><strong>Johanna Hellrigl</strong><span>Chef &amp; owner, AMA Restaurant</span></figcaption>
-        </figure>
-        <figure class="mbr-quote">
           <blockquote>"Healthy, gourmet-style seafood at home that goes beyond any you've tasted before."</blockquote>
           <figcaption><strong>Ben Greenfield</strong><span>Health &amp; fitness coach</span></figcaption>
         </figure>
@@ -303,7 +303,7 @@
       </div>
       <div class="mbr-faq">
         {%- assign faq_q = 'How does the membership work?|Can I choose what goes in my box?|What does "verified clean" actually mean?|What are the member benefits and rewards?|Do I need to be an experienced cook?|How does it ship?' | split: '|' -%}
-        {%- assign faq_a = 'Seatopia is a monthly or bi-monthly membership. You can customize your box size, change how often it ships, pause for up to 3 months, or cancel any time before your next billing cycle.|Yes. Mix and match freely, or start from a curated box and refine it over time — the box should fit your taste, your household, and your goals.|Independent, third-party laboratories test every batch and quantify the results: mercury held to &le; 0.1 ppm, zero detectable microplastics, and EPA/DHA measured per serving. Each SKU has a downloadable Certificate of Analysis, part of 134+ published product quality reports.|Members get 10% off every order, quarterly access to limited seasonal harvests, member gifts &amp; rewards (a recent reward was free shipping on the next order; another was free caviar), free 1:1 chef classes, and a dedicated concierge.|Not at all. Free 1:1 chef classes and concierge guidance make preparing sashimi-grade seafood approachable, whatever your starting point.|Orders arrive snap-frozen, 1–3 days after shipment, with a snap-frozen guarantee: if it does not arrive properly frozen, we will refund it or send a replacement.' | split: '|' -%}
+        {%- assign faq_a = 'Seatopia is a monthly or bi-monthly membership. You can customize your box size, change how often it ships, pause for up to 3 months, or cancel any time before your next billing cycle.|Yes. Mix and match freely, or start from a curated box and refine it over time — the box should fit your taste, your household, and your goals.|Seatopia third-party lab tests every supplier, and then continues to audit them regularly to ensure that they consistently meet their standards. Tested to under 0.1 ppm mercury &ndash; a tenth of the FDA limit, with no microplastics detected in third-party testing, and EPA/DHA quantified per serving. Each SKU has a downloadable Certificate of Analysis, part of 134+ published product quality reports.|Members get 10% off every order, quarterly access to limited seasonal harvests, member gifts &amp; rewards (a recent reward was free shipping on the next order; another was free caviar), free 1:1 chef classes, and a dedicated concierge.|Not at all. Free 1:1 chef classes and concierge guidance make preparing raw and lightly cooked seafood approachable, whatever your starting point.|Orders arrive snap-frozen, 1–3 days after shipment, with a snap-frozen guarantee: if it does not arrive properly frozen, we will refund it or send a replacement.' | split: '|' -%}
         {%- for q in faq_q -%}
           <details class="mbr-faq__item">
             <summary><span>{{ q }}</span><svg class="mbr-faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg></summary>
@@ -345,15 +345,16 @@
     padding:96px 0;
   }
   @media(max-width:749px){ .mbr-band{ padding:60px 0; } }
-  .mbr-band--white{ --color-background:255 255 255; --color-foreground:46 75 89; }
-  .mbr-band--cream{ --color-background:247 239 230; --color-foreground:46 75 89; }
-  .mbr-band--sage{  --color-background:205 217 209; --color-foreground:46 75 89; }
-  .mbr-band--dark{  --color-background:46 75 89;   --color-foreground:247 239 230; }
+  .mbr-band--white{ --color-background:255 255 255; --color-foreground:29 61 62; }
+  .mbr-band--cream{ --color-background:247 239 230; --color-foreground:29 61 62; }
+  .mbr-band--sage{  --color-background:158 165 148; --color-foreground:29 61 62; }
+  .mbr-band--dark{  --color-background:29 61 62;   --color-foreground:247 239 230; }
   .mbr-band--hero{
-    --color-background:46 75 89; --color-foreground:247 239 230;
-    background:radial-gradient(125% 120% at 82% 4%, rgb(37 80 89) 0%, rgb(46 75 89) 46%, rgb(29 61 62) 100%);
+    --color-background:29 61 62; --color-foreground:247 239 230;
+    background:radial-gradient(125% 120% at 82% 4%, rgb(43 78 78) 0%, rgb(29 61 62) 46%, rgb(29 61 62) 100%);
   }
   .mbr-band--cta{ padding:120px 0; }
+  .mbr-badge-card__img{ display:block; width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; border-radius:12px; margin-bottom:20px; }
 
   /* muted + accent derived from the current band's foreground */
   .membership .mbr-muted{ color:rgb(var(--color-foreground) / .68); line-height:1.65; margin:0; }
@@ -406,7 +407,7 @@
     border-radius:14px; padding:28px; display:flex; flex-direction:column; gap:12px;
   }
   .mbr-band--white .mbr-card{ box-shadow:0 1px 2px rgb(16 24 40 / .05); }
-  .mbr-card--dark{ --color-background:46 75 89; --color-foreground:247 239 230; border-color:transparent; }
+  .mbr-card--dark{ --color-background:29 61 62; --color-foreground:247 239 230; border-color:transparent; }
   .mbr-band--dark .mbr-card--dark{ --color-background:29 61 62; }
   .mbr-kicker{ font-size:12px; letter-spacing:.1em; text-transform:uppercase; font-weight:600; color:rgb(var(--color-foreground) / .55); margin:0; }
   .mbr-pill{ margin:8px 0 0; font-size:13px; font-weight:600; padding:9px 13px; border-radius:8px; background:rgb(var(--color-foreground) / .06); }
@@ -445,7 +446,7 @@
   .mbr-commit__list li::before{ content:"·"; position:absolute; left:4px; color:rgb(var(--color-rating)); font-weight:700; }
 
   /* Boxes */
-  .mbr-box{ display:flex; flex-direction:column; background:#fff; border:1px solid rgb(46 75 89 / .1); border-radius:16px; overflow:hidden; text-decoration:none; color:rgb(var(--color-foreground)); transition:transform .18s ease, box-shadow .18s ease; }
+  .mbr-box{ display:flex; flex-direction:column; background:#fff; border:1px solid rgb(29 61 62 / .1); border-radius:16px; overflow:hidden; text-decoration:none; color:rgb(var(--color-foreground)); transition:transform .18s ease, box-shadow .18s ease; }
   .mbr-box:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgb(16 24 40 / .14); }
   .mbr-box__media{ position:relative; aspect-ratio:1/1; background:#f2f2f0; overflow:hidden; }
   .mbr-box__img{ width:100%; height:100%; object-fit:cover; display:block; }
