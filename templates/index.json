@@ -1014,8 +1014,8 @@
         "button_tN7CVX": {
           "type": "button",
           "settings": {
-            "button_label": "Dive into Summer",
-            "button_link": "shopify://pages/summer-solstice",
+            "button_label": "Dive Into Our Favorite Recipes",
+            "button_link": "shopify://blogs/seafood-recipes",
             "button_style": "primary",
             "button_size": "md",
             "button_external": false,
