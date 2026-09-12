@@ -216,7 +216,7 @@
           "type": "column",
           "settings": {
             "show_border": false,
-            "text_alignment": "text-center",
+            "text_alignment": "center",
             "text_alignment_mobile": "left",
             "image_ratio": "adapt",
             "heading": "1. We source, test and verify",
@@ -236,7 +236,7 @@
           "type": "column",
           "settings": {
             "show_border": false,
-            "text_alignment": "text-center",
+            "text_alignment": "center",
             "text_alignment_mobile": "left",
             "image_ratio": "adapt",
             "heading": "2. You choose",
@@ -256,7 +256,7 @@
           "type": "column",
           "settings": {
             "show_border": false,
-            "text_alignment": "text-center",
+            "text_alignment": "center",
             "text_alignment_mobile": "left",
             "image_ratio": "adapt",
             "heading": "3. We deliver",
