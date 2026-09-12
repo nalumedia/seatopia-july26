@@ -1847,8 +1847,8 @@
       "settings": {
         "section_id": "",
         "blog": "seafood-recipes",
-        "post_limit": 3,
-        "show_view_all": false,
+        "post_limit": 4,
+        "show_view_all": true,
         "title1": "Types of cooking",
         "filter1tags": "",
         "title2": "Types of cooking",
