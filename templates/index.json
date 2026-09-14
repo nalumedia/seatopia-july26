@@ -266,7 +266,7 @@
       "type": "seatopia-standard",
       "settings": {
         "variant": "ribbon",
-        "claim_count": 3,
+        "claim_count": "3",
         "show_header": false,
         "color_background": "#D45A3C",
         "color_text": "#ffffff",
