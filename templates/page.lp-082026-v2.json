@@ -21,7 +21,7 @@
         "h1_hero": {
           "type": "heading",
           "settings": {
-            "heading": "Mercury under 0.1 ppm. Ten times stricter than the FDA.",
+            "heading": "Mercury ≤ 0.1 ppm. Ten times stricter than the FDA.",
             "heading_size": "title-lg tracking-heading",
             "heading_tag": "h1",
             "highlighted_text": "none",
@@ -1438,7 +1438,7 @@
         "heading_close": {
           "type": "heading",
           "settings": {
-            "heading": "Mercury under 0.1 ppm. Read the report, then eat.",
+            "heading": "Mercury ≤ 0.1 ppm. Read the report, then eat.",
             "heading_size": "title-lg tracking-heading",
             "heading_tag": "h2",
             "highlighted_text": "none",

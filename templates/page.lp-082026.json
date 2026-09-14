@@ -134,7 +134,7 @@
             "icon": "shield",
             "custom_icon": "",
             "heading": "Mercury-safe",
-            "text": "<p>Seatopia products are lab tested quantifying less than 0.1 PPM methylmercury</p>",
+            "text": "<p>Seatopia products are lab tested quantifying ≤ 0.1 PPM methylmercury</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
