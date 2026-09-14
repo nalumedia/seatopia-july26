@@ -1622,7 +1622,7 @@
         "t_news": {
           "type": "text",
           "settings": {
-            "text": "<p>Get on the list for new harvests, seafood recipes and cooking temperatures &mdash; straight from the Seatopia kitchen.</p>",
+            "text": "<p>Recipes, cooking temperatures and new harvests from the Seatopia kitchen &mdash; plus first word when a species comes back in season.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
