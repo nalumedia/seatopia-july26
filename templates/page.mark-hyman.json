@@ -1044,7 +1044,7 @@
       "type": "seatopia-standard",
       "settings": {
         "variant": "full",
-        "claim_count": 4,
+        "claim_count": "4",
         "show_header": true,
         "padding_top": 80,
         "padding_bottom": 80
