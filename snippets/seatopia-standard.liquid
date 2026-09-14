@@ -38,8 +38,25 @@
   assign cta_txt     = cta_label | default: 'Check our Data'
   assign cta_href    = cta_link | default: data_url
 
-  assign ink = color_text | default: '#ffffff'
-  assign bg  = color_background | default: '#D45A3C'
+  assign bg = color_background | default: '#D45A3C'
+
+  comment
+    Derive the text colour from the background unless one is set explicitly.
+    Defaulting to white was a trap: a band carrying a light background and no
+    text colour rendered white on cream and was unreadable. That is exactly what
+    happened to the four lp-* pages on the #f7efe6 background, and it would have
+    happened to anyone picking a pale ribbon colour in the customiser.
+  endcomment
+  if color_text != blank
+    assign ink = color_text
+  else
+    assign bg_brightness = bg | color_brightness
+    if bg_brightness > 160
+      assign ink = '#1D3D3E'
+    else
+      assign ink = '#ffffff'
+    endif
+  endif
 
   if show_header == nil
     if v == 'full'

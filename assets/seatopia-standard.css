@@ -46,7 +46,9 @@
   border-left: 1px solid color-mix(in srgb, currentColor 28%, transparent);
 }
 .sea-std--ribbon .sea-std__name { font-size: 20px; }
-.sea-std--ribbon .sea-std__note { font-size: 14.5px; opacity: .92; }
+/* No opacity here: it silently lowers contrast on every ribbon colour, and the
+   note is already the smallest text in the band. */
+.sea-std--ribbon .sea-std__note { font-size: 14.5px; }
 .sea-std--ribbon a { color: inherit; text-underline-offset: 2px; }
 
 /* ------------------------------------------------------------------ full */
