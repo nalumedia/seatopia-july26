@@ -49,14 +49,14 @@
       "default": "ribbon"
     },
     {
-      "type": "range",
+      "type": "select",
       "id": "claim_count",
       "label": "Claims shown",
-      "min": 3,
-      "max": 4,
-      "step": 1,
-      "default": 4,
-      "info": "At 3, the Certificate of Analysis claim is dropped."
+      "options": [
+        { "value": "3", "label": "3 — drops Certificate of Analysis" },
+        { "value": "4", "label": "4 — includes Certificate of Analysis" }
+      ],
+      "default": "4"
     },
     {
       "type": "checkbox",
@@ -120,8 +120,8 @@
     }
   ],
   "presets": [
-    { "name": "Seatopia Standard — ribbon", "settings": { "variant": "ribbon", "show_header": false, "claim_count": 3 } },
-    { "name": "Seatopia Standard — full",   "settings": { "variant": "full",   "show_header": true,  "claim_count": 4 } }
+    { "name": "Seatopia Standard — ribbon", "settings": { "variant": "ribbon", "show_header": false, "claim_count": "3" } },
+    { "name": "Seatopia Standard — full",   "settings": { "variant": "full",   "show_header": true,  "claim_count": "4" } }
   ]
 }
 {% endschema %}
