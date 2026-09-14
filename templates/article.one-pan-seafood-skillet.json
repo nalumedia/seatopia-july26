@@ -1,0 +1,1030 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-article-banner": {
+      "type": "main-article-banner",
+      "blocks": {
+        "spacing": {
+          "type": "spacing",
+          "settings": {
+            "height": 68,
+            "height_mobile": 0
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "title-lg tracking-heading",
+            "show_tags": true,
+            "show_date": false,
+            "show_comments": false,
+            "show_author": true
+          }
+        }
+      },
+      "block_order": [
+        "spacing",
+        "title"
+      ],
+      "settings": {
+        "transparent_header": true,
+        "show_image": true,
+        "image": "shopify://shop_images/IMG_5347_a37bbe72-f40d-465d-bdda-130f655af5eb.heic",
+        "image_height": "750px",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-center",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_overlay": "#000000",
+        "overlay_opacity": 40,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "collab_card": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "recipe-collab",
+        "liquid": "\n<style>\n  .sea-collab {\n    --ink: #171717; --muted: #5c5c5c; --line: #e5e2dc; --wash: #faf8f4; --gold: #bb8f50;\n    border: 1px solid var(--line);\n    border-radius: 18px;\n    background: var(--wash);\n    padding: 24px 28px;\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n    color: var(--ink);\n  }\n  .sea-collab__avatar {\n    flex: 0 0 auto;\n    width: 68px; height: 68px; border-radius: 50%; overflow: hidden;\n    border: 2px solid #fff; box-shadow: 0 0 0 2px var(--gold); background: #eee;\n  }\n  .sea-collab__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }\n  .sea-collab__body { flex: 1 1 260px; min-width: 0; }\n  .sea-collab__eyebrow {\n    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;\n    color: var(--gold); font-weight: 600; margin: 0 0 5px;\n    display: flex; align-items: center; gap: 9px; flex-wrap: wrap;\n  }\n  .sea-collab__badge {\n    letter-spacing: .08em; font-size: 10px; font-weight: 700;\n    color: #fff; background: var(--ink);\n    padding: 3px 8px; border-radius: 999px;\n  }\n  .sea-collab__name { font-size: 21px; font-weight: 600; line-height: 1.2; margin: 0 0 4px; }\n  .sea-collab__role { font-size: 15px; color: var(--muted); line-height: 1.45; margin: 0; }\n  .sea-collab__role a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }\n  .sea-collab__cred {\n    font-size: 13px; color: var(--muted); line-height: 1.5;\n    margin: 10px 0 0; padding-top: 10px; border-top: 1px solid var(--line);\n  }\n  .sea-collab__follow {\n    flex: 0 0 auto;\n    display: inline-flex; align-items: center; gap: 8px;\n    padding: 11px 20px; border: 1px solid var(--ink); border-radius: 999px;\n    font-size: 15px; font-weight: 600; text-decoration: none;\n    color: var(--ink); background: #fff;\n    transition: background .18s ease, color .18s ease;\n  }\n  .sea-collab__follow:hover { background: var(--ink); color: #fff; }\n  .sea-collab__follow svg { width: 18px; height: 18px; }\n  @media (max-width: 749px) {\n    .sea-collab { padding: 20px; gap: 16px; }\n    .sea-collab__follow { width: 100%; justify-content: center; }\n    .sea-collab__name { font-size: 19px; }\n  }\n</style>\n\n{%- assign collab_avatar = 'miriam-thom-headshot.jpg' | file_url -%}\n\n<div class=\"sea-collab\">\n  {%- if collab_avatar != blank -%}\n    <div class=\"sea-collab__avatar\">\n      <img src=\"{{ collab_avatar }}\" alt=\"Miriam Thom\" width=\"136\" height=\"136\" loading=\"lazy\" decoding=\"async\">\n    </div>\n  {%- endif -%}\n\n  <div class=\"sea-collab__body\">\n    <p class=\"sea-collab__eyebrow\">\n      <span>From the Seatopia kitchen</span>\n      <span class=\"sea-collab__badge\">In-house</span>\n    </p>\n    <p class=\"sea-collab__name\">Recipe by Miriam Thom</p>\n    <p class=\"sea-collab__role\">Culinary Education at Seatopia &mdash; she develops the recipes that ship with the boxes and teaches the <a href=\"/pages/seatopia-member-cooking-classes\" title=\"Seatopia Member Cooking Classes\">member cooking classes</a></p>\n    <p class=\"sea-collab__cred\">Serves 4 &middot; one deep skillet for the base, one for crisping the fish</p>\n  </div>\n\n  <a class=\"sea-collab__follow\" href=\"https://www.instagram.com/miriamthom\" target=\"_blank\" rel=\"noopener noreferrer\">\n    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n      <rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\"></rect>\n      <circle cx=\"12\" cy=\"12\" r=\"4\"></circle>\n      <circle cx=\"17.5\" cy=\"6.5\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"></circle>\n    </svg>\n    <span>Follow</span>\n  </a>\n</div>\n",
+        "padding_top": 28,
+        "padding_bottom": 8,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "rich_text_intro": {
+      "type": "rich-text",
+      "blocks": {
+        "text_intro": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A one-pan dinner that happens to have four kinds of seafood in it. Onion, garlic and cherry tomatoes cook down until the tomatoes burst and go jammy, cannellini beans go in with a little of their liquid, and then the part that makes the dish: four ripe tomatoes juiced straight into the pan, skins left behind. That is the broth. No stock cube, no tin.</p><p>Shrimp poach in it, kale wilts into it, and the salmon and branzino are crisped separately and broken over the top so the skin stays crisp. Salmon roe at the end, and bread for the bottom of the pan.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "text_intro"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_width": "small",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "at_a_glance": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "g_time": {
+          "type": "column",
+          "settings": {
+            "icon": "time",
+            "custom_icon": "",
+            "heading": "About 45 minutes",
+            "text": "<p>Most of it is the base reducing while you prep. The seafood is the last ten minutes and goes fast &mdash; have everything peeled and dry before you start it.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_serves": {
+          "type": "column",
+          "settings": {
+            "icon": "users",
+            "custom_icon": "",
+            "heading": "Serves 4",
+            "text": "<p>Straight from the skillet. Scales to six with another fillet and a second cup of beans; the pan just needs to be wide enough not to steam.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_omega": {
+          "type": "column",
+          "settings": {
+            "icon": "heart",
+            "custom_icon": "",
+            "heading": "Four proteins, one pan",
+            "text": "<p>King salmon, branzino, black tiger shrimp and salmon roe. Each brings a different texture, which is the reason to use all four rather than doubling one.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_prep": {
+          "type": "column",
+          "settings": {
+            "icon": "check_mark",
+            "custom_icon": "",
+            "heading": "The base keeps",
+            "text": "<p>Make the tomato and bean base up to two days ahead and refrigerate it. Reheat, then cook the seafood fresh &mdash; it takes minutes and does not reheat well.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "g_time",
+        "g_serves",
+        "g_omega",
+        "g_prep"
+      ],
+      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "settings": {
+        "custom_class": "",
+        "section_id": "at-a-glance",
+        "style": "with-border",
+        "columns": 4,
+        "text_alignment": "left",
+        "dt_txt_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "At a glance",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "tomato_note": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "know-the-tomatoes",
+        "liquid": "\n<style>\n  .sea-pepper {\n    --ink:#171717; --muted:#5c5c5c; --line:#e5e2dc; --wash:#faf8f4; --gold:#bb8f50;\n    color: var(--ink); background: var(--wash);\n    border: 1px solid var(--line); border-radius: 20px; padding: 30px;\n  }\n  .sea-pepper__grid {\n    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 300px);\n    gap: 34px; align-items: center;\n  }\n  .sea-pepper__eyebrow {\n    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;\n    color: var(--gold); font-weight: 600; margin: 0 0 8px;\n  }\n  .sea-pepper__heading { font-size: clamp(23px, 2.8vw, 30px); line-height: 1.15; font-weight: 600; margin: 0 0 10px; }\n  .sea-pepper__lede { font-size: 15px; line-height: 1.55; color: var(--muted); margin: 0 0 22px; }\n  .sea-pepper__rows { display: grid; gap: 14px; }\n  .sea-pepper__row {\n    background: #fff; border: 1px solid var(--line); border-radius: 14px;\n    padding: 15px 17px;\n    display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px 16px; align-items: center;\n  }\n  .sea-pepper__row--pick { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }\n  .sea-pepper__name {\n    grid-column: 1; margin: 0;\n    font-size: 15px; font-weight: 600; line-height: 1.3;\n    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;\n  }\n  .sea-pepper__tag {\n    font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;\n    color: #fff; background: var(--gold); padding: 3px 8px; border-radius: 999px;\n  }\n  .sea-pepper__meter { grid-column: 2; grid-row: 1; display: flex; gap: 4px; align-items: center; }\n  .sea-pepper__pip {\n    width: 9px; height: 9px; border-radius: 50%;\n    background: #fff; border: 1.5px solid #d8cfc0;\n  }\n  .sea-pepper__pip.is-on { background: #b8462f; border-color: #b8462f; }\n  .sea-pepper__note {\n    grid-column: 1 / -1; margin: 0;\n    font-size: 13.5px; line-height: 1.5; color: var(--muted);\n  }\n  .sea-pepper__legend {\n    margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--line);\n    font-size: 13px; line-height: 1.55; color: var(--muted);\n  }\n  .sea-pepper__figure { margin: 0; }\n  .sea-pepper__figure img {\n    width: 100%; height: auto; display: block;\n    border-radius: 16px; box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-pepper__cap { margin: 10px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--muted); }\n  @media (max-width: 989px) {\n    .sea-pepper { padding: 22px; }\n    .sea-pepper__grid { grid-template-columns: 1fr; gap: 24px; }\n    .sea-pepper__figure { order: -1; }\n  }\n</style>\n\n<div class=\"sea-pepper\">\n  <div class=\"sea-pepper__grid\">\n\n    <div class=\"sea-pepper__body\">\n      <p class=\"sea-pepper__eyebrow\">The move that makes this dish</p>\n      <h2 class=\"sea-pepper__heading\">Juice the tomatoes into the pan and leave the skins behind.</h2>\n      <p class=\"sea-pepper__lede\">\n        Four ripe tomatoes, halved and squeezed straight into the skillet &mdash; pulp, seeds and\n        all the juice, none of the skin. It sounds fussy and takes about ninety seconds. What you\n        get is a broth with the brightness of raw tomato and the body of a cooked sauce, because\n        the fresh juice reduces rather than being reduced already. Skins left in would turn\n        leathery and roll off the spoon.\n      </p>\n\n      <div class=\"sea-pepper__rows\">\n        <div class=\"sea-pepper__row sea-pepper__row--pick\">\n          <p class=\"sea-pepper__name\">\n            <span>4 ripe tomatoes, juiced</span>\n            <span class=\"sea-pepper__tag\">As written</span>\n          </p>\n          <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Brightness: 5 out of 5\">\n            <span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip is-on\"></span>\n          </div>\n          <p class=\"sea-pepper__note\">Sharpest and cleanest. Needs ripe fruit &mdash; a pale winter tomato gives you water. Best from midsummer through early autumn.</p>\n        </div>\n\n        <div class=\"sea-pepper__row\">\n          <p class=\"sea-pepper__name\"><span>Passata or strained tomatoes</span></p>\n          <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Brightness: 3 out of 5\">\n            <span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip\"></span>\n            <span class=\"sea-pepper__pip\"></span>\n          </div>\n          <p class=\"sea-pepper__note\">The honest off-season swap. About &frac34; cup, already skinless and seedless. Rounder and less lively, so finish with extra lemon zest.</p>\n        </div>\n\n        <div class=\"sea-pepper__row\">\n          <p class=\"sea-pepper__name\"><span>Tinned crushed tomatoes</span></p>\n          <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Brightness: 2 out of 5\">\n            <span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip\"></span>\n            <span class=\"sea-pepper__pip\"></span>\n            <span class=\"sea-pepper__pip\"></span>\n          </div>\n          <p class=\"sea-pepper__note\">Works, but it is a different dish &mdash; sweeter and heavier. Use about &frac12; cup, thin it with broth, and give it longer to cook off the tinned edge.</p>\n        </div>\n      </div>\n\n      <p class=\"sea-pepper__legend\">\n        Pips are relative brightness across the three, not a measurement. The cherry tomatoes in\n        the base stay whole until they burst &mdash; those are for sweetness and texture, and are\n        a separate job from the juice.\n      </p>\n    </div>\n\n    <figure class=\"sea-pepper__figure\">\n      <img src=\"{{ 'IMG_5323_0a65944b-cda8-40a4-be0c-1c3cd8430de3.heic' | file_url }}\"\n           alt=\"Prep board with chopped shallot, garlic, herbs, lemon and cannellini beans before the skillet goes on\"\n           width=\"1200\" height=\"900\" loading=\"lazy\" decoding=\"async\">\n      <p class=\"sea-pepper__cap\">Everything chopped and within reach &mdash; once the seafood starts, there is no time to prep.</p>\n    </figure>\n\n  </div>\n</div>",
+        "padding_top": 44,
+        "padding_bottom": 12,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "recipe_kit_card": {
+      "type": "apps",
+      "blocks": {
+        "recipe_kit_app_block_skillet": {
+          "type": "shopify://apps/recipe-kit/blocks/app-block/0afa374e-81c7-4989-96de-e1ac84640954",
+          "settings": {
+            "custom_js": "",
+            "custom_css": ".rk_direction_image { margin-top: 14px; }\n.rk_direction_image img { max-height: 400px; width: 100%; object-fit: cover; border-radius: 12px; }\n@media (max-width: 749px) {\n  .rk_direction_image img { max-height: 280px; }\n}\n"
+          }
+        }
+      },
+      "block_order": [
+        "recipe_kit_app_block_skillet"
+      ],
+      "settings": {
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "shop_the_plate": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "",
+        "products": [
+          "king-salmon",
+          "branzino-bundle-2x-6oz-portions",
+          "black-tiger-shrimp-mangrove-regeneration",
+          "lab-tested-salmon-roe-caviar",
+          "flake-spring-salt-180g-microplastic-free",
+          "cultured-ghee-grassfed-certified-organic-14-oz"
+        ],
+        "product_limit": 6,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>One round of this recipe is a king salmon fillet, a branzino fillet, eight shrimp and a tin of roe &mdash; the Fish &amp; Shell variety box covers the seafood in one go. Flake salt for the skin, ghee for the sear.</p>",
+        "heading": "Everything on this plate",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "game_plan": {
+      "type": "timeline",
+      "blocks": {
+        "s_thaw": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/IMG_3532_e1e22abb-19cf-4c34-a607-dd2e93594488.heic",
+            "subheading": "The night before",
+            "heading": "Thaw everything in the refrigerator",
+            "heading_tag": "h3",
+            "text": "<p>Move the sealed packs from the freezer to the refrigerator about 12 hours ahead &mdash; salmon, branzino, shrimp and the roe tin. In a hurry, submerge the sealed packs in cold water for 20&ndash;30 minutes. Never at room temperature.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_prep": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/IMG_5323_0a65944b-cda8-40a4-be0c-1c3cd8430de3.heic",
+            "subheading": "Step 1",
+            "heading": "Dry the fish, salt it, peel the shrimp",
+            "heading_tag": "h3",
+            "text": "<p>Pat both fillets dry with an unbleached paper towel &mdash; drier than feels necessary, skin especially &mdash; then salt the flesh and the skin generously. Peel the shrimp. Set it all aside while you build the base.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_base": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/IMG_5324_eab7718e-a2ee-4aa1-aad1-61e8a7e431b5.heic",
+            "subheading": "Step 2",
+            "heading": "Onion, garlic, chili, then tomatoes until jammy",
+            "heading_tag": "h3",
+            "text": "<p>Olive oil in a large skillet over medium. Onion, garlic, a pinch of salt and the chili flakes until soft and fragrant. Add the cherry tomatoes and leave them until they burst and go jammy, then stir in the cannellini beans with a little of their liquid.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_broth": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/IMG_5334_00f31ac1-d0f1-4149-a693-57ef0d672b41.heic",
+            "subheading": "Step 3",
+            "heading": "Juice the tomatoes in, add kale, reduce",
+            "heading_tag": "h3",
+            "text": "<p>Squeeze the four ripe tomatoes straight into the pan and discard the skins. Sun-dried tomatoes and rosemary in, then let it simmer and reduce, loosening with vegetable broth until it is rich and spoonable. Kale in until just wilted, then lemon zest.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_shrimp": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/IMG_5331_bba0c5bc-63a9-48f6-9aa2-17b08cee04e7.heic",
+            "subheading": "Step 4",
+            "heading": "Poach the shrimp in the base",
+            "heading_tag": "h3",
+            "text": "<p>Nestle the shrimp into the tomato and bean mixture and cook, turning once, until they are opaque and just curled. Off the heat the moment they are through &mdash; they will keep cooking in the pan and go rubbery if you let them.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_sear": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/IMG_5335_53f4c8bb-a677-48fb-af2a-2728757bbcc4.heic",
+            "subheading": "Step 5",
+            "heading": "Crisp the fish in a second skillet",
+            "heading_tag": "h3",
+            "text": "<p>Avocado oil in a separate skillet over medium-high until glossy. Fish skin-side down, pressed gently with a spatula for the first few seconds so the skin does not buckle. Cook without moving until the skin is golden and crisp, then lift it out.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_serve": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/IMG_5347_a37bbe72-f40d-465d-bdda-130f655af5eb.heic",
+            "subheading": "Step 6",
+            "heading": "Break the fish in, roe on top, bread alongside",
+            "heading_tag": "h3",
+            "text": "<p>Set the fish into the warm base and let residual heat finish it. Break it into large pieces so tender flesh and crisp skin run through the pan. Parsley, spoonfuls of salmon roe, and crusty bread and butter for the broth at the bottom.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "s_thaw",
+        "s_prep",
+        "s_base",
+        "s_broth",
+        "s_shrimp",
+        "s_sear",
+        "s_serve"
+      ],
+      "name": "t:sections.timeline.presets.name",
+      "settings": {
+        "image_ratio": "square",
+        "image_ratio_mobile": "landscape",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>The base can drift while you prep, but the seafood cannot &mdash; shrimp and fish are the last ten minutes and both are easy to overcook. Get everything peeled, patted dry and salted before the first pan goes on.</p>",
+        "heading": "The game plan",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "two_skillets": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "two-skillets",
+        "liquid": "\n<style>\n  .sea-two { --ink:#171717; --muted:#5c5c5c; --line:#e5e2dc; --wash:#faf8f4; --accent:#D45A3C;\n    color: var(--ink); }\n  .sea-two__eyebrow { font-size:11px; letter-spacing:.14em; text-transform:uppercase;\n    color:var(--accent); font-weight:600; margin:0 0 8px; }\n  .sea-two__heading { font-size:clamp(22px,3.2vw,31px); line-height:1.22; margin:0 0 14px; font-weight:600; }\n  .sea-two__lede { font-size:17px; line-height:1.65; color:var(--muted); margin:0 0 26px; max-width:62ch; }\n  .sea-two__grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }\n  .sea-two__card { border:1px solid var(--line); border-radius:16px; background:var(--wash); padding:20px 22px; }\n  .sea-two__card--fix { border-color:var(--accent); }\n  .sea-two__tag { display:inline-block; font-size:10px; letter-spacing:.08em; font-weight:700;\n    text-transform:uppercase; padding:3px 9px; border-radius:999px; margin:0 0 9px;\n    background:var(--ink); color:#fff; }\n  .sea-two__card--fix .sea-two__tag { background:var(--accent); }\n  .sea-two__name { font-size:17px; font-weight:600; margin:0 0 7px; line-height:1.3; }\n  .sea-two__note { font-size:14.5px; line-height:1.6; color:var(--muted); margin:0; }\n  .sea-two__foot { font-size:13.5px; line-height:1.6; color:var(--muted);\n    margin:20px 0 0; padding-top:14px; border-top:1px solid var(--line); max-width:70ch; }\n  @media (max-width:749px) { .sea-two__grid { grid-template-columns:1fr; } }\n</style>\n\n<div class=\"sea-two\">\n  <p class=\"sea-two__eyebrow\">About that &ldquo;one pan&rdquo;</p>\n  <h2 class=\"sea-two__heading\">The fish gets its own skillet, and that is the whole trick.</h2>\n  <p class=\"sea-two__lede\">\n    Everything else genuinely is one pan. The salmon and branzino are the exception, and it is\n    worth the second piece of washing up: skin crisps in dry heat and goes soft in liquid, so\n    laying raw fillets into the tomato base means poaching them and losing the crackle entirely.\n  </p>\n\n  <div class=\"sea-two__grid\">\n    <div class=\"sea-two__card\">\n      <span class=\"sea-two__tag\">What goes wrong</span>\n      <p class=\"sea-two__name\">Fish cooked in the base</p>\n      <p class=\"sea-two__note\">\n        The skin steams instead of searing and turns slack and grey. The fillet also overshoots\n        easily, because a simmering pan holds far more heat against it than a dry skillet does.\n      </p>\n    </div>\n    <div class=\"sea-two__card sea-two__card--fix\">\n      <span class=\"sea-two__tag\">What to do</span>\n      <p class=\"sea-two__name\">Crisp separately, finish off the heat</p>\n      <p class=\"sea-two__note\">\n        Sear skin-down in a hot dry pan, then set the fillets into the base and let residual heat\n        carry them the rest of the way. Break them into large pieces at the last moment so the\n        crisp skin sits proud of the broth rather than sinking into it.\n      </p>\n    </div>\n  </div>\n\n  <p class=\"sea-two__foot\">\n    Same reasoning behind the order of the seafood: shrimp poach in the base because that is\n    exactly what suits them, and the roe never sees heat at all &mdash; it goes on at the table,\n    where it stays as distinct beads instead of collapsing.\n  </p>\n</div>",
+        "padding_top": 12,
+        "padding_bottom": 44,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "swap_table": {
+      "type": "table-content",
+      "blocks": {
+        "w_head": {
+          "type": "row",
+          "settings": {
+            "version1": "As written",
+            "version2": "Closest swap",
+            "version3": "If you are improvising"
+          }
+        },
+        "w_fish": {
+          "type": "row",
+          "settings": {
+            "feature": "The fish",
+            "version1": "1 king salmon + 1 branzino fillet",
+            "version2": "Any two skin-on portions &mdash; steelhead, trout",
+            "version3": "One fillet and more shrimp; keep the skin on whatever you use"
+          }
+        },
+        "w_shrimp": {
+          "type": "row",
+          "settings": {
+            "feature": "The shrimp",
+            "version1": "8 peeled black tiger shrimp",
+            "version2": "Any raw peeled shrimp, added at the same point",
+            "version3": "Scallops &mdash; same pan, half the time, do not turn twice"
+          }
+        },
+        "w_roe": {
+          "type": "row",
+          "settings": {
+            "feature": "The roe",
+            "version1": "1 tin salmon roe, at the table",
+            "version2": "Trout roe, same amount",
+            "version3": "Leave it out; add extra lemon zest and a little flake salt"
+          }
+        },
+        "w_bean": {
+          "type": "row",
+          "settings": {
+            "feature": "The bean",
+            "version1": "1 cup cannellini, with liquid",
+            "version2": "Butter beans or great northern",
+            "version3": "Chickpeas &mdash; firmer, so give them longer in the base"
+          }
+        },
+        "w_tom": {
+          "type": "row",
+          "settings": {
+            "feature": "The tomato broth",
+            "version1": "4 ripe tomatoes, juiced",
+            "version2": "&frac34; cup passata",
+            "version3": "&frac12; cup tinned crushed, thinned with broth and cooked longer"
+          }
+        },
+        "w_green": {
+          "type": "row",
+          "settings": {
+            "feature": "The green",
+            "version1": "&frac12; bunch lacinato kale",
+            "version2": "Cavolo nero, chard or spinach",
+            "version3": "Spinach goes in off the heat &mdash; it needs seconds, not minutes"
+          }
+        },
+        "w_fat": {
+          "type": "row",
+          "settings": {
+            "feature": "Searing fat",
+            "version1": "1 tsp avocado oil",
+            "version2": "Ghee or algae oil",
+            "version3": "Any high smoke point fat &mdash; not olive oil, not butter"
+          }
+        }
+      },
+      "block_order": [
+        "w_head",
+        "w_fish",
+        "w_shrimp",
+        "w_roe",
+        "w_bean",
+        "w_tom",
+        "w_green",
+        "w_fat"
+      ],
+      "name": "Table content",
+      "settings": {
+        "custom_class": "",
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Four kinds of seafood is the luxurious version, not the required one. The base bends in every direction &mdash; what does not bend is searing the fish dry and separately.</p>",
+        "heading": "Swap freely, except the crisp part",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "meal_prep": {
+      "type": "image-with-text",
+      "blocks": {
+        "m_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Make it ahead",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "m_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "The base is the part worth doing early",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Everything up to the kale keeps for two days in the refrigerator and arguably improves &mdash; the sun-dried tomato and rosemary settle into the beans overnight. Reheat it gently, stir the kale through, then cook the seafood fresh.</p><p>Do not cook the shrimp or the fish ahead. Both are minutes of work and neither survives reheating; shrimp turn rubbery and crisp skin never comes back.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop the Fish & Shell box",
+            "button_link": "/collections/curated-boxes/products/fish-shell-variety",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "m_sub",
+        "m_head",
+        "m_text",
+        "m_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/IMG_5331_bba0c5bc-63a9-48f6-9aa2-17b08cee04e7.heic",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "rich_text_standard": {
+      "type": "image-with-text",
+      "blocks": {
+        "f_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "The seafood",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "f_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why four kinds instead of twice as much of one",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Each one is doing a different job. King salmon is fatty enough to hold up to a tomato base that would flatten a leaner fish. Branzino is delicate and flakes into the broth. Shrimp bring the snap. The roe is texture and salinity, added at the table and never cooked.</p><p>Doubling any single one gives you a good dish. Using all four is what makes it feel like a occasion, and it is the reason the variety box exists.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "How we source it",
+            "button_link": "/pages/why-clean-seafood-matters",
+            "button_style": "secondary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "f_sub",
+        "f_head",
+        "f_text",
+        "f_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/IMG_3532_e1e22abb-19cf-4c34-a607-dd2e93594488.heic",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "reviews_seafood": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_testimonials_carousel_skillet": {
+          "type": "shopify://apps/judge-me-reviews/blocks/testimonials_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": false,
+            "reviews_selection": "custom_products",
+            "products": [
+              "king-salmon"
+            ],
+            "star_rating": "all",
+            "max_reviews": 20,
+            "quote_marks_size": "small",
+            "product_name_text_size": "small",
+            "verified_badge_style": "icon",
+            "card_height": "medium",
+            "text_size": "small",
+            "stars_size": "medium",
+            "arrows_position": "bottom",
+            "max_width": 1100,
+            "corner_styling": "soft",
+            "quote_marks_style": "serif",
+            "card_color": "#f9f9f9",
+            "stars_and_quote_marks_color": "#7bc3f3",
+            "text_color": "#000000",
+            "arrows_color": "#000000",
+            "show_border": false,
+            "border_color": "#108474",
+            "show_drop_shadow": false,
+            "transition_speed": 5,
+            "header_text": "Seatopians on this King Salmon",
+            "show_average_rating": true
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_testimonials_carousel_skillet"
+      ],
+      "settings": {
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "faq_skillet": {
+      "type": "faq",
+      "blocks": {
+        "q_onepan": {
+          "type": "question",
+          "settings": {
+            "title": "It says one pan but I counted two. Which is it?",
+            "text": "<p>The base &mdash; aromatics, tomatoes, beans, kale and the shrimp &mdash; is genuinely one skillet, and that is the pan it is served from. The salmon and branzino get a second pan for a few minutes so the skin crisps. Cook them in the base and you will have poached fish with soft skin, which is a perfectly nice dinner but not this one.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_doneness": {
+          "type": "question",
+          "settings": {
+            "title": "How do I know when the fish is done?",
+            "text": "<p>Pull it while the centre is still slightly translucent and let the residual heat in the base finish it. Salmon carries on cooking for several minutes after it leaves the pan, so fish that looks perfect in the skillet is usually overcooked by the time it reaches the table.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_skin": {
+          "type": "question",
+          "settings": {
+            "title": "My skin never crisps. What am I doing wrong?",
+            "text": "<p>Moisture or movement, nearly always. Pat the skin drier than feels reasonable, salt it, and get the pan properly hot before the fish goes in. Then leave it alone &mdash; press it flat for the first few seconds and do not touch it again until the skin releases on its own.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_ahead": {
+          "type": "question",
+          "settings": {
+            "title": "Can I make it ahead?",
+            "text": "<p>Make the base up to two days ahead and refrigerate it; it gets better. Reheat gently, wilt the kale in, then cook the shrimp and crisp the fish fresh. Neither reheats well.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_tomatoes": {
+          "type": "question",
+          "settings": {
+            "title": "What if my tomatoes are not ripe?",
+            "text": "<p>Use about &frac34; cup of passata instead of juicing them, and finish with extra lemon zest to put back the brightness. Out-of-season tomatoes give you water and not much else, and the juice is doing real work here.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_thaw": {
+          "type": "question",
+          "settings": {
+            "title": "How should I thaw Seatopia seafood?",
+            "text": "<p>Overnight in the refrigerator in the sealed pack, about 12 hours. In a hurry, submerge the sealed pack in a bowl of cold water for 20&ndash;30 minutes. Not at room temperature and not in warm water.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "q_onepan",
+        "q_doneness",
+        "q_skin",
+        "q_ahead",
+        "q_tomatoes",
+        "q_thaw"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "style": "with-border",
+        "color_overlay": "#ffffff",
+        "overlay_opacity": 4,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "Questions cooks actually ask about this one",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "seafood-recipes",
+        "post_limit": 8,
+        "columns": 3,
+        "carousel_on_desktop": true,
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "landscape",
+        "show_tags": false,
+        "show_date": false,
+        "show_comments": false,
+        "show_author": false,
+        "show_excerpt": false,
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Miriam writes these and teaches them live. Every Seatopia box includes a FREE virtual cooking class where we work through a dish like this one together.</p>",
+        "heading": "More clean seafood to cook this week",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "newsletter_banner_skillet": {
+      "type": "newsletter-banner",
+      "blocks": {
+        "h_news": {
+          "type": "heading",
+          "settings": {
+            "heading": "Be the first to know",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_news": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get on the list for more one-pan seafood, cooking temperatures and recipes from our kitchen, straight to your inbox.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_news": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "h_news",
+        "t_news",
+        "f_news"
+      ],
+      "name": "t:sections.newsletter-banner.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "transparent_footer": false,
+        "image": "shopify://shop_images/IMG_5347_a37bbe72-f40d-465d-bdda-130f655af5eb.heic",
+        "image_height": "650px",
+        "content_width": "medium",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    }
+  },
+  "order": [
+    "main-article-banner",
+    "collab_card",
+    "rich_text_intro",
+    "at_a_glance",
+    "tomato_note",
+    "recipe_kit_card",
+    "shop_the_plate",
+    "game_plan",
+    "two_skillets",
+    "swap_table",
+    "meal_prep",
+    "rich_text_standard",
+    "reviews_seafood",
+    "faq_skillet",
+    "blog-posts",
+    "newsletter_banner_skillet"
+  ]
+}
