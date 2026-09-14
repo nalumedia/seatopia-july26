@@ -93,7 +93,7 @@
     },
     "newsletter": {
       "label": "Email Address",
-      "success": "Thanks for subscribing",
+      "success": "\ud83d\ude4c Welcome aboard. Stay tuned for cooking tips, recipes, and updates in your inbox.",
       "submit": "Subscribe"
     },
     "search": {
