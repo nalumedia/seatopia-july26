@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main-article-banner": {
@@ -28,6 +37,7 @@
       "settings": {
         "transparent_header": true,
         "show_image": true,
+        "image": "shopify://shop_images/Untitled_design_1.png",
         "image_height": "750px",
         "content_position": "md:items-center md:justify-center",
         "text_alignment": "left",
@@ -46,24 +56,32 @@
         "parallax_direction": "vertical"
       }
     },
+    "collab_card": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "recipe-collab",
+        "liquid": "\n<style>\n  .sea-collab {\n    --ink: #171717; --muted: #5c5c5c; --line: #e5e2dc; --wash: #faf8f4; --gold: #bb8f50;\n    border: 1px solid var(--line);\n    border-radius: 18px;\n    background: var(--wash);\n    padding: 24px 28px;\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n    color: var(--ink);\n  }\n  .sea-collab__avatar {\n    flex: 0 0 auto;\n    width: 68px; height: 68px; border-radius: 50%; overflow: hidden;\n    border: 2px solid #fff; box-shadow: 0 0 0 2px var(--gold); background: #eee;\n  }\n  .sea-collab__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }\n  .sea-collab__body { flex: 1 1 260px; min-width: 0; }\n  .sea-collab__eyebrow {\n    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;\n    color: var(--gold); font-weight: 600; margin: 0 0 5px;\n    display: flex; align-items: center; gap: 9px; flex-wrap: wrap;\n  }\n  .sea-collab__badge {\n    letter-spacing: .08em; font-size: 10px; font-weight: 700;\n    color: #fff; background: var(--ink);\n    padding: 3px 8px; border-radius: 999px;\n  }\n  .sea-collab__name { font-size: 21px; font-weight: 600; line-height: 1.2; margin: 0 0 4px; }\n  .sea-collab__role { font-size: 15px; color: var(--muted); line-height: 1.45; margin: 0; }\n  .sea-collab__role a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }\n  .sea-collab__cred {\n    font-size: 13px; color: var(--muted); line-height: 1.5;\n    margin: 10px 0 0; padding-top: 10px; border-top: 1px solid var(--line);\n  }\n  .sea-collab__follow {\n    flex: 0 0 auto;\n    display: inline-flex; align-items: center; gap: 8px;\n    padding: 11px 20px; border: 1px solid var(--ink); border-radius: 999px;\n    font-size: 15px; font-weight: 600; text-decoration: none;\n    color: var(--ink); background: #fff;\n    transition: background .18s ease, color .18s ease;\n  }\n  .sea-collab__follow:hover { background: var(--ink); color: #fff; }\n  .sea-collab__follow svg { width: 18px; height: 18px; }\n  @media (max-width: 749px) {\n    .sea-collab { padding: 20px; gap: 16px; }\n    .sea-collab__follow { width: 100%; justify-content: center; }\n    .sea-collab__name { font-size: 19px; }\n  }\n</style>\n\n{%- assign collab_avatar = 'miriam-thom-headshot.jpg' | file_url -%}\n\n<div class=\"sea-collab\">\n  {%- if collab_avatar != blank -%}\n    <div class=\"sea-collab__avatar\">\n      <img src=\"{{ collab_avatar }}\" alt=\"Miriam Thom\" width=\"136\" height=\"136\" loading=\"lazy\" decoding=\"async\">\n    </div>\n  {%- endif -%}\n\n  <div class=\"sea-collab__body\">\n    <p class=\"sea-collab__eyebrow\">\n      <span>From the Seatopia kitchen</span>\n      <span class=\"sea-collab__badge\">In-house</span>\n    </p>\n    <p class=\"sea-collab__name\">Recipe by Miriam Thom</p>\n    <p class=\"sea-collab__role\">Culinary Education at Seatopia &mdash; she develops the recipes that ship with the boxes and teaches the <a href=\"/pages/seatopia-member-cooking-classes\" title=\"Seatopia Member Cooking Classes\">member cooking classes</a></p>\n    <p class=\"sea-collab__cred\">Serves 4 &middot; 48 hours in the marinade, 10 minutes under the broiler</p>\n  </div>\n\n  <a class=\"sea-collab__follow\" href=\"https://www.instagram.com/miriamthom\" target=\"_blank\" rel=\"noopener noreferrer\">\n    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n      <rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\"></rect>\n      <circle cx=\"12\" cy=\"12\" r=\"4\"></circle>\n      <circle cx=\"17.5\" cy=\"6.5\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"></circle>\n    </svg>\n    <span>Follow</span>\n  </a>\n</div>\n",
+        "padding_top": 28,
+        "padding_bottom": 8,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
     "rich_text_intro": {
       "type": "rich-text",
       "blocks": {
-        "heading_intro": {
-          "type": "heading",
-          "disabled": true,
-          "settings": {
-            "heading": "Rich text",
-            "heading_size": "title-lg tracking-heading",
-            "heading_tag": "h2",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
         "text_intro": {
           "type": "text",
           "settings": {
-            "text": "<p>Make our Nobu-style Miso-Glazed King Salmon Bento Box — a 48-hour saké and miso marinade that caramelizes deeply under the broiler, then holds beautifully warm or at room temperature, making it one of our favorite proteins for meal prep. Built on clean, regenerative, sushi-grade seafood tested to the <a href=\"/pages/why-clean-seafood-matters\" title=\"Why Clean Seafood Matters\">Seatopia Standard™</a>. Seatopia King Salmon comes from <a href=\"/pages/mt-cook-alpine-salmon\" title=\"Mt. Cook Alpine King Salmon\">Mt. Cook Alpine Salmon</a>, raised in the glacial-fed freshwater canals of New Zealand's Southern Alps. Grown without antibiotics or hormones in constantly flowing alpine water, this King Salmon is prized for its exceptionally high omega-3 content, buttery marbling, and silken texture — equally at home served raw as sashimi or broiled to a golden, umami-rich glaze.</p>",
+            "text": "<p>A 48-hour miso cure, then five minutes under the broiler. That is the whole recipe, and the long wait is doing something specific: sak&eacute;, miso and coconut sugar reduced to a glaze, then given two days to work into the fillet so the caramelised edge is not just a coating on the outside.</p><p>Built into bento boxes it becomes a week of lunches. The salmon is as good at room temperature as it is warm, which is unusual for fish and the reason this one is built for meal prep rather than for dinner tonight.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -71,24 +89,10 @@
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
-        },
-        "button_intro": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style": "primary",
-            "button_size": "md",
-            "button_external": false,
-            "button_icon": true
-          }
         }
       },
       "block_order": [
-        "heading_intro",
-        "text_intro",
-        "button_intro"
+        "text_intro"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -96,9 +100,14 @@
         "text_alignment": "left",
         "text_alignment_mobile": "left",
         "heading": "",
+        "heading_width": "small",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
-        "heading_width": "small",
         "heading_tag": "h2",
         "subheading": "",
         "description": "",
@@ -106,8 +115,6 @@
         "button_link": "",
         "button_external": false,
         "button_icon": true,
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -116,65 +123,79 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "divider": false,
-        "narrow": true,
-        "rounded": false
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
       }
     },
-    "rich_text_standard": {
-      "type": "rich-text",
+    "at_a_glance": {
+      "type": "multicolumn-with-icons",
       "blocks": {
-        "heading_standard": {
-          "type": "heading",
+        "g_time": {
+          "type": "column",
           "settings": {
-            "heading": "King Salmon that meets the Seatopia Standard",
-            "heading_size": "title-sm",
-            "heading_tag": "h2",
+            "icon": "time",
+            "custom_icon": "",
+            "heading": "48 hours, almost all of it waiting",
+            "text": "<p>The glaze takes about 10 minutes on the stove, the broiler takes 5. Everything in between is the refrigerator doing the work. Start it Friday, eat it all week.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
         },
-        "text_standard": {
-          "type": "text",
+        "g_serves": {
+          "type": "column",
           "settings": {
-            "text": "<p>We lab test our seafood and provide a detailed Certificate of Analysis for every product which quantifies nutrient density, and that your King Salmon is mercury safe and free from detectable microplastics. Our King Salmon has been tested by Light Labs to ensure it meets the <a href=\"/pages/seatopia-testing-commitment\" title=\"Seatopia's Testing Commitment\">Seatopia Standard</a>.</p>",
-            "text_size": "subtext-md",
-            "text_max_size": 32,
-            "text_font": "body",
-            "secondary_color": false,
+            "icon": "users",
+            "custom_icon": "",
+            "heading": "Serves 4, or four lunches",
+            "text": "<p>Four fillets and a cup of sushi rice fills four bento boxes. Scaling up is just more fillets &mdash; the marinade quantity stretches further than you expect.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
         },
-        "button_standard": {
-          "type": "button",
-          "disabled": true,
+        "g_omega": {
+          "type": "column",
           "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style": "primary",
-            "button_size": "md",
-            "button_external": false,
-            "button_icon": true
+            "icon": "heart",
+            "custom_icon": "",
+            "heading": "1,140 mg EPA + 2,290 mg DHA",
+            "text": "<p>Per 8.5&nbsp;oz Seatopia King Salmon fillet, marine-derived, as listed on the pack. The roe on top adds a little more.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_prep": {
+          "type": "column",
+          "settings": {
+            "icon": "check_mark",
+            "custom_icon": "",
+            "heading": "As good cold as hot",
+            "text": "<p>The miso glaze keeps its caramelised edge at room temperature, which most cooked fish does not. That is what makes these work as grab-and-go boxes.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
           }
         }
       },
       "block_order": [
-        "heading_standard",
-        "text_standard",
-        "button_standard"
+        "g_time",
+        "g_serves",
+        "g_omega",
+        "g_prep"
       ],
-      "name": "t:sections.rich-text.presets.name",
+      "name": "t:sections.multicolumn-with-icons.presets.name",
       "settings": {
-        "custom-class": "",
+        "custom_class": "",
+        "section_id": "at-a-glance",
+        "style": "with-border",
+        "columns": 4,
         "text_alignment": "left",
-        "text_alignment_mobile": "left",
-        "heading": "",
+        "dt_txt_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
-        "heading_width": "small",
         "heading_tag": "h2",
         "subheading": "",
         "description": "",
@@ -182,8 +203,7 @@
         "button_link": "",
         "button_external": false,
         "button_icon": true,
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
+        "heading": "At a glance",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -192,147 +212,86 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "divider": false,
-        "narrow": true,
-        "rounded": false
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
       }
     },
-    "1745469964dc16d5a5": {
+    "marinade_note": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "know-the-marinade",
+        "liquid": "\n<style>\n  .sea-pepper {\n    --ink:#171717; --muted:#5c5c5c; --line:#e5e2dc; --wash:#faf8f4; --gold:#bb8f50;\n    color: var(--ink); background: var(--wash);\n    border: 1px solid var(--line); border-radius: 20px; padding: 30px;\n  }\n  .sea-pepper__grid {\n    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 300px);\n    gap: 34px; align-items: center;\n  }\n  .sea-pepper__eyebrow {\n    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;\n    color: var(--gold); font-weight: 600; margin: 0 0 8px;\n  }\n  .sea-pepper__heading { font-size: clamp(23px, 2.8vw, 30px); line-height: 1.15; font-weight: 600; margin: 0 0 10px; }\n  .sea-pepper__lede { font-size: 15px; line-height: 1.55; color: var(--muted); margin: 0 0 22px; }\n  .sea-pepper__rows { display: grid; gap: 14px; }\n  .sea-pepper__row {\n    background: #fff; border: 1px solid var(--line); border-radius: 14px;\n    padding: 15px 17px;\n    display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px 16px; align-items: center;\n  }\n  .sea-pepper__row--pick { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }\n  .sea-pepper__name {\n    grid-column: 1; margin: 0;\n    font-size: 15px; font-weight: 600; line-height: 1.3;\n    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;\n  }\n  .sea-pepper__tag {\n    font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;\n    color: #fff; background: var(--gold); padding: 3px 8px; border-radius: 999px;\n  }\n  .sea-pepper__meter { grid-column: 2; grid-row: 1; display: flex; gap: 4px; align-items: center; }\n  .sea-pepper__pip {\n    width: 9px; height: 9px; border-radius: 50%;\n    background: #fff; border: 1.5px solid #d8cfc0;\n  }\n  .sea-pepper__pip.is-on { background: #b8462f; border-color: #b8462f; }\n  .sea-pepper__note {\n    grid-column: 1 / -1; margin: 0;\n    font-size: 13.5px; line-height: 1.5; color: var(--muted);\n  }\n  .sea-pepper__legend {\n    margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--line);\n    font-size: 13px; line-height: 1.55; color: var(--muted);\n  }\n  .sea-pepper__figure { margin: 0; }\n  .sea-pepper__figure img {\n    width: 100%; height: auto; display: block;\n    border-radius: 16px; box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-pepper__cap { margin: 10px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--muted); }\n  @media (max-width: 989px) {\n    .sea-pepper { padding: 22px; }\n    .sea-pepper__grid { grid-template-columns: 1fr; gap: 24px; }\n    .sea-pepper__figure { order: -1; }\n  }\n</style>\n\n<div class=\"sea-pepper\">\n  <div class=\"sea-pepper__grid\">\n\n    <div class=\"sea-pepper__body\">\n      <p class=\"sea-pepper__eyebrow\">Know the marinade</p>\n      <h2 class=\"sea-pepper__heading\">Forty-eight hours is the recipe. Everything shorter is a different dish.</h2>\n      <p class=\"sea-pepper__lede\">\n        This is a <em>cure</em> more than a marinade. Miso is salty and full of enzymes, and given\n        two days it draws moisture out of the fillet and pushes flavour in, firming the flesh and\n        leaving sugars at the surface that caramelise the moment they meet the broiler. Rush it and\n        you get salmon with sauce on it &mdash; pleasant, but not the thing Nobu made famous.\n      </p>\n\n      <div class=\"sea-pepper__rows\">\n        <div class=\"sea-pepper__row sea-pepper__row--pick\">\n          <p class=\"sea-pepper__name\">\n            <span>48 hours</span>\n            <span class=\"sea-pepper__tag\">As written</span>\n          </p>\n          <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Depth: 5 out of 5\">\n            <span class=\"sea-pepper__pip is-on\"></span><span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip is-on\"></span><span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip is-on\"></span>\n          </div>\n          <p class=\"sea-pepper__note\">Flavour all the way through, flesh noticeably firmer, and a glaze that lacquers rather than sits on top. Turn the fillets once at the halfway mark.</p>\n        </div>\n\n        <div class=\"sea-pepper__row\">\n          <p class=\"sea-pepper__name\"><span>24 hours</span></p>\n          <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Depth: 3 out of 5\">\n            <span class=\"sea-pepper__pip is-on\"></span><span class=\"sea-pepper__pip is-on\"></span>\n            <span class=\"sea-pepper__pip is-on\"></span><span class=\"sea-pepper__pip\"></span>\n            <span class=\"sea-pepper__pip\"></span>\n          </div>\n          <p class=\"sea-pepper__note\">The honest compromise, and still very good. The outer quarter-inch is seasoned; the centre tastes of salmon. Caramelises almost as well.</p>\n        </div>\n\n        <div class=\"sea-pepper__row\">\n          <p class=\"sea-pepper__name\"><span>4 hours or less</span></p>\n          <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Depth: 1 out of 5\">\n            <span class=\"sea-pepper__pip is-on\"></span><span class=\"sea-pepper__pip\"></span>\n            <span class=\"sea-pepper__pip\"></span><span class=\"sea-pepper__pip\"></span>\n            <span class=\"sea-pepper__pip\"></span>\n          </div>\n          <p class=\"sea-pepper__note\">A glaze, not a cure. Fine on a weeknight if you brush extra marinade on before broiling, but do not expect the texture change &mdash; that is what the time buys.</p>\n        </div>\n      </div>\n\n      <p class=\"sea-pepper__legend\">\n        Pips are relative depth across the three, not a measurement. Past about 72 hours the salt\n        starts working against you and the texture turns dense, so 48 is a ceiling as well as a target.\n      </p>\n    </div>\n\n    <figure class=\"sea-pepper__figure\">\n      <img src=\"{{ 'miso-bento-05-salmon-in-marinade.jpg' | file_url }}\"\n           alt=\"King salmon fillets submerged in cooled miso and sake marinade, ready for two days in the refrigerator\"\n           width=\"1200\" height=\"900\" loading=\"lazy\" decoding=\"async\">\n      <p class=\"sea-pepper__cap\">Fully submerged, covered, and turned once at the halfway mark.</p>\n    </figure>\n\n  </div>\n</div>",
+        "padding_top": 44,
+        "padding_bottom": 12,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "recipe_kit_card": {
       "type": "apps",
       "blocks": {
-        "recipe_kit_app_block_z8LH7c": {
+        "recipe_kit_app_block_miso": {
           "type": "shopify://apps/recipe-kit/blocks/app-block/0afa374e-81c7-4989-96de-e1ac84640954",
           "settings": {
             "custom_js": "",
-            "custom_css": ""
+            "custom_css": ".rk_direction_image { margin-top: 14px; }\n.rk_direction_image img { max-height: 400px; width: 100%; object-fit: cover; border-radius: 12px; }\n@media (max-width: 749px) {\n  .rk_direction_image img { max-height: 280px; }\n}\n"
           }
         }
       },
       "block_order": [
-        "recipe_kit_app_block_z8LH7c"
+        "recipe_kit_app_block_miso"
       ],
       "settings": {
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
         "padding_top": 8,
         "padding_bottom": 8,
         "divider": false,
         "full_width": true,
-        "rounded": false
-      }
-    },
-    "main-article": {
-      "type": "main-article-overlay",
-      "blocks": {
-        "image_fRrHyX": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Frame_1577707802.png"
-          }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share",
-            "show_comments": true
-          }
-        },
-        "next_previous_posts": {
-          "type": "next_previous_posts",
-          "settings": {
-            "show_date": true,
-            "show_comments": false,
-            "show_author": true
-          }
-        },
-        "comments": {
-          "type": "comments",
-          "settings": {
-            "show_gravatar": true
-          }
-        }
-      },
-      "block_order": [
-        "image_fRrHyX",
-        "share",
-        "next_previous_posts",
-        "comments"
-      ],
-      "disabled": true,
-      "custom_css": [],
-      "settings": {
-        "padding_top": 72,
-        "padding_bottom": 0,
-        "divider": false,
-        "narrow": true,
-        "rounded": true
-      }
-    },
-    "image_with_text_overlay_Exf3jA": {
-      "type": "image-with-text-overlay",
-      "disabled": true,
-      "settings": {
-        "transparent_header": false,
-        "image": "shopify://shop_images/Frame_1577707802.png",
-        "image_height": "650px",
-        "content_width": "small",
-        "content_position": "md:items-end md:justify-start",
-        "text_alignment": "left",
-        "image_height_mobile": "auto",
-        "content_position_mobile": "items-end justify-start",
-        "text_alignment_mobile": "left",
-        "color_text": "#ffffff",
-        "color_highlight": "#e0a580",
-        "gradient_highlight": "",
-        "color_button_text": "#171717",
-        "color_button_background": "#ffffff",
-        "color_button_gradient": "",
-        "color_overlay": "#171717",
-        "overlay_opacity": 0,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "divider": false,
-        "full_width": true,
         "rounded": false,
-        "enable_parallax": false,
-        "narrow": false,
-        "parallax_direction": "vertical"
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
       }
     },
-    "featured_collection_salmon": {
+    "shop_the_plate": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "",
         "products": [
-          "mt-cook-alpine-salmon-7oz-filet",
           "king-salmon",
           "lab-tested-salmon-roe-caviar",
-          "salmon-box"
+          "flake-spring-salt-180g-microplastic-free"
         ],
-        "product_limit": 6,
+        "product_limit": 3,
         "columns": 4,
         "carousel_on_desktop": true,
         "show_view_all": false,
         "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "heading": "Add sushi grade King Salmon to your next box",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
         "subheading": "",
-        "description": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
+        "description": "<p>Four King Salmon fillets is one full round of bento boxes. The roe goes on at the end and is the difference between a good lunch and one that looks like it came from somewhere expensive.</p>",
+        "heading": "Everything on this plate",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -341,23 +300,465 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "full_width": false,
-        "rounded": false
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
       }
     },
-    "17604812010e909262": {
+    "game_plan": {
+      "type": "timeline",
+      "blocks": {
+        "s_thaw": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/miso-bento-01-ingredients.jpg",
+            "subheading": "The night before",
+            "heading": "Thaw the fillets and gather everything",
+            "heading_tag": "h3",
+            "text": "<p>Move the sealed packs from the freezer to the refrigerator about 12 hours ahead. You will also want sak&eacute;, miso, coconut sugar, sushi rice, broccolini, avocado, pickled red onions, scallions and a tin of salmon roe.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_glaze": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/miso-bento-02-sake-miso-reduction.jpg",
+            "subheading": "Step 1",
+            "heading": "Reduce the sak&eacute;, miso and sugar",
+            "heading_tag": "h3",
+            "text": "<p>Half a cup of sak&eacute; to a gentle simmer. Whisk in the miso until it fully dissolves, then the coconut sugar. Keep it moving for about 10 minutes until it thickens and reduces by half. It catches easily at the end, so do not walk away.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_cool": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/miso-bento-03-marinade-cooling.jpg",
+            "subheading": "Step 2",
+            "heading": "Cool it completely &mdash; this one matters",
+            "heading_tag": "h3",
+            "text": "<p>Into a shallow bowl and straight into the refrigerator for 10&ndash;15 minutes. Warm marinade starts cooking the surface of the fish, and you lose the texture the cure is supposed to give you. Cold to the touch before it meets the salmon.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_fillets": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/miso-bento-04-king-salmon-fillets.jpg",
+            "subheading": "Step 3",
+            "heading": "Dry the fillets and check for pin bones",
+            "heading_tag": "h3",
+            "text": "<p>Rinse under cold water and pat thoroughly dry. Run your fingers along the flesh and pull any pin bones with tweezers. Dry fish takes the cure evenly; wet fish dilutes it.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_marinate": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/miso-bento-05-salmon-in-marinade.jpg",
+            "subheading": "Step 4",
+            "heading": "Two days in the refrigerator",
+            "heading_tag": "h3",
+            "text": "<p>Fillets into a shallow dish, marinade poured over, every surface coated. Cover and refrigerate 48 hours, turning once at the halfway point. Reserve a little marinade for brushing before it goes under the heat.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_sear": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/miso-bento-06-broiling.jpg",
+            "subheading": "Step 5",
+            "heading": "Scrape, brush, and broil for five minutes",
+            "heading_tag": "h3",
+            "text": "<p>Scrape off the excess &mdash; what is left will burn before the fish cooks &mdash; then brush a thin fresh layer on top. Under a preheated broiler about 5 minutes, rotating halfway, until the edges go deep golden. Pull it around 130&deg;F.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_serve": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/miso-bento-08-building-the-boxes.jpg",
+            "subheading": "Step 6",
+            "heading": "Rest, then build the boxes",
+            "heading_tag": "h3",
+            "text": "<p>Rest 3&ndash;5 minutes on the sheet; carryover heat takes it the rest of the way. Sushi rice into each box, then broccolini, avocado and pickled onion, salmon on top, and finish with roe and scallions.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "s_thaw",
+        "s_glaze",
+        "s_cool",
+        "s_fillets",
+        "s_marinate",
+        "s_sear",
+        "s_serve"
+      ],
+      "name": "t:sections.timeline.presets.name",
+      "settings": {
+        "image_ratio": "square",
+        "image_ratio_mobile": "landscape",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Only two moments need attention: cooling the marinade fully before the fish goes in, and standing at the broiler for five minutes. The two days in between look after themselves.</p>",
+        "heading": "The game plan",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "broiler_note": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "the-broiler",
+        "liquid": "\n<style>\n  .sea-two { --ink:#171717; --muted:#5c5c5c; --line:#e5e2dc; --wash:#faf8f4; --accent:#D45A3C; color:var(--ink); }\n  .sea-two__eyebrow { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:600; margin:0 0 8px; }\n  .sea-two__heading { font-size:clamp(22px,3.2vw,31px); line-height:1.22; margin:0 0 14px; font-weight:600; }\n  .sea-two__lede { font-size:17px; line-height:1.65; color:var(--muted); margin:0 0 26px; max-width:62ch; }\n  .sea-two__grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }\n  .sea-two__card { border:1px solid var(--line); border-radius:16px; background:var(--wash); padding:20px 22px; }\n  .sea-two__card--fix { border-color:var(--accent); }\n  .sea-two__tag { display:inline-block; font-size:10px; letter-spacing:.08em; font-weight:700; text-transform:uppercase; padding:3px 9px; border-radius:999px; margin:0 0 9px; background:var(--ink); color:#fff; }\n  .sea-two__card--fix .sea-two__tag { background:var(--accent); }\n  .sea-two__name { font-size:17px; font-weight:600; margin:0 0 7px; line-height:1.3; }\n  .sea-two__note { font-size:14.5px; line-height:1.6; color:var(--muted); margin:0; }\n  .sea-two__foot { font-size:13.5px; line-height:1.6; color:var(--muted); margin:20px 0 0; padding-top:14px; border-top:1px solid var(--line); max-width:70ch; }\n  @media (max-width:749px) { .sea-two__grid { grid-template-columns:1fr; } }\n</style>\n\n<div class=\"sea-two\">\n  <p class=\"sea-two__eyebrow\">The only part that can go wrong</p>\n  <h2 class=\"sea-two__heading\">Five minutes at the broiler, and you do not leave it.</h2>\n  <p class=\"sea-two__lede\">\n    There is sugar in this glaze, and sugar under a broiler goes from caramelised to black in\n    well under a minute. Everything else in this recipe is forgiving. This is the part that is not,\n    and it is the reason to scrape the excess marinade off before the fish goes in rather than\n    leaving a thick layer that will burn before the centre is warm.\n  </p>\n\n  <div class=\"sea-two__grid\">\n    <div class=\"sea-two__card\">\n      <span class=\"sea-two__tag\">What goes wrong</span>\n      <p class=\"sea-two__name\">Thick marinade, unattended pan</p>\n      <p class=\"sea-two__note\">\n        Excess marinade scorches and turns bitter while the fillet is still cold in the middle.\n        Broilers are also wildly uneven, so one end of the tray browns minutes ahead of the other.\n      </p>\n    </div>\n    <div class=\"sea-two__card sea-two__card--fix\">\n      <span class=\"sea-two__tag\">What to do</span>\n      <p class=\"sea-two__name\">Scrape, brush thin, rotate halfway</p>\n      <p class=\"sea-two__note\">\n        Scrape the excess, brush on one fresh thin layer, and turn the tray at the halfway mark.\n        Pull it around 130&deg;F &mdash; it climbs to roughly 150&deg;F while it rests, which is\n        exactly where you want it.\n      </p>\n    </div>\n  </div>\n\n  <p class=\"sea-two__foot\">\n    If your broiler runs hot, drop the rack one level rather than shortening the time. You want the\n    glaze to caramelise and the fillet to warm through at roughly the same rate.\n  </p>\n</div>",
+        "padding_top": 12,
+        "padding_bottom": 44,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "swap_table": {
+      "type": "table-content",
+      "blocks": {
+        "w_head": {
+          "type": "row",
+          "settings": {
+            "version1": "As written",
+            "version2": "Closest swap",
+            "version3": "If you are improvising"
+          }
+        },
+        "w_fish": {
+          "type": "row",
+          "settings": {
+            "feature": "The fish",
+            "version1": "4 King Salmon fillets, 8.5&nbsp;oz",
+            "version2": "Steelhead or any fatty salmon portion",
+            "version3": "Black cod is the traditional choice and takes the cure beautifully"
+          }
+        },
+        "w_miso": {
+          "type": "row",
+          "settings": {
+            "feature": "The miso",
+            "version1": "&frac14; cup organic white miso",
+            "version2": "Shiro or awase miso, same amount",
+            "version3": "Red miso works but is much saltier &mdash; use about two-thirds"
+          }
+        },
+        "w_sake": {
+          "type": "row",
+          "settings": {
+            "feature": "The sak&eacute;",
+            "version1": "&frac12; cup organic sak&eacute;",
+            "version2": "Dry sherry or Shaoxing wine",
+            "version3": "Mirin plus water, and cut the coconut sugar back by half"
+          }
+        },
+        "w_sugar": {
+          "type": "row",
+          "settings": {
+            "feature": "The sweetener",
+            "version1": "2 Tbsp coconut sugar",
+            "version2": "Light brown sugar or honey",
+            "version3": "Maple syrup &mdash; thinner glaze, so reduce a couple of minutes longer"
+          }
+        },
+        "w_grain": {
+          "type": "row",
+          "settings": {
+            "feature": "The grain",
+            "version1": "1 cup cooked sushi rice",
+            "version2": "Short-grain brown rice or barley",
+            "version3": "Soba noodles, dressed and cooled, for a lighter box"
+          }
+        },
+        "w_green": {
+          "type": "row",
+          "settings": {
+            "feature": "The green",
+            "version1": "1 bunch purple broccolini, blanched",
+            "version2": "Regular broccolini or tenderstem",
+            "version3": "Green beans, snap peas or blanched bok choy"
+          }
+        },
+        "w_pickle": {
+          "type": "row",
+          "settings": {
+            "feature": "The pickle",
+            "version1": "&frac12; cup pickled red onions",
+            "version2": "Quick-pickled cucumber or daikon",
+            "version3": "Anything sharp &mdash; the box needs one acidic element"
+          }
+        }
+      },
+      "block_order": [
+        "w_head",
+        "w_fish",
+        "w_miso",
+        "w_sake",
+        "w_sugar",
+        "w_grain",
+        "w_green",
+        "w_pickle"
+      ],
+      "name": "Table content",
+      "settings": {
+        "custom_class": "",
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Most of this bends. The 48 hours does not &mdash; that is the recipe rather than a preference, and everything else here is assembly.</p>",
+        "heading": "Swap freely, except the time",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "meal_prep": {
+      "type": "image-with-text",
+      "blocks": {
+        "m_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "The weekly rhythm",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "m_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Defrost Friday, marinate Friday night, build Sunday",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>That cadence is the whole point of the 48 hours. The fish thaws while you are at work, goes into the marinade that evening, and is ready to broil on Sunday when you are already in the kitchen.</p><p>Sealed boxes keep for three or four days. The salmon holds its caramelised edge cold, so there is nothing to reheat &mdash; which is the difference between meal prep you actually eat and meal prep that sits there.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop King Salmon",
+            "button_link": "/products/king-salmon",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "m_sub",
+        "m_head",
+        "m_text",
+        "m_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/miso-bento-08-building-the-boxes.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "rich_text_standard": {
+      "type": "image-with-text",
+      "blocks": {
+        "f_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "The fish",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "f_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why a fatty fillet is the right one to cure",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A miso cure pulls moisture out. A lean fillet gives up too much and goes firm and dry; a fatty one has enough in reserve to come out silky after two days, which is why black cod became the classic and why King Salmon works just as well.</p><p>Fat also carries the caramelisation. The sugars in the glaze need something to sit against, and that deep lacquered edge is only possible on a fillet rich enough to take it.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "How we source it",
+            "button_link": "/pages/why-clean-seafood-matters",
+            "button_style": "secondary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "f_sub",
+        "f_head",
+        "f_text",
+        "f_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/miso-bento-07-resting.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "reviews_seafood": {
       "type": "apps",
       "blocks": {
-        "judge_me_reviews_testimonials_carousel_xAyhW3": {
+        "judge_me_reviews_testimonials_carousel_miso": {
           "type": "shopify://apps/judge-me-reviews/blocks/testimonials_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "show_sample_reviews": false,
             "reviews_selection": "custom_products",
             "products": [
-              "mt-cook-alpine-salmon-7oz-filet",
               "king-salmon"
             ],
             "star_rating": "all",
@@ -380,15 +781,116 @@
             "border_color": "#108474",
             "show_drop_shadow": false,
             "transition_speed": 5,
-            "header_text": "Seatopians love King Salmon",
+            "header_text": "Seatopians on this King Salmon",
             "show_average_rating": true
           }
         }
       },
       "block_order": [
-        "judge_me_reviews_testimonials_carousel_xAyhW3"
+        "judge_me_reviews_testimonials_carousel_miso"
       ],
       "settings": {
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "faq_miso": {
+      "type": "faq",
+      "blocks": {
+        "q_onepan": {
+          "type": "question",
+          "settings": {
+            "title": "Do I really have to wait 48 hours?",
+            "text": "<p>For this version, yes &mdash; the time is what firms the flesh and drives the flavour past the surface. At 24 hours you still get a very good piece of fish, and under about 4 hours it is a glaze rather than a cure. Do not go past 72 hours; the salt starts to win and the texture turns dense.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_doneness": {
+          "type": "question",
+          "settings": {
+            "title": "What temperature should I pull it at?",
+            "text": "<p>Around 130&deg;F. It climbs to roughly 150&deg;F while it rests on the sheet, which lands it tender rather than firm. Take it out while the very centre still looks slightly translucent.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_burn": {
+          "type": "question",
+          "settings": {
+            "title": "My glaze burns before the fish is cooked. What now?",
+            "text": "<p>Almost always too much marinade left on. Scrape the fillets properly and brush on one thin fresh layer instead. If it still colours too fast, drop the oven rack a level rather than cutting the time short &mdash; you want the glaze and the fillet to finish together.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_ahead": {
+          "type": "question",
+          "settings": {
+            "title": "How long do the boxes keep?",
+            "text": "<p>Three to four days sealed in the refrigerator. The salmon is designed to be eaten cold or at room temperature, so there is no reheating step; just pull a box out and go.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_tomatoes": {
+          "type": "question",
+          "settings": {
+            "title": "What kind of miso should I use?",
+            "text": "<p>White or awase miso is what this is built around &mdash; mellow and slightly sweet. Red miso works if that is what you have, but it is considerably saltier, so use about two-thirds as much and taste the glaze before the fish goes in.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_thaw": {
+          "type": "question",
+          "settings": {
+            "title": "How should I thaw Seatopia King Salmon?",
+            "text": "<p>Overnight in the refrigerator in the sealed pack, about 12 hours. In a hurry, submerge the sealed pack in cold water for 30&ndash;60 minutes. Not at room temperature and not in warm water. There is a <a href=\\\"/blogs/seafood-recipes/best-ways-to-defrost-sushi-grade-seafood-for-sashimi-and-cooking\\\">full guide to defrosting</a> if you want the detail.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "q_onepan",
+        "q_doneness",
+        "q_burn",
+        "q_ahead",
+        "q_tomatoes",
+        "q_thaw"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "style": "with-border",
+        "color_overlay": "#ffffff",
+        "overlay_opacity": 4,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "Questions cooks actually ask about this one",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -397,11 +899,8 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "full_width": false,
-        "rounded": false
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
       }
     },
     "blog-posts": {
@@ -420,100 +919,17 @@
         "show_comments": false,
         "show_author": false,
         "show_excerpt": false,
-        "heading": "Get inspired with more King Salmon recipes",
-        "heading_size": "title-md",
-        "heading_alignment": "text-left md:items-end md:flex-row",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "<p>Love this miso salmon recipe? There's more. We 💙 inspiring you to prepare clean seafood at home. Don't forget, every Seatopia box comes with a <a href=\"/pages/seatopia-member-cooking-classes\" title=\"Seatopia Member Cooking Classes\">FREE Virtual Cooking Class</a> where you will learn more about preparing delicious King Salmon recipes at home.</p>",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
         "padding_top": 32,
         "padding_bottom": 32,
         "divider": false,
         "full_width": false,
-        "rounded": true
-      }
-    },
-    "faq_salmon": {
-      "type": "faq",
-      "blocks": {
-        "question_marinate": {
-          "type": "question",
-          "settings": {
-            "title": "How long should I marinate miso salmon?",
-            "text": "<p>The classic Nobu method calls for a full <strong>48 hours</strong>. The saké, miso, and coconut sugar need that time to fully penetrate the fillet, which is what creates the deep caramelization under the broiler. In a hurry? Even 24 hours delivers excellent flavor — but plan for two days if you can.</p>",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "question_temp": {
-          "type": "question",
-          "settings": {
-            "title": "What internal temperature should King Salmon be cooked to?",
-            "text": "<p>Pull the salmon at around <strong>130°F</strong> for medium-rare. Residual heat will carry it to roughly 150°F as it rests for 3–5 minutes, giving you a tender, flaky finish without drying out the fillet. See our full <a href=\"/pages/the-ultimate-guide-to-salmon-internal-temp\" title=\"The Ultimate Guide to Salmon Internal Temp\">guide to salmon internal temp</a>.</p>",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "question_kingsalmon": {
-          "type": "question",
-          "settings": {
-            "title": "What makes King Salmon different from Atlantic salmon?",
-            "text": "<p>King Salmon (<em>Oncorhynchus tshawytscha</em>, also called Chinook) is the largest and fattiest of the Pacific salmon species. That higher fat content means significantly more omega-3s, richer marbling, and a silkier texture — which is why it holds up so well to a 48-hour marinade and a hard broil.</p>",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "question_mealprep": {
-          "type": "question",
-          "settings": {
-            "title": "How long do the bento boxes keep in the fridge?",
-            "text": "<p>Sealed and refrigerated, the assembled bento boxes hold for <strong>3–4 days</strong>. The miso-glazed salmon is delicious warm or at room temperature, so there's no need to reheat. Our rhythm: defrost Friday morning, marinate Friday evening, assemble Sunday for the week ahead.</p>",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "question_defrost": {
-          "type": "question",
-          "settings": {
-            "title": "How do I defrost sushi-grade King Salmon?",
-            "text": "<p>Defrost Seatopia seafood in the refrigerator overnight, wrapped in paper, to preserve nutrient integrity and texture. For a faster method, place the vacuum-sealed fish in a bowl of cold water for 30–60 minutes.</p>",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        }
-      },
-      "block_order": [
-        "question_marinate",
-        "question_temp",
-        "question_kingsalmon",
-        "question_mealprep",
-        "question_defrost"
-      ],
-      "name": "t:sections.faq.presets.name",
-      "settings": {
-        "style": "with-border",
-        "heading": "Learn more about King Salmon, one of our favorite sushi grade seafood selections",
+        "rounded": true,
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
         "subheading": "",
-        "description": "",
-        "button_label": "",
-        "button_link": "",
-        "button_external": false,
-        "button_icon": true,
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
+        "description": "<p>Miriam writes these and teaches them live. Every Seatopia box includes a FREE virtual cooking class where we work through a dish like this one together.</p>",
+        "heading": "More clean seafood to cook this week",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -522,19 +938,14 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "color_overlay": "#ffffff",
-        "overlay_opacity": 4,
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "narrow": true,
-        "rounded": false
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
       }
     },
-    "newsletter_banner_salmon": {
+    "newsletter_banner_miso": {
       "type": "newsletter-banner",
       "blocks": {
-        "heading_newsletter": {
+        "h_news": {
           "type": "heading",
           "settings": {
             "heading": "Be the first to know",
@@ -544,10 +955,10 @@
             "highlighted_scribble": "circle"
           }
         },
-        "text_newsletter": {
+        "t_news": {
           "type": "text",
           "settings": {
-            "text": "<p>Get on the list and receive more King Salmon recipes delivered to your inbox.</p>",
+            "text": "<p>Get on the list for more meal-prep seafood, cooking temperatures and recipes from our kitchen, straight to your inbox.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -556,15 +967,15 @@
             "highlighted_scribble": "circle"
           }
         },
-        "form_newsletter": {
+        "f_news": {
           "type": "form",
           "settings": {}
         }
       },
       "block_order": [
-        "heading_newsletter",
-        "text_newsletter",
-        "form_newsletter"
+        "h_news",
+        "t_news",
+        "f_news"
       ],
       "name": "t:sections.newsletter-banner.presets.name",
       "settings": {
@@ -597,15 +1008,20 @@
   },
   "order": [
     "main-article-banner",
+    "collab_card",
     "rich_text_intro",
+    "at_a_glance",
+    "marinade_note",
+    "recipe_kit_card",
+    "shop_the_plate",
+    "game_plan",
+    "broiler_note",
+    "swap_table",
+    "meal_prep",
     "rich_text_standard",
-    "1745469964dc16d5a5",
-    "main-article",
-    "image_with_text_overlay_Exf3jA",
-    "featured_collection_salmon",
-    "17604812010e909262",
+    "reviews_seafood",
+    "faq_miso",
     "blog-posts",
-    "faq_salmon",
-    "newsletter_banner_salmon"
+    "newsletter_banner_miso"
   ]
 }
