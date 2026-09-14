@@ -4,6 +4,19 @@
       "type": "main-page",
       "settings": {}
     },
+    "standard": {
+      "type": "seatopia-standard",
+      "settings": {
+        "variant": "ribbon",
+        "show_coa": true,
+        "show_ocean": false,
+        "show_header": false,
+        "color_background": "#D45A3C",
+        "color_text": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "thermometer": {
       "type": "featured-product",
       "blocks": {
@@ -46,7 +59,7 @@
         "enable_sticky_info": false,
         "show_chef_notes": false,
         "media_size": 50,
-        "gallery_layout": "stacked",
+        "gallery_layout": "thumbnail",
         "thumbnail_position": "beside",
         "image_ratio": "square",
         "image_zoom": "lightbox",
@@ -75,7 +88,7 @@
         "product_limit": 3,
         "columns": 3,
         "carousel_on_desktop": false,
-        "show_view_all": true,
+        "show_view_all": false,
         "columns_mobile": "1",
         "swipe_on_mobile": true,
         "heading": "Now get fish worth cooking properly",
@@ -83,7 +96,41 @@
         "heading_alignment": "text-center md:items-center",
         "heading_tag": "h2",
         "subheading": "",
-        "description": "<p>Sushi-grade and lab-tested, so you can cook to 125°F with confidence — every batch has a published Certificate of Analysis.</p>",
+        "description": "<p>Every species lab-tested to &le; 0.1 ppm mercury with no microplastics detected, and a Certificate of Analysis you can read. Cook it to temperature knowing exactly what is on the plate.</p>",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 32,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "browse": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "all-seafood",
+        "products": [],
+        "product_limit": 4,
+        "columns": 4,
+        "carousel_on_desktop": false,
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "Or pick your own fish",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Salmon, branzino, scallops, shrimp and more &mdash; by the portion, with the cooking temperature for each on the pack.</p>",
         "highlighted_text": "none",
         "highlighted_scribble": "circle",
         "color_text": "",
@@ -123,8 +170,10 @@
   },
   "order": [
     "main-page",
+    "standard",
     "thermometer",
     "boxes",
+    "browse",
     "faq_schema"
   ]
 }
