@@ -51,10 +51,44 @@
       assign form_errors = form.errors | default_errors
       render 'alert', status: 'error', content: form_errors
     endif
-
-    if form.posted_successfully?
-      assign success_message = 'general.newsletter.success' | t
-      render 'alert', status: 'success', content: success_message
-    endif
   -%}
+
+  {%- comment -%}
+    `form.posted_successfully?` is true for every newsletter form rendered on the
+    page, not just the one that was submitted — so without the context check the
+    confirmation also appears under the footer form. The error branch above has
+    always matched on context; this now does too.
+
+    The icon is hidden because the message carries its own emoji.
+  {%- endcomment -%}
+  {%- if form.posted_successfully? and form.context == context -%}
+    {%- assign success_message = 'general.newsletter.success' | t -%}
+    {%- render 'alert', status: 'success', content: success_message, hide_icon: true -%}
+
+    <script>
+      (function () {
+        var section = document.getElementById('shopify-section-{{ section_id }}');
+        if (!section || !section.scrollIntoView) return;
+
+        // Shopify posts this form to /contact and redirects back with a #fragment.
+        // That jump happens before the section's lazy background image and parallax
+        // transform have settled, so the browser frequently lands somewhere else.
+        // Re-scroll once everything has laid out.
+        function hold() {
+          var reduce = window.matchMedia
+            && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          section.scrollIntoView({
+            behavior: reduce ? 'auto' : 'smooth',
+            block: 'center'
+          });
+        }
+
+        if (document.readyState === 'complete') {
+          setTimeout(hold, 120);
+        } else {
+          window.addEventListener('load', function () { setTimeout(hold, 120); });
+        }
+      })();
+    </script>
+  {%- endif -%}
 {%- endform -%}
