@@ -266,12 +266,13 @@
       "type": "seatopia-standard",
       "settings": {
         "variant": "ribbon",
-        "claim_count": "3",
         "show_header": false,
         "color_background": "#D45A3C",
         "color_text": "#ffffff",
         "padding_top": 0,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "show_coa": false,
+        "show_ocean": false
       }
     },
     "1788968720a7a5a6cb": {

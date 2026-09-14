@@ -1044,10 +1044,11 @@
       "type": "seatopia-standard",
       "settings": {
         "variant": "full",
-        "claim_count": "4",
         "show_header": true,
         "padding_top": 80,
-        "padding_bottom": 80
+        "padding_bottom": 80,
+        "show_coa": true,
+        "show_ocean": false
       }
     },
     "custom_liquid_gtBf4w": {

@@ -126,92 +126,14 @@
       }
     },
     "trust_icons": {
-      "type": "multicolumn-with-icons",
-      "blocks": {
-        "trust_mercury": {
-          "type": "column",
-          "settings": {
-            "icon": "shield",
-            "custom_icon": "",
-            "heading": "Mercury-safe",
-            "text": "<p>Seatopia products are lab tested quantifying ≤ 0.1 PPM methylmercury</p>",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "trust_microplastic": {
-          "type": "column",
-          "settings": {
-            "icon": "recycling",
-            "custom_icon": "",
-            "heading": "Microplastic-free",
-            "text": "<p>Seatopia products are lab tested quantifying zero detectable microplastics</p>",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "trust_nutrient": {
-          "type": "column",
-          "settings": {
-            "icon": "award",
-            "custom_icon": "",
-            "heading": "Nutrient dense",
-            "text": "<p>Lab-tested to quantify bioavailable DHA &amp; EPA, selenium and protein per serving</p>",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "trust_ocean": {
-          "type": "column",
-          "settings": {
-            "icon": "planet",
-            "custom_icon": "",
-            "heading": "Ocean-friendly",
-            "text": "<p>Does not harm the ocean.</p>",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        }
-      },
-      "block_order": [
-        "trust_mercury",
-        "trust_microplastic",
-        "trust_nutrient",
-        "trust_ocean"
-      ],
-      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "type": "seatopia-standard",
       "settings": {
-        "custom_class": "",
-        "section_id": "trust",
-        "style": "with-border",
-        "columns": 4,
-        "text_alignment": "left",
-        "dt_txt_alignment": "left",
-        "heading": "",
-        "heading_size": "title-md",
-        "heading_alignment": "text-center md:items-center",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "",
-        "button_label": "",
-        "button_link": "",
-        "button_external": false,
-        "button_icon": true,
+        "variant": "ribbon",
+        "show_coa": false,
+        "show_ocean": true,
+        "show_header": false,
         "padding_top": 48,
-        "padding_bottom": 48,
-        "divider": false,
-        "full_width": false,
-        "rounded": false,
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle"
+        "padding_bottom": 48
       }
     },
     "benefits_headline": {

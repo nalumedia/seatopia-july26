@@ -261,125 +261,18 @@
       }
     },
     "s6_standard": {
-      "type": "multicolumn",
-      "blocks": {
-        "ic1": {
-          "type": "column",
-          "settings": {
-            "show_border": false,
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "image_ratio": "adapt",
-            "heading": "EPA + DHA Verified",
-            "heading_size": "text-lg-2xl",
-            "text": "<p>We lab-verify omega-3 levels. You know exactly what you&rsquo;re getting per serving.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "secondary",
-            "button_external": false,
-            "button_icon": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "ic2": {
-          "type": "column",
-          "settings": {
-            "show_border": false,
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "image_ratio": "adapt",
-            "heading": "Mercury Safe",
-            "heading_size": "text-lg-2xl",
-            "text": "<p>Tested to &le;0.1 ppm &mdash; well below FDA limits and safer than most wild seafood.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "secondary",
-            "button_external": false,
-            "button_icon": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "ic3": {
-          "type": "column",
-          "settings": {
-            "show_border": false,
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "image_ratio": "adapt",
-            "heading": "Zero Detectable Microplastics",
-            "heading_size": "text-lg-2xl",
-            "text": "<p>Screened to the most stringent detection threshold in the industry. If it&rsquo;s there, we find it.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "secondary",
-            "button_external": false,
-            "button_icon": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "ic4": {
-          "type": "column",
-          "settings": {
-            "show_border": false,
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "image_ratio": "adapt",
-            "heading": "Certificate of Analysis Published",
-            "heading_size": "text-lg-2xl",
-            "text": "<p>Every test result is published. Named labs, named analytes, pass/fail thresholds. <a href=\"/pages/why-clean-seafood-matters\" title=\"Why Clean Seafood Matters\">No secrets.</a></p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "secondary",
-            "button_external": false,
-            "button_icon": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        }
-      },
-      "block_order": [
-        "ic1",
-        "ic2",
-        "ic3",
-        "ic4"
-      ],
+      "type": "seatopia-standard",
       "settings": {
-        "custom_class": "",
-        "gap": "large",
-        "columns": 4,
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
+        "variant": "full",
+        "show_coa": true,
+        "show_ocean": false,
+        "show_header": true,
         "heading": "The Seatopia Standard™",
-        "heading_size": "title-md",
-        "heading_alignment": "text-center md:items-center",
-        "heading_tag": "h2",
-        "subheading": "Not estimated. Not assumed. Verified.",
-        "description": "",
-        "button_label": "Read the full testing protocol",
-        "button_link": "shopify://pages/seatopia-testing-commitment",
-        "button_external": false,
-        "button_icon": true,
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
-        "color_text": "",
-        "color_text_card": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "color_overlay": "#171717",
-        "overlay_opacity_new": 10,
+        "eyebrow": "Not estimated. Not assumed. Verified.",
+        "cta_label": "Read the full testing protocol",
+        "cta_link": "shopify://pages/seatopia-testing-commitment",
         "padding_top": 80,
-        "padding_bottom": 40,
-        "divider": false,
-        "full_width": false,
-        "rounded": false
+        "padding_bottom": 40
       }
     },
     "s7_comparison": {

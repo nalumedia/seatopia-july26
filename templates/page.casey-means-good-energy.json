@@ -1022,125 +1022,18 @@
       }
     },
     "s4_standard": {
-      "type": "multicolumn",
-      "blocks": {
-        "ic1": {
-          "type": "column",
-          "settings": {
-            "show_border": false,
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "image_ratio": "adapt",
-            "heading": "Omega-3s Quantified",
-            "heading_size": "text-lg-2xl",
-            "text": "<p>Omega-3 levels are quantified by third-party lab testing, so you know what a serving delivers.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "secondary",
-            "button_external": false,
-            "button_icon": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "ic2": {
-          "type": "column",
-          "settings": {
-            "show_border": false,
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "image_ratio": "adapt",
-            "heading": "≤ 0.1 ppm Mercury",
-            "heading_size": "text-lg-2xl",
-            "text": "<p>Tested to ≤ 0.1 ppm mercury &ndash; a tenth of the FDA limit.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "secondary",
-            "button_external": false,
-            "button_icon": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "ic3": {
-          "type": "column",
-          "settings": {
-            "show_border": false,
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "image_ratio": "adapt",
-            "heading": "No Microplastics Detected",
-            "heading_size": "text-lg-2xl",
-            "text": "<p>No microplastics detected in third-party testing.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "secondary",
-            "button_external": false,
-            "button_icon": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "ic4": {
-          "type": "column",
-          "settings": {
-            "show_border": false,
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "image_ratio": "adapt",
-            "heading": "Third-Party Lab Tested",
-            "heading_size": "text-lg-2xl",
-            "text": "<p>Seatopia third-party lab tests every supplier, and then continues to audit them regularly to ensure that they consistently meet their standards.</p>",
-            "button_label": "",
-            "button_link": "/pages/seatopia-certified-clean-seafood",
-            "button_style": "secondary",
-            "button_external": false,
-            "button_icon": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        }
-      },
-      "block_order": [
-        "ic1",
-        "ic2",
-        "ic3",
-        "ic4"
-      ],
+      "type": "seatopia-standard",
       "settings": {
-        "custom_class": "",
-        "gap": "large",
-        "columns": 4,
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
+        "variant": "full",
+        "show_coa": true,
+        "show_ocean": false,
+        "show_header": true,
         "heading": "The Seatopia Standard™",
-        "heading_size": "title-md",
-        "heading_alignment": "text-center md:items-center",
-        "heading_tag": "h2",
-        "subheading": "Not estimated. Not assumed. Verified.",
-        "description": "",
-        "button_label": "Check our Data",
-        "button_link": "shopify://pages/why-clean-seafood-matters",
-        "button_external": false,
-        "button_icon": true,
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
-        "color_text": "",
-        "color_text_card": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "color_overlay": "#171717",
-        "overlay_opacity_new": 10,
+        "eyebrow": "Not estimated. Not assumed. Verified.",
+        "cta_label": "Check our Data",
+        "cta_link": "shopify://pages/why-clean-seafood-matters",
         "padding_top": 80,
-        "padding_bottom": 80,
-        "divider": false,
-        "full_width": false,
-        "rounded": false
+        "padding_bottom": 80
       }
     },
     "custom_liquid_gtBf4w": {
