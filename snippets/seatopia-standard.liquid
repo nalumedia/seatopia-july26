@@ -38,7 +38,13 @@
   assign cta_txt     = cta_label | default: 'Check our Data'
   assign cta_href    = cta_link | default: data_url
 
-  assign bg = color_background | default: '#D45A3C'
+  comment
+    #CC4C2D is the brand coral #D45A3C darkened 4.5% in lightness, same hue
+    and saturation. White body text on the brand coral is 3.94:1, which fails
+    AA; on this it is 4.53:1. Used for the ribbon SURFACE only — buttons and
+    accents keep #D45A3C, where the text is large enough for 3.94 to pass.
+  endcomment
+  assign bg = color_background | default: '#CC4C2D'
 
   comment
     Derive the text colour from the background unless one is set explicitly.

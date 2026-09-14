@@ -26,8 +26,7 @@
         "show_coa": true,
         "show_ocean": false,
         "show_header": false,
-        "color_background": "#D45A3C",
-        "color_text": "#ffffff",
+        "color_background": "#CC4C2D",
         "padding_top": 0,
         "padding_bottom": 0
       }

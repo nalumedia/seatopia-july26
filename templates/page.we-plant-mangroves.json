@@ -371,7 +371,6 @@
         "show_ocean": false,
         "show_header": false,
         "color_background": "#335566",
-        "color_text": "#ffffff",
         "padding_top": 72,
         "padding_bottom": 72
       },

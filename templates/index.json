@@ -267,8 +267,7 @@
       "settings": {
         "variant": "ribbon",
         "show_header": false,
-        "color_background": "#D45A3C",
-        "color_text": "#ffffff",
+        "color_background": "#CC4C2D",
         "padding_top": 0,
         "padding_bottom": 0,
         "show_coa": false,
