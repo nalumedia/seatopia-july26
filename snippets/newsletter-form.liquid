@@ -54,40 +54,64 @@
   -%}
 
   {%- comment -%}
-    `form.posted_successfully?` is true for every newsletter form rendered on the
-    page, not just the one that was submitted — so without the context check the
-    confirmation also appears under the footer form. The error branch above has
-    always matched on context; this now does too.
+    `form.posted_successfully?` is true for EVERY newsletter form rendered on the
+    page, not only the one submitted — the Hyman page has two. It cannot be scoped
+    server-side: `form.context` is populated on the error render but not on the
+    success one, which is why every other section in this theme gates success on
+    `posted_successfully?` alone. Gating on context here suppressed the message
+    entirely.
+
+    So it is scoped client-side instead, using the one piece of information that
+    does survive: Shopify posts to /contact with this form's id as the URL
+    fragment, and the browser carries that fragment through the redirect.
 
     The icon is hidden because the message carries its own emoji.
   {%- endcomment -%}
-  {%- if form.posted_successfully? and form.context == context -%}
+  {%- if form.posted_successfully? -%}
     {%- assign success_message = 'general.newsletter.success' | t -%}
-    {%- render 'alert', status: 'success', content: success_message, hide_icon: true -%}
+    <div data-newsletter-success="{{ form_id }}">
+      {%- render 'alert', status: 'success', content: success_message, hide_icon: true -%}
+    </div>
 
     <script>
       (function () {
+        var formId = {{ form_id | json }};
+        var box = document.querySelector('[data-newsletter-success="' + formId + '"]');
+        if (!box) return;
+
+        var hash = (window.location.hash || '').replace(/^#/, '');
+        var addressed = hash.indexOf('newsletter-') === 0;
+
+        // A different newsletter form was the one submitted — drop this copy of
+        // the confirmation rather than showing it under every form on the page.
+        if (addressed && hash !== formId) {
+          box.style.display = 'none';
+          return;
+        }
+        if (!addressed) return;
+
         var section = document.getElementById('shopify-section-{{ section_id }}');
         if (!section || !section.scrollIntoView) return;
 
-        // Shopify posts this form to /contact and redirects back with a #fragment.
-        // That jump happens before the section's lazy background image and parallax
-        // transform have settled, so the browser frequently lands somewhere else.
-        // Re-scroll once everything has laid out.
-        function hold() {
-          var reduce = window.matchMedia
-            && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        // The browser applies the fragment before this section's lazy background
+        // and parallax transform have laid out, so the anchor resolves against a
+        // much shorter document and leaves you well above the form. Re-assert the
+        // scroll as things settle rather than betting on one moment being right.
+        var reduce = window.matchMedia
+          && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function hold(smooth) {
           section.scrollIntoView({
-            behavior: reduce ? 'auto' : 'smooth',
+            behavior: smooth && !reduce ? 'smooth' : 'auto',
             block: 'center'
           });
         }
 
-        if (document.readyState === 'complete') {
-          setTimeout(hold, 120);
-        } else {
-          window.addEventListener('load', function () { setTimeout(hold, 120); });
-        }
+        hold(false);
+        [100, 400, 900, 1600].forEach(function (ms, i) {
+          setTimeout(function () { hold(i > 0); }, ms);
+        });
+        window.addEventListener('load', function () { setTimeout(hold, 120); });
       })();
     </script>
   {%- endif -%}
