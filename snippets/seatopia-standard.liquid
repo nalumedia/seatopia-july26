@@ -1,0 +1,114 @@
+{%- comment -%}
+  The Seatopia Standard — the canonical claims band.
+
+  SINGLE SOURCE OF TRUTH. The claim copy lives HERE, not in per-page section
+  settings. Before this snippet existed the same three or four claims were
+  duplicated into ~35 live JSON templates and had drifted into 11 different
+  wordings — "Mercury-safe", "Mercury Safe", "Under 0.1 ppm Mercury",
+  "Mercury ≤ 0.1 ppm". Editing one page fixed one page.
+
+  Change the claims below and every placement on the site changes with it.
+  Section settings control presentation only.
+
+  Accepts:
+  - variant:    'ribbon' (compact coloured band) or 'full' (header + columns). Default 'ribbon'.
+  - claim_count: 3 or 4. Default 4. At 3 the Certificate of Analysis claim is dropped.
+  - show_header: boolean. Default true for 'full', false for 'ribbon'.
+  - eyebrow / heading / cta_label / cta_link: override the header. Defaults below.
+  - color_text / color_background: override the ribbon palette.
+
+  Usage:
+    {%- render 'seatopia-standard', variant: 'ribbon' -%}
+    {%- render 'seatopia-standard', variant: 'full', claim_count: 4 -%}
+{%- endcomment -%}
+
+{%- liquid
+  assign v = variant | default: 'ribbon'
+  assign n = claim_count | default: 4 | plus: 0
+  assign data_url = '/pages/why-clean-seafood-matters'
+
+  assign eyebrow_txt = eyebrow | default: 'Not estimated. Not assumed. Verified.'
+  assign heading_txt = heading | default: 'The Seatopia Standard™'
+  assign cta_txt     = cta_label | default: 'Check our Data'
+  assign cta_href    = cta_link | default: data_url
+
+  assign ink = color_text | default: '#ffffff'
+  assign bg  = color_background | default: '#D45A3C'
+
+  if show_header == nil
+    if v == 'full'
+      assign want_header = true
+    else
+      assign want_header = false
+    endif
+  else
+    assign want_header = show_header
+  endif
+-%}
+
+<div class="sea-std sea-std--{{ v }}"{% if v == 'ribbon' %} style="--sea-std-ink: {{ ink }}; --sea-std-bg: {{ bg }};"{% endif %}>
+
+  {%- if want_header -%}
+    <div class="sea-std__head">
+      {%- if eyebrow_txt != blank -%}<p class="sea-std__eyebrow">{{ eyebrow_txt }}</p>{%- endif -%}
+      {%- if heading_txt != blank -%}<h2 class="sea-std__title">{{ heading_txt }}</h2>{%- endif -%}
+      {%- if cta_txt != blank -%}
+        <a class="sea-std__cta" href="{{ cta_href }}">
+          <span>{{ cta_txt }}</span>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2 8h12M14 8l-4.667-4.667M14 8l-4.667 4.667"/>
+          </svg>
+        </a>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  <ul class="sea-std__grid sea-std__grid--{{ n }}" role="list">
+
+    <li class="sea-std__item">
+      <span class="sea-std__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 14.76V3.5a2 2 0 1 0-4 0v11.26a4 4 0 1 0 4 0z"/>
+        </svg>
+      </span>
+      <p class="sea-std__name">Under 0.1 ppm Mercury</p>
+      <p class="sea-std__note">Tested to under 0.1 ppm mercury &mdash; a tenth of the FDA limit.</p>
+    </li>
+
+    <li class="sea-std__item">
+      <span class="sea-std__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/><path d="M8.5 11h5"/>
+        </svg>
+      </span>
+      <p class="sea-std__name">No Microplastics Detected</p>
+      <p class="sea-std__note">No microplastics detected in third-party testing.</p>
+    </li>
+
+    <li class="sea-std__item">
+      <span class="sea-std__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.8 5.6a5.5 5.5 0 0 0-7.8 0L12 6.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/>
+        </svg>
+      </span>
+      <p class="sea-std__name">Omega-3s Quantified</p>
+      <p class="sea-std__note">Lab-tested to quantify bioavailable DHA &amp; EPA, selenium and protein per serving.</p>
+    </li>
+
+    {%- if n >= 4 -%}
+      <li class="sea-std__item">
+        <span class="sea-std__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/>
+          </svg>
+        </span>
+        <p class="sea-std__name">Certificate of Analysis Published</p>
+        <p class="sea-std__note">
+          <a href="{{ data_url }}">Every result published &mdash; named labs, named analytes, pass/fail thresholds.</a>
+        </p>
+      </li>
+    {%- endif -%}
+
+  </ul>
+</div>
