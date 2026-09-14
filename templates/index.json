@@ -741,11 +741,23 @@
             "button_label": "Why Dr. Casey Means supports Seatopia",
             "button_link": "/pages/casey-means-good-energy"
           }
+        },
+        "slide_norwitz": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Nick_1.webp",
+            "eyebrow": "Recommended by Dr. Nick Norwitz, MD PhD",
+            "quote": "“Given how much seafood I eat, quality matters. Seatopia delivers on nutrient density and purity, while proving that exceptional nutrition and regenerative aquaculture can go hand in hand.”",
+            "support": "<p>Quantified omega-3s and third-party testing, species by species &mdash; delivered to your door.</p>",
+            "button_label": "Why Dr. Nick Norwitz supports Seatopia",
+            "button_link": "/pages/nick-norwitz-seatopia"
+          }
         }
       },
       "block_order": [
         "slide_hyman",
-        "slide_means"
+        "slide_means",
+        "slide_norwitz"
       ],
       "settings": {
         "aria_label": "Creator endorsements",
