@@ -8,9 +8,16 @@
   {% render 'newsletter-form', section_id: section.id, context: 'section' %}
 {%- endcomment -%}
 
+{%- comment -%}
+  `tags` is optional and defaults to 'newsletter', so every existing caller is
+  unchanged. Pass a comma-separated list to tag signups by source, e.g.
+  'newsletter,hyman-lp' — Shopify applies these to the customer record and the
+  Klaviyo sync carries them through as profile tags you can segment on.
+{%- endcomment -%}
 {%- assign form_id = 'newsletter-' | append: section_id -%}
+{%- assign form_tags = tags | default: 'newsletter' -%}
 {%- form 'customer', id: form_id, class: 'newsletter-form grid gap-5' -%}
-  <input type="hidden" name="contact[tags]" value="newsletter" />
+  <input type="hidden" name="contact[tags]" value="{{ form_tags | escape }}" />
   <input type="hidden" name="contact[context]" value="{{ context }}" />
   <div class="field relative">
     <input

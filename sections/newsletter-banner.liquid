@@ -157,7 +157,7 @@
                     {%- endif -%}
 
                   {%- when 'form' -%}
-                    {%- render 'newsletter-form', section_id: section.id, context: 'section' -%}
+                    {%- render 'newsletter-form', section_id: section.id, context: 'section', tags: section.settings.list_tag -%}
 
                   {%- when 'media' -%}
                     <div class="social-icons flex items-center" {{ block.shopify_attributes }}>
@@ -180,6 +180,13 @@
     {
       "type": "paragraph",
       "content": "t:sections.newsletter.settings.paragraph.content"
+    },
+    {
+      "type": "text",
+      "id": "list_tag",
+      "label": "Signup tags",
+      "info": "Comma-separated tags applied to the Shopify customer, e.g. newsletter,hyman-lp. Klaviyo syncs these as profile tags you can segment on. Leave blank for just 'newsletter'.",
+      "default": ""
     },
     {
       "type": "checkbox",
