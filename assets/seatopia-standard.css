@@ -1,0 +1,86 @@
+/* The Seatopia Standard — canonical claims band.
+   Markup lives in snippets/seatopia-standard.liquid; that file is the single
+   source of truth for the claim wording. These styles are deliberately
+   self-contained so the band looks identical wherever it is dropped. */
+
+.sea-std-section {
+  padding-top: var(--sea-std-pad-top, 72px);
+  padding-bottom: var(--sea-std-pad-bottom, 72px);
+}
+.sea-std-section--full { background: var(--sea-std-surface, transparent); }
+.sea-std-section--ribbon { padding-top: 0; padding-bottom: 0; }
+
+.sea-std-section__inner { margin: 0 auto; max-width: 1280px; padding-inline: 20px; }
+.sea-std-section--ribbon .sea-std-section__inner { max-width: none; padding-inline: 0; }
+
+/* ---------------------------------------------------------------- shared */
+.sea-std__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 32px;
+}
+.sea-std__grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sea-std__grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.sea-std__item { text-align: center; }
+.sea-std__icon { display: block; margin: 0 auto 14px; }
+.sea-std__icon svg { width: 26px; height: 26px; display: block; margin: 0 auto; }
+.sea-std__name { margin: 0 0 8px; line-height: 1.25; font-weight: 600; }
+.sea-std__note { margin: 0; line-height: 1.55; }
+
+/* ---------------------------------------------------------------- ribbon */
+.sea-std--ribbon {
+  background: var(--sea-std-bg, #D45A3C);
+  color: var(--sea-std-ink, #ffffff);
+  padding: 56px 20px;
+}
+.sea-std--ribbon .sea-std__grid {
+  max-width: 1280px;
+  margin-inline: auto;
+  gap: 0;
+}
+.sea-std--ribbon .sea-std__item { padding-inline: 28px; }
+.sea-std--ribbon .sea-std__item + .sea-std__item {
+  border-left: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+}
+.sea-std--ribbon .sea-std__name { font-size: 20px; }
+.sea-std--ribbon .sea-std__note { font-size: 14.5px; opacity: .92; }
+.sea-std--ribbon a { color: inherit; text-underline-offset: 2px; }
+
+/* ------------------------------------------------------------------ full */
+.sea-std__head { text-align: center; margin: 0 auto 44px; max-width: 720px; }
+.sea-std__eyebrow { margin: 0 0 10px; font-size: 15px; opacity: .78; }
+.sea-std__title { margin: 0 0 24px; font-size: clamp(28px, 4vw, 44px); line-height: 1.15; }
+.sea-std__cta {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 12px 26px; border-radius: 999px;
+  border: 1px solid currentColor; color: #D45A3C;
+  font-size: 16px; font-weight: 500; text-decoration: none;
+  transition: background .18s ease, color .18s ease;
+}
+.sea-std__cta:hover { background: #D45A3C; color: #fff; }
+.sea-std__cta svg { width: 16px; height: 16px; }
+
+.sea-std--full .sea-std__icon { display: none; }
+.sea-std--full .sea-std__name { font-size: 19px; margin-bottom: 14px; }
+.sea-std--full .sea-std__note { font-size: 15.5px; opacity: .85; }
+
+/* --------------------------------------------------------------- responsive */
+@media (max-width: 989px) {
+  .sea-std__grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sea-std--ribbon .sea-std__item:nth-child(3) { border-left: 0; }
+  .sea-std--ribbon .sea-std__grid { row-gap: 36px; }
+}
+@media (max-width: 639px) {
+  .sea-std__grid--3,
+  .sea-std__grid--4 { grid-template-columns: 1fr; }
+  .sea-std--ribbon .sea-std__item { border-left: 0 !important; padding-inline: 8px; }
+  .sea-std--ribbon .sea-std__grid { row-gap: 32px; }
+  .sea-std--ribbon { padding-block: 44px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sea-std__cta { transition: none; }
+}

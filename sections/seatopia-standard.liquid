@@ -1,0 +1,127 @@
+{%- comment -%}
+  Droppable wrapper for the canonical claims band.
+
+  This section owns PRESENTATION ONLY. The claim copy lives in
+  snippets/seatopia-standard.liquid so that editing it once updates every
+  placement — see the note at the top of that file for why.
+{%- endcomment -%}
+
+{{ 'seatopia-standard.css' | asset_url | stylesheet_tag }}
+
+<div class="sea-std-section sea-std-section--{{ section.settings.variant }}"
+     style="
+       --sea-std-pad-top: {{ section.settings.padding_top }}px;
+       --sea-std-pad-bottom: {{ section.settings.padding_bottom }}px;
+       {% if section.settings.variant == 'full' and section.settings.color_background_full != blank %}--sea-std-surface: {{ section.settings.color_background_full }};{% endif %}
+     ">
+  <div class="sea-std-section__inner">
+    {%- render 'seatopia-standard',
+        variant: section.settings.variant,
+        claim_count: section.settings.claim_count,
+        show_header: section.settings.show_header,
+        heading: section.settings.heading,
+        eyebrow: section.settings.eyebrow,
+        cta_label: section.settings.cta_label,
+        cta_link: section.settings.cta_link,
+        color_text: section.settings.color_text,
+        color_background: section.settings.color_background -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Seatopia Standard",
+  "tag": "section",
+  "class": "shopify-section--seatopia-standard",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "The claim wording is shared across the whole site and is not editable here — it lives in snippets/seatopia-standard.liquid so one edit updates every page. These settings control how it looks."
+    },
+    {
+      "type": "select",
+      "id": "variant",
+      "label": "Layout",
+      "options": [
+        { "value": "ribbon", "label": "Ribbon (compact coloured band)" },
+        { "value": "full", "label": "Full (heading, CTA and columns)" }
+      ],
+      "default": "ribbon"
+    },
+    {
+      "type": "range",
+      "id": "claim_count",
+      "label": "Claims shown",
+      "min": 3,
+      "max": 4,
+      "step": 1,
+      "default": 4,
+      "info": "At 3, the Certificate of Analysis claim is dropped."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Show heading and CTA",
+      "default": true,
+      "info": "Usually on for Full, off for Ribbon."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "info": "Leave blank for the site default."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Leave blank for the site default."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button label",
+      "info": "Leave blank for the site default."
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link",
+      "info": "Leave blank for the site default."
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "Ribbon background",
+      "default": "#D45A3C"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "Ribbon text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "color_background_full",
+      "label": "Full layout background"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72
+    }
+  ],
+  "presets": [
+    { "name": "Seatopia Standard — ribbon", "settings": { "variant": "ribbon", "show_header": false, "claim_count": 3 } },
+    { "name": "Seatopia Standard — full",   "settings": { "variant": "full",   "show_header": true,  "claim_count": 4 } }
+  ]
+}
+{% endschema %}
