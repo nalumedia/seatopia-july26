@@ -193,8 +193,7 @@
         "show_coa": false,
         "show_ocean": false,
         "show_header": false,
-        "color_background": "#bb8f50",
-        "color_text": "#ffffff",
+        "color_background": "#CC4C2D",
         "padding_top": 72,
         "padding_bottom": 72
       }
