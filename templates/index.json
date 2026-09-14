@@ -125,7 +125,7 @@
         "text_Vx89fD": {
           "type": "text",
           "settings": {
-            "text": "<p>Third-party lab tested, full of Omega-3s, tested to under 0.1 ppm mercury &ndash; a tenth of the FDA limit, with no microplastics detected in third-party testing</p>",
+            "text": "<p>Third-party lab tested, full of Omega-3s, tested to ≤ 0.1 ppm mercury &ndash; a tenth of the FDA limit, with no microplastics detected in third-party testing</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -203,7 +203,7 @@
           "type": "text",
           "disabled": true,
           "settings": {
-            "text": "<p>Third-party lab tested and omega-rich. Tested to under 0.1 ppm mercury &ndash; a tenth of the fda limit, with no microplastics detected in third-party testing.</p>",
+            "text": "<p>Third-party lab tested and omega-rich. Tested to ≤ 0.1 ppm mercury &ndash; a tenth of the fda limit, with no microplastics detected in third-party testing.</p>",
             "text_size": "subtext-lg",
             "text_max_size": 68,
             "text_font": "body",
@@ -452,7 +452,7 @@
           "settings": {
             "icon": "check_mark",
             "icon_width": 20,
-            "text": "Tested to under 0.1 ppm mercury &ndash; a tenth of the FDA limit, with no microplastics detected in third-party testing",
+            "text": "Tested to ≤ 0.1 ppm mercury &ndash; a tenth of the FDA limit, with no microplastics detected in third-party testing",
             "text_size": "text-base"
           }
         },
@@ -652,7 +652,7 @@
         "text_AwLXxi": {
           "type": "text",
           "settings": {
-            "text": "<p>Omega-packed seafood, <a href=\"/pages/why-clean-seafood-matters\" title=\"Why Clean Seafood Matters\">tested to under 0.1 ppm mercury &ndash; a tenth of the FDA limit</a>, with no microplastics detected in third-party testing. Get started by choosing a curated box hand picked from our favorites, or build your own.</p>",
+            "text": "<p>Omega-packed seafood, <a href=\"/pages/why-clean-seafood-matters\" title=\"Why Clean Seafood Matters\">tested to ≤ 0.1 ppm mercury &ndash; a tenth of the FDA limit</a>, with no microplastics detected in third-party testing. Get started by choosing a curated box hand picked from our favorites, or build your own.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
