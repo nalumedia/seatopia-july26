@@ -17,7 +17,8 @@
   <div class="sea-std-section__inner">
     {%- render 'seatopia-standard',
         variant: section.settings.variant,
-        claim_count: section.settings.claim_count,
+        show_coa: section.settings.show_coa,
+        show_ocean: section.settings.show_ocean,
         show_header: section.settings.show_header,
         heading: section.settings.heading,
         eyebrow: section.settings.eyebrow,
@@ -49,14 +50,16 @@
       "default": "ribbon"
     },
     {
-      "type": "select",
-      "id": "claim_count",
-      "label": "Claims shown",
-      "options": [
-        { "value": "3", "label": "3 — drops Certificate of Analysis" },
-        { "value": "4", "label": "4 — includes Certificate of Analysis" }
-      ],
-      "default": "4"
+      "type": "checkbox",
+      "id": "show_coa",
+      "label": "Include Certificate of Analysis",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_ocean",
+      "label": "Include Ocean Positive",
+      "default": false
     },
     {
       "type": "checkbox",
@@ -120,8 +123,8 @@
     }
   ],
   "presets": [
-    { "name": "Seatopia Standard — ribbon", "settings": { "variant": "ribbon", "show_header": false, "claim_count": "3" } },
-    { "name": "Seatopia Standard — full",   "settings": { "variant": "full",   "show_header": true,  "claim_count": "4" } }
+    { "name": "Seatopia Standard — ribbon", "settings": { "variant": "ribbon", "show_header": false, "show_coa": false } },
+    { "name": "Seatopia Standard — full",   "settings": { "variant": "full",   "show_header": true,  "show_coa": true } }
   ]
 }
 {% endschema %}
