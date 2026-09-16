@@ -203,7 +203,7 @@
           "settings": {
             "text": "<p><em>Dr. Casey Means, MD is a friend of Seatopia and receives no payment, commission, equity, or affiliate revenue from Seatopia.</em></p>",
             "text_size": "subtext-md",
-            "text_max_size": 32,
+            "text_max_size": 24,
             "text_font": "body",
             "secondary_color": false,
             "highlighted_text": "none",
