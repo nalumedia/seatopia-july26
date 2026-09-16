@@ -195,6 +195,59 @@
       "disabled": true,
       "settings": {}
     },
+    "rich_text_7ngRjH": {
+      "type": "rich-text",
+      "blocks": {
+        "text_cxRfaQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>Dr. Casey Means, MD is a friend of Seatopia and receives no payment, commission, equity, or affiliate revenue from Seatopia.</em></p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "text_cxRfaQ"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "section_id": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
     "s2_hook": {
       "type": "image-with-text",
       "blocks": {
@@ -1028,10 +1081,13 @@
         "show_coa": true,
         "show_ocean": false,
         "show_header": true,
-        "heading": "The Seatopia Standard™",
         "eyebrow": "Not estimated. Not assumed. Verified.",
+        "heading": "The Seatopia Standard™",
         "cta_label": "Check our Data",
         "cta_link": "shopify://pages/why-clean-seafood-matters",
+        "color_background": "#cc4c2d",
+        "color_text": "",
+        "color_background_full": "",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -1517,6 +1573,7 @@
       ],
       "name": "t:sections.newsletter-banner.presets.name",
       "settings": {
+        "list_tag": "",
         "transparent_header": false,
         "transparent_footer": false,
         "image": "shopify://shop_images/DrCaseyMeans-Seatopia-33.jpg",
@@ -1601,6 +1658,7 @@
     "rich_text_pDf4g3",
     "image_with_text_overlay_qJp7Kt",
     "blocks_QFRCiy",
+    "rich_text_7ngRjH",
     "s2_hook",
     "featured_product_kYHLNY",
     "s1_hero_overlay",
