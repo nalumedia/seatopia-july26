@@ -1,0 +1,1014 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-article-banner": {
+      "type": "main-article-banner",
+      "blocks": {
+        "spacing": {
+          "type": "spacing",
+          "settings": {
+            "height": 68,
+            "height_mobile": 0
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "title-lg tracking-heading",
+            "show_tags": true,
+            "show_date": false,
+            "show_comments": false,
+            "show_author": true
+          }
+        }
+      },
+      "block_order": [
+        "spacing",
+        "title"
+      ],
+      "settings": {
+        "transparent_header": true,
+        "show_image": true,
+        "image": "shopify://shop_images/peri-peri-salmon-plated-parsley-onion.jpg",
+        "image_height": "750px",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-center",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_overlay": "#000000",
+        "overlay_opacity": 40,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "collab_card": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "recipe-collab",
+        "liquid": "\n<style>\n  .sea-collab {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    border: 1px solid var(--line);\n    border-radius: 18px;\n    background: var(--wash);\n    padding: 24px 28px;\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n    color: var(--ink);\n  }\n  .sea-collab__avatar {\n    flex: 0 0 auto;\n    width: 68px;\n    height: 68px;\n    border-radius: 50%;\n    overflow: hidden;\n    border: 2px solid #fff;\n    box-shadow: 0 0 0 2px var(--gold);\n    background: #eee;\n  }\n  .sea-collab__avatar img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    display: block;\n  }\n  .sea-collab__body {\n    flex: 1 1 260px;\n    min-width: 0;\n  }\n  .sea-collab__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 5px;\n  }\n  .sea-collab__name {\n    font-size: 21px;\n    font-weight: 600;\n    line-height: 1.2;\n    margin: 0 0 4px;\n  }\n  .sea-collab__role {\n    font-size: 15px;\n    color: var(--muted);\n    line-height: 1.45;\n    margin: 0;\n  }\n  .sea-collab__cred {\n    font-size: 13px;\n    color: var(--muted);\n    line-height: 1.5;\n    margin: 10px 0 0;\n    padding-top: 10px;\n    border-top: 1px solid var(--line);\n  }\n  .sea-collab__follow {\n    flex: 0 0 auto;\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    padding: 11px 20px;\n    border: 1px solid var(--ink);\n    border-radius: 999px;\n    font-size: 15px;\n    font-weight: 600;\n    text-decoration: none;\n    color: var(--ink);\n    background: #fff;\n    transition: background .18s ease, color .18s ease;\n  }\n  .sea-collab__follow:hover {\n    background: var(--ink);\n    color: #fff;\n  }\n  .sea-collab__follow svg {\n    width: 18px;\n    height: 18px;\n  }\n  @media (max-width: 749px) {\n    .sea-collab {\n      padding: 20px;\n      gap: 16px;\n    }\n    .sea-collab__follow {\n      width: 100%;\n      justify-content: center;\n    }\n    .sea-collab__name {\n      font-size: 19px;\n    }\n  }\n</style>\n\n{%- assign collab_avatar = 'getaway-plate-avatar.jpg' | file_url -%}\n\n<div class=\"sea-collab\">\n  {%- if collab_avatar != blank -%}\n    <div class=\"sea-collab__avatar\">\n      <img src=\"{{ collab_avatar }}\" alt=\"Getaway Plate\" width=\"136\" height=\"136\" loading=\"lazy\" decoding=\"async\">\n    </div>\n  {%- endif -%}\n\n  <div class=\"sea-collab__body\">\n    <p class=\"sea-collab__eyebrow\">Getaway Plate &times; Seatopia</p>\n    <p class=\"sea-collab__name\">Recipe by Getaway Plate</p>\n    <p class=\"sea-collab__role\">Travel-inspired home cooking &mdash; the dishes worth bringing back from somewhere, cooked on an ordinary weeknight</p>\n    <p class=\"sea-collab__cred\">Serves 2 to 4 &middot; 25 minutes of prep, 10 of it marinating &middot; grilled on a sheet pan</p>\n  </div>\n\n  <a class=\"sea-collab__follow\" href=\"https://www.instagram.com/getaway_plate\" target=\"_blank\" rel=\"noopener noreferrer\">\n    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n      <rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\"></rect>\n      <circle cx=\"12\" cy=\"12\" r=\"4\"></circle>\n      <circle cx=\"17.5\" cy=\"6.5\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"></circle>\n    </svg>\n    <span>Follow</span>\n  </a>\n</div>\n",
+        "padding_top": 28,
+        "padding_bottom": 8,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "rich_text_intro": {
+      "type": "rich-text",
+      "blocks": {
+        "text_intro": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Peri-peri is the African bird&rsquo;s eye chili, and the Portuguese-Mozambican marinade built around it &mdash; chili, garlic, lemon, vinegar and paprika. On chicken it is an overnight job. On salmon it is ten minutes, because a fatty fillet takes the spice immediately, and any longer and the acid starts firming the surface before the grill ever gets to it.</p><p>Getaway Plate&rsquo;s version is about as short as a recipe gets: thaw, toss, wait ten minutes, grill. The one piece of technique worth reading twice is the pan &mdash; the fish goes onto a sheet that has been preheating on the grate, not onto the bars, which is what keeps the spice crust on the fish instead of in the fire.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "text_intro"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_width": "small",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "at_a_glance": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "g_time": {
+          "type": "column",
+          "settings": {
+            "icon": "time",
+            "custom_icon": "",
+            "heading": "About 35 minutes",
+            "text": "<p>Twenty-five of prep &mdash; and ten of those are the salmon sitting in the marinade doing nothing. Seven to ten minutes on the grill and it is done.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_serves": {
+          "type": "column",
+          "settings": {
+            "icon": "users",
+            "custom_icon": "",
+            "heading": "Serves 2 to 4",
+            "text": "<p>Two portions is dinner for two with a side. Four makes it a platter, which is how it is photographed here and how it is best eaten &mdash; sliced, shared, buried under onion and parsley.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_marinade": {
+          "type": "column",
+          "settings": {
+            "icon": "heart",
+            "custom_icon": "",
+            "heading": "Three things in the bowl",
+            "text": "<p>Olive oil, peri-peri blend, salt. Everything else &mdash; sliced onion, parsley, lemon, a last drizzle of oil &mdash; happens after the fish is off the heat.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_prep": {
+          "type": "column",
+          "settings": {
+            "icon": "check_mark",
+            "custom_icon": "",
+            "heading": "Ten minutes, not thirty",
+            "text": "<p>The marinade is short on purpose. Peri-peri carries vinegar and lemon, and a long soak starts to cure the outside of the fillet, which costs you the texture the grill is supposed to give it.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "g_time",
+        "g_serves",
+        "g_marinade",
+        "g_prep"
+      ],
+      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "settings": {
+        "custom_class": "",
+        "section_id": "at-a-glance",
+        "style": "with-border",
+        "columns": 4,
+        "text_alignment": "left",
+        "dt_txt_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "At a glance",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "peri_note": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "know-your-peri-peri",
+        "liquid": "\n<style>\n  .sea-pepper {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-pepper__grid {\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);\n    gap: 34px;\n    align-items: center;\n  }\n  .sea-pepper__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-pepper__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n  }\n  .sea-pepper__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 22px;\n  }\n  .sea-pepper__rows {\n    display: grid;\n    gap: 14px;\n  }\n  .sea-pepper__row {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 15px 17px;\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) auto;\n    gap: 10px 16px;\n    align-items: center;\n  }\n  .sea-pepper__row--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-pepper__name {\n    grid-column: 1;\n    margin: 0;\n    font-size: 15px;\n    font-weight: 600;\n    line-height: 1.3;\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-wrap: wrap;\n  }\n  .sea-pepper__tag {\n    font-size: 10px;\n    font-weight: 700;\n    letter-spacing: .08em;\n    text-transform: uppercase;\n    color: #fff;\n    background: var(--gold);\n    padding: 3px 8px;\n    border-radius: 999px;\n  }\n  .sea-pepper__meter {\n    grid-column: 2;\n    grid-row: 1;\n    display: flex;\n    gap: 4px;\n    align-items: center;\n  }\n  .sea-pepper__pip {\n    width: 9px;\n    height: 9px;\n    border-radius: 50%;\n    background: #fff;\n    border: 1.5px solid #d8cfc0;\n  }\n  .sea-pepper__pip.is-on {\n    background: #b8462f;\n    border-color: #b8462f;\n  }\n  .sea-pepper__note {\n    grid-column: 1 / -1;\n    margin: 0;\n    font-size: 13.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  .sea-pepper__legend {\n    margin: 16px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  .sea-pepper__figure {\n    margin: 0;\n  }\n  .sea-pepper__figure img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-pepper__cap {\n    margin: 10px 0 0;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  @media (max-width: 989px) {\n    .sea-pepper {\n      padding: 22px;\n    }\n    .sea-pepper__grid {\n      grid-template-columns: 1fr;\n      gap: 24px;\n    }\n    .sea-pepper__figure {\n      order: -1;\n    }\n  }\n</style>\n\n<div class=\"sea-pepper\">\n  <div class=\"sea-pepper__grid\">\n\n    <div class=\"sea-pepper__body\">\n      <p class=\"sea-pepper__eyebrow\">Know what you are reaching for</p>\n      <h2 class=\"sea-pepper__heading\">Peri-peri is a chili, a sauce and a dry blend &mdash; and they are not interchangeable.</h2>\n      <p class=\"sea-pepper__lede\">\n        Peri-peri (piri-piri, pil-pil) is the African bird&rsquo;s eye chili, and the\n        Portuguese-Mozambican marinade built around it: chili, garlic, lemon, vinegar, paprika,\n        a little oil. The jar on the shelf and the shaker next to it behave completely\n        differently on fish. The blend seasons and chars. The sauce is already acidic and wet,\n        so it wants less time and a hotter, drier pan. This recipe is written for the blend.\n      </p>\n\n      <div class=\"sea-pepper__rows\">\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Peri-peri seasoning blend</span>\n          <span class=\"sea-pepper__tag\">As written</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Heat: 3 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">Dry, so it clings to an oiled fillet and chars rather than steams. Ten minutes is all the time it needs.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Peri-peri sauce, from the bottle</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Heat: 3 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">Wetter and sharper. Use about half as much, pat the fillet before it goes on the heat, and keep the rest for the table.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Harissa</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Heat: 2 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">Rose harissa is the closest easy swap &mdash; same smoke and garlic, more caraway, less citrus. Add a squeeze of lemon to the oil.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Cayenne, smoked paprika, garlic powder</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Heat: 3 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">The pantry build. Two parts smoked paprika to one part cayenne, a big pinch of garlic powder, lemon zest, salt.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Gochugaru or Aleppo</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Heat: 1 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">If you are cooking for someone heat-averse. Far milder, still red, still smoky &mdash; you lose the vinegar edge, so finish with extra lemon.</p>\n      </div>\n      </div>\n\n      <p class=\"sea-pepper__legend\">\n        Heat is shown relative to each other, not on any official scale. Bird&rsquo;s eye chilies\n        vary enormously by batch, so taste your blend on a fingertip before you commit a fillet\n        to it.\n      </p>\n    </div>\n\n    <figure class=\"sea-pepper__figure\">\n      <img\n        src=\"{{ 'peri-peri-salmon-seasoning-blend.jpg' | file_url }}\"\n        alt=\"Peri-peri seasoning blend being poured over Seatopia salmon portions in a mixing bowl\"\n        width=\"1200\"\n        height=\"1600\"\n        loading=\"lazy\"\n        decoding=\"async\">\n      <figcaption class=\"sea-pepper__cap\">\n        The blend goes on after the oil, not before &mdash; oil first is what makes it stick\n        instead of sliding into the bottom of the bowl.\n      </figcaption>\n    </figure>\n\n  </div>\n</div>\n",
+        "padding_top": 40,
+        "padding_bottom": 16,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "recipe_kit_card": {
+      "type": "apps",
+      "blocks": {
+        "recipe_kit_app_block_peri": {
+          "type": "shopify://apps/recipe-kit/blocks/app-block/0afa374e-81c7-4989-96de-e1ac84640954",
+          "settings": {
+            "custom_js": "",
+            "custom_css": ".rk_direction_image { margin-top: 14px; }\n.rk_direction_image img { max-height: 400px; width: 100%; object-fit: cover; border-radius: 12px; }\n@media (max-width: 749px) {\n  .rk_direction_image img { max-height: 280px; }\n}\n"
+          }
+        }
+      },
+      "block_order": [
+        "recipe_kit_app_block_peri"
+      ],
+      "settings": {
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "shop_the_plate": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "",
+        "products": [
+          "king-salmon",
+          "big-glory-bay-new-zealand-king-salmon",
+          "salmon-lovers-box-12-servings",
+          "flake-spring-salt-180g-microplastic-free",
+          "cultured-ghee-grassfed-certified-organic-14-oz"
+        ],
+        "product_limit": 5,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>One round is two to four skin-on salmon portions, and the rest comes off your spice shelf. Flake salt for the finish, ghee if you would rather not grill on olive oil &mdash; it takes the higher heat without turning bitter.</p>",
+        "heading": "Everything on this plate",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "game_plan": {
+      "type": "timeline",
+      "blocks": {
+        "s_thaw": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/peri-peri-salmon-thawing-vacuum-sealed.jpg",
+            "subheading": "Step 1",
+            "heading": "Submerge and defrost",
+            "heading_tag": "h3",
+            "text": "<p>Leave the portions in their vacuum seal and submerge them in a bowl of chilled water until completely thawed &mdash; 20 to 30 minutes for a 6 to 8 oz portion, and worth changing the water once. Overnight in the refrigerator works too if you have thought ahead. Never on the counter.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_bowl": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/peri-peri-salmon-portions-in-bowl.jpg",
+            "subheading": "Step 2",
+            "heading": "Out of the pack, into a bowl",
+            "heading_tag": "h3",
+            "text": "<p>Cut the vacuum packaging open, lift the portions out and put them straight into a mixing bowl. Pat them dry first &mdash; not in the original method, but a dry fillet takes the oil and the blend far better than a wet one, and it is five seconds of work.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_season": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/peri-peri-salmon-seasoning-blend.jpg",
+            "subheading": "Step 3",
+            "heading": "Olive oil first, then the peri-peri",
+            "heading_tag": "h3",
+            "text": "<p>Olive oil over the fish, then the peri-peri blend. Oil first is the whole trick: it gives the spice something to hold onto instead of drifting to the bottom of the bowl. Toss gently until every face is evenly coated.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_marinate": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/peri-peri-salmon-marinating.jpg",
+            "subheading": "Step 4",
+            "heading": "Ten minutes, and no longer",
+            "heading_tag": "h3",
+            "text": "<p>Leave it to marinate for ten minutes while the grill comes up to temperature. This is long enough for the spice to bloom in the oil and start pulling at the surface of the fish, and short enough that the vinegar and lemon in the blend have not begun to cure it.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_grill": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/peri-peri-salmon-sheet-pan-grill.jpg",
+            "subheading": "Step 5",
+            "heading": "Preheat the sheet pan with the grill",
+            "heading_tag": "h3",
+            "text": "<p>Grill to medium-high, baking sheet on the grate while it heats. Season the portions with salt, then lay them on the hot sheet &mdash; that is what stops them sticking, and it keeps the oil and spice out of the flame.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_char": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/peri-peri-salmon-grilled-charred.jpg",
+            "subheading": "Step 6",
+            "heading": "Three to four minutes a side, flip once",
+            "heading_tag": "h3",
+            "text": "<p>Lid down, three to four minutes, and leave it alone. It releases when the crust has set. Flip once, another three to four minutes, then pull it while the centre is still slightly translucent &mdash; it keeps cooking on the way to the table.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "s_serve": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/peri-peri-salmon-plated-parsley-onion.jpg",
+            "subheading": "Step 7",
+            "heading": "Onion, parsley, lemon, oil",
+            "heading_tag": "h3",
+            "text": "<p>Onto a serving platter. Sliced onion over the top, a good squeeze of fresh lemon, an extra drizzle of olive oil and a handful of parsley. Serve immediately &mdash; the onion is meant to be sharp and raw against the char, and it softens if it sits.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "s_thaw",
+        "s_bowl",
+        "s_season",
+        "s_marinate",
+        "s_grill",
+        "s_char",
+        "s_serve"
+      ],
+      "name": "t:sections.timeline.presets.name",
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Seven steps, and four of them are waiting. The recipe card above has the short version to cook from &mdash; this is the same thing with the reasoning attached.</p>",
+        "heading": "The game plan",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "sheet_note": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "grill-on-a-sheet",
+        "liquid": "\n<style>\n  .sea-sheet {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-sheet__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-sheet__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n    max-width: 22ch;\n  }\n  .sea-sheet__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 24px;\n    max-width: 68ch;\n  }\n  .sea-sheet__cols {\n    display: grid;\n    grid-template-columns: repeat(3, minmax(0, 1fr));\n    gap: 14px;\n  }\n  .sea-sheet__col {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 18px;\n  }\n  .sea-sheet__col--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-sheet__num {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 26px;\n    height: 26px;\n    border-radius: 50%;\n    background: var(--ink);\n    color: #fff;\n    font-size: 12px;\n    font-weight: 700;\n    margin: 0 0 10px;\n  }\n  .sea-sheet__col h3 {\n    font-size: 15.5px;\n    font-weight: 600;\n    line-height: 1.3;\n    margin: 0 0 7px;\n  }\n  .sea-sheet__col p {\n    font-size: 13.5px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0;\n  }\n  .sea-sheet__foot {\n    margin: 18px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  @media (max-width: 749px) {\n    .sea-sheet {\n      padding: 22px;\n    }\n    .sea-sheet__cols {\n      grid-template-columns: 1fr;\n    }\n  }\n</style>\n\n<div class=\"sea-sheet\">\n  <p class=\"sea-sheet__eyebrow\">The step people skip</p>\n  <h2 class=\"sea-sheet__heading\">Preheat the sheet pan with the grill.</h2>\n  <p class=\"sea-sheet__lede\">\n    Getaway Plate grills these on a baking sheet set on the grate rather than on the bars\n    themselves, and it is the difference between a crust and a mess. Peri-peri is oil plus\n    ground spice: dripped straight onto coals it flares, and the sugars in the paprika scorch\n    black before the centre of the fillet is warm. A preheated sheet gives you the grill&rsquo;s\n    heat and smoke with a surface the spice can actually brown against.\n  </p>\n\n  <div class=\"sea-sheet__cols\">\n    <div class=\"sea-sheet__col sea-sheet__col--pick\">\n      <span class=\"sea-sheet__num\">1</span>\n      <h3>The sheet goes on empty</h3>\n      <p>Put it on the grate while the grill comes up to medium-high and leave it there for a\n      good five minutes. A cold pan is why fish sticks &mdash; the protein grabs the metal\n      before a crust can form.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">2</span>\n      <h3>Lay the fish away from you</h3>\n      <p>Three to four minutes, lid down, and do not move it. It releases when the crust is\n      set; if it resists the spatula it is not ready, and forcing it takes the crust off with\n      the pan.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">3</span>\n      <h3>Flip once, then pull early</h3>\n      <p>Another three to four minutes on the second side. Pull it while the centre is still\n      slightly translucent &mdash; it carries on cooking on the platter, and the grill has more\n      residual heat than a stovetop pan.</p>\n    </div>\n  </div>\n\n  <p class=\"sea-sheet__foot\">\n    No grill? A cast-iron pan over medium-high does the same job indoors, and a sheet pan under\n    a broiler set high, about six inches from the element, gets you close on the char. Open a\n    window either way &mdash; chili and smoke is the point of the dish and it will find you.\n  </p>\n</div>\n",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "swap_table": {
+      "type": "table-content",
+      "blocks": {
+        "w_head": {
+          "type": "row",
+          "settings": {
+            "version1": "As written",
+            "version2": "Closest swap",
+            "version3": "If you are improvising"
+          }
+        },
+        "w_fish": {
+          "type": "row",
+          "settings": {
+            "feature": "The fish",
+            "version1": "2&ndash;4 skin-on salmon portions",
+            "version2": "Steelhead or Atlantic salmon, same timing",
+            "version3": "Any firm, fatty fillet &mdash; lean whitefish dries out before the spice chars"
+          }
+        },
+        "w_spice": {
+          "type": "row",
+          "settings": {
+            "feature": "The peri-peri",
+            "version1": "Dry peri-peri seasoning blend",
+            "version2": "Bottled peri-peri sauce, about half as much",
+            "version3": "Smoked paprika and cayenne, two to one, with garlic powder and lemon zest"
+          }
+        },
+        "w_fat": {
+          "type": "row",
+          "settings": {
+            "feature": "The oil",
+            "version1": "Olive oil, in the bowl and at the table",
+            "version2": "Ghee or avocado oil for the marinade",
+            "version3": "Marinate in a high smoke point fat, finish with the good olive oil raw"
+          }
+        },
+        "w_heat": {
+          "type": "row",
+          "settings": {
+            "feature": "The heat source",
+            "version1": "Grill, medium-high, sheet pan on the grate",
+            "version2": "Cast-iron pan on the stove, medium-high",
+            "version3": "Sheet pan under a high broiler, about six inches down"
+          }
+        },
+        "w_onion": {
+          "type": "row",
+          "settings": {
+            "feature": "The onion",
+            "version1": "Thinly sliced raw onion over the top",
+            "version2": "Red onion soaked in cold water for ten minutes",
+            "version3": "Quick-pickle it in lemon juice and salt while the fish marinates"
+          }
+        },
+        "w_green": {
+          "type": "row",
+          "settings": {
+            "feature": "The herb",
+            "version1": "Fresh parsley, generous",
+            "version2": "Cilantro, which is closer to the original",
+            "version3": "Parsley and mint together, which suits the lemon"
+          }
+        },
+        "w_acid": {
+          "type": "row",
+          "settings": {
+            "feature": "The finish",
+            "version1": "Fresh lemon juice",
+            "version2": "Lime, which leans the dish Mozambican",
+            "version3": "A splash of the vinegar from the peri-peri jar, then lemon on top"
+          }
+        }
+      },
+      "block_order": [
+        "w_head",
+        "w_fish",
+        "w_spice",
+        "w_fat",
+        "w_heat",
+        "w_onion",
+        "w_green",
+        "w_acid"
+      ],
+      "name": "Table content",
+      "settings": {
+        "custom_class": "",
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>The method is fixed &mdash; oil, spice, ten minutes, hot dry surface. Almost everything else is negotiable, and the dish survives all of it.</p>",
+        "heading": "Swaps that work",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "meal_prep": {
+      "type": "image-with-text",
+      "blocks": {
+        "m_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Make it ahead",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "m_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Mix the blend ahead, not the marinade",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The spice is the part that keeps. Mix a jar of it &mdash; smoked paprika, cayenne, garlic, oregano, lemon zest, salt &mdash; and it sits happily in the cupboard for months, which turns this into a fifteen-minute dinner on any night you have salmon thawed.</p><p>What does not keep is the fish in the marinade. Ten minutes is the window; an hour later the acid has firmed the surface and you will grill something closer to gravlax than to a steak. Cooked, it is good cold the next day, flaked into a salad with the leftover onion and lemon.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Salmon Lovers Box",
+            "button_link": "/products/salmon-lovers-box-12-servings",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "m_sub",
+        "m_head",
+        "m_text",
+        "m_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/peri-peri-salmon-marinating.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "rich_text_standard": {
+      "type": "image-with-text",
+      "blocks": {
+        "f_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "The fish under the spice",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "f_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why the salmon can take this much heat",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A peri-peri crust is assertive, and it flattens a lean fillet. It works here because king salmon is fatty enough to stand up to it &mdash; the fat carries the chili and the smoke rather than being buried by them, and it is also why the fish stays moist through a hard sear on both sides.</p><p>Our King Salmon tested at 2,414 mg EPA+DHA per 6 oz serving. Values vary by sample and season. Every supplier is tested before we approve them, then randomly audited to ensure consistent compliance with the Seatopia Standard &mdash; third-party lab tested for nutrition, mercury and microplastics.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "How we source it",
+            "button_link": "/pages/why-clean-seafood-matters",
+            "button_style": "secondary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "f_sub",
+        "f_head",
+        "f_text",
+        "f_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/peri-peri-salmon-portions-in-bowl.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "reviews_king_salmon": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_testimonials_carousel_peri": {
+          "type": "shopify://apps/judge-me-reviews/blocks/testimonials_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": false,
+            "reviews_selection": "custom_products",
+            "products": [
+              "king-salmon"
+            ],
+            "star_rating": "all",
+            "max_reviews": 20,
+            "quote_marks_size": "small",
+            "product_name_text_size": "small",
+            "verified_badge_style": "icon",
+            "card_height": "medium",
+            "text_size": "small",
+            "stars_size": "medium",
+            "arrows_position": "bottom",
+            "max_width": 1100,
+            "corner_styling": "soft",
+            "quote_marks_style": "serif",
+            "card_color": "#f9f9f9",
+            "stars_and_quote_marks_color": "#7bc3f3",
+            "text_color": "#000000",
+            "arrows_color": "#000000",
+            "show_border": false,
+            "border_color": "#108474",
+            "show_drop_shadow": false,
+            "transition_speed": 5,
+            "header_text": "Seatopians on this King Salmon",
+            "show_average_rating": true
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_testimonials_carousel_peri"
+      ],
+      "settings": {
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "faq_peri": {
+      "type": "faq",
+      "blocks": {
+        "q_heat": {
+          "type": "question",
+          "settings": {
+            "title": "How hot is this, really?",
+            "text": "<p>Hotter than a chili flake and milder than most hot sauces, but it depends entirely on the blend you buy &mdash; bird&rsquo;s eye chilies vary wildly and commercial blends are cut with paprika at very different ratios. Taste a pinch on a fingertip before you commit the fish. If it is too much, cut the blend with smoked paprika one to one; the colour and the smoke stay, the heat halves.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_sauce": {
+          "type": "question",
+          "settings": {
+            "title": "Can I use peri-peri sauce instead of the dry blend?",
+            "text": "<p>Yes, with two adjustments. Use about half as much, because the sauce is already carrying oil and acid, and pat the fillets before they go on the heat &mdash; a wet surface steams instead of charring. Keep the rest of the bottle for the table, which is where it does its best work anyway.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_stick": {
+          "type": "question",
+          "settings": {
+            "title": "My fish stuck to the grill. What went wrong?",
+            "text": "<p>Almost certainly a cold surface. The sheet pan needs to preheat on the grate with the grill, not go on at the last second &mdash; fish laid on cool metal grabs it before a crust can form. The other cause is moving it too early: leave it for the full three to four minutes and it releases on its own.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_longer": {
+          "type": "question",
+          "settings": {
+            "title": "Can I marinate it longer than ten minutes?",
+            "text": "<p>Not usefully. Peri-peri carries vinegar and lemon, and past about twenty minutes the acid starts to firm and opaque the outside of the fillet the way a ceviche would. You lose the contrast between charred crust and soft centre, which is the point of the dish. Ten minutes is not a shortcut; it is the recipe.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_nogrill": {
+          "type": "question",
+          "settings": {
+            "title": "I do not have a grill.",
+            "text": "<p>A cast-iron pan over medium-high does this well indoors &mdash; same timing, same instruction to leave it alone. A sheet pan under a high broiler about six inches from the element gets closest to the char, and needs no flipping if you are cooking skin-side down. Run the extractor either way.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_thaw": {
+          "type": "question",
+          "settings": {
+            "title": "How should I thaw Seatopia seafood?",
+            "text": "<p>Overnight in the refrigerator in the sealed pack is best, about 12 hours. In a hurry, submerge the sealed pack in a bowl of chilled water for 20 to 30 minutes, changing the water once. Never thaw at room temperature, and never in warm water.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "q_heat",
+        "q_sauce",
+        "q_stick",
+        "q_longer",
+        "q_nogrill",
+        "q_thaw"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "Questions about this one",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "seafood-recipes",
+        "post_limit": 8,
+        "columns": 3,
+        "carousel_on_desktop": true,
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "landscape",
+        "show_tags": false,
+        "show_date": false,
+        "show_comments": false,
+        "show_author": false,
+        "show_excerpt": false,
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Recipes from our kitchen and from the people who cook with us. Every Seatopia box includes a FREE virtual cooking class where we work through a dish like this one together.</p>",
+        "heading": "More seafood to cook this week",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "newsletter_banner_peri": {
+      "type": "newsletter-banner",
+      "blocks": {
+        "h_news": {
+          "type": "heading",
+          "settings": {
+            "heading": "Be the first to know",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_news": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get on the list for more grilled seafood, cooking temperatures and recipes from our kitchen, straight to your inbox.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_news": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "h_news",
+        "t_news",
+        "f_news"
+      ],
+      "name": "t:sections.newsletter-banner.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "transparent_footer": false,
+        "image": "shopify://shop_images/peri-peri-salmon-grilled-charred.jpg",
+        "image_height": "650px",
+        "content_width": "medium",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    }
+  },
+  "order": [
+    "main-article-banner",
+    "collab_card",
+    "rich_text_intro",
+    "at_a_glance",
+    "peri_note",
+    "recipe_kit_card",
+    "shop_the_plate",
+    "game_plan",
+    "sheet_note",
+    "swap_table",
+    "meal_prep",
+    "rich_text_standard",
+    "reviews_king_salmon",
+    "faq_peri",
+    "blog-posts",
+    "newsletter_banner_peri"
+  ]
+}
