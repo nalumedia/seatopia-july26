@@ -58,7 +58,6 @@
         "image_1": "shopify://shop_images/bream-6oz-filets-531468.png",
         "image_2": "shopify://shop_images/Screenshot_2025-05-22_at_1.58.12_PM.png",
         "image_3": "shopify://shop_images/Screenshot_2025-05-22_at_12.53.51_PM.png",
-        "image_4": "shopify://shop_images/seatopia-branzino-pan-seared.webp",
         "image_5": "shopify://shop_images/product-headphones-image-text-01.webp_1.png",
         "image_height_mobile": "auto",
         "content_position_mobile": "items-end justify-start",
@@ -268,6 +267,84 @@
         "rounded": false
       }
     },
+    "faq_6wtBbE": {
+      "type": "faq",
+      "blocks": {
+        "question_P8cU37": {
+          "type": "question",
+          "settings": {
+            "title": "What's in it?",
+            "text": "<p><strong>Algae oil:</strong></p><p>The original source of EPA and DHA omega-3s. Fish don't make omega-3s, they accumulate them from what they eat. Algae is where those fats come from in the ocean too.</p><p><strong>Marine ingredients (fishmeal, fish oil):</strong></p><p>Protein and fats in the form fish evolved to digest. We work to reduce this share over time, not eliminate the nutrition it provides. A large amount of marine ingredients already come from offcuts, meaning parts of fish that are not suitable for human consumption, and so reducing ocean impact further.</p><p><strong>Plant proteins (soy, pea, barley, corn, pistachio):</strong></p><p>Non-GMO, high-protein, highly digestible. Replaces wild-caught protein without issues for the fish, reducing ocean impact. </p><p><strong>Amino acids and minerals:</strong></p><p>Fills the specific nutritional gaps plant proteins leave, so nothing is missing from the diet.</p><p><strong>Astaxanthin:</strong></p><p>A naturally occurring carotenoid, the same one found in kelp, krill and shellfish. It's an antioxidant for the fish and the reason salmon flesh is pink.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_yB4njA": {
+          "type": "question",
+          "settings": {
+            "title": "What's never in it?",
+            "text": "<p>Preventative antibiotics, hormones, GMOs, synthetic colouring agents.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_RJCfKM": {
+          "type": "question",
+          "settings": {
+            "title": "Why is there plant protein in fish feed?",
+            "text": "<p>Because the alternative is more wild fish. Aquaculture used to run almost entirely on fishmeal and fish oil, which meant catching enormous volumes of small wild fish to grow larger ones. Swapping part of that for high-protein plants takes pressure off those wild stocks while still giving the fish bioavailable protein.</p><p>There's a second reason: wild fish carry what the ocean carries. Less wild fish in the feed means less mercury, fewer microplastics and lower parasite risk arriving in your fillet. A controlled diet is what makes a clean fish possible.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_zfwJXr": {
+          "type": "question",
+          "settings": {
+            "title": "Are the fish dyed?",
+            "text": "<p>No. Post-harvest colouring agents are prohibited across everything we sell. Colour comes from astaxanthin in the feed, a natural carotenoid found in kelp, krill and shellfish. Wild salmon get their colour the same way. So do flamingos.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "question_P8cU37",
+        "question_yB4njA",
+        "question_RJCfKM",
+        "question_zfwJXr"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "style": "with-border",
+        "heading": "What do the fish eat? - Fish feed FAQ",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Feed is the single biggest factor in how clean and how nutritious a fish is. A fish is built from what it eats, which means the feed decides its omega-3s, its mineral profile, and how much mercury or microplastic it carries. That's why we treat feed as a sourcing requirement rather than a farm detail, and why every farm we work with has to tell us exactly what goes into the pellet.</p><p>Feed varies by farm, by species, and by stage of growth. The ingredients and the rules below hold across all of them.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "color_overlay": "#ffffff",
+        "overlay_opacity": 4,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
     "featured_product_VbWXbk": {
       "type": "featured-product",
       "blocks": {
@@ -344,8 +421,10 @@
       ],
       "disabled": true,
       "settings": {
+        "section_id": "",
         "product": "seatopia-regenerative-seafood-bundle",
         "enable_sticky_info": true,
+        "show_chef_notes": true,
         "media_size": 66,
         "gallery_layout": "thumbnail",
         "thumbnail_position": "beside",
@@ -406,12 +485,14 @@
       ],
       "disabled": true,
       "settings": {
+        "section_id": "",
         "transparent_header": true,
         "image": "shopify://shop_images/dfd47a2cfabfaefe47490925fc0d82527bb7e0da_dd30de88-559b-4a6c-ad53-cbb515befa6b.png",
         "image_height": "100vh",
         "content_width": "small",
         "content_position": "md:items-center md:justify-center",
         "text_alignment": "center",
+        "priority_image": false,
         "image_height_mobile": "auto",
         "content_position_mobile": "items-center justify-center",
         "text_alignment_mobile": "left",
@@ -743,6 +824,7 @@
     "images_with_text_overlay_fFTTDy",
     "image_with_text_9hW9Nr",
     "multicolumn_MRch8V",
+    "faq_6wtBbE",
     "main-page",
     "featured_product_VbWXbk",
     "image_with_text_overlay_zRTNeA",
