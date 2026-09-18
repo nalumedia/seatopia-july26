@@ -266,12 +266,18 @@
       "type": "seatopia-standard",
       "settings": {
         "variant": "ribbon",
-        "show_header": false,
-        "color_background": "#CC4C2D",
-        "padding_top": 0,
-        "padding_bottom": 0,
         "show_coa": false,
-        "show_ocean": false
+        "show_ocean": false,
+        "show_header": false,
+        "eyebrow": "",
+        "heading": "",
+        "cta_label": "",
+        "cta_link": "",
+        "color_background": "#cc4c2d",
+        "color_text": "",
+        "color_background_full": "",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "1788968720a7a5a6cb": {
@@ -949,7 +955,7 @@
         "text_jm8MmY": {
           "type": "text",
           "settings": {
-            "text": "<p>Celebrate the longest days of the year with Seatopia. We created a guide to a magical feast for you and your loved ones.</p>",
+            "text": "<p>Autumn is  a magical time - celebrate it with your friends and family.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
