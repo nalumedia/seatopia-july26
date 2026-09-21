@@ -347,7 +347,7 @@
         "text_KKca6r": {
           "type": "text",
           "settings": {
-            "text": "<p>Bakkafrost was founded by Faroese visionaries who saw an opportunity to honor their islands’ fishing heritage through responsible, modern aquaculture. Today, the company is still rooted in the local community, employing generations of Faroese families who have lived by and with the sea. Every fish raised here reflects the discipline and care of these farmers—people who know their fjords intimately and bring a deep respect for the ocean into their work. From hatchery to harvest, their hands shape a salmon that reflects their values: transparency, traceability, and trust in nature.</p>",
+            "text": "<p>Bakkafrost was founded by Faroese visionaries who saw an opportunity to honor their islands’ fishing heritage through responsible, modern aquaculture. Today, the company is still rooted in the local community, employing generations of Faroese families who have lived by and with the sea. Every fish raised here reflects the discipline and care of these farmers - people who know their fjords intimately and bring a deep respect for the ocean into their work. From hatchery to harvest, their hands shape a salmon that reflects their values: transparency, traceability, and trust in nature.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
