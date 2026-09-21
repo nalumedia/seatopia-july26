@@ -1,0 +1,1464 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "heading_size": "title-xl tracking-heading",
+        "heading_alignment": "text-left",
+        "heading_tag": "h1",
+        "text_size": "text-base",
+        "padding_top": 72,
+        "padding_bottom": 120,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
+    "image_with_text_overlay_6FtDzG": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_f9jhgT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Welcome the Longest Day of the Year",
+            "heading_size": "title-md",
+            "heading_tag": "h1",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_Fppygg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Summer is the season of abundance — daylight stretching further into the evening, golden light lingering over long tables, and twilight inviting us to slow down. For Seatopia, the summer solstice is an invitation to fully participate: to gather beneath the trees, to share the ocean’s cleanest harvest, and to celebrate the vibrant rhythm of a world in full bloom.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_f9jhgT",
+        "text_Fppygg"
+      ],
+      "settings": {
+        "transparent_header": true,
+        "image": "shopify://shop_images/20260614-Stetten-Wilson-325.jpg",
+        "image_height": "100vh",
+        "content_width": "large",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "center",
+        "image_mobile": "shopify://shop_images/20260614-Stetten-Wilson-325.jpg",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "overlay_opacity": 32,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": false,
+        "narrow": false,
+        "parallax_direction": "vertical"
+      }
+    },
+    "free_featured_product_NQEnWF": {
+      "type": "free-featured-product",
+      "blocks": {
+        "title_LGQEz9": {
+          "type": "title",
+          "settings": {
+            "title_size": "product-title-md",
+            "title_size_mobile": "product-title-md",
+            "show_price": true,
+            "show_rating": true
+          }
+        },
+        "description_GdtXpT": {
+          "type": "description",
+          "settings": {
+            "text_size": "text-base"
+          }
+        },
+        "variant_picker_fayJca": {
+          "type": "variant_picker",
+          "settings": {
+            "show_variant_labels": true,
+            "picker_type": "button",
+            "enable_color_swatches": true,
+            "color_swatch_type": "color",
+            "size_chart": ""
+          }
+        },
+        "buy_buttons_bRByjn": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "show_price": false,
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true,
+            "enable_back_in_stock": false,
+            "show_back_in_stock_name": false,
+            "show_back_in_stock_phone": false
+          }
+        },
+        "pickup_availability_pwyCeF": {
+          "type": "pickup_availability",
+          "settings": {}
+        },
+        "share_N46PNP": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share",
+            "show_help_desk": true,
+            "help_label": "Need help?",
+            "help_page": ""
+          }
+        },
+        "read_more_pMbh9t": {
+          "type": "read_more",
+          "settings": {}
+        },
+        "spinning_text_QPM8aP": {
+          "type": "spinning_text",
+          "settings": {
+            "text": "Featured product"
+          }
+        }
+      },
+      "block_order": [
+        "title_LGQEz9",
+        "description_GdtXpT",
+        "variant_picker_fayJca",
+        "buy_buttons_bRByjn",
+        "pickup_availability_pwyCeF",
+        "share_N46PNP",
+        "read_more_pMbh9t",
+        "spinning_text_QPM8aP"
+      ],
+      "disabled": true,
+      "name": "Free featured product",
+      "settings": {
+        "product": "free-steelhead-cold-smoked-lox",
+        "enable_sticky_info": true,
+        "media_size": 66,
+        "gallery_layout": "thumbnail",
+        "thumbnail_position": "beside",
+        "image_ratio": "adapt_first",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_autoplay": false,
+        "enable_video_looping": false,
+        "mobile_layout": "partial",
+        "image_ratio_mobile": "adapt_first",
+        "mobile_thumbnail": false,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "rich_text_My3AEL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_UL8nJq": {
+          "type": "heading",
+          "settings": {
+            "heading": "What is the Summer Solstice?",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_FDmm8T": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The living world moves in cycles. Spring into Summer mirrors the waxing moon's journey from new to full — each day gathering more light. As the solstice approaches, daylight stretches further into the evening, casting a golden glow long after dinner begins.</p><p>In both Traditional Chinese Medicine and Ayurveda, summer is associated with the element of fire — the season of peak energy, vitality, and outward expression. To balance this intensity, we turn to foods that are cooling, hydrating, and fresh. Summer has an essence: it is bold, sweet, abundant, and complex. </p><p>This is our invitation to step into the light and celebrate the peak of the season.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_UL8nJq",
+        "text_FDmm8T"
+      ],
+      "name": "Hero",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "medium",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 100,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
+    "image_with_text_overlay_VwpKKh": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_8hbjNP": {
+          "type": "heading",
+          "settings": {
+            "heading": "Get Your Summer Groove on With a Custom Evening Playlist",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "liquid_4CdipR": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<iframe data-testid=\"embed-iframe\" style=\"border-radius:12px\" src=\"https://open.spotify.com/embed/playlist/7tSkkExVwEAfJdoZEkfbgF?utm_source=generator&si=65f6735583134b6d\" width=\"100%\" height=\"352\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_8hbjNP",
+        "liquid_4CdipR"
+      ],
+      "name": "t:sections.image-with-text-overlay.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "image": "shopify://shop_images/20260614-Stetten-Wilson-245.jpg",
+        "image_height": "750px",
+        "content_width": "small",
+        "content_position": "md:items-center md:justify-start",
+        "text_alignment": "left",
+        "image_height_mobile": "600px",
+        "content_position_mobile": "items-center justify-center",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#ffffff",
+        "color_button_background": "#7bc3f3",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "overlay_opacity": 16,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": false,
+        "narrow": false,
+        "parallax_direction": "vertical"
+      }
+    },
+    "image_with_text_X9KKnM": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_QFzqnn": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Solstice Marks Abundance — Peak Light, Warmth, Energy and Vitality",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_jhcj9E": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Every summer, Seatopia recommits to the clean practices that set us apart — zero microplastics, mercury-safe, and raised on regenerative aquaculture farms that work with the ocean’s natural rhythm. This is your season of meals that stretch into dusk and moments that bring us together.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_CQWkbx": {
+          "type": "button",
+          "settings": {
+            "button_label": "Summer Solstice Guide",
+            "button_link": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/Seatopia_Summer_Guide.pdf?v=1782205377",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_QFzqnn",
+        "text_jhcj9E",
+        "button_CQWkbx"
+      ],
+      "name": "Affiliate Quote",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/20260614-Stetten-Wilson-321.jpg",
+        "image_height": "100vh",
+        "image_width": "small",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "multicolumn_with_icons_Yb6gYW": {
+      "type": "seatopia-standard",
+      "settings": {
+        "variant": "ribbon",
+        "show_coa": false,
+        "show_ocean": false,
+        "show_header": false,
+        "color_background": "#335566",
+        "padding_top": 72,
+        "padding_bottom": 72
+      },
+      "disabled": true
+    },
+    "empty_space_kx9VHU": {
+      "type": "empty-space",
+      "disabled": true,
+      "name": "t:sections.empty-space.presets.name",
+      "settings": {
+        "desktop_height": 4,
+        "mobile_height": 4,
+        "color_background": "#5c8da5",
+        "gradient_background": ""
+      }
+    },
+    "featured_product_HwA8bm": {
+      "type": "featured-product",
+      "blocks": {
+        "title_aMUkq7": {
+          "type": "title",
+          "settings": {
+            "title_size": "product-title-md",
+            "title_size_mobile": "product-title-md",
+            "show_price": true,
+            "show_rating": true
+          }
+        },
+        "description_NmRaPP": {
+          "type": "description",
+          "settings": {
+            "text_size": "text-base"
+          }
+        },
+        "variant_picker_neRbmt": {
+          "type": "variant_picker",
+          "settings": {
+            "show_variant_labels": true,
+            "picker_type": "button",
+            "enable_color_swatches": true,
+            "color_swatch_type": "color",
+            "size_chart": ""
+          }
+        },
+        "buy_buttons_wT8Uqf": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": false,
+            "show_price": false,
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true,
+            "enable_back_in_stock": false,
+            "show_back_in_stock_name": false,
+            "show_back_in_stock_phone": false
+          }
+        },
+        "pickup_availability_etQLn8": {
+          "type": "pickup_availability",
+          "settings": {}
+        },
+        "share_dL6Aze": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share",
+            "show_help_desk": true,
+            "help_label": "Need help?",
+            "help_page": ""
+          }
+        },
+        "read_more_mAwgWr": {
+          "type": "read_more",
+          "disabled": true,
+          "settings": {}
+        },
+        "spinning_text_iCNijW": {
+          "type": "spinning_text",
+          "disabled": true,
+          "settings": {
+            "text": "Featured product"
+          }
+        }
+      },
+      "block_order": [
+        "title_aMUkq7",
+        "description_NmRaPP",
+        "variant_picker_neRbmt",
+        "buy_buttons_wT8Uqf",
+        "pickup_availability_etQLn8",
+        "share_dL6Aze",
+        "read_more_mAwgWr",
+        "spinning_text_iCNijW"
+      ],
+      "disabled": true,
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "marshallberg-classic-osetra-caviar",
+        "enable_sticky_info": true,
+        "show_chef_notes": true,
+        "media_size": 35,
+        "gallery_layout": "thumbnail",
+        "thumbnail_position": "beside",
+        "image_ratio": "adapt_first",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_autoplay": false,
+        "enable_video_looping": false,
+        "mobile_layout": "partial",
+        "image_ratio_mobile": "adapt_first",
+        "mobile_thumbnail": false,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "featured_collection_pWVf7m": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "all-seafood",
+        "products": [
+          "buy-ora-king-salmon-portion-new-zealand",
+          "branzino-bundle-2x-6oz-portions",
+          "caleta-bay-a-i-steelhead-loin-12oz",
+          "lab-tested-salmon-roe-caviar",
+          "regenerative-farmed-scallops-peru",
+          "add-on-barramundi-filet-5oz-each"
+        ],
+        "product_limit": 12,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "Our Picks For Summer",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>It's time to call your friends, get out and enjoy some great Seafood together.</p>",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "image_with_text_8biLF6": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_e9TytT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Where Good Friends Meet and Memories Take Shape",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_eUghq3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Picture the meals that define a true summer: potlucks under sprawling oak trees, casual backyard barbecues, or spontaneous beach picnics that smoothly transition into twilight dinners. This season isn’t about formal hosting or perfection; it’s an open invitation to participate. It asks us to bring a dish to share, pass a plate, pull up a chair, and join the conversation.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_pNXDja": {
+          "type": "button",
+          "settings": {
+            "button_label": "Host a Seatopia Gathering",
+            "button_link": "shopify://pages/seatopia-dinner-series",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_e9TytT",
+        "text_eUghq3",
+        "button_pNXDja"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/20260614-Stetten-Wilson-249.jpg",
+        "image_height": "100vh",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "featured_product_DnxjwH": {
+      "type": "featured-product",
+      "blocks": {
+        "title_BkPzh6": {
+          "type": "title",
+          "settings": {
+            "title_size": "product-title-md",
+            "title_size_mobile": "product-title-md",
+            "show_price": true,
+            "show_rating": true
+          }
+        },
+        "description_PaNR9a": {
+          "type": "description",
+          "settings": {
+            "text_size": "text-base"
+          }
+        },
+        "variant_picker_zXmJGb": {
+          "type": "variant_picker",
+          "settings": {
+            "show_variant_labels": true,
+            "picker_type": "button",
+            "enable_color_swatches": true,
+            "color_swatch_type": "color",
+            "size_chart": ""
+          }
+        },
+        "buy_buttons_JJDHXC": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "show_price": false,
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true,
+            "enable_back_in_stock": false,
+            "show_back_in_stock_name": false,
+            "show_back_in_stock_phone": false
+          }
+        },
+        "pickup_availability_zgHWf8": {
+          "type": "pickup_availability",
+          "settings": {}
+        },
+        "share_YpUG3j": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share",
+            "show_help_desk": true,
+            "help_label": "Need help?",
+            "help_page": ""
+          }
+        },
+        "read_more_6Pmmqe": {
+          "type": "read_more",
+          "settings": {}
+        },
+        "spinning_text_ibp8Ba": {
+          "type": "spinning_text",
+          "disabled": true,
+          "settings": {
+            "text": "Featured product"
+          }
+        }
+      },
+      "block_order": [
+        "title_BkPzh6",
+        "description_PaNR9a",
+        "variant_picker_zXmJGb",
+        "buy_buttons_JJDHXC",
+        "pickup_availability_zgHWf8",
+        "share_YpUG3j",
+        "read_more_6Pmmqe",
+        "spinning_text_ibp8Ba"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "summer-box",
+        "enable_sticky_info": true,
+        "show_chef_notes": false,
+        "media_size": 47,
+        "gallery_layout": "thumbnail",
+        "thumbnail_position": "beside",
+        "image_ratio": "adapt_first",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_autoplay": false,
+        "enable_video_looping": false,
+        "mobile_layout": "partial",
+        "image_ratio_mobile": "adapt_first",
+        "mobile_thumbnail": false,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "image_with_text_M4F3kr": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_dFGpNi": {
+          "type": "heading",
+          "settings": {
+            "heading": "An Offering of Presence — Shared Tables, Shared Stories",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_AECUt8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>When we talk about regenerative aquaculture, we're speaking about far more than the farms we partner with. We see aquaculture as part of a living system — one that connects growers, harvesters, distributors, cooks, and everyone who gathers around the table. For something to be truly regenerative, participation is required from every part of the system.</p><p>Showing up to a gathering with an intentionally sourced dish is an offering that reflects your values, your choices, and the networks of relationships you help sustain. When you arrive, you are saying: <em>“I care about where my nourishment comes from, and I care about how I nourish the people around me.”</em></p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_y4qVCf": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "shopify://pages/why-clean-seafood-matters",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_dFGpNi",
+        "text_AECUt8",
+        "button_y4qVCf"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/20260614-Stetten-Wilson-290_1.jpg",
+        "image_height": "100vh",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "product_bundle_ABUEQb": {
+      "type": "product-bundle",
+      "name": "t:sections.product-bundle.presets.name",
+      "settings": {
+        "collection": "build-your-own-box",
+        "products": [
+          "buy-ora-king-salmon-portion-new-zealand",
+          "branzino-bundle-2x-6oz-portions",
+          "mt-cook-alpine-salmon-7oz-filet",
+          "half-shell-scallops-2x-12oz-bag",
+          "marshallberg-classic-osetra-caviar",
+          "caleta-bay-a-i-steelhead-loin-12oz"
+        ],
+        "product_limit": 6,
+        "columns": 3,
+        "columns_mobile": "1",
+        "minimum_quantity": 2,
+        "maximum_quantity": 12,
+        "prevent_duplicate_products": false,
+        "allow_quantity_change": true,
+        "quantity_increment": "1",
+        "quantity_minimum": "1",
+        "quantity_maximum": "",
+        "show_variant_labels": true,
+        "picker_type": "button",
+        "enable_color_swatches": true,
+        "color_swatch_type": "color",
+        "heading": "Build Your Summer Menu",
+        "heading_size": "lg:text-5xl text-2xl",
+        "heading_alignment": "text-left",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "image_with_text_UzFkDx": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_UR4q3M": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Centerpiece of Summer — Grilled Peaches & Ora King Salmon",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_k3Bh9E": {
+          "type": "text",
+          "settings": {
+            "text": "<p>When feeding a group under the twilight, we love a layered main that captures the full complexity of the season. In this featured recipe, sweet, charred peaches pair effortlessly with the rich, savory depth of shoyu-glazed Ora King Salmon. Creamy burrata adds a cooling richness, toasted pistachios bring an essential crunch, and fresh mint leaves a crisp, herbaceous finish. It is bold, sweet, and designed to be shared.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_frbzym": {
+          "type": "button",
+          "settings": {
+            "button_label": "Get the Recipe",
+            "button_link": "https://seatopia.fish/blogs/seafood-recipes/grilled-peaches-ora-king-salmon-with-burrata-pistachio-mint-1",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_UR4q3M",
+        "text_k3Bh9E",
+        "button_frbzym"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/Grilled_Ora_3_a06b03e2-6a88-410d-a4bb-9a7f77321ad6.jpg",
+        "image_height": "100vh",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "blocks_7JNMfB": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_9c49efa_AEtVMm": {
+          "type": "ai_gen_block_9c49efa",
+          "settings": {
+            "image_1": "shopify://shop_images/Grilled_Ora_3_a06b03e2-6a88-410d-a4bb-9a7f77321ad6.jpg",
+            "image_2": "shopify://shop_images/20260614-Stetten-Wilson-290_1.jpg",
+            "image_3": "shopify://shop_images/20260614-Stetten-Wilson-317.jpg",
+            "image_4": "shopify://shop_images/20260614-Stetten-Wilson-264.jpg",
+            "image_5": "shopify://shop_images/20260614-Stetten-Wilson-325.jpg",
+            "image_6": "shopify://shop_images/20260614-Stetten-Wilson-321.jpg",
+            "columns_desktop": 4,
+            "columns_tablet": 3,
+            "columns_mobile": "1",
+            "aspect_ratio": "4/5",
+            "image_spacing": 0,
+            "rounded_corners": false,
+            "desktop_width_percent": 100,
+            "show_navigation": true,
+            "nav_button_size": 45,
+            "nav_button_offset": 20,
+            "nav_button_color": "#ffffff",
+            "nav_button_icon_color": "#252525",
+            "show_dots": true,
+            "dot_size": 10,
+            "dots_spacing": 20,
+            "dot_color": "#252525",
+            "dot_active_color": "#ff7755",
+            "autoplay": false,
+            "autoplay_speed": 5
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_9c49efa_AEtVMm"
+      ],
+      "name": "Image carousel",
+      "settings": {}
+    },
+    "image_with_text_CTQibA": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_A4FdAK": {
+          "type": "heading",
+          "settings": {
+            "heading": "Crafted in Ojai by Chef Miriam Thom",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_rqtRhg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Co-created in the magical Valley of the Moon in Ojai, California, this season's menu comes alive through the vision of Miriam Thom. Miriam is a new mum to Winona Oros, a content creator, writer, and chef. Working across mediums, she explores regenerative narratives through storytelling and immersive experiences. Her practice is grounded in inquiry into community, place, and the sacred intelligence of marine nutrition.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_Fhn7fG": {
+          "type": "button",
+          "settings": {
+            "button_label": "Discover Miriam's Summer Menu",
+            "button_link": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/Seatopia_-_Customer_Design_2__compressed.pdf?v=1782136945",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_A4FdAK",
+        "text_rqtRhg",
+        "button_Fhn7fG"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/Grilled_Ora_9.jpg",
+        "image_height": "100vh",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "image_with_text_overlay_NhgHbB": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_gqh97J": {
+          "type": "heading",
+          "settings": {
+            "heading": "Bring the Ocean to your Evening — Host a Seatopia Summer Dinner.",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_bTHRcq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Celebrate the season with a menu designed to delight </p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_Aikq4g": {
+          "type": "button",
+          "settings": {
+            "button_label": "Host a Seatopia Dinner",
+            "button_link": "shopify://pages/seatopia-dinner-series",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_gqh97J",
+        "text_bTHRcq",
+        "button_Aikq4g"
+      ],
+      "name": "t:sections.image-with-text-overlay.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "image": "shopify://shop_images/20260614-Stetten-Wilson-317.jpg",
+        "image_height": "650px",
+        "content_width": "small",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "center",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#ffffff",
+        "color_button_background": "#bb8f50",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "overlay_opacity": 7,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "narrow": false,
+        "parallax_direction": "vertical"
+      }
+    },
+    "images_with_text_7NyEJN": {
+      "type": "images-with-text",
+      "blocks": {
+        "heading_6MCHbk": {
+          "type": "heading",
+          "settings": {
+            "heading": "Perfect Seafood Served This Summer",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_Vat3rC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>There is a distinct magic to the way we eat when the earth is warm and the daylight stays late. Summer asks us to put away our formal hosting scripts and step into something far more fluid. It’s an open invitation to share in the heavy lifting of a meal—to bring a seasonal offering, and let the evening unfold at its own pace.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_QjgcgT": {
+          "type": "button",
+          "settings": {
+            "button_label": "Explore the Cooking Guide",
+            "button_link": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/SeatopiaSimpleRecipes.pdf?v=1764516761",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_6MCHbk",
+        "text_Vat3rC",
+        "button_QjgcgT"
+      ],
+      "name": "t:sections.images-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Screenshot_2026-03-17_at_15.43.50.png",
+        "image_2": "shopify://shop_images/Screenshot_2026-03-17_at_15.44.02.png",
+        "image_ratio": "adapt",
+        "image_width": "large",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true
+      }
+    },
+    "rich_text_dAFeMT": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_e8edCC": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our community trusts us for clean, healthy seafood",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_mbEEdx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Join a community that is transforming their health</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_pDB9bF": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_e8edCC",
+        "text_mbEEdx",
+        "button_pDB9bF"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 100,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
+    "index_new_testimonials_ByRMjq": {
+      "type": "index-new-testimonials",
+      "blocks": {
+        "review_XCTi78": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/gp.png",
+            "image_url": "shopify://pages/ambassadors",
+            "title": "Gwenyth Paltrow",
+            "job": "Celebrity & Wellness Guru",
+            "Start_number": "5",
+            "text": "<p>“I’m cooking with seafood from this company I found called Seatopia that does all sustainable seafood, and mercury tests all their products which is really good!</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        },
+        "review_WRNcEN": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Mark_hyman.png",
+            "image_url": "shopify://blogs/seafood-recipes/asian-scallop-crudo-with-citrus-soy-marinade",
+            "title": "Dr. Mark Hyman",
+            "job": "Leader in Functional Medicine",
+            "Start_number": "5",
+            "text": "<p>“We are what foods we eats and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        },
+        "review_beCApy": {
+          "type": "review",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/dr_brook.png",
+            "image_url": "shopify://blogs/regenerative-aquaculture/are-we-still-mermaids-embracing-our-aquatic-roots-for-modern-health",
+            "title": "Dr. Kristyn Silver-Brook",
+            "job": "Prenatal and postpartum chiropractor, mama, and a Seatopia customer",
+            "Start_number": "5",
+            "text": "<p>Thanks to SEATOPIA, throughout my pregnancy & while breastfeeding I've confidently enjoyed sushi-grade, mercury-free, omega-rich seafood from the comfort of home!</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        },
+        "review_t6Kfty": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Ben_greenfield_89fa6ea5-3395-4d81-975e-1f952ba5b657.png",
+            "image_url": "shopify://blogs/regenerative-aquaculture",
+            "title": "Ben Greenfield",
+            "job": "Health & Fitness Coach",
+            "Start_number": "5",
+            "text": "<p>\"If you want healthy, gourmet-style seafood, in the comfort of your own home, seafood that goes above and beyond any you've tasted before, you need Seatopia in your life!\"</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        },
+        "review_kMaRUr": {
+          "type": "review",
+          "disabled": true,
+          "settings": {
+            "image_url": "",
+            "title": "Testimonial name",
+            "job": "Founder, Company",
+            "Start_number": "5",
+            "text": "<p>Use this text to showcase a review from one of your customers.  A great review is honest and relatable.  A great reviewer is a person who represents your target audience and can speak to concerns that might block your customers from buying.</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_XCTi78",
+        "review_WRNcEN",
+        "review_beCApy",
+        "review_t6Kfty",
+        "review_kMaRUr"
+      ],
+      "name": "testimonials",
+      "settings": {
+        "custom_class": "",
+        "title": "",
+        "sub_title": "",
+        "section_cont_position": "center",
+        "padding_top": 0,
+        "padding_bottom": 28,
+        "section_background": "#fafafa",
+        "text_color": "#171717",
+        "star_color": "#f59e0b",
+        "rounded": false
+      }
+    },
+    "index_review_judge_me_CGWRxy": {
+      "type": "Index-review-judge_me",
+      "settings": {
+        "section_background": "#fafafa",
+        "padding_top": 32,
+        "padding_bottom": 40
+      }
+    },
+    "faq_XGjUai": {
+      "type": "faq",
+      "blocks": {
+        "question_Eh4Agz": {
+          "type": "question",
+          "settings": {
+            "title": "<strong>Can I customize my box?</strong>",
+            "text": "<p>We are essentially a farmers market for artisanal aquaculture. In that sense, our Seatopia curated boxes are like a CSA box. We offer our curated boxes as a way to highlight what is seasonally available and introduce our members to new seafood and farm partners they might be interested in. So, they cannot be customized. </p><p>But we do offer custom boxes! Members can order a custom box through the <a href=\"https://seatopia.fish/collections/add-ons\" title=\"https://seatopia.fish/collections/add-ons\">a la cart section of our website. </a>Subscription members can mix and match items in their portal and take advantage of member-only items and offers. </p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_mF8jDT": {
+          "type": "question",
+          "settings": {
+            "title": "<strong>Do I have to subscribe to place an order?</strong>",
+            "text": "<p>No! But becoming a subscriber is the best way to support aquaculture farmers raising fish the right way. </p><p>Your subscription helps us with planning harvest timelines and scheduling ocean freight, helping us move the industry away from unsustainable practices of flying fresh fish around the world. Subscribers also have early access to preferred pricing, exclusive add-ons and limited time offers. </p><p>You will never be locked in to a subscription - you may change the order, the frequency or cancel anytime. </p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_tgdUgD": {
+          "type": "question",
+          "settings": {
+            "title": "<strong>Do you offer discounts?</strong>",
+            "text": "<p>As a general rule, we do not offer discounts, aside from a small thank you for first time customers. We offer the same incentive if you find us through one of our affiliate friends or supporters. Both are only available to first time customers. </p><p>Rather than ask our members to search the internet for discounts and coupons, we always offer the lowest prices we can. </p><p>The best way to save is by becoming a monthly subscriber. Our subscription members receive a small price incentive for helping us to reliably and predictably support artisan, regenerative aquaculture.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_U6BeBN": {
+          "type": "question",
+          "settings": {
+            "title": "<strong>What about antibiotics?</strong>",
+            "text": "<p>At Seatopia, we have a strict zero-tolerance policy for the use of preventative antibiotics in our feed, and our partner farms do not use preventative antibiotics. </p><p>In extreme cases where a veterinarian prescribes antibiotics for an individual animal's treatment, that animal is quarantined for a sufficient period, typically at least 30 days, to ensure no detectable levels of antibiotics remain before it can be reintegrated or harvested. </p><p>However, these instances where antibiotics are prescribed are rare, and typically only realistically possible in open-ocean aquaculture. </p><p>Many of our land-based (RAS) farms use zero antibiotics under any circumstances. More information about these and our other farms can be found on individual farm pages. </p><p>We are always able to answer any additional questions via email at nemo@seatopia.fish</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_cnWc43": {
+          "type": "question",
+          "settings": {
+            "title": "<strong>What is a portion?</strong>",
+            "text": "<p>Many in our community are cooking for households or meal planning around specific protein requirements. For that reason, we sell our curated boxes in portions, not pieces. </p><p>A portion is typically 5.5-8oz for filets. For other items, like scallops or smoked trout, a portion can be considered 3-4oz, which is the recommended portion size per the professional chefs and nutritionists that we work with. </p><p>So, a 12 serving box will contain 4.5-5.5lbs of raw seafood.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "contact_wt7gfF": {
+          "type": "contact",
+          "settings": {
+            "heading": "Didn’t find your answer?",
+            "text": "<p>Don't hestitate to contact us</p>",
+            "show_phone": false,
+            "avatar": "shopify://shop_images/Ellipse_67.png",
+            "avatar_height": 60,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "question_Eh4Agz",
+        "question_mF8jDT",
+        "question_tgdUgD",
+        "question_U6BeBN",
+        "question_cnWc43",
+        "contact_wt7gfF"
+      ],
+      "settings": {
+        "style": "with-background",
+        "heading": "FAQs",
+        "heading_size": "title-lg tracking-heading",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Please read our <a href=\"https://seatopia.gorgias.help/\" title=\"https://seatopia.gorgias.help/\">FAQs</a> page to find out more.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "#ffffff",
+        "color_background": "#335566",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#ffffff",
+        "overlay_opacity": 4,
+        "padding_top": 84,
+        "padding_bottom": 4,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "empty_space_kkgf8B": {
+      "type": "empty-space",
+      "settings": {
+        "desktop_height": 60,
+        "mobile_height": 32,
+        "color_background": "",
+        "gradient_background": ""
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "image_with_text_overlay_6FtDzG",
+    "free_featured_product_NQEnWF",
+    "rich_text_My3AEL",
+    "image_with_text_overlay_VwpKKh",
+    "image_with_text_X9KKnM",
+    "multicolumn_with_icons_Yb6gYW",
+    "empty_space_kx9VHU",
+    "featured_product_HwA8bm",
+    "featured_collection_pWVf7m",
+    "image_with_text_8biLF6",
+    "featured_product_DnxjwH",
+    "image_with_text_M4F3kr",
+    "product_bundle_ABUEQb",
+    "image_with_text_UzFkDx",
+    "blocks_7JNMfB",
+    "image_with_text_CTQibA",
+    "image_with_text_overlay_NhgHbB",
+    "images_with_text_7NyEJN",
+    "rich_text_dAFeMT",
+    "index_new_testimonials_ByRMjq",
+    "index_review_judge_me_CGWRxy",
+    "faq_XGjUai",
+    "empty_space_kkgf8B"
+  ]
+}
