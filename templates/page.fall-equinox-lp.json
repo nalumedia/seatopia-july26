@@ -252,7 +252,7 @@
         "heading_8hbjNP": {
           "type": "heading",
           "settings": {
-            "heading": "Get Your Summer Groove on With a Custom Evening Playlist",
+            "heading": "Get the Autumn vibes going with our custom playlist",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -262,7 +262,7 @@
         "liquid_4CdipR": {
           "type": "liquid",
           "settings": {
-            "liquid": "<iframe data-testid=\"embed-iframe\" style=\"border-radius:12px\" src=\"https://open.spotify.com/embed/playlist/7tSkkExVwEAfJdoZEkfbgF?utm_source=generator&si=65f6735583134b6d\" width=\"100%\" height=\"352\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe>"
+            "liquid": "<iframe data-testid=\"embed-iframe\" style=\"border-radius:12px\" src=\"https://open.spotify.com/embed/playlist/04JhbZnX8P6wbLZpcba501?utm_source=generator&si=9747ccd3f98d4cc8\" width=\"100%\" height=\"352\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe>"
           }
         }
       },
@@ -270,12 +270,11 @@
         "heading_8hbjNP",
         "liquid_4CdipR"
       ],
-      "disabled": true,
       "name": "t:sections.image-with-text-overlay.presets.name",
       "settings": {
         "section_id": "",
         "transparent_header": false,
-        "image": "shopify://shop_images/20260614-Stetten-Wilson-245.jpg",
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-113.jpg",
         "image_height": "750px",
         "content_width": "small",
         "content_position": "md:items-center md:justify-start",
