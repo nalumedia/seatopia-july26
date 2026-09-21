@@ -30,7 +30,7 @@
         "heading_f9jhgT": {
           "type": "heading",
           "settings": {
-            "heading": "Welcome the Longest Day of the Year",
+            "heading": "Welcome Autumn's Exhale",
             "heading_size": "title-md",
             "heading_tag": "h1",
             "highlighted_text": "none",
@@ -40,7 +40,7 @@
         "text_Fppygg": {
           "type": "text",
           "settings": {
-            "text": "<p>Summer is the season of abundance — daylight stretching further into the evening, golden light lingering over long tables, and twilight inviting us to slow down. For Seatopia, the summer solstice is an invitation to fully participate: to gather beneath the trees, to share the ocean’s cleanest harvest, and to celebrate the vibrant rhythm of a world in full bloom.</p>",
+            "text": "<p>The autumnal equinox marks the moment day and night fall into balance. In Traditional Chinese Medicine, late summer is considered a fifth season, lasting until the equinox: the threshold between summer's abundance and winter's quiet. </p><p>For us, this feels like an invitation to slow down: to gather with our closest people, to savor what the season has finally brought to fruition, and to swap out full calendars for a few small, intimate moments around the table.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -55,13 +55,15 @@
         "text_Fppygg"
       ],
       "settings": {
+        "section_id": "",
         "transparent_header": true,
-        "image": "shopify://shop_images/20260614-Stetten-Wilson-325.jpg",
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-218.jpg",
         "image_height": "100vh",
         "content_width": "large",
         "content_position": "md:items-center md:justify-center",
         "text_alignment": "center",
-        "image_mobile": "shopify://shop_images/20260614-Stetten-Wilson-325.jpg",
+        "image_mobile": "shopify://shop_images/20260825-Stetten-Wilson-12_Medium_a895e425-c0a9-4ca5-a4c2-3aef07a6d2cd.jpg",
+        "priority_image": false,
         "image_height_mobile": "auto",
         "content_position_mobile": "items-end justify-start",
         "text_alignment_mobile": "left",
@@ -72,7 +74,7 @@
         "color_button_background": "#ffffff",
         "color_button_gradient": "",
         "color_overlay": "#171717",
-        "overlay_opacity": 32,
+        "overlay_opacity": 36,
         "padding_top": 0,
         "padding_bottom": 0,
         "divider": false,
@@ -186,7 +188,7 @@
         "heading_UL8nJq": {
           "type": "heading",
           "settings": {
-            "heading": "What is the Summer Solstice?",
+            "heading": "What is the Autumnal Equinox?",
             "heading_size": "title-lg tracking-heading",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -196,7 +198,7 @@
         "text_FDmm8T": {
           "type": "text",
           "settings": {
-            "text": "<p>The living world moves in cycles. Spring into Summer mirrors the waxing moon's journey from new to full — each day gathering more light. As the solstice approaches, daylight stretches further into the evening, casting a golden glow long after dinner begins.</p><p>In both Traditional Chinese Medicine and Ayurveda, summer is associated with the element of fire — the season of peak energy, vitality, and outward expression. To balance this intensity, we turn to foods that are cooling, hydrating, and fresh. Summer has an essence: it is bold, sweet, abundant, and complex. </p><p>This is our invitation to step into the light and celebrate the peak of the season.</p>",
+            "text": "<p>The equinox marks the point in the year when day and night are equal in length, the pivot between summer's outward energy and winter's inward turn. In Traditional Chinese Medicine, late summer is considered a fifth season, one that lasts until the equinox arrives and asks us to shift from expansion toward reflection.</p><p>This is a season for noticing what's ripened: the seeds planted in spring, the growth of summer, and what has now come to be. It's a  welcome hibernation with your innermost circle, where you take a collective breath, and let the year settle into the much-needed quiet time.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -213,6 +215,7 @@
       "name": "Hero",
       "settings": {
         "custom-class": "",
+        "section_id": "",
         "text_alignment": "center",
         "text_alignment_mobile": "center",
         "heading": "",
@@ -267,14 +270,17 @@
         "heading_8hbjNP",
         "liquid_4CdipR"
       ],
+      "disabled": true,
       "name": "t:sections.image-with-text-overlay.presets.name",
       "settings": {
+        "section_id": "",
         "transparent_header": false,
         "image": "shopify://shop_images/20260614-Stetten-Wilson-245.jpg",
         "image_height": "750px",
         "content_width": "small",
         "content_position": "md:items-center md:justify-start",
         "text_alignment": "left",
+        "priority_image": false,
         "image_height_mobile": "600px",
         "content_position_mobile": "items-center justify-center",
         "text_alignment_mobile": "left",
@@ -302,7 +308,7 @@
         "heading_QFzqnn": {
           "type": "heading",
           "settings": {
-            "heading": "The Solstice Marks Abundance — Peak Light, Warmth, Energy and Vitality",
+            "heading": "The Equinox Marks a Transition",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -312,7 +318,7 @@
         "text_jhcj9E": {
           "type": "text",
           "settings": {
-            "text": "<p>Every summer, Seatopia recommits to the clean practices that set us apart — zero microplastics, mercury-safe, and raised on regenerative aquaculture farms that work with the ocean’s natural rhythm. This is your season of meals that stretch into dusk and moments that bring us together.</p>",
+            "text": "<p>Every equinox we make sure that we circle back to the standards that have defined us from day one; third-party lab testing suppliers for mercury and microplastics, sashimi-grade quality seafood, and sourcing we can actually show you. Whether you use this season for simple meals or complex flavours, you know your base ingredients are true to a standard that you can trust, for yourself, your family, your circle. </p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -324,8 +330,8 @@
         "button_CQWkbx": {
           "type": "button",
           "settings": {
-            "button_label": "Summer Solstice Guide",
-            "button_link": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/Seatopia_Summer_Guide.pdf?v=1782205377",
+            "button_label": "Fall Equinox Guide",
+            "button_link": "",
             "button_style": "primary",
             "button_size": "md",
             "button_external": false,
@@ -370,16 +376,22 @@
     },
     "multicolumn_with_icons_Yb6gYW": {
       "type": "seatopia-standard",
+      "disabled": true,
       "settings": {
         "variant": "ribbon",
         "show_coa": false,
         "show_ocean": false,
         "show_header": false,
+        "eyebrow": "",
+        "heading": "",
+        "cta_label": "",
+        "cta_link": "",
         "color_background": "#335566",
+        "color_text": "",
+        "color_background_full": "",
         "padding_top": 72,
         "padding_bottom": 72
-      },
-      "disabled": true
+      }
     },
     "empty_space_kx9VHU": {
       "type": "empty-space",
@@ -472,6 +484,7 @@
       "disabled": true,
       "name": "t:sections.featured-product.presets.name",
       "settings": {
+        "section_id": "",
         "product": "marshallberg-classic-osetra-caviar",
         "enable_sticky_info": true,
         "show_chef_notes": true,
@@ -684,6 +697,7 @@
       ],
       "name": "t:sections.featured-product.presets.name",
       "settings": {
+        "section_id": "",
         "product": "summer-box",
         "enable_sticky_info": true,
         "show_chef_notes": false,
@@ -781,6 +795,7 @@
       "type": "product-bundle",
       "name": "t:sections.product-bundle.presets.name",
       "settings": {
+        "section_id": "",
         "collection": "build-your-own-box",
         "products": [
           "buy-ora-king-salmon-portion-new-zealand",
@@ -1056,12 +1071,14 @@
       ],
       "name": "t:sections.image-with-text-overlay.presets.name",
       "settings": {
+        "section_id": "",
         "transparent_header": false,
         "image": "shopify://shop_images/20260614-Stetten-Wilson-317.jpg",
         "image_height": "650px",
         "content_width": "small",
         "content_position": "md:items-center md:justify-center",
         "text_alignment": "center",
+        "priority_image": false,
         "image_height_mobile": "auto",
         "content_position_mobile": "items-end justify-start",
         "text_alignment_mobile": "left",
@@ -1196,6 +1213,7 @@
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "custom-class": "",
+        "section_id": "",
         "text_alignment": "center",
         "text_alignment_mobile": "center",
         "heading": "",
@@ -1306,6 +1324,7 @@
       "name": "testimonials",
       "settings": {
         "custom_class": "",
+        "section_id": "",
         "title": "",
         "sub_title": "",
         "section_cont_position": "center",
@@ -1320,6 +1339,7 @@
     "index_review_judge_me_CGWRxy": {
       "type": "Index-review-judge_me",
       "settings": {
+        "section_id": "",
         "section_background": "#fafafa",
         "padding_top": 32,
         "padding_bottom": 40
