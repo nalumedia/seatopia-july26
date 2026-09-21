@@ -325,7 +325,7 @@
             "button_style": "primary",
             "button_size": "md",
             "button_external": false,
-            "button_icon": true
+            "button_icon": false
           }
         }
       },
@@ -623,6 +623,137 @@
         "divider": false,
         "full_width": true,
         "rounded": false
+      }
+    },
+    "collage_DgizXx": {
+      "type": "collage",
+      "blocks": {
+        "image_tTQaXD": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/Screenshot_2025-06-13_at_9.54.12_AM.png",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_fDQyVf": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/Screenshot_2025-06-13_at_12.18.40_PM.png",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_meLGbA": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/bakkafrost-faroe-islands-salmon-8-oz-skin-off-portions-540145.jpg",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_4AJc8c": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/atlantic-salmon-6-8oz-filets-445577.png",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        }
+      },
+      "block_order": [
+        "image_tTQaXD",
+        "image_fDQyVf",
+        "image_meLGbA",
+        "image_4AJc8c"
+      ],
+      "settings": {
+        "heading": "Deep fjords, volcanic rock, rich currents",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Bakkafrost operates across the remote archipelago of the Faroe Islands, halfway between Iceland and Norway, where deep fjords carve into volcanic rock and the ocean surges with oxygen-rich current. These waters are cold year-round, naturally reducing the need for antibiotics and supporting slower, healthier growth rates in the salmon. The geographic isolation of the Faroe Islands - free from many of the pathogens found elsewhere - creates an ideal biosecure farming environment. Farming sites like Funningsfjørður are among the most carefully managed aquaculture systems in the world, drawing on centuries of local maritime knowledge.</p>",
+        "button_label": "Meet the farm",
+        "button_link": "shopify://pages/bakkafrost-atlantic-salmon",
+        "button_external": false,
+        "button_icon": false,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true
       }
     },
     "collage_PtgD3p": {
@@ -1434,6 +1565,7 @@
     "video_with_text_overlay_jH8bXm",
     "1758153577fa569f00",
     "video-hero",
+    "collage_DgizXx",
     "collage_PtgD3p",
     "product-details",
     "index_new_testimonials_gq9XBi",
