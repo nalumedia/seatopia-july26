@@ -854,7 +854,7 @@
         "heading_UR4q3M": {
           "type": "heading",
           "settings": {
-            "heading": "The Centerpiece of Summer — Grilled Peaches & Ora King Salmon",
+            "heading": "A Centerpiece of Art: Apple Cider Poached Steelhead",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -864,7 +864,7 @@
         "text_k3Bh9E": {
           "type": "text",
           "settings": {
-            "text": "<p>When feeding a group under the twilight, we love a layered main that captures the full complexity of the season. In this featured recipe, sweet, charred peaches pair effortlessly with the rich, savory depth of shoyu-glazed Ora King Salmon. Creamy burrata adds a cooling richness, toasted pistachios bring an essential crunch, and fresh mint leaves a crisp, herbaceous finish. It is bold, sweet, and designed to be shared.</p>",
+            "text": "<p>Nothing says fall like apple cider and browned butter, and this dish has both. Poaching steelhead is a gentle way to prepare it, served here with plenty of good fat for a rounder, more satisfying bite. It feels like something you'd discover in a casual French kitchen, simple and elegant, and pairs beautifully with a few cheeses for dessert.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -877,7 +877,7 @@
           "type": "button",
           "settings": {
             "button_label": "Get the Recipe",
-            "button_link": "https://seatopia.fish/blogs/seafood-recipes/grilled-peaches-ora-king-salmon-with-burrata-pistachio-mint-1",
+            "button_link": "",
             "button_style": "primary",
             "button_size": "md",
             "button_external": false,
@@ -893,7 +893,7 @@
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "custom_class": "",
-        "image": "shopify://shop_images/Grilled_Ora_3_a06b03e2-6a88-410d-a4bb-9a7f77321ad6.jpg",
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-315_Large_83c24fed-1d0c-4607-837d-eaec0825d462.jpg",
         "image_height": "100vh",
         "image_width": "medium",
         "layout": "image_first",
@@ -977,7 +977,7 @@
         "text_rqtRhg": {
           "type": "text",
           "settings": {
-            "text": "<p>Co-created in the magical Valley of the Moon in Ojai, California, this season's menu comes alive through the vision of Miriam Thom. Miriam is a new mum to Winona Oros, a content creator, writer, and chef. Working across mediums, she explores regenerative narratives through storytelling and immersive experiences. Her practice is grounded in inquiry into community, place, and the sacred intelligence of marine nutrition.</p>",
+            "text": "<p>Co-created in the magical Valley of the Moon in Ojai, California, this season's menu comes alive through the vision of Miriam Thom. Miriam Thom is a new mum to Winona Oros, a content creator, writer, and chef based in Ojai, California. Working across mediums, she explores regenerative narratives through storytelling and immersive experiences. Her practice is grounded in inquiry into community, place, and the sacred intelligence of nature. </p><p>Stay connected with Miriam’s work on Instagram @miriamthom or through Ikigai World on Substack. <a href=\"https://www.instagram.com/miriamthom/\"><span style=\"text-decoration:underline\">https://www.instagram.com/miriamthom/</span></a> <a href=\"https://miriamthom.substack.com/\"><span style=\"text-decoration:underline\">https://miriamthom.substack.com/</span></a> </p><p>All photography credited to: Devin Wilson @<a href=\"https://www.instagram.com/devin.r.wilson/#\">devin.r.wilson</a>  <a href=\"https://www.instagram.com/devin.r.wilson/\"><span style=\"text-decoration:underline\">https://www.instagram.com/devin.r.wilson/</span></a> </p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -1006,7 +1006,7 @@
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "custom_class": "",
-        "image": "shopify://shop_images/Grilled_Ora_9.jpg",
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-93_Large_44af11cf-38ad-453b-923b-90bd36327e0d.jpg",
         "image_height": "100vh",
         "image_width": "medium",
         "layout": "image_first",
@@ -1075,6 +1075,7 @@
         "text_bTHRcq",
         "button_Aikq4g"
       ],
+      "disabled": true,
       "name": "t:sections.image-with-text-overlay.presets.name",
       "settings": {
         "section_id": "",
@@ -1112,7 +1113,7 @@
         "heading_6MCHbk": {
           "type": "heading",
           "settings": {
-            "heading": "Perfect Seafood Served This Summer",
+            "heading": "Perfect Seafood Served This Fall",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -1122,7 +1123,7 @@
         "text_Vat3rC": {
           "type": "text",
           "settings": {
-            "text": "<p>There is a distinct magic to the way we eat when the earth is warm and the daylight stays late. Summer asks us to put away our formal hosting scripts and step into something far more fluid. It’s an open invitation to share in the heavy lifting of a meal—to bring a seasonal offering, and let the evening unfold at its own pace.</p>",
+            "text": "<p>September corresponds with Virgo, a sign associated with earth and an attention to detail. These recipes celebrate the fine print of autumnal produce: the rose-like fractals of maitake, the polka-dot russeting of an Asian pear, the black tiger stripes of shrimp, or the dusky skin of grapes.</p><p>There is a distinct concentration to the way we eat once the light starts to shorten. Rushed and excited conversations are swapped out for quiet, focused ones. And the food that goes with it becomes about moments to savour and celebrate inwardly. </p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
