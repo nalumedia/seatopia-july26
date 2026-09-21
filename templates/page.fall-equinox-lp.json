@@ -556,7 +556,7 @@
         "heading_e9TytT": {
           "type": "heading",
           "settings": {
-            "heading": "Where Good Friends Meet and Memories Take Shape",
+            "heading": "Where Autumn Gathers",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -566,7 +566,7 @@
         "text_eUghq3": {
           "type": "text",
           "settings": {
-            "text": "<p>Picture the meals that define a true summer: potlucks under sprawling oak trees, casual backyard barbecues, or spontaneous beach picnics that smoothly transition into twilight dinners. This season isn’t about formal hosting or perfection; it’s an open invitation to participate. It asks us to bring a dish to share, pass a plate, pull up a chair, and join the conversation.</p>",
+            "text": "<p>How we imagine autumn gatherings take shape: fire-pit conversation, a dinner for four that stretches deep into the night, a table dined by your favourite seafood and whatever was available at the farmers market that morning.  This season isn’t about filling the calendar, breaking out or hosting big, energetic gatherings. It’s the chance to hone in on a dish you’re trying to perfect, to try something new with a small, forgiving audience, to keep it simple and spectacular.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -595,7 +595,7 @@
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "custom_class": "",
-        "image": "shopify://shop_images/20260614-Stetten-Wilson-249.jpg",
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-212_Large_f8b951f6-0ca7-472d-ae04-fe92425e2a04.jpg",
         "image_height": "100vh",
         "image_width": "medium",
         "layout": "image_first",
@@ -697,6 +697,7 @@
         "read_more_6Pmmqe",
         "spinning_text_ibp8Ba"
       ],
+      "disabled": true,
       "name": "t:sections.featured-product.presets.name",
       "settings": {
         "section_id": "",
@@ -727,7 +728,7 @@
         "heading_dFGpNi": {
           "type": "heading",
           "settings": {
-            "heading": "An Offering of Presence — Shared Tables, Shared Stories",
+            "heading": "A Grounding Ritual for Fall",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -737,7 +738,7 @@
         "text_AECUt8": {
           "type": "text",
           "settings": {
-            "text": "<p>When we talk about regenerative aquaculture, we're speaking about far more than the farms we partner with. We see aquaculture as part of a living system — one that connects growers, harvesters, distributors, cooks, and everyone who gathers around the table. For something to be truly regenerative, participation is required from every part of the system.</p><p>Showing up to a gathering with an intentionally sourced dish is an offering that reflects your values, your choices, and the networks of relationships you help sustain. When you arrive, you are saying: <em>“I care about where my nourishment comes from, and I care about how I nourish the people around me.”</em></p>",
+            "text": "<p>Before the meal begins, step outside. Take a short walk, around the block or into the yard, and gather something along the way: a few fallen leaves, a handful of kindling, a late imperfect apple. The point isn't to collect, it's to notice.</p><p>Bring what you've gathered inside. If you have a fireplace or a fire pit, use the kindling to build the evening's fire. If you don't, let a few candles do the same work.</p><p>Before you sit down to eat, take a moment, just a breath or two, to look at the people around the table. No toast required, no words if you don't want them. Just the quiet acknowledgment of being together in this way.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -748,6 +749,7 @@
         },
         "button_y4qVCf": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "button_label": "Learn More",
             "button_link": "shopify://pages/why-clean-seafood-matters",
@@ -766,7 +768,7 @@
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "custom_class": "",
-        "image": "shopify://shop_images/20260614-Stetten-Wilson-290_1.jpg",
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-315_Large_83c24fed-1d0c-4607-837d-eaec0825d462.jpg",
         "image_height": "100vh",
         "image_width": "medium",
         "layout": "text_first",
@@ -800,6 +802,8 @@
         "section_id": "",
         "collection": "build-your-own-box",
         "products": [
+          "black-tiger-shrimp-mangrove-regeneration",
+          "smoke-in-chimneys-whole-trout-12-16oz",
           "buy-ora-king-salmon-portion-new-zealand",
           "branzino-bundle-2x-6oz-portions",
           "mt-cook-alpine-salmon-7oz-filet",
@@ -821,7 +825,7 @@
         "picker_type": "button",
         "enable_color_swatches": true,
         "color_swatch_type": "color",
-        "heading": "Build Your Summer Menu",
+        "heading": "Build Your Fall Menu",
         "heading_size": "lg:text-5xl text-2xl",
         "heading_alignment": "text-left",
         "heading_tag": "h2",
