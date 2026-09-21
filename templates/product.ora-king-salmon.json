@@ -744,7 +744,7 @@
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h3",
         "subheading": "",
-        "description": "<p>Seatopia is the only seafood company in the world that lab tests to ensure your seafood is packed with omega 3s, mercury safe, and free from detectable microplastics.</p><p>We lab test all our supplier to make sure the live up to the Seatopia Standard™ to provide you with transparency, accountability, and most importantly piece of mind.</p>",
+        "description": "<p>Seatopia is the only seafood company in the world that lab tests to ensure your seafood is packed with omega 3s, mercury safe, and free from detectable microplastics.</p><p>We lab test all our supplier to make sure they live up to the Seatopia Standard™, to provide you with transparency, accountability, and most importantly piece of mind.</p>",
         "button_label": "",
         "button_link": "shopify://collections/add-ons-1",
         "button_external": false,
