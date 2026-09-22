@@ -16,13 +16,12 @@
       "blocks": {
         "announcement-2": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
             "icon": "none",
-            "text": "Celebrate the Autumn Equinox with $20 OFF your next order using <strong>AUTUMN26</strong>",
+            "text": "🍂 Celebrate the Autumn Equinox with $20 OFF your next order using <strong>AUTUMN26</strong>",
             "link": "shopify://pages/the-autumn-equinox",
             "hide_icon_mobile": false,
-            "text_mobile": "Celebrate the Autumn Equinox with $20 OFF your next order using <strong>AUTUMN26</strong>",
+            "text_mobile": "🍂 Celebrate the Autumn Equinox with $20 OFF your next order using <strong>AUTUMN26</strong>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
