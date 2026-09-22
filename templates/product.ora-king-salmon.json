@@ -439,6 +439,252 @@
         "rounded": true
       }
     },
+    "images_with_text_VJAmP4": {
+      "type": "images-with-text",
+      "blocks": {
+        "heading_JTXrC3": {
+          "type": "heading",
+          "settings": {
+            "heading": "Perfect Seafood, every time",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_bhKUMk": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Unsure about how to prep your seafood? Don't worry - we developed a super easy guide for you to get it right every single time.</p><p>It covers simple defrosting for a perfect result, getting that beautiful crispy skin we all love so much and gives you some basic techniques to create delicious and simple dishes like poke bowls and hand rolls.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_FTpwp8": {
+          "type": "button",
+          "settings": {
+            "button_label": "Free prep guide",
+            "button_link": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/SeatopiaSimpleRecipes.pdf?v=1787902680",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_JTXrC3",
+        "text_bhKUMk",
+        "button_FTpwp8"
+      ],
+      "name": "t:sections.images-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Screenshot_2026-09-21_at_16.11.28.png",
+        "image_2": "shopify://shop_images/Screenshot_2026-09-21_at_16.12.00.png",
+        "image_ratio": "wide",
+        "image_width": "large",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true
+      }
+    },
+    "1758153577fa569f00": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_snippet_widget_qcJmma": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_snippet_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "reviews_selection": "auto",
+            "products": [],
+            "filter_pinned": false,
+            "filter_featured": false,
+            "filter_custom_tags": "",
+            "min_star_rating": "inherit",
+            "show_review_media": true,
+            "max_reviews": 5,
+            "review_length": "medium",
+            "text_size": "medium",
+            "max_width": 1100,
+            "max_image_size": "small",
+            "arrows_visibility": "always_shown",
+            "transition_speed": 5,
+            "corner_styling": "inherit",
+            "text_color": "",
+            "card_color": "",
+            "stars_color": "",
+            "arrows_color": "",
+            "arrows_background_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_snippet_widget_qcJmma"
+      ],
+      "settings": {
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 20,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "collage_ErFgzt": {
+      "type": "collage",
+      "blocks": {
+        "image_KFdDLe": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/ora-king-king-salmon-75oz-967536.png",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_FXBhqf": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/new-zealand-king-salmon-farm-3.jpg",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_gf4Rp8": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/new-zealand-king-salmon-farm-2.jpg",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_QxJazD": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/new-zealand-king-salmon-farm-1.jpg",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        }
+      },
+      "block_order": [
+        "image_KFdDLe",
+        "image_FXBhqf",
+        "image_gf4Rp8",
+        "image_QxJazD"
+      ],
+      "settings": {
+        "heading": "Pristine Bays, Pure Ocean Currents",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Ōra King salmon are raised in the isolated bays and deep inlets of the Marlborough Sounds, where cool ocean currents flow in from the Cook Strait and the surrounding mountains create a sheltered, temperate microclimate. The waters here are cold, clean, and consistently refreshed by tide and rainfall, making them ideal for salmon farming. The remoteness of this region provides natural biosecurity and allows the farm to operate with low environmental impact while maintaining world-leading water quality standards.</p>",
+        "button_label": "Visit the farm",
+        "button_link": "shopify://pages/ora-king-salmon-new-zealand",
+        "button_external": false,
+        "button_icon": false,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true
+      }
+    },
     "index_new_testimonials_gq9XBi": {
       "type": "index-new-testimonials",
       "blocks": {
@@ -584,54 +830,6 @@
         "padding_bottom": 0,
         "divider": false,
         "full_width": true,
-        "rounded": false
-      }
-    },
-    "1758153577fa569f00": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_snippet_widget_qcJmma": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_snippet_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "reviews_selection": "auto",
-            "products": [],
-            "filter_pinned": false,
-            "filter_featured": false,
-            "filter_custom_tags": "",
-            "min_star_rating": "inherit",
-            "show_review_media": true,
-            "max_reviews": 5,
-            "review_length": "medium",
-            "text_size": "medium",
-            "max_width": 1100,
-            "max_image_size": "small",
-            "arrows_visibility": "always_shown",
-            "transition_speed": 5,
-            "corner_styling": "inherit",
-            "text_color": "",
-            "card_color": "",
-            "stars_color": "",
-            "arrows_color": "",
-            "arrows_background_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_snippet_widget_qcJmma"
-      ],
-      "settings": {
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 20,
-        "padding_bottom": 24,
-        "divider": false,
-        "full_width": false,
         "rounded": false
       }
     },
@@ -1365,9 +1563,11 @@
     "main-product",
     "help-drawer",
     "video_with_text_overlay_jH8bXm",
+    "images_with_text_VJAmP4",
+    "1758153577fa569f00",
+    "collage_ErFgzt",
     "index_new_testimonials_gq9XBi",
     "video-hero",
-    "1758153577fa569f00",
     "collage_PtgD3p",
     "product-details",
     "shop_the_feed_LYTGxr",
