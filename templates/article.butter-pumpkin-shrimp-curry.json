@@ -1,0 +1,854 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-article-banner": {
+      "type": "main-article-banner",
+      "blocks": {
+        "spacing": {
+          "type": "spacing",
+          "settings": {
+            "height": 68,
+            "height_mobile": 0
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "title-lg tracking-heading",
+            "show_tags": true,
+            "show_date": false,
+            "show_comments": false,
+            "show_author": true
+          }
+        }
+      },
+      "block_order": [
+        "spacing",
+        "title"
+      ],
+      "settings": {
+        "transparent_header": true,
+        "show_image": true,
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-112.jpg",
+        "image_height": "750px",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-center",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_overlay": "#000000",
+        "overlay_opacity": 40,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "collab_card": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "recipe-collab",
+        "liquid": "<style>\n  .sea-collab {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    border: 1px solid var(--line);\n    border-radius: 18px;\n    background: var(--wash);\n    padding: 24px 28px;\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n    color: var(--ink);\n  }\n  .sea-collab__avatar {\n    flex: 0 0 auto;\n    width: 68px;\n    height: 68px;\n    border-radius: 50%;\n    overflow: hidden;\n    border: 2px solid #fff;\n    box-shadow: 0 0 0 2px var(--gold);\n    background: #eee;\n  }\n  .sea-collab__avatar img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    display: block;\n  }\n  .sea-collab__body {\n    flex: 1 1 260px;\n    min-width: 0;\n  }\n  .sea-collab__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 5px;\n  }\n  .sea-collab__name {\n    font-size: 21px;\n    font-weight: 600;\n    line-height: 1.2;\n    margin: 0 0 4px;\n  }\n  .sea-collab__role {\n    font-size: 15px;\n    color: var(--muted);\n    line-height: 1.45;\n    margin: 0;\n  }\n  .sea-collab__cred {\n    font-size: 13px;\n    color: var(--muted);\n    line-height: 1.5;\n    margin: 10px 0 0;\n    padding-top: 10px;\n    border-top: 1px solid var(--line);\n  }\n  .sea-collab__follow {\n    flex: 0 0 auto;\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    padding: 11px 20px;\n    border: 1px solid var(--ink);\n    border-radius: 999px;\n    font-size: 15px;\n    font-weight: 600;\n    text-decoration: none;\n    color: var(--ink);\n    background: #fff;\n    transition: background .18s ease, color .18s ease;\n  }\n  .sea-collab__follow:hover {\n    background: var(--ink);\n    color: #fff;\n  }\n  .sea-collab__follow svg {\n    width: 18px;\n    height: 18px;\n  }\n  @media (max-width: 749px) {\n    .sea-collab {\n      padding: 20px;\n      gap: 16px;\n    }\n    .sea-collab__follow {\n      width: 100%;\n      justify-content: center;\n    }\n    .sea-collab__name {\n      font-size: 19px;\n    }\n  }\n</style>\n{%- assign collab_avatar = 'miriam-thom-headshot.jpg' | file_url -%}\n\n<div class=\"sea-collab\">\n  {%- if collab_avatar != blank -%}\n    <div class=\"sea-collab__avatar\">\n      <img src=\"{{ collab_avatar }}&amp;width=200\" alt=\"Miriam Thom\" width=\"136\" height=\"136\" loading=\"lazy\" decoding=\"async\">\n    </div>\n  {%- endif -%}\n\n  <div class=\"sea-collab__body\">\n    <p class=\"sea-collab__eyebrow\">\n      <span>From the Seatopia kitchen</span>\n      <span class=\"sea-collab__badge\">In-house</span>\n    </p>\n    <p class=\"sea-collab__name\">Recipe by Miriam Thom</p>\n    <p class=\"sea-collab__role\">Culinary Education at Seatopia &mdash; she develops the recipes that ship with the boxes and teaches the <a href=\"/pages/seatopia-member-cooking-classes\" title=\"Seatopia Member Cooking Classes\">member cooking classes</a></p>\n    <p class=\"sea-collab__cred\">Serves 4 &middot; about 50 minutes &middot; one sheet pan, one blender, one skillet</p>\n  </div>\n\n  <a class=\"sea-collab__follow\" href=\"https://www.instagram.com/miriamthom\" target=\"_blank\" rel=\"noopener noreferrer\">\n    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n      <rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\"></rect>\n      <circle cx=\"12\" cy=\"12\" r=\"4\"></circle>\n      <circle cx=\"17.5\" cy=\"6.5\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"></circle>\n    </svg>\n    <span>Follow</span>\n  </a>\n</div>\n",
+        "padding_top": 28,
+        "padding_bottom": 8,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "rich_text_intro": {
+      "type": "rich-text",
+      "blocks": {
+        "text_intro": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If you like butter chicken, you will love this butter pumpkin shrimp. It is sweet and creamy with warming spices and a bit of heat from the Fresno. Cilantro lime basmati and toasted coconut keep it feeling bright, fragrant and deeply satisfying.</p><p>Two things carry it. The sauce gets its body from roasted squash in a blender rather than an hour of reducing, and the shrimp go in at the very end &mdash; three or four minutes, judged by how far they curl rather than by the clock.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "text_intro"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_width": "small",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "at_a_glance": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "g_time": {
+          "type": "column",
+          "settings": {
+            "icon": "time",
+            "custom_icon": "",
+            "heading": "About 50 minutes",
+            "text": "<p>The pumpkin roasts and the rice cooks while you do everything else, so the hands-on time is closer to twenty minutes. The shrimp are the last four.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_serves": {
+          "type": "column",
+          "settings": {
+            "icon": "users",
+            "custom_icon": "",
+            "heading": "Serves 4",
+            "text": "<p>One 16 oz bag of shrimp, four 4 oz servings, over cilantro lime basmati. It halves cleanly if you are cooking for two and want leftovers of the sauce.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_prep": {
+          "type": "column",
+          "settings": {
+            "icon": "check_mark",
+            "custom_icon": "",
+            "heading": "Watch for the C",
+            "text": "<p>Shrimp are done when they curl into a loose C. A closed O means overcooked, and a thick sauce keeps cooking them after the heat is off.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_marinade": {
+          "type": "column",
+          "settings": {
+            "icon": "heart",
+            "custom_icon": "",
+            "heading": "Blended, not reduced",
+            "text": "<p>Roasted kabocha and a can of coconut milk through a blender. That is where the body comes from &mdash; no long simmer, no cream.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "g_time",
+        "g_serves",
+        "g_marinade",
+        "g_prep"
+      ],
+      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "settings": {
+        "custom_class": "",
+        "section_id": "at-a-glance",
+        "style": "with-border",
+        "columns": 4,
+        "text_alignment": "left",
+        "dt_txt_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "At a glance",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "shrimp_note": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "shrimp-doneness",
+        "liquid": "<style>\n  .sea-pepper {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-pepper__grid {\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);\n    gap: 34px;\n    align-items: center;\n  }\n  .sea-pepper__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-pepper__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n  }\n  .sea-pepper__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 22px;\n  }\n  .sea-pepper__rows {\n    display: grid;\n    gap: 14px;\n  }\n  .sea-pepper__row {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 15px 17px;\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) auto;\n    gap: 10px 16px;\n    align-items: center;\n  }\n  .sea-pepper__row--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-pepper__name {\n    grid-column: 1;\n    margin: 0;\n    font-size: 15px;\n    font-weight: 600;\n    line-height: 1.3;\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-wrap: wrap;\n  }\n  .sea-pepper__tag {\n    font-size: 10px;\n    font-weight: 700;\n    letter-spacing: .08em;\n    text-transform: uppercase;\n    color: #fff;\n    background: var(--gold);\n    padding: 3px 8px;\n    border-radius: 999px;\n  }\n  .sea-pepper__meter {\n    grid-column: 2;\n    grid-row: 1;\n    display: flex;\n    gap: 4px;\n    align-items: center;\n  }\n  .sea-pepper__pip {\n    width: 9px;\n    height: 9px;\n    border-radius: 50%;\n    background: #fff;\n    border: 1.5px solid #d8cfc0;\n  }\n  .sea-pepper__pip.is-on {\n    background: #b8462f;\n    border-color: #b8462f;\n  }\n  .sea-pepper__note {\n    grid-column: 1 / -1;\n    margin: 0;\n    font-size: 13.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  .sea-pepper__legend {\n    margin: 16px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  .sea-pepper__figure {\n    margin: 0;\n  }\n  .sea-pepper__figure img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-pepper__cap {\n    margin: 10px 0 0;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  @media (max-width: 989px) {\n    .sea-pepper {\n      padding: 22px;\n    }\n    .sea-pepper__grid {\n      grid-template-columns: 1fr;\n      gap: 24px;\n    }\n    .sea-pepper__figure {\n      order: -1;\n    }\n  }\n</style>\n<div class=\"sea-pepper\">\n  <div class=\"sea-pepper__grid\">\n\n    <div class=\"sea-pepper__body\">\n      <p class=\"sea-pepper__eyebrow\">Read the shape, not the clock</p>\n      <h2 class=\"sea-pepper__heading\">A shrimp tells you when it is done by how tightly it curls.</h2>\n      <p class=\"sea-pepper__lede\">\n        Three or four minutes is the guide, but shrimp go from perfect to rubbery in well under a\n        minute, and a pan of hot sauce keeps cooking them after the heat is off. The reliable signal\n        is geometry: as it cooks a shrimp draws itself into a C, and if it keeps going it closes into\n        an O. C is dinner. O is a mistake you cannot undo.\n      </p>\n\n      <div class=\"sea-pepper__rows\">\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Straight and translucent</span>\n          <span class=\"sea-pepper__tag\">Not yet</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Doneness: 1 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">Raw. Grey-blue and floppy, lying flat in the sauce. It will start to firm and turn opaque from the outside in within about a minute.</p>\n      </div>\n      <div class=\"sea-pepper__row sea-pepper__row--pick\">\n        <p class=\"sea-pepper__name\">\n          <span>A loose C &mdash; opaque, still plump</span>\n          <span class=\"sea-pepper__tag\">Pull it here</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Doneness: 3 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">The shrimp has curled but the head and tail ends are still well apart. Opaque all the way through, pink outside. Take the pan off the heat now; carryover in the sauce finishes the job.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>A tight C, edges firming</span>\n          <span class=\"sea-pepper__tag\">Last chance</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Doneness: 4 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">The gap has closed to about a fingertip. Still good if you serve immediately, but there is no margin left. If it is heading to the table in a few minutes, you have already gone slightly far.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>A closed O</span>\n          <span class=\"sea-pepper__tag\">Overcooked</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Doneness: 5 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">Head touching tail. The flesh has squeezed out its moisture and gone springy and dense. Nothing recovers it &mdash; this is the texture people mean when they say they do not like shrimp.</p>\n      </div>\n      </div>\n\n      <p class=\"sea-pepper__legend\">\n        Ratings are how far along the shrimp is, not how good. Because this sauce is thick and holds\n        heat, pull the pan a shade earlier than you would from a dry skillet &mdash; the shrimp\n        continue to tighten while you are spooning it out.\n      </p>\n    </div>\n\n    <figure class=\"sea-pepper__figure\">\n      <img\n        src=\"{{ '20260825-Stetten-Wilson-85.jpg' | file_url }}&amp;width=700\"\n        alt=\"Raw black tiger shrimp being slipped into the pumpkin coconut sauce\"\n        width=\"1200\"\n        height=\"800\"\n        loading=\"lazy\"\n        decoding=\"async\">\n      <figcaption class=\"sea-pepper__cap\">\n        In they go, straight and flat. From this point you are watching the curl, not the timer.\n      </figcaption>\n    </figure>\n\n  </div>\n</div>\n",
+        "padding_top": 40,
+        "padding_bottom": 16,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "recipe_kit_card": {
+      "type": "apps",
+      "blocks": {
+        "recipe_kit_app_block_shrimp": {
+          "type": "shopify://apps/recipe-kit/blocks/app-block/0afa374e-81c7-4989-96de-e1ac84640954",
+          "settings": {
+            "custom_js": "",
+            "custom_css": ".rk_direction_image { margin-top: 14px; }\n.rk_direction_image img { max-height: 400px; width: 100%; object-fit: cover; border-radius: 12px; }\n@media (max-width: 749px) {\n  .rk_direction_image img { max-height: 280px; }\n}\n"
+          }
+        }
+      },
+      "block_order": [
+        "recipe_kit_app_block_shrimp"
+      ],
+      "settings": {
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "shop_the_plate": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "",
+        "products": [
+          "black-tiger-shrimp-mangrove-regeneration",
+          "fish-shellfish-variety-box",
+          "whole-trout-12oz"
+        ],
+        "product_limit": 3,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>One 16 oz bag of Mangrove Black Tiger Shrimp from Tarakan feeds four. Everything else is a greengrocer and a spice shelf &mdash; kabocha, coconut milk, garam masala and a couple of limes.</p>",
+        "heading": "Everything on this plate",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "sauce_note": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "building-the-sauce",
+        "liquid": "<style>\n  .sea-sheet {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-sheet__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-sheet__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n    max-width: 22ch;\n  }\n  .sea-sheet__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 24px;\n    max-width: 68ch;\n  }\n  .sea-sheet__cols {\n    display: grid;\n    grid-template-columns: repeat(3, minmax(0, 1fr));\n    gap: 14px;\n  }\n  .sea-sheet__col {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 18px;\n  }\n  .sea-sheet__col--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-sheet__num {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 26px;\n    height: 26px;\n    border-radius: 50%;\n    background: var(--ink);\n    color: #fff;\n    font-size: 12px;\n    font-weight: 700;\n    margin: 0 0 10px;\n  }\n  .sea-sheet__col h3 {\n    font-size: 15.5px;\n    font-weight: 600;\n    line-height: 1.3;\n    margin: 0 0 7px;\n  }\n  .sea-sheet__col p {\n    font-size: 13.5px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0;\n  }\n  .sea-sheet__foot {\n    margin: 18px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  @media (max-width: 749px) {\n    .sea-sheet {\n      padding: 22px;\n    }\n    .sea-sheet__cols {\n      grid-template-columns: 1fr;\n    }\n  }\n\n  .sea-sheet__fig {\n    margin: 22px auto 0;\n    max-width: 360px;\n  }\n  .sea-sheet__fig img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-sheet__figcap {\n    margin: 10px auto 0;\n    max-width: 360px;\n    text-align: center;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n</style>\n<div class=\"sea-sheet\">\n  <p class=\"sea-sheet__eyebrow\">How the sauce actually gets built</p>\n  <h2 class=\"sea-sheet__heading\">The sauce is blended, not reduced &mdash; and the spices are bloomed apart from it.</h2>\n  <p class=\"sea-sheet__lede\">\n    Butter chicken gets its body from long simmering. This gets it from roasted squash put through a\n    blender, which is why it takes fifty minutes instead of two hours. That means three separate\n    moves, and doing them in the wrong order is the only way to get a flat, raw-tasting sauce.\n  </p>\n\n  <div class=\"sea-sheet__cols\">\n    <div class=\"sea-sheet__col sea-sheet__col--pick\">\n      <span class=\"sea-sheet__num\">1</span>\n      <h3>Roast the pumpkin, don't boil it</h3>\n      <p>425&deg;F until the edges caramelise. That browning is where the sweetness comes from, and\n      you cannot get it back later &mdash; simmered squash makes a sauce that tastes thin and\n      vegetal no matter what you add to it.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">2</span>\n      <h3>Vent the blender lid</h3>\n      <p>Let the pumpkin cool a few minutes, then blend with the coconut milk on low before you go\n      up. Hot liquid turns to steam in a sealed jug and pushes the lid off &mdash; keep it vented and\n      hold a towel over the top.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">3</span>\n      <h3>Bloom the spices separately</h3>\n      <p>Garam masala, crushed cardamom, garlic and ginger in butter for about 45 seconds, until they\n      smell fragrant rather than dusty. Fat carries those flavours in a way liquid does not. Then\n      pour the sauce in.</p>\n    </div>\n  </div>\n\n  <figure class=\"sea-sheet__fig\">\n    <img\n      src=\"{{ '20260825-Stetten-Wilson-82.jpg' | file_url }}&amp;width=760\"\n      alt=\"Blended pumpkin and coconut sauce being poured into a pot of bloomed spices\"\n      width=\"1200\"\n      height=\"1600\"\n      loading=\"lazy\"\n      decoding=\"async\">\n    <figcaption class=\"sea-sheet__figcap\">\n      The two halves meet here &mdash; blended sauce into bloomed spice, not the other way round.\n    </figcaption>\n  </figure>\n</div>\n",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "swap_table": {
+      "type": "table-content",
+      "blocks": {
+        "w_head": {
+          "type": "row",
+          "settings": {
+            "version1": "As written",
+            "version2": "Closest swap",
+            "version3": "If you are improvising"
+          }
+        },
+        "w_shrimp": {
+          "type": "row",
+          "settings": {
+            "feature": "The shrimp",
+            "version1": "16 oz Mangrove Black Tiger Shrimp",
+            "version2": "Any raw peeled shrimp, same timing",
+            "version3": "Scallops &mdash; two minutes, turned once; or firm white fish in 1-inch pieces"
+          }
+        },
+        "w_squash": {
+          "type": "row",
+          "settings": {
+            "feature": "The squash",
+            "version1": "2 cups kabocha or sugar pumpkin",
+            "version2": "Butternut, which is sweeter and smoother",
+            "version3": "Sweet potato &mdash; denser, so thin the sauce with a splash more coconut milk"
+          }
+        },
+        "w_dairy": {
+          "type": "row",
+          "settings": {
+            "feature": "The richness",
+            "version1": "1 can full-fat coconut milk",
+            "version2": "Coconut cream, thinned with water",
+            "version3": "Cashew cream, for something closer to a classic butter sauce"
+          }
+        },
+        "w_spice": {
+          "type": "row",
+          "settings": {
+            "feature": "The spice",
+            "version1": "1&frac12; tsp garam masala + cardamom pods",
+            "version2": "Curry powder, with the cardamom kept",
+            "version3": "Cumin, coriander and a cinnamon stick, bloomed the same way"
+          }
+        },
+        "w_heat": {
+          "type": "row",
+          "settings": {
+            "feature": "The heat",
+            "version1": "1 Fresno chile, sliced",
+            "version2": "Red jalape&ntilde;o, or half a serrano",
+            "version3": "A pinch of Aleppo stirred in at the end, for warmth without the bite"
+          }
+        },
+        "w_grain": {
+          "type": "row",
+          "settings": {
+            "feature": "The grain",
+            "version1": "Cilantro lime basmati",
+            "version2": "Jasmine rice, same treatment",
+            "version3": "Warm naan or roti, and skip the rice entirely"
+          }
+        },
+        "w_crunch": {
+          "type": "row",
+          "settings": {
+            "feature": "The crunch",
+            "version1": "Toasted coconut flakes and pepitas",
+            "version2": "Toasted cashews or almonds",
+            "version3": "Fried shallots, which add salt as well as texture"
+          }
+        }
+      },
+      "block_order": [
+        "w_head",
+        "w_shrimp",
+        "w_squash",
+        "w_dairy",
+        "w_spice",
+        "w_heat",
+        "w_grain",
+        "w_crunch"
+      ],
+      "name": "Table content",
+      "settings": {
+        "custom_class": "",
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>The method holds whatever you put through it &mdash; roast something sweet, blend it with something rich, bloom a warm spice in fat, and add the protein last.</p>",
+        "heading": "Swaps that work",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "meal_prep": {
+      "type": "image-with-text",
+      "blocks": {
+        "m_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Make it ahead",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "m_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "The sauce is the make-ahead",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Everything up to the shrimp keeps. Roast the pumpkin, blend the sauce and bloom the spices, then refrigerate the finished sauce for up to three days &mdash; it thickens as it sits, so loosen it with a splash of water or coconut milk when you reheat. The toasted coconut and pepitas keep for a fortnight in a jar at room temperature.</p><p>Cook the shrimp fresh. They take four minutes, they are the one thing that cannot be reheated without going rubbery, and they are the reason to make this rather than a vegetable curry.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Mangrove Black Tiger Shrimp",
+            "button_link": "/products/black-tiger-shrimp-mangrove-regeneration",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "m_sub",
+        "m_head",
+        "m_text",
+        "m_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-91.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "rich_text_standard": {
+      "type": "image-with-text",
+      "blocks": {
+        "f_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "The fish under the spice",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "f_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why these shrimp hold up in a sauce this rich",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Black tiger shrimp are firmer and meatier than the small warm-water shrimp most curries are built on, which matters when the sauce is this thick &mdash; they stay distinct instead of disappearing into it. They also hold their snap through the four minutes of gentle simmering the recipe asks for, where a softer shrimp would go woolly.</p><p>Ours come from Tarakan, blast-frozen at harvest and vacuum sealed. Every supplier is tested before we approve them, then randomly audited to ensure consistent compliance with the Seatopia Standard &mdash; third-party lab tested for nutrition, mercury and microplastics, and sourced from best-in-class aquaculture.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "How we source it",
+            "button_link": "/pages/why-clean-seafood-matters",
+            "button_style": "secondary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "f_sub",
+        "f_head",
+        "f_text",
+        "f_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-104.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "reviews_shrimp": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_testimonials_carousel_shrimp": {
+          "type": "shopify://apps/judge-me-reviews/blocks/testimonials_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": false,
+            "reviews_selection": "custom_products",
+            "products": [
+              "black-tiger-shrimp-mangrove-regeneration"
+            ],
+            "star_rating": "all",
+            "max_reviews": 20,
+            "quote_marks_size": "small",
+            "product_name_text_size": "small",
+            "verified_badge_style": "icon",
+            "card_height": "medium",
+            "text_size": "small",
+            "stars_size": "medium",
+            "arrows_position": "bottom",
+            "max_width": 1100,
+            "corner_styling": "soft",
+            "quote_marks_style": "serif",
+            "card_color": "#f9f9f9",
+            "stars_and_quote_marks_color": "#7bc3f3",
+            "text_color": "#000000",
+            "arrows_color": "#000000",
+            "show_border": false,
+            "border_color": "#108474",
+            "show_drop_shadow": false,
+            "transition_speed": 5,
+            "header_text": "Seatopians on these Black Tiger Shrimp",
+            "show_average_rating": true
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_testimonials_carousel_shrimp"
+      ],
+      "settings": {
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "faq_shrimp": {
+      "type": "faq",
+      "blocks": {
+        "q_done": {
+          "type": "question",
+          "settings": {
+            "title": "How do I know when the shrimp are done?",
+            "text": "<p>By shape. A raw shrimp lies straight; a cooked one curls into a loose C; an overcooked one closes into a tight O. Pull the pan off the heat at the loose C &mdash; opaque through, still plump, with a clear gap between head and tail. The sauce is thick and holds heat, so they keep tightening after the burner is off.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_bloom": {
+          "type": "question",
+          "settings": {
+            "title": "Can I just stir the spices into the sauce?",
+            "text": "<p>You can, and it will taste noticeably flatter. Ground spices are fat-soluble &mdash; giving them 45 seconds in melted butter opens them up in a way stirring them into liquid does not. It is the single cheapest step in the recipe and the one that makes it taste like it took longer than it did.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_blender": {
+          "type": "question",
+          "settings": {
+            "title": "Is blending the hot pumpkin safe?",
+            "text": "<p>With one precaution. Hot food turns to steam in a sealed blender jug and can force the lid off. Let the pumpkin cool for a few minutes first, fill the jug no more than two-thirds, remove the centre cap so steam escapes, hold a folded towel over the opening and start on the lowest speed before working up.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_squash": {
+          "type": "question",
+          "settings": {
+            "title": "What if I can't find kabocha?",
+            "text": "<p>Butternut is the easiest swap and slightly sweeter; sugar pumpkin works too. Whatever you use, roast rather than boil it &mdash; the caramelised edges are where the sauce gets its depth, and boiled squash gives you a thin, vegetal sauce no amount of spice will rescue.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_heat": {
+          "type": "question",
+          "settings": {
+            "title": "How hot is this, and can I dial it down?",
+            "text": "<p>Mild to medium as written. One Fresno split between the sauce and the garnish gives warmth rather than burn. For less, seed the chile or use only the half that goes in early &mdash; the raw slices scattered at the end are the sharper hit. For more, add a second, or a pinch of cayenne with the garam masala.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_thaw": {
+          "type": "question",
+          "settings": {
+            "title": "How should I thaw Seatopia seafood?",
+            "text": "<p>Overnight in the refrigerator in the sealed pack, about 12 hours, then pat the shrimp dry. In a hurry, submerge the sealed pack in a bowl of chilled water for 20 to 30 minutes, changing the water once. Never at room temperature, and never in warm water.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "q_done",
+        "q_bloom",
+        "q_blender",
+        "q_squash",
+        "q_heat",
+        "q_thaw"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "Questions about this one",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "seafood-recipes",
+        "post_limit": 8,
+        "columns": 3,
+        "carousel_on_desktop": true,
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "landscape",
+        "show_tags": false,
+        "show_date": false,
+        "show_comments": false,
+        "show_author": false,
+        "show_excerpt": false,
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Recipes from our kitchen and from the people who cook with us. Every Seatopia box includes a FREE virtual cooking class where we work through a dish like this one together.</p>",
+        "heading": "More seafood to cook this week",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "newsletter_banner_shrimp": {
+      "type": "newsletter-banner",
+      "blocks": {
+        "h_news": {
+          "type": "heading",
+          "settings": {
+            "heading": "Be the first to know",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_news": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get on the list for more seasonal seafood, cooking temperatures and recipes from our kitchen, straight to your inbox.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_news": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "h_news",
+        "t_news",
+        "f_news"
+      ],
+      "name": "t:sections.newsletter-banner.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "transparent_footer": false,
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-111.jpg",
+        "image_height": "650px",
+        "content_width": "medium",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    }
+  },
+  "order": [
+    "main-article-banner",
+    "collab_card",
+    "rich_text_intro",
+    "at_a_glance",
+    "shrimp_note",
+    "recipe_kit_card",
+    "shop_the_plate",
+    "sauce_note",
+    "swap_table",
+    "meal_prep",
+    "rich_text_standard",
+    "reviews_shrimp",
+    "faq_shrimp",
+    "blog-posts",
+    "newsletter_banner_shrimp"
+  ]
+}
