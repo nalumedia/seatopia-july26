@@ -35,6 +35,18 @@
     <link rel="dns-prefetch" href="https://ajax.googleapis.com">
     <link rel="dns-prefetch" href="https://maps.googleapis.com">
     <link rel="dns-prefetch" href="https://maps.gstatic.com">
+    {%- comment -%}
+      cdn.edacious.com serves embed/v1/product.js, which is render-blocking and had
+      no resource hint of any kind. Measured 2026-09-22: DNS ~86ms, connect ~129ms,
+      TLS ~200ms. The DNS half of that sits on the critical path for first paint.
+
+      Worth noting the script is 110 KB with cache-control max-age=3600, so it is
+      re-fetched roughly hourly rather than being a one-off cold cost.
+
+      dns-prefetch, not preconnect, for the same reason as the block above: the
+      site is at Lighthouse's 4-preconnect threshold.
+    {%- endcomment -%}
+    <link rel="dns-prefetch" href="https://cdn.edacious.com">
     {% # theme-check-enable RemoteAsset %}
     {% render 'inf-header-scripts' %}
 
