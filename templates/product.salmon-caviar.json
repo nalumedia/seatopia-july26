@@ -293,6 +293,252 @@
         "rounded": false
       }
     },
+    "images_with_text_WKfAU7": {
+      "type": "images-with-text",
+      "blocks": {
+        "heading_P9bcy4": {
+          "type": "heading",
+          "settings": {
+            "heading": "Perfect Seafood, every time",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_HBLAGH": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Unsure about how to prep your seafood? Don't worry - we developed a super easy guide for you to get it right every single time.</p><p>It covers simple defrosting for a perfect result, getting that beautiful crispy skin we all love so much and gives you some basic techniques to create delicious and simple dishes like poke bowls and hand rolls.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_yB4iLw": {
+          "type": "button",
+          "settings": {
+            "button_label": "Free prep guide",
+            "button_link": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/SeatopiaSimpleRecipes.pdf?v=1787902680",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_P9bcy4",
+        "text_HBLAGH",
+        "button_yB4iLw"
+      ],
+      "name": "t:sections.images-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Screenshot_2026-09-21_at_16.11.28.png",
+        "image_2": "shopify://shop_images/Screenshot_2026-09-21_at_16.12.00.png",
+        "image_ratio": "wide",
+        "image_width": "large",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true
+      }
+    },
+    "1758153577fa569f00": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_snippet_widget_qcJmma": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_snippet_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "reviews_selection": "auto",
+            "products": [],
+            "filter_pinned": false,
+            "filter_featured": false,
+            "filter_custom_tags": "",
+            "min_star_rating": "inherit",
+            "show_review_media": true,
+            "max_reviews": 5,
+            "review_length": "medium",
+            "text_size": "medium",
+            "max_width": 1100,
+            "max_image_size": "small",
+            "arrows_visibility": "always_shown",
+            "transition_speed": 5,
+            "corner_styling": "inherit",
+            "text_color": "",
+            "card_color": "",
+            "stars_color": "",
+            "arrows_color": "",
+            "arrows_background_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_snippet_widget_qcJmma"
+      ],
+      "settings": {
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 20,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "collage_Y38w7p": {
+      "type": "collage",
+      "blocks": {
+        "image_J4QQxC": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/Screen_Shot_2025-07-01_at_8.40.25_PM.png",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_XLdJB9": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/Screen_Shot_2025-07-01_at_8.46.20_PM.png",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_BYDC7V": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/yarra-valley-first-harvest-salmon-caviar-30g-365244.png",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_fKNRye": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/yarra-valley-first-harvest-salmon-caviar-30g-360055.png",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        }
+      },
+      "block_order": [
+        "image_J4QQxC",
+        "image_XLdJB9",
+        "image_BYDC7V",
+        "image_fKNRye"
+      ],
+      "settings": {
+        "heading": "Hand Harvested, Traditionally Raised",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Yarra Valley Caviar operates in the cool-climate high country of southeastern Australia, near the headwaters of the Rubicon River. Here, oxygen-rich spring water flows from alpine streams into gravity-fed raceways and ponds. Surrounded by eucalyptus forests and misty hills, the farm enjoys ideal growing conditions: clean water, moderate temperatures, and isolation from pollutants or urban runoff. </p>",
+        "button_label": "Visit the farm",
+        "button_link": "shopify://pages/yarra-valley-caviar",
+        "button_external": false,
+        "button_icon": false,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true
+      }
+    },
     "help-drawer": {
       "type": "help-drawer",
       "blocks": {
@@ -509,8 +755,8 @@
         "title": "",
         "sub_title": "",
         "section_cont_position": "center",
-        "padding_top": 0,
-        "padding_bottom": 28,
+        "padding_top": 52,
+        "padding_bottom": 52,
         "section_background": "#fafafa",
         "text_color": "#171717",
         "star_color": "#f59e0b",
@@ -585,54 +831,6 @@
         "padding_bottom": 0,
         "divider": false,
         "full_width": true,
-        "rounded": false
-      }
-    },
-    "1758153577fa569f00": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_snippet_widget_qcJmma": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_snippet_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "reviews_selection": "auto",
-            "products": [],
-            "filter_pinned": false,
-            "filter_featured": false,
-            "filter_custom_tags": "",
-            "min_star_rating": "inherit",
-            "show_review_media": true,
-            "max_reviews": 5,
-            "review_length": "medium",
-            "text_size": "medium",
-            "max_width": 1100,
-            "max_image_size": "small",
-            "arrows_visibility": "always_shown",
-            "transition_speed": 5,
-            "corner_styling": "inherit",
-            "text_color": "",
-            "card_color": "",
-            "stars_color": "",
-            "arrows_color": "",
-            "arrows_background_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_snippet_widget_qcJmma"
-      ],
-      "settings": {
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 20,
-        "padding_bottom": 24,
-        "divider": false,
-        "full_width": false,
         "rounded": false
       }
     },
@@ -741,7 +939,7 @@
       ],
       "settings": {
         "heading": "Delicious seafood that meets the Seatopia Standard™",
-        "heading_size": "title-sm",
+        "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h3",
         "subheading": "",
@@ -1364,17 +1562,19 @@
   },
   "order": [
     "main-product",
+    "images_with_text_WKfAU7",
+    "1758153577fa569f00",
+    "collage_Y38w7p",
     "help-drawer",
     "video_with_text_overlay_jH8bXm",
     "index_new_testimonials_gq9XBi",
     "video-hero",
-    "1758153577fa569f00",
     "collage_PtgD3p",
     "product-details",
     "custom_liquid_WjPWiD",
     "shop_the_feed_LYTGxr",
-    "faq",
     "product-recommendations",
+    "faq",
     "175815325305d321d0",
     "recently-viewed"
   ]
