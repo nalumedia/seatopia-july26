@@ -27,6 +27,11 @@
     assign og_image = product.featured_image
   elsif request.page_type == 'collection' and collection.image
     assign og_image = collection.image
+  elsif request.page_type == 'page' and page.metafields.custom.share_image
+    # Pages have no native featured image, so a share image would otherwise fall
+    # all the way through to the store-wide one. The `custom.share_image` page
+    # metafield (Social share image, pinned in admin) lets a page set its own.
+    assign og_image = page.metafields.custom.share_image.value
   endif
   unless og_image
     assign og_image = page_image
