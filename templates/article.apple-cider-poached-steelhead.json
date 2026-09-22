@@ -1,0 +1,854 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-article-banner": {
+      "type": "main-article-banner",
+      "blocks": {
+        "spacing": {
+          "type": "spacing",
+          "settings": {
+            "height": 68,
+            "height_mobile": 0
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "title-lg tracking-heading",
+            "show_tags": true,
+            "show_date": false,
+            "show_comments": false,
+            "show_author": true
+          }
+        }
+      },
+      "block_order": [
+        "spacing",
+        "title"
+      ],
+      "settings": {
+        "transparent_header": true,
+        "show_image": true,
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-314.jpg",
+        "image_height": "750px",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-center",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_overlay": "#000000",
+        "overlay_opacity": 40,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "collab_card": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "recipe-collab",
+        "liquid": "<style>\n  .sea-collab {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    border: 1px solid var(--line);\n    border-radius: 18px;\n    background: var(--wash);\n    padding: 24px 28px;\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n    color: var(--ink);\n  }\n  .sea-collab__avatar {\n    flex: 0 0 auto;\n    width: 68px;\n    height: 68px;\n    border-radius: 50%;\n    overflow: hidden;\n    border: 2px solid #fff;\n    box-shadow: 0 0 0 2px var(--gold);\n    background: #eee;\n  }\n  .sea-collab__avatar img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    display: block;\n  }\n  .sea-collab__body {\n    flex: 1 1 260px;\n    min-width: 0;\n  }\n  .sea-collab__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 5px;\n  }\n  .sea-collab__name {\n    font-size: 21px;\n    font-weight: 600;\n    line-height: 1.2;\n    margin: 0 0 4px;\n  }\n  .sea-collab__role {\n    font-size: 15px;\n    color: var(--muted);\n    line-height: 1.45;\n    margin: 0;\n  }\n  .sea-collab__cred {\n    font-size: 13px;\n    color: var(--muted);\n    line-height: 1.5;\n    margin: 10px 0 0;\n    padding-top: 10px;\n    border-top: 1px solid var(--line);\n  }\n  .sea-collab__follow {\n    flex: 0 0 auto;\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    padding: 11px 20px;\n    border: 1px solid var(--ink);\n    border-radius: 999px;\n    font-size: 15px;\n    font-weight: 600;\n    text-decoration: none;\n    color: var(--ink);\n    background: #fff;\n    transition: background .18s ease, color .18s ease;\n  }\n  .sea-collab__follow:hover {\n    background: var(--ink);\n    color: #fff;\n  }\n  .sea-collab__follow svg {\n    width: 18px;\n    height: 18px;\n  }\n  @media (max-width: 749px) {\n    .sea-collab {\n      padding: 20px;\n      gap: 16px;\n    }\n    .sea-collab__follow {\n      width: 100%;\n      justify-content: center;\n    }\n    .sea-collab__name {\n      font-size: 19px;\n    }\n  }\n</style>\n{%- assign collab_avatar = 'miriam-thom-headshot.jpg' | file_url -%}\n\n<div class=\"sea-collab\">\n  {%- if collab_avatar != blank -%}\n    <div class=\"sea-collab__avatar\">\n      <img src=\"{{ collab_avatar }}\" alt=\"Miriam Thom\" width=\"136\" height=\"136\" loading=\"lazy\" decoding=\"async\">\n    </div>\n  {%- endif -%}\n\n  <div class=\"sea-collab__body\">\n    <p class=\"sea-collab__eyebrow\">\n      <span>From the Seatopia kitchen</span>\n      <span class=\"sea-collab__badge\">In-house</span>\n    </p>\n    <p class=\"sea-collab__name\">Recipe by Miriam Thom</p>\n    <p class=\"sea-collab__role\">Culinary Education at Seatopia &mdash; she develops the recipes that ship with the boxes and teaches the <a href=\"/pages/seatopia-member-cooking-classes\" title=\"Seatopia Member Cooking Classes\">member cooking classes</a></p>\n    <p class=\"sea-collab__cred\">Serves 2 &middot; about 45 minutes &middot; one skillet for the leeks, one pan for the poach, one small pan for the butter</p>\n  </div>\n\n  <a class=\"sea-collab__follow\" href=\"https://www.instagram.com/miriamthom\" target=\"_blank\" rel=\"noopener noreferrer\">\n    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n      <rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\"></rect>\n      <circle cx=\"12\" cy=\"12\" r=\"4\"></circle>\n      <circle cx=\"17.5\" cy=\"6.5\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"></circle>\n    </svg>\n    <span>Follow</span>\n  </a>\n</div>\n",
+        "padding_top": 28,
+        "padding_bottom": 8,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "rich_text_intro": {
+      "type": "rich-text",
+      "blocks": {
+        "text_intro": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Nothing says fall like apple cider and brown butter, and this dish has both. Poaching is the gentlest way to cook a steelhead loin &mdash; held just below a simmer, it stays silky instead of firming up the way a hot pan makes it. It feels like something you&rsquo;d find in a casual French kitchen: simple and elegant, and it would pair beautifully with a few cheeses for dessert.</p><p>Two numbers carry the whole thing. The poaching liquid wants to sit at 160 to 175&deg;F, which is lower than most people think &ldquo;gentle&rdquo; means. And the brown butter has to come off the heat before the mustard goes in, or the sauce splits and will not come back.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "text_intro"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_width": "small",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "at_a_glance": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "g_time": {
+          "type": "column",
+          "settings": {
+            "icon": "time",
+            "custom_icon": "",
+            "heading": "About 45 minutes",
+            "text": "<p>The leeks take the longest and want the least attention. The fish is six to eight minutes and the sauce is two, both at the very end.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_serves": {
+          "type": "column",
+          "settings": {
+            "icon": "users",
+            "custom_icon": "",
+            "heading": "Serves 2",
+            "text": "<p>One 12 oz loin is two 6 oz servings. It plates as a single long piece on the leeks and gets divided at the table, which is most of its charm.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_prep": {
+          "type": "column",
+          "settings": {
+            "icon": "check_mark",
+            "custom_icon": "",
+            "heading": "The leeks keep",
+            "text": "<p>Braise them a day ahead and warm them through while the cider comes up to temperature. The fish and the sauce are both last-minute and neither reheats.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_marinade": {
+          "type": "column",
+          "settings": {
+            "icon": "heart",
+            "custom_icon": "",
+            "heading": "160 to 175&deg;F",
+            "text": "<p>The poaching temperature, and the one number worth measuring. No bubbles should break the surface &mdash; if they do, it is a simmer and it is too hot.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "g_time",
+        "g_serves",
+        "g_marinade",
+        "g_prep"
+      ],
+      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "settings": {
+        "custom_class": "",
+        "section_id": "at-a-glance",
+        "style": "with-border",
+        "columns": 4,
+        "text_alignment": "left",
+        "dt_txt_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "At a glance",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "temp_note": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "poaching-temperature",
+        "liquid": "<style>\n  .sea-pepper {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-pepper__grid {\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);\n    gap: 34px;\n    align-items: center;\n  }\n  .sea-pepper__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-pepper__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n  }\n  .sea-pepper__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 22px;\n  }\n  .sea-pepper__rows {\n    display: grid;\n    gap: 14px;\n  }\n  .sea-pepper__row {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 15px 17px;\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) auto;\n    gap: 10px 16px;\n    align-items: center;\n  }\n  .sea-pepper__row--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-pepper__name {\n    grid-column: 1;\n    margin: 0;\n    font-size: 15px;\n    font-weight: 600;\n    line-height: 1.3;\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-wrap: wrap;\n  }\n  .sea-pepper__tag {\n    font-size: 10px;\n    font-weight: 700;\n    letter-spacing: .08em;\n    text-transform: uppercase;\n    color: #fff;\n    background: var(--gold);\n    padding: 3px 8px;\n    border-radius: 999px;\n  }\n  .sea-pepper__meter {\n    grid-column: 2;\n    grid-row: 1;\n    display: flex;\n    gap: 4px;\n    align-items: center;\n  }\n  .sea-pepper__pip {\n    width: 9px;\n    height: 9px;\n    border-radius: 50%;\n    background: #fff;\n    border: 1.5px solid #d8cfc0;\n  }\n  .sea-pepper__pip.is-on {\n    background: #b8462f;\n    border-color: #b8462f;\n  }\n  .sea-pepper__note {\n    grid-column: 1 / -1;\n    margin: 0;\n    font-size: 13.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  .sea-pepper__legend {\n    margin: 16px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  .sea-pepper__figure {\n    margin: 0;\n  }\n  .sea-pepper__figure img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-pepper__cap {\n    margin: 10px 0 0;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  @media (max-width: 989px) {\n    .sea-pepper {\n      padding: 22px;\n    }\n    .sea-pepper__grid {\n      grid-template-columns: 1fr;\n      gap: 24px;\n    }\n    .sea-pepper__figure {\n      order: -1;\n    }\n  }\n</style>\n<div class=\"sea-pepper\">\n  <div class=\"sea-pepper__grid\">\n\n    <div class=\"sea-pepper__body\">\n      <p class=\"sea-pepper__eyebrow\">The number that decides this dish</p>\n      <h2 class=\"sea-pepper__heading\">Poaching is a temperature, not a setting. Get it wrong by twenty degrees and you have boiled fish.</h2>\n      <p class=\"sea-pepper__lede\">\n        Almost every recipe that says &ldquo;gentle simmer&rdquo; is describing water around 185 to\n        200&deg;F, and that is already too hot for a steelhead loin. Real poaching sits lower than\n        most people expect &mdash; the surface should barely move. An instant-read thermometer in the\n        liquid is the whole technique; everything else here is assembly.\n      </p>\n\n      <div class=\"sea-pepper__rows\">\n      <div class=\"sea-pepper__row sea-pepper__row--pick\">\n        <p class=\"sea-pepper__name\">\n          <span>160&ndash;175&deg;F &mdash; poaching</span>\n          <span class=\"sea-pepper__tag\">As written</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Agitation: 1 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">Barely a shiver. No bubbles breaking the surface, maybe a wisp of steam. The loin sets slowly and stays silky, and the flesh holds together instead of flaking apart in the pan.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>180&ndash;190&deg;F &mdash; &ldquo;gentle simmer&rdquo;</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Agitation: 3 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">Small bubbles start lifting off the base. The outside of the loin firms before the middle is warm, and white albumin begins weeping out onto the surface.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>190&ndash;200&deg;F &mdash; simmer</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Agitation: 4 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">A steady stream of bubbles. Proteins contract hard, the fish squeezes out moisture, and you get the chalky texture poaching exists to avoid.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>212&deg;F &mdash; boil</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Agitation: 5 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">The loin will break apart and the liquid will turn cloudy. If it gets here, pull the pan off the heat and let it fall back before the fish goes in.</p>\n      </div>\n      </div>\n\n      <p class=\"sea-pepper__legend\">\n        Ratings are how hard the water is working, not how hot it feels. If you have no thermometer:\n        bring the cider to a boil, take it off the heat for ninety seconds, then return it to the\n        lowest flame your hob will hold. That lands close enough.\n      </p>\n    </div>\n\n    <figure class=\"sea-pepper__figure\">\n      <img\n        src=\"{{ '20260825-Stetten-Wilson-285.jpg' | file_url }}\"\n        alt=\"Fresh apple cider being measured out beside the poaching pot\"\n        width=\"1200\"\n        height=\"1600\"\n        loading=\"lazy\"\n        decoding=\"async\">\n      <figcaption class=\"sea-pepper__cap\">\n        Two cups of cider, a splash of water, thyme and a bay leaf &mdash; the poaching liquid should\n        come about halfway up the loin, not cover it.\n      </figcaption>\n    </figure>\n\n  </div>\n</div>\n",
+        "padding_top": 40,
+        "padding_bottom": 16,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "recipe_kit_card": {
+      "type": "apps",
+      "blocks": {
+        "recipe_kit_app_block_steelhead": {
+          "type": "shopify://apps/recipe-kit/blocks/app-block/0afa374e-81c7-4989-96de-e1ac84640954",
+          "settings": {
+            "custom_js": "",
+            "custom_css": ".rk_direction_image { margin-top: 14px; }\n.rk_direction_image img { max-height: 400px; width: 100%; object-fit: cover; border-radius: 12px; }\n@media (max-width: 749px) {\n  .rk_direction_image img { max-height: 280px; }\n}\n"
+          }
+        }
+      },
+      "block_order": [
+        "recipe_kit_app_block_steelhead"
+      ],
+      "settings": {
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "shop_the_plate": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "",
+        "products": [
+          "steelhead-sashimi-loin-12oz",
+          "salmon-lovers-box-12-servings",
+          "king-salmon"
+        ],
+        "product_limit": 3,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>One 12 oz loin feeds two. Everything else is a greengrocer and a good bottle of cider &mdash; king salmon works the same way if that is what you have thawed.</p>",
+        "heading": "Everything on this plate",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "butter_note": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "brown-butter-mustard",
+        "liquid": "<style>\n  .sea-sheet {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-sheet__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-sheet__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n    max-width: 22ch;\n  }\n  .sea-sheet__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 24px;\n    max-width: 68ch;\n  }\n  .sea-sheet__cols {\n    display: grid;\n    grid-template-columns: repeat(3, minmax(0, 1fr));\n    gap: 14px;\n  }\n  .sea-sheet__col {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 18px;\n  }\n  .sea-sheet__col--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-sheet__num {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 26px;\n    height: 26px;\n    border-radius: 50%;\n    background: var(--ink);\n    color: #fff;\n    font-size: 12px;\n    font-weight: 700;\n    margin: 0 0 10px;\n  }\n  .sea-sheet__col h3 {\n    font-size: 15.5px;\n    font-weight: 600;\n    line-height: 1.3;\n    margin: 0 0 7px;\n  }\n  .sea-sheet__col p {\n    font-size: 13.5px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0;\n  }\n  .sea-sheet__foot {\n    margin: 18px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  @media (max-width: 749px) {\n    .sea-sheet {\n      padding: 22px;\n    }\n    .sea-sheet__cols {\n      grid-template-columns: 1fr;\n    }\n  }\n\n  .sea-sheet__fig {\n    margin: 22px 0 0;\n  }\n  .sea-sheet__fig img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-sheet__figcap {\n    margin: 10px 0 0;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n</style>\n<div class=\"sea-sheet\">\n  <p class=\"sea-sheet__eyebrow\">Where this one goes wrong</p>\n  <h2 class=\"sea-sheet__heading\">Mustard into hot brown butter will split.</h2>\n  <p class=\"sea-sheet__lede\">\n    The sauce is four ingredients and takes two minutes, and the only way to ruin it is to rush the\n    order. Dijon whisked into butter that is still frying seizes and separates into oil and grit,\n    and once it has broken it will not come back. The fix costs sixty seconds of patience.\n  </p>\n\n  <div class=\"sea-sheet__cols\">\n    <div class=\"sea-sheet__col sea-sheet__col--pick\">\n      <span class=\"sea-sheet__num\">1</span>\n      <h3>Brown it, then rescue the sage</h3>\n      <p>Butter and sage over medium until the milk solids turn nutty and golden and the leaves go\n      crisp, two to three minutes. Lift the sage out before it darkens &mdash; it is the garnish,\n      and it burns a few seconds after it crisps.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">2</span>\n      <h3>Off the heat, wait a minute</h3>\n      <p>Take the pan off entirely and let it cool until it is warm rather than hot. Then whisk in\n      the Dijon, the lemon and half the tarragon. Warm butter takes the mustard as an emulsion;\n      hot butter breaks it.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">3</span>\n      <h3>Loosen with the poaching liquid</h3>\n      <p>A tablespoon or two of the cider the fish came out of, whisked in, takes it from a paste to\n      something spoonable and ties the sauce to the dish. Season, then taste before it goes near the\n      platter.</p>\n    </div>\n  </div>\n\n  <figure class=\"sea-sheet__fig\">\n    <img\n      src=\"{{ '20260825-Stetten-Wilson-294.jpg' | file_url }}\"\n      alt=\"Sage leaves crisping in browning butter in a small cast-iron skillet\"\n      width=\"1200\"\n      height=\"1600\"\n      loading=\"lazy\"\n      decoding=\"async\">\n    <figcaption class=\"sea-sheet__figcap\">\n      The butter is ready when it smells like toasted nuts and the solids at the bottom have gone\n      the colour of weak tea. Off the heat from here.\n    </figcaption>\n  </figure>\n</div>\n",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "swap_table": {
+      "type": "table-content",
+      "blocks": {
+        "w_head": {
+          "type": "row",
+          "settings": {
+            "version1": "As written",
+            "version2": "Closest swap",
+            "version3": "If you are improvising"
+          }
+        },
+        "w_fish": {
+          "type": "row",
+          "settings": {
+            "feature": "The fish",
+            "version1": "1 Steelhead, Sashimi Loin (12 oz)",
+            "version2": "King salmon or Atlantic salmon loin",
+            "version3": "Any fatty fillet &mdash; add a minute for anything thicker than an inch"
+          }
+        },
+        "w_cider": {
+          "type": "row",
+          "settings": {
+            "feature": "The cider",
+            "version1": "2 cups fresh, unfiltered, unsweetened",
+            "version2": "Dry hard cider &mdash; sharper and more savoury, so pull back the lemon",
+            "version3": "Apple juice with a splash of cider vinegar to cut the sweetness"
+          }
+        },
+        "w_allium": {
+          "type": "row",
+          "settings": {
+            "feature": "The leeks",
+            "version1": "2 large, in 1-inch rounds",
+            "version2": "3 medium, or 4 small",
+            "version3": "A sweet onion sliced thin &mdash; quicker, but never as silky"
+          }
+        },
+        "w_sage": {
+          "type": "row",
+          "settings": {
+            "feature": "The herb in the butter",
+            "version1": "6 fresh sage leaves",
+            "version2": "A few thyme sprigs, left whole",
+            "version3": "Skip it and double the tarragon at the end"
+          }
+        },
+        "w_tarragon": {
+          "type": "row",
+          "settings": {
+            "feature": "The herb in the sauce",
+            "version1": "1 tbsp fresh tarragon",
+            "version2": "Chervil, which is gentler, or dill",
+            "version3": "Flat parsley with a little fennel frond for the anise note"
+          }
+        },
+        "w_mustard": {
+          "type": "row",
+          "settings": {
+            "feature": "The mustard",
+            "version1": "1 tsp Dijon",
+            "version2": "Wholegrain, for texture rather than heat",
+            "version3": "A small spoon of cr&egrave;me fra&icirc;che instead, for a rounder sauce"
+          }
+        },
+        "w_fat": {
+          "type": "row",
+          "settings": {
+            "feature": "The butter",
+            "version1": "6 tbsp unsalted, divided",
+            "version2": "Ghee, though it will not brown the same way",
+            "version3": "Olive oil for the leeks, butter only for the sauce"
+          }
+        }
+      },
+      "block_order": [
+        "w_head",
+        "w_fish",
+        "w_cider",
+        "w_allium",
+        "w_sage",
+        "w_tarragon",
+        "w_mustard",
+        "w_fat"
+      ],
+      "name": "Table content",
+      "settings": {
+        "custom_class": "",
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>The method is fixed &mdash; soft leeks, low liquid, warm butter. Most of what goes in it can move, and the cider is the one swap that genuinely changes the dish.</p>",
+        "heading": "Swaps that work",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "meal_prep": {
+      "type": "image-with-text",
+      "blocks": {
+        "m_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Make it ahead",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "m_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "The leeks are the part worth doing early",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Braised leeks keep for two days in the refrigerator and are arguably better on day two, once the shallot and the splash of cider have settled into them. Warm them gently while the poaching liquid comes up and you have turned a 45-minute dish into a 15-minute one.</p><p>Nothing else stretches. Poached fish goes firm and grainy on reheating, and the brown butter sauce splits once it cools and sets. Both are minutes of work at the end &mdash; make them when you are ready to eat.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Steelhead, Sashimi Loin",
+            "button_link": "/products/steelhead-sashimi-loin-12oz",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "m_sub",
+        "m_head",
+        "m_text",
+        "m_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-275.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "rich_text_standard": {
+      "type": "image-with-text",
+      "blocks": {
+        "f_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "The fish under the spice",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "f_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why a loin, and why this one",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A whole 12 oz loin poaches far better than two separate portions &mdash; one even piece of muscle comes up to temperature at one rate, so there is no thin end overcooking while the middle catches up. It is also what lets the dish plate as a single long piece across the leeks. Sashimi-grade, blast-frozen to &minus;10&deg;F at harvest and vacuum sealed.</p><p>Our Steelhead, Sashimi Loin tested at approximately 2,560 mg EPA+DHA per 12 oz loin, which is two 6 oz servings. Values vary by sample and season. Every supplier is tested before we approve them, then randomly audited to ensure consistent compliance with the Seatopia Standard &mdash; third-party lab tested for nutrition, mercury and microplastics, and sourced from best-in-class aquaculture.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "How we source it",
+            "button_link": "/pages/why-clean-seafood-matters",
+            "button_style": "secondary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "f_sub",
+        "f_head",
+        "f_text",
+        "f_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-248.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "reviews_steelhead": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_testimonials_carousel_steelhead": {
+          "type": "shopify://apps/judge-me-reviews/blocks/testimonials_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": false,
+            "reviews_selection": "custom_products",
+            "products": [
+              "steelhead-sashimi-loin-12oz"
+            ],
+            "star_rating": "all",
+            "max_reviews": 20,
+            "quote_marks_size": "small",
+            "product_name_text_size": "small",
+            "verified_badge_style": "icon",
+            "card_height": "medium",
+            "text_size": "small",
+            "stars_size": "medium",
+            "arrows_position": "bottom",
+            "max_width": 1100,
+            "corner_styling": "soft",
+            "quote_marks_style": "serif",
+            "card_color": "#f9f9f9",
+            "stars_and_quote_marks_color": "#7bc3f3",
+            "text_color": "#000000",
+            "arrows_color": "#000000",
+            "show_border": false,
+            "border_color": "#108474",
+            "show_drop_shadow": false,
+            "transition_speed": 5,
+            "header_text": "Seatopians on this Steelhead",
+            "show_average_rating": true
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_testimonials_carousel_steelhead"
+      ],
+      "settings": {
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "faq_steelhead": {
+      "type": "faq",
+      "blocks": {
+        "q_temp": {
+          "type": "question",
+          "settings": {
+            "title": "What does &ldquo;just below a simmer&rdquo; actually mean?",
+            "text": "<p>160 to 175&deg;F. The surface should look almost still &mdash; a wisp of steam, maybe a shimmer, but no bubbles breaking through. Most recipes that say gentle simmer mean 185 to 200&deg;F, which is hot enough to squeeze moisture out of the loin and leave you with the chalky texture poaching exists to avoid.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_done": {
+          "type": "question",
+          "settings": {
+            "title": "How do I know when the fish is done?",
+            "text": "<p>About 120&deg;F at the thickest point, or when the flesh has just turned opaque and yields to a knife tip without resistance. Six to eight minutes depending on thickness. It carries on cooking as it rests, so pull it a touch before you think it is ready.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_split": {
+          "type": "question",
+          "settings": {
+            "title": "My sauce split. What went wrong?",
+            "text": "<p>The butter was still hot when the mustard went in. Take the pan off the heat entirely and give it a minute before you whisk in the Dijon &mdash; warm butter holds the emulsion, hot butter breaks it. Once it has separated it will not come back, but a fresh tablespoon of butter whisked in off the heat will usually rescue most of it.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_cider": {
+          "type": "question",
+          "settings": {
+            "title": "Fresh cider or hard cider?",
+            "text": "<p>This is built for fresh, unfiltered, unsweetened cider, which is sweet and gives a rounder sauce. Dry hard cider also works and gives something sharper and more savoury &mdash; if you use it, pull back on the lemon at the end or the sauce tips too far acidic.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_ahead": {
+          "type": "question",
+          "settings": {
+            "title": "Can I make any of it ahead?",
+            "text": "<p>The leeks, yes &mdash; up to two days, and they improve. Warm them through while the cider comes up to temperature. The fish and the sauce are both last-minute: poached fish goes grainy on reheating and brown butter sauce sets and splits once it cools.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_thaw": {
+          "type": "question",
+          "settings": {
+            "title": "How should I thaw Seatopia seafood?",
+            "text": "<p>Overnight in the refrigerator in the sealed pack, about 12 hours, then pat it dry before it goes anywhere near the pan. In a hurry, submerge the sealed pack in a bowl of chilled water for 20 to 30 minutes, changing the water once. Never at room temperature.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "q_temp",
+        "q_done",
+        "q_split",
+        "q_cider",
+        "q_ahead",
+        "q_thaw"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "Questions about this one",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "seafood-recipes",
+        "post_limit": 8,
+        "columns": 3,
+        "carousel_on_desktop": true,
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "landscape",
+        "show_tags": false,
+        "show_date": false,
+        "show_comments": false,
+        "show_author": false,
+        "show_excerpt": false,
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Recipes from our kitchen and from the people who cook with us. Every Seatopia box includes a FREE virtual cooking class where we work through a dish like this one together.</p>",
+        "heading": "More seafood to cook this week",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "newsletter_banner_steelhead": {
+      "type": "newsletter-banner",
+      "blocks": {
+        "h_news": {
+          "type": "heading",
+          "settings": {
+            "heading": "Be the first to know",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_news": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get on the list for more seasonal seafood, cooking temperatures and recipes from our kitchen, straight to your inbox.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_news": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "h_news",
+        "t_news",
+        "f_news"
+      ],
+      "name": "t:sections.newsletter-banner.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "transparent_footer": false,
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-316.jpg",
+        "image_height": "650px",
+        "content_width": "medium",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    }
+  },
+  "order": [
+    "main-article-banner",
+    "collab_card",
+    "rich_text_intro",
+    "at_a_glance",
+    "temp_note",
+    "recipe_kit_card",
+    "shop_the_plate",
+    "butter_note",
+    "swap_table",
+    "meal_prep",
+    "rich_text_standard",
+    "reviews_steelhead",
+    "faq_steelhead",
+    "blog-posts",
+    "newsletter_banner_steelhead"
+  ]
+}
