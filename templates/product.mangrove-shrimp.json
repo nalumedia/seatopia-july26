@@ -292,6 +292,73 @@
         "rounded": false
       }
     },
+    "images_with_text_eqVLJi": {
+      "type": "images-with-text",
+      "blocks": {
+        "heading_Fb3EN6": {
+          "type": "heading",
+          "settings": {
+            "heading": "Perfect Seafood, every time",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_nTV3BU": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Unsure about how to prep your seafood? Don't worry - we developed a super easy guide for you to get it right every single time.</p><p>It covers simple defrosting for a perfect result, getting that beautiful crispy skin we all love so much and gives you some basic techniques to create delicious and simple dishes like poke bowls and hand rolls.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_hD49ib": {
+          "type": "button",
+          "settings": {
+            "button_label": "Free prep guide",
+            "button_link": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/SeatopiaSimpleRecipes.pdf?v=1787902680",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_Fb3EN6",
+        "text_nTV3BU",
+        "button_hD49ib"
+      ],
+      "name": "t:sections.images-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Screenshot_2026-09-21_at_16.11.28.png",
+        "image_2": "shopify://shop_images/Screenshot_2026-09-21_at_16.12.00.png",
+        "image_ratio": "wide",
+        "image_width": "large",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true
+      }
+    },
     "help-drawer": {
       "type": "help-drawer",
       "blocks": {
@@ -641,6 +708,235 @@
         "rounded": false
       }
     },
+    "collage_9GiDN3": {
+      "type": "collage",
+      "blocks": {
+        "image_xUhYJg": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/restorative-black-tiger-shrimp-u6-8-easy-peel-12-oz-780494.jpg",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_WmH7yd": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/restorative-black-tiger-shrimp-u6-8-easy-peel-12-oz-725340.jpg",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_ErAh3L": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/fry_ba9d2e8b-2382-444b-833d-9e2cba488374.jpg",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_DKTF7A": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/2_415319bf-615e-4ba5-b27a-0abed736b87e.jpg",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        }
+      },
+      "block_order": [
+        "image_xUhYJg",
+        "image_WmH7yd",
+        "image_ErAh3L",
+        "image_DKTF7A"
+      ],
+      "settings": {
+        "heading": "Raised by caring farmers for your family",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>In the tidal mangrove corridors of Tarakan, North Kalimantan, a new generation of smallholder farmers is restoring one of Indonesia’s most vibrant estuarine ecosystems with the support of Seatopia, under the leadership of our import partner Haven.</p><p>Here, extensive ponds woven through acres of living mangrove forest create a naturally balanced habitat where Black Tiger Shrimp thrive on tidal flow, rich detritus, and the biodiversity that mangroves nurture. </p>",
+        "button_label": "Visit the farm",
+        "button_link": "shopify://pages/mangrove-shrimp",
+        "button_external": false,
+        "button_icon": false,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true
+      }
+    },
+    "custom_liquid_aPJN74": {
+      "type": "custom-liquid",
+      "name": "Mangrove Impact",
+      "settings": {
+        "section_id": "",
+        "liquid": "{% comment %}\n  Seatopia Mangrove Impact Widget\n  \n  INSTALLATION:\n  1. In Shopify Admin, go to Online Store > Themes > Edit Code\n  2. Create a new section or paste this into a page template\n  3. Update the API_URL below with your DeepBlue dashboard URL\n  \n  This widget displays real-time mangrove planting impact metrics\n  pulled directly from your Shopify order data.\n{% endcomment %}\n\n<style>\n  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400&family=Karla:wght@400;500;700&display=swap');\n\n  .seatopia-mangrove-widget {\n    font-family: 'Karla', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;\n    max-width: 900px;\n    margin: 40px auto;\n    padding: 0 20px;\n    background: #ffffff;\n  }\n  \n  .mangrove-header {\n    text-align: center;\n    margin-bottom: 32px;\n  }\n  \n  .mangrove-header h2 {\n    font-family: 'EB Garamond', serif;\n    font-size: 28px;\n    font-weight: 400;\n    color: #0d3330;\n    margin: 0 0 8px 0;\n    letter-spacing: 0;\n  }\n  \n  .mangrove-header p {\n    font-family: 'Karla', sans-serif;\n    font-size: 16px;\n    color: #4a6f6d;\n    max-width: 500px;\n    margin: 0 auto;\n    line-height: 1.5;\n  }\n  \n  .mangrove-metrics {\n    display: grid;\n    grid-template-columns: repeat(4, 1fr);\n    gap: 16px;\n    margin-bottom: 24px;\n  }\n  \n  @media (max-width: 768px) {\n    .mangrove-metrics {\n      grid-template-columns: repeat(2, 1fr);\n    }\n  }\n  \n  @media (max-width: 480px) {\n    .mangrove-metrics {\n      grid-template-columns: 1fr;\n    }\n  }\n  \n  .metric-card {\n    background: #ffffff;\n    border: 1px solid #d0e8e4;\n    border-radius: 16px;\n    padding: 24px;\n    text-align: center;\n    transition: transform 0.2s ease, box-shadow 0.2s ease;\n  }\n  \n  .metric-card:hover {\n    transform: translateY(-2px);\n    box-shadow: 0 8px 24px rgba(13, 51, 48, 0.08);\n  }\n  \n  .metric-value {\n    font-family: 'EB Garamond', serif;\n    font-size: 32px;\n    font-weight: 400;\n    color: #0d3330;\n    margin: 0 0 4px 0;\n    line-height: 1.2;\n  }\n  \n  .metric-label {\n    font-family: 'Karla', sans-serif;\n    font-size: 13px;\n    font-weight: 500;\n    color: #4a6f6d;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n    margin: 0;\n  }\n  \n  .mangrove-methodology {\n    background: #ffffff;\n    border: 1px solid #e5ede9;\n    border-radius: 12px;\n    padding: 20px 24px;\n    margin-top: 16px;\n  }\n  \n  .methodology-title {\n    font-family: 'Karla', sans-serif;\n    font-size: 12px;\n    font-weight: 600;\n    color: #6b8a87;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n    margin: 0 0 12px 0;\n  }\n  \n  .methodology-text {\n    font-family: 'Karla', sans-serif;\n    font-size: 13px;\n    color: #5a7a77;\n    line-height: 1.7;\n    margin: 0;\n  }\n  \n  .methodology-text strong {\n    color: #0d3330;\n    font-weight: 700;\n  }\n  \n  .mangrove-loading {\n    text-align: center;\n    padding: 60px 20px;\n    color: #6b8a87;\n    background: #ffffff;\n    font-family: 'Karla', sans-serif;\n  }\n  \n  .mangrove-loading .spinner {\n    width: 32px;\n    height: 32px;\n    border: 3px solid #e5ede9;\n    border-top-color: #2d9d92;\n    border-radius: 50%;\n    animation: spin 1s linear infinite;\n    margin: 0 auto 16px;\n  }\n  \n  @keyframes spin {\n    to { transform: rotate(360deg); }\n  }\n  \n  .mangrove-error {\n    text-align: center;\n    padding: 40px 20px;\n    color: #8b5a5a;\n    background: #ffffff;\n    border-radius: 12px;\n    border: 1px solid #f0dede;\n    font-family: 'Karla', sans-serif;\n  }\n</style>\n\n<div class=\"seatopia-mangrove-widget\" id=\"seatopia-mangrove-widget\">\n  <div class=\"mangrove-loading\">\n    <div class=\"spinner\"></div>\n    <p>Loading impact data...</p>\n  </div>\n</div>\n\n<script>\n(function() {\n  // UPDATE THIS URL to your DeepBlue dashboard URL\n  const API_URL = 'https://getdeep.blue/api/public/mangrove-widget';\n  \n  const container = document.getElementById('seatopia-mangrove-widget');\n  \n  function formatNumber(num) {\n    if (num >= 1000000) {\n      return (num / 1000000).toFixed(1) + 'M';\n    } else if (num >= 1000) {\n      return (num / 1000).toFixed(1) + 'K';\n    }\n    return num.toLocaleString();\n  }\n  \n  function renderWidget(data) {\n    container.innerHTML = `\n      <div class=\"mangrove-header\">\n        <h2>Our Mangrove Impact</h2>\n        <p>Every bag of Seatopia mangrove shrimp plants one mangrove tree in coastal restoration zones</p>\n      </div>\n      \n      <div class=\"mangrove-metrics\">\n        <div class=\"metric-card\">\n          <p class=\"metric-value\">${formatNumber(data.totalMangroves)}</p>\n          <p class=\"metric-label\">Mangroves Planted</p>\n        </div>\n        \n        <div class=\"metric-card\">\n          <p class=\"metric-value\">${formatNumber(data.totalCustomers)}</p>\n          <p class=\"metric-label\">Ocean Guardians</p>\n        </div>\n        \n        <div class=\"metric-card\">\n          <p class=\"metric-value\">${formatNumber(Math.round(data.co2eLifetimeTons))}</p>\n          <p class=\"metric-label\">Tons CO₂ Absorbed</p>\n        </div>\n        \n        <div class=\"metric-card\">\n          <p class=\"metric-value\">${data.acresEquivalent.toFixed(1)}</p>\n          <p class=\"metric-label\">Acres Restored</p>\n        </div>\n      </div>\n      \n      <div class=\"mangrove-methodology\">\n        <p class=\"methodology-title\">How We Calculate Impact</p>\n        <p class=\"methodology-text\">\n          <strong>Mangroves:</strong> 1 mangrove planted per pound of mangrove shrimp purchased. \n          <strong>CO₂:</strong> Each mangrove absorbs ~150 kg of CO₂ over its lifetime (source: Blue Carbon Initiative). \n          <strong>Acres:</strong> Calculated at 800 mangrove trees per acre, based on optimal coastal density for restoration projects.\n        </p>\n      </div>\n    `;\n  }\n  \n  function renderError() {\n    container.innerHTML = `\n      <div class=\"mangrove-error\">\n        <p>Unable to load impact data. Please try again later.</p>\n      </div>\n    `;\n  }\n  \n  fetch(API_URL)\n    .then(response => {\n      if (!response.ok) throw new Error('Failed to fetch');\n      return response.json();\n    })\n    .then(data => renderWidget(data))\n    .catch(error => {\n      console.error('Mangrove widget error:', error);\n      renderError();\n    });\n})();\n</script>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "index_new_testimonials_YMKp4w": {
+      "type": "index-new-testimonials",
+      "blocks": {
+        "review_eWLQFG": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Mark_hyman.png",
+            "image_url": "shopify://blogs/seafood-recipes/asian-scallop-crudo-with-citrus-soy-marinade",
+            "title": "Dr. Mark Hyman",
+            "job": "Leader in Functional Medicine",
+            "Start_number": "5",
+            "text": "<p>“We are what foods we eat and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        },
+        "review_rUYGTJ": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Lisa_giffen.png",
+            "image_url": "shopify://blogs/regenerative-aquaculture/are-we-still-mermaids-embracing-our-aquatic-roots-for-modern-health",
+            "title": "Lisa Giffen",
+            "job": "The Audrey",
+            "Start_number": "5",
+            "text": "<p>\"It's rare to find consistent seafood with clean and unique flavors that's also sustainable. Without a doubt Seatopia meets such high standards. Looking forward to anything and everything Seatopia has to offer.\"</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        },
+        "review_UNyteL": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Ben_greenfield_89fa6ea5-3395-4d81-975e-1f952ba5b657.png",
+            "image_url": "shopify://blogs/regenerative-aquaculture",
+            "title": "Ben Greenfield",
+            "job": "Health & Fitness Coach",
+            "Start_number": "5",
+            "text": "<p>\"If you want healthy, gourmet-style seafood, in the comfort of your own home, seafood that goes above and beyond any you've tasted before, you need Seatopia in your life!\"</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        },
+        "review_LEEajC": {
+          "type": "review",
+          "disabled": true,
+          "settings": {
+            "image_url": "",
+            "title": "Testimonial name",
+            "job": "Founder, Company",
+            "Start_number": "5",
+            "text": "<p>Use this text to showcase a review from one of your customers.  A great review is honest and relatable.  A great reviewer is a person who represents your target audience and can speak to concerns that might block your customers from buying.</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_eWLQFG",
+        "review_rUYGTJ",
+        "review_UNyteL",
+        "review_LEEajC"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "custom_class": "",
+        "section_id": "",
+        "title": "",
+        "sub_title": "",
+        "section_cont_position": "center",
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "section_background": "#fafafa",
+        "text_color": "#171717",
+        "star_color": "#f59e0b",
+        "rounded": false
+      }
+    },
     "collage_PtgD3p": {
       "type": "collage",
       "blocks": {
@@ -772,25 +1068,6 @@
         "enable_parallax": true
       }
     },
-    "custom_liquid_aPJN74": {
-      "type": "custom-liquid",
-      "name": "Mangrove Impact",
-      "settings": {
-        "section_id": "",
-        "liquid": "{% comment %}\n  Seatopia Mangrove Impact Widget\n  \n  INSTALLATION:\n  1. In Shopify Admin, go to Online Store > Themes > Edit Code\n  2. Create a new section or paste this into a page template\n  3. Update the API_URL below with your DeepBlue dashboard URL\n  \n  This widget displays real-time mangrove planting impact metrics\n  pulled directly from your Shopify order data.\n{% endcomment %}\n\n<style>\n  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400&family=Karla:wght@400;500;700&display=swap');\n\n  .seatopia-mangrove-widget {\n    font-family: 'Karla', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;\n    max-width: 900px;\n    margin: 40px auto;\n    padding: 0 20px;\n    background: #ffffff;\n  }\n  \n  .mangrove-header {\n    text-align: center;\n    margin-bottom: 32px;\n  }\n  \n  .mangrove-header h2 {\n    font-family: 'EB Garamond', serif;\n    font-size: 28px;\n    font-weight: 400;\n    color: #0d3330;\n    margin: 0 0 8px 0;\n    letter-spacing: 0;\n  }\n  \n  .mangrove-header p {\n    font-family: 'Karla', sans-serif;\n    font-size: 16px;\n    color: #4a6f6d;\n    max-width: 500px;\n    margin: 0 auto;\n    line-height: 1.5;\n  }\n  \n  .mangrove-metrics {\n    display: grid;\n    grid-template-columns: repeat(4, 1fr);\n    gap: 16px;\n    margin-bottom: 24px;\n  }\n  \n  @media (max-width: 768px) {\n    .mangrove-metrics {\n      grid-template-columns: repeat(2, 1fr);\n    }\n  }\n  \n  @media (max-width: 480px) {\n    .mangrove-metrics {\n      grid-template-columns: 1fr;\n    }\n  }\n  \n  .metric-card {\n    background: #ffffff;\n    border: 1px solid #d0e8e4;\n    border-radius: 16px;\n    padding: 24px;\n    text-align: center;\n    transition: transform 0.2s ease, box-shadow 0.2s ease;\n  }\n  \n  .metric-card:hover {\n    transform: translateY(-2px);\n    box-shadow: 0 8px 24px rgba(13, 51, 48, 0.08);\n  }\n  \n  .metric-value {\n    font-family: 'EB Garamond', serif;\n    font-size: 32px;\n    font-weight: 400;\n    color: #0d3330;\n    margin: 0 0 4px 0;\n    line-height: 1.2;\n  }\n  \n  .metric-label {\n    font-family: 'Karla', sans-serif;\n    font-size: 13px;\n    font-weight: 500;\n    color: #4a6f6d;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n    margin: 0;\n  }\n  \n  .mangrove-methodology {\n    background: #ffffff;\n    border: 1px solid #e5ede9;\n    border-radius: 12px;\n    padding: 20px 24px;\n    margin-top: 16px;\n  }\n  \n  .methodology-title {\n    font-family: 'Karla', sans-serif;\n    font-size: 12px;\n    font-weight: 600;\n    color: #6b8a87;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n    margin: 0 0 12px 0;\n  }\n  \n  .methodology-text {\n    font-family: 'Karla', sans-serif;\n    font-size: 13px;\n    color: #5a7a77;\n    line-height: 1.7;\n    margin: 0;\n  }\n  \n  .methodology-text strong {\n    color: #0d3330;\n    font-weight: 700;\n  }\n  \n  .mangrove-loading {\n    text-align: center;\n    padding: 60px 20px;\n    color: #6b8a87;\n    background: #ffffff;\n    font-family: 'Karla', sans-serif;\n  }\n  \n  .mangrove-loading .spinner {\n    width: 32px;\n    height: 32px;\n    border: 3px solid #e5ede9;\n    border-top-color: #2d9d92;\n    border-radius: 50%;\n    animation: spin 1s linear infinite;\n    margin: 0 auto 16px;\n  }\n  \n  @keyframes spin {\n    to { transform: rotate(360deg); }\n  }\n  \n  .mangrove-error {\n    text-align: center;\n    padding: 40px 20px;\n    color: #8b5a5a;\n    background: #ffffff;\n    border-radius: 12px;\n    border: 1px solid #f0dede;\n    font-family: 'Karla', sans-serif;\n  }\n</style>\n\n<div class=\"seatopia-mangrove-widget\" id=\"seatopia-mangrove-widget\">\n  <div class=\"mangrove-loading\">\n    <div class=\"spinner\"></div>\n    <p>Loading impact data...</p>\n  </div>\n</div>\n\n<script>\n(function() {\n  // UPDATE THIS URL to your DeepBlue dashboard URL\n  const API_URL = 'https://getdeep.blue/api/public/mangrove-widget';\n  \n  const container = document.getElementById('seatopia-mangrove-widget');\n  \n  function formatNumber(num) {\n    if (num >= 1000000) {\n      return (num / 1000000).toFixed(1) + 'M';\n    } else if (num >= 1000) {\n      return (num / 1000).toFixed(1) + 'K';\n    }\n    return num.toLocaleString();\n  }\n  \n  function renderWidget(data) {\n    container.innerHTML = `\n      <div class=\"mangrove-header\">\n        <h2>Our Mangrove Impact</h2>\n        <p>Every bag of Seatopia mangrove shrimp plants one mangrove tree in coastal restoration zones</p>\n      </div>\n      \n      <div class=\"mangrove-metrics\">\n        <div class=\"metric-card\">\n          <p class=\"metric-value\">${formatNumber(data.totalMangroves)}</p>\n          <p class=\"metric-label\">Mangroves Planted</p>\n        </div>\n        \n        <div class=\"metric-card\">\n          <p class=\"metric-value\">${formatNumber(data.totalCustomers)}</p>\n          <p class=\"metric-label\">Ocean Guardians</p>\n        </div>\n        \n        <div class=\"metric-card\">\n          <p class=\"metric-value\">${formatNumber(Math.round(data.co2eLifetimeTons))}</p>\n          <p class=\"metric-label\">Tons CO₂ Absorbed</p>\n        </div>\n        \n        <div class=\"metric-card\">\n          <p class=\"metric-value\">${data.acresEquivalent.toFixed(1)}</p>\n          <p class=\"metric-label\">Acres Restored</p>\n        </div>\n      </div>\n      \n      <div class=\"mangrove-methodology\">\n        <p class=\"methodology-title\">How We Calculate Impact</p>\n        <p class=\"methodology-text\">\n          <strong>Mangroves:</strong> 1 mangrove planted per pound of mangrove shrimp purchased. \n          <strong>CO₂:</strong> Each mangrove absorbs ~150 kg of CO₂ over its lifetime (source: Blue Carbon Initiative). \n          <strong>Acres:</strong> Calculated at 800 mangrove trees per acre, based on optimal coastal density for restoration projects.\n        </p>\n      </div>\n    `;\n  }\n  \n  function renderError() {\n    container.innerHTML = `\n      <div class=\"mangrove-error\">\n        <p>Unable to load impact data. Please try again later.</p>\n      </div>\n    `;\n  }\n  \n  fetch(API_URL)\n    .then(response => {\n      if (!response.ok) throw new Error('Failed to fetch');\n      return response.json();\n    })\n    .then(data => renderWidget(data))\n    .catch(error => {\n      console.error('Mangrove widget error:', error);\n      renderError();\n    });\n})();\n</script>",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "narrow": false,
-        "rounded": false
-      }
-    },
     "the_farm": {
       "type": "image-with-text",
       "blocks": {
@@ -842,6 +1119,7 @@
         "m_text",
         "m_btn"
       ],
+      "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "custom_class": "",
@@ -1545,21 +1823,24 @@
   },
   "order": [
     "main-product",
+    "images_with_text_eqVLJi",
     "help-drawer",
     "video_with_text_overlay_jH8bXm",
     "index_new_testimonials_gq9XBi",
     "video-hero",
     "1758153577fa569f00",
-    "collage_PtgD3p",
+    "collage_9GiDN3",
     "custom_liquid_aPJN74",
+    "index_new_testimonials_YMKp4w",
+    "collage_PtgD3p",
     "the_farm",
     "product-details",
     "custom_liquid_Yn9Jr3",
     "salmon_shrimp_box",
     "shrimp_recipes",
     "shop_the_feed_LYTGxr",
-    "faq",
     "product-recommendations",
+    "faq",
     "175815325305d321d0",
     "recently-viewed"
   ]
