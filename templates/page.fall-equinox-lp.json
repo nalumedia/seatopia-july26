@@ -767,7 +767,7 @@
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "custom_class": "",
-        "image": "shopify://shop_images/20260825-Stetten-Wilson-117_Large_7c5bf12f-a4ff-4953-aa13-4c72e1aa9945.jpg",
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-53_Large_38fe137d-e5cb-49f9-a7d9-86d3987a0c4b.jpg",
         "image_height": "100vh",
         "image_width": "medium",
         "layout": "text_first",
@@ -988,8 +988,8 @@
         "button_Fhn7fG": {
           "type": "button",
           "settings": {
-            "button_label": "Discover Miriam's Summer Menu",
-            "button_link": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/Seatopia_-_Customer_Design_2__compressed.pdf?v=1782136945",
+            "button_label": "Discover Miriam's Autumn Menu",
+            "button_link": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/A_Recipe_Guide_to_Autumn_s_Exhale.pdf?v=1790061158",
             "button_style": "primary",
             "button_size": "md",
             "button_external": false,
