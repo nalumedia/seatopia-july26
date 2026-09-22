@@ -294,6 +294,73 @@
         "rounded": false
       }
     },
+    "images_with_text_WFdHRb": {
+      "type": "images-with-text",
+      "blocks": {
+        "heading_NtfKxX": {
+          "type": "heading",
+          "settings": {
+            "heading": "Perfect Seafood, every time",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_kDmmnH": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Unsure about how to prep your seafood? Don't worry - we developed a super easy guide for you to get it right every single time.</p><p>It covers simple defrosting for a perfect result, getting that beautiful crispy skin we all love so much and gives you some basic techniques to create delicious and simple dishes like poke bowls and hand rolls.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_kENfBq": {
+          "type": "button",
+          "settings": {
+            "button_label": "Free prep guide",
+            "button_link": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/SeatopiaSimpleRecipes.pdf?v=1787902680",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_NtfKxX",
+        "text_kDmmnH",
+        "button_kENfBq"
+      ],
+      "name": "t:sections.images-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Screenshot_2026-09-21_at_16.11.28.png",
+        "image_2": "shopify://shop_images/Screenshot_2026-09-21_at_16.12.00.png",
+        "image_ratio": "wide",
+        "image_width": "large",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true
+      }
+    },
     "help-drawer": {
       "type": "help-drawer",
       "blocks": {
@@ -441,6 +508,186 @@
         "rounded": true
       }
     },
+    "1758153577fa569f00": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_snippet_widget_qcJmma": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_snippet_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "reviews_selection": "auto",
+            "products": [],
+            "filter_pinned": false,
+            "filter_featured": false,
+            "filter_custom_tags": "",
+            "min_star_rating": "inherit",
+            "show_review_media": true,
+            "max_reviews": 5,
+            "review_length": "medium",
+            "text_size": "medium",
+            "max_width": 1100,
+            "max_image_size": "small",
+            "arrows_visibility": "always_shown",
+            "transition_speed": 5,
+            "corner_styling": "inherit",
+            "text_color": "",
+            "card_color": "",
+            "stars_color": "",
+            "arrows_color": "",
+            "arrows_background_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_snippet_widget_qcJmma"
+      ],
+      "settings": {
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 20,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "collage_y7C4rT": {
+      "type": "collage",
+      "blocks": {
+        "image_GzM3nd": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/free-photo-of-stream-in-canyon-in-mountains.jpg",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_8Ypzee": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/Screenshot_2025-05-27_at_4.13.49_PM.png",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_3W4cr3": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/Screenshot_2025-05-22_at_1.48.29_PM.png",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_zTEQBh": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/caleta-bay-steelhead-underwater_1512x_0d859f0d-c310-4876-8437-22f1c6a01561.jpg",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        }
+      },
+      "block_order": [
+        "image_GzM3nd",
+        "image_8Ypzee",
+        "image_3W4cr3",
+        "image_zTEQBh"
+      ],
+      "name": "t:sections.collage.presets.name",
+      "settings": {
+        "heading": "Where glacier meltwater meets the Pacific",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>In the remote southern fjords of Chile, Caleta Bay operates within one of the world’s most pristine aquaculture environments—where glacial meltwater meets the Pacific. These cold, clear waters are fed by the snowcapped Andes and enriched by tidal exchanges that flush the fjords with oxygen and nutrients. Surrounded by untouched forest and rugged coastline, the region is a haven for marine life, offering ideal conditions for raising Steelhead Trout. </p>",
+        "button_label": "Visit the farm",
+        "button_link": "shopify://pages/caleta-bay-steelhead-trout",
+        "button_external": false,
+        "button_icon": false,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true
+      }
+    },
     "index_new_testimonials_gq9XBi": {
       "type": "index-new-testimonials",
       "blocks": {
@@ -452,7 +699,7 @@
             "title": "Dr. Mark Hyman",
             "job": "Leader in Functional Medicine",
             "Start_number": "5",
-            "text": "<p>“We are what foods we eats and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
+            "text": "<p>“We are what foods we eat and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
             "block_background": "",
             "block_text_color": ""
           }
@@ -510,8 +757,8 @@
         "title": "",
         "sub_title": "",
         "section_cont_position": "center",
-        "padding_top": 0,
-        "padding_bottom": 28,
+        "padding_top": 52,
+        "padding_bottom": 52,
         "section_background": "#fafafa",
         "text_color": "#171717",
         "star_color": "#f59e0b",
@@ -586,73 +833,6 @@
         "padding_bottom": 0,
         "divider": false,
         "full_width": true,
-        "rounded": false
-      }
-    },
-    "1758153577fa569f00": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_snippet_widget_qcJmma": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_snippet_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "reviews_selection": "auto",
-            "products": [],
-            "filter_pinned": false,
-            "filter_featured": false,
-            "filter_custom_tags": "",
-            "min_star_rating": "inherit",
-            "show_review_media": true,
-            "max_reviews": 5,
-            "review_length": "medium",
-            "text_size": "medium",
-            "max_width": 1100,
-            "max_image_size": "small",
-            "arrows_visibility": "always_shown",
-            "transition_speed": 5,
-            "corner_styling": "inherit",
-            "text_color": "",
-            "card_color": "",
-            "stars_color": "",
-            "arrows_color": "",
-            "arrows_background_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_snippet_widget_qcJmma"
-      ],
-      "settings": {
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 20,
-        "padding_bottom": 24,
-        "divider": false,
-        "full_width": false,
-        "rounded": false
-      }
-    },
-    "custom_liquid_9FtPDg": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "section_id": "",
-        "liquid": "<div class=\"seatopia-edacious-results-block\">\n  <div\n    data-edacious-results='{\"brand\":\"seatopia\",\"product\":\"caleta-bay-steelhead-trout-loin\",\"config\":\"8uxc5v\"}'\n  ></div>\n\n  <button\n    type=\"button\"\n    class=\"seatopia-coa-link\"\n    aria-label=\"View the Certificate of Analysis for Caleta Bay Steelhead Trout\"\n    onclick=\"window.open('https://cdn.shopify.com/s/files/1/0222/9882/0682/files/EMSL_CaletaBay_110625.pdf?v=1783722341','_blank','noopener,noreferrer');\"\n  >\n    <span class=\"seatopia-coa-claim\">✓ Zero Detectable Microplastics</span>\n    <span class=\"seatopia-coa-action\">View Certificate of Analysis →</span>\n  </button>\n</div>\n\n<style>\n  .seatopia-edacious-results-block {\n    width: 100%;\n  }\n\n  .seatopia-coa-link {\n    appearance: none !important;\n    -webkit-appearance: none !important;\n    background: transparent !important;\n    border: none !important;\n    box-shadow: none !important;\n    padding: 0 !important;\n    margin: 18px 0 0 !important;\n\n    display: flex !important;\n    flex-direction: column !important;\n    align-items: flex-start !important;\n    gap: 4px !important;\n\n    color: #27485b !important;\n    text-align: left !important;\n    cursor: pointer !important;\n    font-family: inherit !important;\n\n    text-decoration: none !important;\n    background-image: none !important;\n  }\n\n  .seatopia-coa-link *,\n  .seatopia-coa-link:before,\n  .seatopia-coa-link:after,\n  .seatopia-coa-link *:before,\n  .seatopia-coa-link *:after {\n    text-decoration: none !important;\n    background-image: none !important;\n    border: none !important;\n    box-shadow: none !important;\n  }\n\n  .seatopia-coa-claim {\n    font-size: 20px;\n    font-weight: 600;\n    line-height: 1.25;\n    color: #27485b;\n  }\n\n  .seatopia-coa-action {\n    font-size: 16px;\n    font-weight: 400;\n    line-height: 1.3;\n    color: #27485b;\n  }\n\n  .seatopia-coa-link:hover {\n    opacity: 0.8;\n  }\n\n  .seatopia-coa-link:focus-visible {\n    outline: 2px solid #27485b;\n    outline-offset: 4px;\n  }\n</style>",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "narrow": false,
         "rounded": false
       }
     },
@@ -762,7 +942,7 @@
       ],
       "settings": {
         "heading": "Delicious seafood that meets the Seatopia Standard™",
-        "heading_size": "title-sm",
+        "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h3",
         "subheading": "",
@@ -787,6 +967,25 @@
         "full_width": false,
         "rounded": true,
         "enable_parallax": true
+      }
+    },
+    "custom_liquid_9FtPDg": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "",
+        "liquid": "<div class=\"seatopia-edacious-results-block\">\n  <div\n    data-edacious-results='{\"brand\":\"seatopia\",\"product\":\"caleta-bay-steelhead-trout-loin\",\"config\":\"8uxc5v\"}'\n  ></div>\n\n  <button\n    type=\"button\"\n    class=\"seatopia-coa-link\"\n    aria-label=\"View the Certificate of Analysis for Caleta Bay Steelhead Trout\"\n    onclick=\"window.open('https://cdn.shopify.com/s/files/1/0222/9882/0682/files/EMSL_CaletaBay_110625.pdf?v=1783722341','_blank','noopener,noreferrer');\"\n  >\n    <span class=\"seatopia-coa-claim\">✓ Zero Detectable Microplastics</span>\n    <span class=\"seatopia-coa-action\">View Certificate of Analysis →</span>\n  </button>\n</div>\n\n<style>\n  .seatopia-edacious-results-block {\n    width: 100%;\n  }\n\n  .seatopia-coa-link {\n    appearance: none !important;\n    -webkit-appearance: none !important;\n    background: transparent !important;\n    border: none !important;\n    box-shadow: none !important;\n    padding: 0 !important;\n    margin: 18px 0 0 !important;\n\n    display: flex !important;\n    flex-direction: column !important;\n    align-items: flex-start !important;\n    gap: 4px !important;\n\n    color: #27485b !important;\n    text-align: left !important;\n    cursor: pointer !important;\n    font-family: inherit !important;\n\n    text-decoration: none !important;\n    background-image: none !important;\n  }\n\n  .seatopia-coa-link *,\n  .seatopia-coa-link:before,\n  .seatopia-coa-link:after,\n  .seatopia-coa-link *:before,\n  .seatopia-coa-link *:after {\n    text-decoration: none !important;\n    background-image: none !important;\n    border: none !important;\n    box-shadow: none !important;\n  }\n\n  .seatopia-coa-claim {\n    font-size: 20px;\n    font-weight: 600;\n    line-height: 1.25;\n    color: #27485b;\n  }\n\n  .seatopia-coa-action {\n    font-size: 16px;\n    font-weight: 400;\n    line-height: 1.3;\n    color: #27485b;\n  }\n\n  .seatopia-coa-link:hover {\n    opacity: 0.8;\n  }\n\n  .seatopia-coa-link:focus-visible {\n    outline: 2px solid #27485b;\n    outline-offset: 4px;\n  }\n</style>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
       }
     },
     "product-details": {
@@ -1366,17 +1565,19 @@
   },
   "order": [
     "main-product",
+    "images_with_text_WFdHRb",
     "help-drawer",
     "video_with_text_overlay_jH8bXm",
+    "1758153577fa569f00",
+    "collage_y7C4rT",
     "index_new_testimonials_gq9XBi",
     "video-hero",
-    "1758153577fa569f00",
-    "custom_liquid_9FtPDg",
     "collage_PtgD3p",
+    "custom_liquid_9FtPDg",
     "product-details",
     "shop_the_feed_LYTGxr",
-    "faq",
     "product-recommendations",
+    "faq",
     "175815325305d321d0",
     "recently-viewed"
   ]
