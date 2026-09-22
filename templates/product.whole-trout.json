@@ -292,6 +292,73 @@
         "rounded": false
       }
     },
+    "images_with_text_777e4D": {
+      "type": "images-with-text",
+      "blocks": {
+        "heading_mfPc7R": {
+          "type": "heading",
+          "settings": {
+            "heading": "Perfect Seafood, every time",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_8AeUch": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Unsure about how to prep your seafood? Don't worry - we developed a super easy guide for you to get it right every single time.</p><p>It covers simple defrosting for a perfect result, getting that beautiful crispy skin we all love so much and gives you some basic techniques to create delicious and simple dishes like poke bowls and hand rolls.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_mKn9gC": {
+          "type": "button",
+          "settings": {
+            "button_label": "Free prep guide",
+            "button_link": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/SeatopiaSimpleRecipes.pdf?v=1787902680",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_mfPc7R",
+        "text_8AeUch",
+        "button_mKn9gC"
+      ],
+      "name": "t:sections.images-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Screenshot_2026-09-21_at_16.11.28.png",
+        "image_2": "shopify://shop_images/Screenshot_2026-09-21_at_16.12.00.png",
+        "image_ratio": "wide",
+        "image_width": "large",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true
+      }
+    },
     "help-drawer": {
       "type": "help-drawer",
       "blocks": {
@@ -558,6 +625,214 @@
         "rounded": false
       }
     },
+    "collage_e3m7tK": {
+      "type": "collage",
+      "blocks": {
+        "image_CRBaJP": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/IM_220212_FILSON_HATCHERY_DAY_2_23475_1.jpg",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_GLLmL9": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/Screenshot_2025-05-22_at_10.05.03_AM.png",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_NBzfHU": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/fry_ba9d2e8b-2382-444b-833d-9e2cba488374.jpg",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_xT9cTh": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/2_415319bf-615e-4ba5-b27a-0abed736b87e.jpg",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        }
+      },
+      "block_order": [
+        "image_CRBaJP",
+        "image_GLLmL9",
+        "image_NBzfHU",
+        "image_xT9cTh"
+      ],
+      "settings": {
+        "heading": "Cold, clear water from the Blue Ridge Mountains",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Smoke in Chimneys operates in foothills of the Blue Ridge Mountains, on land that in many ways helped shape the history of mainland American aquaculture. Here, cold, clear spring water from limestone aquifers travels downhill through a gravity-powered raceway system first built in the late 1800s. This natural water flow oxygenates the trout and keeps their environment clean without the need for external energy inputs. </p>",
+        "button_label": "Visit the farm",
+        "button_link": "shopify://pages/smoke-in-chimneys",
+        "button_external": false,
+        "button_icon": false,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true
+      }
+    },
+    "index_new_testimonials_gq9XBi": {
+      "type": "index-new-testimonials",
+      "blocks": {
+        "review_WcBNGj": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Mark_hyman.png",
+            "image_url": "shopify://blogs/seafood-recipes/asian-scallop-crudo-with-citrus-soy-marinade",
+            "title": "Dr. Mark Hyman",
+            "job": "Leader in Functional Medicine",
+            "Start_number": "5",
+            "text": "<p>“We are what foods we eat and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        },
+        "review_QzQ8nr": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Lisa_giffen.png",
+            "image_url": "shopify://blogs/regenerative-aquaculture/are-we-still-mermaids-embracing-our-aquatic-roots-for-modern-health",
+            "title": "Lisa Giffen",
+            "job": "The Audrey",
+            "Start_number": "5",
+            "text": "<p>\"It's rare to find consistent seafood with clean and unique flavors that's also sustainable. Without a doubt Seatopia meets such high standards. Looking forward to anything and everything Seatopia has to offer.\"</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        },
+        "review_NAxiAW": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Ben_greenfield_89fa6ea5-3395-4d81-975e-1f952ba5b657.png",
+            "image_url": "shopify://blogs/regenerative-aquaculture",
+            "title": "Ben Greenfield",
+            "job": "Health & Fitness Coach",
+            "Start_number": "5",
+            "text": "<p>\"If you want healthy, gourmet-style seafood, in the comfort of your own home, seafood that goes above and beyond any you've tasted before, you need Seatopia in your life!\"</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        },
+        "review_YtwkVt": {
+          "type": "review",
+          "disabled": true,
+          "settings": {
+            "image_url": "",
+            "title": "Testimonial name",
+            "job": "Founder, Company",
+            "Start_number": "5",
+            "text": "<p>Use this text to showcase a review from one of your customers.  A great review is honest and relatable.  A great reviewer is a person who represents your target audience and can speak to concerns that might block your customers from buying.</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_WcBNGj",
+        "review_QzQ8nr",
+        "review_NAxiAW",
+        "review_YtwkVt"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "custom_class": "",
+        "section_id": "",
+        "title": "",
+        "sub_title": "",
+        "section_cont_position": "center",
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "section_background": "#fafafa",
+        "text_color": "#171717",
+        "star_color": "#f59e0b",
+        "rounded": false
+      }
+    },
     "collage_PtgD3p": {
       "type": "collage",
       "blocks": {
@@ -685,8 +960,8 @@
         "color_button_text": "",
         "color_button_background": "#1c2427",
         "color_button_gradient": "",
-        "padding_top": 20,
-        "padding_bottom": 20,
+        "padding_top": 52,
+        "padding_bottom": 52,
         "divider": true,
         "full_width": false,
         "rounded": true,
@@ -838,218 +1113,10 @@
         "rounded": false
       }
     },
-    "collage_e3m7tK": {
-      "type": "collage",
-      "blocks": {
-        "image_CRBaJP": {
-          "type": "image",
-          "settings": {
-            "subheading": "",
-            "heading": "",
-            "link": "",
-            "invert_subheading_heading": false,
-            "image": "shopify://shop_images/IM_220212_FILSON_HATCHERY_DAY_2_23475_1.jpg",
-            "image_ratio": "portrait",
-            "content_position": "md:items-end md:justify-start",
-            "text_alignment": "left",
-            "image_ratio_mobile": "portrait",
-            "content_position_mobile": "items-end justify-start",
-            "text_alignment_mobile": "left",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle",
-            "color_text": "#ffffff",
-            "color_highlight": "",
-            "gradient_highlight": "",
-            "color_overlay": "#171717",
-            "overlay_opacity": 10
-          }
-        },
-        "image_GLLmL9": {
-          "type": "image",
-          "settings": {
-            "subheading": "",
-            "heading": "",
-            "link": "",
-            "invert_subheading_heading": false,
-            "image": "shopify://shop_images/Screenshot_2025-05-22_at_10.05.03_AM.png",
-            "image_ratio": "portrait",
-            "content_position": "md:items-end md:justify-start",
-            "text_alignment": "left",
-            "image_ratio_mobile": "portrait",
-            "content_position_mobile": "items-end justify-start",
-            "text_alignment_mobile": "left",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle",
-            "color_text": "#ffffff",
-            "color_highlight": "",
-            "gradient_highlight": "",
-            "color_overlay": "#171717",
-            "overlay_opacity": 10
-          }
-        },
-        "image_NBzfHU": {
-          "type": "image",
-          "settings": {
-            "subheading": "",
-            "heading": "",
-            "link": "",
-            "invert_subheading_heading": false,
-            "image": "shopify://shop_images/fry_ba9d2e8b-2382-444b-833d-9e2cba488374.jpg",
-            "image_ratio": "portrait",
-            "content_position": "md:items-end md:justify-start",
-            "text_alignment": "left",
-            "image_ratio_mobile": "portrait",
-            "content_position_mobile": "items-end justify-start",
-            "text_alignment_mobile": "left",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle",
-            "color_text": "#ffffff",
-            "color_highlight": "",
-            "gradient_highlight": "",
-            "color_overlay": "#171717",
-            "overlay_opacity": 10
-          }
-        },
-        "image_xT9cTh": {
-          "type": "image",
-          "settings": {
-            "subheading": "",
-            "heading": "",
-            "link": "",
-            "invert_subheading_heading": false,
-            "image": "shopify://shop_images/2_415319bf-615e-4ba5-b27a-0abed736b87e.jpg",
-            "image_ratio": "portrait",
-            "content_position": "md:items-end md:justify-start",
-            "text_alignment": "left",
-            "image_ratio_mobile": "portrait",
-            "content_position_mobile": "items-end justify-start",
-            "text_alignment_mobile": "left",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle",
-            "color_text": "#ffffff",
-            "color_highlight": "",
-            "gradient_highlight": "",
-            "color_overlay": "#171717",
-            "overlay_opacity": 10
-          }
-        }
-      },
-      "block_order": [
-        "image_CRBaJP",
-        "image_GLLmL9",
-        "image_NBzfHU",
-        "image_xT9cTh"
-      ],
-      "settings": {
-        "heading": "Cold, clear water from the Blue Ridge Mountains",
-        "heading_size": "title-md",
-        "heading_alignment": "text-left md:items-end md:flex-row",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "<p>Smoke in Chimneys operates in foothills of the Blue Ridge Mountains, on land that in many ways helped shape the history of mainland American aquaculture. Here, cold, clear spring water from limestone aquifers travels downhill through a gravity-powered raceway system first built in the late 1800s. This natural water flow oxygenates the trout and keeps their environment clean without the need for external energy inputs. </p>",
-        "button_label": "The farm",
-        "button_link": "shopify://pages/smoke-in-chimneys",
-        "button_external": false,
-        "button_icon": true,
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 52,
-        "padding_bottom": 52,
-        "divider": false,
-        "full_width": false,
-        "rounded": false,
-        "enable_parallax": true
-      }
-    },
     "blocks_aME8Az": {
       "type": "_blocks",
       "name": "Blog posts collage",
       "settings": {}
-    },
-    "index_new_testimonials_gq9XBi": {
-      "type": "index-new-testimonials",
-      "blocks": {
-        "review_WcBNGj": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/Mark_hyman.png",
-            "image_url": "shopify://blogs/seafood-recipes/asian-scallop-crudo-with-citrus-soy-marinade",
-            "title": "Dr. Mark Hyman",
-            "job": "Leader in Functional Medicine",
-            "Start_number": "5",
-            "text": "<p>“We are what foods we eat and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
-            "block_background": "",
-            "block_text_color": ""
-          }
-        },
-        "review_QzQ8nr": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/Lisa_giffen.png",
-            "image_url": "shopify://blogs/regenerative-aquaculture/are-we-still-mermaids-embracing-our-aquatic-roots-for-modern-health",
-            "title": "Lisa Giffen",
-            "job": "The Audrey",
-            "Start_number": "5",
-            "text": "<p>\"It's rare to find consistent seafood with clean and unique flavors that's also sustainable. Without a doubt Seatopia meets such high standards. Looking forward to anything and everything Seatopia has to offer.\"</p>",
-            "block_background": "",
-            "block_text_color": ""
-          }
-        },
-        "review_NAxiAW": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/Ben_greenfield_89fa6ea5-3395-4d81-975e-1f952ba5b657.png",
-            "image_url": "shopify://blogs/regenerative-aquaculture",
-            "title": "Ben Greenfield",
-            "job": "Health & Fitness Coach",
-            "Start_number": "5",
-            "text": "<p>\"If you want healthy, gourmet-style seafood, in the comfort of your own home, seafood that goes above and beyond any you've tasted before, you need Seatopia in your life!\"</p>",
-            "block_background": "",
-            "block_text_color": ""
-          }
-        },
-        "review_YtwkVt": {
-          "type": "review",
-          "disabled": true,
-          "settings": {
-            "image_url": "",
-            "title": "Testimonial name",
-            "job": "Founder, Company",
-            "Start_number": "5",
-            "text": "<p>Use this text to showcase a review from one of your customers.  A great review is honest and relatable.  A great reviewer is a person who represents your target audience and can speak to concerns that might block your customers from buying.</p>",
-            "block_background": "",
-            "block_text_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "review_WcBNGj",
-        "review_QzQ8nr",
-        "review_NAxiAW",
-        "review_YtwkVt"
-      ],
-      "name": "Testimonials",
-      "settings": {
-        "custom_class": "",
-        "section_id": "",
-        "title": "",
-        "sub_title": "",
-        "section_cont_position": "center",
-        "padding_top": 52,
-        "padding_bottom": 52,
-        "section_background": "#fafafa",
-        "text_color": "#171717",
-        "star_color": "#f59e0b",
-        "rounded": false
-      }
     },
     "blocks_Rbw8B9": {
       "type": "_blocks",
@@ -1512,16 +1579,17 @@
   },
   "order": [
     "main-product",
+    "images_with_text_777e4D",
     "help-drawer",
     "video_with_text_overlay_jH8bXm",
     "video-hero",
     "1758153577fa569f00",
+    "collage_e3m7tK",
+    "index_new_testimonials_gq9XBi",
     "collage_PtgD3p",
     "product-details",
     "custom_liquid_mAH6fR",
-    "collage_e3m7tK",
     "blocks_aME8Az",
-    "index_new_testimonials_gq9XBi",
     "blocks_Rbw8B9",
     "shop_the_feed_LYTGxr",
     "product-recommendations",
