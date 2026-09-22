@@ -1041,7 +1041,7 @@
       ],
       "settings": {
         "heading": "Delicious seafood that meets the Seatopia Standard™",
-        "heading_size": "title-sm",
+        "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h3",
         "subheading": "",
@@ -1625,6 +1625,37 @@
         "rounded": false
       }
     },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "product_limit": 6,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "If you like Shrimp you will love",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "#fafafa",
+        "color_button_background": "#1c2427",
+        "color_button_gradient": "",
+        "padding_top": 68,
+        "padding_bottom": 64,
+        "divider": false,
+        "full_width": false,
+        "rounded": true
+      }
+    },
     "faq": {
       "type": "faq",
       "blocks": {
@@ -1723,37 +1754,6 @@
         "divider": false,
         "narrow": false,
         "rounded": false
-      }
-    },
-    "product-recommendations": {
-      "type": "product-recommendations",
-      "settings": {
-        "product_limit": 6,
-        "columns": 4,
-        "carousel_on_desktop": true,
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "heading": "If you like Shrimp you will love",
-        "heading_size": "title-md",
-        "heading_alignment": "text-left md:items-end md:flex-row",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "#fafafa",
-        "color_button_background": "#1c2427",
-        "color_button_gradient": "",
-        "padding_top": 68,
-        "padding_bottom": 64,
-        "divider": false,
-        "full_width": false,
-        "rounded": true
       }
     },
     "175815325305d321d0": {
