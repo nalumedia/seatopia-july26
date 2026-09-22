@@ -1,0 +1,854 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-article-banner": {
+      "type": "main-article-banner",
+      "blocks": {
+        "spacing": {
+          "type": "spacing",
+          "settings": {
+            "height": 68,
+            "height_mobile": 0
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "title-lg tracking-heading",
+            "show_tags": true,
+            "show_date": false,
+            "show_comments": false,
+            "show_author": true
+          }
+        }
+      },
+      "block_order": [
+        "spacing",
+        "title"
+      ],
+      "settings": {
+        "transparent_header": true,
+        "show_image": true,
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-245.jpg",
+        "image_height": "750px",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-center",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_overlay": "#000000",
+        "overlay_opacity": 40,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "collab_card": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "recipe-collab",
+        "liquid": "<style>\n  .sea-collab {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    border: 1px solid var(--line);\n    border-radius: 18px;\n    background: var(--wash);\n    padding: 24px 28px;\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n    color: var(--ink);\n  }\n  .sea-collab__avatar {\n    flex: 0 0 auto;\n    width: 68px;\n    height: 68px;\n    border-radius: 50%;\n    overflow: hidden;\n    border: 2px solid #fff;\n    box-shadow: 0 0 0 2px var(--gold);\n    background: #eee;\n  }\n  .sea-collab__avatar img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    display: block;\n  }\n  .sea-collab__body {\n    flex: 1 1 260px;\n    min-width: 0;\n  }\n  .sea-collab__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 5px;\n  }\n  .sea-collab__name {\n    font-size: 21px;\n    font-weight: 600;\n    line-height: 1.2;\n    margin: 0 0 4px;\n  }\n  .sea-collab__role {\n    font-size: 15px;\n    color: var(--muted);\n    line-height: 1.45;\n    margin: 0;\n  }\n  .sea-collab__cred {\n    font-size: 13px;\n    color: var(--muted);\n    line-height: 1.5;\n    margin: 10px 0 0;\n    padding-top: 10px;\n    border-top: 1px solid var(--line);\n  }\n  .sea-collab__follow {\n    flex: 0 0 auto;\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    padding: 11px 20px;\n    border: 1px solid var(--ink);\n    border-radius: 999px;\n    font-size: 15px;\n    font-weight: 600;\n    text-decoration: none;\n    color: var(--ink);\n    background: #fff;\n    transition: background .18s ease, color .18s ease;\n  }\n  .sea-collab__follow:hover {\n    background: var(--ink);\n    color: #fff;\n  }\n  .sea-collab__follow svg {\n    width: 18px;\n    height: 18px;\n  }\n  @media (max-width: 749px) {\n    .sea-collab {\n      padding: 20px;\n      gap: 16px;\n    }\n    .sea-collab__follow {\n      width: 100%;\n      justify-content: center;\n    }\n    .sea-collab__name {\n      font-size: 19px;\n    }\n  }\n</style>\n{%- assign collab_avatar = 'miriam-thom-headshot.jpg' | file_url -%}\n\n<div class=\"sea-collab\">\n  {%- if collab_avatar != blank -%}\n    <div class=\"sea-collab__avatar\">\n      <img src=\"{{ collab_avatar }}\" alt=\"Miriam Thom\" width=\"136\" height=\"136\" loading=\"lazy\" decoding=\"async\">\n    </div>\n  {%- endif -%}\n\n  <div class=\"sea-collab__body\">\n    <p class=\"sea-collab__eyebrow\">\n      <span>From the Seatopia kitchen</span>\n      <span class=\"sea-collab__badge\">In-house</span>\n    </p>\n    <p class=\"sea-collab__name\">Recipe by Miriam Thom</p>\n    <p class=\"sea-collab__role\">Culinary Education at Seatopia &mdash; she develops the recipes that ship with the boxes and teaches the <a href=\"/pages/seatopia-member-cooking-classes\" title=\"Seatopia Member Cooking Classes\">member cooking classes</a></p>\n    <p class=\"sea-collab__cred\">Serves 2 &middot; about 50 minutes, depending on your farro &middot; better the next day, at room temperature</p>\n  </div>\n\n  <a class=\"sea-collab__follow\" href=\"https://www.instagram.com/miriamthom\" target=\"_blank\" rel=\"noopener noreferrer\">\n    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n      <rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\"></rect>\n      <circle cx=\"12\" cy=\"12\" r=\"4\"></circle>\n      <circle cx=\"17.5\" cy=\"6.5\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"></circle>\n    </svg>\n    <span>Follow</span>\n  </a>\n</div>\n",
+        "padding_top": 28,
+        "padding_bottom": 8,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "rich_text_intro": {
+      "type": "rich-text",
+      "blocks": {
+        "text_intro": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This dish is delightful served warm, but it is also built for the days ahead &mdash; it gets better overnight and is just as good at room temperature. Chewy farro meets earthy maitake, toasted hazelnut and crisp pear, against flaky branzino and its crackling skin.</p><p>Two things decide whether it works. The skin needs thirty seconds under a spatula or it curls off the pan and never crisps. And the dressing goes on off the heat, so the miso keeps its flavour rather than cooking out.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "text_intro"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_width": "small",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "at_a_glance": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "g_time": {
+          "type": "column",
+          "settings": {
+            "icon": "time",
+            "custom_icon": "",
+            "heading": "About 50 minutes",
+            "text": "<p>Mostly farro, and that number moves: pearled is about 15 minutes, semi-pearled 25, whole closer to 40. Check which you have before you plan around it.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_serves": {
+          "type": "column",
+          "settings": {
+            "icon": "users",
+            "custom_icon": "",
+            "heading": "Serves 2",
+            "text": "<p>Two 6 oz fillets, one each, over a shared platter of the farro. It scales up cleanly &mdash; the only limit is how many fillets fit in one skillet without steaming.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_prep": {
+          "type": "column",
+          "settings": {
+            "icon": "check_mark",
+            "custom_icon": "",
+            "heading": "The salad keeps four days",
+            "text": "<p>Make it through the dressing and refrigerate, holding back the pear, parsley and hazelnuts. Cook the fish fresh &mdash; cooked fish is a three-day ingredient.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_marinade": {
+          "type": "column",
+          "settings": {
+            "icon": "heart",
+            "custom_icon": "",
+            "heading": "Thirty seconds of pressure",
+            "text": "<p>Hold the fillets flat with a spatula as they go in. It is the difference between crackling skin and skin that curled away from the pan and stayed pale.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "g_time",
+        "g_serves",
+        "g_marinade",
+        "g_prep"
+      ],
+      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "settings": {
+        "custom_class": "",
+        "section_id": "at-a-glance",
+        "style": "with-border",
+        "columns": 4,
+        "text_alignment": "left",
+        "dt_txt_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "At a glance",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "keeps_note": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "what-keeps",
+        "liquid": "<style>\n  .sea-pepper {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-pepper__grid {\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);\n    gap: 34px;\n    align-items: center;\n  }\n  .sea-pepper__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-pepper__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n  }\n  .sea-pepper__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 22px;\n  }\n  .sea-pepper__rows {\n    display: grid;\n    gap: 14px;\n  }\n  .sea-pepper__row {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 15px 17px;\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) auto;\n    gap: 10px 16px;\n    align-items: center;\n  }\n  .sea-pepper__row--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-pepper__name {\n    grid-column: 1;\n    margin: 0;\n    font-size: 15px;\n    font-weight: 600;\n    line-height: 1.3;\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-wrap: wrap;\n  }\n  .sea-pepper__tag {\n    font-size: 10px;\n    font-weight: 700;\n    letter-spacing: .08em;\n    text-transform: uppercase;\n    color: #fff;\n    background: var(--gold);\n    padding: 3px 8px;\n    border-radius: 999px;\n  }\n  .sea-pepper__meter {\n    grid-column: 2;\n    grid-row: 1;\n    display: flex;\n    gap: 4px;\n    align-items: center;\n  }\n  .sea-pepper__pip {\n    width: 9px;\n    height: 9px;\n    border-radius: 50%;\n    background: #fff;\n    border: 1.5px solid #d8cfc0;\n  }\n  .sea-pepper__pip.is-on {\n    background: #b8462f;\n    border-color: #b8462f;\n  }\n  .sea-pepper__note {\n    grid-column: 1 / -1;\n    margin: 0;\n    font-size: 13.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  .sea-pepper__legend {\n    margin: 16px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  .sea-pepper__figure {\n    margin: 0;\n  }\n  .sea-pepper__figure img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-pepper__cap {\n    margin: 10px 0 0;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  @media (max-width: 989px) {\n    .sea-pepper {\n      padding: 22px;\n    }\n    .sea-pepper__grid {\n      grid-template-columns: 1fr;\n      gap: 24px;\n    }\n    .sea-pepper__figure {\n      order: -1;\n    }\n  }\n</style>\n<div class=\"sea-pepper\">\n  <div class=\"sea-pepper__grid\">\n\n    <div class=\"sea-pepper__body\">\n      <p class=\"sea-pepper__eyebrow\">Make it ahead, but know the limits</p>\n      <h2 class=\"sea-pepper__heading\">The farro salad is what keeps. The fish is what sets the clock.</h2>\n      <p class=\"sea-pepper__lede\">\n        This dish genuinely improves overnight and is as good at room temperature as it is warm\n        &mdash; but that is true of the grain, the mushrooms and the dressing, not of the branzino.\n        Cooked fish is a three-to-four day ingredient however well you store it, so the parts want\n        keeping separately and combining late.\n      </p>\n\n      <div class=\"sea-pepper__rows\">\n      <div class=\"sea-pepper__row sea-pepper__row--pick\">\n        <p class=\"sea-pepper__name\">\n          <span>Farro base, through the dressing</span>\n          <span class=\"sea-pepper__tag\">Best</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Keeps: 5 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">Farro, maitake, onion and the miso-lemon dressing, refrigerated airtight. Four days, and it is better on day two than on day one.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Toasted hazelnuts, separate</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Keeps: 5 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">Airtight at room temperature, two weeks. Toast the whole &#8531; cup even if you are halving the dish &mdash; they keep far longer than anything else here.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Cooked branzino, kept apart</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Keeps: 3 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">Three days refrigerated, skin removed. The skin will not crisp back once it has been chilled, so there is nothing lost by taking it off first.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Everything folded together</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Keeps: 3 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">Three days, and the fish is what caps it &mdash; not the salad. Chop the fish into bite-sized pieces and fold it through for a one-container lunch.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Pear, parsley and nuts, folded in</span>\n          <span class=\"sea-pepper__tag\">Hold back</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Keeps: 2 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">One to two days at the outside. Pear browns even with lemon on it, parsley goes limp and the hazelnuts soften. Add all three at the table instead.</p>\n      </div>\n      </div>\n\n      <p class=\"sea-pepper__legend\">\n        Ratings are how well each part survives the refrigerator, not a safety rating. The three-to\n        four-day limit on cooked fish is the one to keep &mdash; it is shorter than the salad, and it\n        is what the whole dish is bound by once they are mixed.\n      </p>\n    </div>\n\n    <figure class=\"sea-pepper__figure\">\n      <img\n        src=\"{{ '20260825-Stetten-Wilson-224.jpg' | file_url }}\"\n        alt=\"The warm farro and maitake salad in a bowl beside the skillet\"\n        width=\"1200\"\n        height=\"800\"\n        loading=\"lazy\"\n        decoding=\"async\">\n      <figcaption class=\"sea-pepper__cap\">\n        Stop here to make it ahead &mdash; dressed farro and mushrooms, with the pear, parsley and\n        hazelnuts still to come.\n      </figcaption>\n    </figure>\n\n  </div>\n</div>\n",
+        "padding_top": 40,
+        "padding_bottom": 16,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "recipe_kit_card": {
+      "type": "apps",
+      "blocks": {
+        "recipe_kit_app_block_branzino": {
+          "type": "shopify://apps/recipe-kit/blocks/app-block/0afa374e-81c7-4989-96de-e1ac84640954",
+          "settings": {
+            "custom_js": "",
+            "custom_css": ".rk_direction_image { margin-top: 14px; }\n.rk_direction_image img { max-height: 400px; width: 100%; object-fit: cover; border-radius: 12px; }\n@media (max-width: 749px) {\n  .rk_direction_image img { max-height: 280px; }\n}\n"
+          }
+        }
+      },
+      "block_order": [
+        "recipe_kit_app_block_branzino"
+      ],
+      "settings": {
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "shop_the_plate": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "",
+        "products": [
+          "branzino-bundle-2x-6oz-portions",
+          "bream-6oz-filets",
+          "fish-shellfish-variety-box"
+        ],
+        "product_limit": 3,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Two 6 oz skin-on branzino fillets, one per person. Bream behaves almost identically in the pan if that is what you have, and both turn up in the Fish &amp; Shellfish box.</p>",
+        "heading": "Everything on this plate",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "crisp_note": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "crispy-skin",
+        "liquid": "<style>\n  .sea-sheet {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-sheet__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-sheet__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n    max-width: 22ch;\n  }\n  .sea-sheet__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 24px;\n    max-width: 68ch;\n  }\n  .sea-sheet__cols {\n    display: grid;\n    grid-template-columns: repeat(3, minmax(0, 1fr));\n    gap: 14px;\n  }\n  .sea-sheet__col {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 18px;\n  }\n  .sea-sheet__col--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-sheet__num {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 26px;\n    height: 26px;\n    border-radius: 50%;\n    background: var(--ink);\n    color: #fff;\n    font-size: 12px;\n    font-weight: 700;\n    margin: 0 0 10px;\n  }\n  .sea-sheet__col h3 {\n    font-size: 15.5px;\n    font-weight: 600;\n    line-height: 1.3;\n    margin: 0 0 7px;\n  }\n  .sea-sheet__col p {\n    font-size: 13.5px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0;\n  }\n  .sea-sheet__foot {\n    margin: 18px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  @media (max-width: 749px) {\n    .sea-sheet {\n      padding: 22px;\n    }\n    .sea-sheet__cols {\n      grid-template-columns: 1fr;\n    }\n  }\n\n  .sea-sheet__fig {\n    margin: 22px 0 0;\n  }\n  .sea-sheet__fig img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-sheet__figcap {\n    margin: 10px 0 0;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n</style>\n<div class=\"sea-sheet\">\n  <p class=\"sea-sheet__eyebrow\">The part that goes wrong</p>\n  <h2 class=\"sea-sheet__heading\">Branzino skin curls off the pan unless you hold it down.</h2>\n  <p class=\"sea-sheet__lede\">\n    Branzino fillets are thin and the skin contracts faster than the flesh, so the moment they hit\n    heat the edges lift and the middle never touches metal. You get a pale stripe down the centre\n    and no crackle. Thirty seconds of gentle pressure fixes it, and it is the only fiddly thing in\n    this recipe. We have a <a href=\"/blogs/seafood-recipes/seafood-101-the-secret-to-crispy-skin\">whole\n    Seafood 101 on crispy skin</a> if you want the long version.\n  </p>\n\n  <div class=\"sea-sheet__cols\">\n    <div class=\"sea-sheet__col sea-sheet__col--pick\">\n      <span class=\"sea-sheet__num\">1</span>\n      <h3>Dry, then oil &mdash; not butter</h3>\n      <p>Pat the fillets drier than feels necessary; skin will not crisp on a damp surface. Sear in\n      olive oil, because butter on its own at medium-high scorches its milk solids long before the\n      skin has set.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">2</span>\n      <h3>Press for thirty seconds</h3>\n      <p>Lay the fillets in skin-side down and press gently with a fish spatula for the first half\n      minute, until they stop trying to curl. Then leave them completely alone for three to four\n      minutes.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">3</span>\n      <h3>Butter at the flip, rest skin-up</h3>\n      <p>Flip, add the butter and baste for about a minute until just opaque. Rest skin-side up\n      &mdash; put a crisp fillet down on a plate and the trapped steam undoes everything you just\n      did.</p>\n    </div>\n  </div>\n\n  <figure class=\"sea-sheet__fig\">\n    <img\n      src=\"{{ '20260825-Stetten-Wilson-196.jpg' | file_url }}\"\n      alt=\"A fish spatula pressing branzino fillets skin-side down in a cast-iron skillet\"\n      width=\"1200\"\n      height=\"1600\"\n      loading=\"lazy\"\n      decoding=\"async\">\n    <figcaption class=\"sea-sheet__figcap\">\n      Gentle, even pressure across the fillet &mdash; you are flattening it against the pan, not\n      squashing it. It releases on its own when the skin is ready.\n    </figcaption>\n  </figure>\n</div>\n",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "swap_table": {
+      "type": "table-content",
+      "blocks": {
+        "w_head": {
+          "type": "row",
+          "settings": {
+            "version1": "As written",
+            "version2": "Closest swap",
+            "version3": "If you are improvising"
+          }
+        },
+        "w_fish": {
+          "type": "row",
+          "settings": {
+            "feature": "The fish",
+            "version1": "2 branzino fillets (6 oz), skin on",
+            "version2": "Bream &mdash; near-identical in the pan, same timing",
+            "version3": "Any thin skin-on white fillet; thicker cuts need a minute more and a lower heat"
+          }
+        },
+        "w_grain": {
+          "type": "row",
+          "settings": {
+            "feature": "The grain",
+            "version1": "&frac34; cup farro",
+            "version2": "Pearled barley or spelt, same method",
+            "version3": "Short-grain brown rice or freekeh &mdash; both hold up to a warm dressing"
+          }
+        },
+        "w_mushroom": {
+          "type": "row",
+          "settings": {
+            "feature": "The mushroom",
+            "version1": "4 oz maitake, torn",
+            "version2": "Oyster mushrooms, torn the same way",
+            "version3": "Cremini, quartered &mdash; less frilly, so less surface to brown"
+          }
+        },
+        "w_fruit": {
+          "type": "row",
+          "settings": {
+            "feature": "The fruit",
+            "version1": "&frac12; Asian pear, sliced thin",
+            "version2": "A firm Bosc pear, or a crisp apple",
+            "version3": "Celery for crunch without sweetness; skip the lemon toss"
+          }
+        },
+        "w_nut": {
+          "type": "row",
+          "settings": {
+            "feature": "The nut",
+            "version1": "&#8531; cup hazelnuts, toasted and skinned",
+            "version2": "Almonds or walnuts, toasted",
+            "version3": "Pepitas, for a nut-free version &mdash; toast them the same way"
+          }
+        },
+        "w_dressing": {
+          "type": "row",
+          "settings": {
+            "feature": "The dressing",
+            "version1": "1 tbsp white miso, lemon, honey, oil",
+            "version2": "Red miso for something deeper and saltier",
+            "version3": "Tahini with lemon and a little maple, if there is no miso in the house"
+          }
+        },
+        "w_herb": {
+          "type": "row",
+          "settings": {
+            "feature": "The herbs",
+            "version1": "Thyme in the pan, parsley at the end",
+            "version2": "Oregano in the pan, chervil at the end",
+            "version3": "Rosemary, used sparingly &mdash; it will take over the mushrooms"
+          }
+        }
+      },
+      "block_order": [
+        "w_head",
+        "w_fish",
+        "w_grain",
+        "w_mushroom",
+        "w_fruit",
+        "w_nut",
+        "w_dressing",
+        "w_herb"
+      ],
+      "name": "Table content",
+      "settings": {
+        "custom_class": "",
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>The structure is what matters &mdash; a chewy grain, a browned mushroom, something crisp and sweet, a toasted nut, and a salty-sour dressing added off the heat. Each of those has more than one answer.</p>",
+        "heading": "Swaps that work",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "meal_prep": {
+      "type": "image-with-text",
+      "blocks": {
+        "m_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Make it ahead",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "m_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Dress it off the heat",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Once the farro has gone into the skillet with the mushrooms and onion, take the pan off the burner before the miso dressing goes anywhere near it. Miso is a live, fermented paste and its flavour flattens in a hot pan &mdash; you lose the savoury edge that makes the salad worth eating cold the next day.</p><p>The same logic applies to the order of everything else. Hazelnuts get toasted first so they are out of the way, the pear is sliced and held in lemon, and the fish is the very last thing to touch heat.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Branzino",
+            "button_link": "/products/branzino-bundle-2x-6oz-portions",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "m_sub",
+        "m_head",
+        "m_text",
+        "m_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-227.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "rich_text_standard": {
+      "type": "image-with-text",
+      "blocks": {
+        "f_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "The fish under the spice",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "f_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why branzino takes to this",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Branzino is lean and mild where the farro salad is rich and savoury, which is the whole balance of the plate &mdash; a fattier fish would compete with the miso and the browned mushrooms rather than cut through them. The thin fillet is also what makes the crisp skin possible in four minutes. Sashimi-grade, blast-frozen to &minus;10&deg;F at harvest and vacuum sealed, so it comes out of the freezer ready to take a hard sear.</p><p>Every supplier is tested before we approve them, then randomly audited to ensure consistent compliance with the Seatopia Standard &mdash; third-party lab tested for nutrition, mercury and microplastics, and sourced from best-in-class aquaculture. <a href=\"/blogs/seafood-recipes/best-ways-to-defrost-sushi-grade-seafood-for-sashimi-and-cooking\">How to defrost sushi-grade seafood</a> if you are starting from frozen.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "How we source it",
+            "button_link": "/pages/why-clean-seafood-matters",
+            "button_style": "secondary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "f_sub",
+        "f_head",
+        "f_text",
+        "f_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-190.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "reviews_branzino": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_testimonials_carousel_branzino": {
+          "type": "shopify://apps/judge-me-reviews/blocks/testimonials_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": false,
+            "reviews_selection": "custom_products",
+            "products": [
+              "branzino-bundle-2x-6oz-portions"
+            ],
+            "star_rating": "all",
+            "max_reviews": 20,
+            "quote_marks_size": "small",
+            "product_name_text_size": "small",
+            "verified_badge_style": "icon",
+            "card_height": "medium",
+            "text_size": "small",
+            "stars_size": "medium",
+            "arrows_position": "bottom",
+            "max_width": 1100,
+            "corner_styling": "soft",
+            "quote_marks_style": "serif",
+            "card_color": "#f9f9f9",
+            "stars_and_quote_marks_color": "#7bc3f3",
+            "text_color": "#000000",
+            "arrows_color": "#000000",
+            "show_border": false,
+            "border_color": "#108474",
+            "show_drop_shadow": false,
+            "transition_speed": 5,
+            "header_text": "Seatopians on this Branzino",
+            "show_average_rating": true
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_testimonials_carousel_branzino"
+      ],
+      "settings": {
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "faq_branzino": {
+      "type": "faq",
+      "blocks": {
+        "q_skin": {
+          "type": "question",
+          "settings": {
+            "title": "My branzino skin curled up and never crisped.",
+            "text": "<p>It lifted off the pan in the first few seconds, which is what thin skin does. Press the fillets flat with a fish spatula for the first thirty seconds, until they stop fighting you, then leave them alone for three to four minutes. The other two causes are a damp fillet and a pan that was not hot enough when the fish went in.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_butter": {
+          "type": "question",
+          "settings": {
+            "title": "Can I just sear it in butter?",
+            "text": "<p>Not at this heat. Butter's milk solids burn well before the skin has set, so you get a bitter pan and pale skin. Sear in olive oil, then add the butter after you flip and baste for the last minute &mdash; you get the flavour without the scorching.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_farro": {
+          "type": "question",
+          "settings": {
+            "title": "How long does the farro actually take?",
+            "text": "<p>It depends entirely on which you bought, and the range is wide enough to wreck your timing: roughly 15 minutes for pearled, 25 for semi-pearled and 40 for whole. Check the packet before you start the rest, and cook it until tender but still chewy.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_ahead": {
+          "type": "question",
+          "settings": {
+            "title": "Can I make this for the week?",
+            "text": "<p>Partly. The farro salad keeps four days refrigerated if you hold back the pear, parsley and hazelnuts, and it genuinely improves after a night. Cooked fish does not keep that long &mdash; three days is the limit, and if you fold the fish through the salad then three days is the limit for the whole container.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_maitake": {
+          "type": "question",
+          "settings": {
+            "title": "What if I can't find maitake?",
+            "text": "<p>Oyster mushrooms are the closest, torn the same way so they keep those frilly edges that catch the oil and brown. Cremini work too, quartered, though there is less surface area so you get less of the crisp bits. Whatever you use, give it four to five minutes undisturbed before you touch it.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_thaw": {
+          "type": "question",
+          "settings": {
+            "title": "How should I thaw Seatopia seafood?",
+            "text": "<p>Overnight in the refrigerator in the sealed pack, about 12 hours, then pat it very dry. In a hurry, submerge the sealed pack in a bowl of chilled water for 20 to 30 minutes, changing the water once. Never at room temperature &mdash; and for this recipe especially, never skip the patting dry.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "q_skin",
+        "q_butter",
+        "q_farro",
+        "q_ahead",
+        "q_maitake",
+        "q_thaw"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "Questions about this one",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "seafood-recipes",
+        "post_limit": 8,
+        "columns": 3,
+        "carousel_on_desktop": true,
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "landscape",
+        "show_tags": false,
+        "show_date": false,
+        "show_comments": false,
+        "show_author": false,
+        "show_excerpt": false,
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Recipes from our kitchen and from the people who cook with us. Every Seatopia box includes a FREE virtual cooking class where we work through a dish like this one together.</p>",
+        "heading": "More seafood to cook this week",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "newsletter_banner_branzino": {
+      "type": "newsletter-banner",
+      "blocks": {
+        "h_news": {
+          "type": "heading",
+          "settings": {
+            "heading": "Be the first to know",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_news": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get on the list for more seasonal seafood, cooking temperatures and recipes from our kitchen, straight to your inbox.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_news": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "h_news",
+        "t_news",
+        "f_news"
+      ],
+      "name": "t:sections.newsletter-banner.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "transparent_footer": false,
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-242.jpg",
+        "image_height": "650px",
+        "content_width": "medium",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    }
+  },
+  "order": [
+    "main-article-banner",
+    "collab_card",
+    "rich_text_intro",
+    "at_a_glance",
+    "keeps_note",
+    "recipe_kit_card",
+    "shop_the_plate",
+    "crisp_note",
+    "swap_table",
+    "meal_prep",
+    "rich_text_standard",
+    "reviews_branzino",
+    "faq_branzino",
+    "blog-posts",
+    "newsletter_banner_branzino"
+  ]
+}
