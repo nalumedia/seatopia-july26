@@ -40,7 +40,7 @@
         "text_Fppygg": {
           "type": "text",
           "settings": {
-            "text": "<p>The autumnal equinox marks the moment day and night fall into balance. In Traditional Chinese Medicine, late summer is considered a fifth season, lasting until the equinox: the threshold between summer's abundance and winter's quiet. </p><p>For us, this feels like an invitation to slow down: to gather with our closest people, to savor what the season has finally brought to fruition, and to swap out full calendars for a few small, intimate moments around the table.</p>",
+            "text": "",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -188,7 +188,7 @@
         "heading_UL8nJq": {
           "type": "heading",
           "settings": {
-            "heading": "What is the Autumnal Equinox?",
+            "heading": "What is the Fall Equinox?",
             "heading_size": "title-lg tracking-heading",
             "heading_tag": "h2",
             "highlighted_text": "none",
