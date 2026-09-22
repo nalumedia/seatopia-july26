@@ -1005,7 +1005,7 @@
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "custom_class": "",
-        "image": "shopify://shop_images/20260825-Stetten-Wilson-93_Large_44af11cf-38ad-453b-923b-90bd36327e0d.jpg",
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-93.png",
         "image_height": "100vh",
         "image_width": "medium",
         "layout": "image_first",
