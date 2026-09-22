@@ -291,6 +291,252 @@
         "rounded": false
       }
     },
+    "images_with_text_Vfi6Xx": {
+      "type": "images-with-text",
+      "blocks": {
+        "heading_4w7iWp": {
+          "type": "heading",
+          "settings": {
+            "heading": "Perfect Seafood, every time",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_cRVUbW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Unsure about how to prep your seafood? Don't worry - we developed a super easy guide for you to get it right every single time.</p><p>It covers simple defrosting for a perfect result, getting that beautiful crispy skin we all love so much and gives you some basic techniques to create delicious and simple dishes like poke bowls and hand rolls.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_76qBhR": {
+          "type": "button",
+          "settings": {
+            "button_label": "Free prep guide",
+            "button_link": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/SeatopiaSimpleRecipes.pdf?v=1787902680",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_4w7iWp",
+        "text_cRVUbW",
+        "button_76qBhR"
+      ],
+      "name": "t:sections.images-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Screenshot_2026-09-21_at_16.11.28.png",
+        "image_2": "shopify://shop_images/Screenshot_2026-09-21_at_16.12.00.png",
+        "image_ratio": "wide",
+        "image_width": "large",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true
+      }
+    },
+    "apps_D4WTJL": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_snippet_widget_JnXhHe": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_snippet_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "reviews_selection": "auto",
+            "products": [],
+            "filter_pinned": false,
+            "filter_featured": false,
+            "filter_custom_tags": "",
+            "min_star_rating": "inherit",
+            "show_review_media": true,
+            "max_reviews": 5,
+            "review_length": "medium",
+            "text_size": "medium",
+            "max_width": 1100,
+            "max_image_size": "small",
+            "arrows_visibility": "always_shown",
+            "transition_speed": 5,
+            "corner_styling": "inherit",
+            "text_color": "",
+            "card_color": "",
+            "stars_color": "",
+            "arrows_color": "",
+            "arrows_background_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_snippet_widget_JnXhHe"
+      ],
+      "settings": {
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 20,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "collage_AfVzfW": {
+      "type": "collage",
+      "blocks": {
+        "image_ibbzxb": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/Screen_Shot_2025-07-01_at_6.00.04_PM.png",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_EbxFNq": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/Screen_Shot_2025-07-01_at_6.02.09_PM.png",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_dnmmhm": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/Screen_Shot_2025-07-01_at_6.01.21_PM.png",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        },
+        "image_T4Ar6E": {
+          "type": "image",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "link": "",
+            "invert_subheading_heading": false,
+            "image": "shopify://shop_images/Screen_Shot_2025-07-01_at_6.02.41_PM.png",
+            "image_ratio": "portrait",
+            "content_position": "md:items-end md:justify-start",
+            "text_alignment": "left",
+            "image_ratio_mobile": "portrait",
+            "content_position_mobile": "items-end justify-start",
+            "text_alignment_mobile": "left",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#ffffff",
+            "color_highlight": "",
+            "gradient_highlight": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 10
+          }
+        }
+      },
+      "block_order": [
+        "image_ibbzxb",
+        "image_EbxFNq",
+        "image_dnmmhm",
+        "image_T4Ar6E"
+      ],
+      "settings": {
+        "heading": "Recirculating Seawater, Powered by 100% Renewable Energy",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>The Kingfish Company is located in Zeeland, a coastal province in the southwestern Netherlands, where the land meets the North Sea in a network of dikes, inlets, and tidal flats. This marine-forward region is rich in seafood history and innovation, making it a natural home for a next-generation aquaculture operation. The farm sits near the Oosterschelde, the largest national park in the Netherlands, and benefits from proximity to clean seawater and modern infrastructure, all while being within quick reach of major European culinary markets.</p>",
+        "button_label": "Visit the farm",
+        "button_link": "shopify://pages/the-kingfish-company",
+        "button_external": false,
+        "button_icon": false,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true
+      }
+    },
     "help-drawer": {
       "type": "help-drawer",
       "blocks": {
@@ -436,6 +682,82 @@
         "divider": false,
         "full_width": true,
         "rounded": true
+      }
+    },
+    "index_new_testimonials_dKpBqi": {
+      "type": "index-new-testimonials",
+      "blocks": {
+        "review_RNUdM9": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Mark_hyman.png",
+            "image_url": "shopify://blogs/seafood-recipes/asian-scallop-crudo-with-citrus-soy-marinade",
+            "title": "Dr. Mark Hyman",
+            "job": "Leader in Functional Medicine",
+            "Start_number": "5",
+            "text": "<p>“We are what foods we eats and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        },
+        "review_PixUjQ": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Lisa_giffen.png",
+            "image_url": "shopify://blogs/regenerative-aquaculture/are-we-still-mermaids-embracing-our-aquatic-roots-for-modern-health",
+            "title": "Lisa Giffen",
+            "job": "The Audrey",
+            "Start_number": "5",
+            "text": "<p>\"It's rare to find consistent seafood with clean and unique flavors that's also sustainable. Without a doubt Seatopia meets such high standards. Looking forward to anything and everything Seatopia has to offer.\"</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        },
+        "review_hnMb7J": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Ben_greenfield_89fa6ea5-3395-4d81-975e-1f952ba5b657.png",
+            "image_url": "shopify://blogs/regenerative-aquaculture",
+            "title": "Ben Greenfield",
+            "job": "Health & Fitness Coach",
+            "Start_number": "5",
+            "text": "<p>\"If you want healthy, gourmet-style seafood, in the comfort of your own home, seafood that goes above and beyond any you've tasted before, you need Seatopia in your life!\"</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        },
+        "review_Enrit3": {
+          "type": "review",
+          "disabled": true,
+          "settings": {
+            "image_url": "",
+            "title": "Testimonial name",
+            "job": "Founder, Company",
+            "Start_number": "5",
+            "text": "<p>Use this text to showcase a review from one of your customers.  A great review is honest and relatable.  A great reviewer is a person who represents your target audience and can speak to concerns that might block your customers from buying.</p>",
+            "block_background": "",
+            "block_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_RNUdM9",
+        "review_PixUjQ",
+        "review_hnMb7J",
+        "review_Enrit3"
+      ],
+      "settings": {
+        "custom_class": "",
+        "section_id": "",
+        "title": "",
+        "sub_title": "",
+        "section_cont_position": "center",
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "section_background": "#fafafa",
+        "text_color": "#171717",
+        "star_color": "#f59e0b",
+        "rounded": false
       }
     },
     "video-hero": {
@@ -613,7 +935,7 @@
       ],
       "settings": {
         "heading": "Delicious seafood that meets the Seatopia Standard™",
-        "heading_size": "title-sm",
+        "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h3",
         "subheading": "",
@@ -643,28 +965,6 @@
     "rich_text_ADU4Nz": {
       "type": "rich-text",
       "blocks": {
-        "heading_GkmrQG": {
-          "type": "heading",
-          "settings": {
-            "heading": "Half of the world's seafood comes from farms - only a fraction of a fraction meets the  Seatopia Standard™",
-            "heading_size": "title-lg tracking-heading",
-            "heading_tag": "h2",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "text_PxJxtR": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Seatopia is the only seafood company in the world that lab tests to ensure your seafood is omega rich, mercury safe, free from detectable microplastics. </p><p>We lab test all our seafood products (a product is any piece of seafood that you purchase from Seatopia to enjoy at home) to ensure that it meets <a href=\"https://seatopia.fish/pages/why-clean-seafood-matters\" title=\"https://seatopia.fish/pages/why-clean-seafood-matters\">the Seatopia Standard</a>. We believe that testing provides transparency, accountability, and most importantly piece of mind so that you can enjoy delicious seafood at home. <a href=\"https://seatopia.fish/pages/why-clean-seafood-matters\" title=\"https://seatopia.fish/pages/why-clean-seafood-matters\">Learn more about our testing commitment</a>. </p>",
-            "text_size": "subtext-md",
-            "text_max_size": 32,
-            "text_font": "body",
-            "secondary_color": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
         "liquid_yQeTcC": {
           "type": "liquid",
           "settings": {
@@ -685,8 +985,6 @@
         }
       },
       "block_order": [
-        "heading_GkmrQG",
-        "text_PxJxtR",
         "liquid_yQeTcC",
         "button_UrmUhV"
       ],
@@ -722,154 +1020,6 @@
         "divider": false,
         "narrow": true,
         "rounded": false
-      }
-    },
-    "rich_text_qaTciM": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_JryDkW": {
-          "type": "heading",
-          "settings": {
-            "heading": "Our customers trust us to deliver seafood with standards",
-            "heading_size": "title-md",
-            "heading_tag": "h2",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "text_D47V7C": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Join our community of Seatopia subscribers who are transforming their health</p>",
-            "text_size": "subtext-md",
-            "text_max_size": 32,
-            "text_font": "body",
-            "secondary_color": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        }
-      },
-      "block_order": [
-        "heading_JryDkW",
-        "text_D47V7C"
-      ],
-      "settings": {
-        "custom-class": "",
-        "section_id": "",
-        "text_alignment": "left",
-        "text_alignment_mobile": "left",
-        "heading": "",
-        "heading_size": "title-md",
-        "heading_alignment": "text-left md:items-end md:flex-row",
-        "heading_width": "small",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "",
-        "button_label": "",
-        "button_link": "",
-        "button_external": false,
-        "button_icon": true,
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
-        "color_text": "",
-        "color_background": "#fafafa",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 80,
-        "padding_bottom": 40,
-        "divider": false,
-        "narrow": false,
-        "rounded": false
-      }
-    },
-    "index_new_testimonials_dKpBqi": {
-      "type": "index-new-testimonials",
-      "blocks": {
-        "review_RNUdM9": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/Mark_hyman.png",
-            "image_url": "shopify://blogs/seafood-recipes/asian-scallop-crudo-with-citrus-soy-marinade",
-            "title": "Dr. Mark Hyman",
-            "job": "Leader in Functional Medicine",
-            "Start_number": "5",
-            "text": "<p>“We are what foods we eats and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
-            "block_background": "",
-            "block_text_color": ""
-          }
-        },
-        "review_PixUjQ": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/Lisa_giffen.png",
-            "image_url": "shopify://blogs/regenerative-aquaculture/are-we-still-mermaids-embracing-our-aquatic-roots-for-modern-health",
-            "title": "Lisa Giffen",
-            "job": "The Audrey",
-            "Start_number": "5",
-            "text": "<p>\"It's rare to find consistent seafood with clean and unique flavors that's also sustainable. Without a doubt Seatopia meets such high standards. Looking forward to anything and everything Seatopia has to offer.\"</p>",
-            "block_background": "",
-            "block_text_color": ""
-          }
-        },
-        "review_hnMb7J": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/Ben_greenfield_89fa6ea5-3395-4d81-975e-1f952ba5b657.png",
-            "image_url": "shopify://blogs/regenerative-aquaculture",
-            "title": "Ben Greenfield",
-            "job": "Health & Fitness Coach",
-            "Start_number": "5",
-            "text": "<p>\"If you want healthy, gourmet-style seafood, in the comfort of your own home, seafood that goes above and beyond any you've tasted before, you need Seatopia in your life!\"</p>",
-            "block_background": "",
-            "block_text_color": ""
-          }
-        },
-        "review_Enrit3": {
-          "type": "review",
-          "disabled": true,
-          "settings": {
-            "image_url": "",
-            "title": "Testimonial name",
-            "job": "Founder, Company",
-            "Start_number": "5",
-            "text": "<p>Use this text to showcase a review from one of your customers.  A great review is honest and relatable.  A great reviewer is a person who represents your target audience and can speak to concerns that might block your customers from buying.</p>",
-            "block_background": "",
-            "block_text_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "review_RNUdM9",
-        "review_PixUjQ",
-        "review_hnMb7J",
-        "review_Enrit3"
-      ],
-      "settings": {
-        "custom_class": "",
-        "section_id": "",
-        "title": "",
-        "sub_title": "",
-        "section_cont_position": "center",
-        "padding_top": 0,
-        "padding_bottom": 28,
-        "section_background": "#fafafa",
-        "text_color": "#171717",
-        "star_color": "#f59e0b",
-        "rounded": false
-      }
-    },
-    "index_review_judge_me_HiTVJY": {
-      "type": "Index-review-judge_me",
-      "settings": {
-        "section_id": "",
-        "section_background": "#fafafa",
-        "padding_top": 32,
-        "padding_bottom": 40
       }
     },
     "shop_the_feed_3WD9wm": {
@@ -1449,19 +1599,20 @@
   },
   "order": [
     "main-product",
+    "images_with_text_Vfi6Xx",
+    "apps_D4WTJL",
+    "collage_AfVzfW",
     "help-drawer",
     "video_with_text_overlay_jH8bXm",
+    "index_new_testimonials_dKpBqi",
     "video-hero",
     "collage",
     "rich_text_ADU4Nz",
-    "rich_text_qaTciM",
-    "index_new_testimonials_dKpBqi",
-    "index_review_judge_me_HiTVJY",
     "shop_the_feed_3WD9wm",
+    "product-recommendations",
+    "faq",
     "176046109531cb74fb",
     "product-details",
-    "faq",
-    "product-recommendations",
     "recently-viewed"
   ]
 }
