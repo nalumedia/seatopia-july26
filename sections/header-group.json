@@ -19,16 +19,17 @@
           "disabled": true,
           "settings": {
             "icon": "none",
-            "text": "👉🏾 New Recipe! Chef Lottie's Hot Honey Salmon",
-            "link": "shopify://blogs/seafood-recipes/hot-honey-salmon-bowl-with-coconut-rice-mango-salsa",
+            "text": "Celebrate the Autumn Equinox with $20 OFF your next order using <strong>AUTUMN26</strong>",
+            "link": "shopify://pages/the-autumn-equinox",
             "hide_icon_mobile": false,
-            "text_mobile": "👉🏾 New Recipe! Chef Lottie's Hot Honey Salmon",
+            "text_mobile": "Celebrate the Autumn Equinox with $20 OFF your next order using <strong>AUTUMN26</strong>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
         },
         "announcement_mrCFnq": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "icon": "none",
             "text": "Unlock FREE Gifts with your Seatopia Membership",
@@ -67,7 +68,7 @@
         "autoplay_speed": 5,
         "show_navigation": true,
         "color_text": "#fafafa",
-        "color_background": "#D45A3C",
+        "color_background": "#d45a3c",
         "gradient_background": "",
         "color_highlight": "rgba(0,0,0,0)",
         "gradient_highlight": "",
