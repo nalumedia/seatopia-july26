@@ -945,7 +945,7 @@
         "heading_9jH8LL": {
           "type": "heading",
           "settings": {
-            "heading": "Host a Fall Feast",
+            "heading": "Host an Autumn Feast",
             "heading_size": "title-lg tracking-heading",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -967,8 +967,8 @@
         "button_tN7CVX": {
           "type": "button",
           "settings": {
-            "button_label": "Dive Into Our Favorite Recipes",
-            "button_link": "shopify://blogs/seafood-recipes",
+            "button_label": "Explore our autumn recipe guide",
+            "button_link": "shopify://pages/the-autumn-equinox",
             "button_style": "primary",
             "button_size": "md",
             "button_external": false,
