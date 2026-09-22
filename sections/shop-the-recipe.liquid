@@ -1,0 +1,302 @@
+{%- comment -%}
+  Shop the recipe — adds every listed product to the cart in one click.
+
+  Built 2026-09-22 for the autumn equinox landing page, but written to be reused
+  anywhere a set of products maps to a recipe or a menu. Drop it in, pick the
+  products, done.
+
+  How the add works, and why it is written this way:
+
+  - Shopify's product form posts a single variant, so a multi-product add has to
+    go to /cart/add.js with an items array. That part is unavoidable JS.
+  - Rather than reaching into theme internals to refresh the drawer, it asks
+    /cart/add.js for the cart-drawer section HTML back (the documented `sections`
+    parameter), swaps it in, then calls the drawer's own show(). The drawer's
+    section id is read from the DOM at runtime, so nothing is hardcoded.
+  - If the drawer is missing or anything throws, it falls back to /cart. The
+    button never silently does nothing.
+
+  Sold-out and unavailable products are skipped rather than failing the whole
+  add — /cart/add.js is all-or-nothing, so one unavailable line would otherwise
+  block the other three.
+{%- endcomment -%}
+
+{%- liquid
+  assign items = section.settings.products
+  assign available_count = 0
+  for p in items
+    if p.available
+      assign available_count = available_count | plus: 1
+    endif
+  endfor
+-%}
+
+{%- if available_count > 0 -%}
+  <div class="section section--padding" style="--padding-top: {{ section.settings.padding_top }}px; --padding-bottom: {{ section.settings.padding_bottom }}px;">
+    <div class="page-width">
+      <div class="str" id="{{ section.settings.section_id | default: section.id }}">
+        <div class="str__body">
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="str__eyebrow">{{ section.settings.eyebrow }}</p>
+          {%- endif -%}
+          {%- if section.settings.heading != blank -%}
+            <h2 class="str__heading">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+          {%- if section.settings.description != blank -%}
+            <div class="str__lede">{{ section.settings.description }}</div>
+          {%- endif -%}
+
+          <ul class="str__list">
+            {%- for p in items -%}
+              {%- if p.available -%}
+                <li class="str__item">
+                  <span class="str__dot" aria-hidden="true"></span>
+                  <span class="str__name">{{ p.title }}</span>
+                  <span class="str__price">{{ p.price_min | money }}</span>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+
+        <div class="str__action">
+          <button
+            type="button"
+            class="str__button"
+            data-shop-the-recipe
+            data-items='[
+              {%- assign first = true -%}
+              {%- for p in items -%}
+                {%- if p.available -%}
+                  {%- unless first %},{% endunless -%}
+                  {"id": {{ p.selected_or_first_available_variant.id }}, "quantity": 1}
+                  {%- assign first = false -%}
+                {%- endif -%}
+              {%- endfor -%}
+            ]'>
+            <span class="str__button-label">{{ section.settings.button_label }}</span>
+          </button>
+          <p class="str__note">{{ available_count }} item{% if available_count > 1 %}s{% endif %} &middot; added to your cart in one go</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .str {
+      --ink: #171717;
+      --muted: #5c5c5c;
+      --line: #e5e2dc;
+      --wash: #faf8f4;
+      --gold: #bb8f50;
+      color: var(--ink);
+      background: var(--wash);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px 30px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
+      gap: 30px;
+      align-items: center;
+    }
+    .str__eyebrow {
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin: 0 0 8px;
+    }
+    .str__heading {
+      font-size: clamp(22px, 2.6vw, 28px);
+      line-height: 1.15;
+      font-weight: 600;
+      margin: 0 0 10px;
+    }
+    .str__lede {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--muted);
+      margin: 0 0 18px;
+      max-width: 62ch;
+    }
+    .str__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+    .str__item {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 14.5px;
+      line-height: 1.4;
+    }
+    .str__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex: 0 0 auto;
+    }
+    .str__name {
+      font-weight: 600;
+    }
+    .str__price {
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+    .str__action {
+      display: grid;
+      gap: 10px;
+      justify-items: stretch;
+    }
+    .str__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 15px 22px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity .18s ease;
+    }
+    .str__button:hover {
+      opacity: .88;
+    }
+    .str__button[disabled] {
+      opacity: .55;
+      cursor: default;
+    }
+    .str__note {
+      margin: 0;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--muted);
+      text-align: center;
+    }
+    @media (max-width: 989px) {
+      .str {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 22px;
+      }
+    }
+  </style>
+
+  <script>
+    (function () {
+      // Vanilla on purpose — jQuery is render-blocking on this theme and this
+      // needs to work whether or not it has loaded yet.
+      document.querySelectorAll('[data-shop-the-recipe]').forEach(function (btn) {
+        if (btn.dataset.bound) return;
+        btn.dataset.bound = '1';
+
+        btn.addEventListener('click', async function () {
+          var items;
+          try {
+            items = JSON.parse(btn.getAttribute('data-items'));
+          } catch (e) {
+            window.location.href = '/cart';
+            return;
+          }
+          if (!items || !items.length) return;
+
+          var label = btn.querySelector('.str__button-label');
+          var original = label ? label.textContent : '';
+          btn.setAttribute('disabled', 'disabled');
+          if (label) label.textContent = 'Adding…';
+
+          // The drawer's section id is generated by the theme, so read it live.
+          var drawerEl = document.querySelector('[id^="shopify-section"][id$="cart-drawer"]');
+          var sectionId = drawerEl ? drawerEl.id.replace('shopify-section-', '') : null;
+
+          var body = { items: items };
+          if (sectionId) body.sections = sectionId;
+
+          try {
+            var res = await fetch('/cart/add.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              body: JSON.stringify(body)
+            });
+            if (!res.ok) throw new Error('add failed');
+            var data = await res.json();
+
+            if (drawerEl && sectionId && data.sections && data.sections[sectionId]) {
+              var doc = new DOMParser().parseFromString(data.sections[sectionId], 'text/html');
+              var fresh = doc.querySelector('#shopify-section-' + sectionId);
+              if (fresh) drawerEl.innerHTML = fresh.innerHTML;
+            }
+
+            var drawer = document.querySelector('cart-drawer');
+            if (drawer && typeof drawer.show === 'function') {
+              drawer.show(btn);
+            } else {
+              window.location.href = '/cart';
+              return;
+            }
+
+            if (label) label.textContent = 'Added';
+            setTimeout(function () {
+              if (label) label.textContent = original;
+              btn.removeAttribute('disabled');
+            }, 1800);
+          } catch (e) {
+            window.location.href = '/cart';
+          }
+        });
+      });
+    })();
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Shop the recipe",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "product_list",
+      "id": "products",
+      "label": "Products to add",
+      "limit": 12,
+      "info": "Every available product here is added to the cart in one click. Sold-out items are skipped automatically."
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "richtext", "id": "description", "label": "Description" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Add all to my cart" },
+    { "type": "text", "id": "section_id", "label": "Anchor id" },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
+    }
+  ],
+  "presets": [{ "name": "Shop the recipe" }]
+}
+{% endschema %}
