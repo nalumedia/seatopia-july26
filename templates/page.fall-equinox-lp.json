@@ -24,91 +24,6 @@
         "rounded": false
       }
     },
-    "image_with_text_overlay_6FtDzG": {
-      "type": "image-with-text-overlay",
-      "blocks": {
-        "heading_f9jhgT": {
-          "type": "heading",
-          "settings": {
-            "heading": "Four fall dinners, each under an hour",
-            "heading_size": "title-md",
-            "heading_tag": "h1",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "text_Fppygg": {
-          "type": "text",
-          "settings": {
-            "text": "<p>A seasonal menu from Chef Miriam Thom &mdash; whole roasted trout, butter pumpkin shrimp, cider-poached steelhead and crisp-skinned branzino. Every recipe is on this page, with the seafood a click away.</p>",
-            "text_size": "subtext-md",
-            "text_max_size": 32,
-            "text_font": "body",
-            "secondary_color": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "btn_box": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop the Autumn Box",
-            "button_link": "#autumn-box",
-            "button_style": "primary",
-            "button_size": "md",
-            "button_external": false,
-            "button_icon": true
-          }
-        },
-        "btn_recipes": {
-          "type": "button",
-          "settings": {
-            "button_label": "Explore the recipes",
-            "button_link": "#autumn-recipes",
-            "button_style": "secondary",
-            "button_size": "md",
-            "button_external": false,
-            "button_icon": true
-          }
-        }
-      },
-      "block_order": [
-        "heading_f9jhgT",
-        "text_Fppygg",
-        "btn_box",
-        "btn_recipes"
-      ],
-      "settings": {
-        "section_id": "autumn-hero",
-        "transparent_header": true,
-        "image": "shopify://shop_images/20260825-Stetten-Wilson-218.jpg",
-        "image_height": "100vh",
-        "content_width": "large",
-        "content_position": "md:items-center md:justify-center",
-        "text_alignment": "center",
-        "image_mobile": "shopify://shop_images/20260825-Stetten-Wilson-12_Medium_a895e425-c0a9-4ca5-a4c2-3aef07a6d2cd.jpg",
-        "priority_image": false,
-        "image_height_mobile": "auto",
-        "content_position_mobile": "items-end justify-start",
-        "text_alignment_mobile": "left",
-        "color_text": "#ffffff",
-        "color_highlight": "#e0a580",
-        "gradient_highlight": "",
-        "color_button_text": "#171717",
-        "color_button_background": "#ffffff",
-        "color_button_gradient": "",
-        "color_overlay": "#171717",
-        "overlay_opacity": 36,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "divider": false,
-        "full_width": true,
-        "rounded": false,
-        "enable_parallax": false,
-        "narrow": false,
-        "parallax_direction": "vertical"
-      }
-    },
     "rich_text_My3AEL": {
       "type": "rich-text",
       "blocks": {
@@ -1304,11 +1219,121 @@
         "enable_parallax": true,
         "parallax_direction": "vertical"
       }
+    },
+    "hero_slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_intro": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/20260825-Stetten-Wilson-218.jpg",
+            "image_mobile": "shopify://shop_images/20260825-Stetten-Wilson-218.jpg",
+            "heading": "Four fall dinners, each under an hour",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "button_label": "Shop the Autumn Box",
+            "button_link": "#autumn-box",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true
+          }
+        },
+        "slide_trout": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/20260825-Stetten-Wilson-219.jpg",
+            "image_mobile": "shopify://shop_images/20260825-Stetten-Wilson-219.jpg",
+            "heading": "Whole Roasted Trout with Blistered Grapes",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "button_label": "View the recipe",
+            "button_link": "/blogs/seafood-recipes/whole-roasted-trout-blistered-grapes-potatoes",
+            "button_style": "secondary",
+            "button_external": false,
+            "button_icon": true
+          }
+        },
+        "slide_shrimp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/20260825-Stetten-Wilson-112.jpg",
+            "image_mobile": "shopify://shop_images/20260825-Stetten-Wilson-112.jpg",
+            "heading": "Butter Pumpkin Shrimp with Toasted Coconut",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "button_label": "View the recipe",
+            "button_link": "/blogs/seafood-recipes/butter-pumpkin-shrimp-curry",
+            "button_style": "secondary",
+            "button_external": false,
+            "button_icon": true
+          }
+        },
+        "slide_steelhead": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/20260825-Stetten-Wilson-314.jpg",
+            "image_mobile": "shopify://shop_images/20260825-Stetten-Wilson-314.jpg",
+            "heading": "Apple Cider Poached Steelhead with Braised Leeks",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "button_label": "View the recipe",
+            "button_link": "/blogs/seafood-recipes/apple-cider-poached-steelhead-braised-leeks",
+            "button_style": "secondary",
+            "button_external": false,
+            "button_icon": true
+          }
+        },
+        "slide_branzino": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/20260825-Stetten-Wilson-245.jpg",
+            "image_mobile": "shopify://shop_images/20260825-Stetten-Wilson-245.jpg",
+            "heading": "Crispy Branzino with Warm Farro and Maitake",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "button_label": "View the recipe",
+            "button_link": "/blogs/seafood-recipes/branzino-warm-farro-maitake-salad",
+            "button_style": "secondary",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "slide_intro",
+        "slide_trout",
+        "slide_shrimp",
+        "slide_steelhead",
+        "slide_branzino"
+      ],
+      "settings": {
+        "autoplay": true,
+        "autoplay_speed": 6,
+        "show_navigation": true,
+        "image_height": "100vh",
+        "content_width": "small",
+        "image_height_mobile": "100vh",
+        "color_text": "#ffffff",
+        "color_background": "#ffffff",
+        "gradient_background": "",
+        "color_button_text": "#1c2427",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#000000",
+        "overlay_opacity": 25,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": false,
+        "parallax_direction": "vertical"
+      }
     }
   },
   "order": [
     "main-page",
-    "image_with_text_overlay_6FtDzG",
+    "hero_slideshow",
     "image_with_text_X9KKnM",
     "recipe_cards",
     "product_bundle_ABUEQb",
