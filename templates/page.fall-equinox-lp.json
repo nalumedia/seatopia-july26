@@ -558,7 +558,7 @@
         "heading_size": "lg:text-5xl text-2xl",
         "heading_alignment": "text-left",
         "heading_tag": "h2",
-        "subheading": "Everything for all four dinners in one box &mdash; roughly eight servings across four nights. Swap anything you like; portions are individually sealed, so you can cook one recipe this week and keep the rest frozen.",
+        "subheading": "Everything for all four dinners in one box — roughly eight servings across four nights. Swap anything you like; portions are individually sealed, so you can cook one recipe this week and keep the rest frozen.",
         "description": "",
         "highlighted_text": "none",
         "highlighted_scribble": "circle",
@@ -1220,125 +1220,31 @@
         "parallax_direction": "vertical"
       }
     },
-    "hero_slideshow": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_intro": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/20260825-Stetten-Wilson-218.jpg",
-            "image_mobile": "shopify://shop_images/20260825-Stetten-Wilson-218.jpg",
-            "heading": "Four fall dinners, each under an hour",
-            "heading_size": "title-lg tracking-heading",
-            "heading_tag": "h2",
-            "button_label": "Shop the Autumn Box",
-            "button_link": "#autumn-box",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true
-          }
-        },
-        "slide_trout": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/20260825-Stetten-Wilson-219.jpg",
-            "image_mobile": "shopify://shop_images/20260825-Stetten-Wilson-219.jpg",
-            "heading": "Whole Roasted Trout with Blistered Grapes",
-            "heading_size": "title-lg tracking-heading",
-            "heading_tag": "h2",
-            "button_label": "View the recipe",
-            "button_link": "/blogs/seafood-recipes/whole-roasted-trout-blistered-grapes-potatoes",
-            "button_style": "secondary",
-            "button_external": false,
-            "button_icon": true
-          }
-        },
-        "slide_shrimp": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/20260825-Stetten-Wilson-112.jpg",
-            "image_mobile": "shopify://shop_images/20260825-Stetten-Wilson-112.jpg",
-            "heading": "Butter Pumpkin Shrimp with Toasted Coconut",
-            "heading_size": "title-lg tracking-heading",
-            "heading_tag": "h2",
-            "button_label": "View the recipe",
-            "button_link": "/blogs/seafood-recipes/butter-pumpkin-shrimp-curry",
-            "button_style": "secondary",
-            "button_external": false,
-            "button_icon": true
-          }
-        },
-        "slide_steelhead": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/20260825-Stetten-Wilson-314.jpg",
-            "image_mobile": "shopify://shop_images/20260825-Stetten-Wilson-314.jpg",
-            "heading": "Apple Cider Poached Steelhead with Braised Leeks",
-            "heading_size": "title-lg tracking-heading",
-            "heading_tag": "h2",
-            "button_label": "View the recipe",
-            "button_link": "/blogs/seafood-recipes/apple-cider-poached-steelhead-braised-leeks",
-            "button_style": "secondary",
-            "button_external": false,
-            "button_icon": true
-          }
-        },
-        "slide_branzino": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/20260825-Stetten-Wilson-245.jpg",
-            "image_mobile": "shopify://shop_images/20260825-Stetten-Wilson-245.jpg",
-            "heading": "Crispy Branzino with Warm Farro and Maitake",
-            "heading_size": "title-lg tracking-heading",
-            "heading_tag": "h2",
-            "button_label": "View the recipe",
-            "button_link": "/blogs/seafood-recipes/branzino-warm-farro-maitake-salad",
-            "button_style": "secondary",
-            "button_external": false,
-            "button_icon": true
-          }
-        }
-      },
-      "block_order": [
-        "slide_intro",
-        "slide_trout",
-        "slide_shrimp",
-        "slide_steelhead",
-        "slide_branzino"
-      ],
+    "hero_fade": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "autoplay": true,
-        "autoplay_speed": 6,
-        "show_navigation": true,
-        "image_height": "100vh",
-        "content_width": "small",
-        "image_height_mobile": "100vh",
-        "color_text": "#ffffff",
-        "color_background": "#ffffff",
-        "gradient_background": "",
-        "color_button_text": "#1c2427",
-        "color_button_background": "#ffffff",
-        "color_button_gradient": "",
-        "color_overlay": "#000000",
-        "overlay_opacity": 25,
+        "section_id": "autumn-hero",
+        "liquid": "<style>\n  .ahero {\n    position: relative;\n    min-height: 100vh;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    overflow: hidden;\n    isolation: isolate;\n  }\n  .ahero__layer {\n    position: absolute;\n    inset: 0;\n    opacity: 0;\n    animation-name: aheroFade;\n    animation-duration: 50s;\n    animation-iteration-count: infinite;\n    animation-timing-function: ease-in-out;\n  }\n  .ahero__layer img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    display: block;\n  }\n  .ahero__scrim {\n    position: absolute;\n    inset: 0;\n    background: rgba(0, 0, 0, .34);\n  }\n  .ahero__inner {\n    position: relative;\n    z-index: 2;\n    text-align: center;\n    color: #fff;\n    max-width: 44rem;\n    padding: 0 24px;\n  }\n  .ahero__title {\n    font-size: clamp(30px, 4.4vw, 52px);\n    line-height: 1.1;\n    font-weight: 500;\n    margin: 0 0 16px;\n    text-shadow: 0 2px 22px rgba(0,0,0,.4);\n  }\n  .ahero__lede {\n    font-size: clamp(15px, 1.5vw, 18px);\n    line-height: 1.55;\n    margin: 0 auto 28px;\n    max-width: 38rem;\n    text-shadow: 0 1px 14px rgba(0,0,0,.45);\n  }\n  .ahero__cta {\n    display: flex;\n    gap: 12px;\n    justify-content: center;\n    flex-wrap: wrap;\n  }\n  @keyframes aheroFade {\n    0%       { opacity: 0 }\n    4.0%  { opacity: 1 }\n    20.0%  { opacity: 1 }\n    24.0%  { opacity: 0 }\n    100%     { opacity: 0 }\n  }\n  @media (prefers-reduced-motion: reduce) {\n    .ahero__layer {\n      animation: none;\n    }\n    .ahero__layer:first-child {\n      opacity: 1;\n    }\n  }\n  @media (max-width: 749px) {\n    .ahero {\n      min-height: 78vh;\n    }\n  }\n</style>\n\n<div class=\"ahero\">\n    <div class=\"ahero__layer\" style=\"animation-delay: 0s;\">\n      <img src=\"{{ '20260825-Stetten-Wilson-218.jpg' | file_url }}&amp;width=2000\" alt=\"\" aria-hidden=\"true\"\n           width=\"2000\" height=\"1333\" fetchpriority=\"high\" decoding=\"async\">\n    </div>\n    <div class=\"ahero__layer\" style=\"animation-delay: 10s;\">\n      <img src=\"{{ '20260825-Stetten-Wilson-219.jpg' | file_url }}&amp;width=2000\" alt=\"\" aria-hidden=\"true\"\n           width=\"2000\" height=\"1333\" loading=\"lazy\" decoding=\"async\">\n    </div>\n    <div class=\"ahero__layer\" style=\"animation-delay: 20s;\">\n      <img src=\"{{ '20260825-Stetten-Wilson-112.jpg' | file_url }}&amp;width=2000\" alt=\"\" aria-hidden=\"true\"\n           width=\"2000\" height=\"1333\" loading=\"lazy\" decoding=\"async\">\n    </div>\n    <div class=\"ahero__layer\" style=\"animation-delay: 30s;\">\n      <img src=\"{{ '20260825-Stetten-Wilson-314.jpg' | file_url }}&amp;width=2000\" alt=\"\" aria-hidden=\"true\"\n           width=\"2000\" height=\"1333\" loading=\"lazy\" decoding=\"async\">\n    </div>\n    <div class=\"ahero__layer\" style=\"animation-delay: 40s;\">\n      <img src=\"{{ '20260825-Stetten-Wilson-245.jpg' | file_url }}&amp;width=2000\" alt=\"\" aria-hidden=\"true\"\n           width=\"2000\" height=\"1333\" loading=\"lazy\" decoding=\"async\">\n    </div>\n  <div class=\"ahero__scrim\"></div>\n  <div class=\"ahero__inner\">\n    <h1 class=\"ahero__title\">Four fall dinners, each under an hour</h1>\n    <p class=\"ahero__lede\">A seasonal menu from Chef Miriam Thom &mdash; whole roasted trout, butter\n      pumpkin shrimp, cider-poached steelhead and crisp-skinned branzino. Every recipe is on this\n      page, with the seafood a click away.</p>\n    <div class=\"ahero__cta\">\n      <a class=\"button button--primary\" href=\"#autumn-box\">Shop the Autumn Box</a>\n      <a class=\"button button--secondary\" href=\"#autumn-recipes\">Explore the recipes</a>\n    </div>\n  </div>\n</div>\n",
         "padding_top": 0,
         "padding_bottom": 0,
         "divider": false,
-        "full_width": true,
+        "narrow": false,
         "rounded": false,
-        "enable_parallax": false,
-        "parallax_direction": "vertical"
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
       }
     }
   },
   "order": [
+    "hero_fade",
     "main-page",
-    "hero_slideshow",
     "image_with_text_X9KKnM",
     "recipe_cards",
+    "shop_the_recipe",
     "product_bundle_ABUEQb",
     "featured_collection_pWVf7m",
-    "shop_the_recipe",
     "multicolumn_with_icons_Yb6gYW",
     "featured_product_HwA8bm",
     "image_with_text_UzFkDx",
