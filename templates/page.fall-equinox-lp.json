@@ -30,7 +30,7 @@
         "heading_f9jhgT": {
           "type": "heading",
           "settings": {
-            "heading": "Welcome Autumn's Exhale",
+            "heading": "Four fall dinners, each under an hour",
             "heading_size": "title-md",
             "heading_tag": "h1",
             "highlighted_text": "none",
@@ -40,7 +40,7 @@
         "text_Fppygg": {
           "type": "text",
           "settings": {
-            "text": "",
+            "text": "<p>A seasonal menu from Chef Miriam Thom &mdash; whole roasted trout, butter pumpkin shrimp, cider-poached steelhead and crisp-skinned branzino. Every recipe is on this page, with the seafood a click away.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -48,14 +48,38 @@
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
+        },
+        "btn_box": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop the Autumn Box",
+            "button_link": "#autumn-box",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        },
+        "btn_recipes": {
+          "type": "button",
+          "settings": {
+            "button_label": "Explore the recipes",
+            "button_link": "#autumn-recipes",
+            "button_style": "secondary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
         }
       },
       "block_order": [
         "heading_f9jhgT",
-        "text_Fppygg"
+        "text_Fppygg",
+        "btn_box",
+        "btn_recipes"
       ],
       "settings": {
-        "section_id": "",
+        "section_id": "autumn-hero",
         "transparent_header": true,
         "image": "shopify://shop_images/20260825-Stetten-Wilson-218.jpg",
         "image_height": "100vh",
@@ -83,103 +107,6 @@
         "enable_parallax": false,
         "narrow": false,
         "parallax_direction": "vertical"
-      }
-    },
-    "free_featured_product_NQEnWF": {
-      "type": "free-featured-product",
-      "blocks": {
-        "title_LGQEz9": {
-          "type": "title",
-          "settings": {
-            "title_size": "product-title-md",
-            "title_size_mobile": "product-title-md",
-            "show_price": true,
-            "show_rating": true
-          }
-        },
-        "description_GdtXpT": {
-          "type": "description",
-          "settings": {
-            "text_size": "text-base"
-          }
-        },
-        "variant_picker_fayJca": {
-          "type": "variant_picker",
-          "settings": {
-            "show_variant_labels": true,
-            "picker_type": "button",
-            "enable_color_swatches": true,
-            "color_swatch_type": "color",
-            "size_chart": ""
-          }
-        },
-        "buy_buttons_bRByjn": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_quantity_selector": true,
-            "show_price": false,
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true,
-            "enable_back_in_stock": false,
-            "show_back_in_stock_name": false,
-            "show_back_in_stock_phone": false
-          }
-        },
-        "pickup_availability_pwyCeF": {
-          "type": "pickup_availability",
-          "settings": {}
-        },
-        "share_N46PNP": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share",
-            "show_help_desk": true,
-            "help_label": "Need help?",
-            "help_page": ""
-          }
-        },
-        "read_more_pMbh9t": {
-          "type": "read_more",
-          "settings": {}
-        },
-        "spinning_text_QPM8aP": {
-          "type": "spinning_text",
-          "settings": {
-            "text": "Featured product"
-          }
-        }
-      },
-      "block_order": [
-        "title_LGQEz9",
-        "description_GdtXpT",
-        "variant_picker_fayJca",
-        "buy_buttons_bRByjn",
-        "pickup_availability_pwyCeF",
-        "share_N46PNP",
-        "read_more_pMbh9t",
-        "spinning_text_QPM8aP"
-      ],
-      "disabled": true,
-      "name": "Free featured product",
-      "settings": {
-        "product": "free-steelhead-cold-smoked-lox",
-        "enable_sticky_info": true,
-        "media_size": 66,
-        "gallery_layout": "thumbnail",
-        "thumbnail_position": "beside",
-        "image_ratio": "adapt_first",
-        "image_zoom": "lightbox",
-        "hide_variants": false,
-        "enable_video_autoplay": false,
-        "enable_video_looping": false,
-        "mobile_layout": "partial",
-        "image_ratio_mobile": "adapt_first",
-        "mobile_thumbnail": false,
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "full_width": false,
-        "rounded": false
       }
     },
     "rich_text_My3AEL": {
@@ -392,17 +319,6 @@
         "padding_bottom": 72
       }
     },
-    "empty_space_kx9VHU": {
-      "type": "empty-space",
-      "disabled": true,
-      "name": "t:sections.empty-space.presets.name",
-      "settings": {
-        "desktop_height": 4,
-        "mobile_height": 4,
-        "color_background": "#5c8da5",
-        "gradient_background": ""
-      }
-    },
     "featured_product_HwA8bm": {
       "type": "featured-product",
       "blocks": {
@@ -512,13 +428,12 @@
         "collection": "all-seafood",
         "products": [
           "black-tiger-shrimp-mangrove-regeneration",
-          "caleta-bay-a-i-steelhead-loin-12oz",
-          "smoke-in-chimneys-whole-trout-12-16oz",
+          "steelhead-sashimi-loin-12oz",
+          "whole-trout-12oz",
           "branzino-bundle-2x-6oz-portions",
           "buy-ora-king-salmon-portion-new-zealand",
           "lab-tested-salmon-roe-caviar",
-          "regenerative-farmed-scallops-peru",
-          "add-on-barramundi-filet-5oz-each"
+          "regenerative-farmed-scallops-peru"
         ],
         "product_limit": 4,
         "columns": 4,
@@ -526,12 +441,12 @@
         "show_view_all": false,
         "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "heading": "Our For Picks For Fall",
+        "heading": "Our picks for fall",
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
         "subheading": "",
-        "description": "<p>Enjoy some great Seafood together.</p>",
+        "description": "<p>The four fish behind this season's menu, plus the ones we reach for alongside them. Everything is blast-frozen at harvest and vacuum sealed, so it keeps until the night you want it.</p>",
         "highlighted_text": "none",
         "highlighted_scribble": "circle",
         "color_text": "",
@@ -621,106 +536,6 @@
         "parallax_direction": "vertical"
       }
     },
-    "featured_product_DnxjwH": {
-      "type": "featured-product",
-      "blocks": {
-        "title_BkPzh6": {
-          "type": "title",
-          "settings": {
-            "title_size": "product-title-md",
-            "title_size_mobile": "product-title-md",
-            "show_price": true,
-            "show_rating": true
-          }
-        },
-        "description_PaNR9a": {
-          "type": "description",
-          "settings": {
-            "text_size": "text-base"
-          }
-        },
-        "variant_picker_zXmJGb": {
-          "type": "variant_picker",
-          "settings": {
-            "show_variant_labels": true,
-            "picker_type": "button",
-            "enable_color_swatches": true,
-            "color_swatch_type": "color",
-            "size_chart": ""
-          }
-        },
-        "buy_buttons_JJDHXC": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_quantity_selector": true,
-            "show_price": false,
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true,
-            "enable_back_in_stock": false,
-            "show_back_in_stock_name": false,
-            "show_back_in_stock_phone": false
-          }
-        },
-        "pickup_availability_zgHWf8": {
-          "type": "pickup_availability",
-          "settings": {}
-        },
-        "share_YpUG3j": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share",
-            "show_help_desk": true,
-            "help_label": "Need help?",
-            "help_page": ""
-          }
-        },
-        "read_more_6Pmmqe": {
-          "type": "read_more",
-          "settings": {}
-        },
-        "spinning_text_ibp8Ba": {
-          "type": "spinning_text",
-          "disabled": true,
-          "settings": {
-            "text": "Featured product"
-          }
-        }
-      },
-      "block_order": [
-        "title_BkPzh6",
-        "description_PaNR9a",
-        "variant_picker_zXmJGb",
-        "buy_buttons_JJDHXC",
-        "pickup_availability_zgHWf8",
-        "share_YpUG3j",
-        "read_more_6Pmmqe",
-        "spinning_text_ibp8Ba"
-      ],
-      "disabled": true,
-      "name": "t:sections.featured-product.presets.name",
-      "settings": {
-        "section_id": "",
-        "product": "summer-box",
-        "enable_sticky_info": true,
-        "show_chef_notes": false,
-        "media_size": 47,
-        "gallery_layout": "thumbnail",
-        "thumbnail_position": "beside",
-        "image_ratio": "adapt_first",
-        "image_zoom": "lightbox",
-        "hide_variants": false,
-        "enable_video_autoplay": false,
-        "enable_video_looping": false,
-        "mobile_layout": "partial",
-        "image_ratio_mobile": "adapt_first",
-        "mobile_thumbnail": false,
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "full_width": false,
-        "rounded": false
-      }
-    },
     "image_with_text_M4F3kr": {
       "type": "image-with-text",
       "blocks": {
@@ -798,17 +613,17 @@
       "type": "product-bundle",
       "name": "t:sections.product-bundle.presets.name",
       "settings": {
-        "section_id": "",
+        "section_id": "autumn-box",
         "collection": "build-your-own-box",
         "products": [
           "black-tiger-shrimp-mangrove-regeneration",
-          "smoke-in-chimneys-whole-trout-12-16oz",
+          "whole-trout-12oz",
           "buy-ora-king-salmon-portion-new-zealand",
           "branzino-bundle-2x-6oz-portions",
           "mt-cook-alpine-salmon-7oz-filet",
           "half-shell-scallops-2x-12oz-bag",
           "marshallberg-classic-osetra-caviar",
-          "caleta-bay-a-i-steelhead-loin-12oz"
+          "steelhead-sashimi-loin-12oz"
         ],
         "product_limit": 6,
         "columns": 3,
@@ -824,11 +639,11 @@
         "picker_type": "button",
         "enable_color_swatches": true,
         "color_swatch_type": "color",
-        "heading": "Build Your Autumn Menu",
+        "heading": "Build your autumn menu",
         "heading_size": "lg:text-5xl text-2xl",
         "heading_alignment": "text-left",
         "heading_tag": "h2",
-        "subheading": "",
+        "subheading": "Everything for all four dinners in one box &mdash; roughly eight servings across four nights. Swap anything you like; portions are individually sealed, so you can cook one recipe this week and keep the rest frozen.",
         "description": "",
         "highlighted_text": "none",
         "highlighted_scribble": "circle",
@@ -1029,80 +844,6 @@
         "full_width": false,
         "rounded": false,
         "enable_parallax": true,
-        "parallax_direction": "vertical"
-      }
-    },
-    "image_with_text_overlay_NhgHbB": {
-      "type": "image-with-text-overlay",
-      "blocks": {
-        "heading_gqh97J": {
-          "type": "heading",
-          "settings": {
-            "heading": "Bring the Ocean to your Evening — Host a Seatopia Summer Dinner.",
-            "heading_size": "title-lg tracking-heading",
-            "heading_tag": "h2",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "text_bTHRcq": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Celebrate the season with a menu designed to delight </p>",
-            "text_size": "subtext-md",
-            "text_max_size": 32,
-            "text_font": "body",
-            "secondary_color": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "button_Aikq4g": {
-          "type": "button",
-          "settings": {
-            "button_label": "Host a Seatopia Dinner",
-            "button_link": "shopify://pages/seatopia-dinner-series",
-            "button_style": "primary",
-            "button_size": "md",
-            "button_external": false,
-            "button_icon": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_gqh97J",
-        "text_bTHRcq",
-        "button_Aikq4g"
-      ],
-      "disabled": true,
-      "name": "t:sections.image-with-text-overlay.presets.name",
-      "settings": {
-        "section_id": "",
-        "transparent_header": false,
-        "image": "shopify://shop_images/20260614-Stetten-Wilson-317.jpg",
-        "image_height": "650px",
-        "content_width": "small",
-        "content_position": "md:items-center md:justify-center",
-        "text_alignment": "center",
-        "priority_image": false,
-        "image_height_mobile": "auto",
-        "content_position_mobile": "items-end justify-start",
-        "text_alignment_mobile": "left",
-        "color_text": "#ffffff",
-        "color_highlight": "#e0a580",
-        "gradient_highlight": "",
-        "color_button_text": "#ffffff",
-        "color_button_background": "#bb8f50",
-        "color_button_gradient": "",
-        "color_overlay": "#171717",
-        "overlay_opacity": 7,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "divider": false,
-        "full_width": true,
-        "rounded": false,
-        "enable_parallax": true,
-        "narrow": false,
         "parallax_direction": "vertical"
       }
     },
@@ -1354,80 +1095,87 @@
     "faq_XGjUai": {
       "type": "faq",
       "blocks": {
-        "question_Eh4Agz": {
+        "q_frozen": {
           "type": "question",
           "settings": {
-            "title": "<strong>Can I customize my box?</strong>",
-            "text": "<p>We are essentially a farmers market for artisanal aquaculture. In that sense, our Seatopia curated boxes are like a CSA box. We offer our curated boxes as a way to highlight what is seasonally available and introduce our members to new seafood and farm partners they might be interested in. So, they cannot be customized. </p><p>But we do offer custom boxes! Members can order a custom box through the <a href=\"https://seatopia.fish/collections/add-ons\" title=\"https://seatopia.fish/collections/add-ons\">a la cart section of our website. </a>Subscription members can mix and match items in their portal and take advantage of member-only items and offers. </p>",
+            "title": "Is it fresh or frozen?",
+            "text": "<p>Frozen, on purpose. Everything is blast-frozen to &minus;10&deg;F at harvest and vacuum sealed, which holds texture and flavour far better than fish that has spent days in transit on ice. It is why a portion out of your freezer in November tastes like the day it was landed.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
         },
-        "question_mF8jDT": {
+        "q_arrive": {
           "type": "question",
           "settings": {
-            "title": "<strong>Do I have to subscribe to place an order?</strong>",
-            "text": "<p>No! But becoming a subscriber is the best way to support aquaculture farmers raising fish the right way. </p><p>Your subscription helps us with planning harvest timelines and scheduling ocean freight, helping us move the industry away from unsustainable practices of flying fresh fish around the world. Subscribers also have early access to preferred pricing, exclusive add-ons and limited time offers. </p><p>You will never be locked in to a subscription - you may change the order, the frequency or cancel anytime. </p>",
+            "title": "How does it arrive?",
+            "text": "<p>Insulated and frozen, with a frozen delivery guarantee &mdash; the published terms are on our <a href=\"/policies/shipping-policy\">shipping policy</a> page. Move everything to the freezer when it lands; there is no need to be home at the moment of delivery.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
         },
-        "question_tgdUgD": {
+        "q_store": {
           "type": "question",
           "settings": {
-            "title": "<strong>Do you offer discounts?</strong>",
-            "text": "<p>As a general rule, we do not offer discounts, aside from a small thank you for first time customers. We offer the same incentive if you find us through one of our affiliate friends or supporters. Both are only available to first time customers. </p><p>Rather than ask our members to search the internet for discounts and coupons, we always offer the lowest prices we can. </p><p>The best way to save is by becoming a monthly subscriber. Our subscription members receive a small price incentive for helping us to reliably and predictably support artisan, regenerative aquaculture.</p>",
+            "title": "How long can I keep it in the freezer?",
+            "text": "<p>Each vacuum-sealed portion carries its own best-by date on the pack &mdash; go by that rather than a rule of thumb. Keep it sealed and at a steady freezer temperature, and do not refreeze anything you have already thawed.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
         },
-        "question_U6BeBN": {
+        "q_thaw": {
           "type": "question",
           "settings": {
-            "title": "<strong>What about antibiotics?</strong>",
-            "text": "<p>At Seatopia, we have a strict zero-tolerance policy for the use of preventative antibiotics in our feed, and our partner farms do not use preventative antibiotics. </p><p>In extreme cases where a veterinarian prescribes antibiotics for an individual animal's treatment, that animal is quarantined for a sufficient period, typically at least 30 days, to ensure no detectable levels of antibiotics remain before it can be reintegrated or harvested. </p><p>However, these instances where antibiotics are prescribed are rare, and typically only realistically possible in open-ocean aquaculture. </p><p>Many of our land-based (RAS) farms use zero antibiotics under any circumstances. More information about these and our other farms can be found on individual farm pages. </p><p>We are always able to answer any additional questions via email at nemo@seatopia.fish</p>",
+            "title": "Do I need to thaw it first?",
+            "text": "<p>Yes, for all four of these recipes. Overnight in the refrigerator in the sealed pack is best &mdash; about 12 hours &mdash; then pat it dry. In a hurry, submerge the sealed pack in a bowl of chilled water for 20 to 30 minutes, changing the water once. Never at room temperature, and never in warm water.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
         },
-        "question_cnWc43": {
+        "q_whole": {
           "type": "question",
           "settings": {
-            "title": "<strong>What is a portion?</strong>",
-            "text": "<p>Many in our community are cooking for households or meal planning around specific protein requirements. For that reason, we sell our curated boxes in portions, not pieces. </p><p>A portion is typically 5.5-8oz for filets. For other items, like scallops or smoked trout, a portion can be considered 3-4oz, which is the recommended portion size per the professional chefs and nutritionists that we work with. </p><p>So, a 12 serving box will contain 4.5-5.5lbs of raw seafood.</p>",
+            "title": "Is cooking a whole trout actually difficult?",
+            "text": "<p>No, and it is the recipe we would point a nervous cook at first. It is a single sheet pan with nothing to flip and no pan to stick to. The only new skill is getting it off the bone at the table, which is three movements and is written out step by step in <a href=\"/blogs/seafood-recipes/whole-roasted-trout-blistered-grapes-potatoes\">the recipe</a>.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
         },
-        "contact_wt7gfF": {
-          "type": "contact",
+        "q_feeds": {
+          "type": "question",
           "settings": {
-            "heading": "Didn’t find your answer?",
-            "text": "<p>Don't hestitate to contact us</p>",
-            "show_phone": false,
-            "avatar": "shopify://shop_images/Ellipse_67.png",
-            "avatar_height": 60,
+            "title": "How many people does each item feed?",
+            "text": "<p>It is on every product page and on the recipe cards above. As a guide for this menu: the whole trout and the steelhead loin each serve two, a 16 oz bag of shrimp serves four, and branzino comes as two 6 oz fillets.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_testing": {
+          "type": "question",
+          "settings": {
+            "title": "What does the testing actually cover?",
+            "text": "<p>Every supplier is tested before we approve them, then randomly audited to ensure consistent compliance with the Seatopia Standard &mdash; third-party lab tested for nutrition, mercury and microplastics. <a href=\"/pages/why-clean-seafood-matters\">How we source it</a>.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
         }
       },
       "block_order": [
-        "question_Eh4Agz",
-        "question_mF8jDT",
-        "question_tgdUgD",
-        "question_U6BeBN",
-        "question_cnWc43",
-        "contact_wt7gfF"
+        "q_frozen",
+        "q_arrive",
+        "q_store",
+        "q_thaw",
+        "q_whole",
+        "q_feeds",
+        "q_testing"
       ],
       "settings": {
         "style": "with-background",
-        "heading": "FAQs",
+        "heading": "Before you order",
         "heading_size": "title-lg tracking-heading",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
         "subheading": "",
-        "description": "<p>Please read our <a href=\"https://seatopia.gorgias.help/\" title=\"https://seatopia.gorgias.help/\">FAQs</a> page to find out more.</p>",
+        "description": "<p>The things people ask before their first box. If your question is not here, our full <a href=\"/pages/faq\">FAQ page</a> goes further.</p>",
         "button_label": "",
         "button_link": "",
         "button_external": false,
@@ -1459,32 +1207,45 @@
         "color_background": "",
         "gradient_background": ""
       }
+    },
+    "recipe_cards": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "autumn-recipes",
+        "liquid": "<style>\n  .sea-rx {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n  }\n  .sea-rx__head {\n    max-width: 62ch;\n    margin: 0 0 26px;\n  }\n  .sea-rx__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-rx__title {\n    font-size: clamp(24px, 3vw, 32px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n  }\n  .sea-rx__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0;\n  }\n  .sea-rx__grid {\n    display: grid;\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n    gap: 22px;\n  }\n  .sea-rx__card {\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 18px;\n    overflow: hidden;\n    display: flex;\n    flex-direction: column;\n  }\n  .sea-rx__media {\n    margin: 0;\n    aspect-ratio: 3 / 2;\n    overflow: hidden;\n    background: #eee;\n  }\n  .sea-rx__media img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    display: block;\n  }\n  .sea-rx__body {\n    padding: 20px 22px 22px;\n    display: flex;\n    flex-direction: column;\n    flex: 1 1 auto;\n  }\n  .sea-rx__name {\n    font-size: 18px;\n    line-height: 1.25;\n    font-weight: 600;\n    margin: 0 0 10px;\n  }\n  .sea-rx__name a {\n    color: inherit;\n    text-decoration: none;\n  }\n  .sea-rx__name a:hover {\n    text-decoration: underline;\n    text-underline-offset: 3px;\n  }\n  .sea-rx__meta {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 6px 10px;\n    margin: 0 0 12px;\n  }\n  .sea-rx__chip {\n    font-size: 11.5px;\n    font-weight: 600;\n    letter-spacing: .04em;\n    color: var(--muted);\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 999px;\n    padding: 4px 10px;\n  }\n  .sea-rx__note {\n    font-size: 14px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 18px;\n  }\n  .sea-rx__foot {\n    margin-top: auto;\n    padding-top: 16px;\n    border-top: 1px solid var(--line);\n    display: flex;\n    align-items: center;\n    gap: 12px;\n    flex-wrap: wrap;\n  }\n  .sea-rx__buy {\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    padding: 10px 18px;\n    border-radius: 999px;\n    background: var(--ink);\n    color: #fff;\n    font-size: 14px;\n    font-weight: 600;\n    text-decoration: none;\n  }\n  .sea-rx__buy:hover {\n    opacity: .88;\n  }\n  .sea-rx__price {\n    font-size: 13.5px;\n    color: var(--muted);\n  }\n  .sea-rx__view {\n    font-size: 13.5px;\n    font-weight: 600;\n    color: var(--ink);\n    text-decoration: underline;\n    text-underline-offset: 3px;\n  }\n  @media (max-width: 749px) {\n    .sea-rx__grid {\n      grid-template-columns: 1fr;\n      gap: 18px;\n    }\n  }\n</style>\n\n<div class=\"sea-rx\">\n  <div class=\"sea-rx__head\">\n    <p class=\"sea-rx__eyebrow\">The autumn menu</p>\n    <h2 class=\"sea-rx__title\">Four dinners, and everything you need to cook them.</h2>\n    <p class=\"sea-rx__lede\">\n      Each one is written out in full &mdash; ingredients, method, swaps and the bit that usually goes\n      wrong &mdash; with the seafood a click away. No download required.\n    </p>\n  </div>\n\n  <div class=\"sea-rx__grid\">\n    <article class=\"sea-rx__card\">\n      <figure class=\"sea-rx__media\">\n        <img src=\"{{ '20260825-Stetten-Wilson-219.jpg' | file_url }}&amp;width=760\"\n             alt=\"Whole Roasted Trout with Blistered Grapes and Baby Potatoes\" width=\"760\" height=\"507\" loading=\"lazy\" decoding=\"async\">\n      </figure>\n      <div class=\"sea-rx__body\">\n        <h3 class=\"sea-rx__name\"><a href=\"/blogs/seafood-recipes/whole-roasted-trout-blistered-grapes-potatoes\">Whole Roasted Trout with Blistered Grapes and Baby Potatoes</a></h3>\n        <p class=\"sea-rx__meta\">\n          <span class=\"sea-rx__chip\">50 min</span>\n          <span class=\"sea-rx__chip\">Serves 2</span>\n          <span class=\"sea-rx__chip\">A confident first whole fish</span>\n        </p>\n        <p class=\"sea-rx__note\">One sheet pan. Potatoes get a head start, grapes go in last, and the fish is off the bone in three movements.</p>\n        {%- assign p = all_products['whole-trout-12oz'] -%}\n        <div class=\"sea-rx__foot\">\n          {%- if p != blank and p.available -%}\n            <a class=\"sea-rx__buy\" href=\"{{ p.url }}\">Add the {{ p.title }}</a>\n            <span class=\"sea-rx__price\">from {{ p.price_min | money }}</span>\n          {%- endif -%}\n          <a class=\"sea-rx__view\" href=\"/blogs/seafood-recipes/whole-roasted-trout-blistered-grapes-potatoes\">Full recipe &rarr;</a>\n        </div>\n      </div>\n    </article>\n    <article class=\"sea-rx__card\">\n      <figure class=\"sea-rx__media\">\n        <img src=\"{{ '20260825-Stetten-Wilson-112.jpg' | file_url }}&amp;width=760\"\n             alt=\"Butter Pumpkin Shrimp with Toasted Coconut, Lime and Fresno\" width=\"760\" height=\"507\" loading=\"lazy\" decoding=\"async\">\n      </figure>\n      <div class=\"sea-rx__body\">\n        <h3 class=\"sea-rx__name\"><a href=\"/blogs/seafood-recipes/butter-pumpkin-shrimp-curry\">Butter Pumpkin Shrimp with Toasted Coconut, Lime and Fresno</a></h3>\n        <p class=\"sea-rx__meta\">\n          <span class=\"sea-rx__chip\">50 min</span>\n          <span class=\"sea-rx__chip\">Serves 4</span>\n          <span class=\"sea-rx__chip\">Family style, no technique</span>\n        </p>\n        <p class=\"sea-rx__note\">If you like butter chicken you will like this. The sauce is roasted squash through a blender, not an hour of reducing.</p>\n        {%- assign p = all_products['black-tiger-shrimp-mangrove-regeneration'] -%}\n        <div class=\"sea-rx__foot\">\n          {%- if p != blank and p.available -%}\n            <a class=\"sea-rx__buy\" href=\"{{ p.url }}\">Add the {{ p.title }}</a>\n            <span class=\"sea-rx__price\">from {{ p.price_min | money }}</span>\n          {%- endif -%}\n          <a class=\"sea-rx__view\" href=\"/blogs/seafood-recipes/butter-pumpkin-shrimp-curry\">Full recipe &rarr;</a>\n        </div>\n      </div>\n    </article>\n    <article class=\"sea-rx__card\">\n      <figure class=\"sea-rx__media\">\n        <img src=\"{{ '20260825-Stetten-Wilson-314.jpg' | file_url }}&amp;width=760\"\n             alt=\"Apple Cider Poached Steelhead with Braised Leeks\" width=\"760\" height=\"507\" loading=\"lazy\" decoding=\"async\">\n      </figure>\n      <div class=\"sea-rx__body\">\n        <h3 class=\"sea-rx__name\"><a href=\"/blogs/seafood-recipes/apple-cider-poached-steelhead-braised-leeks\">Apple Cider Poached Steelhead with Braised Leeks</a></h3>\n        <p class=\"sea-rx__meta\">\n          <span class=\"sea-rx__chip\">45 min</span>\n          <span class=\"sea-rx__chip\">Serves 2</span>\n          <span class=\"sea-rx__chip\">Gentle, worth a thermometer</span>\n        </p>\n        <p class=\"sea-rx__note\">Held at 160 to 175&deg;F the loin stays silky rather than firming up. Brown butter and tarragon mustard to finish.</p>\n        {%- assign p = all_products['steelhead-sashimi-loin-12oz'] -%}\n        <div class=\"sea-rx__foot\">\n          {%- if p != blank and p.available -%}\n            <a class=\"sea-rx__buy\" href=\"{{ p.url }}\">Add the {{ p.title }}</a>\n            <span class=\"sea-rx__price\">from {{ p.price_min | money }}</span>\n          {%- endif -%}\n          <a class=\"sea-rx__view\" href=\"/blogs/seafood-recipes/apple-cider-poached-steelhead-braised-leeks\">Full recipe &rarr;</a>\n        </div>\n      </div>\n    </article>\n    <article class=\"sea-rx__card\">\n      <figure class=\"sea-rx__media\">\n        <img src=\"{{ '20260825-Stetten-Wilson-245.jpg' | file_url }}&amp;width=760\"\n             alt=\"Crispy Branzino with Warm Farro, Maitake and Asian Pear\" width=\"760\" height=\"507\" loading=\"lazy\" decoding=\"async\">\n      </figure>\n      <div class=\"sea-rx__body\">\n        <h3 class=\"sea-rx__name\"><a href=\"/blogs/seafood-recipes/branzino-warm-farro-maitake-salad\">Crispy Branzino with Warm Farro, Maitake and Asian Pear</a></h3>\n        <p class=\"sea-rx__meta\">\n          <span class=\"sea-rx__chip\">50 min</span>\n          <span class=\"sea-rx__chip\">Serves 2</span>\n          <span class=\"sea-rx__chip\">One technique to nail</span>\n        </p>\n        <p class=\"sea-rx__note\">Crisp skin is thirty seconds under a spatula. Better the next day, and good at room temperature.</p>\n        {%- assign p = all_products['branzino-bundle-2x-6oz-portions'] -%}\n        <div class=\"sea-rx__foot\">\n          {%- if p != blank and p.available -%}\n            <a class=\"sea-rx__buy\" href=\"{{ p.url }}\">Add the {{ p.title }}</a>\n            <span class=\"sea-rx__price\">from {{ p.price_min | money }}</span>\n          {%- endif -%}\n          <a class=\"sea-rx__view\" href=\"/blogs/seafood-recipes/branzino-warm-farro-maitake-salad\">Full recipe &rarr;</a>\n        </div>\n      </div>\n    </article>\n  </div>\n</div>\n",
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
     }
   },
   "order": [
     "main-page",
     "image_with_text_overlay_6FtDzG",
-    "free_featured_product_NQEnWF",
-    "rich_text_My3AEL",
-    "image_with_text_overlay_VwpKKh",
+    "recipe_cards",
+    "product_bundle_ABUEQb",
+    "featured_collection_pWVf7m",
     "image_with_text_X9KKnM",
     "multicolumn_with_icons_Yb6gYW",
-    "empty_space_kx9VHU",
     "featured_product_HwA8bm",
-    "featured_collection_pWVf7m",
-    "image_with_text_8biLF6",
-    "featured_product_DnxjwH",
-    "image_with_text_M4F3kr",
-    "product_bundle_ABUEQb",
     "image_with_text_UzFkDx",
-    "blocks_7JNMfB",
     "image_with_text_CTQibA",
-    "image_with_text_overlay_NhgHbB",
+    "faq_XGjUai",
+    "rich_text_My3AEL",
+    "image_with_text_8biLF6",
+    "image_with_text_M4F3kr",
     "images_with_text_7NyEJN",
+    "blocks_7JNMfB",
     "rich_text_dAFeMT",
     "index_new_testimonials_ByRMjq",
     "index_review_judge_me_CGWRxy",
-    "faq_XGjUai",
+    "image_with_text_overlay_VwpKKh",
     "empty_space_kkgf8B"
   ]
 }
