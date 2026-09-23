@@ -31,7 +31,7 @@
         "text_Fppygg": {
           "type": "text",
           "settings": {
-            "text": "<p>We work with artisan aquaculture farms around the world that are using innovative feeds to grow the most nutrient-dense, cleanest seafood on the planet.</p>",
+            "text": "<p>We work with artisan aquaculture farms around the world, and we publish the full panel for every product.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -100,7 +100,7 @@
         "text_EpMiMK": {
           "type": "text",
           "settings": {
-            "text": "<p>Mercury safe ≤0.1 ppm, zero detectable microplastics, with quantified levels of Omega-3s, protein, and nutrients. </p><p>Order today and get FREE Shipping </p>",
+            "text": "<p>Low mercury ≤0.1 ppm, zero microplastics detected, with quantified levels of Omega-3s, protein, and nutrients. </p><p>Order today and get FREE Shipping </p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -599,7 +599,7 @@
         "text_FDmm8T": {
           "type": "text",
           "settings": {
-            "text": "<p>Mercury safe ≤0.1 ppm, zero detectable microplastics, with quantified levels of Omega-3s, protein, and nutrients. Order today and get FREE Shipping 🎁 - a $26+ value.</p>",
+            "text": "<p>Low mercury ≤0.1 ppm, zero microplastics detected, with quantified levels of Omega-3s, protein, and nutrients. Order today and get FREE Shipping 🎁 - a $26+ value.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -623,7 +623,7 @@
           "type": "text",
           "disabled": true,
           "settings": {
-            "text": "<p>Mercury Safe - Zero Detectable Microplastics - Quantified Marine Nutrition</p>",
+            "text": "<p>Low mercury - Zero microplastics detected - Quantified Marine Nutrition</p>",
             "text_size": "subtext-sm",
             "text_max_size": 32,
             "text_font": "body",
@@ -807,7 +807,8 @@
             "text": "<p>“We are what foods we eats and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
             "block_background": "",
             "block_text_color": ""
-          }
+          },
+          "disabled": true
         },
         "review_HkWWYB": {
           "type": "review",
@@ -817,7 +818,7 @@
             "title": "Johanna Hellrigl",
             "job": "Chef & Owner of Ama Restaurant",
             "Start_number": "5",
-            "text": "<p>\"As a Chef, I believe true sustainability must nourish both people and the planet. Seatopia aligns with this belief. They lab-test every harvest to ensure seafood that’s omega-rich, mercury-safe, and free from detectable microplastics while also regenerating ocean health. This is the future of seafood.\"</p>",
+            "text": "<p>\"As a Chef, I believe true sustainability must nourish both people and the planet. Seatopia aligns with this belief. They lab-test every supplier to ensure seafood that’s omega-rich, low mercury, and zero microplastics detected in third-party testing while also regenerating ocean health. This is the future of seafood.\"</p>",
             "block_background": "",
             "block_text_color": ""
           }
@@ -885,7 +886,7 @@
         "text_DCRbVc": {
           "type": "text",
           "settings": {
-            "text": "<p>We love helping people like you make omega-rich, delicious, certified-clean seafood recipes at home. That is why we offer FREE 1:1 Member Cooking Classes with every order.</p><p>Not ready to order yet? No problem! Book a call with us to plan out your meal and check if Seatopia is right for you and your family.</p>",
+            "text": "<p>We love helping people like you make omega-rich, delicious, lab-tested seafood recipes at home. That is why we offer FREE 1:1 Member Cooking Classes with every order.</p><p>Not ready to order yet? No problem! Book a call with us to plan out your meal and check if Seatopia is right for you and your family.</p>",
             "text_size": "subtext-lg",
             "text_max_size": 32,
             "text_font": "body",

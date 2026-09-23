@@ -31,7 +31,7 @@
         "text_Fppygg": {
           "type": "text",
           "settings": {
-            "text": "<p>We work with artisan aquaculture farms around the world that are using innovative feeds to grow the most nutrient-dense, cleanest seafood on the planet.</p>",
+            "text": "<p>We work with artisan aquaculture farms around the world, and we publish the full panel for every product.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -93,7 +93,7 @@
         "heading_UL8nJq": {
           "type": "heading",
           "settings": {
-            "heading": "Taste the Difference. A Certified Clean, Gourmet Seafood Experience",
+            "heading": "Taste the Difference. A Lab-tested, Gourmet Seafood Experience",
             "heading_size": "title-lg tracking-heading",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -126,7 +126,7 @@
         "text_FqPUFj": {
           "type": "text",
           "settings": {
-            "text": "<p>Mercury Safe - Zero Detectable Microplastics - Quantified Marine Nutrition</p>",
+            "text": "<p>Low mercury - Zero microplastics detected - Quantified Marine Nutrition</p>",
             "text_size": "subtext-sm",
             "text_max_size": 32,
             "text_font": "body",
@@ -377,7 +377,7 @@
           "settings": {
             "icon": "check_mark",
             "icon_width": 20,
-            "text": "Lab tested to ensure it's mercury safe and free from detectable microplastics",
+            "text": "Lab tested to ensure it's low mercury and zero microplastics detected in third-party testing",
             "text_size": "text-base"
           }
         },
@@ -396,7 +396,7 @@
           "type": "icon_list",
           "disabled": true,
           "settings": {
-            "heading": "Lab Tested, Nutrient Rich & Certified Clean",
+            "heading": "Lab Tested, Nutrient Rich & Lab-tested",
             "enable_carousel": false,
             "show_below_media": true
           }
@@ -565,7 +565,7 @@
         "text_4CVbRd": {
           "type": "text",
           "settings": {
-            "text": "<p>Omega rich, sushi-grade seafood that is lab tested to ensure it is mercury safe, and free from detectable microplastics.</p><p>Get started by choosing a <a href=\"/collections/curated-boxes\" title=\"Curated Boxes\">curated box</a> hand picked from our favorites or <a href=\"/collections/build-your-own-box\" title=\"Build Your Own Box\">build your own box</a> from a selection of the healthiest seafood on the planet.</p><p>- Ben Greenfield</p>",
+            "text": "<p>Omega rich, sushi-grade seafood that is lab tested to ensure it is low mercury, and zero microplastics detected in third-party testing.</p><p>Get started by choosing a <a href=\"/collections/curated-boxes\" title=\"Curated Boxes\">curated box</a> hand picked from our favorites or <a href=\"/collections/build-your-own-box\" title=\"Build Your Own Box\">build your own box</a> from our full range.</p><p>- Ben Greenfield</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -720,7 +720,7 @@
         "text_pzmejD": {
           "type": "text",
           "settings": {
-            "text": "<p>The cleanest seafood on the planet is as easy as...</p>",
+            "text": "<p>Tested and published seafood is as easy as...</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -1158,7 +1158,8 @@
             "text": "<p>“We are what foods we eats and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
             "block_background": "",
             "block_text_color": ""
-          }
+          },
+          "disabled": true
         },
         "review_HkWWYB": {
           "type": "review",
@@ -1168,7 +1169,7 @@
             "title": "Johanna Hellrigl",
             "job": "Chef & Owner of Ama Restaurant",
             "Start_number": "5",
-            "text": "<p>\"As a Chef, I believe true sustainability must nourish both people and the planet. Seatopia aligns with this belief. They lab-test every harvest to ensure seafood that’s omega-rich, mercury-safe, and free from detectable microplastics while also regenerating ocean health. This is the future of seafood.\"</p>",
+            "text": "<p>\"As a Chef, I believe true sustainability must nourish both people and the planet. Seatopia aligns with this belief. They lab-test every supplier to ensure seafood that’s omega-rich, low mercury, and zero microplastics detected in third-party testing while also regenerating ocean health. This is the future of seafood.\"</p>",
             "block_background": "",
             "block_text_color": ""
           }

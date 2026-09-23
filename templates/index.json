@@ -17,7 +17,7 @@
           "settings": {
             "image": "shopify://shop_images/Screenshot_2025-05-12_at_4.08.51_PM.png",
             "image_mobile": "shopify://shop_images/Screenshot_2025-05-12_at_4.08.51_PM.png",
-            "heading": "Certified-Clean Seafood               Delivered to Your Door",
+            "heading": "Lab-Tested Seafood               Delivered to Your Door",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "button_label": "Get Started",
@@ -32,7 +32,7 @@
           "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Frame_1577707548_865acc9c-5330-4ab5-abfb-ff829ce484b3.png",
-            "heading": "Certified-Clean Seafood                Delivered to Your Door",
+            "heading": "Lab-Tested Seafood                Delivered to Your Door",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "button_label": "Shop Boxes",
@@ -47,7 +47,7 @@
           "disabled": true,
           "settings": {
             "image": "shopify://shop_images/DSC06513_1be0410f-7a1b-4bab-b0cf-a10ed5d3f18d.jpg",
-            "heading": "Certified-Clean Seafood </br>                 Delivered to Your Door",
+            "heading": "Lab-Tested Seafood </br>                 Delivered to Your Door",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "button_label": "Shop More",
@@ -115,7 +115,7 @@
         "heading_EagKLn": {
           "type": "heading",
           "settings": {
-            "heading": "Safe, delicious seafood delivered to your door",
+            "heading": "Lab-tested, delicious seafood delivered to your door",
             "heading_size": "title-lg tracking-heading",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -125,7 +125,7 @@
         "text_Vx89fD": {
           "type": "text",
           "settings": {
-            "text": "<p>Third-party lab tested, full of Omega-3s, tested to ≤ 0.1 ppm mercury &ndash; a tenth of the FDA limit, with no microplastics detected in third-party testing</p>",
+            "text": "<p>Third-party lab tested, full of Omega-3s, tested to ≤ 0.1 ppm mercury &ndash; a tenth of the FDA action level, with no microplastics detected in third-party testing</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -192,7 +192,7 @@
           "type": "heading",
           "disabled": true,
           "settings": {
-            "heading": "Safe, delicious seafood delivered to your door",
+            "heading": "Lab-tested, delicious seafood delivered to your door",
             "heading_size": "title-lg tracking-heading",
             "heading_tag": "h1",
             "highlighted_text": "none",
@@ -203,7 +203,7 @@
           "type": "text",
           "disabled": true,
           "settings": {
-            "text": "<p>Third-party lab tested and omega-rich. Tested to ≤ 0.1 ppm mercury &ndash; a tenth of the fda limit, with no microplastics detected in third-party testing.</p>",
+            "text": "<p>Third-party lab tested and omega-rich. Tested to ≤ 0.1 ppm mercury &ndash; a tenth of the FDA action level, with no microplastics detected in third-party testing.</p>",
             "text_size": "subtext-lg",
             "text_max_size": 68,
             "text_font": "body",
@@ -458,7 +458,7 @@
           "settings": {
             "icon": "check_mark",
             "icon_width": 20,
-            "text": "Tested to ≤ 0.1 ppm mercury &ndash; a tenth of the FDA limit, with no microplastics detected in third-party testing",
+            "text": "Tested to ≤ 0.1 ppm mercury &ndash; a tenth of the FDA action level, with no microplastics detected in third-party testing",
             "text_size": "text-base"
           }
         },
@@ -476,7 +476,7 @@
           "type": "icon_list",
           "disabled": true,
           "settings": {
-            "heading": "Lab Tested, Nutrient Rich & Certified Clean",
+            "heading": "Lab Tested, Nutrient Rich & Published",
             "enable_carousel": false,
             "show_below_media": true
           }
@@ -595,7 +595,7 @@
             "collection": "seafood-best-sellers",
             "image": "shopify://shop_images/collection-02.webp_3.png",
             "title": "Shop All Seafood",
-            "description": "Clean, nutrient rich, delicious",
+            "description": "Lab-tested, nutrient rich, delicious",
             "overlay_content": false,
             "color_text": "#ffffff",
             "color_overlay": "#000000",
@@ -658,7 +658,7 @@
         "text_AwLXxi": {
           "type": "text",
           "settings": {
-            "text": "<p>Omega-packed seafood, <a href=\"/pages/why-clean-seafood-matters\" title=\"Why Clean Seafood Matters\">tested to ≤ 0.1 ppm mercury &ndash; a tenth of the FDA limit</a>, with no microplastics detected in third-party testing. Get started by choosing a curated box hand picked from our favorites, or build your own.</p>",
+            "text": "<p>Omega-packed seafood, <a href=\"/pages/why-clean-seafood-matters\" title=\"Why Clean Seafood Matters\">tested to ≤ 0.1 ppm mercury &ndash; a tenth of the FDA action level</a>, with no microplastics detected in third-party testing. Get started by choosing a curated box hand picked from our favorites, or build your own.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -726,13 +726,13 @@
     "creator_quotes": {
       "type": "creator-quote-slider",
       "blocks": {
-        "slide_hyman": {
+        "slide_hyman": {"disabled": true,
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/05212021_Mark_Hyman9087-Edit.jpg",
             "eyebrow": "Recommended by Dr. Mark Hyman, MD",
             "quote": "“Thanks to Seatopia the next generation of omega-rich, microalgae-fed seafood can help us live more vital lives”",
-            "support": "<p>Clean Seafood, delivered to your door, with up to 3,414 mg bioavailable EPA + DHA per serving.</p>",
+            "support": "<p>Seafood delivered to your door. We test and publish omega-3, protein, selenium, vitamin D and B12.</p>",
             "button_label": "Why Dr. Mark Hyman Supports Seatopia",
             "button_link": "shopify://pages/mark-hyman"
           }
@@ -743,7 +743,7 @@
             "image": "shopify://shop_images/DrCaseyMeans-Seatopia-33.jpg",
             "eyebrow": "Recommended by Dr. Casey Means, MD",
             "quote": "“Regenerative aquaculture is seafood production that enhances, rather than depletes, the oceans.”",
-            "support": "<p>Certified clean seafood from traceable, regenerative farms — delivered to your door.</p>",
+            "support": "<p>Third-party lab tested seafood, farms named and panels published — delivered to your door.</p>",
             "button_label": "Why Dr. Casey Means supports Seatopia",
             "button_link": "/pages/casey-means-good-energy"
           }
@@ -793,7 +793,7 @@
         "text_xKYH7T": {
           "type": "text",
           "settings": {
-            "text": "<p>Through remarkable dedication to natural feeds and regenerative practices, our farm partners produce the world's cleanest seafood.</p>",
+            "text": "<p>Sourced from best-in-class aquaculture. Farms named, panels published.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -1078,7 +1078,7 @@
     "index_new_testimonials_pzqmAP": {
       "type": "index-new-testimonials",
       "blocks": {
-        "review_q74D3V": {
+        "review_q74D3V": {"disabled": true,
           "type": "review",
           "settings": {
             "image": "shopify://shop_images/Mark_hyman.png",
@@ -1109,7 +1109,7 @@
           "settings": {
             "image": "shopify://shop_images/Ben_greenfield_89fa6ea5-3395-4d81-975e-1f952ba5b657.png",
             "image_url": "shopify://blogs/regenerative-aquaculture",
-            "title": "Ben Greenfield",
+            "title": "Ben Greenfield, paid partner",
             "job": "Health & Fitness Coach",
             "Start_number": "5",
             "text": "<p>\"If you want healthy, gourmet-style seafood, in the comfort of your own home, seafood that goes above and beyond any you've tasted before, you need Seatopia in your life!\"</p>",
@@ -1155,7 +1155,7 @@
     "index_new_testimonials_ziwW9y": {
       "type": "index-new-testimonials",
       "blocks": {
-        "review_hUgdXR": {
+        "review_hUgdXR": {"disabled": true,
           "type": "review",
           "settings": {
             "image": "shopify://shop_images/Mark_hyman.png",
@@ -1168,7 +1168,7 @@
             "block_text_color": ""
           }
         },
-        "review_KMBfjf": {
+        "review_KMBfjf": {"disabled": true,
           "type": "review",
           "disabled": true,
           "settings": {
@@ -1177,7 +1177,7 @@
             "title": "Johanna Hellrigl",
             "job": "Chef & Owner of Ama Restaurant",
             "Start_number": "5",
-            "text": "<p>\"As a Chef, I believe true sustainability must nourish both people and the planet. Seatopia aligns with this belief. They lab-test every harvest to ensure seafood that’s omega-rich, mercury-safe, and free from detectable microplastics while also regenerating ocean health. This is the future of seafood.\"</p>",
+            "text": "<p>\"As a Chef, I believe true sustainability must nourish both people and the planet. Seatopia aligns with this belief. They lab-test every supplier to ensure seafood that’s omega-rich, low mercury, and zero microplastics detected in third-party testing while also regenerating ocean health. This is the future of seafood.\"</p>",
             "block_background": "",
             "block_text_color": ""
           }
@@ -1187,7 +1187,7 @@
           "settings": {
             "image": "shopify://shop_images/Ben_greenfield_89fa6ea5-3395-4d81-975e-1f952ba5b657.png",
             "image_url": "",
-            "title": "Ben Greenfield",
+            "title": "Ben Greenfield, paid partner",
             "job": "Health & Fitness Coach",
             "Start_number": "5",
             "text": "<p>\"If you want healthy, gourmet-style seafood, in the comfort of your own home, seafood that goes above and beyond any you've tasted before, you need Seatopia in your life!\"</p>",
@@ -1251,7 +1251,7 @@
           "type": "heading",
           "disabled": true,
           "settings": {
-            "heading": "Get the cleanest seafood onthe planet delivered to your door.",
+            "heading": "Tested and published. Delivered to your door.",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -1261,7 +1261,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<h2>Get the cleanest seafood on<br/>the planet delivered to your door.</h2>",
+            "text": "<h2>Tested and published.<br/>Delivered to your door.</h2>",
             "text_size": "subtext-md",
             "text_max_size": 44,
             "text_font": "heading",
@@ -1575,7 +1575,7 @@
             "video_on_hover": true,
             "account_avatar": "shopify://shop_images/Img.png",
             "account_name": "@seatopia",
-            "account_description": "The cleanest Cobia in the world",
+            "account_description": "Cobia, tested and published",
             "account_button": "Follow",
             "account_link": "",
             "button_external": false,
@@ -1651,12 +1651,12 @@
     "testimonials-banner": {
       "type": "testimonials-banner",
       "blocks": {
-        "testimonial-1": {
+        "testimonial-1": {"disabled": true,
           "type": "testimonial",
           "disabled": true,
           "settings": {
             "icon": "quote",
-            "text": "<p>Thanks to Seatopia, throughout my pregnancy and while breastfeeding, I’ve confidently enjoyed sushi-grade, mercury-free, omega-rich seafood from the comfort of my home!</p>",
+            "text": "<p>Thanks to Seatopia, throughout my pregnancy and while breastfeeding, I’ve confidently enjoyed sushi-grade, low mercury, omega-rich seafood from the comfort of my home!</p>",
             "author": "Dr Kristin Siler-Brooke",
             "author_info": "",
             "author_url": "shopify://blogs/seafood-recipes/hudson-valley-steelhead-trout-thanksgiving-stuffing-recipe",
@@ -1666,7 +1666,7 @@
             "highlighted_scribble": "circle"
           }
         },
-        "testimonial-2": {
+        "testimonial-2": {"disabled": true,
           "type": "testimonial",
           "settings": {
             "icon": "quote",
@@ -1685,7 +1685,7 @@
           "settings": {
             "icon": "quote",
             "text": "<p>If you want healthy, gourmet-style seafood, in the comfort of your own home, seafood that goes above and beyond any you've tasted before, you need SEATOPIA in your life!</p>",
-            "author": "Ben Greenfield",
+            "author": "Ben Greenfield, paid partner",
             "author_info": "",
             "author_url": "",
             "image": "shopify://shop_images/image_15_d3436008-fe58-4d87-9757-60882241aac0.png",
@@ -1739,7 +1739,7 @@
           "settings": {
             "collection": "seatopia",
             "products": [],
-            "title": "Certified Clean Seafood"
+            "title": "Lab-Tested Seafood"
           }
         },
         "collection-3": {
@@ -1817,7 +1817,7 @@
         "show_author": false,
         "show_excerpt": false,
         "show_tag_filter": false,
-        "heading": "Clean Seafood Recipes",
+        "heading": "Seafood Recipes",
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",

@@ -40,7 +40,7 @@
         "text_Fppygg": {
           "type": "text",
           "settings": {
-            "text": "<p>We work with artisan aquaculture farms around the world that are using innovative feeds to grow the most nutrient-dense, cleanest seafood on the planet.</p>",
+            "text": "<p>We work with artisan aquaculture farms around the world, and we publish the full panel for every product.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -100,7 +100,7 @@
         "text_FDmm8T": {
           "type": "text",
           "settings": {
-            "text": "<p>Lab-tested, Omega-rich, Mercury-safe, Zero detectable microplastics. 🎁 Get FREE Caviar on your first order. </p>",
+            "text": "<p>Lab-tested, Omega-rich, Low mercury, Zero microplastics detected. 🎁 Get FREE Caviar on your first order. </p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -422,12 +422,13 @@
             "heading_tag": "h2",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
-          }
+          },
+          "disabled": true
         },
         "text_4CVbRd": {
           "type": "text",
           "settings": {
-            "text": "<p>Seatopia's next generation of omega-rich seafood mitigates exposure to heavy metals, and microplastics.</p><p>Get started by choosing a <a href=\"/collections/curated-boxes\" title=\"Curated Boxes\">curated box</a> hand picked from our favorites or <a href=\"/collections/build-your-own-box\" title=\"Build Your Own Box\">build your own box</a> from a selection of the healthiest seafood on the planet.</p><p>- Dr. Mark Hyman</p>",
+            "text": "<p>Seatopia's next generation of omega-rich seafood mitigates exposure to heavy metals, and microplastics.</p><p>Get started by choosing a <a href=\"/collections/curated-boxes\" title=\"Curated Boxes\">curated box</a> hand picked from our favorites or <a href=\"/collections/build-your-own-box\" title=\"Build Your Own Box\">build your own box</a> from our full range.</p><p>- Dr. Mark Hyman</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -619,7 +620,7 @@
           "settings": {
             "icon": "check_mark",
             "icon_width": 20,
-            "text": "Lab tested to ensure it's mercury safe and free from detectable microplastics",
+            "text": "Lab tested to ensure it's low mercury and zero microplastics detected in third-party testing",
             "text_size": "text-base"
           }
         },
@@ -637,7 +638,7 @@
           "type": "icon_list",
           "disabled": true,
           "settings": {
-            "heading": "Lab Tested, Nutrient Rich & Certified Clean",
+            "heading": "Lab Tested, Nutrient Rich & Lab-tested",
             "enable_carousel": false,
             "show_below_media": true
           }
@@ -827,7 +828,7 @@
         "text_pzmejD": {
           "type": "text",
           "settings": {
-            "text": "<p>The cleanest seafood on the planet is as easy as...</p>",
+            "text": "<p>Tested and published seafood is as easy as...</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -1110,7 +1111,8 @@
             "text": "<p>“We are what foods we eats and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
             "block_background": "",
             "block_text_color": ""
-          }
+          },
+          "disabled": true
         },
         "review_beCApy": {
           "type": "review",
@@ -1121,7 +1123,7 @@
             "title": "Dr. Kristyn Silver-Brook",
             "job": "Prenatal and postpartum chiropractor, mama, and a Seatopia customer",
             "stars": 5,
-            "text": "<p>Thanks to SEATOPIA, throughout my pregnancy & while breastfeeding I've confidently enjoyed sushi-grade, mercury-free, omega-rich seafood from the comfort of home!</p>",
+            "text": "<p>Thanks to SEATOPIA, throughout my pregnancy & while breastfeeding I've confidently enjoyed sushi-grade, low mercury, omega-rich seafood from the comfort of home!</p>",
             "block_background": "",
             "block_text_color": ""
           }
