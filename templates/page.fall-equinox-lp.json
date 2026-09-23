@@ -136,6 +136,7 @@
     },
     "shop_the_recipe": {
       "type": "shop-the-recipe",
+      "disabled": true,
       "settings": {
         "products": [
           "black-tiger-shrimp-mangrove-regeneration",
