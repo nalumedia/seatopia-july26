@@ -1,0 +1,177 @@
+{
+  "sections": {
+    "promo": {
+      "type": "uikit-promo-bar",
+      "settings": {
+        "text": "Use code: GREENFIELD for 20% off first order",
+        "background": "#f8f6f3",
+        "text_color": "#2e4b59"
+      }
+    },
+    "hero": {
+      "type": "uikit-hero",
+      "settings": {
+        "heading": "Lab-tested, nutrient-dense seafood delivered.",
+        "subheading": "Third-party lab tested, omega-rich, low mercury, with zero microplastics detected.",
+        "cta_label": "Order Now",
+        "cta_link": "shopify://collections/build-your-own-box"
+      }
+    },
+    "logos": {
+      "type": "uikit-logo-cloud",
+      "blocks": {
+        "l1": { "type": "logo", "settings": { "name": "Goop" } },
+        "l2": { "type": "logo", "settings": { "name": "Forbes" } },
+        "l3": { "type": "logo", "settings": { "name": "Well+Good" } },
+        "l4": { "type": "logo", "settings": { "name": "Food Fix" } }
+      },
+      "block_order": ["l1", "l2", "l3", "l4"],
+      "settings": { "heading": "Featured In" }
+    },
+    "benefits": {
+      "type": "uikit-benefits",
+      "blocks": {
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "title": "Low mercury",
+            "text": "Our limit is 0.1 ppm methylmercury — a tenth of the FDA action level."
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "title": "Zero microplastics detected",
+            "text": "Tested for microplastics down to 1 micron. Zero detected in third-party testing."
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "title": "Nutrient dense",
+            "text": "We test and publish omega-3, protein, selenium, vitamin D and B12."
+          }
+        },
+        "b4": {
+          "type": "benefit",
+          "settings": {
+            "title": "Farms named",
+            "text": "Farms named, panels published. Scan the QR on the box and the farm page opens with its panels."
+          }
+        }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": { "heading": "Know exactly what's in the seafood you serve." }
+    },
+    "boxes": {
+      "type": "uikit-box-grid",
+      "blocks": {
+        "x1": {
+          "type": "box",
+          "settings": {
+            "title": "Salmon Lovers Box",
+            "text": "Rich flavor carrying oceanic depth and gentle sweetness across the palate. Contains a selection of King, Atlantic, and Steelhead.",
+            "link": "shopify://collections/salmon"
+          }
+        },
+        "x2": {
+          "type": "box",
+          "settings": {
+            "title": "Fish & Shellfish Box",
+            "text": "A celebration of clean flavor and coastal elegance. Contains salmon, whitefish, and Peruvian scallops.",
+            "link": "shopify://collections/curated-boxes"
+          }
+        },
+        "x3": {
+          "type": "box",
+          "settings": {
+            "title": "White Fish Box",
+            "text": "Expressive flavors from clean, flavorful fish. Contains a selection of bream, branzino, yellowtail, and barramundi.",
+            "link": "shopify://collections/whitefish"
+          }
+        }
+      },
+      "block_order": ["x1", "x2", "x3"],
+      "settings": {
+        "heading": "Looking for something else? Choose a box or build your own.",
+        "text": "Lab-tested seafood delivered to your door, snap frozen. Select 12, 18, or 24 portion curated boxes, or build your own.",
+        "cta_label": "Build Your Box",
+        "cta_link": "shopify://collections/build-your-own-box"
+      }
+    },
+    "reviews": {
+      "type": "uikit-testimonials",
+      "settings": {
+        "heading": "The choice of thousands of subscribers",
+        "text": "Join thousands of Seatopia subscribers."
+      }
+    },
+    "comparison": {
+      "type": "uikit-comparison",
+      "blocks": {
+        "r1": { "type": "row", "settings": { "seatopia": "Third-party lab tested for nutrition, mercury and microplastics" } },
+        "r2": { "type": "row", "settings": { "seatopia": "Our limit is 0.1 ppm methylmercury — a tenth of the FDA action level" } },
+        "r3": { "type": "row", "settings": { "seatopia": "Tested for microplastics down to 1 micron" } },
+        "r4": { "type": "row", "settings": { "seatopia": "We test and publish omega-3, protein, selenium, vitamin D and B12" } },
+        "r5": { "type": "row", "settings": { "seatopia": "Farms named, panels published" } },
+        "r6": { "type": "row", "settings": { "seatopia": "Blast-frozen to -10°F at harvest, vacuum sealed" } }
+      },
+      "block_order": ["r1", "r2", "r3", "r4", "r5", "r6"],
+      "settings": {
+        "show_competitors": false,
+        "eyebrow": "Side by Side Comparison",
+        "heading": "Never worry about the quality of your seafood again.",
+        "brand_label": "SEATOPIA",
+        "col2_label": "Supermarkets",
+        "col3_label": "Other Seafood Direct Companies"
+      }
+    },
+    "quote": {
+      "type": "uikit-quote",
+      "settings": {
+        "quote": "“We believe in eating with intention, sourcing with integrity, and restoring what has been lost.”",
+        "name": "James Arthur Smith",
+        "role": "Co-Founder & CEO"
+      }
+    },
+    "steps": {
+      "type": "uikit-how-it-works",
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "We source from best-in-class aquaculture",
+            "text": "Every supplier is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Choose a curated box, or build your own",
+            "text": "Pick from chef-selected cuts. Order by Tuesday 12pm EST for delivery that week."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Your sealed seafood arrives to your doorstep",
+            "text": "Blast-frozen, with a frozen delivery guarantee. Learn recipes from top chefs, and schedule a free 1-on-1 cooking class."
+          }
+        }
+      },
+      "block_order": ["s1", "s2", "s3"],
+      "settings": { "heading": "How Seatopia works" }
+    }
+  },
+  "order": [
+    "promo",
+    "hero",
+    "logos",
+    "benefits",
+    "boxes",
+    "reviews",
+    "comparison",
+    "quote",
+    "steps"
+  ]
+}

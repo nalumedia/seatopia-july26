@@ -1,0 +1,54 @@
+{%- comment -%} UI kit — how it works. Figma node 47:621 {%- endcomment -%}
+
+<div class="uikit uikit-section">
+  <div class="uikit-container">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="uikit-h2 uikit-steps__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    <ol class="uikit-steps" role="list">
+      {%- for block in section.blocks -%}
+        <li class="uikit-steps__item" {{ block.shopify_attributes }}>
+          <span class="uikit-media uikit-steps__media" style="--uk-ratio: 4 / 3;">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 373px, 100vw', widths: '400,600,900', alt: '' }}
+            {%- endif -%}
+          </span>
+          <span class="uikit-overline">{{ forloop.index | prepend: '0' }}</span>
+          <span class="uikit-label-m uikit-steps__name">{{ block.settings.title }}</span>
+          <span class="uikit-body-s uikit-muted">{{ block.settings.text }}</span>
+        </li>
+      {%- endfor -%}
+    </ol>
+  </div>
+</div>
+
+<style>
+  .uikit-steps__heading { margin-bottom: 48px; }
+  .uikit-steps { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px; list-style: none; margin: 0; padding: 0; counter-reset: step; }
+  .uikit-steps__item { display: flex; flex-direction: column; gap: 10px; }
+  .uikit-steps__media { aspect-ratio: 4 / 3; margin-bottom: 8px; }
+  .uikit-steps__name { color: var(--uk-heading); }
+  @media (max-width: 989px) { .uikit-steps { grid-template-columns: 1fr; gap: 40px; } }
+</style>
+
+{% schema %}
+{
+  "name": "UI kit — how it works",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "How Seatopia works" }
+  ],
+  "blocks": [
+    { "type": "step", "name": "Step", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Image" },
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "textarea", "id": "text", "label": "Text" }
+    ]}
+  ],
+  "presets": [{ "name": "UI kit — how it works", "blocks": [
+    { "type": "step", "settings": { "title": "We source from best-in-class aquaculture", "text": "Every supplier is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard." } },
+    { "type": "step", "settings": { "title": "Choose a curated box, or build your own", "text": "Pick from chef-selected cuts. Order by Tuesday 12pm EST for delivery that week." } },
+    { "type": "step", "settings": { "title": "Your sealed seafood arrives to your doorstep", "text": "Blast-frozen, with a frozen delivery guarantee. Learn recipes from top chefs, and schedule a free 1-on-1 cooking class." } }
+  ]}]
+}
+{% endschema %}

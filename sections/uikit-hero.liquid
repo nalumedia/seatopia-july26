@@ -1,0 +1,51 @@
+{%- comment -%} UI kit — hero. Figma node 47:413 {%- endcomment -%}
+
+<div class="uikit uikit-section">
+  <div class="uikit-container uikit-stack uikit-hero">
+    <div class="uikit-stack uikit-stack--center uikit-hero__head">
+      <h1 class="uikit-h1">{{ section.settings.heading }}</h1>
+      {%- if section.settings.subheading != blank -%}
+        <p class="uikit-body-m uikit-hero__sub">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+      {%- if section.settings.cta_label != blank -%}
+        <a class="uikit-btn uikit-btn--primary" href="{{ section.settings.cta_link | default: '#' }}">{{ section.settings.cta_label }}</a>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.image != blank -%}
+      <div class="uikit-media uikit-hero__media">
+        {{ section.settings.image | image_url: width: 2400 | image_tag:
+             loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 1280px) 1200px, 100vw',
+             widths: '600,900,1200,1600,2000,2400', alt: section.settings.image.alt | default: '' }}
+      </div>
+    {%- else -%}
+      <div class="uikit-media uikit-hero__media uikit-hero__media--empty"></div>
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  .uikit-hero { gap: 100px; }
+  .uikit-hero__head { gap: 23px; }
+  .uikit-hero__head .uikit-h1 { max-width: 836px; }
+  .uikit-hero__sub { color: var(--uk-heading); max-width: 720px; }
+  .uikit-hero__media { height: 622px; }
+  .uikit-hero__media--empty { background: var(--uk-gray-4); }
+  @media (max-width: 989px) { .uikit-hero { gap: 48px; } .uikit-hero__media { height: 380px; } }
+  @media (max-width: 749px) { .uikit-hero__media { height: 280px; } }
+</style>
+
+{% schema %}
+{
+  "name": "UI kit — hero",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Lab-tested, nutrient-dense seafood delivered." },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Third-party lab tested, omega-rich, low mercury, with zero microplastics detected." },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Order Now" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "image_picker", "id": "image", "label": "Hero image" }
+  ],
+  "presets": [{ "name": "UI kit — hero" }]
+}
+{% endschema %}
