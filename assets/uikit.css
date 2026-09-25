@@ -1,0 +1,208 @@
+/* ============================================================================
+   SEATOPIA UI KIT — foundation
+   Source of truth: Figma "Seatopia (Copy)" › UI Kit
+   https://www.figma.com/design/nqWCEdk2sVvYS9szIgMDOC/Seatopia--Copy-?node-id=4192-7923
+
+   DELIBERATELY SCOPED TO .uikit.
+   The kit is not live site-wide yet (primary is still coral #D45A3C in theme
+   settings). Everything here is namespaced so this page can run the new kit in
+   production without touching any other template. When the global rollout
+   happens, these tokens move into snippets/css-variables.liquid and the .uikit
+   wrapper goes away.
+   ========================================================================= */
+
+.uikit {
+  /* ---- Palette ------------------------------------------------- */
+  --uk-gold: #bb8f50;
+  --uk-deep-deep-blue: #2e4b59;
+  --uk-deep-blue: #335566;
+  --uk-dark-blue: #1c2427;
+  --uk-black-sand: #252525;
+  --uk-sky-blue: #7bc3f3;
+  --uk-white: #ffffff;
+  --uk-background: #f8f6f3;
+  --uk-gray-1: #6f6f6f;
+  --uk-gray-2: #c3c3c3;
+  --uk-gray-3: #cecece;
+  --uk-gray-4: #e9e9e9;
+
+  /* ---- Semantic ------------------------------------------------ */
+  --uk-text: var(--uk-black-sand);
+  --uk-heading: var(--uk-deep-deep-blue);
+  --uk-muted: var(--uk-gray-1);
+  --uk-surface: var(--uk-background);
+  --uk-rule: var(--uk-gray-4);
+
+  /* ---- Type ----------------------------------------------------- */
+  --uk-font-heading: "Crimson Pro", Georgia, "Times New Roman", serif;
+  --uk-font-body: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* ---- Layout --------------------------------------------------- */
+  --uk-container: 1200px;
+  --uk-gutter: 40px;
+  --uk-radius-media: 30px;
+  --uk-radius-card: 16px;
+  --uk-radius-pill: 1000px;
+  --uk-section-y: 100px;
+
+  color: var(--uk-text);
+  font-family: var(--uk-font-body);
+  background: var(--uk-surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (max-width: 749px) {
+  .uikit {
+    --uk-gutter: 16px;
+    --uk-section-y: 64px;
+    --uk-radius-media: 20px;
+  }
+}
+
+/* ============================================================ layout ==== */
+.uikit-section { padding-block: var(--uk-section-y); }
+.uikit-section--flush { padding-block: 0; }
+.uikit-section--tight { padding-block: calc(var(--uk-section-y) / 2); }
+
+.uikit-container {
+  max-width: var(--uk-container);
+  margin-inline: auto;
+  padding-inline: var(--uk-gutter);
+}
+
+.uikit-stack { display: flex; flex-direction: column; }
+.uikit-stack--center { align-items: center; text-align: center; }
+
+/* ============================================================== type ==== */
+/* Crimson Pro Light 300. Letter-spacing is expressed in em so it tracks the
+   size — the Figma tokens report it as a percentage, not as px. */
+.uikit h1, .uikit h2, .uikit h3,
+.uikit-h1, .uikit-h2, .uikit-h3 {
+  font-family: var(--uk-font-heading);
+  font-weight: 300;
+  color: var(--uk-heading);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.uikit-h1, .uikit h1 { font-size: 40px; line-height: 0.95; letter-spacing: -0.05em; }
+.uikit-h2, .uikit h2 { font-size: 36px; line-height: 1;    letter-spacing: -0.025em; }
+.uikit-h3, .uikit h3 { font-size: 32px; line-height: 0.94; letter-spacing: -0.025em; }
+
+@media (min-width: 750px) {
+  .uikit-h1, .uikit h1 { font-size: 69px; letter-spacing: -0.05em; }
+  .uikit-h2, .uikit h2 { font-size: 47px; line-height: 48px; letter-spacing: -0.021em; }
+  .uikit-h3, .uikit h3 { font-size: 40px; line-height: 38px; letter-spacing: -0.025em; }
+}
+
+/* DM Sans scale */
+.uikit-body-l { font-size: 20px; line-height: 1.4; letter-spacing: 0; }
+.uikit-body-m { font-size: 17px; line-height: 1.4; letter-spacing: -0.005em; }
+.uikit-body-s { font-size: 14px; line-height: 1.4; letter-spacing: 0; }
+.uikit-label-l { font-size: 25px; line-height: 1.4; letter-spacing: -0.02em; }
+.uikit-label-m { font-size: 16px; font-weight: 600; line-height: 1.2; }
+.uikit-label-s { font-size: 14px; font-weight: 600; line-height: 1.2; }
+.uikit-overline {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--uk-muted);
+}
+.uikit-muted { color: var(--uk-muted); }
+
+.uikit p { margin: 0; }
+.uikit-prose p + p { margin-top: 1em; }
+
+/* =========================================================== buttons ==== */
+/* Figma: pill, L 52px / S 44px, padding 22/14, DM Sans SemiBold 16 */
+.uikit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 52px;
+  min-width: 180px;
+  padding: 14px 22px;
+  border: 1px solid transparent;
+  border-radius: var(--uk-radius-pill);
+  font-family: var(--uk-font-body);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+.uikit-btn--s { height: 44px; min-width: 140px; }
+
+/* Primary, on a light surface */
+.uikit-btn--primary {
+  background: var(--uk-gold);
+  color: var(--uk-white);
+}
+.uikit-btn--primary:hover,
+.uikit-btn--primary:focus-visible {
+  background: var(--uk-dark-blue);
+  color: var(--uk-white);
+}
+
+/* Secondary, on a light surface */
+.uikit-btn--secondary {
+  background: transparent;
+  border-color: var(--uk-gray-2);
+  color: var(--uk-black-sand);
+}
+.uikit-btn--secondary:hover,
+.uikit-btn--secondary:focus-visible { border-color: var(--uk-dark-blue); }
+
+/* On a dark surface */
+.uikit-btn--on-dark.uikit-btn--primary {
+  background: var(--uk-white);
+  color: var(--uk-black-sand);
+}
+.uikit-btn--on-dark.uikit-btn--primary:hover { background: var(--uk-gray-2); }
+.uikit-btn--on-dark.uikit-btn--secondary {
+  border-color: var(--uk-gray-1);
+  color: var(--uk-white);
+}
+.uikit-btn--on-dark.uikit-btn--secondary:hover { border-color: var(--uk-white); }
+
+.uikit-btn:focus-visible { outline: 2px solid var(--uk-sky-blue); outline-offset: 2px; }
+
+/* ============================================================= link ===== */
+.uikit-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  transition: opacity 0.18s ease;
+}
+.uikit-link:hover { opacity: 0.6; }
+
+/* ============================================================ media ===== */
+.uikit-media {
+  display: block;
+  width: 100%;
+  border-radius: var(--uk-radius-media);
+  overflow: hidden;
+  background: var(--uk-gray-4);
+}
+.uikit-media img,
+.uikit-media > svg { display: block; width: 100%; height: 100%; object-fit: cover; }
+.uikit-media--ratio { aspect-ratio: var(--uk-ratio, 16 / 9); }
+
+/* ============================================================= rule ===== */
+.uikit-rule { height: 1px; background: var(--uk-rule); border: 0; margin: 0; }
+
+/* ======================================================= a11y helper ==== */
+.uikit .visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,67 @@
+{%- comment -%} UI kit — curated box grid. Figma node 47:473 {%- endcomment -%}
+
+<div class="uikit uikit-section">
+  <div class="uikit-container">
+    <div class="uikit-boxgrid__head">
+      {%- if section.settings.heading != blank -%}<h2 class="uikit-h2">{{ section.settings.heading }}</h2>{%- endif -%}
+      {%- if section.settings.text != blank -%}<p class="uikit-body-m uikit-muted uikit-boxgrid__intro">{{ section.settings.text }}</p>{%- endif -%}
+      {%- if section.settings.cta_label != blank -%}
+        <a class="uikit-btn uikit-btn--primary uikit-btn--s" href="{{ section.settings.cta_link | default: '#' }}">{{ section.settings.cta_label }}</a>
+      {%- endif -%}
+    </div>
+
+    <ul class="uikit-boxgrid" role="list">
+      {%- for block in section.blocks -%}
+        <li class="uikit-boxgrid__item" {{ block.shopify_attributes }}>
+          <a class="uikit-boxgrid__link" href="{{ block.settings.link | default: '#' }}">
+            <span class="uikit-media uikit-boxgrid__media" style="--uk-ratio: 4 / 3;">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 373px, 100vw', widths: '400,600,900', alt: block.settings.image.alt | default: '' }}
+              {%- endif -%}
+            </span>
+            <span class="uikit-label-l uikit-boxgrid__name">{{ block.settings.title }}</span>
+            <span class="uikit-body-s uikit-muted">{{ block.settings.text }}</span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+<style>
+  .uikit-boxgrid__head { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 48px; }
+  .uikit-boxgrid__head .uikit-h2 { max-width: 640px; }
+  .uikit-boxgrid__intro { max-width: 620px; }
+  .uikit-boxgrid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px; list-style: none; margin: 0; padding: 0; }
+  .uikit-boxgrid__link { display: flex; flex-direction: column; gap: 12px; color: inherit; text-decoration: none; }
+  .uikit-boxgrid__media { aspect-ratio: 4 / 3; }
+  .uikit-boxgrid__name { color: var(--uk-heading); }
+  .uikit-boxgrid__link:hover .uikit-boxgrid__media { opacity: .9; }
+  @media (max-width: 989px) { .uikit-boxgrid { grid-template-columns: 1fr; gap: 32px; } }
+</style>
+
+{% schema %}
+{
+  "name": "UI kit — box grid",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Looking for something else? Choose a box or build your own." },
+    { "type": "textarea", "id": "text", "label": "Intro", "default": "Lab-tested seafood delivered to your door, snap frozen. Select 12, 18, or 24 portion curated boxes, or build your own." },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Build Your Box" },
+    { "type": "url", "id": "cta_link", "label": "Button link" }
+  ],
+  "blocks": [
+    { "type": "box", "name": "Box", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Image" },
+      { "type": "text", "id": "title", "label": "Title", "default": "Salmon Lovers Box" },
+      { "type": "textarea", "id": "text", "label": "Text" },
+      { "type": "url", "id": "link", "label": "Link" }
+    ]}
+  ],
+  "presets": [{ "name": "UI kit — box grid", "blocks": [
+    { "type": "box", "settings": { "title": "Salmon Lovers Box", "text": "Rich flavor carrying oceanic depth and gentle sweetness across the palate. Contains a selection of King, Atlantic, and Steelhead." } },
+    { "type": "box", "settings": { "title": "Fish & Shellfish Box", "text": "A celebration of clean flavor and coastal elegance. Contains salmon, whitefish, and Peruvian scallops." } },
+    { "type": "box", "settings": { "title": "White Fish Box", "text": "Expressive flavors from clean, flavorful fish. Contains a selection of bream, branzino, yellowtail, and barramundi." } }
+  ]}]
+}
+{% endschema %}

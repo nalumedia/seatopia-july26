@@ -1,0 +1,46 @@
+{%- comment -%} UI kit — founder / pull quote. Figma node 47:611 {%- endcomment -%}
+
+<div class="uikit uikit-section">
+  <div class="uikit-container uikit-quote">
+    {%- if section.settings.image != blank -%}
+      <div class="uikit-media uikit-quote__media" style="--uk-ratio: 3 / 4;">
+        {{ section.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 480px, 100vw', widths: '400,600,900', alt: '' }}
+      </div>
+    {%- endif -%}
+    <figure class="uikit-quote__body">
+      <blockquote class="uikit-h3 uikit-quote__text">{{ section.settings.quote }}</blockquote>
+      {%- if section.settings.text != blank -%}
+        <p class="uikit-body-m uikit-muted uikit-quote__support">{{ section.settings.text }}</p>
+      {%- endif -%}
+      <figcaption class="uikit-quote__cite">
+        <span class="uikit-label-m">{{ section.settings.name }}</span>
+        {%- if section.settings.role != blank -%}<span class="uikit-body-s uikit-muted">{{ section.settings.role }}</span>{%- endif -%}
+      </figcaption>
+    </figure>
+  </div>
+</div>
+
+<style>
+  .uikit-quote { display: grid; grid-template-columns: minmax(0, 480px) minmax(0,1fr); gap: 64px; align-items: center; }
+  .uikit-quote__media { aspect-ratio: 3 / 4; }
+  .uikit-quote__body { margin: 0; display: flex; flex-direction: column; gap: 24px; }
+  .uikit-quote__text { margin: 0; }
+  .uikit-quote__cite { display: flex; flex-direction: column; gap: 2px; }
+  .uikit-quote__cite .uikit-label-m { color: var(--uk-heading); }
+  @media (max-width: 989px) { .uikit-quote { grid-template-columns: 1fr; gap: 32px; } }
+</style>
+
+{% schema %}
+{
+  "name": "UI kit — quote",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "textarea", "id": "quote", "label": "Quote", "default": "“We believe in eating with intention, sourcing with integrity, and restoring what has been lost.”" },
+    { "type": "textarea", "id": "text", "label": "Supporting text" },
+    { "type": "text", "id": "name", "label": "Name", "default": "James Arthur Smith" },
+    { "type": "text", "id": "role", "label": "Role", "default": "Co-Founder & CEO" }
+  ],
+  "presets": [{ "name": "UI kit — quote" }]
+}
+{% endschema %}

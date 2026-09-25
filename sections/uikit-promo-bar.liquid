@@ -1,0 +1,41 @@
+{%- comment -%}
+  UI kit — promotional bar. Figma node 47:409
+
+  This section is always first in page.uikit-lp.json, so it carries the kit's
+  single stylesheet + webfont load for the whole page. Keeping it here rather
+  than in layout/theme.liquid means the preview touches no global file.
+  At site-wide rollout the tokens move into snippets/css-variables.liquid and
+  both loads below are deleted.
+{%- endcomment -%}
+{%- render 'uikit-fonts' -%}
+{{ 'uikit.css' | asset_url | stylesheet_tag }}
+
+<div class="uikit uikit-promo" style="--uk-promo-bg: {{ section.settings.background }}; --uk-promo-fg: {{ section.settings.text_color }};">
+  <div class="uikit-container uikit-promo__inner">
+    {%- if section.settings.link != blank -%}<a class="uikit-promo__link" href="{{ section.settings.link }}">{%- endif -%}
+      <span class="uikit-label-s">{{ section.settings.text }}</span>
+    {%- if section.settings.link != blank -%}</a>{%- endif -%}
+  </div>
+</div>
+
+<style>
+  .uikit-promo { background: var(--uk-promo-bg); color: var(--uk-promo-fg); }
+  .uikit-promo__inner { display: flex; align-items: center; justify-content: center; min-height: 53px; text-align: center; }
+  .uikit-promo__link { color: inherit; text-decoration: none; }
+  .uikit-promo__link:hover { opacity: .75; }
+</style>
+
+{% schema %}
+{
+  "name": "UI kit — promo bar",
+  "tag": "section",
+  "settings": [
+    { "type": "paragraph", "content": "Rule 11 of the claims guide: never promote an offer that is not live. Confirm the code is active before publishing." },
+    { "type": "text", "id": "text", "label": "Text", "default": "Use code: GREENFIELD for 20% off first order" },
+    { "type": "url", "id": "link", "label": "Link" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#f8f6f3" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#2e4b59" }
+  ],
+  "presets": [{ "name": "UI kit — promo bar" }]
+}
+{% endschema %}
