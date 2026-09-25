@@ -1,0 +1,866 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-article-banner": {
+      "type": "main-article-banner",
+      "blocks": {
+        "spacing": {
+          "type": "spacing",
+          "settings": {
+            "height": 68,
+            "height_mobile": 0
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "title-lg tracking-heading",
+            "show_tags": true,
+            "show_date": false,
+            "show_comments": false,
+            "show_author": true
+          }
+        }
+      },
+      "block_order": [
+        "spacing",
+        "title"
+      ],
+      "settings": {
+        "transparent_header": true,
+        "show_image": true,
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-112.jpg",
+        "image_height": "750px",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-center",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_overlay": "#000000",
+        "overlay_opacity": 40,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "collab_card": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "recipe-collab",
+        "liquid": "<style>\n  .sea-collab {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    border: 1px solid var(--line);\n    border-radius: 18px;\n    background: var(--wash);\n    padding: 24px 28px;\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n    color: var(--ink);\n  }\n  .sea-collab__avatar {\n    flex: 0 0 auto;\n    width: 68px;\n    height: 68px;\n    border-radius: 50%;\n    overflow: hidden;\n    border: 2px solid #fff;\n    box-shadow: 0 0 0 2px var(--gold);\n    background: #eee;\n  }\n  .sea-collab__avatar img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    display: block;\n  }\n  .sea-collab__body {\n    flex: 1 1 260px;\n    min-width: 0;\n  }\n  .sea-collab__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 5px;\n  }\n  .sea-collab__name {\n    font-size: 21px;\n    font-weight: 600;\n    line-height: 1.2;\n    margin: 0 0 4px;\n  }\n  .sea-collab__role {\n    font-size: 15px;\n    color: var(--muted);\n    line-height: 1.45;\n    margin: 0;\n  }\n  .sea-collab__cred {\n    font-size: 13px;\n    color: var(--muted);\n    line-height: 1.5;\n    margin: 10px 0 0;\n    padding-top: 10px;\n    border-top: 1px solid var(--line);\n  }\n  .sea-collab__follow {\n    flex: 0 0 auto;\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    padding: 11px 20px;\n    border: 1px solid var(--ink);\n    border-radius: 999px;\n    font-size: 15px;\n    font-weight: 600;\n    text-decoration: none;\n    color: var(--ink);\n    background: #fff;\n    transition: background .18s ease, color .18s ease;\n  }\n  .sea-collab__follow:hover {\n    background: var(--ink);\n    color: #fff;\n  }\n  .sea-collab__follow svg {\n    width: 18px;\n    height: 18px;\n  }\n  @media (max-width: 749px) {\n    .sea-collab {\n      padding: 20px;\n      gap: 16px;\n    }\n    .sea-collab__follow {\n      width: 100%;\n      justify-content: center;\n    }\n    .sea-collab__name {\n      font-size: 19px;\n    }\n  }\n</style>\n\n{%- comment -%}\n  TODO BEFORE PUBLISH:\n  1. Disclosure wording is PENDING CLARK. 4.H requires the material connection\n     disclosed wherever a reader would find it material (16 CFR Part 255). The\n     guide's placement table rules on social captions, not blog bylines, so the\n     exact phrasing is not in the ledger. The line below is the obvious read,\n     not an approved one.\n  2. Publishing rights NOT CONFIRMED. Bolivar's signed 2026-08-14 agreement\n     shipped with an unresolved [Yes / No] publishing toggle\n     (marketing/creator/agreements/SKILL.md). Rights come from the signed\n     agreement, not from silence. Do not publish until that is settled.\n  3. Instagram handle and headshot not supplied, so the follow link is omitted.\n{%- endcomment -%}\n\n<div class=\"sea-collab\">\n  <div class=\"sea-collab__body\">\n    <p class=\"sea-collab__eyebrow\">\n      <span>From a Seatopia partner</span>\n      <span class=\"sea-collab__badge\">Paid partner</span>\n    </p>\n    <p class=\"sea-collab__name\">Recipe by Alex Bolivar, a paid Seatopia partner</p>\n    <p class=\"sea-collab__role\">Developed for Seatopia using <a href=\"/products/steelhead-2x-6oz-filets\" title=\"Seatopia Steelhead\">our Steelhead</a>, in 6 oz skin-on portions from Hudson Valley</p>\n    <p class=\"sea-collab__cred\">Serves 4 &middot; about 40 minutes &middot; one air fryer, one blender</p>\n  </div>\n</div>",
+        "padding_top": 28,
+        "padding_bottom": 8,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "rich_text_intro": {
+      "type": "rich-text",
+      "blocks": {
+        "text_intro": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Steelhead cut into cubes, tossed with oregano, smoked paprika and garlic powder, and air-fried until the edges go golden &mdash; then piled onto warm jasmine rice with arugula, feta, kalamata olives and a green goddess tzatziki that gets its colour and body from a whole avocado blended into the yogurt.</p><p>Two things carry it. Pat the fish properly dry before it is seasoned; that is the whole trick to the crust. And the sauce goes on at the table, not in the basket, so the bites stay crisp.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "text_intro"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_width": "small",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "at_a_glance": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "g_time": {
+          "type": "column",
+          "settings": {
+            "icon": "time",
+            "custom_icon": "",
+            "heading": "About 50 minutes",
+            "text": "<p>About 40 minutes start to finish. The rice cooks and the sauce blends while the fish sits drying, so the hands-on stretch is short and the air fryer is only six to eight minutes of it.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_serves": {
+          "type": "column",
+          "settings": {
+            "icon": "users",
+            "custom_icon": "",
+            "heading": "Serves 4",
+            "text": "<p>Serves 4. Four 6 oz Steelhead portions &mdash; two 2-Packs &mdash; over about three cups of cooked jasmine rice. Halves cleanly, and the tzatziki keeps two days either way.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_prep": {
+          "type": "column",
+          "settings": {
+            "icon": "check_mark",
+            "custom_icon": "",
+            "heading": "Watch for the C",
+            "text": "<p>Pat the cubes dry, then leave them uncovered in the fridge while you make the sauce. A dry surface is what browns; a wet one steams.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_marinade": {
+          "type": "column",
+          "settings": {
+            "icon": "heart",
+            "custom_icon": "",
+            "heading": "Blended, not reduced",
+            "text": "<p>A whole avocado blended into Greek yogurt with cucumber, dill, parsley, mint, garlic and lemon. The avocado is what gives it the colour and the body &mdash; no thickener, no long reduction.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "g_time",
+        "g_serves",
+        "g_marinade",
+        "g_prep"
+      ],
+      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "settings": {
+        "custom_class": "",
+        "section_id": "at-a-glance",
+        "style": "with-border",
+        "columns": 4,
+        "text_alignment": "left",
+        "dt_txt_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "At a glance",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "shrimp_note": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "steelhead-doneness",
+        "liquid": "<style>\n  .sea-pepper {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-pepper__grid {\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);\n    gap: 34px;\n    align-items: center;\n  }\n  .sea-pepper__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-pepper__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n  }\n  .sea-pepper__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 22px;\n  }\n  .sea-pepper__rows {\n    display: grid;\n    gap: 14px;\n  }\n  .sea-pepper__row {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 15px 17px;\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) auto;\n    gap: 10px 16px;\n    align-items: center;\n  }\n  .sea-pepper__row--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-pepper__name {\n    grid-column: 1;\n    margin: 0;\n    font-size: 15px;\n    font-weight: 600;\n    line-height: 1.3;\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-wrap: wrap;\n  }\n  .sea-pepper__tag {\n    font-size: 10px;\n    font-weight: 700;\n    letter-spacing: .08em;\n    text-transform: uppercase;\n    color: #fff;\n    background: var(--gold);\n    padding: 3px 8px;\n    border-radius: 999px;\n  }\n  .sea-pepper__meter {\n    grid-column: 2;\n    grid-row: 1;\n    display: flex;\n    gap: 4px;\n    align-items: center;\n  }\n  .sea-pepper__pip {\n    width: 9px;\n    height: 9px;\n    border-radius: 50%;\n    background: #fff;\n    border: 1.5px solid #d8cfc0;\n  }\n  .sea-pepper__pip.is-on {\n    background: #b8462f;\n    border-color: #b8462f;\n  }\n  .sea-pepper__note {\n    grid-column: 1 / -1;\n    margin: 0;\n    font-size: 13.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  .sea-pepper__legend {\n    margin: 16px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  .sea-pepper__figure {\n    margin: 0;\n  }\n  .sea-pepper__figure img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-pepper__cap {\n    margin: 10px 0 0;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  @media (max-width: 989px) {\n    .sea-pepper {\n      padding: 22px;\n    }\n    .sea-pepper__grid {\n      grid-template-columns: 1fr;\n      gap: 24px;\n    }\n    .sea-pepper__figure {\n      order: -1;\n    }\n  }\n</style>\n\n<div class=\"sea-pepper\">\n  <div class=\"sea-pepper__grid\">\n\n    <div class=\"sea-pepper__body\">\n      <p class=\"sea-pepper__eyebrow\">Watch the edges, not the clock</p>\n      <h2 class=\"sea-pepper__heading\">Six to eight minutes at 400&deg;F, but the colour is what tells you.</h2>\n      <p class=\"sea-pepper__lede\">\n        Cubes this size go from just-done to dry in about ninety seconds, and every air fryer runs\n        hotter or cooler than its dial claims. The signal is the corners: they colour before the\n        flat faces do, and once they are properly golden the middle is there. Flip once at the\n        halfway mark so both cut faces get the same air.\n      </p>\n\n      <div class=\"sea-pepper__rows\">\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Pale, firming at the corners</span>\n          <span class=\"sea-pepper__tag\">Not yet</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Doneness: 2 out of 5\">\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip\"></span>\n        <span class=\"sea-pepper__pip\"></span>\n        <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">About three or four minutes in. The surface has set and gone opaque but there is no colour on it yet. Leave it &mdash; pulling here gives you steamed fish with a seasoned outside.</p>\n      </div>\n      <div class=\"sea-pepper__row sea-pepper__row--pick\">\n        <p class=\"sea-pepper__name\">\n          <span>Golden corners, centre just opaque</span>\n          <span class=\"sea-pepper__tag\">Pull it here</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Doneness: 3 out of 5\">\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip\"></span>\n        <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">Six to eight minutes, after the flip. The corners and edges have taken real colour, the flat faces are turning, and a fork slid into the thickest cube separates the flakes without resistance. This is the whole point of the recipe.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Deep gold, edges going crisp-hard</span>\n          <span class=\"sea-pepper__tag\">Last chance</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Doneness: 4 out of 5\">\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">Still good if it goes straight into the bowl. The outside is past crisp and starting to harden, and the centre has lost some of its moisture. No margin left, and these keep cooking on a hot plate.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Uniformly dark, flakes falling apart dry</span>\n          <span class=\"sea-pepper__tag\">Overcooked</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Doneness: 5 out of 5\">\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">The cubes have shrunk noticeably and the flesh crumbles rather than flakes. The tzatziki will mask it, which is the only thing to be said for it.</p>\n      </div>\n      </div>\n\n      <p class=\"sea-pepper__legend\">\n        Ratings are how far along the fish is, not how good. Two smaller batches beat one crowded\n        basket &mdash; cubes that touch trap steam between them, and steam is the one thing that\n        stops a crust forming.\n      </p>\n    </div>\n\n    <figure class=\"sea-pepper__figure\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0222/9882/0682/files/4_8b7337bf-094b-449c-a5cd-667a262f1128.png&amp;width=700\" alt=\"Seasoned steelhead cubes spaced out in a single layer in the air fryer basket\" width=\"940\" height=\"1672\" loading=\"lazy\" decoding=\"async\">\n      <figcaption class=\"sea-pepper__cap\">\n        A single layer with air between every cube. From here you are watching the corners.\n      </figcaption>\n    </figure>\n\n  </div>\n</div>",
+        "padding_top": 40,
+        "padding_bottom": 16,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      },
+      "disabled": false
+    },
+    "recipe_kit_card": {
+      "type": "apps",
+      "blocks": {
+        "recipe_kit_app_block_steelhead": {
+          "type": "shopify://apps/recipe-kit/blocks/app-block/0afa374e-81c7-4989-96de-e1ac84640954",
+          "settings": {
+            "custom_js": "",
+            "custom_css": ".rk_direction_image { margin-top: 14px; }\n.rk_direction_image img { max-height: 400px; width: 100%; object-fit: cover; border-radius: 12px; }\n@media (max-width: 749px) {\n  .rk_direction_image img { max-height: 280px; }\n}\n"
+          }
+        }
+      },
+      "block_order": [
+        "recipe_kit_app_block_steelhead"
+      ],
+      "settings": {
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "shop_the_plate": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "",
+        "products": [
+          "steelhead-2x-6oz-filets",
+          "fish-shellfish-variety-box",
+          "whole-trout-12oz"
+        ],
+        "product_limit": 3,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Our Steelhead, in 6 oz skin-on portions from Hudson Valley. Everything else is a greengrocer and a spice shelf &mdash; Greek yogurt, avocado, cucumber, dill, oregano, smoked paprika, feta and kalamata olives.</p>",
+        "heading": "Everything on this plate",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "sauce_note": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "building-the-sauce",
+        "liquid": "<style>\n  .sea-sheet {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-sheet__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-sheet__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n    max-width: 22ch;\n  }\n  .sea-sheet__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 24px;\n    max-width: 68ch;\n  }\n  .sea-sheet__cols {\n    display: grid;\n    grid-template-columns: repeat(3, minmax(0, 1fr));\n    gap: 14px;\n  }\n  .sea-sheet__col {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 18px;\n  }\n  .sea-sheet__col--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-sheet__num {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 26px;\n    height: 26px;\n    border-radius: 50%;\n    background: var(--ink);\n    color: #fff;\n    font-size: 12px;\n    font-weight: 700;\n    margin: 0 0 10px;\n  }\n  .sea-sheet__col h3 {\n    font-size: 15.5px;\n    font-weight: 600;\n    line-height: 1.3;\n    margin: 0 0 7px;\n  }\n  .sea-sheet__col p {\n    font-size: 13.5px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0;\n  }\n  .sea-sheet__foot {\n    margin: 18px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  @media (max-width: 749px) {\n    .sea-sheet {\n      padding: 22px;\n    }\n    .sea-sheet__cols {\n      grid-template-columns: 1fr;\n    }\n  }\n\n  .sea-sheet__fig {\n    margin: 22px auto 0;\n    max-width: 360px;\n  }\n  .sea-sheet__fig img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-sheet__figcap {\n    margin: 10px auto 0;\n    max-width: 360px;\n    text-align: center;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n</style>\n\n<div class=\"sea-sheet\">\n  <p class=\"sea-sheet__eyebrow\">How the sauce actually gets built</p>\n  <h2 class=\"sea-sheet__heading\">The avocado is the thickener &mdash; which is why the cucumber has to go in dry.</h2>\n  <p class=\"sea-sheet__lede\">\n    A classic tzatziki is strained yogurt and not much else. This one carries a whole avocado, and\n    that is what gives it the colour and enough body to sit on top of hot fish instead of running\n    off it. Three moves, and the order matters for exactly one reason: water.\n  </p>\n\n  <div class=\"sea-sheet__cols\">\n    <div class=\"sea-sheet__col sea-sheet__col--pick\">\n      <span class=\"sea-sheet__num\">1</span>\n      <h3>Squeeze the cucumber dry</h3>\n      <p>Grate half a cup and wring it out in a clean towel until no more comes. Cucumber is mostly\n      water and it will keep releasing into the sauce for an hour after blending &mdash; that is how\n      a thick tzatziki turns into a thin one in the fridge.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">2</span>\n      <h3>Everything in at once</h3>\n      <p>Yogurt, avocado, the squeezed cucumber, dill, parsley, mint, garlic, lemon juice, olive oil,\n      salt and pepper. No need to build it in stages &mdash; there is nothing hot in the jug, so it\n      goes straight to smooth and bright green.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">3</span>\n      <h3>Loosen last, a spoon at a time</h3>\n      <p>Cold water, one tablespoon at a time, until it pours in a ribbon rather than a blob. Adding\n      it at the start means you cannot tell how thick the avocado made it, and a sauce you have\n      over-thinned cannot be taken back.</p>\n    </div>\n  </div>\n\n  <figure class=\"sea-sheet__fig\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0222/9882/0682/files/2_7f607006-11a5-42e2-9209-787a945b8b92.png&amp;width=760\" alt=\"Green goddess tzatziki pouring from the blender into a dish\" width=\"939\" height=\"1675\" loading=\"lazy\" decoding=\"async\">\n    <figcaption class=\"sea-sheet__figcap\">\n      Pourable, not runny. It should fall in a ribbon and hold its shape for a second on the surface.\n    </figcaption>\n  </figure>\n</div>",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      },
+      "disabled": false
+    },
+    "swap_table": {
+      "type": "table-content",
+      "blocks": {
+        "w_head": {
+          "type": "row",
+          "settings": {
+            "version1": "As written",
+            "version2": "Easy swap",
+            "version3": "What changes"
+          }
+        },
+        "w_fish": {
+          "type": "row",
+          "settings": {
+            "version1": "4 &times; 6 oz Steelhead portions",
+            "version2": "King or Atlantic Salmon, same cut",
+            "version3": "Both are fattier &mdash; check them a minute early",
+            "feature": "The fish"
+          }
+        },
+        "w_yogurt": {
+          "type": "row",
+          "settings": {
+            "version1": "1 cup whole-milk Greek yogurt",
+            "version2": "Skyr, or a thick dairy-free yogurt",
+            "version3": "Skyr is tarter, so loosen it with a little more water",
+            "feature": "The yogurt"
+          }
+        },
+        "w_avocado": {
+          "type": "row",
+          "settings": {
+            "version1": "1 ripe avocado",
+            "version2": "Leave it out, add 2 tbsp olive oil",
+            "version3": "Thinner and paler &mdash; still pourable, less able to sit on the fish",
+            "feature": "The avocado"
+          }
+        },
+        "w_herbs": {
+          "type": "row",
+          "settings": {
+            "version1": "Dill, parsley and mint",
+            "version2": "Any two of the three",
+            "version3": "Keep the dill if you keep only one &mdash; it is what reads as tzatziki",
+            "feature": "The herbs"
+          }
+        },
+        "w_grain": {
+          "type": "row",
+          "settings": {
+            "version1": "1 cup jasmine rice",
+            "version2": "Basmati, farro or orzo",
+            "version3": "Farro takes longer and holds the sauce better",
+            "feature": "The grain"
+          }
+        },
+        "w_brine": {
+          "type": "row",
+          "settings": {
+            "version1": "&frac12; cup Kalamata olives",
+            "version2": "Capers, or chopped preserved lemon",
+            "version3": "Sharper and saltier, so pull back on the added salt",
+            "feature": "The brine"
+          }
+        },
+        "w_cheese": {
+          "type": "row",
+          "settings": {
+            "version1": "&frac34; cup feta",
+            "version2": "Goat cheese, or none",
+            "version3": "Goat is creamier and much less salty",
+            "feature": "The cheese"
+          }
+        }
+      },
+      "block_order": [
+        "w_head",
+        "w_fish",
+        "w_yogurt",
+        "w_avocado",
+        "w_herbs",
+        "w_grain",
+        "w_brine",
+        "w_cheese"
+      ],
+      "name": "Table content",
+      "settings": {
+        "custom_class": "",
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>The method holds whatever you put through it &mdash; roast something sweet, blend it with something rich, bloom a warm spice in fat, and add the protein last.</p>",
+        "heading": "Swaps that work",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      },
+      "disabled": false
+    },
+    "meal_prep": {
+      "type": "image-with-text",
+      "blocks": {
+        "m_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Make it ahead",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "m_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "The sauce is the make-ahead",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The tzatziki keeps. Blend it a day ahead and refrigerate it with a film pressed to the surface &mdash; the lemon holds the avocado's colour overnight. Cook the rice ahead too. The fish is the only part that wants to be made to order, because the crust is the point and it softens as it sits.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Steelhead",
+            "button_link": "/products/steelhead-2x-6oz-filets",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "m_sub",
+        "m_head",
+        "m_text",
+        "m_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-91.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "rich_text_standard": {
+      "type": "image-with-text",
+      "blocks": {
+        "f_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "The fish under the spice",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "f_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why steelhead takes to an air fryer",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Steelhead is firm enough to hold a cube through the basket without flaking apart, and fatty enough that it does not dry out at the high, dry heat an air fryer runs. That is why it crisps at the edges while the middle stays moist &mdash; a leaner white fish would be chalky by the time the outside coloured.</p><p>Ours comes from Hudson Valley, blast-frozen to -10&deg;F at harvest and vacuum sealed. Every supplier is tested before we approve them, then randomly audited to ensure consistent compliance with the Seatopia Standard &mdash; third-party lab tested for nutrition, mercury and microplastics, and sourced from best-in-class aquaculture. Farms named, panels published.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "How we source it",
+            "button_link": "/pages/why-clean-seafood-matters",
+            "button_style": "secondary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "f_sub",
+        "f_head",
+        "f_text",
+        "f_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-104.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "reviews_shrimp": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_testimonials_carousel_steelhead": {
+          "type": "shopify://apps/judge-me-reviews/blocks/testimonials_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": false,
+            "reviews_selection": "custom_products",
+            "products": [
+              "steelhead-2x-6oz-filets"
+            ],
+            "star_rating": "all",
+            "max_reviews": 20,
+            "quote_marks_size": "small",
+            "product_name_text_size": "small",
+            "verified_badge_style": "icon",
+            "card_height": "medium",
+            "text_size": "small",
+            "stars_size": "medium",
+            "arrows_position": "bottom",
+            "max_width": 1100,
+            "corner_styling": "soft",
+            "quote_marks_style": "serif",
+            "card_color": "#f9f9f9",
+            "stars_and_quote_marks_color": "#7bc3f3",
+            "text_color": "#000000",
+            "arrows_color": "#000000",
+            "show_border": false,
+            "border_color": "#108474",
+            "show_drop_shadow": false,
+            "transition_speed": 5,
+            "header_text": "Seatopians on our Steelhead",
+            "show_average_rating": true
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_testimonials_carousel_steelhead"
+      ],
+      "settings": {
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "faq_shrimp": {
+      "type": "faq",
+      "blocks": {
+        "q_done": {
+          "type": "question",
+          "settings": {
+            "title": "How do I know when the bites are done?",
+            "text": "<p>400&deg;F for six to eight minutes, flipping once halfway, but go by the corners rather than the timer. They colour before the flat faces do, and once they are properly golden the centre is cooked. A fork slid into the thickest cube should separate the flakes without resistance. Because the cubes are small they carry on cooking for a moment after they leave the basket, so pull them at golden rather than waiting for dark.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_dry": {
+          "type": "question",
+          "settings": {
+            "title": "Why does the fish have to be patted dry?",
+            "text": "<p>Because a wet surface steams instead of browning. An air fryer works by moving hot dry air fast over the food, and any moisture sitting on the cubes has to boil off before the surface can colour &mdash; by the time it does, the inside is overcooked. Pat every side with paper towel after cutting, and if you have the time leave the cubes uncovered in the fridge while you make the sauce. That is the whole trick to the crust.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_crowd": {
+          "type": "question",
+          "settings": {
+            "title": "Can I pile the bites into the basket?",
+            "text": "<p>No &mdash; that is the other way to lose the crust. The cubes need space around them for the air to move, so lay them out in a single layer with a gap between each one. Two smaller batches will beat one crowded one every time, and the first batch holds its crisp while the second cooks.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_sauce": {
+          "type": "question",
+          "settings": {
+            "title": "Should I toss the bites in the tzatziki?",
+            "text": "<p>Put it on at the table, not in the basket. The sauce is cold, thick and yogurt-based, and anything that crisped in the air fryer goes soft the moment it sits in it. Spoon it over the assembled bowl, or serve it alongside so people can dip.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_avocado": {
+          "type": "question",
+          "settings": {
+            "title": "Will the avocado sauce go brown?",
+            "text": "<p>Not overnight. There is enough lemon juice in it to hold the colour, and blending it into yogurt limits how much air reaches the avocado. Keep it in the fridge with cling film pressed down onto the surface rather than stretched over the top of the bowl, which is what leaves an air gap.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_thaw": {
+          "type": "question",
+          "settings": {
+            "title": "How do I thaw the steelhead?",
+            "text": "<p>Overnight in the refrigerator in the sealed pack, about 12 hours, then pat it dry before cutting. In a hurry, submerge the sealed pack in a bowl of cold water and change the water every 20 minutes. Never thaw fish on the counter or in warm water, and never thaw it out of the pack &mdash; it takes on water and that works directly against the crust.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "q_done",
+        "q_dry",
+        "q_crowd",
+        "q_sauce",
+        "q_avocado",
+        "q_thaw"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "Air fryer steelhead, answered",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "seafood-recipes",
+        "post_limit": 8,
+        "columns": 3,
+        "carousel_on_desktop": true,
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "landscape",
+        "show_tags": false,
+        "show_date": false,
+        "show_comments": false,
+        "show_author": false,
+        "show_excerpt": false,
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Recipes from our kitchen and from the people who cook with us. Every Seatopia box includes a FREE virtual cooking class where we work through a dish like this one together.</p>",
+        "heading": "More seafood to cook this week",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "newsletter_banner_shrimp": {
+      "type": "newsletter-banner",
+      "blocks": {
+        "h_news": {
+          "type": "heading",
+          "settings": {
+            "heading": "Be the first to know",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_news": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get on the list for more seasonal seafood, cooking temperatures and recipes from our kitchen, straight to your inbox.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_news": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "h_news",
+        "t_news",
+        "f_news"
+      ],
+      "name": "t:sections.newsletter-banner.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "transparent_footer": false,
+        "image": "shopify://shop_images/20260825-Stetten-Wilson-111.jpg",
+        "image_height": "650px",
+        "content_width": "medium",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "creator_video": {
+      "type": "custom-liquid",
+      "settings": {
+        "liquid": "<style>\n  .sea-vid { max-width: 520px; margin: 0 auto; }\n  .sea-vid__frame {\n    position: relative;\n    border-radius: 18px;\n    overflow: hidden;\n    background: #111;\n    aspect-ratio: 9 / 16;\n  }\n  .sea-vid__frame video { width: 100%; height: 100%; object-fit: cover; display: block; }\n  .sea-vid__cap {\n    margin-top: 12px;\n    text-align: center;\n    font-size: 14px;\n    color: #5c5c5c;\n  }\n</style>\n\n{%- comment -%}\n  Alex Bolivar's build video. Uses the transcoded HD-720p rendition, never the\n  /videos/c/o/v/ .mov master (70 MB).\n  NOT CLEARED FOR PUBLISH - see the collab card note on publishing rights.\n{%- endcomment -%}\n\n<div class=\"sea-vid\">\n  <div class=\"sea-vid__frame\">\n    <video\n      controls\n      playsinline\n      preload=\"metadata\"\n      poster=\"https://cdn.shopify.com/s/files/1/0222/9882/0682/files/6_2fd40d5c-6aa9-4e59-a402-851f8ed4b57a.png&width=800\"\n      width=\"720\" height=\"1280\">\n      <source src=\"https://cdn.shopify.com/videos/c/vp/1973a57d97fd4d568cfe0d44b6e4f3e4/1973a57d97fd4d568cfe0d44b6e4f3e4.HD-720p-4.5Mbps-95565445.mp4\" type=\"video/mp4\">\n    </video>\n  </div>\n  <p class=\"sea-vid__cap\">Alex Bolivar builds the bowl, start to finish.</p>\n</div>",
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    }
+  },
+  "order": [
+    "main-article-banner",
+    "collab_card",
+    "rich_text_intro",
+    "creator_video",
+    "at_a_glance",
+    "shrimp_note",
+    "recipe_kit_card",
+    "shop_the_plate",
+    "sauce_note",
+    "swap_table",
+    "meal_prep",
+    "rich_text_standard",
+    "reviews_shrimp",
+    "faq_shrimp",
+    "blog-posts",
+    "newsletter_banner_shrimp"
+  ]
+}
