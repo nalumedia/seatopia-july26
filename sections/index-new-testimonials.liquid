@@ -306,6 +306,24 @@
   .desktop-slider-disabled .grid__item {
     flex: 1 1 30%;
   }
+
+  /* Degrade gracefully when there are fewer than three testimonials.
+     section.blocks.size excludes blocks hidden in the theme editor, so a
+     section built for three can render with one - and flex-grow:1 then
+     stretches that single card to the full row. Cap it instead. */
+  .reviews--1 .desktop-slider-disabled,
+  .reviews--2 .desktop-slider-disabled {
+    justify-content: center;
+  }
+
+  .reviews--1 .desktop-slider-disabled .grid__item {
+    flex: 0 1 560px;
+    max-width: 100%;
+  }
+
+  .reviews--2 .desktop-slider-disabled .grid__item {
+    flex: 0 1 calc(50% - 10px);
+  }
 </style>
 
 {% schema %}

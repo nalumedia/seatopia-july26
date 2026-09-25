@@ -318,7 +318,7 @@
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
         "section_id": "",
-        "liquid": "<style>\n:root {\n  --testimonial-width: 540px;\n  --testimonial-font-family: \"Karla\", sans-serif;\n  --testimonial-bg-color: #FAFAFA;\n  --testimonial-border-radius: 8px;\n  --testimonial-border-color: #E5E5E5;\n  --testimonial-text-color: #252525;\n  --testimonial-photo-width: 64px;\n  --testimonial-star-color: #335566;\n  --testimonial-quote-size: 14px;\n  --testimonial-quote-weight: 400;\n  --testimonial-quote-style: italic;\n  --testimonial-author-size: 14px;\n  --testimonial-author-weight: bold;\n  --testimonial-author-style: normal;\n}\n\n#inf-testimonial-box {\n  font-family: var(--testimonial-font-family, \"inherit\");\n  background-color: var(--testimonial-bg-color);\n  color: var(--testimonial-text-color);\n  border-radius: var(--testimonial-border-radius);\n  border: 1px solid var(--testimonial-border-color, #E5E5E5);\n  max-width: var(--testimonial-width);\n}\n#inf-testimonial-box:not(:has([inf-testimonial-box-enabled])) {\n  display: none;\n}\n#inf-testimonial-box img {\n  max-width: 100%;\n  height: auto;\n}\n#inf-testimonial-box .inf-testimonial-box__inner {\n  padding: 12px;\n}\n#inf-testimonial-box .inf-testimonial-box__content {\n  display: flex;\n  flex-wrap: wrap;\n}\n#inf-testimonial-box .inf-testimonial-box__content > div {\n  flex: 1;\n}\n#inf-testimonial-box .inf-testimonial-box__content .inf-testimonial-box__photo {\n  flex: 0 0 var(--testimonial-photo-width, 64px);\n  max-width: var(--testimonial-photo-width, 64px);\n  margin-right: 12px;\n}\n\n/* CLS: this slot reserved a width but no height, so the avatar injected by\n   Inflektion grew the box and pushed the quote and author name down as it\n   loaded. aspect-ratio reserves the square up front.\n   Non-affiliate traffic is unaffected — the box stays display:none until\n   Inflektion adds [inf-testimonial-box-enabled]. */\n#inf-testimonial-box .inf-testimonial-box__content .inf-testimonial-box__photo {\n  aspect-ratio: 1;\n}\n#inf-testimonial-box .inf-testimonial-box__content .inf-testimonial-box__photo img {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  display: block;\n}\n#inf-testimonial-box .inf-testimonial-box__text {\n  font-size: var(--testimonial-quote-size, 14px);\n  font-weight: var(--testimonial-quote-weight, 400);\n  font-style: var(--testimonial-quote-style, \"normal\");\n}\n#inf-testimonial-box .inf-testimonial-box__star svg, #inf-testimonial-box .inf-testimonial-box__star svg path {\n  fill: var(--testimonial-star-color, #63C8D8);\n}\n#inf-testimonial-box .inf-testimonial-box__quote {\n  margin-bottom: 5px;\n}\n#inf-testimonial-box .inf-testimonial-box__author {\n  display: flex;\n  flex-wrap: wrap;\n}\n#inf-testimonial-box .inf-testimonial-box__rating {\n  margin-left: auto;\n}\n#inf-testimonial-box .inf-testimonial-box__rating .inf-testimonial-box__star {\n  display: inline-block;\n}\n#inf-testimonial-box .inf-testimonial-box__name {\n  font-size: var(--testimonial-author-size, 14px);\n  font-weight: var(--testimonial-author-weight, bold);\n  font-style: var(--testimonial-author-style, \"normal\");\n}\n</style>\n<div id=\"inf-testimonial-box\" class=\"inf-testimonial-box\">\n  <div class=\"inf-testimonial-box__inner\">\n    <div class=\"inf-testimonial-box__content\">\n      <div id=\"inf-testimonial-box-photo\" class=\"inf-testimonial-box__photo\">\n      </div>\n      <div class=\"inf-testimonial-box__text\">\n        <div id=\"inf-testimonial-box-quote\" class=\"inf-testimonial-box__quote\"></div>\n        <div class=\"inf-testimonial-box__author\">\n          <div id=\"inf-testimonial-box-author\" class=\"inf-testimonial-box__name\"></div>\n          <div class=\"inf-testimonial-box__rating\">\n            <span class=\"inf-testimonial-box__star\"><svg width=\"12\" height=\"11\" viewBox=\"0 0 12 11\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M5.70654 0L7.05363 4.1459H11.4129L7.88617 6.7082L9.23325 10.8541L5.70654 8.2918L2.17983 10.8541L3.52692 6.7082L0.000204086 4.1459H4.35946L5.70654 0Z\" fill=\"#335566\"/>\n            </svg></span>\n            <span class=\"inf-testimonial-box__star\"><svg width=\"12\" height=\"11\" viewBox=\"0 0 12 11\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M5.70654 0L7.05363 4.1459H11.4129L7.88617 6.7082L9.23325 10.8541L5.70654 8.2918L2.17983 10.8541L3.52692 6.7082L0.000204086 4.1459H4.35946L5.70654 0Z\" fill=\"#335566\"/>\n            </svg></span>\n            <span class=\"inf-testimonial-box__star\"><svg width=\"12\" height=\"11\" viewBox=\"0 0 12 11\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M5.70654 0L7.05363 4.1459H11.4129L7.88617 6.7082L9.23325 10.8541L5.70654 8.2918L2.17983 10.8541L3.52692 6.7082L0.000204086 4.1459H4.35946L5.70654 0Z\" fill=\"#335566\"/>\n            </svg></span>\n            <span class=\"inf-testimonial-box__star\"><svg width=\"12\" height=\"11\" viewBox=\"0 0 12 11\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M5.70654 0L7.05363 4.1459H11.4129L7.88617 6.7082L9.23325 10.8541L5.70654 8.2918L2.17983 10.8541L3.52692 6.7082L0.000204086 4.1459H4.35946L5.70654 0Z\" fill=\"#335566\"/>\n            </svg></span>\n            <span class=\"inf-testimonial-box__star\"><svg width=\"12\" height=\"11\" viewBox=\"0 0 12 11\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M5.70654 0L7.05363 4.1459H11.4129L7.88617 6.7082L9.23325 10.8541L5.70654 8.2918L2.17983 10.8541L3.52692 6.7082L0.000204086 4.1459H4.35946L5.70654 0Z\" fill=\"#335566\"/>\n            </svg></span>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>",
+        "liquid": "<style>\n:root {\n  --testimonial-width: 540px;\n  --testimonial-font-family: \"Karla\", sans-serif;\n  --testimonial-bg-color: #FAFAFA;\n  --testimonial-border-radius: 8px;\n  --testimonial-border-color: #E5E5E5;\n  --testimonial-text-color: #252525;\n  --testimonial-photo-width: 64px;\n  --testimonial-star-color: #335566;\n  --testimonial-quote-size: 14px;\n  --testimonial-quote-weight: 400;\n  --testimonial-quote-style: italic;\n  --testimonial-author-size: 14px;\n  --testimonial-author-weight: bold;\n  --testimonial-author-style: normal;\n}\n\n#inf-testimonial-box {\n  font-family: var(--testimonial-font-family, \"inherit\");\n  background-color: var(--testimonial-bg-color);\n  color: var(--testimonial-text-color);\n  border-radius: var(--testimonial-border-radius);\n  border: 1px solid var(--testimonial-border-color, #E5E5E5);\n  max-width: var(--testimonial-width);\n}\n#inf-testimonial-box:not(:has([inf-testimonial-box-enabled])) {\n  display: none;\n}\n#inf-testimonial-box img {\n  max-width: 100%;\n  height: auto;\n}\n#inf-testimonial-box .inf-testimonial-box__inner {\n  padding: 12px;\n}\n#inf-testimonial-box .inf-testimonial-box__content {\n  display: flex;\n  flex-wrap: wrap;\n}\n#inf-testimonial-box .inf-testimonial-box__content > div {\n  flex: 1;\n}\n#inf-testimonial-box .inf-testimonial-box__content .inf-testimonial-box__photo {\n  flex: 0 0 var(--testimonial-photo-width, 64px);\n  max-width: var(--testimonial-photo-width, 64px);\n  margin-right: 12px;\n}\n\n\n#inf-testimonial-box .inf-testimonial-box__content .inf-testimonial-box__photo {\n  aspect-ratio: 1;\n}\n#inf-testimonial-box .inf-testimonial-box__content .inf-testimonial-box__photo img {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  display: block;\n}\n#inf-testimonial-box .inf-testimonial-box__text {\n  font-size: var(--testimonial-quote-size, 14px);\n  font-weight: var(--testimonial-quote-weight, 400);\n  font-style: var(--testimonial-quote-style, \"normal\");\n}\n#inf-testimonial-box .inf-testimonial-box__star svg, #inf-testimonial-box .inf-testimonial-box__star svg path {\n  fill: var(--testimonial-star-color, #63C8D8);\n}\n#inf-testimonial-box .inf-testimonial-box__quote {\n  margin-bottom: 5px;\n}\n#inf-testimonial-box .inf-testimonial-box__author {\n  display: flex;\n  flex-wrap: wrap;\n}\n#inf-testimonial-box .inf-testimonial-box__rating {\n  margin-left: auto;\n}\n#inf-testimonial-box .inf-testimonial-box__rating .inf-testimonial-box__star {\n  display: inline-block;\n}\n#inf-testimonial-box .inf-testimonial-box__name {\n  font-size: var(--testimonial-author-size, 14px);\n  font-weight: var(--testimonial-author-weight, bold);\n  font-style: var(--testimonial-author-style, \"normal\");\n}\n</style>\n<div id=\"inf-testimonial-box\" class=\"inf-testimonial-box\">\n  <div class=\"inf-testimonial-box__inner\">\n    <div class=\"inf-testimonial-box__content\">\n      <div id=\"inf-testimonial-box-photo\" class=\"inf-testimonial-box__photo\">\n      </div>\n      <div class=\"inf-testimonial-box__text\">\n        <div id=\"inf-testimonial-box-quote\" class=\"inf-testimonial-box__quote\"></div>\n        <div class=\"inf-testimonial-box__author\">\n          <div id=\"inf-testimonial-box-author\" class=\"inf-testimonial-box__name\"></div>\n          <div class=\"inf-testimonial-box__rating\">\n            <span class=\"inf-testimonial-box__star\"><svg width=\"12\" height=\"11\" viewBox=\"0 0 12 11\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M5.70654 0L7.05363 4.1459H11.4129L7.88617 6.7082L9.23325 10.8541L5.70654 8.2918L2.17983 10.8541L3.52692 6.7082L0.000204086 4.1459H4.35946L5.70654 0Z\" fill=\"#335566\"/>\n            </svg></span>\n            <span class=\"inf-testimonial-box__star\"><svg width=\"12\" height=\"11\" viewBox=\"0 0 12 11\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M5.70654 0L7.05363 4.1459H11.4129L7.88617 6.7082L9.23325 10.8541L5.70654 8.2918L2.17983 10.8541L3.52692 6.7082L0.000204086 4.1459H4.35946L5.70654 0Z\" fill=\"#335566\"/>\n            </svg></span>\n            <span class=\"inf-testimonial-box__star\"><svg width=\"12\" height=\"11\" viewBox=\"0 0 12 11\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M5.70654 0L7.05363 4.1459H11.4129L7.88617 6.7082L9.23325 10.8541L5.70654 8.2918L2.17983 10.8541L3.52692 6.7082L0.000204086 4.1459H4.35946L5.70654 0Z\" fill=\"#335566\"/>\n            </svg></span>\n            <span class=\"inf-testimonial-box__star\"><svg width=\"12\" height=\"11\" viewBox=\"0 0 12 11\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M5.70654 0L7.05363 4.1459H11.4129L7.88617 6.7082L9.23325 10.8541L5.70654 8.2918L2.17983 10.8541L3.52692 6.7082L0.000204086 4.1459H4.35946L5.70654 0Z\" fill=\"#335566\"/>\n            </svg></span>\n            <span class=\"inf-testimonial-box__star\"><svg width=\"12\" height=\"11\" viewBox=\"0 0 12 11\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M5.70654 0L7.05363 4.1459H11.4129L7.88617 6.7082L9.23325 10.8541L5.70654 8.2918L2.17983 10.8541L3.52692 6.7082L0.000204086 4.1459H4.35946L5.70654 0Z\" fill=\"#335566\"/>\n            </svg></span>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -726,7 +726,8 @@
     "creator_quotes": {
       "type": "creator-quote-slider",
       "blocks": {
-        "slide_hyman": {"disabled": true,
+        "slide_hyman": {
+          "disabled": true,
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/05212021_Mark_Hyman9087-Edit.jpg",
@@ -1028,7 +1029,7 @@
         "text_P7d897": {
           "type": "text",
           "settings": {
-            "text": "<p>Join our community of Seatopia subscribers who are transforming their health</p>",
+            "text": "<p>Join thousands of Seatopia subscribers</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -1078,7 +1079,8 @@
     "index_new_testimonials_pzqmAP": {
       "type": "index-new-testimonials",
       "blocks": {
-        "review_q74D3V": {"disabled": true,
+        "review_q74D3V": {
+          "disabled": true,
           "type": "review",
           "settings": {
             "image": "shopify://shop_images/Mark_hyman.png",
@@ -1155,7 +1157,8 @@
     "index_new_testimonials_ziwW9y": {
       "type": "index-new-testimonials",
       "blocks": {
-        "review_hUgdXR": {"disabled": true,
+        "review_hUgdXR": {
+          "disabled": true,
           "type": "review",
           "settings": {
             "image": "shopify://shop_images/Mark_hyman.png",
@@ -1168,9 +1171,9 @@
             "block_text_color": ""
           }
         },
-        "review_KMBfjf": {"disabled": true,
-          "type": "review",
+        "review_KMBfjf": {
           "disabled": true,
+          "type": "review",
           "settings": {
             "image": "shopify://shop_images/Mark_hyman.jpg",
             "image_url": "shopify://blogs/regenerative-aquaculture/are-we-still-mermaids-embracing-our-aquatic-roots-for-modern-health",
@@ -1651,9 +1654,9 @@
     "testimonials-banner": {
       "type": "testimonials-banner",
       "blocks": {
-        "testimonial-1": {"disabled": true,
-          "type": "testimonial",
+        "testimonial-1": {
           "disabled": true,
+          "type": "testimonial",
           "settings": {
             "icon": "quote",
             "text": "<p>Thanks to Seatopia, throughout my pregnancy and while breastfeeding, I’ve confidently enjoyed sushi-grade, low mercury, omega-rich seafood from the comfort of my home!</p>",
@@ -1666,7 +1669,8 @@
             "highlighted_scribble": "circle"
           }
         },
-        "testimonial-2": {"disabled": true,
+        "testimonial-2": {
+          "disabled": true,
           "type": "testimonial",
           "settings": {
             "icon": "quote",
