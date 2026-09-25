@@ -191,7 +191,7 @@
         "text_yVUndA": {
           "type": "text",
           "settings": {
-            "text": "<p>Mercury-Safe standard; <strong>0</strong> detectable microplastics</p>",
+            "text": "<p>Low mercury standard; <strong>0</strong> microplastics detected</p>",
             "text_size": "subtext-sm",
             "text_max_size": 32,
             "text_font": "body",
@@ -223,7 +223,7 @@
         "heading_width": "large",
         "heading_tag": "h2",
         "subheading": "",
-        "description": "<p><strong>Slogans don’t move markets—measurable health does.</strong> When seafood is transparently <strong>better for you</strong>, demand moves—and supply follows. By aggregating that demand through our direct-to-home model, we fund ocean-positive farms proving what’s possible: low-impact feeds, thriving multi-trophic systems, and seafood that tests mercury-safe (≤ 0.1 ppm) with zero detectable microplastics. </p><p><strong>Health first. Regeneration as the outcome.</strong></p>",
+        "description": "<p><strong>Slogans don’t move markets—measurable health does.</strong> When seafood is transparently <strong>better for you</strong>, demand moves—and supply follows. By aggregating that demand through our direct-to-home model, we fund ocean-positive farms proving what’s possible: low-impact feeds, thriving multi-trophic systems, and seafood that tests low mercury (≤ 0.1 ppm) with zero microplastics detected. </p><p><strong>Health first. Regeneration as the outcome.</strong></p>",
         "button_label": "Shop Lab-Tested Seafood",
         "button_link": "shopify://collections/build-your-own-box",
         "button_external": false,
@@ -631,14 +631,15 @@
         "text_QQzQQK": {
           "type": "text",
           "settings": {
-            "text": "<p>I am a surfer, sailor, and once-upon-a-time aquarium scrubber. I spent years sailing across the ocean,  traveling to marine protected areas and vetting artisan aquaculture farms, building relationships, and importing the best seafood from around the world. <br/><br/>Think of these artisan farms as the good guys of the seafood industry. They are small-scale, and the fish are raised in low-density, antibiotic-free conditions, and fed innovative nutrients like micro-algae-based oils.<br/><br/>First, I created monthly CSA boxes for people willing to vote with their forks. People who wanted clean seafood sourced with the best standards. People who were keen to receive deliveries only on the full moon. (Ah, the good old days.)<br/><br/>From the start, we established a level of trust with our members that few brands ever achieve. We went the extra mile to test for mercury and microplastics, ensuring ≤ 0.1 PPM of mercury and zero detectable microplastics in our seafood. Our members knew that no matter the trends, we would always make decisions with their health and our planet in mind. <br/></p>",
+            "text": "<p>I am a surfer, sailor, and once-upon-a-time aquarium scrubber. I spent years sailing across the ocean,  traveling to marine protected areas and vetting artisan aquaculture farms, building relationships, and importing the best seafood from around the world. <br/><br/>Think of these artisan farms as the good guys of the seafood industry. They are small-scale, and the fish are raised in low-density, antibiotic-free conditions, and fed innovative nutrients like micro-algae-based oils.<br/><br/>First, I created monthly CSA boxes for people willing to vote with their forks. People who wanted clean seafood sourced with the best standards. People who were keen to receive deliveries only on the full moon. (Ah, the good old days.)<br/><br/>From the start, we established a level of trust with our members that few brands ever achieve. We went the extra mile to test for mercury and microplastics, ensuring ≤ 0.1 PPM of mercury and zero microplastics detected in our seafood. Our members knew that no matter the trends, we would always make decisions with their health and our planet in mind. <br/></p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
             "secondary_color": false,
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
-          }
+          },
+          "disabled": true
         }
       },
       "block_order": [
@@ -915,7 +916,7 @@
         "image_PD3Hh4"
       ],
       "settings": {
-        "heading": "We work with artisan aquaculture farms around the world who are using innovative feeds to grow the most nutrient dense, cleanest seafood on the planet.",
+        "heading": "We work with artisan aquaculture farms around the world, and we publish the full panel for every product.",
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",

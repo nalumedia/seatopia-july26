@@ -31,7 +31,7 @@
         "text_Fppygg": {
           "type": "text",
           "settings": {
-            "text": "<p>Lab tested, no detectable microplastics and mercury safe. <br/>Seatopia is verified marine nutrition.</p>",
+            "text": "<p>Lab tested, no microplastics detected and low mercury. <br/>Seatopia is verified marine nutrition.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -266,7 +266,7 @@
         "text_FDmm8T": {
           "type": "text",
           "settings": {
-            "text": "<p>Lab-tested, Omega-rich, Mercury-safe, Zero detectable microplastics. The perfect marine nutrition.</p><p>Every product is independently lab-tested for mercury and microplastics, selected for nutritional integrity, and held to strict internal thresholds—so what reaches your table is verified, transparent, and safe.<br/><br/>See our latest Certificate of Analysis (COAs) and learn more about how we quantify the Seatopia Standard™ for every product.</p>",
+            "text": "<p>Lab-tested, Omega-rich, Low mercury, Zero microplastics detected. The perfect marine nutrition.</p><p>Every product is independently lab-tested for mercury and microplastics, selected for nutritional integrity, and held to strict internal thresholds—so what reaches your table is verified, transparent, and safe.<br/><br/>See our latest Certificate of Analysis (COAs) and learn more about how we quantify the Seatopia Standard™ for every product.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -654,7 +654,8 @@
             "text": "<p>“We are what foods we eats and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
             "block_background": "",
             "block_text_color": ""
-          }
+          },
+          "disabled": true
         },
         "review_beCApy": {
           "type": "review",
@@ -665,7 +666,7 @@
             "title": "Dr. Kristyn Silver-Brook",
             "job": "Prenatal and postpartum chiropractor, mama, and a Seatopia customer",
             "Start_number": "5",
-            "text": "<p>Thanks to SEATOPIA, throughout my pregnancy & while breastfeeding I've confidently enjoyed sushi-grade, mercury-free, omega-rich seafood from the comfort of home!</p>",
+            "text": "<p>Thanks to SEATOPIA, throughout my pregnancy & while breastfeeding I've confidently enjoyed sushi-grade, low mercury, omega-rich seafood from the comfort of home!</p>",
             "block_background": "",
             "block_text_color": ""
           }

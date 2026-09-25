@@ -48,7 +48,8 @@
             "heading_tag": "h1",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
-          }
+          },
+          "disabled": true
         },
         "text_GNJMBH": {
           "type": "text",
@@ -343,7 +344,7 @@
           "settings": {
             "icon": "check_mark",
             "icon_width": 20,
-            "text": "Lab tested to ensure it's mercury safe and free from detectable microplastics",
+            "text": "Lab tested to ensure it's low mercury and zero microplastics detected in third-party testing",
             "text_size": "text-base"
           }
         },
@@ -361,7 +362,7 @@
           "type": "icon_list",
           "disabled": true,
           "settings": {
-            "heading": "Lab Tested, Nutrient Rich & Certified Clean",
+            "heading": "Lab Tested, Nutrient Rich & Lab-tested",
             "enable_carousel": false,
             "show_below_media": true
           }
@@ -794,7 +795,7 @@
         "q2": {
           "type": "text",
           "settings": {
-            "text": "<p>“Aquaculture done right can produce seafood measurably better than 99% of wild-caught fish.”</p>",
+            "text": "<p>“Aquaculture done right can produce exceptional, traceable seafood.”</p>",
             "text_size": "subtext-md",
             "text_max_size": 44,
             "text_font": "heading",
@@ -813,7 +814,8 @@
             "secondary_color": false,
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
-          }
+          },
+          "disabled": true
         },
         "video_link": {
           "type": "button",
@@ -1132,7 +1134,7 @@
         "faq_t": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Why not just take fish oil?</strong><br/>Fish oil is processed and isolated — it gives you omega-3s but strips away the matrix of nutrients (protein, minerals, other fatty acids) that whole seafood delivers. Oil extraction also concentrates whatever contaminants were in the source fish, and most fish oil on the market isn't independently tested for mercury or microplastics the way Seatopia's seafood is. Eating whole, clean fish gives you bioavailable omega-3s alongside complete protein, with the same toxin transparency you'd want from a supplement — without the capsule.</p><p><strong>Why farmed seafood?</strong><br/>Wild-caught fish stocks are collapsing faster than they can regenerate, and wild fish accumulate mercury and microplastics from the open ocean with no way to control it. Regeneratively farmed seafood flips that: when fish are raised on clean feeds in well-managed farms, you can control what they're exposed to — meaning lower mercury, no detectable microplastics, and no antibiotics. Done right, farming isn't a compromise on quality; it's the only way to make \"clean\" a guarantee instead of a gamble.<br/></p><p><strong>Is this worth the premium?</strong><br/>You're not just paying for fish — you're paying for verified safety (third-party lab testing on every batch), sushi-grade quality frozen at peak freshness, and sourcing from farms that are independently certified for sustainability. Compared to the long-term cost of mercury and microplastic exposure, or the price of equivalent quality at a restaurant, the premium reflects testing and farming standards most seafood — wild or farmed — simply doesn't meet.</p><p><strong>What does ≤0.1ppm mercury mean?</strong><br/>ppm stands for parts per million — a measure of how much mercury is present relative to the total weight of the fish. The FDA's action level for fish is 1.0 ppm, and species like tuna or swordfish often test well above 0.1 ppm. Testing at or below 0.1 ppm means the mercury level is roughly 10x below the high-risk threshold — low enough that it's considered safe even for sensitive groups like pregnant or breastfeeding women.</p><p><strong>What if I don’t like it?</strong><br/>100% satisfaction guarantee. If your order doesn’t arrive snap-frozen and in perfect condition, we’ll make it right. Covers delivery quality, not subjective taste.</p><p><strong>Is this farmed or wild?</strong><br/>Seatopia seafood comes from best-in-class, third-party certified farm partners. Unlike most wild-caught fish, every harvest is independently tested — so you know exactly what’s in it before it reaches your door.</p><p><strong>How do I know this is actually clean?</strong><br/>Every product ship has a published Certificate of Analysis from an ISO 17025 accredited third-party lab. The results are publicly available. You can read them yourself <a href=\"https://seatopia.fish/collections/build-your-own-box\" title=\"https://seatopia.fish/collections/build-your-own-box\">on our individual product pages.</a></p><p><strong>How does this compare to fish oil supplements?</strong><br/>Just as an example, one serving of Seatopia Steelhead Loin delivers 3,414 mg bioavailable EPA + DHA - more than most people get in a full week of supplements, with far higher bioavailability from whole food. You can find all product data here <a href=\"https://seatopia.fish/pages/why-clean-seafood-matters\" title=\"https://seatopia.fish/pages/why-clean-seafood-matters\">on our omega map.</a></p>",
+            "text": "<p><strong>Why not just take fish oil?</strong><br/>Fish oil is processed and isolated — it gives you omega-3s but strips away the matrix of nutrients (protein, minerals, other fatty acids) that whole seafood delivers. Oil extraction also concentrates whatever contaminants were in the source fish, and most fish oil on the market isn't independently tested for mercury or microplastics the way Seatopia's seafood is. Eating whole, clean fish gives you bioavailable omega-3s alongside complete protein, with the same toxin transparency you'd want from a supplement — without the capsule.</p><p><strong>Why farmed seafood?</strong><br/>Wild-caught fish stocks are collapsing faster than they can regenerate, and wild fish accumulate mercury and microplastics from the open ocean with no way to control it. Regeneratively farmed seafood flips that: when fish are raised on clean feeds in well-managed farms, you can control what they're exposed to — meaning lower mercury, no microplastics detected, and no antibiotics. Done right, farming isn't a compromise on quality; it's the only way to make \"clean\" a guarantee instead of a gamble.<br/></p><p><strong>Is this worth the premium?</strong><br/>You're not just paying for fish — you're paying for verified safety (third-party lab testing on every supplier), sushi-grade quality frozen at peak freshness, and sourcing from farms that are independently certified for sustainability. Compared to the long-term cost of mercury and microplastic exposure, or the price of equivalent quality at a restaurant, the premium reflects testing and farming standards most seafood — wild or farmed — simply doesn't meet.</p><p><strong>What does ≤0.1ppm mercury mean?</strong><br/>ppm stands for parts per million — a measure of how much mercury is present relative to the total weight of the fish. The FDA's action level for fish is 1.0 ppm, and species like tuna or swordfish often test well above 0.1 ppm. Testing at or below 0.1 ppm means the mercury level is roughly 10x below the high-risk threshold — low enough that it's considered safe even for sensitive groups like pregnant or breastfeeding women.</p><p><strong>What if I don’t like it?</strong><br/>100% satisfaction guarantee. If your order doesn’t arrive snap-frozen and in perfect condition, we’ll make it right. Covers delivery quality, not subjective taste.</p><p><strong>Is this farmed or wild?</strong><br/>Seatopia seafood comes from best-in-class, third-party certified farm partners. Unlike most wild-caught fish, every supplier is independently tested — so you know exactly what’s in it before it reaches your door.</p><p><strong>How do I know this is actually clean?</strong><br/>Every product ship has a published Certificate of Analysis from an ISO 17025 accredited third-party lab. The results are publicly available. You can read them yourself <a href=\"https://seatopia.fish/collections/build-your-own-box\" title=\"https://seatopia.fish/collections/build-your-own-box\">on our individual product pages.</a></p><p><strong>How does this compare to fish oil supplements?</strong><br/>Just as an example, one serving of Seatopia Steelhead Loin delivers 3,414 mg bioavailable EPA + DHA - more than most people get in a full week of supplements, with far higher bioavailability from whole food. You can find all product data here <a href=\"https://seatopia.fish/pages/why-clean-seafood-matters\" title=\"https://seatopia.fish/pages/why-clean-seafood-matters\">on our omega map.</a></p>",
             "text_size": "subtext-md",
             "text_max_size": 52,
             "text_font": "body",

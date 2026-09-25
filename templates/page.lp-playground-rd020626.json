@@ -40,7 +40,7 @@
         "text_qeBmBQ": {
           "type": "text",
           "settings": {
-            "text": "<p>We set the standard</p><p>🧬 Quantified Nutrition (Omega-3s, Selenium, Protein Tested)<br/>🛡️Certified Mercury Safe<br/>🔬 Zero Detectable Microplastics<br/>❄️ Sushi Grade (Super Frozen)<br/></p>",
+            "text": "<p>We set the standard</p><p>🧬 Quantified Nutrition (Omega-3s, Selenium, Protein Tested)<br/>🛡️Certified Low mercury<br/>🔬 Zero microplastics detected<br/>❄️ Sushi Grade (Super Frozen)<br/></p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -102,7 +102,7 @@
         "text_Fppygg": {
           "type": "text",
           "settings": {
-            "text": "<p>We deliver lab tested, mercury safe, zero detectable microplastics seafood to your door. </p>",
+            "text": "<p>We deliver lab tested, low mercury, zero microplastics detected seafood to your door. </p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -151,7 +151,7 @@
         "text_eG9QkT": {
           "type": "text",
           "settings": {
-            "text": "<p>Omega rich, sushi-grade seafood that is lab tested to ensure it is <a href=\"/pages/why-clean-seafood-matters\" title=\"Why Clean Seafood Matters\">mercury safe</a>, and <a href=\"/pages/why-clean-seafood-matters\" title=\"Why Clean Seafood Matters\">free from detectable microplastics</a>. </p><p>Get started by choosing a <a href=\"/collections/curated-boxes\" title=\"Curated Boxes\">curated box</a> hand picked from our favorites or <a href=\"/collections/build-your-own-box\" title=\"Build Your Own Box\">build your own box</a> from a selection of the healthiest seafood on the planet. </p><p></p>",
+            "text": "<p>Omega rich, sushi-grade seafood that is lab tested to ensure it is <a href=\"/pages/why-clean-seafood-matters\" title=\"Why Clean Seafood Matters\">low mercury</a>, and <a href=\"/pages/why-clean-seafood-matters\" title=\"Why Clean Seafood Matters\">zero microplastics detected in third-party testing</a>. </p><p>Get started by choosing a <a href=\"/collections/curated-boxes\" title=\"Curated Boxes\">curated box</a> hand picked from our favorites or <a href=\"/collections/build-your-own-box\" title=\"Build Your Own Box\">build your own box</a> from our full range. </p><p></p>",
             "text_size": "subtext-sm",
             "text_max_size": 30,
             "text_font": "body",
@@ -306,7 +306,7 @@
         "text_FDmm8T": {
           "type": "text",
           "settings": {
-            "text": "<p>Lab-tested, Omega-rich, Mercury-safe, Zero detectable microplastics. The perfect marine nutrition.</p><p>Every product is independently lab-tested for mercury and microplastics, selected for nutritional integrity, and held to strict internal thresholds—so what reaches your table is verified, transparent, and safe.<br/><br/>See our latest Certificate of Analysis (COAs) and learn more about how we quantify the Seatopia Standard™ for every product.</p>",
+            "text": "<p>Lab-tested, Omega-rich, Low mercury, Zero microplastics detected. The perfect marine nutrition.</p><p>Every product is independently lab-tested for mercury and microplastics, selected for nutritional integrity, and held to strict internal thresholds—so what reaches your table is verified, transparent, and safe.<br/><br/>See our latest Certificate of Analysis (COAs) and learn more about how we quantify the Seatopia Standard™ for every product.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -651,7 +651,7 @@
             "video_on_hover": true,
             "account_avatar": "shopify://shop_images/Img.png",
             "account_name": "@seatopia",
-            "account_description": "The cleanest Cobia in the world",
+            "account_description": "Cobia, tested and published",
             "account_button": "Follow",
             "account_link": "",
             "button_external": false,
@@ -845,7 +845,7 @@
         "text_pzmejD": {
           "type": "text",
           "settings": {
-            "text": "<p>The cleanest seafood on the planet is as easy as...</p>",
+            "text": "<p>Tested and published seafood is as easy as...</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -857,7 +857,7 @@
         "text_jhcj9E": {
           "type": "text",
           "settings": {
-            "text": "<p>The cleanest seafood on the planet is as easy as...</p><p><strong>01 - </strong>Slice sushi-grade loin and garnish with caviar, wasabi and soy sauce</p><p><strong>02 </strong>- Pan sear with sea salt and pepper and squeeze some lemon on top</p><p><strong>03</strong> - Drizzle olive oil, grate lime, add sea salt to the scallops<br/><em>(if you added scallops to your box)</em></p><p><strong>04 </strong>- Bake a loin with garlic and onions</p><p>Choose your option for the perfect date night.</p>",
+            "text": "<p>Tested and published seafood is as easy as...</p><p><strong>01 - </strong>Slice sushi-grade loin and garnish with caviar, wasabi and soy sauce</p><p><strong>02 </strong>- Pan sear with sea salt and pepper and squeeze some lemon on top</p><p><strong>03</strong> - Drizzle olive oil, grate lime, add sea salt to the scallops<br/><em>(if you added scallops to your box)</em></p><p><strong>04 </strong>- Bake a loin with garlic and onions</p><p>Choose your option for the perfect date night.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -1190,7 +1190,8 @@
             "text": "<p>“We are what foods we eats and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
             "block_background": "",
             "block_text_color": ""
-          }
+          },
+          "disabled": true
         },
         "review_beCApy": {
           "type": "review",
@@ -1201,7 +1202,7 @@
             "title": "Dr. Kristyn Silver-Brook",
             "job": "Prenatal and postpartum chiropractor, mama, and a Seatopia customer",
             "Start_number": "5",
-            "text": "<p>Thanks to SEATOPIA, throughout my pregnancy & while breastfeeding I've confidently enjoyed sushi-grade, mercury-free, omega-rich seafood from the comfort of home!</p>",
+            "text": "<p>Thanks to SEATOPIA, throughout my pregnancy & while breastfeeding I've confidently enjoyed sushi-grade, low mercury, omega-rich seafood from the comfort of home!</p>",
             "block_background": "",
             "block_text_color": ""
           }
@@ -1572,7 +1573,7 @@
         "text_itqUrE": {
           "type": "text",
           "settings": {
-            "text": "<p>Silky, sashimi-ready cuts with decadent sturgeon caviar make your valentines effortless yet unforgettable. </p><p>Plate slowly, share intentionally, and enjoy clean, omega-packed sashimi-grade at home—no reservations, no rush and the knowledge that your Seafood contains no detectable microplastics and is mercury safe.</p>",
+            "text": "<p>Silky, sashimi-ready cuts with decadent sturgeon caviar make your valentines effortless yet unforgettable. </p><p>Plate slowly, share intentionally, and enjoy clean, omega-packed sashimi-grade at home—no reservations, no rush and the knowledge that your Seafood contains no microplastics detected and is low mercury.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",

@@ -31,7 +31,7 @@
         "text_Fppygg": {
           "type": "text",
           "settings": {
-            "text": "<p>We work with artisan aquaculture farms around the world that are using innovative feeds to grow the most nutrient-dense, cleanest seafood on the planet.</p>",
+            "text": "<p>We work with artisan aquaculture farms around the world, and we publish the full panel for every product.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -104,7 +104,7 @@
         "text_FDmm8T": {
           "type": "text",
           "settings": {
-            "text": "<p>Experience gourmet seafood at home. Lab tested mercury safe*, zero detectable microplastics, with quantified Omega-3s, protein, and nutrients.</p>",
+            "text": "<p>Experience gourmet seafood at home. Third-party lab tested. Low mercury, tested to a tenth of the FDA action level. Zero microplastics detected in third-party testing. Omega-3, protein, selenium, vitamin D and B12 published.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -128,7 +128,7 @@
           "type": "text",
           "disabled": true,
           "settings": {
-            "text": "<p>Mercury Safe - Zero Detectable Microplastics - Quantified Marine Nutrition</p>",
+            "text": "<p>Low Mercury - Zero Microplastics Detected - Quantified Marine Nutrition</p>",
             "text_size": "subtext-sm",
             "text_max_size": 32,
             "text_font": "body",
@@ -238,7 +238,7 @@
     "index_new_testimonials_dnaGpn": {
       "type": "index-new-testimonials",
       "blocks": {
-        "review_bbcRGL": {
+        "review_bbcRGL": {"disabled": true,
           "type": "review",
           "settings": {
             "image": "shopify://shop_images/Mark_hyman.png",
@@ -251,7 +251,7 @@
             "block_text_color": ""
           }
         },
-        "review_HkWWYB": {
+        "review_HkWWYB": {"disabled": true,
           "type": "review",
           "settings": {
             "image": "shopify://shop_images/Mark_hyman.jpg",
@@ -259,7 +259,7 @@
             "title": "Johanna Hellrigl",
             "job": "Chef & Owner of Ama Restaurant",
             "Start_number": "5",
-            "text": "<p>\"As a Chef, I believe true sustainability must nourish both people and the planet. Seatopia aligns with this belief. They lab-test every harvest to ensure seafood that’s omega-rich, mercury-safe, and free from detectable microplastics while also regenerating ocean health. This is the future of seafood.\"</p>",
+            "text": "<p>\"As a Chef, I believe true sustainability must nourish both people and the planet. Seatopia aligns with this belief. They lab-test every supplier to ensure seafood that’s omega-rich, low mercury, and zero microplastics detected in third-party testing while also regenerating ocean health. This is the future of seafood.\"</p>",
             "block_background": "",
             "block_text_color": ""
           }
@@ -513,7 +513,7 @@
           "settings": {
             "icon": "check_mark",
             "icon_width": 20,
-            "text": "Lab tested to ensure it's mercury safe and free from detectable microplastics",
+            "text": "Third-party lab tested. Low mercury, tested to a tenth of the FDA action level, with zero microplastics detected",
             "text_size": "text-base"
           }
         },
@@ -532,7 +532,7 @@
           "type": "icon_list",
           "disabled": true,
           "settings": {
-            "heading": "Lab Tested, Nutrient Rich & Certified Clean",
+            "heading": "Lab Tested, Nutrient Rich & Published",
             "enable_carousel": false,
             "show_below_media": true
           }
@@ -703,7 +703,7 @@
         "text_4CVbRd": {
           "type": "text",
           "settings": {
-            "text": "<p>Omega rich, sushi-grade seafood that is lab tested to ensure it is mercury safe, and free from detectable microplastics.</p><p>Get started by choosing a <a href=\"/collections/curated-boxes\" title=\"Curated Boxes\">curated box</a> hand picked from our favorites or <a href=\"/collections/build-your-own-box\" title=\"Build Your Own Box\">build your own box</a> from a selection of the healthiest seafood on the planet.</p><p>- Ben Greenfield</p>",
+            "text": "<p>Omega-rich, sushi-grade seafood. Third-party lab tested: low mercury, tested to a tenth of the FDA action level, with zero microplastics detected.</p><p>Get started by choosing a <a href=\"/collections/curated-boxes\" title=\"Curated Boxes\">curated box</a> hand picked from our favorites or <a href=\"/collections/build-your-own-box\" title=\"Build Your Own Box\">build your own box</a> from our full range.</p><p>- Ben Greenfield</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -850,7 +850,7 @@
         "text_pzmejD": {
           "type": "text",
           "settings": {
-            "text": "<p>The cleanest seafood on the planet is as easy as...</p>",
+            "text": "<p>Tested and published seafood is as easy as...</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -1397,7 +1397,7 @@
         "text_KNGVC9": {
           "type": "text",
           "settings": {
-            "text": "<p>Seatopia solves a serious problem.  Wild fishing is reeking havoc on our oceans and the fish we are catching is packed with metals and microplastics and lacks the nutrients seafood had before. Factory farming is gross as fish are packed with hormones and the waste is devastating.</p>",
+            "text": "<p>Seatopia exists because nobody was measuring. Most seafood reaches you with no published number attached &mdash; not for omega-3s, not for mercury, not for microplastics. We test every supplier, publish the panel, and name the farm. Sourced from best-in-class aquaculture.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",

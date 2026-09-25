@@ -303,7 +303,7 @@
         "text_jhcj9E": {
           "type": "text",
           "settings": {
-            "text": "<p>Every summer, Seatopia recommits to the clean practices that set us apart — zero microplastics, mercury-safe, and raised on regenerative aquaculture farms that work with the ocean’s natural rhythm. This is your season of meals that stretch into dusk and moments that bring us together.</p>",
+            "text": "<p>Every summer, Seatopia recommits to the clean practices that set us apart — zero microplastics, low mercury, and raised on regenerative aquaculture farms that work with the ocean’s natural rhythm. This is your season of meals that stretch into dusk and moments that bring us together.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -1244,7 +1244,8 @@
             "text": "<p>“We are what foods we eats and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
             "block_background": "",
             "block_text_color": ""
-          }
+          },
+          "disabled": true
         },
         "review_beCApy": {
           "type": "review",
@@ -1255,7 +1256,7 @@
             "title": "Dr. Kristyn Silver-Brook",
             "job": "Prenatal and postpartum chiropractor, mama, and a Seatopia customer",
             "Start_number": "5",
-            "text": "<p>Thanks to SEATOPIA, throughout my pregnancy & while breastfeeding I've confidently enjoyed sushi-grade, mercury-free, omega-rich seafood from the comfort of home!</p>",
+            "text": "<p>Thanks to SEATOPIA, throughout my pregnancy & while breastfeeding I've confidently enjoyed sushi-grade, low mercury, omega-rich seafood from the comfort of home!</p>",
             "block_background": "",
             "block_text_color": ""
           }

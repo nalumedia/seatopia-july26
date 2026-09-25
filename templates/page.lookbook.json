@@ -40,7 +40,7 @@
         "text_DfEMA4": {
           "type": "text",
           "settings": {
-            "text": "<p>We deliver omega rich, sushi-grade seafood sourced from a new wave<br/>of aquaculture farms that is lab tested to ensure it’s mercury safe<br/>and free from detectable microplastics.</p>",
+            "text": "<p>We deliver omega rich, sushi-grade seafood sourced from a new wave<br/>of aquaculture farms that is lab tested to ensure it’s low mercury<br/>and zero microplastics detected in third-party testing.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -125,7 +125,7 @@
             "image_ratio": "adapt",
             "heading": "We work with the best farms in theworld to source clean seafood",
             "heading_size": "text-lg-2xl",
-            "text": "<p>Once we harvest we lab test our<br/>seafood to ensure that it’s nutrient<br/>dense, mercury safe, and free from<br/>detectable microplastics.</p>",
+            "text": "<p>Once we harvest we lab test our<br/>seafood to ensure that it’s nutrient<br/>dense, low mercury, and free from<br/>microplastics detected.</p>",
             "button_label": "",
             "button_link": "",
             "button_style": "secondary",
@@ -226,7 +226,7 @@
             "custom_icon": "",
             "cstm-sub-heading": "",
             "heading": "We work with the best farms in theworld to source clean seafood",
-            "text": "<p>Once we harvest we lab test our<br/>seafood to ensure that it’s nutrient<br/>dense, mercury safe, and free from<br/>detectable microplastics.</p>",
+            "text": "<p>Once we harvest we lab test our<br/>seafood to ensure that it’s nutrient<br/>dense, low mercury, and free from<br/>microplastics detected.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -373,7 +373,7 @@
         "heading_NDWQfx": {
           "type": "heading",
           "settings": {
-            "heading": "Seafood With Standards - Certified Clean",
+            "heading": "Seafood With Standards - Lab-tested",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -383,7 +383,7 @@
         "text_WtXw66": {
           "type": "text",
           "settings": {
-            "text": "<p>We lab test every product to ensure that it’s omega rich, mercury safe and free from detectable microplastics.. </p>",
+            "text": "<p>We lab test every product to ensure that it’s omega rich, low mercury and zero microplastics detected in third-party testing.. </p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -744,7 +744,8 @@
             "text": "<p>“We are what foods we eat and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
             "block_background": "",
             "block_text_color": ""
-          }
+          },
+          "disabled": true
         },
         "review_VAW7PT": {
           "type": "review",
