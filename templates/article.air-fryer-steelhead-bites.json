@@ -61,7 +61,7 @@
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
         "section_id": "recipe-collab",
-        "liquid": "<style>\n  .sea-collab {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    border: 1px solid var(--line);\n    border-radius: 18px;\n    background: var(--wash);\n    padding: 24px 28px;\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n    color: var(--ink);\n  }\n  .sea-collab__avatar {\n    flex: 0 0 auto;\n    width: 68px;\n    height: 68px;\n    border-radius: 50%;\n    overflow: hidden;\n    border: 2px solid #fff;\n    box-shadow: 0 0 0 2px var(--gold);\n    background: #eee;\n  }\n  .sea-collab__avatar img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    display: block;\n  }\n  .sea-collab__body {\n    flex: 1 1 260px;\n    min-width: 0;\n  }\n  .sea-collab__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 5px;\n  }\n  .sea-collab__name {\n    font-size: 21px;\n    font-weight: 600;\n    line-height: 1.2;\n    margin: 0 0 4px;\n  }\n  .sea-collab__role {\n    font-size: 15px;\n    color: var(--muted);\n    line-height: 1.45;\n    margin: 0;\n  }\n  .sea-collab__cred {\n    font-size: 13px;\n    color: var(--muted);\n    line-height: 1.5;\n    margin: 10px 0 0;\n    padding-top: 10px;\n    border-top: 1px solid var(--line);\n  }\n  .sea-collab__follow {\n    flex: 0 0 auto;\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    padding: 11px 20px;\n    border: 1px solid var(--ink);\n    border-radius: 999px;\n    font-size: 15px;\n    font-weight: 600;\n    text-decoration: none;\n    color: var(--ink);\n    background: #fff;\n    transition: background .18s ease, color .18s ease;\n  }\n  .sea-collab__follow:hover {\n    background: var(--ink);\n    color: #fff;\n  }\n  .sea-collab__follow svg {\n    width: 18px;\n    height: 18px;\n  }\n  @media (max-width: 749px) {\n    .sea-collab {\n      padding: 20px;\n      gap: 16px;\n    }\n    .sea-collab__follow {\n      width: 100%;\n      justify-content: center;\n    }\n    .sea-collab__name {\n      font-size: 19px;\n    }\n  }\n</style>\n\n{%- comment -%}\n  TODO BEFORE PUBLISH:\n  1. Disclosure wording is PENDING CLARK. 4.H requires the material connection\n     disclosed wherever a reader would find it material (16 CFR Part 255). The\n     guide's placement table rules on social captions, not blog bylines, so the\n     exact phrasing is not in the ledger. The line below is the obvious read,\n     not an approved one.\n  2. Publishing rights NOT CONFIRMED. Bolivar's signed 2026-08-14 agreement\n     shipped with an unresolved [Yes / No] publishing toggle\n     (marketing/creator/agreements/SKILL.md). Rights come from the signed\n     agreement, not from silence. Do not publish until that is settled.\n  3. Instagram handle and headshot not supplied, so the follow link is omitted.\n{%- endcomment -%}\n\n<div class=\"sea-collab\">\n  <div class=\"sea-collab__body\">\n    <p class=\"sea-collab__eyebrow\">\n      <span>From a Seatopia partner</span>\n      <span class=\"sea-collab__badge\">Paid partner</span>\n    </p>\n    <p class=\"sea-collab__name\">Recipe by Alex Bolivar, a paid Seatopia partner</p>\n    <p class=\"sea-collab__role\">Developed for Seatopia using <a href=\"/products/steelhead-2x-6oz-filets\" title=\"Seatopia Steelhead\">our Steelhead</a>, in 6 oz skin-on portions from Hudson Valley</p>\n    <p class=\"sea-collab__cred\">Air fryer &middot; one blender &middot; serves TBC</p>\n  </div>\n</div>",
+        "liquid": "<style>\n  .sea-collab {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    border: 1px solid var(--line);\n    border-radius: 18px;\n    background: var(--wash);\n    padding: 24px 28px;\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n    color: var(--ink);\n  }\n  .sea-collab__avatar {\n    flex: 0 0 auto;\n    width: 68px;\n    height: 68px;\n    border-radius: 50%;\n    overflow: hidden;\n    border: 2px solid #fff;\n    box-shadow: 0 0 0 2px var(--gold);\n    background: #eee;\n  }\n  .sea-collab__avatar img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    display: block;\n  }\n  .sea-collab__body {\n    flex: 1 1 260px;\n    min-width: 0;\n  }\n  .sea-collab__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 5px;\n  }\n  .sea-collab__name {\n    font-size: 21px;\n    font-weight: 600;\n    line-height: 1.2;\n    margin: 0 0 4px;\n  }\n  .sea-collab__role {\n    font-size: 15px;\n    color: var(--muted);\n    line-height: 1.45;\n    margin: 0;\n  }\n  .sea-collab__cred {\n    font-size: 13px;\n    color: var(--muted);\n    line-height: 1.5;\n    margin: 10px 0 0;\n    padding-top: 10px;\n    border-top: 1px solid var(--line);\n  }\n  .sea-collab__follow {\n    flex: 0 0 auto;\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    padding: 11px 20px;\n    border: 1px solid var(--ink);\n    border-radius: 999px;\n    font-size: 15px;\n    font-weight: 600;\n    text-decoration: none;\n    color: var(--ink);\n    background: #fff;\n    transition: background .18s ease, color .18s ease;\n  }\n  .sea-collab__follow:hover {\n    background: var(--ink);\n    color: #fff;\n  }\n  .sea-collab__follow svg {\n    width: 18px;\n    height: 18px;\n  }\n  @media (max-width: 749px) {\n    .sea-collab {\n      padding: 20px;\n      gap: 16px;\n    }\n    .sea-collab__follow {\n      width: 100%;\n      justify-content: center;\n    }\n    .sea-collab__name {\n      font-size: 19px;\n    }\n  }\n</style>\n\n{%- comment -%}\n  TODO BEFORE PUBLISH:\n  1. Disclosure wording is PENDING CLARK. 4.H requires the material connection\n     disclosed wherever a reader would find it material (16 CFR Part 255). The\n     guide's placement table rules on social captions, not blog bylines, so the\n     exact phrasing is not in the ledger. The line below is the obvious read,\n     not an approved one.\n  2. Publishing rights NOT CONFIRMED. Bolivar's signed 2026-08-14 agreement\n     shipped with an unresolved [Yes / No] publishing toggle\n     (marketing/creator/agreements/SKILL.md). Rights come from the signed\n     agreement, not from silence. Do not publish until that is settled.\n  3. Instagram handle and headshot not supplied, so the follow link is omitted.\n{%- endcomment -%}\n\n<div class=\"sea-collab\">\n  <div class=\"sea-collab__body\">\n    <p class=\"sea-collab__eyebrow\">\n      <span>From a Seatopia partner</span>\n      <span class=\"sea-collab__badge\">Paid partner</span>\n    </p>\n    <p class=\"sea-collab__name\">Recipe by Alex Bolivar, a paid Seatopia partner</p>\n    <p class=\"sea-collab__role\">Developed for Seatopia using <a href=\"/products/steelhead-2x-6oz-filets\" title=\"Seatopia Steelhead\">our Steelhead</a>, in 6 oz skin-on portions from Hudson Valley</p>\n    <p class=\"sea-collab__cred\">Serves 4 &middot; about 40 minutes &middot; one air fryer, one blender</p>\n  </div>\n</div>",
         "padding_top": 28,
         "padding_bottom": 8,
         "divider": false,
@@ -133,7 +133,7 @@
             "icon": "time",
             "custom_icon": "",
             "heading": "About 50 minutes",
-            "text": "<p>The rice cooks and the sauce blends while the fish sits drying, so most of this is unattended. TODO: confirm prep, cook and total time from the recipe.</p>",
+            "text": "<p>About 40 minutes start to finish. The rice cooks and the sauce blends while the fish sits drying, so the hands-on stretch is short and the air fryer is only six to eight minutes of it.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -144,7 +144,7 @@
             "icon": "users",
             "custom_icon": "",
             "heading": "Serves 4",
-            "text": "<p>TODO: confirm servings and pack size. The recipe has not been supplied with quantities, so this cannot be stated yet.</p>",
+            "text": "<p>Serves 4. Four 6 oz Steelhead portions &mdash; two 2-Packs &mdash; over about three cups of cooked jasmine rice. Halves cleanly, and the tzatziki keeps two days either way.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -217,8 +217,8 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "section_id": "shrimp-doneness",
-        "liquid": "<style>\n  .sea-pepper {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-pepper__grid {\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);\n    gap: 34px;\n    align-items: center;\n  }\n  .sea-pepper__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-pepper__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n  }\n  .sea-pepper__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 22px;\n  }\n  .sea-pepper__rows {\n    display: grid;\n    gap: 14px;\n  }\n  .sea-pepper__row {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 15px 17px;\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) auto;\n    gap: 10px 16px;\n    align-items: center;\n  }\n  .sea-pepper__row--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-pepper__name {\n    grid-column: 1;\n    margin: 0;\n    font-size: 15px;\n    font-weight: 600;\n    line-height: 1.3;\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-wrap: wrap;\n  }\n  .sea-pepper__tag {\n    font-size: 10px;\n    font-weight: 700;\n    letter-spacing: .08em;\n    text-transform: uppercase;\n    color: #fff;\n    background: var(--gold);\n    padding: 3px 8px;\n    border-radius: 999px;\n  }\n  .sea-pepper__meter {\n    grid-column: 2;\n    grid-row: 1;\n    display: flex;\n    gap: 4px;\n    align-items: center;\n  }\n  .sea-pepper__pip {\n    width: 9px;\n    height: 9px;\n    border-radius: 50%;\n    background: #fff;\n    border: 1.5px solid #d8cfc0;\n  }\n  .sea-pepper__pip.is-on {\n    background: #b8462f;\n    border-color: #b8462f;\n  }\n  .sea-pepper__note {\n    grid-column: 1 / -1;\n    margin: 0;\n    font-size: 13.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  .sea-pepper__legend {\n    margin: 16px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  .sea-pepper__figure {\n    margin: 0;\n  }\n  .sea-pepper__figure img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-pepper__cap {\n    margin: 10px 0 0;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  @media (max-width: 989px) {\n    .sea-pepper {\n      padding: 22px;\n    }\n    .sea-pepper__grid {\n      grid-template-columns: 1fr;\n      gap: 24px;\n    }\n    .sea-pepper__figure {\n      order: -1;\n    }\n  }\n</style>\n<div class=\"sea-pepper\">\n  <div class=\"sea-pepper__grid\">\n\n    <div class=\"sea-pepper__body\">\n      <p class=\"sea-pepper__eyebrow\">Read the shape, not the clock</p>\n      <h2 class=\"sea-pepper__heading\">A shrimp tells you when it is done by how tightly it curls.</h2>\n      <p class=\"sea-pepper__lede\">\n        Three or four minutes is the guide, but shrimp go from perfect to rubbery in well under a\n        minute, and a pan of hot sauce keeps cooking them after the heat is off. The reliable signal\n        is geometry: as it cooks a shrimp draws itself into a C, and if it keeps going it closes into\n        an O. C is dinner. O is a mistake you cannot undo.\n      </p>\n\n      <div class=\"sea-pepper__rows\">\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Straight and translucent</span>\n          <span class=\"sea-pepper__tag\">Not yet</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Doneness: 1 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">Raw. Grey-blue and floppy, lying flat in the sauce. It will start to firm and turn opaque from the outside in within about a minute.</p>\n      </div>\n      <div class=\"sea-pepper__row sea-pepper__row--pick\">\n        <p class=\"sea-pepper__name\">\n          <span>A loose C &mdash; opaque, still plump</span>\n          <span class=\"sea-pepper__tag\">Pull it here</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Doneness: 3 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">The shrimp has curled but the head and tail ends are still well apart. Opaque all the way through, pink outside. Take the pan off the heat now; carryover in the sauce finishes the job.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>A tight C, edges firming</span>\n          <span class=\"sea-pepper__tag\">Last chance</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Doneness: 4 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">The gap has closed to about a fingertip. Still good if you serve immediately, but there is no margin left. If it is heading to the table in a few minutes, you have already gone slightly far.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>A closed O</span>\n          <span class=\"sea-pepper__tag\">Overcooked</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Doneness: 5 out of 5\">\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n          <span class=\"sea-pepper__pip is-on\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">Head touching tail. The flesh has squeezed out its moisture and gone springy and dense. Nothing recovers it &mdash; this is the texture people mean when they say they do not like shrimp.</p>\n      </div>\n      </div>\n\n      <p class=\"sea-pepper__legend\">\n        Ratings are how far along the shrimp is, not how good. Because this sauce is thick and holds\n        heat, pull the pan a shade earlier than you would from a dry skillet &mdash; the shrimp\n        continue to tighten while you are spooning it out.\n      </p>\n    </div>\n\n    <figure class=\"sea-pepper__figure\">\n      <img\n        src=\"{{ '20260825-Stetten-Wilson-85.jpg' | file_url }}&amp;width=700\"\n        alt=\"Raw black tiger shrimp being slipped into the pumpkin coconut sauce\"\n        width=\"1200\"\n        height=\"800\"\n        loading=\"lazy\"\n        decoding=\"async\">\n      <figcaption class=\"sea-pepper__cap\">\n        In they go, straight and flat. From this point you are watching the curl, not the timer.\n      </figcaption>\n    </figure>\n\n  </div>\n</div>\n",
+        "section_id": "steelhead-doneness",
+        "liquid": "<style>\n  .sea-pepper {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-pepper__grid {\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);\n    gap: 34px;\n    align-items: center;\n  }\n  .sea-pepper__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-pepper__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n  }\n  .sea-pepper__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 22px;\n  }\n  .sea-pepper__rows {\n    display: grid;\n    gap: 14px;\n  }\n  .sea-pepper__row {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 15px 17px;\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) auto;\n    gap: 10px 16px;\n    align-items: center;\n  }\n  .sea-pepper__row--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-pepper__name {\n    grid-column: 1;\n    margin: 0;\n    font-size: 15px;\n    font-weight: 600;\n    line-height: 1.3;\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-wrap: wrap;\n  }\n  .sea-pepper__tag {\n    font-size: 10px;\n    font-weight: 700;\n    letter-spacing: .08em;\n    text-transform: uppercase;\n    color: #fff;\n    background: var(--gold);\n    padding: 3px 8px;\n    border-radius: 999px;\n  }\n  .sea-pepper__meter {\n    grid-column: 2;\n    grid-row: 1;\n    display: flex;\n    gap: 4px;\n    align-items: center;\n  }\n  .sea-pepper__pip {\n    width: 9px;\n    height: 9px;\n    border-radius: 50%;\n    background: #fff;\n    border: 1.5px solid #d8cfc0;\n  }\n  .sea-pepper__pip.is-on {\n    background: #b8462f;\n    border-color: #b8462f;\n  }\n  .sea-pepper__note {\n    grid-column: 1 / -1;\n    margin: 0;\n    font-size: 13.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  .sea-pepper__legend {\n    margin: 16px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  .sea-pepper__figure {\n    margin: 0;\n  }\n  .sea-pepper__figure img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-pepper__cap {\n    margin: 10px 0 0;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  @media (max-width: 989px) {\n    .sea-pepper {\n      padding: 22px;\n    }\n    .sea-pepper__grid {\n      grid-template-columns: 1fr;\n      gap: 24px;\n    }\n    .sea-pepper__figure {\n      order: -1;\n    }\n  }\n</style>\n\n<div class=\"sea-pepper\">\n  <div class=\"sea-pepper__grid\">\n\n    <div class=\"sea-pepper__body\">\n      <p class=\"sea-pepper__eyebrow\">Watch the edges, not the clock</p>\n      <h2 class=\"sea-pepper__heading\">Six to eight minutes at 400&deg;F, but the colour is what tells you.</h2>\n      <p class=\"sea-pepper__lede\">\n        Cubes this size go from just-done to dry in about ninety seconds, and every air fryer runs\n        hotter or cooler than its dial claims. The signal is the corners: they colour before the\n        flat faces do, and once they are properly golden the middle is there. Flip once at the\n        halfway mark so both cut faces get the same air.\n      </p>\n\n      <div class=\"sea-pepper__rows\">\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Pale, firming at the corners</span>\n          <span class=\"sea-pepper__tag\">Not yet</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Doneness: 2 out of 5\">\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip\"></span>\n        <span class=\"sea-pepper__pip\"></span>\n        <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">About three or four minutes in. The surface has set and gone opaque but there is no colour on it yet. Leave it &mdash; pulling here gives you steamed fish with a seasoned outside.</p>\n      </div>\n      <div class=\"sea-pepper__row sea-pepper__row--pick\">\n        <p class=\"sea-pepper__name\">\n          <span>Golden corners, centre just opaque</span>\n          <span class=\"sea-pepper__tag\">Pull it here</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Doneness: 3 out of 5\">\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip\"></span>\n        <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">Six to eight minutes, after the flip. The corners and edges have taken real colour, the flat faces are turning, and a fork slid into the thickest cube separates the flakes without resistance. This is the whole point of the recipe.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Deep gold, edges going crisp-hard</span>\n          <span class=\"sea-pepper__tag\">Last chance</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Doneness: 4 out of 5\">\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">Still good if it goes straight into the bowl. The outside is past crisp and starting to harden, and the centre has lost some of its moisture. No margin left, and these keep cooking on a hot plate.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Uniformly dark, flakes falling apart dry</span>\n          <span class=\"sea-pepper__tag\">Overcooked</span>\n        </p>\n        <div class=\"sea-pepper__meter\" role=\"img\" aria-label=\"Doneness: 5 out of 5\">\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        <span class=\"sea-pepper__pip is-on\"></span>\n        </div>\n        <p class=\"sea-pepper__note\">The cubes have shrunk noticeably and the flesh crumbles rather than flakes. The tzatziki will mask it, which is the only thing to be said for it.</p>\n      </div>\n      </div>\n\n      <p class=\"sea-pepper__legend\">\n        Ratings are how far along the fish is, not how good. Two smaller batches beat one crowded\n        basket &mdash; cubes that touch trap steam between them, and steam is the one thing that\n        stops a crust forming.\n      </p>\n    </div>\n\n    <figure class=\"sea-pepper__figure\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0222/9882/0682/files/4_8b7337bf-094b-449c-a5cd-667a262f1128.png&amp;width=700\" alt=\"Seasoned steelhead cubes spaced out in a single layer in the air fryer basket\" width=\"940\" height=\"1672\" loading=\"lazy\" decoding=\"async\">\n      <figcaption class=\"sea-pepper__cap\">\n        A single layer with air between every cube. From here you are watching the corners.\n      </figcaption>\n    </figure>\n\n  </div>\n</div>",
         "padding_top": 40,
         "padding_bottom": 16,
         "divider": false,
@@ -228,7 +228,7 @@
         "color_background": "",
         "gradient_background": ""
       },
-      "disabled": true
+      "disabled": false
     },
     "recipe_kit_card": {
       "type": "apps",
@@ -304,7 +304,7 @@
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
         "section_id": "building-the-sauce",
-        "liquid": "<style>\n  .sea-sheet {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-sheet__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-sheet__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n    max-width: 22ch;\n  }\n  .sea-sheet__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 24px;\n    max-width: 68ch;\n  }\n  .sea-sheet__cols {\n    display: grid;\n    grid-template-columns: repeat(3, minmax(0, 1fr));\n    gap: 14px;\n  }\n  .sea-sheet__col {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 18px;\n  }\n  .sea-sheet__col--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-sheet__num {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 26px;\n    height: 26px;\n    border-radius: 50%;\n    background: var(--ink);\n    color: #fff;\n    font-size: 12px;\n    font-weight: 700;\n    margin: 0 0 10px;\n  }\n  .sea-sheet__col h3 {\n    font-size: 15.5px;\n    font-weight: 600;\n    line-height: 1.3;\n    margin: 0 0 7px;\n  }\n  .sea-sheet__col p {\n    font-size: 13.5px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0;\n  }\n  .sea-sheet__foot {\n    margin: 18px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  @media (max-width: 749px) {\n    .sea-sheet {\n      padding: 22px;\n    }\n    .sea-sheet__cols {\n      grid-template-columns: 1fr;\n    }\n  }\n\n  .sea-sheet__fig {\n    margin: 22px auto 0;\n    max-width: 360px;\n  }\n  .sea-sheet__fig img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-sheet__figcap {\n    margin: 10px auto 0;\n    max-width: 360px;\n    text-align: center;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n</style>\n<div class=\"sea-sheet\">\n  <p class=\"sea-sheet__eyebrow\">How the sauce actually gets built</p>\n  <h2 class=\"sea-sheet__heading\">The sauce is blended, not reduced &mdash; and the spices are bloomed apart from it.</h2>\n  <p class=\"sea-sheet__lede\">\n    Butter chicken gets its body from long simmering. This gets it from roasted squash put through a\n    blender, which is why it takes fifty minutes instead of two hours. That means three separate\n    moves, and doing them in the wrong order is the only way to get a flat, raw-tasting sauce.\n  </p>\n\n  <div class=\"sea-sheet__cols\">\n    <div class=\"sea-sheet__col sea-sheet__col--pick\">\n      <span class=\"sea-sheet__num\">1</span>\n      <h3>Roast the pumpkin, don't boil it</h3>\n      <p>425&deg;F until the edges caramelise. That browning is where the sweetness comes from, and\n      you cannot get it back later &mdash; simmered squash makes a sauce that tastes thin and\n      vegetal no matter what you add to it.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">2</span>\n      <h3>Vent the blender lid</h3>\n      <p>Let the pumpkin cool a few minutes, then blend with the coconut milk on low before you go\n      up. Hot liquid turns to steam in a sealed jug and pushes the lid off &mdash; keep it vented and\n      hold a towel over the top.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">3</span>\n      <h3>Bloom the spices separately</h3>\n      <p>Garam masala, crushed cardamom, garlic and ginger in butter for about 45 seconds, until they\n      smell fragrant rather than dusty. Fat carries those flavours in a way liquid does not. Then\n      pour the sauce in.</p>\n    </div>\n  </div>\n\n  <figure class=\"sea-sheet__fig\">\n    <img\n      src=\"{{ '20260825-Stetten-Wilson-82.jpg' | file_url }}&amp;width=760\"\n      alt=\"Blended pumpkin and coconut sauce being poured into a pot of bloomed spices\"\n      width=\"1200\"\n      height=\"1600\"\n      loading=\"lazy\"\n      decoding=\"async\">\n    <figcaption class=\"sea-sheet__figcap\">\n      The two halves meet here &mdash; blended sauce into bloomed spice, not the other way round.\n    </figcaption>\n  </figure>\n</div>\n",
+        "liquid": "<style>\n  .sea-sheet {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-sheet__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-sheet__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n    max-width: 22ch;\n  }\n  .sea-sheet__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 24px;\n    max-width: 68ch;\n  }\n  .sea-sheet__cols {\n    display: grid;\n    grid-template-columns: repeat(3, minmax(0, 1fr));\n    gap: 14px;\n  }\n  .sea-sheet__col {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 18px;\n  }\n  .sea-sheet__col--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-sheet__num {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 26px;\n    height: 26px;\n    border-radius: 50%;\n    background: var(--ink);\n    color: #fff;\n    font-size: 12px;\n    font-weight: 700;\n    margin: 0 0 10px;\n  }\n  .sea-sheet__col h3 {\n    font-size: 15.5px;\n    font-weight: 600;\n    line-height: 1.3;\n    margin: 0 0 7px;\n  }\n  .sea-sheet__col p {\n    font-size: 13.5px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0;\n  }\n  .sea-sheet__foot {\n    margin: 18px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  @media (max-width: 749px) {\n    .sea-sheet {\n      padding: 22px;\n    }\n    .sea-sheet__cols {\n      grid-template-columns: 1fr;\n    }\n  }\n\n  .sea-sheet__fig {\n    margin: 22px auto 0;\n    max-width: 360px;\n  }\n  .sea-sheet__fig img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-sheet__figcap {\n    margin: 10px auto 0;\n    max-width: 360px;\n    text-align: center;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n</style>\n\n<div class=\"sea-sheet\">\n  <p class=\"sea-sheet__eyebrow\">How the sauce actually gets built</p>\n  <h2 class=\"sea-sheet__heading\">The avocado is the thickener &mdash; which is why the cucumber has to go in dry.</h2>\n  <p class=\"sea-sheet__lede\">\n    A classic tzatziki is strained yogurt and not much else. This one carries a whole avocado, and\n    that is what gives it the colour and enough body to sit on top of hot fish instead of running\n    off it. Three moves, and the order matters for exactly one reason: water.\n  </p>\n\n  <div class=\"sea-sheet__cols\">\n    <div class=\"sea-sheet__col sea-sheet__col--pick\">\n      <span class=\"sea-sheet__num\">1</span>\n      <h3>Squeeze the cucumber dry</h3>\n      <p>Grate half a cup and wring it out in a clean towel until no more comes. Cucumber is mostly\n      water and it will keep releasing into the sauce for an hour after blending &mdash; that is how\n      a thick tzatziki turns into a thin one in the fridge.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">2</span>\n      <h3>Everything in at once</h3>\n      <p>Yogurt, avocado, the squeezed cucumber, dill, parsley, mint, garlic, lemon juice, olive oil,\n      salt and pepper. No need to build it in stages &mdash; there is nothing hot in the jug, so it\n      goes straight to smooth and bright green.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">3</span>\n      <h3>Loosen last, a spoon at a time</h3>\n      <p>Cold water, one tablespoon at a time, until it pours in a ribbon rather than a blob. Adding\n      it at the start means you cannot tell how thick the avocado made it, and a sauce you have\n      over-thinned cannot be taken back.</p>\n    </div>\n  </div>\n\n  <figure class=\"sea-sheet__fig\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0222/9882/0682/files/2_7f607006-11a5-42e2-9209-787a945b8b92.png&amp;width=760\" alt=\"Green goddess tzatziki pouring from the blender into a dish\" width=\"939\" height=\"1675\" loading=\"lazy\" decoding=\"async\">\n    <figcaption class=\"sea-sheet__figcap\">\n      Pourable, not runny. It should fall in a ribbon and hold its shape for a second on the surface.\n    </figcaption>\n  </figure>\n</div>",
         "padding_top": 24,
         "padding_bottom": 24,
         "divider": false,
@@ -314,7 +314,7 @@
         "color_background": "",
         "gradient_background": ""
       },
-      "disabled": true
+      "disabled": false
     },
     "swap_table": {
       "type": "table-content",
@@ -323,83 +323,83 @@
           "type": "row",
           "settings": {
             "version1": "As written",
-            "version2": "Closest swap",
-            "version3": "If you are improvising"
+            "version2": "Easy swap",
+            "version3": "What changes"
           }
         },
-        "w_shrimp": {
+        "w_fish": {
           "type": "row",
           "settings": {
-            "feature": "The shrimp",
-            "version1": "16 oz Mangrove Black Tiger Shrimp",
-            "version2": "Any raw peeled shrimp, same timing",
-            "version3": "Scallops &mdash; two minutes, turned once; or firm white fish in 1-inch pieces"
+            "version1": "4 &times; 6 oz Steelhead portions",
+            "version2": "King or Atlantic Salmon, same cut",
+            "version3": "Both are fattier &mdash; check them a minute early",
+            "feature": "The fish"
           }
         },
-        "w_squash": {
+        "w_yogurt": {
           "type": "row",
           "settings": {
-            "feature": "The squash",
-            "version1": "2 cups kabocha or sugar pumpkin",
-            "version2": "Butternut, which is sweeter and smoother",
-            "version3": "Sweet potato &mdash; denser, so thin the sauce with a splash more coconut milk"
+            "version1": "1 cup whole-milk Greek yogurt",
+            "version2": "Skyr, or a thick dairy-free yogurt",
+            "version3": "Skyr is tarter, so loosen it with a little more water",
+            "feature": "The yogurt"
           }
         },
-        "w_dairy": {
+        "w_avocado": {
           "type": "row",
           "settings": {
-            "feature": "The richness",
-            "version1": "1 can full-fat coconut milk",
-            "version2": "Coconut cream, thinned with water",
-            "version3": "Cashew cream, for something closer to a classic butter sauce"
+            "version1": "1 ripe avocado",
+            "version2": "Leave it out, add 2 tbsp olive oil",
+            "version3": "Thinner and paler &mdash; still pourable, less able to sit on the fish",
+            "feature": "The avocado"
           }
         },
-        "w_spice": {
+        "w_herbs": {
           "type": "row",
           "settings": {
-            "feature": "The spice",
-            "version1": "1&frac12; tsp garam masala + cardamom pods",
-            "version2": "Curry powder, with the cardamom kept",
-            "version3": "Cumin, coriander and a cinnamon stick, bloomed the same way"
-          }
-        },
-        "w_heat": {
-          "type": "row",
-          "settings": {
-            "feature": "The heat",
-            "version1": "1 Fresno chile, sliced",
-            "version2": "Red jalape&ntilde;o, or half a serrano",
-            "version3": "A pinch of Aleppo stirred in at the end, for warmth without the bite"
+            "version1": "Dill, parsley and mint",
+            "version2": "Any two of the three",
+            "version3": "Keep the dill if you keep only one &mdash; it is what reads as tzatziki",
+            "feature": "The herbs"
           }
         },
         "w_grain": {
           "type": "row",
           "settings": {
-            "feature": "The grain",
-            "version1": "Cilantro lime basmati",
-            "version2": "Jasmine rice, same treatment",
-            "version3": "Warm naan or roti, and skip the rice entirely"
+            "version1": "1 cup jasmine rice",
+            "version2": "Basmati, farro or orzo",
+            "version3": "Farro takes longer and holds the sauce better",
+            "feature": "The grain"
           }
         },
-        "w_crunch": {
+        "w_brine": {
           "type": "row",
           "settings": {
-            "feature": "The crunch",
-            "version1": "Toasted coconut flakes and pepitas",
-            "version2": "Toasted cashews or almonds",
-            "version3": "Fried shallots, which add salt as well as texture"
+            "version1": "&frac12; cup Kalamata olives",
+            "version2": "Capers, or chopped preserved lemon",
+            "version3": "Sharper and saltier, so pull back on the added salt",
+            "feature": "The brine"
+          }
+        },
+        "w_cheese": {
+          "type": "row",
+          "settings": {
+            "version1": "&frac34; cup feta",
+            "version2": "Goat cheese, or none",
+            "version3": "Goat is creamier and much less salty",
+            "feature": "The cheese"
           }
         }
       },
       "block_order": [
         "w_head",
-        "w_shrimp",
-        "w_squash",
-        "w_dairy",
-        "w_spice",
-        "w_heat",
+        "w_fish",
+        "w_yogurt",
+        "w_avocado",
+        "w_herbs",
         "w_grain",
-        "w_crunch"
+        "w_brine",
+        "w_cheese"
       ],
       "name": "Table content",
       "settings": {
@@ -419,7 +419,7 @@
         "color_background": "",
         "gradient_background": ""
       },
-      "disabled": true
+      "disabled": false
     },
     "meal_prep": {
       "type": "image-with-text",
@@ -647,7 +647,7 @@
           "type": "question",
           "settings": {
             "title": "How do I know when the bites are done?",
-            "text": "<p>Go by the edges and the give. The cubes should have taken real colour on the outside and flake when pressed gently with a fork. Because they are cut small they carry on cooking for a moment after they leave the basket, so pull them when the edges look right rather than waiting for the centre to look dry. TODO: confirm the temperature and time from the recipe before publish.</p>",
+            "text": "<p>400&deg;F for six to eight minutes, flipping once halfway, but go by the corners rather than the timer. They colour before the flat faces do, and once they are properly golden the centre is cooked. A fork slid into the thickest cube should separate the flakes without resistance. Because the cubes are small they carry on cooking for a moment after they leave the basket, so pull them at golden rather than waiting for dark.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
