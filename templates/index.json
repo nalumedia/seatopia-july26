@@ -1158,15 +1158,15 @@
       "type": "index-new-testimonials",
       "blocks": {
         "review_hUgdXR": {
-          "disabled": true,
+          "disabled": false,
           "type": "review",
           "settings": {
             "image": "shopify://shop_images/Mark_hyman.png",
             "image_url": "",
-            "title": "Dr. Mark Hyman",
+            "title": "Dr. Mark Hyman, paid partner",
             "job": "Leader in Functional Medicine",
             "Start_number": "5",
-            "text": "<p>“We are what foods we eat and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
+            "text": "<p>Functional medicine physician, author, and a long-time Seatopia customer.</p>",
             "block_background": "",
             "block_text_color": ""
           }
