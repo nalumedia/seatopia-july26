@@ -727,12 +727,12 @@
       "type": "creator-quote-slider",
       "blocks": {
         "slide_hyman": {
-          "disabled": true,
+          "disabled": false,
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/05212021_Mark_Hyman9087-Edit.jpg",
-            "eyebrow": "Recommended by Dr. Mark Hyman, MD",
-            "quote": "“Thanks to Seatopia the next generation of omega-rich, microalgae-fed seafood can help us live more vital lives”",
+            "eyebrow": "Recommended by Dr. Mark Hyman, MD · Paid partner",
+            "quote": "“We are what our food eats.”",
             "support": "<p>Seafood delivered to your door. We test and publish omega-3, protein, selenium, vitamin D and B12.</p>",
             "button_label": "Why Dr. Mark Hyman Supports Seatopia",
             "button_link": "shopify://pages/mark-hyman"
