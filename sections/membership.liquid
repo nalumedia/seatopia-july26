@@ -1,51 +1,243 @@
 {%- comment -%}
   Seatopia Membership landing page.
-  Renders inside the standard theme layout (real header/footer) via templates/page.membership.json.
+  Renders inside the standard theme layout via templates/page.membership.json.
 
-  Styling follows the theme's design system: every band sets the theme's own
-  --color-background / --color-foreground variables (space-separated RGB), so the
-  theme's .heading, body text, and {% render 'button' %} recolor automatically and
-  stay consistent with the rest of seatopia.fish. The scoped <style> at the bottom
-  only defines membership-specific components (cards, chips, certificate, boxes, FAQ),
-  all coloured through those same variables so they adapt to light/dark bands.
+  Everything visual comes from the Concept theme:
+  - side margins: .page-width
+  - headings, eyebrows, body text, badges, links, buttons: the theme's own classes and button markup
+  - spacing, radius, borders, placeholders: theme tokens (--sp-*, --rounded-block, --color-border, --color-placeholder)
+  - white bands inherit the site's global colours; the cream, sage and dark bands take their colours
+    from this section's colour settings (Theme editor > Membership) instead of hardcoded values.
+
+  The <style> block only handles layout (grids, card structure, the certificate rows, FAQ toggle).
+  It contains no font sizes, no hex colours and no pixel spacing.
 {%- endcomment -%}
+
+{%- liquid
+  assign s = section.settings
+  assign hero_img = images['DrCaseyMeans-Seatopia-29.jpg']
+  assign health_img = images['DrCaseyMeans-Seatopia-34.jpg']
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --mbr-band-space: {{ s.band_padding }}px;
+    --mbr-band-space-mobile: {{ s.band_padding_mobile }}px;
+  }
+
+  {%- assign tones = 'cream,sage,dark' | split: ',' -%}
+  {%- for tone in tones -%}
+    {%- case tone -%}
+      {%- when 'cream' -%}{%- assign bg = s.cream_background -%}{%- assign fg = s.cream_text -%}
+      {%- when 'sage' -%}{%- assign bg = s.sage_background -%}{%- assign fg = s.sage_text -%}
+      {%- when 'dark' -%}{%- assign bg = s.dark_background -%}{%- assign fg = s.dark_text -%}
+    {%- endcase -%}
+    {%- assign border = fg | color_mix: bg, 18 -%}
+    #shopify-section-{{ section.id }} .mbr-tone--{{ tone }} {
+      --color-background: {{ bg.red }} {{ bg.green }} {{ bg.blue }};
+      --color-foreground: {{ fg.red }} {{ fg.green }} {{ fg.blue }};
+      --color-border: {{ border | color_extract: 'red' }} {{ border | color_extract: 'green' }} {{ border | color_extract: 'blue' }};
+      color: rgb(var(--color-foreground));
+    }
+  {%- endfor -%}
+
+  #shopify-section-{{ section.id }} .mbr-band--hero {
+    background: radial-gradient(125% 120% at 82% 4%, {{ s.dark_background | color_lighten: 8 }} 0%, rgb(var(--color-background)) 46%);
+  }
+
+  .membership :where(h1, h2, h3, p, figure, blockquote) { margin: 0; }
+
+  /* Bands */
+  .mbr-band {
+    background: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+    padding-block: var(--mbr-band-space);
+  }
+  .mbr-band--cta { padding-block: calc(var(--mbr-band-space) * 1.25); }
+  @media (max-width: 767px) {
+    .mbr-band { padding-block: var(--mbr-band-space-mobile); }
+    .mbr-band--cta { padding-block: calc(var(--mbr-band-space-mobile) * 1.25); }
+  }
+  .mbr-narrow { max-width: 52rem; margin-inline: auto; }
+
+  /* Section heads (theme title-wrapper markup; only width and spacing here) */
+  .mbr-head { max-width: 45rem; margin-block-end: var(--sp-8); }
+  .mbr-head--center { align-items: center; text-align: center; margin-inline: auto; }
+  .mbr-head--row { max-width: none; flex-direction: row; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; }
+
+  /* Grids */
+  .mbr-grid { display: grid; gap: var(--sp-6); }
+  .mbr-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mbr-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .mbr-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  @media (max-width: 1023px) { .mbr-grid--3, .mbr-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 767px) { .mbr-grid--2, .mbr-grid--3, .mbr-grid--4 { grid-template-columns: 1fr; } }
+
+  /* Hero */
+  .mbr-hero { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(var(--sp-8), 5vw, calc(var(--sp-8) * 1.75)); align-items: center; }
+  @media (max-width: 1023px) { .mbr-hero { grid-template-columns: 1fr; gap: var(--sp-8); } }
+  .mbr-hero__copy { display: flex; flex-direction: column; gap: var(--sp-5); align-items: flex-start; }
+  .mbr-hero__media { overflow: hidden; border-radius: var(--rounded-block); background: rgb(var(--color-placeholder)); }
+  .mbr-hero__media img { display: block; width: 100%; height: auto; object-fit: cover; }
+  .mbr-lede { max-width: 38rem; }
+  .mbr-cta-row { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+  .mbr-cta-row--center { justify-content: center; }
+
+  .mbr-trust { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--sp-2); }
+  .mbr-trust li { position: relative; padding-inline-start: 1.5em; }
+  .mbr-trust li::before {
+    content: ""; position: absolute; inset-inline-start: 0.1em; top: 0.45em;
+    width: 0.8em; height: 0.4em;
+    border-inline-start: 2px solid rgb(var(--color-button-background));
+    border-block-end: 2px solid rgb(var(--color-button-background));
+    transform: rotate(-45deg);
+  }
+  .mbr-trust--center { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: var(--sp-2) var(--sp-6); margin-block-start: var(--sp-5); }
+
+  /* Standard strip */
+  .mbr-strip { margin-block-start: calc(var(--sp-8) * 1.5); padding-block-start: var(--sp-8); border-block-start: 1px solid rgb(var(--color-border)); }
+  .mbr-strip__eyebrow { margin-block-end: var(--sp-6); }
+  .mbr-strip__item { display: flex; flex-direction: column; gap: var(--sp-1d5); }
+
+  /* Cards */
+  .mbr-card {
+    display: flex; flex-direction: column; gap: var(--sp-3);
+    padding: var(--sp-6);
+    background: rgb(var(--color-background));
+    border: 1px solid rgb(var(--color-border));
+    border-radius: var(--rounded-block);
+  }
+  .mbr-tone--cream .mbr-card:not(.mbr-card--dark),
+  .mbr-tone--sage .mbr-card:not(.mbr-card--dark) { background: rgb(var(--color-foreground) / 0.03); }
+  .mbr-card--dark { border-color: transparent; }
+  .mbr-pill { align-self: flex-start; margin-block-start: var(--sp-2); padding: var(--sp-2) var(--sp-3); border-radius: var(--rounded-block); background: rgb(var(--color-foreground) / 0.06); }
+  .mbr-tagline { text-align: center; margin-block-start: calc(var(--sp-8) * 1.25); }
+
+  /* Certificate of analysis */
+  .mbr-coa { max-width: 49rem; margin-inline: auto; padding: var(--sp-2) var(--sp-6) var(--sp-6); background: rgb(var(--color-foreground) / 0.06); border: 1px solid rgb(var(--color-border)); border-radius: var(--rounded-block); }
+  .mbr-coa__head { margin-block: var(--sp-5) var(--sp-2); }
+  .mbr-coa__row { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sp-5); padding-block: var(--sp-5); border-block-start: 1px solid rgb(var(--color-border)); }
+  .mbr-coa__data { display: flex; flex-direction: column; gap: var(--sp-1d5); max-width: 80%; }
+  .mbr-coa__tag { flex: none; white-space: nowrap; }
+  .mbr-coa__foot { margin-block-start: var(--sp-4); }
+
+  /* Health */
+  .mbr-health { align-items: stretch; }
+  .mbr-stack { display: flex; flex-direction: column; gap: var(--sp-4); }
+  .mbr-badge-card { justify-content: center; }
+  .mbr-badge-card__img { overflow: hidden; margin-block-end: var(--sp-4); border-radius: var(--rounded-block); aspect-ratio: 16 / 10; background: rgb(var(--color-placeholder)); }
+  .mbr-badge-card__img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .mbr-note { max-width: 45rem; margin: var(--sp-8) auto 0; text-align: center; display: flex; flex-direction: column; gap: var(--sp-1d5); }
+
+  /* Perks and steps */
+  .mbr-perk, .mbr-step { display: flex; flex-direction: column; gap: var(--sp-2); }
+  .mbr-perk { padding-block-start: var(--sp-4); border-block-start: 2px solid rgb(var(--color-border)); }
+  .mbr-commit {
+    margin-block-start: calc(var(--sp-8) * 1.25);
+    display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3) var(--sp-6);
+    padding: var(--sp-5) var(--sp-6);
+    background: rgb(var(--color-foreground) / 0.03);
+    border: 1px solid rgb(var(--color-border));
+    border-radius: var(--rounded-block);
+  }
+  .mbr-commit__list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-6); }
+  .mbr-commit__list li { position: relative; padding-inline-start: 1em; }
+  .mbr-commit__list li::before { content: "·"; position: absolute; inset-inline-start: 0.2em; font-weight: 700; color: rgb(var(--color-button-background)); }
+
+  /* Curated boxes */
+  .mbr-box {
+    display: flex; flex-direction: column; overflow: hidden;
+    color: rgb(var(--color-foreground)); text-decoration: none;
+    background: rgb(var(--color-foreground) / 0.03);
+    border: 1px solid rgb(var(--color-border));
+    border-radius: var(--rounded-block);
+    transition: border-color var(--animation-primary, 0.3s ease);
+  }
+  .mbr-box:hover, .mbr-box:focus-visible { border-color: rgb(var(--color-foreground) / 0.5); }
+  .mbr-box__media { position: relative; aspect-ratio: 1 / 1; overflow: hidden; background: rgb(var(--color-placeholder)); }
+  .mbr-box__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .mbr-box__tag { position: absolute; top: var(--sp-4); inset-inline-start: var(--sp-4); z-index: 1; }
+  .mbr-box__body { display: flex; flex-direction: column; gap: var(--sp-2); padding: var(--sp-5); }
+  .mbr-box__price { margin-block-start: var(--sp-2); }
+  .mbr-box__price s { margin-inline: var(--sp-1d5); }
+
+  /* Testimonials */
+  .mbr-stars { color: rgb(var(--color-rating)); letter-spacing: 0.2em; }
+  .mbr-quote { display: flex; flex-direction: column; gap: var(--sp-4); padding: var(--sp-6); background: rgb(var(--color-foreground) / 0.05); border: 1px solid rgb(var(--color-border)); border-radius: var(--rounded-block); }
+  .mbr-quote figcaption { display: flex; flex-direction: column; gap: var(--sp-1d5); }
+
+  /* FAQ */
+  .mbr-faq { border-block-start: 1px solid rgb(var(--color-border)); }
+  .mbr-faq__item { border-block-end: 1px solid rgb(var(--color-border)); }
+  .mbr-faq__item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: var(--sp-6); padding-block: var(--sp-5); }
+  .mbr-faq__item summary::-webkit-details-marker { display: none; }
+  .mbr-faq__icon { flex: none; width: 1.25em; height: 1.25em; transition: transform var(--animation-primary, 0.3s ease); }
+  .mbr-faq__item[open] .mbr-faq__icon { transform: rotate(45deg); }
+  .mbr-faq__a { padding: 0 var(--sp-8) var(--sp-5) 0; }
+
+  .mbr-band--cta .mbr-lede { margin-inline: auto; }
+
+  @media (max-width: 767px) {
+    .mbr-card, .mbr-quote { padding: var(--sp-5); }
+    .mbr-coa { padding-inline: var(--sp-4); }
+    .mbr-coa__row { flex-direction: column; gap: var(--sp-2); }
+    .mbr-coa__data { max-width: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mbr-box, .mbr-faq__icon { transition: none; }
+  }
+</style>
+
+{%- comment -%} Theme eyebrow (same markup as the theme's own section subheadings) {%- endcomment -%}
+{%- capture eyebrow_class -%}heading normal-case font-medium subtext-lg leading-none tracking-none{%- endcapture -%}
+{%- capture kicker_class -%}text-sm font-medium text-opacity leading-tight{%- endcapture -%}
 
 <div class="membership">
 
   {%- comment -%} ============================ HERO ============================ {%- endcomment -%}
-  <section class="mbr-band mbr-band--hero" data-testid="hero-membership">
+  <section class="mbr-band mbr-band--hero mbr-tone--dark" data-testid="hero-membership">
     <div class="page-width">
       <div class="mbr-hero">
         <div class="mbr-hero__copy">
-          <p class="mbr-eyebrow">The Seatopia Membership</p>
-          <h1 class="heading title-xl tracking-heading mbr-hero__title">Not just healthy. <em>Measurable</em> — month after month.</h1>
-          <p class="mbr-lede text-lg">Become a Seatopian. Make clean, lab-verified, omega-rich seafood a monthly ritual — delivered on ocean time. The benefits of the sea compound with consistency, and we prove every claim with a lab report.</p>
+          <p class="{{ eyebrow_class }}">The Seatopia Membership</p>
+          <h1 class="heading title-xl tracking-heading">Not just healthy. <em>Measurable</em> — month after month.</h1>
+          <p class="mbr-lede text-lg leading-normal text-opacity">Become a Seatopian. Make clean, lab-verified, omega-rich seafood a monthly ritual — delivered on ocean time. The benefits of the sea compound with consistency, and we prove every claim with a lab report.</p>
           <div class="mbr-cta-row">
-            {%- render 'button', label: 'Build your subscription', link: '/collections/curated-boxes' -%}
-            {%- render 'button', label: 'See member benefits', link: '#perks', style: 'secondary' -%}
+            <a class="button button--primary button--md" href="/collections/curated-boxes" is="hover-link">
+              <span class="btn-fill" data-fill></span>
+              <span class="btn-text">Build your subscription</span>
+            </a>
+            <a class="button button--secondary button--md" href="#perks" is="hover-link">
+              <span class="btn-fill" data-fill></span>
+              <span class="btn-text">See member benefits</span>
+            </a>
           </div>
-          <ul class="mbr-trust">
+          <ul class="mbr-trust text-sm leading-normal text-opacity">
             <li>Third-party lab verified for DHA, EPA, mercury &amp; microplastics</li>
             <li>Tested to ≤ 0.1 ppm mercury &ndash; a tenth of the FDA action level &middot; no microplastics detected in third-party testing</li>
             <li>134+ published product quality reports</li>
           </ul>
         </div>
         <div class="mbr-hero__media">
-          <img src="https://seatopia.fish/cdn/shop/files/DrCaseyMeans-Seatopia-29.jpg?width=1400" alt="Seatopia yellowtail crudo with herb oil and edible flowers" loading="eager" width="700" height="560">
+          {%- if hero_img != blank -%}
+            {{ hero_img | image_url: width: 1400 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 1024px) 45vw, 100vw', widths: '600,800,1000,1200,1400', alt: 'Seatopia yellowtail crudo with herb oil and edible flowers' }}
+          {%- else -%}
+            <img src="https://seatopia.fish/cdn/shop/files/DrCaseyMeans-Seatopia-29.jpg?width=1400" alt="Seatopia yellowtail crudo with herb oil and edible flowers" loading="eager" width="700" height="560">
+          {%- endif -%}
         </div>
       </div>
 
       {%- comment -%} Standard strip 01–04 {%- endcomment -%}
       <div class="mbr-strip">
-        <p class="mbr-strip__eyebrow">SEATOPIA STANDARD™ · Verified clean · a certificate behind every claim</p>
+        <p class="mbr-strip__eyebrow {{ kicker_class }}">SEATOPIA STANDARD™ · Verified clean · a certificate behind every claim</p>
         <div class="mbr-grid mbr-grid--4">
           {%- assign strip_n = 'Clean seafood, monthly|Member value|Guidance, not guesswork|On ocean time' | split: '|' -%}
           {%- assign strip_d = 'Clean seafood, third-party lab tested at the supplier level, delivered snap-frozen on a rhythm you set.|10% off every order, member gifts &amp; rewards, and quarterly access to limited harvests.|Free 1:1 chef classes and a dedicated concierge for questions, cooking, and scheduling.|Monthly or bi-monthly, pause up to 3 months, change size and cadence, or cancel anytime.' | split: '|' -%}
           {%- for item in strip_n -%}
             <div class="mbr-strip__item">
-              <span class="mbr-num">{{ forloop.index | prepend: '0' }}</span>
-              <p class="mbr-strip__title">{{ item }}</p>
-              <p class="mbr-strip__text">{{ strip_d[forloop.index0] }}</p>
+              <span class="{{ kicker_class }}">{{ forloop.index | prepend: '0' }}</span>
+              <h3 class="heading text-xl leading-tight">{{ item }}</h3>
+              <p class="text-sm leading-normal text-opacity">{{ strip_d[forloop.index0] }}</p>
             </div>
           {%- endfor -%}
         </div>
@@ -60,135 +252,146 @@
   {%- render 'member-rewards', cta_link: '/collections/curated-boxes' -%}
 
   {%- comment -%} ==================== USPs: three things ==================== {%- endcomment -%}
-  <section class="mbr-band mbr-band--white" id="usps">
+  <section class="mbr-band" id="usps">
     <div class="page-width">
-      <div class="mbr-head">
-        <p class="mbr-eyebrow">The Seatopia Standard</p>
+      <div class="mbr-head title-wrapper leading-none flex flex-col gap-4 relative z-1">
+        <p class="{{ eyebrow_class }}">The Seatopia Standard</p>
         <h2 class="heading title-lg">Three things we can prove about every supplier.</h2>
       </div>
       <div class="mbr-grid mbr-grid--3">
         <div class="mbr-card">
-          <p class="mbr-kicker">Certified Marine Nutrition</p>
+          <p class="{{ kicker_class }}">Certified Marine Nutrition</p>
           <h3 class="heading title-sm">Not just healthy. Measurable.</h3>
-          <p class="mbr-muted">Every product is third-party lab tested for nutrients — EPA, DHA, omega-3:6 ratios, and micronutrients — measured and published per SKU.</p>
-          <p class="mbr-pill">up to 3,434 mg EPA+DHA / serving <span>(king salmon)</span></p>
+          <p class="leading-normal text-opacity">Every product is third-party lab tested for nutrients — EPA, DHA, omega-3:6 ratios, and micronutrients — measured and published per SKU.</p>
+          <p class="mbr-pill text-sm font-medium">up to 3,434 mg EPA+DHA / serving <span class="text-opacity">(king salmon)</span></p>
         </div>
         <div class="mbr-card">
-          <p class="mbr-kicker">Verified Safe &amp; Clean</p>
+          <p class="{{ kicker_class }}">Verified Safe &amp; Clean</p>
           <h3 class="heading title-sm">When we say clean, there's a certificate behind it.</h3>
-          <p class="mbr-muted">Seatopia third-party lab tests every supplier, and then continues to audit them regularly to ensure that they consistently meet their standards. The result is a downloadable Certificate of Analysis, not a marketing word.</p>
-          <p class="mbr-pill">mercury &le; 0.1 ppm · 0 microplastics</p>
+          <p class="leading-normal text-opacity">Seatopia third-party lab tests every supplier, and then continues to audit them regularly to ensure that they consistently meet their standards. The result is a downloadable Certificate of Analysis, not a marketing word.</p>
+          <p class="mbr-pill text-sm font-medium">mercury &le; 0.1 ppm · 0 microplastics</p>
         </div>
         <div class="mbr-card">
-          <p class="mbr-kicker">Precision Frozen</p>
+          <p class="{{ kicker_class }}">Precision Frozen</p>
           <h3 class="heading title-sm">Precision freezing you can taste.</h3>
-          <p class="mbr-muted">From harvest to precision freezing and cold-chain delivery, every step protects quality, texture, and safety — meeting or exceeding FDA guidelines.</p>
-          <p class="mbr-pill">snap-frozen at peak freshness</p>
+          <p class="leading-normal text-opacity">From harvest to precision freezing and cold-chain delivery, every step protects quality, texture, and safety — meeting or exceeding FDA guidelines.</p>
+          <p class="mbr-pill text-sm font-medium">snap-frozen at peak freshness</p>
         </div>
       </div>
     </div>
   </section>
 
   {%- comment -%} ==================== Why a membership ==================== {%- endcomment -%}
-  <section class="mbr-band mbr-band--cream" id="why">
+  <section class="mbr-band mbr-tone--cream" id="why">
     <div class="page-width">
-      <div class="mbr-head">
-        <p class="mbr-eyebrow">Why a membership</p>
+      <div class="mbr-head title-wrapper leading-none flex flex-col gap-4 relative z-1">
+        <p class="{{ eyebrow_class }}">Why a membership</p>
         <h2 class="heading title-lg">Don't just buy seafood. Build a practice.</h2>
-        <p class="mbr-muted mbr-head__lede">Seafood fueled human evolution — the marine omega-3s that shaped our brains and longevity came from the sea. That benefit is real, but it lives in the repetition, not the occasional splurge.</p>
+        <div class="description rte leading-normal subtext-md text-opacity">
+          <p>Seafood fueled human evolution — the marine omega-3s that shaped our brains and longevity came from the sea. That benefit is real, but it lives in the repetition, not the occasional splurge.</p>
+        </div>
       </div>
       <div class="mbr-grid mbr-grid--2">
         <div class="mbr-card">
-          <p class="mbr-kicker">The idea</p>
+          <p class="{{ kicker_class }}">The idea</p>
           <h3 class="heading title-sm">The benefit is in the repetition.</h3>
-          <p class="mbr-muted">One great piece of fish is a lovely dinner. Eating clean, omega-rich seafood three to four times a week is what actually moves your numbers — and that only happens when it's already in your kitchen.</p>
+          <p class="leading-normal text-opacity">One great piece of fish is a lovely dinner. Eating clean, omega-rich seafood three to four times a week is what actually moves your numbers — and that only happens when it's already in your kitchen.</p>
         </div>
-        <div class="mbr-card mbr-card--dark">
-          <p class="mbr-kicker">The membership</p>
+        <div class="mbr-card mbr-card--dark mbr-tone--dark">
+          <p class="{{ kicker_class }}">The membership</p>
           <h3 class="heading title-sm">We make repetition effortless.</h3>
-          <p class="mbr-muted">A box you customize, delivered on ocean time, third-party lab tested at the supplier level — with chef classes and a concierge so cooking it stays a pleasure, not a project. The habit does the rest.</p>
+          <p class="leading-normal text-opacity">A box you customize, delivered on ocean time, third-party lab tested at the supplier level — with chef classes and a concierge so cooking it stays a pleasure, not a project. The habit does the rest.</p>
         </div>
       </div>
-      <p class="mbr-tagline">Food as medicine, not marketing.</p>
+      <p class="mbr-tagline heading title-sm"><em>Food as medicine, not marketing.</em></p>
     </div>
   </section>
 
   {%- comment -%} ==================== Certificate / confidence (dark anchor) ==================== {%- endcomment -%}
-  <section class="mbr-band mbr-band--dark" id="standard">
+  <section class="mbr-band mbr-tone--dark" id="standard">
     <div class="page-width">
-      <div class="mbr-head">
-        <p class="mbr-eyebrow">Proof over poetry</p>
+      <div class="mbr-head title-wrapper leading-none flex flex-col gap-4 relative z-1">
+        <p class="{{ eyebrow_class }}">Proof over poetry</p>
         <h2 class="heading title-lg">Other brands sell seafood. We sell confidence.</h2>
-        <p class="mbr-muted mbr-head__lede">Every health claim we make is grounded in product-level lab data. Read it like a certificate of analysis — because that's exactly what it is.</p>
+        <div class="description rte leading-normal subtext-md text-opacity">
+          <p>Every health claim we make is grounded in product-level lab data. Read it like a certificate of analysis — because that's exactly what it is.</p>
+        </div>
       </div>
       <div class="mbr-coa" data-testid="coa-card">
-        <p class="mbr-coa__head">CERTIFICATE OF ANALYSIS — SEATOPIA STANDARD™ · THIRD-PARTY VERIFIED</p>
+        <p class="mbr-coa__head {{ kicker_class }}">CERTIFICATE OF ANALYSIS — SEATOPIA STANDARD™ · THIRD-PARTY VERIFIED</p>
         <div class="mbr-coa__row">
-          <div class="mbr-coa__data"><p class="mbr-coa__k">Methylmercury</p><p class="mbr-coa__v">&le; 0.1 ppm</p><p class="mbr-coa__d">Held to a &le; 0.1 ppm ceiling, and quantified batch by batch — not estimated.</p></div>
-          <span class="mbr-coa__tag">Within standard</span>
+          <div class="mbr-coa__data"><p class="text-sm text-opacity">Methylmercury</p><p class="heading title-sm">&le; 0.1 ppm</p><p class="text-sm leading-normal text-opacity">Held to a &le; 0.1 ppm ceiling, and quantified batch by batch — not estimated.</p></div>
+          <span class="mbr-coa__tag badge font-medium leading-none rounded-full">Within standard</span>
         </div>
         <div class="mbr-coa__row">
-          <div class="mbr-coa__data"><p class="mbr-coa__k">Microplastics</p><p class="mbr-coa__v">0 detected</p><p class="mbr-coa__d">No microplastics detected in third-party testing.</p></div>
-          <span class="mbr-coa__tag">Within standard</span>
+          <div class="mbr-coa__data"><p class="text-sm text-opacity">Microplastics</p><p class="heading title-sm">0 detected</p><p class="text-sm leading-normal text-opacity">No microplastics detected in third-party testing.</p></div>
+          <span class="mbr-coa__tag badge font-medium leading-none rounded-full">Within standard</span>
         </div>
         <div class="mbr-coa__row">
-          <div class="mbr-coa__data"><p class="mbr-coa__k">Omega-3 · EPA + DHA</p><p class="mbr-coa__v">3,434 mg / serving*</p><p class="mbr-coa__d">Marine EPA + DHA in bioavailable form, measured per species and published.</p></div>
-          <span class="mbr-coa__tag mbr-coa__tag--pos">Nutrient dense</span>
+          <div class="mbr-coa__data"><p class="text-sm text-opacity">Omega-3 · EPA + DHA</p><p class="heading title-sm">3,434 mg / serving*</p><p class="text-sm leading-normal text-opacity">Marine EPA + DHA in bioavailable form, measured per species and published.</p></div>
+          <span class="mbr-coa__tag badge font-medium leading-none rounded-full">Nutrient dense</span>
         </div>
-        <p class="mbr-coa__foot">134+ PUBLISHED PRODUCT QUALITY REPORTS · A CERTIFICATE OF ANALYSIS PER SKU · *KING SALMON, VARIES BY SPECIES</p>
+        <p class="mbr-coa__foot {{ kicker_class }}">134+ PUBLISHED PRODUCT QUALITY REPORTS · A CERTIFICATE OF ANALYSIS PER SKU · *KING SALMON, VARIES BY SPECIES</p>
       </div>
     </div>
   </section>
 
   {%- comment -%} ==================== Health you can measure ==================== {%- endcomment -%}
-  <section class="mbr-band mbr-band--white" id="health">
+  <section class="mbr-band" id="health">
     <div class="page-width">
-      <div class="mbr-head">
-        <p class="mbr-eyebrow">Health you can measure</p>
+      <div class="mbr-head title-wrapper leading-none flex flex-col gap-4 relative z-1">
+        <p class="{{ eyebrow_class }}">Health you can measure</p>
         <h2 class="heading title-lg">The whole point is a number you can move.</h2>
-        <p class="mbr-muted mbr-head__lede">The Omega-3 Index measures the EPA and DHA in your red blood cells. A higher index is associated with better long-term heart and brain health — and unlike a feeling, it's something you can actually test.</p>
+        <div class="description rte leading-normal subtext-md text-opacity">
+          <p>The Omega-3 Index measures the EPA and DHA in your red blood cells. A higher index is associated with better long-term heart and brain health — and unlike a feeling, it's something you can actually test.</p>
+        </div>
       </div>
       <div class="mbr-grid mbr-grid--2 mbr-health">
-        <div class="mbr-card mbr-card--dark mbr-badge-card">
-          <img class="mbr-badge-card__img"
-               src="https://seatopia.fish/cdn/shop/files/DrCaseyMeans-Seatopia-34.jpg?width=1000"
-               alt="Dr. Casey Means and James Arthur Smith sharing a Seatopia meal"
-               loading="lazy" width="500" height="316">
-          <span class="mbr-badge">8%</span>
-          <p class="mbr-muted">Three to four Seatopia meals a week can help support an Omega-3 Index in the desirable range — an index above 8% is associated with better long-term heart and brain health. Consistency is the mechanism, and a monthly box is how you keep it.</p>
+        <div class="mbr-card mbr-card--dark mbr-tone--dark mbr-badge-card">
+          <div class="mbr-badge-card__img">
+            {%- if health_img != blank -%}
+              {{ health_img | image_url: width: 1000 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 50vw, 100vw', widths: '500,700,1000', alt: 'Dr. Casey Means and James Arthur Smith sharing a Seatopia meal' }}
+            {%- else -%}
+              <img src="https://seatopia.fish/cdn/shop/files/DrCaseyMeans-Seatopia-34.jpg?width=1000" alt="Dr. Casey Means and James Arthur Smith sharing a Seatopia meal" loading="lazy" width="500" height="316">
+            {%- endif -%}
+          </div>
+          <p class="heading title-xl leading-none">8%</p>
+          <p class="leading-normal text-opacity">Three to four Seatopia meals a week can help support an Omega-3 Index in the desirable range — an index above 8% is associated with better long-term heart and brain health. Consistency is the mechanism, and a monthly box is how you keep it.</p>
         </div>
         <div class="mbr-stack">
           <div class="mbr-card">
             <h3 class="heading title-sm">Brain &amp; cognition</h3>
-            <p class="mbr-muted">DHA is a primary structural fat in the brain. It's the marine omega-3 most associated with cognitive function across a lifetime.</p>
-            <p class="mbr-kicker">DHA · Structural brain fat</p>
+            <p class="leading-normal text-opacity">DHA is a primary structural fat in the brain. It's the marine omega-3 most associated with cognitive function across a lifetime.</p>
+            <p class="{{ kicker_class }}">DHA · Structural brain fat</p>
           </div>
           <div class="mbr-card">
             <h3 class="heading title-sm">Heart &amp; longevity</h3>
-            <p class="mbr-muted">EPA and DHA support a healthy inflammatory response and cardiovascular function — the biological reasons seafood has always been called a superfood.</p>
-            <p class="mbr-kicker">EPA + DHA · Cardiovascular</p>
+            <p class="leading-normal text-opacity">EPA and DHA support a healthy inflammatory response and cardiovascular function — the biological reasons seafood has always been called a superfood.</p>
+            <p class="{{ kicker_class }}">EPA + DHA · Cardiovascular</p>
           </div>
           <div class="mbr-card">
             <h3 class="heading title-sm">Energy &amp; recovery</h3>
-            <p class="mbr-muted">Omega-3s support recovery and a healthy inflammatory response as you move more, train more, and spend more time in the world.</p>
-            <p class="mbr-kicker">Omega-3 · Recovery</p>
+            <p class="leading-normal text-opacity">Omega-3s support recovery and a healthy inflammatory response as you move more, train more, and spend more time in the world.</p>
+            <p class="{{ kicker_class }}">Omega-3 · Recovery</p>
           </div>
         </div>
       </div>
       <div class="mbr-note">
-        <p class="mbr-note__title">Benefits compound. Consistency is the mechanism.</p>
-        <p class="mbr-muted">Your Omega-3 Index rises with steady intake and settles back without it. The easiest way to keep it up is to make clean seafood automatic — a box at your door every month or two, at 10% off every order.</p>
+        <p class="heading text-xl leading-tight">Benefits compound. Consistency is the mechanism.</p>
+        <p class="leading-normal text-opacity">Your Omega-3 Index rises with steady intake and settles back without it. The easiest way to keep it up is to make clean seafood automatic — a box at your door every month or two, at 10% off every order.</p>
       </div>
     </div>
   </section>
 
   {%- comment -%} ==================== Perks ==================== {%- endcomment -%}
-  <section class="mbr-band mbr-band--cream" id="perks">
+  <section class="mbr-band mbr-tone--cream" id="perks">
     <div class="page-width">
-      <div class="mbr-head">
-        <p class="mbr-eyebrow">The membership</p>
+      <div class="mbr-head title-wrapper leading-none flex flex-col gap-4 relative z-1">
+        <p class="{{ eyebrow_class }}">The membership</p>
         <h2 class="heading title-lg">Everything that keeps a Seatopian consistent.</h2>
-        <p class="mbr-muted mbr-head__lede">More than a discount. Each benefit removes a reason to fall off the habit.</p>
+        <div class="description rte leading-normal subtext-md text-opacity">
+          <p>More than a discount. Each benefit removes a reason to fall off the habit.</p>
+        </div>
       </div>
       <div class="mbr-grid mbr-grid--3">
         {%- assign perk_k = 'EVERY ORDER|GIFTS &amp; REWARDS|MEMBER-ONLY|LEARN TO COOK|WHITE-GLOVE|OCEAN TIME' | split: '|' -%}
@@ -196,9 +399,9 @@
         {%- assign perk_d = 'Applied automatically to every box, for as long as you are a member.|Recent rewards have included free shipping on a future order — and free caviar.|Quarterly access to rare and limited seafood, offered only to members.|Private virtual sessions that make cooking restaurant-quality seafood simple.|A real person for questions, help, and scheduling — whenever you need it.|Adjust size and cadence, pause up to 3 months, or cancel before your next cycle.' | split: '|' -%}
         {%- for k in perk_k -%}
           <div class="mbr-perk">
-            <p class="mbr-kicker">{{ k }}</p>
+            <p class="{{ kicker_class }}">{{ k }}</p>
             <h3 class="heading title-sm">{{ perk_t[forloop.index0] }}</h3>
-            <p class="mbr-muted">{{ perk_d[forloop.index0] }}</p>
+            <p class="leading-normal text-opacity">{{ perk_d[forloop.index0] }}</p>
           </div>
         {%- endfor -%}
       </div>
@@ -206,10 +409,10 @@
   </section>
 
   {%- comment -%} ==================== How it works ==================== {%- endcomment -%}
-  <section class="mbr-band mbr-band--white" id="how">
+  <section class="mbr-band" id="how">
     <div class="page-width">
-      <div class="mbr-head">
-        <p class="mbr-eyebrow">How membership works</p>
+      <div class="mbr-head title-wrapper leading-none flex flex-col gap-4 relative z-1">
+        <p class="{{ eyebrow_class }}">How membership works</p>
         <h2 class="heading title-lg">Flexible timing that fits real life.</h2>
       </div>
       <div class="mbr-grid mbr-grid--4">
@@ -217,15 +420,15 @@
         {%- assign step_d = 'Build your own with the seafood you love, or start from a curated mix and refine it over time.|Pick the species, portions, and cadence that fit your household, your goals, and how you cook.|Make measurable, verified-clean seafood part of your weekly rhythm — three to four meals a week.|Lean on concierge support, chef classes, and member perks to stay confident and looking forward to each box.' | split: '|' -%}
         {%- for t in step_t -%}
           <div class="mbr-step">
-            <span class="mbr-step__n">STEP {{ forloop.index | prepend: '0' }}</span>
+            <span class="{{ kicker_class }}">STEP {{ forloop.index | prepend: '0' }}</span>
             <h3 class="heading title-sm">{{ t }}</h3>
-            <p class="mbr-muted">{{ step_d[forloop.index0] }}</p>
+            <p class="leading-normal text-opacity">{{ step_d[forloop.index0] }}</p>
           </div>
         {%- endfor -%}
       </div>
       <div class="mbr-commit">
-        <span class="mbr-commit__label">Our flexibility commitment</span>
-        <ul class="mbr-commit__list">
+        <span class="font-medium">Our flexibility commitment</span>
+        <ul class="mbr-commit__list text-sm text-opacity">
           <li>Monthly or bi-monthly</li>
           <li>Pause up to 3 months</li>
           <li>Change size &amp; cadence</li>
@@ -236,14 +439,14 @@
   </section>
 
   {%- comment -%} ==================== Curated boxes ==================== {%- endcomment -%}
-  <section class="mbr-band mbr-band--cream" id="boxes">
+  <section class="mbr-band mbr-tone--cream" id="boxes">
     <div class="page-width">
-      <div class="mbr-head mbr-head--row">
-        <div>
-          <p class="mbr-eyebrow">Start your box</p>
+      <div class="mbr-head mbr-head--row title-wrapper leading-none flex gap-4 relative z-1">
+        <div class="grid gap-4">
+          <p class="{{ eyebrow_class }}">Start your box</p>
           <h2 class="heading title-lg">Curated boxes, measured for omega-3s.</h2>
         </div>
-        {%- render 'button', label: 'Explore all boxes', link: '/collections/curated-boxes', style: 'link', show_icon: true -%}
+        <a class="reversed-link font-medium" href="/collections/curated-boxes">Explore all boxes &rarr;</a>
       </div>
       <div class="mbr-grid mbr-grid--3">
         {%- assign box_url = 'salmon-box,fish-shell-variety,white-fish-box' | split: ',' -%}
@@ -256,16 +459,16 @@
           {%- assign p = all_products[handle] -%}
           <a class="mbr-box" href="/collections/curated-boxes/products/{{ handle }}">
             <div class="mbr-box__media">
-              <span class="mbr-box__tag">SUBSCRIBE · SAVE 10%</span>
+              <span class="mbr-box__tag badge font-medium leading-none rounded-full">SUBSCRIBE · SAVE 10%</span>
               {%- if p != empty and p.featured_image -%}
-                {{ p.featured_image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'mbr-box__img', alt: box_name[forloop.index0] }}
+                {{ p.featured_image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw', widths: '400,600,800', alt: box_name[forloop.index0] }}
               {%- endif -%}
             </div>
             <div class="mbr-box__body">
               <h3 class="heading title-sm">{{ box_name[forloop.index0] }}</h3>
-              <p class="mbr-kicker">{{ box_sub[forloop.index0] }}</p>
-              <p class="mbr-muted">{{ box_desc[forloop.index0] }}</p>
-              <p class="mbr-box__price"><strong>{{ box_price[forloop.index0] }}</strong> <s>{{ box_was[forloop.index0] }}</s> <span>/ 12 portions</span></p>
+              <p class="{{ kicker_class }}">{{ box_sub[forloop.index0] }}</p>
+              <p class="leading-normal text-opacity">{{ box_desc[forloop.index0] }}</p>
+              <p class="mbr-box__price"><strong class="heading text-xl">{{ box_price[forloop.index0] }}</strong> <s class="text-opacity">{{ box_was[forloop.index0] }}</s> <span class="text-sm text-opacity">/ 12 portions</span></p>
             </div>
           </a>
         {%- endfor -%}
@@ -274,212 +477,90 @@
   </section>
 
   {%- comment -%} ==================== Testimonials ==================== {%- endcomment -%}
-  <section class="mbr-band mbr-band--sage">
+  <section class="mbr-band mbr-tone--sage">
     <div class="page-width">
-      <div class="mbr-head text-center">
-        <p class="mbr-stars">★★★★★</p>
-        <p class="mbr-eyebrow">4.9 / 5 · based on 1,079 verified reviews</p>
+      <div class="mbr-head mbr-head--center title-wrapper leading-none flex flex-col gap-4 relative z-1">
+        <p class="mbr-stars" aria-hidden="true">★★★★★</p>
+        <p class="{{ eyebrow_class }}">4.9 / 5 · based on 1,079 verified reviews</p>
         <h2 class="heading title-lg">The people who've been in the water trust it.</h2>
       </div>
       <div class="mbr-grid mbr-grid--3">
         <figure class="mbr-quote">
-          <blockquote>"The next generation of omega-rich, microalgae-fed seafood — helping us live more vital lives."</blockquote>
-          <figcaption><strong>Dr. Mark Hyman</strong><span>Leader in functional medicine</span></figcaption>
+          <blockquote class="heading text-xl leading-normal">"The next generation of omega-rich, microalgae-fed seafood — helping us live more vital lives."</blockquote>
+          <figcaption><strong class="font-medium">Dr. Mark Hyman</strong><span class="text-sm text-opacity">Leader in functional medicine</span></figcaption>
         </figure>
         <figure class="mbr-quote">
-          <blockquote>"Healthy, gourmet-style seafood at home that goes beyond any you've tasted before."</blockquote>
-          <figcaption><strong>Ben Greenfield</strong><span>Health &amp; fitness coach</span></figcaption>
+          <blockquote class="heading text-xl leading-normal">"Healthy, gourmet-style seafood at home that goes beyond any you've tasted before."</blockquote>
+          <figcaption><strong class="font-medium">Ben Greenfield</strong><span class="text-sm text-opacity">Health &amp; fitness coach</span></figcaption>
         </figure>
       </div>
     </div>
   </section>
 
   {%- comment -%} ==================== FAQ (native details/summary — no JS) ==================== {%- endcomment -%}
-  <section class="mbr-band mbr-band--white" id="faq">
-    <div class="page-width page-width--narrow">
-      <div class="mbr-head">
-        <p class="mbr-eyebrow">Good to know</p>
-        <h2 class="heading title-lg">Frequently asked questions</h2>
-      </div>
-      <div class="mbr-faq">
-        {%- assign faq_q = 'How does the membership work?|Can I choose what goes in my box?|What does "verified clean" actually mean?|What are the member benefits and rewards?|Do I need to be an experienced cook?|How does it ship?' | split: '|' -%}
-        {%- assign faq_a = 'Seatopia is a monthly or bi-monthly membership. You can customize your box size, change how often it ships, pause for up to 3 months, or cancel any time before your next billing cycle.|Yes. Mix and match freely, or start from a curated box and refine it over time — the box should fit your taste, your household, and your goals.|Seatopia third-party lab tests every supplier, and then continues to audit them regularly to ensure that they consistently meet their standards. Tested to ≤ 0.1 ppm mercury &ndash; a tenth of the FDA action level, with no microplastics detected in third-party testing, and EPA/DHA quantified per serving. Each SKU has a downloadable Certificate of Analysis, part of 134+ published product quality reports.|Members get 10% off every order, quarterly access to limited seasonal harvests, member gifts &amp; rewards (a recent reward was free shipping on the next order; another was free caviar), free 1:1 chef classes, and a dedicated concierge.|Not at all. Free 1:1 chef classes and concierge guidance make preparing raw and lightly cooked seafood approachable, whatever your starting point.|Orders arrive snap-frozen, 1–3 days after shipment, with a snap-frozen guarantee: if it does not arrive properly frozen, we will refund it or send a replacement.' | split: '|' -%}
-        {%- for q in faq_q -%}
-          <details class="mbr-faq__item">
-            <summary><span>{{ q }}</span><svg class="mbr-faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg></summary>
-            <div class="mbr-faq__a"><p>{{ faq_a[forloop.index0] }}</p></div>
-          </details>
-        {%- endfor -%}
+  <section class="mbr-band" id="faq">
+    <div class="page-width">
+      <div class="mbr-narrow">
+        <div class="mbr-head title-wrapper leading-none flex flex-col gap-4 relative z-1">
+          <p class="{{ eyebrow_class }}">Good to know</p>
+          <h2 class="heading title-lg">Frequently asked questions</h2>
+        </div>
+        <div class="mbr-faq">
+          {%- assign faq_q = 'How does the membership work?|Can I choose what goes in my box?|What does "verified clean" actually mean?|What are the member benefits and rewards?|Do I need to be an experienced cook?|How does it ship?' | split: '|' -%}
+          {%- assign faq_a = 'Seatopia is a monthly or bi-monthly membership. You can customize your box size, change how often it ships, pause for up to 3 months, or cancel any time before your next billing cycle.|Yes. Mix and match freely, or start from a curated box and refine it over time — the box should fit your taste, your household, and your goals.|Seatopia third-party lab tests every supplier, and then continues to audit them regularly to ensure that they consistently meet their standards. Tested to ≤ 0.1 ppm mercury &ndash; a tenth of the FDA action level, with no microplastics detected in third-party testing, and EPA/DHA quantified per serving. Each SKU has a downloadable Certificate of Analysis, part of 134+ published product quality reports.|Members get 10% off every order, quarterly access to limited seasonal harvests, member gifts &amp; rewards (a recent reward was free shipping on the next order; another was free caviar), free 1:1 chef classes, and a dedicated concierge.|Not at all. Free 1:1 chef classes and concierge guidance make preparing raw and lightly cooked seafood approachable, whatever your starting point.|Orders arrive snap-frozen, 1–3 days after shipment, with a snap-frozen guarantee: if it does not arrive properly frozen, we will refund it or send a replacement.' | split: '|' -%}
+          {%- for q in faq_q -%}
+            <details class="mbr-faq__item">
+              <summary class="heading text-xl leading-tight"><span>{{ q }}</span><svg class="mbr-faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M12 5v14"/></svg></summary>
+              <div class="mbr-faq__a rte leading-normal text-opacity"><p>{{ faq_a[forloop.index0] }}</p></div>
+            </details>
+          {%- endfor -%}
+        </div>
       </div>
     </div>
   </section>
 
   {%- comment -%} ==================== Final CTA (dark anchor) ==================== {%- endcomment -%}
-  <section class="mbr-band mbr-band--hero mbr-band--cta text-center">
-    <div class="page-width page-width--narrow">
-      <p class="mbr-eyebrow">Become a Seatopian</p>
-      <h2 class="heading title-xl tracking-heading">Eat on ocean time. <em>Measure</em> the difference.</h2>
-      <p class="mbr-lede">Save 10%, unlock member gifts and benefits, and make clean, measurable seafood a monthly ritual — with a certificate behind every claim.</p>
-      <div class="mbr-cta-row mbr-cta-row--center">
-        {%- render 'button', label: 'Build your subscription', link: '/collections/curated-boxes' -%}
+  <section class="mbr-band mbr-band--hero mbr-band--cta mbr-tone--dark">
+    <div class="page-width">
+      <div class="mbr-narrow mbr-head--center title-wrapper leading-none flex flex-col gap-4 relative z-1">
+        <p class="{{ eyebrow_class }}">Become a Seatopian</p>
+        <h2 class="heading title-xl tracking-heading">Eat on ocean time. <em>Measure</em> the difference.</h2>
+        <p class="mbr-lede text-lg leading-normal text-opacity">Save 10%, unlock member gifts and benefits, and make clean, measurable seafood a monthly ritual — with a certificate behind every claim.</p>
+        <div class="mbr-cta-row mbr-cta-row--center">
+          <a class="button button--primary button--md" href="/collections/curated-boxes" is="hover-link">
+            <span class="btn-fill" data-fill></span>
+            <span class="btn-text">Build your subscription</span>
+          </a>
+        </div>
+        <ul class="mbr-trust mbr-trust--center text-sm text-opacity">
+          <li>Snap-frozen guaranteed</li>
+          <li>Pause or cancel anytime</li>
+          <li>100% satisfaction guarantee</li>
+        </ul>
       </div>
-      <ul class="mbr-trust mbr-trust--center">
-        <li>Snap-frozen guaranteed</li>
-        <li>Pause or cancel anytime</li>
-        <li>100% satisfaction guarantee</li>
-      </ul>
     </div>
   </section>
 
 </div>
 
-{%- comment -%} ----- Membership components (scoped to .membership, coloured via theme vars) ----- {%- endcomment -%}
-<style>
-  .membership :where(h1,h2,h3){ margin:0; }
-  .membership em{ font-style:italic; }
-
-  /* Bands set the theme's own colour variables so .heading / text / buttons recolour automatically */
-  .mbr-band{
-    background:rgb(var(--color-background));
-    color:rgb(var(--color-foreground));
-    padding:96px 0;
-  }
-  @media(max-width:749px){ .mbr-band{ padding:60px 0; } }
-  .mbr-band--white{ --color-background:255 255 255; --color-foreground:29 61 62; }
-  .mbr-band--cream{ --color-background:247 239 230; --color-foreground:29 61 62; }
-  .mbr-band--sage{  --color-background:158 165 148; --color-foreground:29 61 62; }
-  .mbr-band--dark{  --color-background:29 61 62;   --color-foreground:247 239 230; }
-  .mbr-band--hero{
-    --color-background:29 61 62; --color-foreground:247 239 230;
-    background:radial-gradient(125% 120% at 82% 4%, rgb(43 78 78) 0%, rgb(29 61 62) 46%, rgb(29 61 62) 100%);
-  }
-  .mbr-band--cta{ padding:120px 0; }
-  .mbr-badge-card__img{ display:block; width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; border-radius:12px; margin-bottom:20px; }
-
-  /* muted + accent derived from the current band's foreground */
-  .membership .mbr-muted{ color:rgb(var(--color-foreground) / .68); line-height:1.65; margin:0; }
-  .mbr-eyebrow{
-    font-size:12px; letter-spacing:.16em; text-transform:uppercase; font-weight:600;
-    color:rgb(var(--color-rating)); margin:0 0 4px;
-  }
-  .mbr-band--white .mbr-eyebrow, .mbr-band--cream .mbr-eyebrow, .mbr-band--sage .mbr-eyebrow{
-    color:rgb(var(--color-foreground) / .55);
-  }
-
-  /* Section heads */
-  .mbr-head{ max-width:720px; margin:0 0 48px; display:flex; flex-direction:column; gap:14px; }
-  .mbr-head.text-center{ align-items:center; text-align:center; margin-left:auto; margin-right:auto; }
-  .mbr-head__lede{ font-size:18px; }
-  .mbr-head--row{ max-width:none; flex-direction:row; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:16px; }
-
-  /* Grid */
-  .mbr-grid{ display:grid; gap:24px; }
-  .mbr-grid--2{ grid-template-columns:repeat(2,1fr); }
-  .mbr-grid--3{ grid-template-columns:repeat(3,1fr); }
-  .mbr-grid--4{ grid-template-columns:repeat(4,1fr); }
-  @media(max-width:989px){ .mbr-grid--3,.mbr-grid--4{ grid-template-columns:repeat(2,1fr); } }
-  @media(max-width:749px){ .mbr-grid--2,.mbr-grid--3,.mbr-grid--4{ grid-template-columns:1fr; } }
-
-  /* Hero */
-  .mbr-hero{ display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; }
-  @media(max-width:989px){ .mbr-hero{ grid-template-columns:1fr; gap:36px; } }
-  .mbr-hero__copy{ display:flex; flex-direction:column; gap:20px; align-items:flex-start; }
-  .mbr-lede{ max-width:600px; line-height:1.55; margin:0; color:rgb(var(--color-foreground) / .82); }
-  .mbr-hero__media img{ width:100%; height:auto; border-radius:16px; display:block; object-fit:cover; box-shadow:0 24px 60px rgb(0 0 0 / .28); }
-  .mbr-cta-row{ display:flex; flex-wrap:wrap; gap:14px; margin-top:4px; }
-  .mbr-cta-row--center{ justify-content:center; }
-  .mbr-trust{ list-style:none; margin:8px 0 0; padding:0; display:flex; flex-direction:column; gap:8px; font-size:14px; color:rgb(var(--color-foreground) / .78); }
-  .mbr-trust li{ position:relative; padding-left:22px; }
-  .mbr-trust li::before{ content:""; position:absolute; left:0; top:.5em; width:12px; height:6px; border-left:2px solid rgb(var(--color-rating)); border-bottom:2px solid rgb(var(--color-rating)); transform:rotate(-45deg) translateY(-2px); }
-  .mbr-trust--center{ flex-direction:row; flex-wrap:wrap; gap:8px 24px; justify-content:center; margin-top:20px; }
-
-  /* Standard strip inside hero */
-  .mbr-strip{ margin-top:64px; border-top:1px solid rgb(var(--color-foreground) / .16); padding-top:36px; }
-  .mbr-strip__eyebrow{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:rgb(var(--color-foreground) / .6); margin:0 0 24px; }
-  .mbr-strip__item{ display:flex; flex-direction:column; gap:6px; }
-  .mbr-num{ font-size:13px; font-weight:700; letter-spacing:.1em; color:rgb(var(--color-rating)); }
-  .mbr-strip__title{ margin:0; font-weight:600; }
-  .mbr-strip__text{ margin:0; font-size:14px; line-height:1.55; color:rgb(var(--color-foreground) / .7); }
-
-  /* Cards */
-  .mbr-card{
-    background:rgb(var(--color-background)); border:1px solid rgb(var(--color-foreground) / .12);
-    border-radius:14px; padding:28px; display:flex; flex-direction:column; gap:12px;
-  }
-  .mbr-band--white .mbr-card{ box-shadow:0 1px 2px rgb(16 24 40 / .05); }
-  .mbr-card--dark{ --color-background:29 61 62; --color-foreground:247 239 230; border-color:transparent; }
-  .mbr-band--dark .mbr-card--dark{ --color-background:29 61 62; }
-  .mbr-kicker{ font-size:12px; letter-spacing:.1em; text-transform:uppercase; font-weight:600; color:rgb(var(--color-foreground) / .55); margin:0; }
-  .mbr-pill{ margin:8px 0 0; font-size:13px; font-weight:600; padding:9px 13px; border-radius:8px; background:rgb(var(--color-foreground) / .06); }
-  .mbr-pill span{ font-weight:400; opacity:.65; }
-  .mbr-tagline{ text-align:center; font-family:var(--text-font-family,inherit); font-style:italic; font-size:22px; color:rgb(var(--color-foreground) / .8); margin:44px 0 0; }
-
-  /* Certificate of analysis */
-  .mbr-coa{ max-width:780px; margin:0 auto; background:rgb(var(--color-foreground) / .06); border:1px solid rgb(var(--color-foreground) / .18); border-radius:16px; padding:12px 28px 24px; }
-  .mbr-coa__head{ font-size:11px; letter-spacing:.1em; color:rgb(var(--color-foreground) / .6); margin:20px 0 8px; }
-  .mbr-coa__row{ display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:20px 0; border-top:1px solid rgb(var(--color-foreground) / .14); }
-  .mbr-coa__k{ margin:0; font-size:13px; color:rgb(var(--color-foreground) / .65); }
-  .mbr-coa__v{ margin:3px 0 6px; font-size:26px; font-weight:600; }
-  .mbr-coa__d{ margin:0; font-size:13px; color:rgb(var(--color-foreground) / .6); max-width:80%; }
-  .mbr-coa__tag{ white-space:nowrap; font-size:12px; font-weight:600; color:rgb(var(--color-foreground) / .75); }
-  .mbr-coa__tag--pos{ color:rgb(var(--color-rating)); }
-  .mbr-coa__foot{ margin:18px 0 0; font-size:11px; letter-spacing:.05em; color:rgb(var(--color-foreground) / .5); }
-
-  /* Health */
-  .mbr-health{ align-items:stretch; }
-  .mbr-stack{ display:flex; flex-direction:column; gap:16px; }
-  .mbr-badge-card{ justify-content:center; }
-  .mbr-badge{ font-size:56px; font-weight:700; line-height:1; }
-  .mbr-note{ margin-top:28px; text-align:center; display:flex; flex-direction:column; gap:6px; max-width:720px; margin-left:auto; margin-right:auto; }
-  .mbr-note__title{ margin:0; font-weight:600; }
-
-  /* Perks */
-  .mbr-perk{ border-top:2px solid rgb(var(--color-foreground) / .18); padding-top:18px; display:flex; flex-direction:column; gap:8px; }
-
-  /* How it works */
-  .mbr-step{ display:flex; flex-direction:column; gap:8px; }
-  .mbr-step__n{ font-size:12px; letter-spacing:.12em; font-weight:700; color:rgb(var(--color-rating)); }
-  .mbr-commit{ margin-top:44px; background:rgb(var(--color-foreground) / .04); border:1px solid rgb(var(--color-foreground) / .12); border-radius:14px; padding:20px 28px; display:flex; flex-wrap:wrap; align-items:center; gap:12px 28px; }
-  .mbr-commit__label{ font-weight:600; }
-  .mbr-commit__list{ list-style:none; display:flex; flex-wrap:wrap; gap:10px 24px; margin:0; padding:0; font-size:14px; color:rgb(var(--color-foreground) / .68); }
-  .mbr-commit__list li{ position:relative; padding-left:18px; }
-  .mbr-commit__list li::before{ content:"·"; position:absolute; left:4px; color:rgb(var(--color-rating)); font-weight:700; }
-
-  /* Boxes */
-  .mbr-box{ display:flex; flex-direction:column; background:#fff; border:1px solid rgb(29 61 62 / .1); border-radius:16px; overflow:hidden; text-decoration:none; color:rgb(var(--color-foreground)); transition:transform .18s ease, box-shadow .18s ease; }
-  .mbr-box:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgb(16 24 40 / .14); }
-  .mbr-box__media{ position:relative; aspect-ratio:1/1; background:#f2f2f0; overflow:hidden; }
-  .mbr-box__img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .mbr-box__tag{ position:absolute; top:16px; left:16px; z-index:1; background:rgb(var(--color-sale-price)); color:#fff; font-size:11px; font-weight:600; letter-spacing:.05em; padding:6px 11px; border-radius:6px; }
-  .mbr-box__body{ padding:22px; display:flex; flex-direction:column; gap:8px; }
-  .mbr-box__price{ margin:8px 0 0; font-size:15px; color:rgb(var(--color-foreground) / .6); }
-  .mbr-box__price strong{ font-size:22px; color:rgb(var(--color-foreground)); }
-  .mbr-box__price s{ opacity:.5; margin:0 4px; }
-
-  /* Testimonials */
-  .mbr-stars{ color:rgb(var(--color-rating)); letter-spacing:.2em; margin:0; font-size:18px; }
-  .mbr-quote{ margin:0; background:rgb(var(--color-foreground) / .05); border:1px solid rgb(var(--color-foreground) / .12); border-radius:16px; padding:28px; display:flex; flex-direction:column; gap:18px; }
-  .mbr-quote blockquote{ margin:0; font-size:19px; line-height:1.5; }
-  .mbr-quote figcaption{ display:flex; flex-direction:column; gap:2px; }
-  .mbr-quote figcaption span{ font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:rgb(var(--color-foreground) / .55); }
-
-  /* FAQ */
-  .mbr-faq{ border-top:1px solid rgb(var(--color-foreground) / .16); }
-  .mbr-faq__item{ border-bottom:1px solid rgb(var(--color-foreground) / .16); }
-  .mbr-faq__item summary{ list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:22px 0; font-weight:500; font-size:clamp(1.05rem,1.5vw,1.3rem); }
-  .mbr-faq__item summary::-webkit-details-marker{ display:none; }
-  .mbr-faq__icon{ flex:none; color:rgb(var(--color-rating)); transition:transform .25s ease; }
-  .mbr-faq__item[open] .mbr-faq__icon{ transform:rotate(45deg); }
-  .mbr-faq__a{ padding:0 40px 22px 0; }
-  .mbr-faq__a p{ margin:0; }
-
-  .mbr-band--cta .mbr-lede{ margin:0 auto; }
-</style>
-
 {% schema %}
 {
   "name": "Membership",
-  "settings": [],
+  "settings": [
+    { "type": "paragraph", "content": "White bands use the site's global colours. The accent bands below take their colours from these settings." },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "band_padding", "label": "Band padding (desktop)", "min": 40, "max": 160, "step": 4, "unit": "px", "default": 96 },
+    { "type": "range", "id": "band_padding_mobile", "label": "Band padding (mobile)", "min": 24, "max": 120, "step": 4, "unit": "px", "default": 60 },
+    { "type": "header", "content": "Cream bands" },
+    { "type": "color", "id": "cream_background", "label": "Background", "default": "#F7EFE6" },
+    { "type": "color", "id": "cream_text", "label": "Text", "default": "#1D3D3E" },
+    { "type": "header", "content": "Sage band (reviews)" },
+    { "type": "color", "id": "sage_background", "label": "Background", "default": "#9EA594" },
+    { "type": "color", "id": "sage_text", "label": "Text", "default": "#1D3D3E" },
+    { "type": "header", "content": "Dark bands and cards" },
+    { "type": "color", "id": "dark_background", "label": "Background", "default": "#1D3D3E" },
+    { "type": "color", "id": "dark_text", "label": "Text", "default": "#F7EFE6" }
+  ],
   "presets": [{ "name": "Membership" }]
 }
 {% endschema %}
