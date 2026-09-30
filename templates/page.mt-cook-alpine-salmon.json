@@ -153,7 +153,7 @@
         "text_aXfMMX": {
           "type": "text",
           "settings": {
-            "text": "<p>Mt. Cook Alpine Salmon is the highest-altitude salmon farm in the world, redefining what freshwater aquaculture can be. Located high in New Zealand’s Southern Alps, Mt. Cook raises freshwater king salmon in fast-flowing, hydroelectric canals fed by the alpine snowmelt.  Free from antibiotics, hormones, and GMOs, Mt. Cook’s low-density, high-flow environment mimics a wild river system, allowing salmon to swim the equivalent of a marathon each day, upstream. This is king salmon without compromise. Clean, sustainable, and as pure as the water they’re raised in. </p>",
+            "text": "<p>Mt. Cook Alpine Salmon is the highest-altitude salmon farm in the world, redefining what freshwater aquaculture can be. Located high in New Zealand’s Southern Alps, Mt. Cook raises freshwater king salmon in fast-flowing, hydroelectric canals fed by the alpine snowmelt. &nbsp;Raised without antibiotics, hormones, and GMOs, Mt. Cook’s low-density, high-flow environment mimics a wild river system, allowing salmon to swim the equivalent of a marathon each day, upstream. This is king salmon without compromise. Clean, sustainable, and as pure as the water they’re raised in.&nbsp;</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
