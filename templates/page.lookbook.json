@@ -24,10 +24,10 @@
         "rounded": false
       }
     },
-    "rich_text_eWjYdX": {
-      "type": "rich-text",
+    "image_with_text_overlay_cRKMQa": {
+      "type": "image-with-text-overlay",
       "blocks": {
-        "heading_fE7wkz": {
+        "heading_6HpdzM": {
           "type": "heading",
           "settings": {
             "heading": "How Seatopia works",
@@ -37,10 +37,10 @@
             "highlighted_scribble": "circle"
           }
         },
-        "text_DfEMA4": {
+        "text_CiRhxt": {
           "type": "text",
           "settings": {
-            "text": "<p>We deliver omega rich, sushi-grade seafood sourced from a new wave<br/>of aquaculture farms that is lab tested to ensure it’s low mercury<br/>and zero microplastics detected in third-party testing.</p>",
+            "text": "<p>Lab-tested, sushi-grade seafood from the world's best fish farms, snap-frozen and delivered to your door.</p><p>Every box we deliver helps heal the blue planet and is a vote<br/>for a happier, healthier tomorrow.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -49,68 +49,52 @@
             "highlighted_scribble": "circle"
           }
         },
-        "button_zEqDXK": {
+        "button_VnE9Nb": {
           "type": "button",
           "settings": {
-            "button_label": "Get Started",
-            "button_link": "shopify://collections/build-your-own-box",
+            "button_label": "Build your first box",
+            "button_link": "shopify://pages/build-your-own-box",
             "button_style": "primary",
             "button_size": "md",
             "button_external": false,
             "button_icon": false
           }
-        },
-        "text_XTM3dJ": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Every box we deliver helps heal the blue planet and is a vote<br/>for a happier, healthier tomorrow.</p>",
-            "text_size": "subtext-md",
-            "text_max_size": 32,
-            "text_font": "body",
-            "secondary_color": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
         }
       },
       "block_order": [
-        "heading_fE7wkz",
-        "text_DfEMA4",
-        "button_zEqDXK",
-        "text_XTM3dJ"
+        "heading_6HpdzM",
+        "text_CiRhxt",
+        "button_VnE9Nb"
       ],
-      "name": "t:sections.rich-text.presets.name",
+      "name": "t:sections.image-with-text-overlay.presets.name",
       "settings": {
-        "custom-class": "",
         "section_id": "",
-        "text_alignment": "center",
-        "text_alignment_mobile": "center",
-        "heading": "",
-        "heading_size": "title-md",
-        "heading_alignment": "text-left md:items-end md:flex-row",
-        "heading_width": "small",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "",
-        "button_label": "",
-        "button_link": "",
-        "button_external": false,
-        "button_icon": true,
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
-        "color_text": "",
-        "color_background": "#ffffff",
-        "gradient_background": "",
-        "color_highlight": "",
+        "transparent_header": false,
+        "image": "shopify://shop_images/Color-Edited-2-7_1.jpg",
+        "image_height": "850px",
+        "content_width": "small",
+        "content_position": "md:items-end md:justify-start",
+        "text_alignment": "left",
+        "priority_image": false,
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
         "gradient_highlight": "",
-        "color_button_text": "#ffffff",
-        "color_button_background": "#171717",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
         "color_button_gradient": "",
-        "padding_top": 40,
-        "padding_bottom": 80,
+        "color_overlay": "#171717",
+        "overlay_opacity": 34,
+        "padding_top": 0,
+        "padding_bottom": 0,
         "divider": false,
-        "narrow": true,
-        "rounded": false
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "narrow": false,
+        "parallax_direction": "vertical"
       }
     },
     "multicolumn_VYhznG": {
@@ -123,9 +107,9 @@
             "text_alignment": "center",
             "text_alignment_mobile": "center",
             "image_ratio": "adapt",
-            "heading": "We work with the best farms in theworld to source clean seafood",
+            "heading": "We work with the best farms in the world to source clean seafood",
             "heading_size": "text-lg-2xl",
-            "text": "<p>Once we harvest we lab test our<br/>seafood to ensure that it’s nutrient<br/>dense, low mercury, and free from<br/>microplastics detected.</p>",
+            "text": "<p>After harvest each batch is lab tested to ensure that it’s full of nutrients, low mercury, and free from microplastics detected.</p>",
             "button_label": "",
             "button_link": "",
             "button_style": "secondary",
@@ -144,7 +128,7 @@
             "image_ratio": "adapt",
             "heading": "You choose from curated boxes or build your own box",
             "heading_size": "text-lg-2xl",
-            "text": "<p>Pick from Michelin star seafood<br/>selections. Order by Tuesday 12pm<br/>est for delivery this week.</p>",
+            "text": "<p>Pick from sashimi-grade seafood<br/>selections. Order by Tuesday 12pm<br/>EST for delivery in the same week.</p>",
             "button_label": "",
             "button_link": "",
             "button_style": "secondary",
@@ -161,9 +145,9 @@
             "text_alignment": "center",
             "text_alignment_mobile": "center",
             "image_ratio": "adapt",
-            "heading": "We deliver your seafood andeveryone enjoys",
+            "heading": "We deliver your seafood frozen to your home, guaranteed",
             "heading_size": "text-lg-2xl",
-            "text": "<p>Your order arrives at your door snap frozen<br/>guaranteed. Learn from our recipes from top<br/>chefs or schedule your free 1:1 cooking class to cook like a pro.</p>",
+            "text": "<p>Your order arrives at your door snap frozen<br/>guaranteed. We replace any thawed order without questions asked.</p>",
             "button_label": "",
             "button_link": "",
             "button_style": "secondary",
@@ -735,6 +719,7 @@
       "blocks": {
         "review_rCY366": {
           "type": "review",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Background_3_1.png",
             "image_url": "shopify://blogs/seatopia-collective-community/how-to-host-a-sushi-dinner-party-a-celebration-of-food-friends-amp-ritual",
@@ -744,8 +729,7 @@
             "text": "<p>“We are what foods we eat and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
             "block_background": "",
             "block_text_color": ""
-          },
-          "disabled": true
+          }
         },
         "review_VAW7PT": {
           "type": "review",
@@ -818,6 +802,7 @@
       ],
       "name": "t:sections.newsletter-banner.presets.name",
       "settings": {
+        "list_tag": "",
         "transparent_header": false,
         "transparent_footer": false,
         "image": "shopify://shop_images/Color-Edited-2_2.jpg",
@@ -847,7 +832,7 @@
   },
   "order": [
     "main-page",
-    "rich_text_eWjYdX",
+    "image_with_text_overlay_cRKMQa",
     "multicolumn_VYhznG",
     "multicolum_with_icon_image_qzwnXM",
     "image_with_text_trkaQB",
