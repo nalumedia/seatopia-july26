@@ -200,6 +200,78 @@
         "rounded": false
       }
     },
+    "image_with_text_FLVBnh": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_kK4TqM": {
+          "type": "heading",
+          "settings": {
+            "heading": "Four steps to your box",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_EeH9zf": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>1. Choose a curated box</strong>, or build your own</p><p><strong>2. Set your rhthm:</strong> Order once or subscribe to every month, every 2 or every 3 months. Skip, pause or cancel anytime.</p><p><strong>3. We ship your oder</strong> every Tuesday 12PM ET and it arrives within the same week</p><p><strong>4. Thaw and cook:</strong> All portions are individually sealed for easy portioning. We offer a free defrosting and cooking guide for all seafood as well as free 1:1 cooking classes with our staff.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_9EAizW": {
+          "type": "button",
+          "settings": {
+            "button_label": "Our favourite boxes",
+            "button_link": "shopify://collections/curated-boxes",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_kK4TqM",
+        "text_EeH9zf",
+        "button_9EAizW"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/IMG_5171.heic",
+        "image_height": "650px",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
     "multicolum_with_icon_image_qzwnXM": {
       "type": "Multicolum-with-icon-image",
       "blocks": {
@@ -834,6 +906,7 @@
     "main-page",
     "image_with_text_overlay_cRKMQa",
     "multicolumn_VYhznG",
+    "image_with_text_FLVBnh",
     "multicolum_with_icon_image_qzwnXM",
     "image_with_text_trkaQB",
     "image_with_text_TBwfR7",
