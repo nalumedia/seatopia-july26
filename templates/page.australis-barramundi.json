@@ -105,7 +105,7 @@
         "heading_PMBeRc": {
           "type": "heading",
           "settings": {
-            "heading": "Raising Asparagopsis seaweed and Barramundi in Van Phong Bay, Vietnam",
+            "heading": "Raising Barramundi in Van Phong Bay, Vietnam",
             "heading_size": "title-md",
             "heading_tag": "h1",
             "highlighted_text": "none",
@@ -153,7 +153,7 @@
         "text_aXfMMX": {
           "type": "text",
           "settings": {
-            "text": "<p>At Australis Aquaculture, barramundi are raised in the tropical waters of Vân Phong Bay, Vietnam, using a revolutionary model of climate-smart ocean farming. By cultivating one of the world’s most sustainable fish species in low-density, open-ocean pens, Australis produces seafood that’s delicious, nutrient-rich, and low impact. Barramundi offers a mild, buttery flavor, high omega-3s, and zero traceable mercury, earning it a Monterey Bay Aquarium “Best Choice” sustainability rating, and 4 Star BAP. This is responsible seafood for a changing planet. Loved by chefs, trusted by Seatopia, and designed to make a difference.</p>",
+            "text": "<p>At Australis Aquaculture, barramundi are raised in the tropical waters of Vân Phong Bay, Vietnam, using a revolutionary model of climate-smart ocean farming. By cultivating one of the world’s most sustainable fish species in low-density, open-ocean pens, Australis produces seafood that’s delicious, nutrient-rich, and low impact. Barramundi offers a mild, buttery flavor, high omega-3s, earning it a Monterey Bay Aquarium “Best Choice” sustainability rating, and 4 Star BAP. This is responsible seafood for a changing planet. Loved by chefs, trusted by Seatopia, and designed to make a difference.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -561,7 +561,7 @@
         "text_e9xqD8": {
           "type": "text",
           "settings": {
-            "text": "<p>Australis feed is formulated with a balanced mix of marine and plant-based proteins optimized to minimize the use of wild-captured feeder fish while maximizing nutrition for fish and people. The result is a certified, low-impact diet that nurtures both fish and ocean, without colorants, hormones, or environmental compromise. For more specific information about each ingredient and their purpose, <a href=\"https://seatopia.fish/pages/aquaculture-101\" title=\"https://seatopia.fish/pages/aquaculture-101\">visit this page. </a></p>",
+            "text": "<p>Australis feed is formulated with a balanced mix of marine and plant-based proteins optimized to minimize the use of wild-captured feeder fish while maximizing nutrition for fish and people. The result is a certified, low-impact diet that nurtures both fish and ocean, without colorants, hormones, or environmental compromise. For more specific information about each ingredient and their purpose, <a href=\"https://seatopia.fish/pages/aquaculture-101\" title=\"https://seatopia.fish/pages/aquaculture-101\">visit this page.&nbsp;</a></p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
