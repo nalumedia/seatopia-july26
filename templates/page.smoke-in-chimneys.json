@@ -153,7 +153,7 @@
         "text_aXfMMX": {
           "type": "text",
           "settings": {
-            "text": "<p>At Smoke in Chimenys, rainbow trout are raised in spring-fed waters flowing through a restored 1800s hatchery and raceway system in the heart of Appalachian South. There are no electric pumps, no chemicals, no shortcuts. Just gravity-fed water, traditional methods, and a commitment to fish health and environmental harmony.&nbsp;<br/><br/>They raise trout by hand - hand feeding, hand harvesting, and hand processing. The result? Trout with clean, sweet flavor, delicate flaky texture, and crispable skin that chefs and home cooks love. Loved by Michelin starred chefs and home cooks alike, Ty’s farm is an example of restorative aquaculture rooted in Appalachian legacy, proving that low-density, low-intervention farming can yield food that’s both delicious and environmentally sound.&nbsp;</p>",
+            "text": "<p>At Smoke in Chimenys, rainbow trout are raised in spring-fed waters flowing through a restored 1800s hatchery and raceway system in the heart of Appalachian South. There are no electric pumps, no chemicals, no shortcuts. Just gravity-fed water, traditional methods, and a commitment to fish health and environmental harmony.&nbsp;<br/><br/>They raise trout by hand - hand feeding, hand harvesting, and hand processing. The result? Trout with clean, sweet flavor, delicate flaky texture, and crispable skin that chefs and home cooks love. Loved by Michelin starred chefs and home cooks alike, Ty’s farm is an example of responsible aquaculture rooted in Appalachian legacy, proving that low-density, low-intervention farming can yield food that’s both delicious and environmentally sound.&nbsp;</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -461,7 +461,7 @@
         "heading_alignment": "text-center md:items-center",
         "heading_tag": "h2",
         "subheading": "from Smoke in Chimneys",
-        "description": "<p>Smoke in Chimneys raises rainbow trout (<em>Oncorhynchus mykiss</em>), a freshwater species native to cold, fast-moving streams and perfectly suited to the spring-fed raceways of western North Carolina. <br/><br/>We like them grilled whole, smoked, or baked in the oven <em>en papillote - </em>wrapped in butcher paper and aromatics like lemon, rosemary and sea salt. </p>",
+        "description": "<p>Smoke in Chimneys raises rainbow trout (<em>Oncorhynchus mykiss</em>), a freshwater species native to cold, fast-moving streams and perfectly suited to the spring-fed raceways of New Castle, Virginia.&nbsp;<br/><br/>We like them grilled whole, smoked, or baked in the oven <em>en papillote - </em>wrapped in butcher paper and aromatics like lemon, rosemary and sea salt.&nbsp;</p>",
         "highlighted_text": "none",
         "highlighted_scribble": "circle",
         "color_text": "",
