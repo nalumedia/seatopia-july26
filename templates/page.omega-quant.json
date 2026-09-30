@@ -407,12 +407,22 @@
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
+        },
+        "question_axpKUL": {
+          "type": "question",
+          "settings": {
+            "title": "What impact does Omega 3 have on my health?",
+            "text": "<p>EPA and DHA, the omega-3s your Omega Index measures, contribute to the normal function of the heart, and DHA contributes to the maintenance of normal brain function, with a daily intake of 250 mg. EPA and DHA are also building blocks for resolvins and protectins, compounds your body uses in its natural inflammation response. Seafood is the most direct food source of both.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
         }
       },
       "block_order": [
         "question_9jFUFN",
         "question_JAdHbT",
-        "question_itMPRV"
+        "question_itMPRV",
+        "question_axpKUL"
       ],
       "name": "t:sections.faq.presets.name",
       "settings": {
@@ -520,109 +530,6 @@
         "padding_bottom": 100,
         "divider": false,
         "narrow": true,
-        "rounded": false
-      }
-    },
-    "multicolumn_kNTAd4": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_YrXVEM": {
-          "type": "column",
-          "settings": {
-            "show_border": false,
-            "text_alignment": "left",
-            "text_alignment_mobile": "left",
-            "image_ratio": "adapt",
-            "heading": "Brain Health",
-            "heading_size": "text-lg-2xl",
-            "text": "<ul><li>Boosts grey matter</li><li>Lowers dementia risk</li></ul>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "secondary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "column_EBV8RE": {
-          "type": "column",
-          "settings": {
-            "show_border": false,
-            "text_alignment": "left",
-            "text_alignment_mobile": "left",
-            "image_ratio": "adapt",
-            "heading": "Cardiomyocyte Stability",
-            "heading_size": "text-lg-2xl",
-            "text": "<ul><li>Prevents arrhythmias</li><li>Drops heart attack risk</li></ul>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "secondary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "column_FGtEJ6": {
-          "type": "column",
-          "settings": {
-            "show_border": false,
-            "text_alignment": "left",
-            "text_alignment_mobile": "left",
-            "image_ratio": "adapt",
-            "heading": "Systemic Inflammation",
-            "heading_size": "text-lg-2xl",
-            "text": "<ul><li>Lowers cellular stress</li><li>Promotes joint health</li></ul>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "secondary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        }
-      },
-      "block_order": [
-        "column_YrXVEM",
-        "column_EBV8RE",
-        "column_FGtEJ6"
-      ],
-      "name": "t:sections.multicolumn.presets.name",
-      "settings": {
-        "custom_class": "",
-        "gap": "large",
-        "columns": 3,
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "heading": "OMGA-3 INDEX HEALTH IMPACT",
-        "heading_size": "title-md",
-        "heading_alignment": "text-center md:items-center",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "",
-        "button_label": "",
-        "button_link": "",
-        "button_external": false,
-        "button_icon": true,
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
-        "color_text": "",
-        "color_text_card": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "color_overlay": "#171717",
-        "overlay_opacity_new": 10,
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "full_width": false,
         "rounded": false
       }
     },
@@ -1207,7 +1114,6 @@
     "image_with_text_hpzhwg",
     "faq_LQekhi",
     "rich_text_dg69Dp",
-    "multicolumn_kNTAd4",
     "multicolumn_MRch8V",
     "main-page",
     "featured_product_VbWXbk",
