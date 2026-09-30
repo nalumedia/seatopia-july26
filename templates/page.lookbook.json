@@ -351,6 +351,119 @@
         "rounded": false
       }
     },
+    "collection_list_U8CBad": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_m4U8Mh": {
+          "type": "collection",
+          "settings": {
+            "collection": "build-your-own-box",
+            "title": "",
+            "description": "",
+            "overlay_content": false,
+            "color_text": "#ffffff",
+            "color_overlay": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_W9WNeG": {
+          "type": "collection",
+          "settings": {
+            "collection": "curated-boxes",
+            "title": "",
+            "description": "",
+            "overlay_content": false,
+            "color_text": "#ffffff",
+            "color_overlay": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_petAkP": {
+          "type": "collection",
+          "settings": {
+            "collection": "essentials",
+            "title": "",
+            "description": "",
+            "overlay_content": false,
+            "color_text": "#ffffff",
+            "color_overlay": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "collection_m4U8Mh",
+        "collection_W9WNeG",
+        "collection_petAkP"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "section_id": "",
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "image_type": "collection",
+        "image_ratio": "square",
+        "show_products_count": true,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "Collections",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "1790777269efe0ad3c": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_b57ca10_bmhdKx": {
+          "type": "ai_gen_block_b57ca10",
+          "settings": {
+            "heading": "Choose what works for you",
+            "desktop_width_percent": 100,
+            "space_top": 30,
+            "space_bottom": 30,
+            "card_background": "#FFFFFF",
+            "subscription_image": "shopify://shop_images/DrCaseyMeans-Seatopia-6.jpg",
+            "subscription_label": "Best for regular deliveries",
+            "subscription_title": "Subscribe and save",
+            "subscription_description": "Set a delivery rhythm that fits your home and enjoy the convenience of recurring orders.",
+            "subscription_points": "10% off every box, every time  \nArrives automatically every 1, 2 or 3 months \nSkip, pause, change box or cancel anytime from your account\nA free gift in each of your first 7 boxes\nEarly access to limited releases and member-only add-ons\nBest for anyone eating fish once or twice a week",
+            "subscription_button": "Explore all Seafood",
+            "subscription_link": "shopify://pages/build-your-own-box",
+            "one_time_image": "shopify://shop_images/IMG_3532.heic",
+            "one_time_label": "A single purchase",
+            "one_time_title": "Order one time",
+            "one_time_description": "Choose a one-time order when you want to shop as needed, with no recurring deliveries.",
+            "one_time_points": "Full price\nReorder whenever you like\nOrder tracking\n-\n-\nBest for trying Seatopia or sending a gift",
+            "one_time_button": "Shop one-time order",
+            "one_time_link": "shopify://pages/build-your-own-box"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_b57ca10_bmhdKx"
+      ],
+      "settings": {}
+    },
     "image_with_text_trkaQB": {
       "type": "image-with-text",
       "blocks": {
@@ -908,6 +1021,8 @@
     "multicolumn_VYhznG",
     "image_with_text_FLVBnh",
     "multicolum_with_icon_image_qzwnXM",
+    "collection_list_U8CBad",
+    "1790777269efe0ad3c",
     "image_with_text_trkaQB",
     "image_with_text_TBwfR7",
     "image_with_text_RLPBkQ",
