@@ -438,16 +438,12 @@
           "type": "ai_gen_block_b57ca10",
           "settings": {
             "heading": "Choose what works for you",
-            "desktop_width_percent": 100,
-            "space_top": 30,
-            "space_bottom": 30,
-            "card_background": "#FFFFFF",
             "subscription_image": "shopify://shop_images/DrCaseyMeans-Seatopia-6.jpg",
             "subscription_label": "Best for regular deliveries",
             "subscription_title": "Subscribe and save",
             "subscription_description": "Set a delivery rhythm that fits your home and enjoy the convenience of recurring orders.",
             "subscription_points": "10% off every box, every time  \nArrives automatically every 1, 2 or 3 months \nSkip, pause, change box or cancel anytime from your account\nA free gift in each of your first 7 boxes\nEarly access to limited releases and member-only add-ons\nBest for anyone eating fish once or twice a week",
-            "subscription_button": "Explore all Seafood",
+            "subscription_button": "Build your first box",
             "subscription_link": "shopify://pages/build-your-own-box",
             "one_time_image": "shopify://shop_images/IMG_3532.heic",
             "one_time_label": "A single purchase",
