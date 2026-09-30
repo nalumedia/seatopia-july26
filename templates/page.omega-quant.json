@@ -102,7 +102,7 @@
         "text_9wyWCC": {
           "type": "text",
           "settings": {
-            "text": "<p>The Omega-3 Index is a blood measurement that calculates the amount of two key omega-3 fatty acids—Eicosapentaenoic Acid (EPA) and Docosahexaenoic Acid (DHA)—in the membranes of your red blood cells, expressed as a percentage of total fatty acids. It is an exceptionally critical biomarker of health because it serves as a long-term, stable reflection of overall tissue omega-3 status, acting as a highly accurate predictor of cardiovascular health, cognitive preservation, and cellular inflammation</p>",
+            "text": "<p>The Omega-3 Index is a blood measurement that calculates the amount of two key omega-3 fatty acids—Eicosapentaenoic Acid (EPA) and Docosahexaenoic Acid (DHA)—in the membranes of your red blood cells, expressed as a percentage of total fatty acids.&nbsp;</p><p>It is an exceptionally critical biomarker of health because it serves as a long-term, stable reflection of overall tissue omega-3 status, acting as a highly accurate predictor of cardiovascular health, cognitive preservation, and cellular inflammation</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
