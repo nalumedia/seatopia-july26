@@ -461,7 +461,7 @@
         "heading_alignment": "text-center md:items-center",
         "heading_tag": "h2",
         "subheading": "from Australis",
-        "description": "<p>Barramundi (<em>Lates calcarifer</em>) is a tropical finfish native to the Indo-Pacific and one of the most sustainable seafood choices on the planet. Naturally hardy, fast-growing, and incredibly feed-efficient, barramundi thrives in a variety of salinities and requires fewer resources to raise than salmon or shrimp. Its naturally high omega-3 content, and mild, buttery taste make it a favorite among anyone; from the discerning health-conscious cook to little kids. It's a fish that checks every box: easy to cook, delicious to eat, and gentle on the environment. Whether grilled, pan-seared, or baked, barramundi delivers clean flavor and clean conscience.</p>",
+        "description": "<p>Barramundi (<em>Lates calcarifer</em>) is a tropical finfish native to the Indo-Pacific and one of the most responsibly seafood choices. Naturally hardy, fast-growing, and incredibly feed-efficient, barramundi thrives in a variety of salinities and requires fewer resources to raise than salmon or shrimp. Its naturally high omega-3 content, and mild, buttery taste make it a favorite among anyone; from the discerning health-conscious cook to little kids. It's a fish that checks every box: easy to cook, delicious to eat, and gentle on the environment. Whether grilled, pan-seared, or baked, barramundi delivers clean flavor and clean conscience.</p>",
         "highlighted_text": "none",
         "highlighted_scribble": "circle",
         "color_text": "",
@@ -485,7 +485,7 @@
         "heading_zMMcwg": {
           "type": "heading",
           "settings": {
-            "heading": "Sustainably Fed, Ethically Farmed, Lab-Tested to Meet the Seatopia Standard",
+            "heading": "Sustainably Fed, Responsibly Farmed, Lab-Tested to Meet the Seatopia Standard",
             "heading_size": "title-lg tracking-heading",
             "heading_tag": "h2",
             "highlighted_text": "none",
