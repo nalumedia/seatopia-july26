@@ -444,14 +444,14 @@
             "subscription_description": "Set a delivery rhythm that fits your home and enjoy the convenience of recurring orders.",
             "subscription_points": "10% off every box, every time  \nArrives automatically every 1, 2 or 3 months \nSkip, pause, change box or cancel anytime from your account\nA free gift in each of your first 7 boxes\nEarly access to limited releases and member-only add-ons\nBest for anyone eating fish once or twice a week",
             "subscription_button": "Build your first box",
-            "subscription_link": "shopify://pages/build-your-own-box",
+            "subscription_link": "https://seatopia.fish/collections/build-your-own-box",
             "one_time_image": "shopify://shop_images/IMG_3532.heic",
             "one_time_label": "A single purchase",
             "one_time_title": "Order one time",
             "one_time_description": "Choose a one-time order when you want to shop as needed, with no recurring deliveries.",
             "one_time_points": "Full price\nReorder whenever you like\nOrder tracking\n-\n-\nBest for trying Seatopia or sending a gift",
             "one_time_button": "Shop one-time order",
-            "one_time_link": "shopify://pages/build-your-own-box"
+            "one_time_link": "https://seatopia.fish/collections/build-your-own-box"
           },
           "blocks": {}
         }
