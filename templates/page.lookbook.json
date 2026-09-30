@@ -40,7 +40,7 @@
         "text_CiRhxt": {
           "type": "text",
           "settings": {
-            "text": "<p>Lab-tested, sushi-grade seafood from the world's best fish farms, snap-frozen and delivered to your door.</p><p>Every box we deliver helps heal the blue planet and is a vote<br/>for a happier, healthier tomorrow.</p>",
+            "text": "<p>Lab-tested, sushi-grade seafood from the world's best fish farms, snap-frozen and delivered to your door.</p><p>Every box we deliver helps heal the blue planet and is a vote for a happier, healthier tomorrow.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
