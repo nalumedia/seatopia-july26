@@ -396,6 +396,7 @@
         "collection_W9WNeG",
         "collection_petAkP"
       ],
+      "disabled": true,
       "name": "t:sections.collection-list.presets.name",
       "settings": {
         "section_id": "",
