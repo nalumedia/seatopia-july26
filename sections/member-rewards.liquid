@@ -5,6 +5,7 @@
   once and every placement updates.
 {%- endcomment -%}
 
+{%- if settings.member_rewards_active -%}
 <div class="mrw-section" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
   {%- if section.settings.variant != 'full' and section.settings.constrain -%}
     <div class="page-width">
@@ -24,6 +25,7 @@
           heading_tag: section.settings.heading_tag -%}
   {%- endif -%}
 </div>
+{%- endif -%}
 
 {% schema %}
 {

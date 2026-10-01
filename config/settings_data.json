@@ -230,7 +230,10 @@
         "disabled": false,
         "settings": {}
       }
-    }
+    },
+    "member_rewards_active": false,
+    "member_rewards_month": "September",
+    "member_rewards_terms_period": "September 2026"
   },
   "presets": {
     "Harmony": {

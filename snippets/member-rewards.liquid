@@ -41,6 +41,14 @@
   empty decorative div silently never paints.
 {%- endcomment -%}
 
+{%- comment -%}
+  MASTER SWITCH. Theme settings > Member rewards campaign > "Campaign is running".
+  Off hides every placement at once. Claims guide rule 11: never promote an
+  offer that is not live.
+{%- endcomment -%}
+{%- if settings.member_rewards_active -%}
+
+
 {%- liquid
   assign variant = variant | default: 'banner_or_full'
   if variant == 'banner_or_full'
@@ -143,7 +151,7 @@
           {%- endfor -%}
         </span>
         <span class="mrw-compact__copy">
-          <span class="mrw-compact__flag">September member rewards</span>
+          <span class="mrw-compact__flag">{{ settings.member_rewards_month | default: 'September' }} member rewards</span>
           <span class="mrw-compact__title">Subscribe instead and each of your first seven boxes arrives with a free gift.</span>
         </span>
       </span>
@@ -204,7 +212,7 @@
     <a class="mrw mrw--banner" href="{{ cta_link }}">
       <span class="mrw-banner__grid">
         <span class="mrw-banner__copy">
-          <span class="mrw-banner__flag">September member rewards</span>
+          <span class="mrw-banner__flag">{{ settings.member_rewards_month | default: 'September' }} member rewards</span>
           <span class="mrw-banner__title">{{ heading | default: 'Seven boxes. Seven gifts.' }}</span>
           <span class="mrw-banner__sub">Start a subscription this month and every one of your first seven boxes arrives with something extra &mdash; the recipe book and your chef call first, then a free fish in each of the next six.</span>
         </span>
@@ -333,7 +341,7 @@
       <div class="page-width">
 
         <div class="mrw__head">
-          <p class="mrw__eyebrow">New &mdash; September member rewards</p>
+          <p class="mrw__eyebrow">New &mdash; {{ settings.member_rewards_month | default: 'September' }} member rewards</p>
           <{{ heading_tag }} class="mrw__title heading" id="mrw-title">{{ heading | default: 'Seven boxes. <em>Seven gifts.</em>' }}</{{ heading_tag }}>
           <p class="mrw__lede">Start a subscription this month and every one of your first seven boxes arrives with something extra. Your first box brings the recipe book and your 1:1 chef call. The next six each bring a free fish &mdash; and a recipe to cook it with.</p>
           <p class="mrw__lede">The whole membership is built around one rhythm: omega-rich seafood about three times a week. These gifts are how we say thanks for keeping it going.</p>
@@ -382,10 +390,11 @@
               <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>
             </svg>
           </a>
-          <p class="mrw__note">One gift per box, with boxes 1&ndash;7 of a new subscription started in September 2026. Species may be substituted if a harvest sells out.</p>
+          <p class="mrw__note">One gift per box, with boxes 1&ndash;7 of a new subscription started in {{ settings.member_rewards_terms_period | default: 'September 2026' }}. Species may be substituted if a harvest sells out.</p>
         </div>
 
       </div>
     </section>
 
+{%- endif -%}
 {%- endif -%}

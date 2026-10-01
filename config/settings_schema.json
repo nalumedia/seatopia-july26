@@ -8,6 +8,36 @@
     "theme_support_url": "https://haloroar.ticksy.com"
   },
     {
+    "name": "Member rewards campaign",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Master switch for the \"Seven boxes. Seven gifts.\" member rewards campaign. Turning this off hides every placement at once: the membership page band, the product page and quick-view chips, both cart placements, and any Member rewards section added to a template. Claims guide rule 11 - never promote an offer that is not live."
+      },
+      {
+        "type": "checkbox",
+        "id": "member_rewards_active",
+        "label": "Campaign is running",
+        "default": false,
+        "info": "Leave off between campaigns. No code change is needed to switch it on or off."
+      },
+      {
+        "type": "text",
+        "id": "member_rewards_month",
+        "label": "Month label",
+        "default": "September",
+        "info": "Drives the eyebrow and the two flags. Use the month the campaign runs."
+      },
+      {
+        "type": "text",
+        "id": "member_rewards_terms_period",
+        "label": "Terms period",
+        "default": "September 2026",
+        "info": "Used in the fine print: boxes 1-7 of a new subscription started in this period."
+      }
+    ]
+  },
+  {
     "name": "Free Shipping Code",
     "settings": [
         {
