@@ -29,6 +29,7 @@
         },
         "announcement_mrCFnq": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "icon": "none",
             "text": "Unlock FREE Gifts with your Seatopia Membership",
