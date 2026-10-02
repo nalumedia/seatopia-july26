@@ -512,7 +512,7 @@
         "heading_AGG3hQ": {
           "type": "heading",
           "settings": {
-            "heading": "Free Gift:  Cold-Smoked Lox with Every Order",
+            "heading": "Free Gift: &nbsp;Cold-Smoked Lox with Every Order",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -548,6 +548,7 @@
         "text_yxYCJM",
         "button_hXUynU"
       ],
+      "disabled": true,
       "name": "t:sections.images-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/ocean-lovers-box-with-free-cold-smoked-salmon-2902027.jpg",
