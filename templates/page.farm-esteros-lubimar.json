@@ -618,7 +618,7 @@
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
         "subheading": "",
-        "description": "<p>Feed is the single biggest factor in how clean and how nutritious a fish is. A fish is built from what it eats, which means the feed decides its omega-3s, its mineral profile, and how much mercury or microplastic it carries. That's why we treat feed as a sourcing requirement rather than a farm detail, and why every farm we work with has to tell us exactly what goes into the pellet.</p><p>Feed varies by farm, by species, and by stage of growth. The ingredients and the rules below hold across all of them.</p>",
+        "description": "<p>Feed is the single biggest factor in how clean and how nutritious a fish is. A fish is built from what it eats, which means the feed decides its omega-3s, its mineral profile, and how much mercury or microplastic it carries. That's why we treat feed as a sourcing requirement rather than a farm detail, and why every farm we work with has to tell us exactly what goes into the pellet.</p><p>Feed varies by farm, by species, and by stage of growth.</p>",
         "button_label": "",
         "button_link": "",
         "button_external": false,
