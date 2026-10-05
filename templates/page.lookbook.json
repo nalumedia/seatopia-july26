@@ -128,7 +128,7 @@
             "image_ratio": "adapt",
             "heading": "You choose from curated boxes or build your own box",
             "heading_size": "text-lg-2xl",
-            "text": "<p>Pick from sashimi-grade seafood<br/>selections. Order by Tuesday 12pm<br/>EST for delivery in the same week.</p>",
+            "text": "<p>Pick from sashimi-grade seafood<br/>selections. Order by midnight Tuesday<br/>EST for delivery in the same week.</p>",
             "button_label": "",
             "button_link": "",
             "button_style": "secondary",
