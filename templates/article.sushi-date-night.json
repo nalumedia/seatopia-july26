@@ -825,12 +825,21 @@
         "enable_parallax": true,
         "parallax_direction": "vertical"
       }
+    },
+    "creator_video": {
+      "type": "custom-liquid",
+      "settings": {
+        "liquid": "<style>\n  .sea-vid { max-width: 520px; margin: 0 auto; }\n  .sea-vid__frame {\n    position: relative;\n    border-radius: 18px;\n    overflow: hidden;\n    background: #111;\n    aspect-ratio: 9 / 16;\n  }\n  .sea-vid__frame video { width: 100%; height: 100%; object-fit: cover; display: block; }\n  .sea-vid__cap {\n    margin-top: 12px;\n    text-align: center;\n    font-size: 14px;\n    color: #5c5c5c;\n  }\n</style>\n\n{%- comment -%}\n  Anna's sushi night video, 48 s. Uses the transcoded HD-720p rendition, never the\n  /videos/c/o/v/ .mov master (257 MB). Added at Ryan's request 2026-10-08; Claude\n  cannot hear audio, so the voiceover was not claims-reviewed in-session.\n{%- endcomment -%}\n\n<div class=\"sea-vid\">\n  <div class=\"sea-vid__frame\">\n    <video\n      controls\n      playsinline\n      preload=\"metadata\"\n      poster=\"https://cdn.shopify.com/s/files/1/0222/9882/0682/files/9F3A9260.jpg?width=800\"\n      width=\"720\" height=\"1280\">\n      <source src=\"https://cdn.shopify.com/videos/c/vp/88b6110723104644b72ea901a6ce00eb/88b6110723104644b72ea901a6ce00eb.HD-720p-4.5Mbps-96826084.mp4\" type=\"video/mp4\">\n    </video>\n  </div>\n  <p class=\"sea-vid__cap\">Anna sets out sushi night, start to finish.</p>\n</div>",
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
     }
   },
   "order": [
     "main-article-banner",
     "collab_card",
     "rich_text_intro",
+    "creator_video",
     "at_a_glance",
     "shrimp_note",
     "recipe_kit_card",
