@@ -86,6 +86,9 @@
                               {%- endif -%}
 
                               {%- for tag in article.tags -%}
+                                {%- comment -%} Creator tags drive the Partners filter only; never show them as pills. {%- endcomment -%}
+                                {%- assign tag_head = tag | slice: 0, 3 -%}
+                                {%- if tag == 'Partner Recipes' or tag_head == 'By ' -%}{%- continue -%}{%- endif -%}
                                 <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="badge{% if badge_style %} badge--custom{% endif %} font-medium leading-none rounded-full"{% if badge_style %} style="{{ badge_style }}"{% endif %}>{{ tag }}</a>
                               {%- endfor -%}
                             {%- endif -%}

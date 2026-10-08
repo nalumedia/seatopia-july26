@@ -1,0 +1,47 @@
+{%- comment -%}
+  "Partners" dropdown for the recipe filter nav. Same markup and behaviour as
+  recipe-nav-dropdown, but the list comes from the recipe_creator metaobjects
+  (Shopify admin > Content > Metaobjects > Recipe creator), not a settings list.
+
+  Lists every creator who is not In-house and has at least one recipe tagged with
+  their filter tag in this blog. Renders nothing if the blog has no partner recipes.
+
+  Accepts:
+  - blog: {Object} Blog Liquid object
+{%- endcomment -%}
+{%- if blog.all_tags contains 'Partner Recipes' -%}
+  <div class="recipe-nav__item" data-recipe-dropdown>
+    <button type="button" class="recipe-nav__trigger" aria-expanded="false" aria-haspopup="true" data-recipe-trigger>
+      <span>Partners</span>
+      <svg class="recipe-nav__caret" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="recipe-nav__panel" data-recipe-panel hidden>
+      <ul>
+        <li>
+          <a
+            href="{{ blog.url }}/tagged/{{ 'Partner Recipes' | handleize }}"
+            class="recipe-nav__link{% if current_tags contains 'Partner Recipes' %} is-active{% endif %}"
+          >All partner recipes</a>
+        </li>
+        {%- for creator in shop.metaobjects.recipe_creator.values -%}
+          {%- assign creator_tag = creator.filter_tag.value -%}
+          {%- if creator.relationship.value == 'In-house' or creator_tag == blank -%}{%- continue -%}{%- endif -%}
+          {%- unless blog.all_tags contains creator_tag -%}{%- continue -%}{%- endunless -%}
+          <li>
+            <a
+              href="{{ blog.url }}/tagged/{{ creator_tag | handleize }}"
+              class="recipe-nav__link recipe-nav__link--creator{% if current_tags contains creator_tag %} is-active{% endif %}"
+            >
+              {%- if creator.photo.value != blank -%}
+                {{- creator.photo.value | image_url: width: 64 | image_tag: class: 'recipe-nav__avatar', width: 24, height: 24, loading: 'lazy', alt: '' -}}
+              {%- endif -%}
+              <span>{{ creator.name.value | escape }}</span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+{%- endif -%}

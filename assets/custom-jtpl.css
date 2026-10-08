@@ -1369,3 +1369,41 @@ a.block.media.media--portrait:before {
 @media (prefers-reduced-motion: reduce) {
   .complementary-products .horizontal-products:empty::after { animation: none; }
 }
+
+
+/* Recipe creator byline on article cards - snippets/recipe-creator-byline.liquid */
+.recipe-byline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  line-height: 1.2;
+}
+.recipe-byline__faces {
+  display: inline-flex;
+  flex: none;
+}
+.recipe-byline__face {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1.5px #bb8f50;
+  background: #eee;
+}
+.recipe-byline__face + .recipe-byline__face {
+  margin-left: -10px;
+}
+.recipe-byline__text {
+  font-family: var(--font-heading-family, inherit);
+  font-size: 17px;
+}
+.recipe-byline__name {
+  color: inherit;
+  text-decoration: none;
+}
+a.recipe-byline__name:hover {
+  text-decoration: underline;
+}
+    

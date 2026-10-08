@@ -69,6 +69,9 @@
                 </a>
               </li>
               {%- for tag in blog.all_tags -%}
+                {%- comment -%} Creator tags drive the Partners filter only; never show them as pills. {%- endcomment -%}
+                {%- assign tag_head = tag | slice: 0, 3 -%}
+                {%- if tag == 'Partner Recipes' or tag_head == 'By ' -%}{%- continue -%}{%- endif -%}
                 <li class="flex items-center justify-center relative{% if current_tags contains tag %} active{% endif %}">
                   <a href="{{ blog.url }}/tagged/{{ tag | handleize }}" class="subcollection flex items-center relative leading-tight text-lg-2xl">
                     <span class="btn-text">{{ tag }}</span>
@@ -84,6 +87,9 @@
               <select id="TagFilter" class="select" is="tag-filter">
                 <option value="{{ blog.url }}">{{ 'blogs.article.all_tags' | t }}</option>
                 {%- for tag in blog.all_tags -%}
+                  {%- comment -%} Creator tags drive the Partners filter only; never show them as pills. {%- endcomment -%}
+                  {%- assign tag_head = tag | slice: 0, 3 -%}
+                  {%- if tag == 'Partner Recipes' or tag_head == 'By ' -%}{%- continue -%}{%- endif -%}
                   <option value="{{ blog.url }}/tagged/{{ tag | handleize }}" {% if current_tags contains tag %}selected{% endif %}>{{ tag }}</option>
                 {%- endfor -%}
               </select>
