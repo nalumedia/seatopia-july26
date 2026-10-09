@@ -121,6 +121,68 @@
           break
         endif
       endfor
+
+      # Frequencies: the plans every subscribable line in the cart offers (Stay's selling
+      # plans). One today ("Delivered monthly"); a dropdown appears when Stay adds more.
+      assign freq_ids = ''
+      assign freq_names = ''
+      assign freq_seeded = false
+      for item in cart.items
+        if item.variant.selling_plan_allocations.size == 0
+          continue
+        endif
+        assign line_ids = ','
+        for a in item.variant.selling_plan_allocations
+          assign line_ids = line_ids | append: a.selling_plan.id | append: ','
+        endfor
+        if freq_seeded == false
+          for a in item.variant.selling_plan_allocations
+            assign a_name = a.selling_plan.name | split: ' (' | first
+            assign needle = '|' | append: a_name | append: '|'
+            assign names_wrapped = '|' | append: freq_names | append: '|'
+            unless names_wrapped contains needle
+              assign freq_ids = freq_ids | append: a.selling_plan.id | append: ','
+              assign freq_names = freq_names | append: a_name | append: '|'
+            endunless
+          endfor
+          assign freq_seeded = true
+        else
+          assign kept_ids = ''
+          assign kept_names = ''
+          assign ids_arr = freq_ids | split: ','
+          assign names_arr = freq_names | split: '|'
+          for fid in ids_arr
+            assign needle = ',' | append: fid | append: ','
+            if line_ids contains needle
+              assign kept_ids = kept_ids | append: fid | append: ','
+              assign kept_names = kept_names | append: names_arr[forloop.index0] | append: '|'
+            endif
+          endfor
+          assign freq_ids = kept_ids
+          assign freq_names = kept_names
+        endif
+      endfor
+      assign freq_id_list = freq_ids | split: ','
+      assign freq_name_list = freq_names | split: '|'
+
+      assign current_plan = ''
+      for item in cart.items
+        if item.selling_plan_allocation
+          assign current_plan = item.selling_plan_allocation.selling_plan.id | append: ''
+          break
+        endif
+      endfor
+      if current_plan == '' and freq_id_list.size > 0
+        assign current_plan = freq_id_list.first
+      endif
+
+      # Same delivery wording as the product page subscribe block (snippets/rtx-pdp.liquid).
+      assign freq_days = 30
+      if plan_name_full contains '3'
+        assign freq_days = 90
+      elsif plan_name_full contains '2'
+        assign freq_days = 60
+      endif
       # Only the plan's own published wording - no subscription terms beyond it (claims guide 4.F).
       assign plan_terms = plan_name_full | replace: ' (', ' · ' | remove: ')'
     -%}
@@ -138,8 +200,35 @@
           <span class="plan-toggle__price">
             {%- if mode == 'subscribe' -%}{{ order_total | money }} <s>{{ all_otp_order | money }}</s>{%- else -%}{{ all_sub_order | money }} <s>{{ all_otp_order | money }}</s>{%- endif -%}
           </span>
-          <span class="plan-toggle__note">{{ plan_terms | escape }}</span>
         </button>
+        <div class="plan-toggle__more">
+          <label class="plan-toggle__freq">
+            <span class="plan-toggle__freq-label">Delivery</span>
+            {%- if freq_id_list.size > 1 -%}
+              <select class="plan-toggle__select" data-plan-freq aria-label="Delivery frequency">
+                {%- for fid in freq_id_list -%}
+                  <option value="{{ fid }}"{% if fid == current_plan %} selected{% endif %}>{{ freq_name_list[forloop.index0] | escape }}</option>
+                {%- endfor -%}
+              </select>
+            {%- else -%}
+              <span class="plan-toggle__select plan-toggle__select--single">{{ freq_name_list.first | default: plan_terms | escape }}</span>
+            {%- endif -%}
+          </label>
+          {%- comment -%}
+            Benefits: the product page's subscribe copy (snippets/rtx-pdp.liquid), with two
+            claims-guide changes. "Clean seafood" -> "seafood you can trust" (bare "clean" is an
+            unqualified benefit claim, 8.2; "Seafood you can trust" is green, 4.A). The member
+            gifts line shows only while the member rewards campaign switch is on (rule 11:
+            never promote an offer that is not live).
+          {%- endcomment -%}
+          <ul class="plan-toggle__perks">
+            {%- if settings.member_rewards_active -%}
+              <li>Free member gifts, rewards &amp; access to exclusive products 🎁</li>
+            {%- endif -%}
+            <li>Make seafood you can trust a regular part of how you eat</li>
+            <li>Every {{ freq_days }} days receive this box &ndash; pause, skip, or cancel anytime.</li>
+          </ul>
+        </div>
       {%- else -%}
         <div class="plan-toggle__opt is-locked" aria-disabled="true">
           <span class="plan-toggle__dot" aria-hidden="true"></span>
@@ -155,7 +244,7 @@
             {%- if gift_wrap_id != blank and item.variant_id == gift_wrap_id -%}{%- continue -%}{%- endif -%}
             {%- liquid
               assign plan_id = null
-              if item.selling_plan_allocation == null and item.variant.selling_plan_allocations.size > 0
+              if item.variant.selling_plan_allocations.size > 0
                 assign plan_id = item.variant.selling_plan_allocations.first.selling_plan.id
                 for a in item.variant.selling_plan_allocations
                   if a.selling_plan.id == preferred_plan
@@ -357,6 +446,17 @@
   .plan-toggle__price s { font-weight: 400; opacity: .5; margin-left: 4px; }
   .plan-toggle__note { grid-column: 2 / -1; font-size: 12px; opacity: .65; }
   .plan-toggle[data-plan-busy] { opacity: .55; pointer-events: none; }
+  .plan-toggle__more { display: grid; gap: 8px; padding: 0 14px 4px 42px; margin-top: -2px; }
+  .plan-toggle__freq { display: flex; align-items: center; gap: 10px; }
+  .plan-toggle__freq-label { font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; opacity: .6; }
+  .plan-toggle__select {
+    flex: 1; height: 36px; border-radius: 999px; padding: 0 14px; font: inherit; font-size: 14px; font-weight: 500;
+    border: 1px solid rgba(17, 24, 39, 0.25); background: #fff; color: inherit;
+  }
+  .plan-toggle__select--single { display: inline-flex; align-items: center; }
+  .plan-toggle__perks { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-size: 13px; line-height: 1.4; }
+  .plan-toggle__perks li { position: relative; padding-left: 20px; }
+  .plan-toggle__perks li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: #2e4b59; font-weight: 700; }
   .plan-gate--min .plan-gate__text { margin: 0; }
 </style>
 
@@ -423,13 +523,18 @@
         if (changes.length) {
           let cart = live || await getJSON('cart.js'); /* reuse the read "all one-time" already made */
           /* only the intents that still need doing, so the last real request gets the sections */
-          const todo = changes.filter((it) => (cart.items || []).some((l) =>
-            String(l.variant_id) === String(it.variant) && !!l.selling_plan_allocation !== (it.plan != null)));
+          /* a line needs the intent if its plan state differs - including a different frequency */
+          const needs = (l, it) => {
+            if (String(l.variant_id) !== String(it.variant)) return false;
+            const sub = l.selling_plan_allocation;
+            if (it.plan == null) return !!sub;
+            return !sub || String(sub.selling_plan.id) !== String(it.plan);
+          };
+          const todo = changes.filter((it) => (cart.items || []).some((l) => needs(l, it)));
           for (let i = 0; i < todo.length; i++) {
             const it = todo[i];
             const wantSub = it.plan != null;
-            const line = (cart.items || []).find((l) =>
-              String(l.variant_id) === String(it.variant) && !!l.selling_plan_allocation !== wantSub);
+            const line = (cart.items || []).find((l) => needs(l, it));
             if (!line) continue;
             const isLast = i === todo.length - 1 && !adds.length;
             cart = await getJSON('cart/change.js', Object.assign({
@@ -475,6 +580,16 @@
         busy.removeAttribute('data-plan-busy');
       }
     }
+
+    /* Frequency: every line that can subscribe moves to the chosen plan (subscribing the cart if it was one-time). */
+    document.addEventListener('change', (e) => {
+      const sel = e.target.closest('[data-plan-freq]');
+      if (!sel) return;
+      const gate = sel.closest('cart-plan-gate');
+      let lines = [];
+      try { lines = JSON.parse(gate.querySelector('[data-plan-lines]').textContent) || []; } catch (err) {}
+      apply(lines.filter((l) => l.plan).map((l) => ({ variant: l.variant, plan: sel.value })), gate);
+    });
 
     /* Favorites: pack chips pick the variant (and its plan price) the Add button will add. */
     document.addEventListener('click', (e) => {
