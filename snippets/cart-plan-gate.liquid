@@ -239,7 +239,7 @@
   .plan-gate__chip { flex: none; font-size: 13px; padding: 5px 12px; white-space: nowrap; }
   .plan-gate__btn { width: 100%; padding: 11px 14px; font-size: 14px; font-weight: 600; }
   .plan-gate__btn--primary { background: #2e4b59; border-color: #2e4b59; color: #fff; }
-  .plan-gate [disabled] { opacity: .55; cursor: default; }
+  .plan-gate [disabled], .plan-gate[data-plan-busy] { opacity: .55; cursor: default; }
   .plan-gate__error { margin: 0; font-size: 13px; color: #a33; }
   .plan-gate__error[hidden] { display: none; }
   .plan-gate--min { gap: 4px; }
@@ -248,74 +248,79 @@
 
 <script>
   (function () {
-    if (customElements.get('cart-plan-gate')) return;
+    if (window.SeatopiaCartPlan) return;
 
-    class CartPlanGate extends HTMLElement {
-      connectedCallback() {
-        this.addEventListener('click', (e) => {
-          const one = e.target.closest('[data-plan-line]');
-          if (one) {
-            this.apply([{ url: 'change', body: { id: one.dataset.planLine, quantity: Number(one.dataset.planQty), selling_plan: Number(one.dataset.planId) } }]);
-            return;
-          }
-          const add = e.target.closest('[data-plan-add]');
-          if (add) {
-            this.apply([{ url: 'add', body: { items: [{ id: Number(add.dataset.planAdd), quantity: 1, selling_plan: Number(add.dataset.planId) }] } }]);
-            return;
-          }
-          const all = e.target.closest('[data-plan-all]');
-          if (!all) return;
-          let lines = [];
-          try { lines = JSON.parse(this.querySelector('[data-plan-lines]').textContent) || []; } catch (err) {}
-          const changes = all.dataset.planAll === 'subscribe'
-            ? lines.filter((l) => !l.sub && l.plan).map((l) => ({ id: l.key, quantity: l.qty, selling_plan: Number(l.plan) }))
-            : lines.filter((l) => l.sub).map((l) => ({ id: l.key, quantity: l.qty, selling_plan: null }));
-          this.apply(changes.map((body) => ({ url: 'change', body })));
-        });
-      }
+    const root = () => ((window.theme && theme.routes && theme.routes.root_url) || '/').replace(/\/?$/, '/');
 
-      async apply(steps) {
-        if (!steps.length) return;
-        const buttons = this.querySelectorAll('button');
-        buttons.forEach((b) => { b.disabled = true; });
-        const err = this.querySelector('[data-plan-error]');
-        const root = ((window.theme && theme.routes && theme.routes.root_url) || '/').replace(/\/?$/, '/');
-        try {
-          /* one request at a time: changing a selling plan gives that line a new key,
-             but leaves every other key alone, so the remaining ids stay valid */
-          for (const step of steps) {
-            const res = await fetch(root + 'cart/' + step.url + '.js', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-              body: JSON.stringify(step.body)
-            });
-            if (!res.ok) {
-              const j = await res.json().catch(() => null);
-              throw new Error((j && (j.description || j.message)) || 'We could not update your cart.');
-            }
+    /* Apply cart changes one at a time: changing a selling plan gives that line a new key
+       but leaves every other key alone, so the remaining ids stay valid. */
+    async function apply(steps, scope) {
+      if (!steps.length) return;
+      const busy = scope || document.body;
+      busy.setAttribute('data-plan-busy', '');
+      const err = scope && scope.querySelector('[data-plan-error]');
+      try {
+        for (const step of steps) {
+          const res = await fetch(root() + 'cart/' + step.url + '.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify(step.body)
+          });
+          if (!res.ok) {
+            const j = await res.json().catch(() => null);
+            throw new Error((j && (j.description || j.message)) || 'We could not update your cart.');
           }
-          const cartPath = ((window.theme && theme.routes && theme.routes.cart_url) || '/cart').replace(/\/$/, '');
-          if (window.location.pathname.replace(/\/$/, '') === cartPath) {
-            window.location.reload();
-          } else {
-            /* Header count. Not via the cartUpdate pubsub: cart.js's cart-items handler reads
-               event.cart.sections unguarded and would throw on a plain /cart.js payload. */
-            const cart = await (await fetch(root + 'cart.js', { headers: { Accept: 'application/json' } })).json().catch(() => null);
-            if (cart) {
-              document.querySelectorAll('cart-count').forEach((el) => {
-                el.innerText = cart.item_count;
-                el.hidden = cart.item_count === 0;
-              });
-            }
-            document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true, detail: { open: true } }));
-          }
-        } catch (e) {
-          if (err) { err.textContent = e.message; err.hidden = false; }
-          buttons.forEach((b) => { b.disabled = false; });
         }
+        const cartPath = ((window.theme && theme.routes && theme.routes.cart_url) || '/cart').replace(/\/$/, '');
+        if (window.location.pathname.replace(/\/$/, '') === cartPath) {
+          window.location.reload();
+          return;
+        }
+        /* Header count. Not via the cartUpdate pubsub: cart.js's cart-items handler reads
+           event.cart.sections unguarded and would throw on a plain /cart.js payload. */
+        const cart = await (await fetch(root() + 'cart.js', { headers: { Accept: 'application/json' } })).json().catch(() => null);
+        if (cart) {
+          document.querySelectorAll('cart-count').forEach((el) => {
+            el.innerText = cart.item_count;
+            el.hidden = cart.item_count === 0;
+          });
+        }
+        document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true, detail: { open: true } }));
+      } catch (e) {
+        if (err) { err.textContent = e.message; err.hidden = false; } else { window.alert(e.message); }
+      } finally {
+        busy.removeAttribute('data-plan-busy');
       }
     }
 
-    customElements.define('cart-plan-gate', CartPlanGate);
+    const change = (id, quantity, plan) => ({ url: 'change', body: { id, quantity: Number(quantity), selling_plan: plan == null ? null : Number(plan) } });
+
+    document.addEventListener('click', (e) => {
+      const el = e.target.closest('[data-plan-line], [data-plan-unsub], [data-plan-unsub-all], [data-plan-add], [data-plan-all]');
+      if (!el) return;
+      const gate = el.closest('cart-plan-gate');
+      const scope = gate || el.closest('cart-items') || null;
+
+      if (el.hasAttribute('data-plan-line')) {
+        apply([change(el.dataset.planLine, el.dataset.planQty, el.dataset.planId)], scope);
+      } else if (el.hasAttribute('data-plan-unsub')) {
+        apply([change(el.dataset.planUnsub, el.dataset.planQty, null)], scope);
+      } else if (el.hasAttribute('data-plan-unsub-all')) {
+        const rows = [...(scope || document).querySelectorAll('[data-plan-unsub]')];
+        apply(rows.map((r) => change(r.dataset.planUnsub, r.dataset.planQty, null)), scope);
+      } else if (el.hasAttribute('data-plan-add')) {
+        apply([{ url: 'add', body: { items: [{ id: Number(el.dataset.planAdd), quantity: 1, selling_plan: Number(el.dataset.planId) }] } }], scope);
+      } else if (el.hasAttribute('data-plan-all') && gate) {
+        let lines = [];
+        try { lines = JSON.parse(gate.querySelector('[data-plan-lines]').textContent) || []; } catch (err) {}
+        const steps = el.dataset.planAll === 'subscribe'
+          ? lines.filter((l) => !l.sub && l.plan).map((l) => change(l.key, l.qty, l.plan))
+          : lines.filter((l) => l.sub).map((l) => change(l.key, l.qty, null));
+        apply(steps, gate);
+      }
+    });
+
+    window.SeatopiaCartPlan = { apply };
+    if (!customElements.get('cart-plan-gate')) customElements.define('cart-plan-gate', class extends HTMLElement {});
   })();
 </script>

@@ -130,7 +130,81 @@
                 endif
               -%}
              <cart-items class="block grow" data-section-id="{{ section.id }}">
-  <ul class="horizontal-products grid" role="list">
+  {%- liquid
+    # Group totals for the Subscription / One-time headers (gift wrap excluded).
+    assign grp_sub_total = 0
+    assign grp_sub_count = 0
+    assign grp_otp_total = 0
+    assign grp_otp_count = 0
+    assign grp_plan_label = ''
+    for item in cart.items
+      if gift_wrap_id != nil and item.id == gift_wrap_id
+        continue
+      endif
+      if item.selling_plan_allocation
+        assign grp_sub_total = grp_sub_total | plus: item.final_line_price
+        assign grp_sub_count = grp_sub_count | plus: 1
+        if grp_plan_label == ''
+          assign grp_plan_label = item.selling_plan_allocation.selling_plan.name | split: ' (' | first
+        endif
+      else
+        assign grp_otp_total = grp_otp_total | plus: item.final_line_price
+        assign grp_otp_count = grp_otp_count | plus: 1
+      endif
+    endfor
+  -%}
+  <style>
+    /* Compact cart rows + Subscription / One-time grouping (2026-10-08) */
+    .cart-lines { gap: 0; }
+    .cart-lines .horizontal-product { --cart-item-media-width: 56px; gap: 12px; padding-block: 10px; }
+    .cart-lines .horizontal-product + .horizontal-product { padding-block-start: 10px; }
+    .cart-lines .horizontal-product__details { gap: 4px; }
+    .cart-lines .horizontal-product__details .flex.flex-col.gap-1 { gap: 2px; }
+    .cart-lines .horizontal-product__title { font-size: 15px; }
+    .cart-lines .horizontal-product__details dl { gap: 2px; }
+    .cart-lines .cart-quantity { height: 34px; width: 52px; }
+    .cart-lines .horizontal-product__quantity .grid { gap: 4px; }
+    .cart-lines .horizontal-product--sub {
+      background: #eef3f1;
+      border-inline-start: 3px solid #2e4b59;
+      border-block-start: 0 !important;
+      padding-inline: 10px;
+      border-radius: 10px;
+      margin-block-end: 6px;
+    }
+    .cart-group {
+      display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap;
+      padding: 12px 2px 6px; border: 0 !important;
+      font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+    }
+    .cart-group__label { display: inline-flex; align-items: center; gap: 6px; }
+    .cart-group--sub .cart-group__label { color: #2e4b59; }
+    .cart-group__meta { font-weight: 500; letter-spacing: 0; text-transform: none; font-size: 13px; opacity: .8; display: inline-flex; gap: 10px; align-items: baseline; }
+    .cart-group__action, .cart-plan-link {
+      font: inherit; font-size: 12px; background: none; border: 0; padding: 0; cursor: pointer;
+      color: inherit; text-decoration: underline; text-underline-offset: 2px; text-transform: none; letter-spacing: 0;
+    }
+    .cart-plan-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 2px 0 0; font-size: 12px; }
+    .cart-plan-pill {
+      display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 999px;
+      background: #2e4b59; color: #fff; font-size: 11px; font-weight: 600; line-height: 1.5;
+    }
+    .cart-lines [data-plan-busy] { opacity: .5; pointer-events: none; }
+  </style>
+  <ul class="horizontal-products grid cart-lines" role="list">
+
+    {%- if grp_sub_count > 0 -%}
+      <li class="cart-group cart-group--sub">
+        <span class="cart-group__label">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+          Subscription{% if grp_plan_label != '' %} &middot; {{ grp_plan_label | escape }}{% endif %}
+        </span>
+        <span class="cart-group__meta">
+          renews at {{ grp_sub_total | money }}
+          <button type="button" class="cart-group__action" data-plan-unsub-all>Switch all to one-time</button>
+        </span>
+      </li>
+    {%- endif -%}
 
     {%- comment -%} ── PASS 1: Subscribed items pehle ── {%- endcomment -%}
     {%- for item in cart.items -%}
@@ -143,7 +217,7 @@
 
       {%- if item.selling_plan_allocation != null and is_gift_wrap_item == false -%}
         {%- capture cart_item -%}
-          <li id="CartDrawer-Item-{{ item.key }}" class="horizontal-product flex items-center gap-4 md:gap-6" data-p-type="{{ item.product.type }}" data-variant-id="{{ item.variant_id }}" data-handle="{{ item.product.handle }}" data-quantity="{{ item.quantity }}" data-price="{{ item.original_price }}">
+          <li id="CartDrawer-Item-{{ item.key }}" class="horizontal-product horizontal-product--sub flex items-center gap-4 md:gap-6" data-p-type="{{ item.product.type }}" data-variant-id="{{ item.variant_id }}" data-handle="{{ item.product.handle }}" data-quantity="{{ item.quantity }}" data-price="{{ item.original_price }}">
             {%- if item.image -%}
               <a class="horizontal-product__media media media--{{ settings.product_image_ratio }}{% unless settings.product_image_fill %} media--contain{% endunless %} relative overflow-hidden shrink-0" href="{{ item.url }}" tabindex="-1">
                 {{- item.image | image_url: width: item.image.width | image_tag: loading: 'lazy', widths: '180,360,540', is: 'lazy-image' -}}
@@ -186,7 +260,10 @@
                     {%- endfor -%}
                   </dl>
                   {%- if item.selling_plan_allocation != null -%}
-                    <p class="text-xs text-opacity">{{ item.selling_plan_allocation.selling_plan.name }}</p>
+                    <p class="cart-plan-row">
+                      <span class="cart-plan-pill">{{ item.selling_plan_allocation.selling_plan.name | split: ' (' | first | escape }}</span>
+                      <button type="button" class="cart-plan-link" data-plan-unsub="{{ item.key }}" data-plan-qty="{{ item.quantity }}">Make one-time</button>
+                    </p>
                   {%- endif -%}
                 {%- endif -%}
               </div>
@@ -296,6 +373,13 @@
     {%- comment -%} ── UPGRADE BANNER — subscribed ke baad, one-time ke upar ── {%- endcomment -%}
    
 
+    {%- if grp_otp_count > 0 -%}
+      <li class="cart-group cart-group--otp">
+        <span class="cart-group__label">One-time</span>
+        <span class="cart-group__meta">{{ grp_otp_total | money }}</span>
+      </li>
+    {%- endif -%}
+
     {%- comment -%} ── PASS 2: One-time items baad mein ── {%- endcomment -%}
     {%- for item in cart.items -%}
       {%- liquid
@@ -350,6 +434,15 @@
                       {%- endif -%}
                     {%- endfor -%}
                   </dl>
+                {%- endif -%}
+                {%- if item.variant.selling_plan_allocations.size > 0 and is_gift_wrap_item == false -%}
+                  {%- liquid
+                    assign otp_alloc = item.variant.selling_plan_allocations.first
+                    assign otp_sub_price = otp_alloc.price | times: item.quantity
+                  -%}
+                  <p class="cart-plan-row">
+                    <button type="button" class="cart-plan-link" data-plan-line="{{ item.key }}" data-plan-id="{{ otp_alloc.selling_plan.id }}" data-plan-qty="{{ item.quantity }}">Subscribe &middot; {{ otp_sub_price | money }}</button>
+                  </p>
                 {%- endif -%}
               </div>
               <div class="flex flex-col gap-1">
