@@ -82,6 +82,12 @@
                       {%- endfor -%}
                     {%- endif -%}
                   </ul>
+                  {%- comment -%} Start the cart from the box builder's favorites, one tap each. {%- endcomment -%}
+                  {%- render 'cart-favorites',
+                    products: collections['build-your-own-box'].products,
+                    limit: 8,
+                    heading: section.settings.cart_recommendations_heading
+                  -%}
                 </div>
               </div>
             {%- endif -%}
@@ -608,7 +614,8 @@
                   endif
                 -%}
                 {%- render 'cart-favorites',
-                  products: section.settings.cart_recommendations_products,
+                  products: collections['build-your-own-box'].products,
+                  limit: 6,
                   heading: section.settings.cart_recommendations_heading
                 -%}
               {%- endif -%}

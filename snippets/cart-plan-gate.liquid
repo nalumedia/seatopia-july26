@@ -383,58 +383,114 @@
         { variant, plan }   plan = selling plan id to subscribe, or null for one-time
         { add: variant, plan }  add one unit as a subscription
     */
+    const drawerId = () => { const el = document.querySelector('[id^="MiniCart-"]'); return el ? el.id.slice(9) : null; };
+    const onCartPage = () => {
+      const cartPath = ((window.theme && theme.routes && theme.routes.cart_url) || '/cart').replace(/\/$/, '');
+      return window.location.pathname.replace(/\/$/, '') === cartPath;
+    };
+    const setCount = (n) => {
+      if (typeof n !== 'number' || isNaN(n)) return;
+      document.querySelectorAll('cart-count').forEach((el) => { el.innerText = n; el.hidden = n === 0; });
+    };
+
+    /*
+      Speed: one round trip where possible. Adds skip the up-front cart read, and the LAST
+      request asks Shopify to render the drawer in the same response (sections param), so
+      the drawer updates from it instead of a separate re-render fetch. Previously up to
+      four sequential requests (read, change, read, render).
+    */
     async function apply(intents, scope) {
+      let live = null;
       if (intents.length === 1 && intents[0].allOneTime) {
         /* "All one-time" expands against the live cart, never the HTML */
-        const live = await getJSON('cart.js').catch(() => ({ items: [] }));
-        intents = (live.items || []).filter((l) => l.selling_plan_allocation).map((l) => ({ variant: l.variant_id, plan: null }));
+        live = await getJSON('cart.js').catch(() => null);
+        intents = ((live && live.items) || []).filter((l) => l.selling_plan_allocation).map((l) => ({ variant: l.variant_id, plan: null }));
       }
       if (!intents.length) return;
       const busy = scope || document.body;
       busy.setAttribute('data-plan-busy', '');
       const err = scope && scope.querySelector('[data-plan-error]');
       if (err) err.hidden = true;
+
+      const sid = onCartPage() ? null : drawerId();
+      const withSections = sid ? { sections: [sid], sections_url: window.location.pathname } : {};
+      const adds = intents.filter((it) => it.add);
+      const changes = intents.filter((it) => !it.add);
+
       try {
-        let cart = await getJSON('cart.js');
-        for (const it of intents) {
-          if (it.add) {
-            const item = { id: Number(it.add), quantity: 1 };
-            if (it.plan) item.selling_plan = Number(it.plan); /* no plan = one-time */
-            await getJSON('cart/add.js', { items: [item] });
-            cart = await getJSON('cart.js');
-            continue;
+        let last = null;
+
+        if (changes.length) {
+          let cart = live || await getJSON('cart.js'); /* reuse the read "all one-time" already made */
+          /* only the intents that still need doing, so the last real request gets the sections */
+          const todo = changes.filter((it) => (cart.items || []).some((l) =>
+            String(l.variant_id) === String(it.variant) && !!l.selling_plan_allocation !== (it.plan != null)));
+          for (let i = 0; i < todo.length; i++) {
+            const it = todo[i];
+            const wantSub = it.plan != null;
+            const line = (cart.items || []).find((l) =>
+              String(l.variant_id) === String(it.variant) && !!l.selling_plan_allocation !== wantSub);
+            if (!line) continue;
+            const isLast = i === todo.length - 1 && !adds.length;
+            cart = await getJSON('cart/change.js', Object.assign({
+              id: line.key,
+              quantity: line.quantity,
+              selling_plan: wantSub ? Number(it.plan) : null
+            }, isLast ? withSections : {}));
+            last = cart; /* change.js returns the whole cart, item_count included */
           }
-          const wantSub = it.plan != null;
-          const line = (cart.items || []).find((l) =>
-            String(l.variant_id) === String(it.variant) && !!l.selling_plan_allocation !== wantSub);
-          if (!line) continue; /* already in the wanted state */
-          cart = await getJSON('cart/change.js', {
-            id: line.key,
-            quantity: line.quantity,
-            selling_plan: wantSub ? Number(it.plan) : null
-          });
         }
 
-        const cartPath = ((window.theme && theme.routes && theme.routes.cart_url) || '/cart').replace(/\/$/, '');
-        if (window.location.pathname.replace(/\/$/, '') === cartPath) {
-          window.location.reload();
-          return;
+        if (adds.length) {
+          const items = adds.map((it) => {
+            const item = { id: Number(it.add), quantity: 1 };
+            if (it.plan) item.selling_plan = Number(it.plan); /* no plan = one-time */
+            return item;
+          });
+          const res = await getJSON('cart/add.js', Object.assign({ items }, withSections));
+          /* add.js returns the added items, not the cart: count optimistically, confirm in the background */
+          const countEl = document.querySelector('cart-count');
+          const prev = countEl ? parseInt(countEl.innerText, 10) || 0 : 0;
+          last = { sections: res.sections, item_count: prev + items.length };
+          getJSON('cart.js').then((c) => setCount(c.item_count)).catch(() => {});
         }
-        /* Header count. Not via the cartUpdate pubsub: cart.js's cart-items handler reads
-           event.cart.sections unguarded and would throw on a plain /cart.js payload. */
-        document.querySelectorAll('cart-count').forEach((el) => {
-          el.innerText = cart.item_count;
-          el.hidden = cart.item_count === 0;
-        });
-        document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true, detail: { open: true } }));
+
+        if (onCartPage()) { window.location.reload(); return; }
+
+        if (last && last.sections && sid && last.sections[sid]) {
+          setCount(last.item_count);
+          if (window.theme && theme.pubsub && theme.pubsub.PUB_SUB_EVENTS) {
+            theme.pubsub.publish(theme.pubsub.PUB_SUB_EVENTS.cartUpdate, { source: 'cart-plan', cart: last });
+          }
+          const drawer = document.querySelector('cart-drawer');
+          if (drawer && !drawer.hasAttribute('open') && typeof drawer.show === 'function') drawer.show();
+        } else {
+          if (last && typeof last.item_count === 'number') setCount(last.item_count);
+          document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true, detail: { open: true } }));
+        }
       } catch (e) {
-        /* Shown in place. Not followed by a drawer refresh, which would wipe the message;
-           each step re-reads the live cart, so a half-applied change is very unlikely. */
+        /* Shown in place. Not followed by a drawer refresh, which would wipe the message. */
         if (err) { err.textContent = e.message + ' Please refresh the page and try again.'; err.hidden = false; }
       } finally {
         busy.removeAttribute('data-plan-busy');
       }
     }
+
+    /* Favorites: pack chips pick the variant (and its plan price) the Add button will add. */
+    document.addEventListener('click', (e) => {
+      const chip = e.target.closest('[data-fav-variant]');
+      if (!chip || chip.disabled) return;
+      const row = chip.closest('[data-fav]');
+      if (!row) return;
+      row.querySelectorAll('[data-fav-variant]').forEach((c) => c.classList.toggle('is-active', c === chip));
+      const add = row.querySelector('[data-plan-add]');
+      if (add) {
+        add.dataset.planAdd = chip.dataset.favVariant;
+        if (chip.dataset.favPlan) add.dataset.planId = chip.dataset.favPlan; else delete add.dataset.planId;
+      }
+      const label = row.querySelector('[data-fav-label]');
+      if (label) label.textContent = chip.dataset.favText;
+    });
 
     document.addEventListener('click', (e) => {
       const el = e.target.closest('[data-plan-line], [data-plan-unsub], [data-plan-unsub-all], [data-plan-add], [data-plan-all]');
@@ -442,6 +498,13 @@
       const gate = el.closest('cart-plan-gate');
       const scope = gate || el.closest('[data-cart-favs]') || el.closest('cart-items') || null;
       const d = el.dataset;
+      /* Instant feedback: Shopify takes ~0.7s to add, so the button answers immediately. */
+      if (el.matches('button') && !el.dataset.planBusyLabel) {
+        el.dataset.planBusyLabel = el.innerHTML;
+        el.classList.add('is-adding');
+        el.textContent = el.hasAttribute('data-plan-add') ? 'Adding…' : 'Updating…';
+        setTimeout(() => { if (el.isConnected && el.dataset.planBusyLabel) { el.innerHTML = el.dataset.planBusyLabel; delete el.dataset.planBusyLabel; el.classList.remove('is-adding'); } }, 8000);
+      }
 
       if (el.hasAttribute('data-plan-line')) {
         apply([{ variant: d.planVariant, plan: d.planId }], scope);
