@@ -1,0 +1,73 @@
+{%- comment -%}
+  Always-visible buy bar under a product card: pack size + one-tap Add.
+  Replaces the hover-only "Choose options" -> quick view -> add flow (Ryan, 2026-10-08).
+
+  Pack sizes are chips when every variant is an "N-Pack" (2 / 4 / 8 / 12) and there are at
+  most four; otherwise a compact select. The Add button shows the selected pack's price.
+
+  Submits through the theme's own product form (is="product-form"), so the drawer opens and
+  the theme's add-to-cart events fire exactly as they do on the product page. The chips only
+  change the form's hidden variant id. Adds one-time; the cart drawer offers Subscribe, and
+  the $125 subscription minimum lives there (snippets/cart-plan-gate.liquid).
+
+  Accepts:
+  - product: {Object}
+  - section_id: {String}
+  - product_id: {String}
+{%- endcomment -%}
+{%- liquid
+  assign qa_variant = product.selected_or_first_available_variant
+  assign qa_chips = true
+  if product.variants.size > 4
+    assign qa_chips = false
+  endif
+  for v in product.variants
+    unless v.title contains '-Pack'
+      assign qa_chips = false
+    endunless
+  endfor
+  if product.has_only_default_variant
+    assign qa_chips = false
+  endif
+-%}
+{%- capture qa_form_id -%}CardQuickAdd-{{ section_id }}-{{ product_id }}{%- endcapture -%}
+
+<div class="card-qa" data-card-qa>
+  {%- if product.available -%}
+    {%- form 'product', product, is: 'product-form', id: qa_form_id, class: 'card-qa__form' -%}
+      <input type="hidden" name="id" value="{{ qa_variant.id }}">
+
+      {%- unless product.has_only_default_variant -%}
+        {%- if qa_chips -%}
+          <div class="card-qa__packs" role="radiogroup" aria-label="Pack size for {{ product.title | escape }}">
+            {%- for v in product.variants -%}
+              <button type="button" class="card-qa__pack{% if v.id == qa_variant.id %} is-active{% endif %}"
+                role="radio" aria-checked="{% if v.id == qa_variant.id %}true{% else %}false{% endif %}"
+                data-qa-variant="{{ v.id }}" data-qa-price="{{ v.price | money_without_trailing_zeros }}"
+                {% unless v.available %}disabled{% endunless %}
+                aria-label="{{ v.title | escape }}, {{ v.price | money }}">
+                {{- v.title | replace: '-Pack', '' | strip -}}
+              </button>
+            {%- endfor -%}
+            <span class="card-qa__unit">pack</span>
+          </div>
+        {%- else -%}
+          <select class="card-qa__select" aria-label="Option for {{ product.title | escape }}" data-qa-select>
+            {%- for v in product.variants -%}
+              <option value="{{ v.id }}" data-qa-price="{{ v.price | money_without_trailing_zeros }}"{% if v.id == qa_variant.id %} selected{% endif %}{% unless v.available %} disabled{% endunless %}>
+                {{- v.title | escape }} &middot; {{ v.price | money_without_trailing_zeros -}}
+              </option>
+            {%- endfor -%}
+          </select>
+        {%- endif -%}
+      {%- endunless -%}
+
+      <button type="submit" class="card-qa__add button button--primary" is="hover-button" data-variant-id="{{ qa_variant.id }}">
+        <span class="btn-fill" data-fill></span>
+        <span class="btn-text">Add &middot; <span data-qa-label>{{ qa_variant.price | money_without_trailing_zeros }}</span></span>
+      </button>
+    {%- endform -%}
+  {%- endif -%}
+</div>
+
+{%- comment -%} Styles: assets/theme.css (.card-qa). Chip script: layout/theme.liquid (window.__cardQuickAdd). {%- endcomment -%}

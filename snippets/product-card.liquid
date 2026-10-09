@@ -25,6 +25,12 @@
 {%- endcomment -%}
  
 {%- if product != blank -%}
+{%- comment -%}
+  Always-visible pack size + Add bar (snippets/product-card-quick-add.liquid) replaces the
+  hover "Choose options" overlay and the mobile quick-add wherever quick add is on.
+  Set to false to restore the old hover flow.
+{%- endcomment -%}
+{%- assign card_inline_qa = true -%}
 <style>
   .product-card__hover-image{
   z-index: 1;
@@ -67,7 +73,7 @@ endif
 
 
 
-  <div product-tags="{{ product.tags }}" class="card product-card product-card--{{ settings.card_style }}{% if settings.card_border_thickness > 0 %} product-card--thickness{% endif %}{% unless featured_media %} no-media{% endunless %}{% if product.available and show_quick_add and mobile_quick_add %} mobile:with-quick-add{% endif %} flex flex-col leading-none relative">
+  <div product-tags="{{ product.tags }}" class="card product-card product-card--{{ settings.card_style }}{% if settings.card_border_thickness > 0 %} product-card--thickness{% endif %}{% unless featured_media %} no-media{% endunless %}{% if product.available and show_quick_add and mobile_quick_add and card_inline_qa == false %} mobile:with-quick-add{% endif %} flex flex-col leading-none relative">
     {%- if featured_media -%}
       <div class="product-card__media relative h-auto">
         {%- if show_quick_view -%}
@@ -183,7 +189,7 @@ endif
         </a>
 
         {%- if product.available -%}
-          {%- if show_quick_add -%}
+          {%- if show_quick_add and card_inline_qa == false -%}
             <div class="quick-add flex justify-end md:justify-center absolute w-full z-1 pointer-events-none">
               {%- if product.variants.size == 1 -%}
                 {%- capture product_form_id -%}QuickAddProductForm-{{ section_id }}-{{ product_id }}{%- endcapture -%}
@@ -490,7 +496,9 @@ endif
       {%- endif -%}
     {%- endif -%}
 
-    {%- if show_quick_add and mobile_quick_add -%}
+    {%- if show_quick_add and card_inline_qa and product.available -%}
+      {%- render 'product-card-quick-add', product: product, section_id: section_id, product_id: product_id -%}
+    {%- elsif show_quick_add and mobile_quick_add and card_inline_qa == false -%}
       <div class="lg:hidden">
         {%- if product.available -%}
           {%- if product.variants.size == 1 -%}

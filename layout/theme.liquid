@@ -589,5 +589,41 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <!-- end free caviar -->
 {% render 'inf-footer-scripts' %}
+  {%- comment -%} Product card quick add: pack chips set the card form's variant (snippets/product-card-quick-add.liquid) {%- endcomment -%}
+  <script>
+    (function () {
+      if (window.__cardQuickAdd) return;
+      window.__cardQuickAdd = true;
+  
+      function select(root, id, price) {
+        const form = root.querySelector('form');
+        const input = form && form.querySelector('[name="id"]');
+        if (input) input.value = id;
+        const add = root.querySelector('.card-qa__add');
+        if (add) add.dataset.variantId = id;
+        const label = root.querySelector('[data-qa-label]');
+        if (label && price) label.textContent = price;
+      }
+  
+      document.addEventListener('click', (e) => {
+        const pack = e.target.closest('[data-qa-variant]');
+        if (!pack || pack.disabled) return;
+        const root = pack.closest('[data-card-qa]');
+        root.querySelectorAll('[data-qa-variant]').forEach((b) => {
+          const on = b === pack;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-checked', on ? 'true' : 'false');
+        });
+        select(root, pack.dataset.qaVariant, pack.dataset.qaPrice);
+      });
+  
+      document.addEventListener('change', (e) => {
+        const sel = e.target.closest('[data-qa-select]');
+        if (!sel) return;
+        const opt = sel.options[sel.selectedIndex];
+        select(sel.closest('[data-card-qa]'), sel.value, opt && opt.dataset.qaPrice);
+      });
+    })();
+  </script>
   </body>
 </html>
