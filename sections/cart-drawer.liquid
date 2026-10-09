@@ -193,6 +193,8 @@
     .cart-group__error { flex-basis: 100%; color: #a33; font-size: 12px; font-weight: 500; text-transform: none; letter-spacing: 0; }
     .cart-group__error[hidden] { display: none; }
   </style>
+  {%- capture plan_state_top -%}{%- render 'cart-plan-state' -%}{%- endcapture -%}
+  {%- render 'cart-plan-gate', state: plan_state_top, part: 'toggle' -%}
   <ul class="horizontal-products grid cart-lines" role="list">
 
     {%- if grp_sub_count > 0 -%}

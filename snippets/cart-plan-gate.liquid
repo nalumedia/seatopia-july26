@@ -4,6 +4,8 @@
 
   Accepts:
   - state: {String} output of cart-plan-state (ok | below-min | sub-short)
+  - part: {String} 'toggle' renders only the One-time / Subscribe & Save toggle (top of the
+    cart); anything else renders the minimum panel (above checkout).
   - show_min: {Boolean} also explain below-min. The cart page passes false because its
     free-shipping bar already shows settings.threshold_message; the drawer does not show it.
 
@@ -27,6 +29,10 @@
   assign otp_total = 0
   assign convert_total = 0
   assign convertible = 0
+  assign convertible_otp_total = 0
+  assign sub_otp_equiv = 0
+  assign plan_label = ''
+  assign plan_name_full = ''
   assign gift_wrap_id = blank
   if linklists.gift-wrapping.links != blank and linklists.gift-wrapping.links.first.type == 'product_link'
     assign gift_wrap_id = linklists.gift-wrapping.links.first.object.variants.first.id
@@ -48,10 +54,14 @@
     endif
     if item.selling_plan_allocation
       assign sub_total = sub_total | plus: item.final_line_price
+      # what this line costs one-time (the variant's own price)
+      assign line_otp = item.variant.price | times: item.quantity
+      assign sub_otp_equiv = sub_otp_equiv | plus: line_otp
     else
       assign otp_total = otp_total | plus: item.final_line_price
       if item.variant.selling_plan_allocations.size > 0
         assign convertible = convertible | plus: 1
+        assign convertible_otp_total = convertible_otp_total | plus: item.final_line_price
         assign alloc = item.variant.selling_plan_allocations.first
         for a in item.variant.selling_plan_allocations
           if a.selling_plan.id == preferred_plan
@@ -61,6 +71,10 @@
         endfor
         assign line_sub = alloc.price | times: item.quantity
         assign convert_total = convert_total | plus: line_sub
+        if plan_label == ''
+          assign plan_label = alloc.selling_plan.name | split: ' (' | first
+          assign plan_name_full = alloc.selling_plan.name
+        endif
       endif
     endif
   endfor
@@ -77,7 +91,90 @@
     endif
   endfor
   assign cart_gap = plan_min | minus: order_total
+
+  # Toggle figures. Subscribing everything converts the lines that have a plan; lines
+  # without one stay one-time add-ons. The % is derived from the real prices, so the label
+  # can never drift from what is charged.
+  assign all_sub_order = order_total | minus: convertible_otp_total | plus: convert_total
+  assign all_otp_order = order_total | minus: sub_total | plus: sub_otp_equiv
+  assign toggle_pct = 0
+  if convertible_otp_total > 0
+    assign toggle_pct = convert_total | times: 100.0 | divided_by: convertible_otp_total | times: -1 | plus: 100 | round
+  elsif sub_otp_equiv > 0
+    assign toggle_pct = sub_total | times: 100.0 | divided_by: sub_otp_equiv | times: -1 | plus: 100 | round
+  endif
+  assign sub_if_all_gap = plan_min | minus: sub_if_all
 -%}
+
+{%- if part == 'toggle' -%}
+  {%- if cart.item_count > 0 and convertible > 0 or cart.item_count > 0 and sub_total > 0 -%}
+    {%- liquid
+      assign mode = 'mixed'
+      if sub_total == 0
+        assign mode = 'onetime'
+      elsif convertible == 0
+        assign mode = 'subscribe'
+      endif
+      for item in cart.items
+        if item.selling_plan_allocation
+          assign plan_name_full = item.selling_plan_allocation.selling_plan.name
+          break
+        endif
+      endfor
+      # Only the plan's own published wording - no subscription terms beyond it (claims guide 4.F).
+      assign plan_terms = plan_name_full | replace: ' (', ' · ' | remove: ')'
+    -%}
+    <cart-plan-gate class="plan-toggle" data-mode="{{ mode }}">
+      <button type="button" class="plan-toggle__opt{% if mode == 'onetime' %} is-active{% endif %}" data-plan-all="onetime" aria-pressed="{% if mode == 'onetime' %}true{% else %}false{% endif %}">
+        <span class="plan-toggle__dot" aria-hidden="true"></span>
+        <span class="plan-toggle__name">One-time purchase</span>
+        <span class="plan-toggle__price">{{ all_otp_order | money }}</span>
+      </button>
+
+      {%- if mode == 'subscribe' or sub_if_all >= plan_min -%}
+        <button type="button" class="plan-toggle__opt{% if mode == 'subscribe' %} is-active{% endif %}" data-plan-all="subscribe" aria-pressed="{% if mode == 'subscribe' %}true{% else %}false{% endif %}">
+          <span class="plan-toggle__dot" aria-hidden="true"></span>
+          <span class="plan-toggle__name">Subscribe &amp; Save{% if toggle_pct > 0 %} {{ toggle_pct }}%{% endif %}</span>
+          <span class="plan-toggle__price">
+            {%- if mode == 'subscribe' -%}{{ order_total | money }} <s>{{ all_otp_order | money }}</s>{%- else -%}{{ all_sub_order | money }} <s>{{ all_otp_order | money }}</s>{%- endif -%}
+          </span>
+          <span class="plan-toggle__note">{{ plan_terms | escape }}</span>
+        </button>
+      {%- else -%}
+        <div class="plan-toggle__opt is-locked" aria-disabled="true">
+          <span class="plan-toggle__dot" aria-hidden="true"></span>
+          <span class="plan-toggle__name">Subscribe &amp; Save{% if toggle_pct > 0 %} {{ toggle_pct }}%{% endif %}</span>
+          <span class="plan-toggle__note">Subscriptions start at {{ plan_min | money_without_trailing_zeros }}. Add {{ sub_if_all_gap | money }} more to subscribe.</span>
+        </div>
+      {%- endif -%}
+
+      <script type="application/json" data-plan-lines>
+        [
+          {%- assign first = true -%}
+          {%- for item in cart.items -%}
+            {%- if gift_wrap_id != blank and item.variant_id == gift_wrap_id -%}{%- continue -%}{%- endif -%}
+            {%- liquid
+              assign plan_id = null
+              if item.selling_plan_allocation == null and item.variant.selling_plan_allocations.size > 0
+                assign plan_id = item.variant.selling_plan_allocations.first.selling_plan.id
+                for a in item.variant.selling_plan_allocations
+                  if a.selling_plan.id == preferred_plan
+                    assign plan_id = a.selling_plan.id
+                    break
+                  endif
+                endfor
+              endif
+            -%}
+            {%- unless first %},{% endunless -%}
+            {"key": {{ item.key | json }}, "variant": {{ item.variant_id }}, "qty": {{ item.quantity }}, "sub": {% if item.selling_plan_allocation %}true{% else %}false{% endif %}, "plan": {{ plan_id | json }}}
+            {%- assign first = false -%}
+          {%- endfor -%}
+        ]
+      </script>
+      <p class="plan-gate__error" data-plan-error hidden></p>
+    </cart-plan-gate>
+  {%- endif -%}
+{%- else -%}
 
 {%- if state == 'below-min' and show_min -%}
   <div class="plan-gate plan-gate--min">
@@ -208,6 +305,8 @@
   </cart-plan-gate>
 {%- endif -%}
 
+{%- endif -%}
+
 {%- comment -%} Always rendered: a refreshed drawer can gain the panel after page load, and
   scripts injected by innerHTML never run, so the element must already be defined. {%- endcomment -%}
 <style>
@@ -243,6 +342,21 @@
   .plan-gate__error { margin: 0; font-size: 13px; color: #a33; }
   .plan-gate__error[hidden] { display: none; }
   .plan-gate--min { gap: 4px; }
+  .plan-toggle { display: grid; gap: 8px; margin: 4px 0 8px; }
+  .plan-toggle__opt {
+    display: grid; grid-template-columns: 18px 1fr auto; column-gap: 10px; row-gap: 2px; align-items: center;
+    width: 100%; padding: 12px 14px; border-radius: 12px; text-align: left; cursor: pointer;
+    border: 1px solid rgba(17, 24, 39, 0.16); background: #fff; color: inherit; font: inherit;
+  }
+  .plan-toggle__opt.is-active { border-color: #2e4b59; box-shadow: 0 0 0 1px #2e4b59; }
+  .plan-toggle__opt.is-locked { cursor: default; opacity: .75; }
+  .plan-toggle__dot { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid rgba(17, 24, 39, 0.35); }
+  .plan-toggle__opt.is-active .plan-toggle__dot { border: 5px solid #2e4b59; }
+  .plan-toggle__name { font-size: 15px; font-weight: 500; }
+  .plan-toggle__price { font-size: 15px; font-weight: 600; white-space: nowrap; }
+  .plan-toggle__price s { font-weight: 400; opacity: .5; margin-left: 4px; }
+  .plan-toggle__note { grid-column: 2 / -1; font-size: 12px; opacity: .65; }
+  .plan-toggle[data-plan-busy] { opacity: .55; pointer-events: none; }
   .plan-gate--min .plan-gate__text { margin: 0; }
 </style>
 

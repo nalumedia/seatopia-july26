@@ -575,6 +575,7 @@
                       {%- comment -%} Subscription minimum: see snippets/cart-plan-state.liquid {%- endcomment -%}
                       {%- capture plan_state -%}{%- render 'cart-plan-state' -%}{%- endcapture -%}
                       {%- assign plan_state = plan_state | strip -%}
+                      {%- render 'cart-plan-gate', state: plan_state, part: 'toggle' -%}
                       {%- render 'cart-plan-gate', state: plan_state -%}
 
                       <noscript>
