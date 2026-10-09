@@ -15630,6 +15630,10 @@ html.js .product__feed .drawer__header::before {
   color: rgba(17, 24, 39, 0.5);
 }
 .card-qa__tag--best { color: #9a6a3a; }
+/* Best value is quantified: "Best value" stacked over "Save 8%", so its number sits on the same
+   line as the other packs' tags. Extra room only on cards that have one. */
+.card-qa__tag-best { display: block; margin-bottom: 3px; font-weight: 600; }
+.card-qa__packs:has(.card-qa__tag--best) { padding-top: 25px; }
 .card-qa__tag-short { display: none; }
 .card-qa__select {
   width: 100%; height: 38px; border-radius: 10px; padding: 0 10px;
@@ -15661,5 +15665,6 @@ html.js .product__feed .drawer__header::before {
   .card-qa__pack { min-width: 30px; height: 32px; padding: 0 5px; font-size: 13px; }
   .card-qa__tag-long { display: none; }
   .card-qa__tag-short { display: inline; }
+  .card-qa__tag-best { font-size: 9px; }
   .card-qa__add { min-height: 38px; font-size: 14px; }
 }

@@ -7,7 +7,8 @@
 
   Savings tags (in the style of Lineage Provisions' size picker): each pack's exact price per
   portion against the smallest pack's, from the live variant prices, to one decimal ("Save 1.9%").
-  Shown on every pack that saves at least 0.5%; "Best value" on the lowest price per portion.
+  Shown on every pack that saves at least 0.5%; the lowest price per portion also gets
+  "Best value", stacked above its number so the claim is always quantified.
   A savings claim has to match the real price difference (16 CFR 233), so these are never
   rounded up or taken from a target schedule - change the prices to change the labels.
   No "Most popular": that is a factual claim and needs sales data behind it.
@@ -126,7 +127,7 @@
                 {% unless v.available %}disabled{% endunless %}
                 aria-label="{{ v.title | escape }}, {{ v.price | money }}{% if save >= 0.5 %}, save {{ save_label }}% per portion{% endif %}">
                 {%- if is_best -%}
-                  <span class="card-qa__tag card-qa__tag--best"><span class="card-qa__tag-long">Best value</span><span class="card-qa__tag-short">&minus;{{ save_label }}%</span></span>
+                  <span class="card-qa__tag card-qa__tag--best"><span class="card-qa__tag-best">Best value</span><span class="card-qa__tag-long">Save {{ save_label }}%</span><span class="card-qa__tag-short">&minus;{{ save_label }}%</span></span>
                 {%- elsif save >= 0.5 -%}
                   <span class="card-qa__tag"><span class="card-qa__tag-long">Save {{ save_label }}%</span><span class="card-qa__tag-short">&minus;{{ save_label }}%</span></span>
                 {%- endif -%}
