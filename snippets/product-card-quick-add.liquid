@@ -118,9 +118,8 @@
         {%- endif -%}
       {%- endunless -%}
 
-      <button type="submit" class="card-qa__add button button--primary" is="hover-button" data-variant-id="{{ qa_variant.id }}">
-        <span class="btn-fill" data-fill></span>
-        <span class="btn-text">Add <span data-qa-label>{% unless product.has_only_default_variant %}{{ qa_variant.title | escape }} &middot; {% endunless %}{{ qa_variant.price | money_without_trailing_zeros }}</span></span>
+      <button type="submit" class="card-qa__add" data-variant-id="{{ qa_variant.id }}">
+        <span class="btn-text"><span class="card-qa__add-verb">Add</span> <span data-qa-label>{% unless product.has_only_default_variant %}{{ qa_variant.title | escape }} &middot; {% endunless %}{{ qa_variant.price | money_without_trailing_zeros }}</span></span>
       </button>
     {%- endform -%}
   {%- endif -%}

@@ -15611,32 +15611,50 @@ html.js .product__feed .drawer__header::before {
 
 
 /* Product card quick add: pack size + Add, always visible (snippets/product-card-quick-add.liquid) */
-.card-qa { margin-top: 12px; width: 100%; }
+/* Rendered inside .product-card__content, so it gets the card's padding and space below.
+   margin-top: auto pins it to the bottom so bars line up across a row. */
+.card-qa { margin-top: auto; padding-top: 14px; width: 100%; }
 .card-qa__form { display: grid; gap: 10px; }
-.card-qa__packs { display: flex; justify-content: center; align-items: flex-end; gap: 8px; flex-wrap: wrap; padding-top: 10px; }
+.card-qa__packs { display: flex; justify-content: center; align-items: flex-end; gap: 8px; flex-wrap: wrap; padding-top: 12px; }
 .card-qa__pack {
-  position: relative; min-width: 52px; height: 36px; padding: 0 12px; border-radius: 10px;
-  border: 1px solid rgba(17, 24, 39, 0.22); background: #fff; color: inherit;
+  position: relative; min-width: 50px; height: 36px; padding: 0 12px; border-radius: 10px;
+  border: 1px solid rgba(17, 24, 39, 0.18); background: #fff; color: inherit;
   font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
 }
 .card-qa__pack.is-active { background: #2e4b59; border-color: #2e4b59; color: #fff; }
 .card-qa__pack[disabled] { opacity: .35; cursor: not-allowed; text-decoration: line-through; }
+/* Savings: quiet text above the pack, not a badge. We don't lead with discount. */
 .card-qa__tag {
-  position: absolute; left: 50%; top: 0; transform: translate(-50%, -55%);
-  white-space: nowrap; padding: 1px 6px; border-radius: 999px;
-  background: #d9b26a; color: #2b2b2b; font-size: 9px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; line-height: 1.5;
+  position: absolute; left: 50%; bottom: 100%; transform: translateX(-50%); margin-bottom: 3px;
+  white-space: nowrap; font-size: 10px; font-weight: 500; letter-spacing: .02em; line-height: 1;
+  color: rgba(17, 24, 39, 0.5);
 }
-.card-qa__tag--best { background: #d4643e; color: #fff; }
+.card-qa__tag--best { color: #9a6a3a; }
 .card-qa__tag-short { display: none; }
 .card-qa__select {
   width: 100%; height: 38px; border-radius: 10px; padding: 0 10px;
-  border: 1px solid rgba(17, 24, 39, 0.2); background: #fff; font: inherit; font-size: 14px;
+  border: 1px solid rgba(17, 24, 39, 0.18); background: #fff; font: inherit; font-size: 14px;
 }
-.card-qa__add.button { width: 100%; min-height: 42px; padding-block: 8px; }
+/* Secondary, outlined: a page of cards should not read as a wall of primary CTAs. */
+.card-qa__add {
+  width: 100%; min-height: 42px; padding: 8px 14px; border-radius: 999px; cursor: pointer;
+  background: #fff; color: #2e4b59; border: 1px solid rgba(46, 75, 89, 0.45);
+  font: inherit; font-size: 15px; font-weight: 600; transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.card-qa__add:hover, .card-qa__add:focus-visible { background: #2e4b59; border-color: #2e4b59; color: #fff; }
+.card-qa__add[aria-busy="true"] { opacity: .6; cursor: progress; }
+.card-qa__add .btn-text { display: inline; }
+/* Vendor under the title, quietly, when the quick-add card layout is on */
+.product-card__vendor-under {
+  display: block; margin-top: 3px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+  color: rgba(17, 24, 39, 0.5);
+}
+/* Tighter card text: the description sat 22px below the title (custom-jtpl.css) */
+.product-card .product-card__content .product-card__oneline { margin-top: 8px; }
 @media (max-width: 749px) {
   .card-qa__packs { gap: 5px; }
   .card-qa__pack { min-width: 34px; height: 32px; padding: 0 6px; font-size: 13px; }
   .card-qa__tag-long { display: none; }
   .card-qa__tag-short { display: inline; }
-  .card-qa__add.button { min-height: 38px; font-size: 14px; }
+  .card-qa__add { min-height: 38px; font-size: 14px; }
 }
