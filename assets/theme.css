@@ -15611,23 +15611,32 @@ html.js .product__feed .drawer__header::before {
 
 
 /* Product card quick add: pack size + Add, always visible (snippets/product-card-quick-add.liquid) */
-.card-qa { margin-top: 10px; width: 100%; }
-.card-qa__form { display: grid; gap: 8px; }
-.card-qa__packs { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.card-qa { margin-top: 12px; width: 100%; }
+.card-qa__form { display: grid; gap: 10px; }
+.card-qa__packs { display: flex; justify-content: center; align-items: flex-end; gap: 8px; flex-wrap: wrap; padding-top: 10px; }
 .card-qa__pack {
-  min-width: 38px; height: 32px; padding: 0 10px; border-radius: 999px;
-  border: 1px solid rgba(17, 24, 39, 0.2); background: #fff; color: inherit;
-  font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
+  position: relative; min-width: 52px; height: 36px; padding: 0 12px; border-radius: 10px;
+  border: 1px solid rgba(17, 24, 39, 0.22); background: #fff; color: inherit;
+  font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
 }
 .card-qa__pack.is-active { background: #2e4b59; border-color: #2e4b59; color: #fff; }
 .card-qa__pack[disabled] { opacity: .35; cursor: not-allowed; text-decoration: line-through; }
-.card-qa__unit { font-size: 12px; opacity: .65; }
+.card-qa__tag {
+  position: absolute; left: 50%; top: 0; transform: translate(-50%, -55%);
+  white-space: nowrap; padding: 1px 6px; border-radius: 999px;
+  background: #d9b26a; color: #2b2b2b; font-size: 9px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; line-height: 1.5;
+}
+.card-qa__tag--best { background: #d4643e; color: #fff; }
+.card-qa__tag-short { display: none; }
 .card-qa__select {
   width: 100%; height: 38px; border-radius: 10px; padding: 0 10px;
   border: 1px solid rgba(17, 24, 39, 0.2); background: #fff; font: inherit; font-size: 14px;
 }
 .card-qa__add.button { width: 100%; min-height: 42px; padding-block: 8px; }
 @media (max-width: 749px) {
-  .card-qa__pack { min-width: 32px; height: 30px; padding: 0 8px; font-size: 12px; }
+  .card-qa__packs { gap: 5px; }
+  .card-qa__pack { min-width: 34px; height: 32px; padding: 0 6px; font-size: 13px; }
+  .card-qa__tag-long { display: none; }
+  .card-qa__tag-short { display: inline; }
   .card-qa__add.button { min-height: 38px; font-size: 14px; }
 }

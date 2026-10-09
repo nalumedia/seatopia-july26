@@ -3,7 +3,12 @@
   Replaces the hover-only "Choose options" -> quick view -> add flow (Ryan, 2026-10-08).
 
   Pack sizes are chips when every variant is an "N-Pack" (2 / 4 / 8 / 12) and there are at
-  most four; otherwise a compact select. The Add button shows the selected pack's price.
+  most four; otherwise a compact select. The Add button reads "Add 4-Pack · $53".
+
+  Savings tags (in the style of Lineage Provisions' size picker): each pack's price per
+  portion against the smallest pack's. "Save N%" when it is at least 3% cheaper per portion,
+  "Best value" on the cheapest per portion. Both are arithmetic on our own prices.
+  No "Most popular": that is a factual claim and needs sales data behind it.
 
   Submits through the theme's own product form (is="product-form"), so the drawer opens and
   the theme's add-to-cart events fire exactly as they do on the product page. The chips only
@@ -29,6 +34,41 @@
   if product.has_only_default_variant
     assign qa_chips = false
   endif
+
+  # Per-portion price of the smallest pack, and the best saving, for the savings tags.
+  assign qa_base_n = 0
+  assign qa_base_unit = 0
+  assign qa_best_unit = blank
+  assign qa_best_id = blank
+  if qa_chips
+    for v in product.variants
+      assign n = v.title | split: '-' | first | strip | times: 1
+      if n > 0
+        if qa_base_n == 0 or n < qa_base_n
+          assign qa_base_n = n
+          assign qa_base_unit = v.price | times: 1.0 | divided_by: n
+        endif
+      endif
+    endfor
+    for v in product.variants
+      assign n = v.title | split: '-' | first | strip | times: 1
+      if n > 0 and qa_base_unit > 0
+        assign unit = v.price | times: 1.0 | divided_by: n
+        assign save = unit | divided_by: qa_base_unit | times: -100 | plus: 100 | round
+        # Best value = the lowest exact price per portion (ties on the rounded % go to the
+        # cheaper pack), and only if that saving is worth a tag.
+        if save >= 3
+          if qa_best_unit == blank
+            assign qa_best_unit = unit
+            assign qa_best_id = v.id
+          elsif unit < qa_best_unit
+            assign qa_best_unit = unit
+            assign qa_best_id = v.id
+          endif
+        endif
+      endif
+    endfor
+  endif
 -%}
 {%- capture qa_form_id -%}CardQuickAdd-{{ section_id }}-{{ product_id }}{%- endcapture -%}
 
@@ -41,20 +81,36 @@
         {%- if qa_chips -%}
           <div class="card-qa__packs" role="radiogroup" aria-label="Pack size for {{ product.title | escape }}">
             {%- for v in product.variants -%}
-              <button type="button" class="card-qa__pack{% if v.id == qa_variant.id %} is-active{% endif %}"
+              {%- liquid
+                assign n = v.title | split: '-' | first | strip | times: 1
+                assign save = 0
+                if n > 0 and qa_base_unit > 0
+                  assign unit = v.price | times: 1.0 | divided_by: n
+                  assign save = unit | divided_by: qa_base_unit | times: -100 | plus: 100 | round
+                endif
+                assign is_best = false
+                if v.id == qa_best_id
+                  assign is_best = true
+                endif
+              -%}
+              <button type="button" class="card-qa__pack{% if v.id == qa_variant.id %} is-active{% endif %}{% if is_best %} is-best{% endif %}"
                 role="radio" aria-checked="{% if v.id == qa_variant.id %}true{% else %}false{% endif %}"
-                data-qa-variant="{{ v.id }}" data-qa-price="{{ v.price | money_without_trailing_zeros }}"
+                data-qa-variant="{{ v.id }}" data-qa-text="{{ v.title | escape }} &middot; {{ v.price | money_without_trailing_zeros }}"
                 {% unless v.available %}disabled{% endunless %}
-                aria-label="{{ v.title | escape }}, {{ v.price | money }}">
-                {{- v.title | replace: '-Pack', '' | strip -}}
+                aria-label="{{ v.title | escape }}, {{ v.price | money }}{% if save >= 3 %}, save {{ save }}% per portion{% endif %}">
+                {%- if is_best -%}
+                  <span class="card-qa__tag card-qa__tag--best"><span class="card-qa__tag-long">Best value</span><span class="card-qa__tag-short">&minus;{{ save }}%</span></span>
+                {%- elsif save >= 3 -%}
+                  <span class="card-qa__tag"><span class="card-qa__tag-long">Save {{ save }}%</span><span class="card-qa__tag-short">&minus;{{ save }}%</span></span>
+                {%- endif -%}
+                {{- n -}}
               </button>
             {%- endfor -%}
-            <span class="card-qa__unit">pack</span>
           </div>
         {%- else -%}
           <select class="card-qa__select" aria-label="Option for {{ product.title | escape }}" data-qa-select>
             {%- for v in product.variants -%}
-              <option value="{{ v.id }}" data-qa-price="{{ v.price | money_without_trailing_zeros }}"{% if v.id == qa_variant.id %} selected{% endif %}{% unless v.available %} disabled{% endunless %}>
+              <option value="{{ v.id }}" data-qa-text="{{ v.title | escape }} &middot; {{ v.price | money_without_trailing_zeros }}"{% if v.id == qa_variant.id %} selected{% endif %}{% unless v.available %} disabled{% endunless %}>
                 {{- v.title | escape }} &middot; {{ v.price | money_without_trailing_zeros -}}
               </option>
             {%- endfor -%}
@@ -64,7 +120,7 @@
 
       <button type="submit" class="card-qa__add button button--primary" is="hover-button" data-variant-id="{{ qa_variant.id }}">
         <span class="btn-fill" data-fill></span>
-        <span class="btn-text">Add &middot; <span data-qa-label>{{ qa_variant.price | money_without_trailing_zeros }}</span></span>
+        <span class="btn-text">Add <span data-qa-label>{% unless product.has_only_default_variant %}{{ qa_variant.title | escape }} &middot; {% endunless %}{{ qa_variant.price | money_without_trailing_zeros }}</span></span>
       </button>
     {%- endform -%}
   {%- endif -%}
