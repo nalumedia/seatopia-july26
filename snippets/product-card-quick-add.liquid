@@ -5,9 +5,11 @@
   Sizes are chips when there are at most five and every size name gives a count ("2-Pack",
   "12 Portion", "Single" = 1); otherwise a compact select. The Add button reads "Add 4-Pack · $53".
 
-  Savings tags (in the style of Lineage Provisions' size picker): each pack's price per
-  portion against the smallest pack's. "Save N%" when it is at least 3% cheaper per portion,
-  "Best value" on the cheapest per portion. Both are arithmetic on our own prices.
+  Savings tags (in the style of Lineage Provisions' size picker): each pack's exact price per
+  portion against the smallest pack's, from the live variant prices, to one decimal ("Save 1.9%").
+  Shown on every pack that saves at least 0.5%; "Best value" on the lowest price per portion.
+  A savings claim has to match the real price difference (16 CFR 233), so these are never
+  rounded up or taken from a target schedule - change the prices to change the labels.
   No "Most popular": that is a factual claim and needs sales data behind it.
 
   Submits through the theme's own product form (is="product-form"), so the drawer opens and
@@ -70,7 +72,7 @@
         assign save = unit | divided_by: qa_base_unit | times: -100 | plus: 100 | round
         # Best value = the lowest exact price per portion (ties on the rounded % go to the
         # cheaper pack), and only if that saving is worth a tag.
-        if save >= 3
+        if save >= 0.5
           if qa_best_unit == blank
             assign qa_best_unit = unit
             assign qa_best_id = v.id
@@ -100,10 +102,18 @@
                 if t == 'single'
                   assign n = 1
                 endif
+                # Exact saving per portion vs the smallest pack, straight from the variant prices,
+                # to one decimal (1.9, 4.6, 8). Shown on every pack that saves at least 0.5%.
                 assign save = 0
                 if n > 0 and qa_base_unit > 0
                   assign unit = v.price | times: 1.0 | divided_by: n
-                  assign save = unit | divided_by: qa_base_unit | times: -100 | plus: 100 | round
+                  assign save = unit | divided_by: qa_base_unit | times: -100 | plus: 100 | round: 1
+                endif
+                assign save_int = save | round
+                if save_int == save
+                  assign save_label = save_int
+                else
+                  assign save_label = save
                 endif
                 assign is_best = false
                 if v.id == qa_best_id
@@ -114,11 +124,11 @@
                 role="radio" aria-checked="{% if v.id == qa_variant.id %}true{% else %}false{% endif %}"
                 data-qa-variant="{{ v.id }}" data-qa-text="{{ v.title | escape }} &middot; {{ v.price | money_without_trailing_zeros }}"
                 {% unless v.available %}disabled{% endunless %}
-                aria-label="{{ v.title | escape }}, {{ v.price | money }}{% if save >= 3 %}, save {{ save }}% per portion{% endif %}">
+                aria-label="{{ v.title | escape }}, {{ v.price | money }}{% if save >= 0.5 %}, save {{ save_label }}% per portion{% endif %}">
                 {%- if is_best -%}
-                  <span class="card-qa__tag card-qa__tag--best"><span class="card-qa__tag-long">Best value</span><span class="card-qa__tag-short">&minus;{{ save }}%</span></span>
-                {%- elsif save >= 3 -%}
-                  <span class="card-qa__tag"><span class="card-qa__tag-long">Save {{ save }}%</span><span class="card-qa__tag-short">&minus;{{ save }}%</span></span>
+                  <span class="card-qa__tag card-qa__tag--best"><span class="card-qa__tag-long">Best value</span><span class="card-qa__tag-short">&minus;{{ save_label }}%</span></span>
+                {%- elsif save >= 0.5 -%}
+                  <span class="card-qa__tag"><span class="card-qa__tag-long">Save {{ save_label }}%</span><span class="card-qa__tag-short">&minus;{{ save_label }}%</span></span>
                 {%- endif -%}
                 {{- n -}}
               </button>
