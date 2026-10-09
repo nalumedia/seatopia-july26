@@ -25,6 +25,12 @@
 {%- endcomment -%}
  
 {%- if product != blank -%}
+{%- comment -%}
+  Always-visible pack size + Add bar (snippets/product-card-quick-add.liquid) replaces the
+  hover "Choose options" overlay and the mobile quick-add wherever quick add is on.
+  Set to false to restore the old hover flow.
+{%- endcomment -%}
+{%- assign card_inline_qa = true -%}
 <style>
   .product-card__hover-image{
   z-index: 1;
@@ -67,7 +73,7 @@ endif
 
 
 
-  <div product-tags="{{ product.tags }}" class="card product-card product-card--{{ settings.card_style }}{% if settings.card_border_thickness > 0 %} product-card--thickness{% endif %}{% unless featured_media %} no-media{% endunless %}{% if product.available and show_quick_add and mobile_quick_add %} mobile:with-quick-add{% endif %} flex flex-col leading-none relative">
+  <div product-tags="{{ product.tags }}" class="card product-card product-card--{{ settings.card_style }}{% if settings.card_border_thickness > 0 %} product-card--thickness{% endif %}{% unless featured_media %} no-media{% endunless %}{% if product.available and show_quick_add and mobile_quick_add and card_inline_qa == false %} mobile:with-quick-add{% endif %} flex flex-col leading-none relative">
     {%- if featured_media -%}
       <div class="product-card__media relative h-auto">
         {%- if show_quick_view -%}
@@ -183,7 +189,7 @@ endif
         </a>
 
         {%- if product.available -%}
-          {%- if show_quick_add -%}
+          {%- if show_quick_add and card_inline_qa == false -%}
             <div class="quick-add flex justify-end md:justify-center absolute w-full z-1 pointer-events-none">
               {%- if product.variants.size == 1 -%}
                 {%- capture product_form_id -%}QuickAddProductForm-{{ section_id }}-{{ product_id }}{%- endcapture -%}
@@ -279,7 +285,7 @@ endif
       </div>
     {%- endif -%}
     <div class="product-card__content grow flex flex-col{% if featured_media %} justify-start text-{{ settings.card_text_alignment }}{% else %} justify-center items-center absolute top-0 left-0 w-full h-full{% endif %}">
-      {%- if show_vendor -%}
+      {%- if show_vendor and card_inline_qa == false -%}
         <div class="product-card__top w-full">
           <span class="sr-only">{{ 'general.accessibility.vendor' | t }}</span>
           {{- product.vendor | link_to_vendor : class: "caption reversed-link uppercase leading-none tracking-widest" -}}
@@ -292,6 +298,10 @@ endif
             <a class="product-card__title reversed-link text-base-xl font-medium leading-tight" href="{{ product_url }}">
               {{ product.title | escape }}
             </a>
+            {%- if show_vendor and card_inline_qa -%}
+              <span class="sr-only">{{ 'general.accessibility.vendor' | t }}</span>
+              <span class="product-card__vendor-under">{{ product.vendor | escape }}</span>
+            {%- endif -%}
           
             
           </div>
@@ -439,6 +449,10 @@ endif
           {%- endif -%}
         {%- endfor -%}
       {%- endif -%}
+
+      {%- if show_quick_add and card_inline_qa and product.available -%}
+        {%- render 'product-card-quick-add', product: product, section_id: section_id, product_id: product_id -%}
+      {%- endif -%}
     </div>
 
     {%- if show_icon_list -%}
@@ -490,7 +504,7 @@ endif
       {%- endif -%}
     {%- endif -%}
 
-    {%- if show_quick_add and mobile_quick_add -%}
+    {%- if show_quick_add and mobile_quick_add and card_inline_qa == false -%}
       <div class="lg:hidden">
         {%- if product.available -%}
           {%- if product.variants.size == 1 -%}
