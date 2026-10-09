@@ -2,8 +2,8 @@
   Always-visible buy bar under a product card: pack size + one-tap Add.
   Replaces the hover-only "Choose options" -> quick view -> add flow (Ryan, 2026-10-08).
 
-  Pack sizes are chips when every variant is an "N-Pack" (2 / 4 / 8 / 12) and there are at
-  most four; otherwise a compact select. The Add button reads "Add 4-Pack · $53".
+  Sizes are chips when there are at most five and every size name gives a count ("2-Pack",
+  "12 Portion", "Single" = 1); otherwise a compact select. The Add button reads "Add 4-Pack · $53".
 
   Savings tags (in the style of Lineage Provisions' size picker): each pack's price per
   portion against the smallest pack's. "Save N%" when it is at least 3% cheaper per portion,
@@ -22,18 +22,23 @@
 {%- endcomment -%}
 {%- liquid
   assign qa_variant = product.selected_or_first_available_variant
+
+  # Chips when there are at most five sizes and every size name gives a count: a leading
+  # number ("2-Pack", "12 Portion") or "Single" (= 1). Otherwise a select.
   assign qa_chips = true
-  if product.variants.size > 4
+  if product.variants.size > 5 or product.has_only_default_variant
     assign qa_chips = false
   endif
   for v in product.variants
-    unless v.title contains '-Pack'
+    assign t = v.title | downcase | strip
+    assign n = t | split: '-' | first | split: ' ' | first | times: 1
+    if t == 'single'
+      assign n = 1
+    endif
+    if n < 1
       assign qa_chips = false
-    endunless
+    endif
   endfor
-  if product.has_only_default_variant
-    assign qa_chips = false
-  endif
 
   # Per-portion price of the smallest pack, and the best saving, for the savings tags.
   assign qa_base_n = 0
@@ -42,7 +47,11 @@
   assign qa_best_id = blank
   if qa_chips
     for v in product.variants
-      assign n = v.title | split: '-' | first | strip | times: 1
+      assign t = v.title | downcase | strip
+      assign n = t | split: '-' | first | split: ' ' | first | times: 1
+      if t == 'single'
+        assign n = 1
+      endif
       if n > 0
         if qa_base_n == 0 or n < qa_base_n
           assign qa_base_n = n
@@ -51,7 +60,11 @@
       endif
     endfor
     for v in product.variants
-      assign n = v.title | split: '-' | first | strip | times: 1
+      assign t = v.title | downcase | strip
+      assign n = t | split: '-' | first | split: ' ' | first | times: 1
+      if t == 'single'
+        assign n = 1
+      endif
       if n > 0 and qa_base_unit > 0
         assign unit = v.price | times: 1.0 | divided_by: n
         assign save = unit | divided_by: qa_base_unit | times: -100 | plus: 100 | round
@@ -82,7 +95,11 @@
           <div class="card-qa__packs" role="radiogroup" aria-label="Pack size for {{ product.title | escape }}">
             {%- for v in product.variants -%}
               {%- liquid
-                assign n = v.title | split: '-' | first | strip | times: 1
+                assign t = v.title | downcase | strip
+                assign n = t | split: '-' | first | split: ' ' | first | times: 1
+                if t == 'single'
+                  assign n = 1
+                endif
                 assign save = 0
                 if n > 0 and qa_base_unit > 0
                   assign unit = v.price | times: 1.0 | divided_by: n

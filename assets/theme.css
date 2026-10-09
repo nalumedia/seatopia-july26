@@ -15652,8 +15652,8 @@ html.js .product__feed .drawer__header::before {
 /* Tighter card text: the description sat 22px below the title (custom-jtpl.css) */
 .product-card .product-card__content .product-card__oneline { margin-top: 8px; }
 @media (max-width: 749px) {
-  .card-qa__packs { gap: 5px; }
-  .card-qa__pack { min-width: 34px; height: 32px; padding: 0 6px; font-size: 13px; }
+  .card-qa__packs { gap: 4px; }
+  .card-qa__pack { min-width: 30px; height: 32px; padding: 0 5px; font-size: 13px; }
   .card-qa__tag-long { display: none; }
   .card-qa__tag-short { display: inline; }
   .card-qa__add { min-height: 38px; font-size: 14px; }
