@@ -5370,10 +5370,17 @@ class ProductForm extends HTMLFormElement {
     this.submitButton.setAttribute('aria-disabled', 'true');
     this.submitButton.setAttribute('aria-busy', 'true');
 
+    /* Speed (2026-10-08): open the drawer the moment Add is tapped, with a loading bar, instead
+       of after Shopify's ~0.7s cart write. Its contents fill in when the response arrives. */
+    const openedEarly = !!this.cartDrawer && !this.cartDrawer.hasAttribute('open');
+    if (this.cartDrawer) {
+      this.cartDrawer.setAttribute('data-loading', '');
+      if (openedEarly) this.cartDrawer.show(this.activeElement);
+    }
+
     fetch(`${theme.routes.cart_add_url}`, config)
       .then((response) => response.json())
       .then(async (parsedState) => {
-        console.log("parsedState---->",parsedState)
         if (parsedState.status) {
           theme.pubsub.publish(theme.pubsub.PUB_SUB_EVENTS.cartError, {
             source: 'product-form',
@@ -5382,6 +5389,8 @@ class ProductForm extends HTMLFormElement {
             message: parsedState.message
           });
           this.handleErrorMessage(parsedState.description);
+          /* the drawer was opened early: close it so the error on the form is visible */
+          if (openedEarly && typeof this.cartDrawer.hide === 'function') this.cartDrawer.hide();
           document.dispatchEvent(new CustomEvent('ajaxProduct:error', {
             detail: {
               errorMessage: parsedState.description
@@ -5396,12 +5405,21 @@ class ProductForm extends HTMLFormElement {
           return;
         }
 
-        const cartJson = await (await fetch(theme.routes.cart_url, { ...theme.utils.fetchConfig('json', 'GET')})).json();
-       
-        cartJson['sections'] = parsedState['sections'];
+        /*
+          Speed (2026-10-08): the drawer used to wait for a second request (/cart.js) before
+          it opened. The add response already carries the rendered drawer (bundled sections),
+          so publish from it straight away with an optimistic item count, open the drawer,
+          and confirm the count and the accelerated-checkout state in the background.
+          Also dropped the console.log of the full drawer HTML on every add.
+        */
+        const countEl = document.querySelector('cart-count');
+        const addedQty = parseInt(formData.get('quantity') || '1', 10) || 1;
+        const optimisticCart = {
+          sections: parsedState['sections'],
+          item_count: (countEl ? parseInt(countEl.innerText, 10) || 0 : 0) + addedQty
+        };
 
-        theme.pubsub.publish(theme.pubsub.PUB_SUB_EVENTS.cartUpdate, { source: 'product-form', productVariantId: formData.get('id'), cart: cartJson });
-        console.log(JSON.stringify(cartJson['sections'], null, 2));
+        theme.pubsub.publish(theme.pubsub.PUB_SUB_EVENTS.cartUpdate, { source: 'product-form', productVariantId: formData.get('id'), cart: optimisticCart });
         document.dispatchEvent(new CustomEvent('ajaxProduct:added', {
                 detail: {
                   product: parsedState
@@ -5409,23 +5427,31 @@ class ProductForm extends HTMLFormElement {
           })
         );
 
-        this.cartDrawer?.show(this.activeElement);
-        let threshold=parseInt($(".featured-product.product #threshold_price").val());
-        threshold=threshold*100;
-        console.log("cartJson.total_price---->>>",cartJson.total_price)
-        console.log("threshold---->>>",threshold)
-        if (cartJson.total_price<threshold) {
-          $("shopify-accelerated-checkout").css({"pointer-events": "none", "cursor": "not-allowed","opacity":"0.5"});
-        }
-        else{
-          $("shopify-accelerated-checkout").css({"pointer-events": "unset", "cursor": "pointer","opacity":"1"});
-        }
-        console.log("cart----->",cartJson)
+        if (this.cartDrawer && !this.cartDrawer.hasAttribute('open')) this.cartDrawer.show(this.activeElement);
+
+        fetch(theme.routes.cart_url, { ...theme.utils.fetchConfig('json', 'GET')})
+          .then((response) => response.json())
+          .then((cartJson) => {
+            document.querySelectorAll('cart-count').forEach((el) => {
+              el.innerText = cartJson.item_count;
+              el.hidden = cartJson.item_count === 0;
+            });
+            let threshold=parseInt($(".featured-product.product #threshold_price").val());
+            threshold=threshold*100;
+            if (cartJson.total_price<threshold) {
+              $("shopify-accelerated-checkout").css({"pointer-events": "none", "cursor": "not-allowed","opacity":"0.5"});
+            }
+            else{
+              $("shopify-accelerated-checkout").css({"pointer-events": "unset", "cursor": "pointer","opacity":"1"});
+            }
+          })
+          .catch(() => {});
       })
       .catch((error) => {
         console.log(error);
       })
       .finally(() => {
+        this.cartDrawer?.removeAttribute('data-loading');
         this.submitButton.removeAttribute('aria-busy');
         this.submitButtons.forEach(submitButton => submitButton.removeAttribute('aria-busy'));
 

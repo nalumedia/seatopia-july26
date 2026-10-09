@@ -1,0 +1,693 @@
+{%- comment -%}
+  The panel above the checkout button that explains the subscription minimum and offers
+  one-tap fixes. The decision itself lives in cart-plan-state.liquid; this only renders it.
+
+  Accepts:
+  - state: {String} output of cart-plan-state (ok | below-min | sub-short)
+  - part: {String} 'toggle' renders only the One-time / Subscribe & Save toggle (top of the
+    cart); anything else renders the minimum panel (above checkout).
+  - show_min: {Boolean} also explain below-min. The cart page passes false because its
+    free-shipping bar already shows settings.threshold_message; the drawer does not show it.
+
+  Layout, kept deliberately plain (Ryan, 2026-10-08):
+  1. On subscription: the lines and their total.
+  2. One-time: the lines and their total, each with a Subscribe button where it has a plan.
+  3. "Make everything a subscription", ONLY when converting the one-time lines would get the
+     subscription to the minimum. Otherwise, suggestions to add as a subscription.
+  4. "Make it all one-time" as the way out.
+
+  Conversions reuse the cart's existing plan (same delivery frequency) where the product
+  offers it; otherwise the product's first plan. Lines with no plan stay one-time add-ons.
+{%- endcomment -%}
+{%- liquid
+  # Suggested add-ons, offered as subscriptions when the subscription is short. Edit here.
+  assign suggestion_handles = 'atlantic-salmon-2x-6oz-portions,king-salmon,lab-tested-salmon-roe-caviar,steelhead-2x-6oz-filets,black-tiger-shrimp-mangrove-regeneration' | split: ','
+  assign suggestion_limit = 4
+
+  assign plan_min = settings.threshold_amount | default: '125' | strip | times: 100
+  assign sub_total = 0
+  assign otp_total = 0
+  assign convert_total = 0
+  assign convertible = 0
+  assign convertible_otp_total = 0
+  assign sub_otp_equiv = 0
+  assign plan_label = ''
+  assign plan_name_full = ''
+  assign gift_wrap_id = blank
+  if linklists.gift-wrapping.links != blank and linklists.gift-wrapping.links.first.type == 'product_link'
+    assign gift_wrap_id = linklists.gift-wrapping.links.first.object.variants.first.id
+  endif
+
+  assign preferred_plan = blank
+  for item in cart.items
+    if item.selling_plan_allocation
+      assign preferred_plan = item.selling_plan_allocation.selling_plan.id
+      break
+    endif
+  endfor
+
+  assign in_cart_handles = ''
+  for item in cart.items
+    assign in_cart_handles = in_cart_handles | append: ',' | append: item.product.handle
+    if gift_wrap_id != blank and item.variant_id == gift_wrap_id
+      continue
+    endif
+    if item.selling_plan_allocation
+      assign sub_total = sub_total | plus: item.final_line_price
+      # what this line costs one-time (the variant's own price)
+      assign line_otp = item.variant.price | times: item.quantity
+      assign sub_otp_equiv = sub_otp_equiv | plus: line_otp
+    else
+      assign otp_total = otp_total | plus: item.final_line_price
+      if item.variant.selling_plan_allocations.size > 0
+        assign convertible = convertible | plus: 1
+        assign convertible_otp_total = convertible_otp_total | plus: item.final_line_price
+        assign alloc = item.variant.selling_plan_allocations.first
+        for a in item.variant.selling_plan_allocations
+          if a.selling_plan.id == preferred_plan
+            assign alloc = a
+            break
+          endif
+        endfor
+        assign line_sub = alloc.price | times: item.quantity
+        assign convert_total = convert_total | plus: line_sub
+        if plan_label == ''
+          assign plan_label = alloc.selling_plan.name | split: ' (' | first
+          assign plan_name_full = alloc.selling_plan.name
+        endif
+      endif
+    endif
+  endfor
+  assign in_cart_handles = in_cart_handles | append: ','
+
+  assign sub_if_all = sub_total | plus: convert_total
+  assign sub_gap = plan_min | minus: sub_total
+
+  # Order gap uses the same total as cart-plan-state: cart total less gift wrap.
+  assign order_total = cart.total_price
+  for item in cart.items
+    if gift_wrap_id != blank and item.variant_id == gift_wrap_id
+      assign order_total = order_total | minus: item.final_line_price
+    endif
+  endfor
+  assign cart_gap = plan_min | minus: order_total
+
+  # Toggle figures. Subscribing everything converts the lines that have a plan; lines
+  # without one stay one-time add-ons. The % is derived from the real prices, so the label
+  # can never drift from what is charged.
+  assign all_sub_order = order_total | minus: convertible_otp_total | plus: convert_total
+  assign all_otp_order = order_total | minus: sub_total | plus: sub_otp_equiv
+  assign toggle_pct = 0
+  if convertible_otp_total > 0
+    assign toggle_pct = convert_total | times: 100.0 | divided_by: convertible_otp_total | times: -1 | plus: 100 | round
+  elsif sub_otp_equiv > 0
+    assign toggle_pct = sub_total | times: 100.0 | divided_by: sub_otp_equiv | times: -1 | plus: 100 | round
+  endif
+  assign sub_if_all_gap = plan_min | minus: sub_if_all
+-%}
+
+{%- if part == 'toggle' -%}
+  {%- if cart.item_count > 0 and convertible > 0 or cart.item_count > 0 and sub_total > 0 -%}
+    {%- liquid
+      assign mode = 'mixed'
+      if sub_total == 0
+        assign mode = 'onetime'
+      elsif convertible == 0
+        assign mode = 'subscribe'
+      elsif sub_total >= plan_min
+        # à la carte: a full subscription plus one-time add-ons
+        assign mode = 'alc'
+      endif
+      for item in cart.items
+        if item.selling_plan_allocation
+          assign plan_name_full = item.selling_plan_allocation.selling_plan.name
+          break
+        endif
+      endfor
+
+      # Frequencies: the plans every subscribable line in the cart offers (Stay's selling
+      # plans). One today ("Delivered monthly"); a dropdown appears when Stay adds more.
+      assign freq_ids = ''
+      assign freq_names = ''
+      assign freq_seeded = false
+      for item in cart.items
+        if item.variant.selling_plan_allocations.size == 0
+          continue
+        endif
+        assign line_ids = ','
+        for a in item.variant.selling_plan_allocations
+          assign line_ids = line_ids | append: a.selling_plan.id | append: ','
+        endfor
+        if freq_seeded == false
+          for a in item.variant.selling_plan_allocations
+            assign a_name = a.selling_plan.name | split: ' (' | first
+            assign needle = '|' | append: a_name | append: '|'
+            assign names_wrapped = '|' | append: freq_names | append: '|'
+            unless names_wrapped contains needle
+              assign freq_ids = freq_ids | append: a.selling_plan.id | append: ','
+              assign freq_names = freq_names | append: a_name | append: '|'
+            endunless
+          endfor
+          assign freq_seeded = true
+        else
+          assign kept_ids = ''
+          assign kept_names = ''
+          assign ids_arr = freq_ids | split: ','
+          assign names_arr = freq_names | split: '|'
+          for fid in ids_arr
+            assign needle = ',' | append: fid | append: ','
+            if line_ids contains needle
+              assign kept_ids = kept_ids | append: fid | append: ','
+              assign kept_names = kept_names | append: names_arr[forloop.index0] | append: '|'
+            endif
+          endfor
+          assign freq_ids = kept_ids
+          assign freq_names = kept_names
+        endif
+      endfor
+      assign freq_id_list = freq_ids | split: ','
+      assign freq_name_list = freq_names | split: '|'
+
+      assign current_plan = ''
+      for item in cart.items
+        if item.selling_plan_allocation
+          assign current_plan = item.selling_plan_allocation.selling_plan.id | append: ''
+          break
+        endif
+      endfor
+      if current_plan == '' and freq_id_list.size > 0
+        assign current_plan = freq_id_list.first
+      endif
+
+      # Same delivery wording as the product page subscribe block (snippets/rtx-pdp.liquid).
+      assign freq_days = 30
+      if plan_name_full contains '3'
+        assign freq_days = 90
+      elsif plan_name_full contains '2'
+        assign freq_days = 60
+      endif
+      # Only the plan's own published wording - no subscription terms beyond it (claims guide 4.F).
+      assign plan_terms = plan_name_full | replace: ' (', ' · ' | remove: ')'
+    -%}
+    <cart-plan-gate class="plan-toggle" data-mode="{{ mode }}">
+      <button type="button" class="plan-toggle__opt{% if mode == 'onetime' %} is-active{% endif %}" data-plan-all="onetime" aria-pressed="{% if mode == 'onetime' %}true{% else %}false{% endif %}">
+        <span class="plan-toggle__dot" aria-hidden="true"></span>
+        <span class="plan-toggle__name">One-time purchase</span>
+        <span class="plan-toggle__price">{{ all_otp_order | money }}</span>
+      </button>
+
+      {%- if mode == 'subscribe' or mode == 'alc' or sub_if_all >= plan_min -%}
+        <button type="button" class="plan-toggle__opt{% if mode == 'subscribe' or mode == 'alc' %} is-active{% endif %}"{% unless mode == 'alc' %} data-plan-all="subscribe"{% endunless %} aria-pressed="{% if mode == 'subscribe' or mode == 'alc' %}true{% else %}false{% endif %}">
+          <span class="plan-toggle__dot" aria-hidden="true"></span>
+          <span class="plan-toggle__name">Subscribe &amp; Save{% if toggle_pct > 0 %} {{ toggle_pct }}%{% endif %}</span>
+          <span class="plan-toggle__price">
+            {%- if mode == 'subscribe' -%}{{ order_total | money }} <s>{{ all_otp_order | money }}</s>{%- elsif mode == 'alc' -%}{{ sub_total | money }}{%- else -%}{{ all_sub_order | money }} <s>{{ all_otp_order | money }}</s>{%- endif -%}
+          </span>
+          {%- if mode == 'alc' -%}
+            <span class="plan-toggle__note">Plus {{ order_total | minus: sub_total | money }} in one-time add-ons this order.</span>
+          {%- endif -%}
+        </button>
+        <div class="plan-toggle__more">
+          <label class="plan-toggle__freq">
+            <span class="plan-toggle__freq-label">Delivery</span>
+            {%- if freq_id_list.size > 1 -%}
+              <select class="plan-toggle__select" data-plan-freq aria-label="Delivery frequency">
+                {%- for fid in freq_id_list -%}
+                  <option value="{{ fid }}"{% if fid == current_plan %} selected{% endif %}>{{ freq_name_list[forloop.index0] | escape }}</option>
+                {%- endfor -%}
+              </select>
+            {%- else -%}
+              <span class="plan-toggle__select plan-toggle__select--single">{{ freq_name_list.first | default: plan_terms | escape }}</span>
+            {%- endif -%}
+          </label>
+          {%- comment -%}
+            Benefits: the product page's subscribe copy (snippets/rtx-pdp.liquid), with two
+            claims-guide changes. "Clean seafood" -> "seafood you can trust" (bare "clean" is an
+            unqualified benefit claim, 8.2; "Seafood you can trust" is green, 4.A). The member
+            gifts line shows only while the member rewards campaign switch is on (rule 11:
+            never promote an offer that is not live).
+          {%- endcomment -%}
+          <ul class="plan-toggle__perks">
+            {%- if settings.member_rewards_active -%}
+              <li>Free member gifts, rewards &amp; access to exclusive products 🎁</li>
+            {%- endif -%}
+            <li>Make seafood you can trust a regular part of how you eat</li>
+            <li>Every {{ freq_days }} days receive this box &ndash; pause, skip, or cancel anytime.</li>
+          </ul>
+        </div>
+      {%- else -%}
+        <div class="plan-toggle__opt is-locked" aria-disabled="true">
+          <span class="plan-toggle__dot" aria-hidden="true"></span>
+          <span class="plan-toggle__name">Subscribe &amp; Save{% if toggle_pct > 0 %} {{ toggle_pct }}%{% endif %}</span>
+          <span class="plan-toggle__note">Subscriptions start at {{ plan_min | money_without_trailing_zeros }}. Add {{ sub_if_all_gap | money }} more to subscribe.</span>
+        </div>
+      {%- endif -%}
+
+      <script type="application/json" data-plan-lines>
+        [
+          {%- assign first = true -%}
+          {%- for item in cart.items -%}
+            {%- if gift_wrap_id != blank and item.variant_id == gift_wrap_id -%}{%- continue -%}{%- endif -%}
+            {%- liquid
+              assign plan_id = null
+              if item.variant.selling_plan_allocations.size > 0
+                assign plan_id = item.variant.selling_plan_allocations.first.selling_plan.id
+                for a in item.variant.selling_plan_allocations
+                  if a.selling_plan.id == preferred_plan
+                    assign plan_id = a.selling_plan.id
+                    break
+                  endif
+                endfor
+              endif
+            -%}
+            {%- unless first %},{% endunless -%}
+            {"key": {{ item.key | json }}, "variant": {{ item.variant_id }}, "qty": {{ item.quantity }}, "sub": {% if item.selling_plan_allocation %}true{% else %}false{% endif %}, "plan": {{ plan_id | json }}}
+            {%- assign first = false -%}
+          {%- endfor -%}
+        ]
+      </script>
+      <p class="plan-gate__error" data-plan-error hidden></p>
+    </cart-plan-gate>
+  {%- endif -%}
+{%- else -%}
+
+{%- if state == 'below-min' and show_min -%}
+  <div class="plan-gate plan-gate--min">
+    <p class="plan-gate__title">Orders start at {{ plan_min | money_without_trailing_zeros }}</p>
+    <p class="plan-gate__text">Add {{ cart_gap | money }} more to check out.</p>
+  </div>
+{%- endif -%}
+
+{%- if state == 'sub-short' -%}
+  <cart-plan-gate class="plan-gate" data-state="{{ state }}">
+    <p class="plan-gate__title">Subscriptions start at {{ plan_min | money_without_trailing_zeros }}</p>
+    <p class="plan-gate__text">
+      Your subscription is {{ sub_total | money }}. Bring it to {{ plan_min | money_without_trailing_zeros }},
+      or check out with everything as a one-time order.
+    </p>
+
+    <div class="plan-gate__group">
+      <p class="plan-gate__group-head"><span>On subscription</span><span>{{ sub_total | money }}</span></p>
+      <ul class="plan-gate__lines" role="list">
+        {%- for item in cart.items -%}
+          {%- unless item.selling_plan_allocation -%}{%- continue -%}{%- endunless -%}
+          <li class="plan-gate__line">
+            <span class="plan-gate__line-name">{{ item.product.title | escape }}{% unless item.product.has_only_default_variant %} &middot; {{ item.variant.title | escape }}{% endunless %}{% if item.quantity > 1 %} &times; {{ item.quantity }}{% endif %}</span>
+            <span class="plan-gate__line-price">{{ item.final_line_price | money }}</span>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    <div class="plan-gate__group">
+      <p class="plan-gate__group-head"><span>One-time</span><span>{{ otp_total | money }}</span></p>
+      <ul class="plan-gate__lines" role="list">
+        {%- for item in cart.items -%}
+          {%- if item.selling_plan_allocation -%}{%- continue -%}{%- endif -%}
+          {%- if gift_wrap_id != blank and item.variant_id == gift_wrap_id -%}{%- continue -%}{%- endif -%}
+          <li class="plan-gate__line">
+            <span class="plan-gate__line-name">{{ item.product.title | escape }}{% unless item.product.has_only_default_variant %} &middot; {{ item.variant.title | escape }}{% endunless %}{% if item.quantity > 1 %} &times; {{ item.quantity }}{% endif %}</span>
+            {%- if item.variant.selling_plan_allocations.size > 0 -%}
+              {%- liquid
+                assign alloc = item.variant.selling_plan_allocations.first
+                for a in item.variant.selling_plan_allocations
+                  if a.selling_plan.id == preferred_plan
+                    assign alloc = a
+                    break
+                  endif
+                endfor
+                assign line_sub = alloc.price | times: item.quantity
+              -%}
+              <button type="button" class="plan-gate__chip" data-plan-line="{{ item.key }}" data-plan-variant="{{ item.variant_id }}" data-plan-id="{{ alloc.selling_plan.id }}" data-plan-qty="{{ item.quantity }}">
+                Subscribe &middot; {{ line_sub | money }}
+              </button>
+            {%- else -%}
+              <span class="plan-gate__line-price">{{ item.final_line_price | money }}</span>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    {%- if convertible > 0 and sub_if_all >= plan_min -%}
+      <button type="button" class="plan-gate__btn plan-gate__btn--primary" data-plan-all="subscribe">
+        Make everything a subscription &middot; renews at {{ sub_if_all | money }}
+      </button>
+    {%- else -%}
+      {%- capture suggestion_items -%}
+        {%- assign shown = 0 -%}
+        {%- for handle in suggestion_handles -%}
+          {%- if shown >= suggestion_limit -%}{%- break -%}{%- endif -%}
+          {%- assign needle = ',' | append: handle | append: ',' -%}
+          {%- if in_cart_handles contains needle -%}{%- continue -%}{%- endif -%}
+          {%- assign p = all_products[handle] -%}
+          {%- assign v = p.selected_or_first_available_variant -%}
+          {%- if p == blank or v.available == false or v.selling_plan_allocations.size == 0 -%}{%- continue -%}{%- endif -%}
+          {%- liquid
+            assign alloc = v.selling_plan_allocations.first
+            for a in v.selling_plan_allocations
+              if a.selling_plan.id == preferred_plan
+                assign alloc = a
+                break
+              endif
+            endfor
+          -%}
+          <li class="plan-gate__line">
+            <span class="plan-gate__line-name">{{ p.title | escape }}{% unless p.has_only_default_variant %} &middot; {{ v.title | escape }}{% endunless %}</span>
+            <button type="button" class="plan-gate__chip" data-plan-add="{{ v.id }}" data-plan-id="{{ alloc.selling_plan.id }}">
+              Add &middot; {{ alloc.price | money }}
+            </button>
+          </li>
+          {%- assign shown = shown | plus: 1 -%}
+        {%- endfor -%}
+      {%- endcapture -%}
+      {%- if suggestion_items != blank -%}
+        <div class="plan-gate__group">
+          <p class="plan-gate__group-head"><span>Add to your subscription</span><span>{{ sub_gap | money }} to go</span></p>
+          <ul class="plan-gate__lines" role="list">{{ suggestion_items }}</ul>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+
+    <button type="button" class="plan-gate__btn" data-plan-all="onetime">
+      Make it all one-time &middot; {{ order_total | money }}
+    </button>
+
+    <script type="application/json" data-plan-lines>
+      [
+        {%- assign first = true -%}
+        {%- for item in cart.items -%}
+          {%- if gift_wrap_id != blank and item.variant_id == gift_wrap_id -%}{%- continue -%}{%- endif -%}
+          {%- liquid
+            assign plan_id = null
+            if item.selling_plan_allocation == null and item.variant.selling_plan_allocations.size > 0
+              assign plan_id = item.variant.selling_plan_allocations.first.selling_plan.id
+              for a in item.variant.selling_plan_allocations
+                if a.selling_plan.id == preferred_plan
+                  assign plan_id = a.selling_plan.id
+                  break
+                endif
+              endfor
+            endif
+          -%}
+          {%- unless first %},{% endunless -%}
+          {"key": {{ item.key | json }}, "variant": {{ item.variant_id }}, "qty": {{ item.quantity }}, "sub": {% if item.selling_plan_allocation %}true{% else %}false{% endif %}, "plan": {{ plan_id | json }}}
+          {%- assign first = false -%}
+        {%- endfor -%}
+      ]
+    </script>
+    <p class="plan-gate__error" data-plan-error hidden></p>
+  </cart-plan-gate>
+{%- endif -%}
+
+{%- endif -%}
+
+{%- comment -%} Always rendered: a refreshed drawer can gain the panel after page load, and
+  scripts injected by innerHTML never run, so the element must already be defined. {%- endcomment -%}
+<style>
+  .plan-gate {
+    display: grid;
+    gap: 12px;
+    border: 1px solid rgba(17, 24, 39, 0.14);
+    border-radius: 14px;
+    padding: 16px;
+    background: #fff;
+    line-height: 1.4;
+  }
+  .plan-gate__title { margin: 0; font-weight: 600; font-size: 16px; }
+  .plan-gate__text { margin: -6px 0 0; font-size: 14px; opacity: .8; }
+  .plan-gate__group { border-top: 1px solid rgba(17, 24, 39, 0.1); padding-top: 10px; }
+  .plan-gate__group-head {
+    display: flex; justify-content: space-between; gap: 10px;
+    margin: 0 0 6px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em;
+  }
+  .plan-gate__lines { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+  .plan-gate__lines:empty { display: none; }
+  .plan-gate__line { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 14px; }
+  .plan-gate__line-name { min-width: 0; }
+  .plan-gate__line-price { flex: none; }
+  .plan-gate__chip, .plan-gate__btn {
+    font: inherit; cursor: pointer; border-radius: 999px;
+    border: 1px solid rgba(17, 24, 39, 0.25); background: #fff; color: inherit;
+  }
+  .plan-gate__chip { flex: none; font-size: 13px; padding: 5px 12px; white-space: nowrap; }
+  .plan-gate__btn { width: 100%; padding: 11px 14px; font-size: 14px; font-weight: 600; }
+  .plan-gate__btn--primary { background: #2e4b59; border-color: #2e4b59; color: #fff; }
+  .plan-gate [disabled], .plan-gate[data-plan-busy] { opacity: .55; cursor: default; }
+  .plan-gate__error { margin: 0; font-size: 13px; color: #a33; }
+  .plan-gate__error[hidden] { display: none; }
+  .plan-gate--min { gap: 4px; }
+  .plan-toggle { display: grid; gap: 8px; margin: 4px 0 8px; }
+  .plan-toggle__opt {
+    display: grid; grid-template-columns: 18px 1fr auto; column-gap: 10px; row-gap: 2px; align-items: center;
+    width: 100%; padding: 12px 14px; border-radius: 12px; text-align: left; cursor: pointer;
+    border: 1px solid rgba(17, 24, 39, 0.16); background: #fff; color: inherit; font: inherit;
+  }
+  .plan-toggle__opt.is-active { border-color: #2e4b59; box-shadow: 0 0 0 1px #2e4b59; }
+  .plan-toggle__opt.is-locked { cursor: default; opacity: .75; }
+  .plan-toggle__dot { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid rgba(17, 24, 39, 0.35); }
+  .plan-toggle__opt.is-active .plan-toggle__dot { border: 5px solid #2e4b59; }
+  .plan-toggle__name { font-size: 15px; font-weight: 500; }
+  .plan-toggle__price { font-size: 15px; font-weight: 600; white-space: nowrap; }
+  .plan-toggle__price s { font-weight: 400; opacity: .5; margin-left: 4px; }
+  .plan-toggle__note { grid-column: 2 / -1; font-size: 12px; opacity: .65; }
+  .plan-toggle[data-plan-busy] { pointer-events: none; }
+  /* Loading: a thin bar under the drawer header, and a soft dim on the cart page. */
+  cart-drawer[data-loading] .drawer__header::after {
+    content: ""; position: absolute; left: 0; bottom: -1px; height: 2px; width: 35%;
+    background: #2e4b59; animation: cart-load 0.9s ease-in-out infinite; z-index: 5;
+  }
+  @keyframes cart-load { 0% { left: -35%; } 100% { left: 100%; } }
+  main-cart[data-loading] { opacity: .6; transition: opacity .15s ease; pointer-events: none; }
+  .plan-toggle__more { display: grid; gap: 8px; padding: 0 14px 4px 42px; margin-top: -2px; }
+  .plan-toggle__freq { display: flex; align-items: center; gap: 10px; }
+  .plan-toggle__freq-label { font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; opacity: .6; }
+  .plan-toggle__select {
+    flex: 1; height: 36px; border-radius: 999px; padding: 0 14px; font: inherit; font-size: 14px; font-weight: 500;
+    border: 1px solid rgba(17, 24, 39, 0.25); background: #fff; color: inherit;
+  }
+  .plan-toggle__select--single { display: inline-flex; align-items: center; }
+  .plan-toggle__perks { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-size: 13px; line-height: 1.4; }
+  .plan-toggle__perks li { position: relative; padding-left: 20px; }
+  .plan-toggle__perks li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: #2e4b59; font-weight: 700; }
+  .plan-gate--min .plan-gate__text { margin: 0; }
+</style>
+
+<script>
+  (function () {
+    if (window.SeatopiaCartPlan) return;
+
+    const root = () => ((window.theme && theme.routes && theme.routes.root_url) || '/').replace(/\/?$/, '/');
+    const getJSON = async (url, body) => {
+      const res = await fetch(root() + url, body
+        ? { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(body) }
+        : { headers: { Accept: 'application/json' } });
+      const j = await res.json().catch(() => null);
+      if (!res.ok || !j || j.status) throw new Error((j && (j.description || j.message)) || 'We could not update your cart.');
+      return j;
+    };
+
+    /*
+      Intents, not keys. A line key in the HTML can be stale by the time it is clicked
+      (anything else on the page that writes to the cart changes keys without re-rendering
+      the drawer), and Shopify answers a stale key with "no valid id or line parameter".
+      So each intent names a variant and the plan state we want; the line is looked up in
+      the LIVE cart, and after every change the cart Shopify returns is used for the next.
+        { variant, plan }   plan = selling plan id to subscribe, or null for one-time
+        { add: variant, plan }  add one unit as a subscription
+    */
+    const drawerId = () => { const el = document.querySelector('[id^="MiniCart-"]'); return el ? el.id.slice(9) : null; };
+    const mainId = () => { const el = document.querySelector('[id^="MainCart-"]'); return el ? el.id.slice(9) : null; };
+    /* thin loading bar on the drawer / dim the cart page while Shopify writes (~0.7s) */
+    const loading = (on) => {
+      document.querySelectorAll('cart-drawer, main-cart').forEach((el) => el.toggleAttribute('data-loading', on));
+    };
+    const onCartPage = () => {
+      const cartPath = ((window.theme && theme.routes && theme.routes.cart_url) || '/cart').replace(/\/$/, '');
+      return window.location.pathname.replace(/\/$/, '') === cartPath;
+    };
+    const setCount = (n) => {
+      if (typeof n !== 'number' || isNaN(n)) return;
+      document.querySelectorAll('cart-count').forEach((el) => { el.innerText = n; el.hidden = n === 0; });
+    };
+
+    /*
+      Speed: one round trip where possible. Adds skip the up-front cart read, and the LAST
+      request asks Shopify to render the drawer in the same response (sections param), so
+      the drawer updates from it instead of a separate re-render fetch. Previously up to
+      four sequential requests (read, change, read, render).
+    */
+    async function apply(intents, scope) {
+      let live = null;
+      if (intents.length === 1 && intents[0].allOneTime) {
+        /* "All one-time" expands against the live cart, never the HTML */
+        live = await getJSON('cart.js').catch(() => null);
+        intents = ((live && live.items) || []).filter((l) => l.selling_plan_allocation).map((l) => ({ variant: l.variant_id, plan: null }));
+      }
+      if (!intents.length) return;
+      const busy = scope || document.body;
+      busy.setAttribute('data-plan-busy', '');
+      const err = scope && scope.querySelector('[data-plan-error]');
+      if (err) err.hidden = true;
+
+      /* Ask Shopify to render the drawer AND the cart page (when on it) in the write's response,
+         so both update in place. The cart page used to do a full reload (~1.5s more). */
+      const sid = drawerId();
+      const mid = mainId();
+      const ids = [sid, mid].filter(Boolean);
+      const withSections = ids.length ? { sections: ids, sections_url: window.location.pathname } : {};
+      loading(true);
+      const adds = intents.filter((it) => it.add);
+      const changes = intents.filter((it) => !it.add);
+
+      try {
+        let last = null;
+
+        if (changes.length) {
+          let cart = live || await getJSON('cart.js'); /* reuse the read "all one-time" already made */
+          /* only the intents that still need doing, so the last real request gets the sections */
+          /* a line needs the intent if its plan state differs - including a different frequency */
+          const needs = (l, it) => {
+            if (String(l.variant_id) !== String(it.variant)) return false;
+            const sub = l.selling_plan_allocation;
+            if (it.plan == null) return !!sub;
+            return !sub || String(sub.selling_plan.id) !== String(it.plan);
+          };
+          const todo = changes.filter((it) => (cart.items || []).some((l) => needs(l, it)));
+          for (let i = 0; i < todo.length; i++) {
+            const it = todo[i];
+            const wantSub = it.plan != null;
+            const line = (cart.items || []).find((l) => needs(l, it));
+            if (!line) continue;
+            const isLast = i === todo.length - 1 && !adds.length;
+            cart = await getJSON('cart/change.js', Object.assign({
+              id: line.key,
+              quantity: line.quantity,
+              selling_plan: wantSub ? Number(it.plan) : null
+            }, isLast ? withSections : {}));
+            last = cart; /* change.js returns the whole cart, item_count included */
+          }
+        }
+
+        if (adds.length) {
+          const items = adds.map((it) => {
+            const item = { id: Number(it.add), quantity: 1 };
+            if (it.plan) item.selling_plan = Number(it.plan); /* no plan = one-time */
+            return item;
+          });
+          const res = await getJSON('cart/add.js', Object.assign({ items }, withSections));
+          /* add.js returns the added items, not the cart: count optimistically, confirm in the background */
+          const countEl = document.querySelector('cart-count');
+          const prev = countEl ? parseInt(countEl.innerText, 10) || 0 : 0;
+          last = { sections: res.sections, item_count: prev + items.length };
+          getJSON('cart.js').then((c) => setCount(c.item_count)).catch(() => {});
+        }
+
+        const rendered = last && last.sections && ids.some((id) => last.sections[id]);
+        if (!rendered && onCartPage()) { window.location.reload(); return; }
+
+        if (rendered) {
+          setCount(last.item_count);
+          if (window.theme && theme.pubsub && theme.pubsub.PUB_SUB_EVENTS) {
+            theme.pubsub.publish(theme.pubsub.PUB_SUB_EVENTS.cartUpdate, { source: 'cart-plan', cart: last });
+          }
+          const drawer = document.querySelector('cart-drawer');
+          if (!onCartPage() && drawer && !drawer.hasAttribute('open') && typeof drawer.show === 'function') drawer.show();
+        } else {
+          if (last && typeof last.item_count === 'number') setCount(last.item_count);
+          document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true, detail: { open: true } }));
+        }
+      } catch (e) {
+        /* Shown in place. Not followed by a drawer refresh, which would wipe the message. */
+        if (err) { err.textContent = e.message + ' Please refresh the page and try again.'; err.hidden = false; }
+      } finally {
+        busy.removeAttribute('data-plan-busy');
+        loading(false);
+      }
+    }
+
+    /* Frequency: every line that can subscribe moves to the chosen plan (subscribing the cart if it was one-time). */
+    document.addEventListener('change', (e) => {
+      const sel = e.target.closest('[data-plan-freq]');
+      if (!sel) return;
+      const gate = sel.closest('cart-plan-gate');
+      let lines = [];
+      try { lines = JSON.parse(gate.querySelector('[data-plan-lines]').textContent) || []; } catch (err) {}
+      apply(lines.filter((l) => l.plan).map((l) => ({ variant: l.variant, plan: sel.value })), gate);
+    });
+
+    /* Favorites: the Add button adds the active chip's variant, as a subscription or a one-time
+       add-on depending on the block's mode (the mode switch appears once the subscription
+       reaches the minimum). */
+    const syncFavRow = (row, mode) => {
+      const chip = row.querySelector('[data-fav-variant].is-active');
+      const add = row.querySelector('[data-plan-add]');
+      if (!add) return;
+      const src = chip || add;
+      if (chip) add.dataset.planAdd = chip.dataset.favVariant;
+      const plan = src.dataset.favPlan;
+      const sub = mode === 'sub' && plan;
+      if (sub) add.dataset.planId = plan; else delete add.dataset.planId;
+      const label = row.querySelector('[data-fav-label]');
+      if (label) label.textContent = sub ? src.dataset.favSub : src.dataset.favOtp;
+    };
+    document.addEventListener('click', (e) => {
+      const modeBtn = e.target.closest('[data-fav-mode-set]');
+      if (modeBtn) {
+        const block = modeBtn.closest('[data-cart-favs]');
+        block.dataset.favMode = modeBtn.dataset.favModeSet;
+        block.querySelectorAll('[data-fav-mode-set]').forEach((b) => {
+          const on = b === modeBtn; b.classList.toggle('is-active', on); b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        block.querySelectorAll('[data-fav]').forEach((row) => syncFavRow(row, block.dataset.favMode));
+        return;
+      }
+      const chip = e.target.closest('[data-fav-variant]');
+      if (!chip || chip.disabled) return;
+      const row = chip.closest('[data-fav]');
+      if (!row) return;
+      row.querySelectorAll('[data-fav-variant]').forEach((c) => c.classList.toggle('is-active', c === chip));
+      const block = row.closest('[data-cart-favs]');
+      syncFavRow(row, block ? block.dataset.favMode : 'otp');
+    });
+
+    document.addEventListener('click', (e) => {
+      const el = e.target.closest('[data-plan-line], [data-plan-unsub], [data-plan-unsub-all], [data-plan-add], [data-plan-all]');
+      if (!el) return;
+      const gate = el.closest('cart-plan-gate');
+      const scope = gate || el.closest('[data-cart-favs]') || el.closest('cart-items') || null;
+      const d = el.dataset;
+      /* Optimistic: flip the switch / toggle the instant it is tapped; the response confirms it. */
+      const group = el.closest('.cart-switch') || (el.classList.contains('plan-toggle__opt') && el.parentElement);
+      if (group) {
+        group.querySelectorAll('.cart-switch__opt, .plan-toggle__opt').forEach((o) => {
+          const on = o === el; o.classList.toggle('is-active', on); o.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+      }
+      /* Instant feedback: Shopify takes ~0.7s to add, so the button answers immediately. */
+      if (!group && el.matches('button') && !el.dataset.planBusyLabel) {
+        el.dataset.planBusyLabel = el.innerHTML;
+        el.classList.add('is-adding');
+        el.textContent = el.hasAttribute('data-plan-add') ? 'Adding…' : 'Updating…';
+        setTimeout(() => { if (el.isConnected && el.dataset.planBusyLabel) { el.innerHTML = el.dataset.planBusyLabel; delete el.dataset.planBusyLabel; el.classList.remove('is-adding'); } }, 8000);
+      }
+
+      if (el.hasAttribute('data-plan-line')) {
+        apply([{ variant: d.planVariant, plan: d.planId }], scope);
+      } else if (el.hasAttribute('data-plan-unsub')) {
+        apply([{ variant: d.planVariant, plan: null }], scope);
+      } else if (el.hasAttribute('data-plan-add')) {
+        apply([{ add: d.planAdd, plan: d.planId }], scope);
+      } else if (el.hasAttribute('data-plan-unsub-all') || (el.hasAttribute('data-plan-all') && d.planAll === 'onetime')) {
+        apply([{ allOneTime: true }], scope);
+      } else if (el.hasAttribute('data-plan-all') && d.planAll === 'subscribe' && gate) {
+        let lines = [];
+        try { lines = JSON.parse(gate.querySelector('[data-plan-lines]').textContent) || []; } catch (err) {}
+        apply(lines.filter((l) => !l.sub && l.plan).map((l) => ({ variant: l.variant, plan: l.plan })), gate);
+      }
+    });
+
+    window.SeatopiaCartPlan = { apply };
+    if (!customElements.get('cart-plan-gate')) customElements.define('cart-plan-gate', class extends HTMLElement {});
+  })();
+</script>

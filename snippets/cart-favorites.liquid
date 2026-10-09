@@ -1,0 +1,186 @@
+{%- comment -%}
+  "Add these favorites": one-tap adds in the cart drawer (Ryan, 2026-10-08). Replaces the
+  "You may also like" carousel and its View buttons, and fills the empty cart.
+
+  Products come from the build-your-own-box collection (passed in), in collection order,
+  skipping anything already in the cart. Each row: product, pack-size chips, "Add · $price".
+  Chips use the same rule as the product cards (up to five sizes, each a number or "Single").
+  When the cart is on subscription (every line that can subscribe already does), favorites
+  are added as a subscription at the plan price, so they join the box instead of breaking it.
+
+  Accepts:
+  - products: {Array} products to offer
+  - limit: {Number} max rows (default 6)
+  - heading: {String}
+  - alc_unlocked: {Boolean} the subscription has reached the minimum, so items can be mixed:
+    the header offers "Add as: Subscription | One-time add-on" (default Subscription).
+    Before that, favorites follow the cart's single mode (all or nothing).
+{%- endcomment -%}
+{%- liquid
+  assign fav_limit = limit | default: 6
+  assign sub_count = 0
+  assign convertible_otp = 0
+  assign preferred_plan = blank
+  assign in_cart = ','
+  for item in cart.items
+    assign in_cart = in_cart | append: item.product_id | append: ','
+    if item.selling_plan_allocation
+      assign sub_count = sub_count | plus: 1
+      if preferred_plan == blank
+        assign preferred_plan = item.selling_plan_allocation.selling_plan.id
+      endif
+    elsif item.variant.selling_plan_allocations.size > 0
+      assign convertible_otp = convertible_otp | plus: 1
+    endif
+  endfor
+  assign subscribe_mode = false
+  if sub_count > 0 and convertible_otp == 0
+    assign subscribe_mode = true
+  endif
+  if alc_unlocked
+    assign subscribe_mode = true
+  endif
+  if subscribe_mode
+    assign fav_mode = 'sub'
+  else
+    assign fav_mode = 'otp'
+  endif
+-%}
+{%- capture fav_rows -%}
+  {%- assign shown = 0 -%}
+  {%- for p in products -%}
+    {%- if shown >= fav_limit -%}{%- break -%}{%- endif -%}
+    {%- assign needle = ',' | append: p.id | append: ',' -%}
+    {%- if in_cart contains needle or p.available == false -%}{%- continue -%}{%- endif -%}
+    {%- liquid
+      assign v0 = p.selected_or_first_available_variant
+      assign chips = true
+      if p.variants.size > 5 or p.has_only_default_variant
+        assign chips = false
+      endif
+      for v in p.variants
+        assign t = v.title | downcase | strip
+        assign n = t | split: '-' | first | split: ' ' | first | times: 1
+        if t == 'single'
+          assign n = 1
+        endif
+        if n < 1
+          assign chips = false
+        endif
+      endfor
+    -%}
+    {%- capture fav_chips -%}
+      {%- for v in p.variants -%}
+        {%- liquid
+          assign t = v.title | downcase | strip
+          assign n = t | split: '-' | first | split: ' ' | first | times: 1
+          if t == 'single'
+            assign n = 1
+          endif
+          assign otp_price = v.price
+          assign sub_price = v.price
+          assign plan_id = ''
+          if v.selling_plan_allocations.size > 0
+            assign alloc = v.selling_plan_allocations.first
+            for a in v.selling_plan_allocations
+              if a.selling_plan.id == preferred_plan
+                assign alloc = a
+                break
+              endif
+            endfor
+            assign sub_price = alloc.price
+            assign plan_id = alloc.selling_plan.id
+          endif
+          assign price = otp_price
+          if subscribe_mode and plan_id != ''
+            assign price = sub_price
+          endif
+        -%}
+        <button type="button" class="cart-fav__pack{% if v.id == v0.id %} is-active{% endif %}" data-fav-variant="{{ v.id }}" data-fav-plan="{{ plan_id }}" data-fav-otp="{{ otp_price | money_without_trailing_zeros }}" data-fav-sub="{{ sub_price | money_without_trailing_zeros }}" aria-label="{{ v.title | escape }}, {{ price | money }}"{% unless v.available %} disabled{% endunless %}>{{ n }}</button>
+      {%- endfor -%}
+    {%- endcapture -%}
+    {%- liquid
+      assign otp0 = v0.price
+      assign sub0 = v0.price
+      assign plan_any0 = ''
+      if v0.selling_plan_allocations.size > 0
+        assign alloc = v0.selling_plan_allocations.first
+        for a in v0.selling_plan_allocations
+          if a.selling_plan.id == preferred_plan
+            assign alloc = a
+            break
+          endif
+        endfor
+        assign sub0 = alloc.price
+        assign plan_any0 = alloc.selling_plan.id
+      endif
+      assign price0 = otp0
+      assign plan0 = ''
+      if subscribe_mode and plan_any0 != ''
+        assign price0 = sub0
+        assign plan0 = plan_any0
+      endif
+    -%}
+    <li class="cart-fav" data-fav>
+      {%- if p.featured_image -%}
+        <a class="cart-fav__img" href="{{ p.url }}" tabindex="-1">{{ p.featured_image | image_url: width: 120 | image_tag: loading: 'lazy', width: 48, height: 48, alt: p.title }}</a>
+      {%- endif -%}
+      <span class="cart-fav__body">
+        <a href="{{ p.url }}" class="cart-fav__name reversed-link">{{ p.title | escape }}</a>
+        {%- if chips -%}
+          <span class="cart-fav__packs" role="group" aria-label="Size for {{ p.title | escape }}">{{ fav_chips }}</span>
+        {%- elsif p.has_only_default_variant == false -%}
+          <span class="cart-fav__variant">{{ v0.title | escape }}</span>
+        {%- endif -%}
+      </span>
+      <button type="button" class="cart-fav__add" data-plan-add="{{ v0.id }}"{% if plan0 != '' %} data-plan-id="{{ plan0 }}"{% endif %} data-fav-plan="{{ plan_any0 }}" data-fav-otp="{{ otp0 | money_without_trailing_zeros }}" data-fav-sub="{{ sub0 | money_without_trailing_zeros }}">
+        Add &middot; <span data-fav-label>{{ price0 | money_without_trailing_zeros }}</span>
+      </button>
+    </li>
+    {%- assign shown = shown | plus: 1 -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- if fav_rows != blank -%}
+  <div class="cart-favs" data-cart-favs data-fav-mode="{{ fav_mode }}">
+    <div class="cart-favs__top">
+      <p class="cart-favs__head">{{ heading | default: 'Add these favorites' | escape }}{% if subscribe_mode and alc_unlocked != true %}<span> &middot; added to your subscription</span>{% endif %}</p>
+      {%- if alc_unlocked -%}
+        <span class="cart-switch cart-favs__mode" role="group" aria-label="Add favorites as">
+          <button type="button" class="cart-switch__opt is-active" data-fav-mode-set="sub" aria-pressed="true">Subscription</button>
+          <button type="button" class="cart-switch__opt" data-fav-mode-set="otp" aria-pressed="false">One-time add-on</button>
+        </span>
+      {%- endif -%}
+    </div>
+    <ul class="cart-favs__list" role="list">{{ fav_rows }}</ul>
+    <p class="plan-gate__error" data-plan-error hidden></p>
+  </div>
+{%- endif -%}
+
+<style>
+  .cart-favs { display: grid; gap: 10px; text-align: left; }
+  .cart-favs__top { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  .cart-favs .cart-switch { display: inline-flex; border: 1px solid rgba(46, 75, 89, 0.35); border-radius: 999px; overflow: hidden; background: #fff; }
+  .cart-favs .cart-switch__opt { font: inherit; font-size: 11px; font-weight: 600; padding: 4px 10px; border: 0; background: none; color: #2e4b59; cursor: pointer; }
+  .cart-favs .cart-switch__opt.is-active { background: #2e4b59; color: #fff; }
+  .cart-favs__head { margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+  .cart-favs__head span { font-weight: 500; letter-spacing: 0; text-transform: none; opacity: .65; }
+  .cart-favs__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .cart-fav { display: grid; grid-template-columns: 48px 1fr auto; gap: 12px; align-items: center; }
+  .cart-fav__img img { width: 48px; height: 48px; object-fit: cover; border-radius: 8px; display: block; }
+  .cart-fav__body { min-width: 0; display: grid; gap: 5px; }
+  .cart-fav__name { font-size: 14px; font-weight: 500; line-height: 1.25; }
+  .cart-fav__variant { font-size: 12px; opacity: .6; }
+  .cart-fav__packs { display: flex; gap: 4px; flex-wrap: wrap; }
+  .cart-fav__pack {
+    min-width: 28px; height: 24px; padding: 0 6px; border-radius: 6px; cursor: pointer;
+    border: 1px solid rgba(17, 24, 39, 0.2); background: #fff; color: inherit; font: inherit; font-size: 12px; font-weight: 600;
+  }
+  .cart-fav__pack.is-active { background: #2e4b59; border-color: #2e4b59; color: #fff; }
+  .cart-fav__pack[disabled] { opacity: .35; cursor: not-allowed; }
+  .cart-fav__add {
+    white-space: nowrap; padding: 7px 14px; border-radius: 999px; cursor: pointer; font: inherit; font-size: 13px; font-weight: 600;
+    background: #fff; color: #2e4b59; border: 1px solid rgba(46, 75, 89, 0.45);
+  }
+  .cart-fav__add:hover { background: #2e4b59; border-color: #2e4b59; color: #fff; }
+  .cart-favs[data-plan-busy] { opacity: .55; pointer-events: none; }
+</style>

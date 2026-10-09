@@ -572,13 +572,19 @@
                       {%- endcomment -%}
                       {%- render 'member-rewards', variant: 'compact' -%}
 
+                      {%- comment -%} Subscription minimum: see snippets/cart-plan-state.liquid {%- endcomment -%}
+                      {%- capture plan_state -%}{%- render 'cart-plan-state' -%}{%- endcapture -%}
+                      {%- assign plan_state = plan_state | strip -%}
+                      {%- render 'cart-plan-gate', state: plan_state, part: 'toggle' -%}
+                      {%- render 'cart-plan-gate', state: plan_state -%}
+
                       <noscript>
                         <button class="button button--secondary w-full" type="submit" name="update" form="cart">
                           {{- 'cart.general.update' | t -}}
                         </button>
                       </noscript>
 
-                      <button class="button button--primary icon-with-text w-full" type="submit" name="checkout" form="cart" is="hover-button">
+                      <button class="button button--primary icon-with-text w-full" type="submit" name="checkout" form="cart" is="hover-button"{% if plan_state != 'ok' %} disabled aria-disabled="true"{% endif %}>
                         <span class="btn-fill" data-fill></span>
                         <span class="btn-text">
                           {%- liquid
@@ -588,7 +594,7 @@
                         </span>
                       </button>
           
-                      {%- if block.settings.show_accelerated_buttons and additional_checkout_buttons -%}
+                      {%- if block.settings.show_accelerated_buttons and additional_checkout_buttons and plan_state == 'ok' -%}
                         <div class="additional-checkout-buttons additional-checkout-buttons--vertical">{{ content_for_additional_checkout_buttons }}</div>
                       {%- endif -%}
                     </div>

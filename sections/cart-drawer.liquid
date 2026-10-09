@@ -13,7 +13,7 @@
   <cart-drawer id="CartDrawer" class="cart-drawer drawer drawer--end z-35 fixed bottom-0 left-0 h-full w-full pointer-events-none"
     role="dialog"
     aria-modal="true"
-    aria-label="{{ 'general.cart.title' | t | escape }}"
+    aria-label="My Box"
     data-section-id="{{ section.id }}"
     shopify-design-mode
     hidden
@@ -24,7 +24,7 @@
         <ul class="drawer__tabs flex gap-10" is="tab-list">
           <li>
             <button class="drawer__tab relative" type="button" aria-controls="MiniCart-{{ section.id }}" aria-expanded="true">
-              <span class="drawer__title heading lg:text-3xl text-2xl leading-none tracking-tight">{{ 'general.cart.title' | t }}</span>
+              <span class="drawer__title heading lg:text-3xl text-2xl leading-none tracking-tight">My Box</span>
               <cart-count class="count absolute font-medium text-xs lg:text-sm leading-none" aria-label="{{ 'general.cart.cart_count' | t: count: cart.item_count | escape }}"{% if cart == empty %} hidden{% endif %}>{{ cart.item_count }}</cart-count>
             </button>
           </li>
@@ -82,6 +82,12 @@
                       {%- endfor -%}
                     {%- endif -%}
                   </ul>
+                  {%- comment -%} Start the cart from the box builder's favorites, one tap each. {%- endcomment -%}
+                  {%- render 'cart-favorites',
+                    products: collections['build-your-own-box'].products,
+                    limit: 8,
+                    heading: section.settings.cart_recommendations_heading
+                  -%}
                 </div>
               </div>
             {%- endif -%}
@@ -108,10 +114,10 @@
                     assign show_free_shipping_bar = true
                   endif
                   
-                  if show_free_shipping_bar
-                    render 'free-shipping-bar', minimum_amount: minimum_amount
-                  endif
                 endif
+                # Flat-rate qualification at the $125 minimum replaces the free-shipping bar and the old
+                # minimum message here (snippets/cart-shipping-qualify.liquid).
+                render 'cart-shipping-qualify', free_min: minimum_amount
               -%}
 
               {%- liquid
@@ -130,7 +136,98 @@
                 endif
               -%}
              <cart-items class="block grow" data-section-id="{{ section.id }}">
-  <ul class="horizontal-products grid" role="list">
+  {%- liquid
+    # Group totals for the Subscription / One-time headers (gift wrap excluded).
+    assign grp_sub_total = 0
+    assign grp_sub_count = 0
+    assign grp_otp_total = 0
+    assign grp_otp_count = 0
+    assign grp_plan_label = ''
+    for item in cart.items
+      if gift_wrap_id != nil and item.id == gift_wrap_id
+        continue
+      endif
+      if item.selling_plan_allocation
+        assign grp_sub_total = grp_sub_total | plus: item.final_line_price
+        assign grp_sub_count = grp_sub_count | plus: 1
+        if grp_plan_label == ''
+          assign grp_plan_label = item.selling_plan_allocation.selling_plan.name | split: ' (' | first
+        endif
+      else
+        assign grp_otp_total = grp_otp_total | plus: item.final_line_price
+        assign grp_otp_count = grp_otp_count | plus: 1
+      endif
+    endfor
+
+    # All or nothing until the subscription itself reaches the minimum; from there, à la
+    # carte: each item can be subscription or a one-time add-on (Ryan, 2026-10-08).
+    assign plan_min_cents = settings.threshold_amount | default: '125' | strip | times: 100
+    assign alc_unlocked = false
+    if grp_sub_total >= plan_min_cents
+      assign alc_unlocked = true
+    endif
+  -%}
+  <style>
+    /* Compact cart rows + Subscription / One-time grouping (2026-10-08) */
+    .cart-lines { gap: 0; }
+    .cart-lines .horizontal-product { --cart-item-media-width: 56px; gap: 12px; padding-block: 10px; }
+    .cart-lines .horizontal-product + .horizontal-product { padding-block-start: 10px; }
+    .cart-lines .horizontal-product__details { gap: 4px; }
+    .cart-lines .horizontal-product__details .flex.flex-col.gap-1 { gap: 2px; }
+    .cart-lines .horizontal-product__title { font-size: 15px; }
+    .cart-lines .horizontal-product__details dl { gap: 2px; }
+    .cart-lines .cart-quantity { height: 34px; width: 52px; }
+    .cart-lines .horizontal-product__quantity .grid { gap: 4px; }
+    .cart-lines .horizontal-product--sub {
+      background: #eef3f1;
+      border-inline-start: 3px solid #2e4b59;
+      border-block-start: 0 !important;
+      padding-inline: 10px;
+      border-radius: 10px;
+      margin-block-end: 6px;
+    }
+    .cart-group {
+      display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap;
+      padding: 12px 2px 6px; border: 0 !important;
+      font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+    }
+    .cart-group__label { display: inline-flex; align-items: center; gap: 6px; }
+    .cart-group--sub .cart-group__label { color: #2e4b59; }
+    .cart-group__meta { font-weight: 500; letter-spacing: 0; text-transform: none; font-size: 13px; opacity: .8; display: inline-flex; gap: 10px; align-items: baseline; }
+    .cart-group__action, .cart-plan-link {
+      font: inherit; font-size: 12px; background: none; border: 0; padding: 0; cursor: pointer;
+      color: inherit; text-decoration: underline; text-underline-offset: 2px; text-transform: none; letter-spacing: 0;
+    }
+    .cart-switch { display: inline-flex; border: 1px solid rgba(46, 75, 89, 0.35); border-radius: 999px; overflow: hidden; background: #fff; }
+    .cart-switch__opt { font: inherit; font-size: 11px; font-weight: 600; padding: 4px 10px; border: 0; background: none; color: #2e4b59; cursor: pointer; }
+    .cart-switch__opt.is-active { background: #2e4b59; color: #fff; cursor: default; }
+    .cart-switch__opt[disabled] { opacity: .4; cursor: not-allowed; }
+    .cart-plan-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 2px 0 0; font-size: 12px; }
+    .cart-plan-pill {
+      display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 999px;
+      background: #2e4b59; color: #fff; font-size: 11px; font-weight: 600; line-height: 1.5;
+    }
+    .cart-lines[data-plan-busy], cart-items[data-plan-busy] .cart-lines { opacity: .5; pointer-events: none; }
+    .cart-group__error { flex-basis: 100%; color: #a33; font-size: 12px; font-weight: 500; text-transform: none; letter-spacing: 0; }
+    .cart-group__error[hidden] { display: none; }
+  </style>
+  {%- capture plan_state_top -%}{%- render 'cart-plan-state' -%}{%- endcapture -%}
+  {%- render 'cart-plan-gate', state: plan_state_top, part: 'toggle' -%}
+  <ul class="horizontal-products grid cart-lines" role="list">
+
+    {%- if grp_sub_count > 0 -%}
+      <li class="cart-group cart-group--sub">
+        <span class="cart-group__label">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+          Subscription{% if grp_plan_label != '' %} &middot; {{ grp_plan_label | escape }}{% endif %}
+        </span>
+        <span class="cart-group__meta">
+          renews at {{ grp_sub_total | money }}
+          <button type="button" class="cart-group__action" data-plan-unsub-all>Switch all to one-time</button>
+        </span>
+        <span class="cart-group__error" data-plan-error hidden></span>
+      </li>
+    {%- endif -%}
 
     {%- comment -%} ── PASS 1: Subscribed items pehle ── {%- endcomment -%}
     {%- for item in cart.items -%}
@@ -143,7 +240,7 @@
 
       {%- if item.selling_plan_allocation != null and is_gift_wrap_item == false -%}
         {%- capture cart_item -%}
-          <li id="CartDrawer-Item-{{ item.key }}" class="horizontal-product flex items-center gap-4 md:gap-6" data-p-type="{{ item.product.type }}" data-variant-id="{{ item.variant_id }}" data-handle="{{ item.product.handle }}" data-quantity="{{ item.quantity }}" data-price="{{ item.original_price }}">
+          <li id="CartDrawer-Item-{{ item.key }}" class="horizontal-product horizontal-product--sub flex items-center gap-4 md:gap-6" data-p-type="{{ item.product.type }}" data-variant-id="{{ item.variant_id }}" data-handle="{{ item.product.handle }}" data-quantity="{{ item.quantity }}" data-price="{{ item.original_price }}">
             {%- if item.image -%}
               <a class="horizontal-product__media media media--{{ settings.product_image_ratio }}{% unless settings.product_image_fill %} media--contain{% endunless %} relative overflow-hidden shrink-0" href="{{ item.url }}" tabindex="-1">
                 {{- item.image | image_url: width: item.image.width | image_tag: loading: 'lazy', widths: '180,360,540', is: 'lazy-image' -}}
@@ -186,7 +283,24 @@
                     {%- endfor -%}
                   </dl>
                   {%- if item.selling_plan_allocation != null -%}
-                    <p class="text-xs text-opacity">{{ item.selling_plan_allocation.selling_plan.name }}</p>
+                    <p class="cart-plan-row">
+                      {%- if alc_unlocked -%}
+                        {%- liquid
+                          # Only offer one-time if the subscription stays at the minimum without this line.
+                          assign sub_without = grp_sub_total | minus: item.final_line_price
+                          assign can_drop = false
+                          if sub_without >= plan_min_cents
+                            assign can_drop = true
+                          endif
+                        -%}
+                        <span class="cart-switch" role="group" aria-label="{{ item.product.title | escape }}: subscription or one-time">
+                          <button type="button" class="cart-switch__opt is-active" aria-pressed="true">Subscription</button>
+                          <button type="button" class="cart-switch__opt" aria-pressed="false" data-plan-unsub="{{ item.key }}" data-plan-variant="{{ item.variant_id }}" data-plan-qty="{{ item.quantity }}"{% unless can_drop %} disabled title="Keep your subscription at {{ plan_min_cents | money_without_trailing_zeros }}+"{% endunless %}>One-time</button>
+                        </span>
+                      {%- else -%}
+                        <span class="cart-plan-pill">{{ item.selling_plan_allocation.selling_plan.name | split: ' (' | first | escape }}</span>
+                      {%- endif -%}
+                    </p>
                   {%- endif -%}
                 {%- endif -%}
               </div>
@@ -296,6 +410,13 @@
     {%- comment -%} ── UPGRADE BANNER — subscribed ke baad, one-time ke upar ── {%- endcomment -%}
    
 
+    {%- if grp_otp_count > 0 -%}
+      <li class="cart-group cart-group--otp">
+        <span class="cart-group__label">{% if alc_unlocked %}One-time add-ons{% else %}One-time{% endif %}</span>
+        <span class="cart-group__meta">{{ grp_otp_total | money }}</span>
+      </li>
+    {%- endif -%}
+
     {%- comment -%} ── PASS 2: One-time items baad mein ── {%- endcomment -%}
     {%- for item in cart.items -%}
       {%- liquid
@@ -350,6 +471,20 @@
                       {%- endif -%}
                     {%- endfor -%}
                   </dl>
+                {%- endif -%}
+                {%- if item.variant.selling_plan_allocations.size > 0 and is_gift_wrap_item == false -%}
+                  {%- liquid
+                    assign otp_alloc = item.variant.selling_plan_allocations.first
+                    assign otp_sub_price = otp_alloc.price | times: item.quantity
+                  -%}
+                  {%- if alc_unlocked -%}
+                    <p class="cart-plan-row">
+                      <span class="cart-switch" role="group" aria-label="{{ item.product.title | escape }}: subscription or one-time">
+                        <button type="button" class="cart-switch__opt" aria-pressed="false" data-plan-line="{{ item.key }}" data-plan-variant="{{ item.variant_id }}" data-plan-id="{{ otp_alloc.selling_plan.id }}" data-plan-qty="{{ item.quantity }}">Subscription &middot; {{ otp_sub_price | money_without_trailing_zeros }}</button>
+                        <button type="button" class="cart-switch__opt is-active" aria-pressed="true">One-time</button>
+                      </span>
+                    </p>
+                  {%- endif -%}
                 {%- endif -%}
               </div>
               <div class="flex flex-col gap-1">
@@ -509,16 +644,11 @@
                     endif
                   endif
                 -%}
-                {%- render 'product-complementary',
-                  section_id: section.id,
-                  product_id: first_product_id,
-                  image_ratio: settings.product_image_ratio,
-                  image_fill: settings.product_image_fill,
-                  limit: section.settings.cart_recommendations_limit,
-                  heading: section.settings.cart_recommendations_heading,
-                  show_vendor: section.settings.show_cart_recommendations_vendor,
-                  show_price: section.settings.show_cart_recommendations_price,
-                  recommendations_products: section.settings.cart_recommendations_products,
+                {%- render 'cart-favorites',
+                  products: collections['build-your-own-box'].products,
+                  limit: 6,
+                  alc_unlocked: alc_unlocked,
+                  heading: section.settings.cart_recommendations_heading
                 -%}
               {%- endif -%}
             </div>
@@ -528,7 +658,7 @@
                   {%- if section.settings.show_cart_note -%}
                     <button type="button" class="flex gap-2d5 grow items-center justify-center" aria-controls="CartNote-{{ section.id }}" aria-expanded="false">
                       {%- render 'icon', icon: 'note', size: 'lg', class: 'icon-light shrink-0' -%}
-                      <span class="reversed-link text-sm leading-tight">{{ 'general.cart.note.title' | t }}</span>
+                      <span class="reversed-link text-sm leading-tight">Add a note to my order</span>
                     </button>
                   {%- endif -%}
                   {%- if section.settings.show_shipping_calculator -%}
@@ -687,10 +817,15 @@
                 {%- endcomment -%}
                 {%- render 'member-rewards', variant: 'compact' -%}
 
+                {%- comment -%} Subscription minimum: see snippets/cart-plan-state.liquid {%- endcomment -%}
+                {%- capture plan_state -%}{%- render 'cart-plan-state' -%}{%- endcapture -%}
+                {%- assign plan_state = plan_state | strip -%}
+                {%- render 'cart-plan-gate', state: plan_state -%}
+
                 {%- if section.settings.show_checkout_button or section.settings.show_view_cart_button -%}
                   <form action="{{ routes.cart_url }}" method="POST" novalidate class="drawer__footer-buttons grid grid-cols-12 gap-4">
                     {%- if section.settings.show_checkout_button -%}
-                      <button class="button button--primary icon-with-text{% if section.settings.show_view_cart_button %} col-span-6 md:col-span-7{% else %} col-span-full{% endif %}" type="submit" name="checkout" is="hover-button">
+                      <button class="button button--primary icon-with-text{% if section.settings.show_view_cart_button %} col-span-6 md:col-span-7{% else %} col-span-full{% endif %}" type="submit" name="checkout" is="hover-button"{% if plan_state != 'ok' %} disabled aria-disabled="true"{% endif %}>
                         <span class="btn-fill" data-fill></span>
                         <span class="btn-text">
                           {%- liquid
