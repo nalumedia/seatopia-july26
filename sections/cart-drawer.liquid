@@ -13,7 +13,7 @@
   <cart-drawer id="CartDrawer" class="cart-drawer drawer drawer--end z-35 fixed bottom-0 left-0 h-full w-full pointer-events-none"
     role="dialog"
     aria-modal="true"
-    aria-label="{{ 'general.cart.title' | t | escape }}"
+    aria-label="My Box"
     data-section-id="{{ section.id }}"
     shopify-design-mode
     hidden
@@ -24,7 +24,7 @@
         <ul class="drawer__tabs flex gap-10" is="tab-list">
           <li>
             <button class="drawer__tab relative" type="button" aria-controls="MiniCart-{{ section.id }}" aria-expanded="true">
-              <span class="drawer__title heading lg:text-3xl text-2xl leading-none tracking-tight">{{ 'general.cart.title' | t }}</span>
+              <span class="drawer__title heading lg:text-3xl text-2xl leading-none tracking-tight">My Box</span>
               <cart-count class="count absolute font-medium text-xs lg:text-sm leading-none" aria-label="{{ 'general.cart.cart_count' | t: count: cart.item_count | escape }}"{% if cart == empty %} hidden{% endif %}>{{ cart.item_count }}</cart-count>
             </button>
           </li>

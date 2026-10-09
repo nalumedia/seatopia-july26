@@ -3,8 +3,9 @@
   flat rate from $125 and do not ship below it (Ryan, 2026-10-08). Replaces the
   free-shipping bar plus the separate "Minimum orders $125" line in the drawer.
 
-  Below the minimum: how much more, with a bar to $125.
-  At or over it: "You qualify for flat-rate shipping", then the free-shipping tier if set.
+  Two stages: a bar to $125 ("orders ship at a flat rate from $125"), then once that is
+  unlocked a fresh bar from $125 to the free-shipping threshold. Milestones underneath
+  tick off as they are reached.
 
   Accepts:
   - free_min: {Number} free-shipping threshold in dollars (the drawer's free_shipping_minimum_amount), optional
@@ -37,25 +38,46 @@
     assign pct = 100
   endif
 -%}
+{%- liquid
+  # Two stages (Ryan, 2026-10-08): work toward the $125 flat rate, then toward free shipping.
+  if gap > 0
+    assign stage = 'flat'
+  elsif free_min_cents > 0 and order_total < free_min_cents
+    assign stage = 'free'
+    assign free_gap = free_min_cents | minus: order_total
+    assign free_span = free_min_cents | minus: plan_min
+    assign free_pct = order_total | minus: plan_min | times: 100 | divided_by: free_span
+  else
+    assign stage = 'done'
+  endif
+-%}
 {%- if cart.item_count > 0 and has_gift_card == false -%}
-  <div class="ship-qual{% if gap > 0 %} ship-qual--short{% else %} ship-qual--ok{% endif %}">
-    {%- if gap > 0 -%}
-      <p class="ship-qual__line">
-        Add <strong>{{ gap | money }}</strong> to reach {{ plan_min | money_without_trailing_zeros }}.
-        <span class="ship-qual__sub">Orders ship at a flat rate from {{ plan_min | money_without_trailing_zeros }}.</span>
-      </p>
-      <div class="ship-qual__bar" role="img" aria-label="{{ order_total | money }} of {{ plan_min | money_without_trailing_zeros }}"><span style="width: {{ pct }}%"></span></div>
-    {%- else -%}
-      <p class="ship-qual__line">
-        <span class="ship-qual__check" aria-hidden="true">&#10003;</span> You qualify for flat-rate shipping
-        {%- if free_min_cents > 0 -%}
-          {%- if order_total >= free_min_cents -%}
-            <span class="ship-qual__sub">and free shipping is unlocked.</span>
-          {%- else -%}
-            <span class="ship-qual__sub">{{ free_min_cents | minus: order_total | money }} more for free shipping.</span>
-          {%- endif -%}
-        {%- endif -%}
-      </p>
+  <div class="ship-qual ship-qual--{{ stage }}">
+    {%- case stage -%}
+      {%- when 'flat' -%}
+        <p class="ship-qual__line">
+          Add <strong>{{ gap | money }}</strong> to reach {{ plan_min | money_without_trailing_zeros }}.
+          <span class="ship-qual__sub">Orders ship at a flat rate from {{ plan_min | money_without_trailing_zeros }}.</span>
+        </p>
+        <div class="ship-qual__bar" role="img" aria-label="{{ order_total | money }} of {{ plan_min | money_without_trailing_zeros }}"><span style="width: {{ pct }}%"></span></div>
+      {%- when 'free' -%}
+        <p class="ship-qual__line">
+          <span class="ship-qual__check" aria-hidden="true">&#10003;</span> Flat-rate shipping unlocked.
+          <span class="ship-qual__sub">Add <strong>{{ free_gap | money }}</strong> for free shipping.</span>
+        </p>
+        <div class="ship-qual__bar ship-qual__bar--free" role="img" aria-label="{{ order_total | money }} of {{ free_min_cents | money_without_trailing_zeros }}"><span style="width: {{ free_pct }}%"></span></div>
+      {%- else -%}
+        <p class="ship-qual__line">
+          <span class="ship-qual__check" aria-hidden="true">&#10003;</span>
+          {%- if free_min_cents > 0 %} Free shipping unlocked.{% else %} You qualify for flat-rate shipping.{% endif -%}
+        </p>
+    {%- endcase -%}
+
+    {%- if free_min_cents > 0 -%}
+      <ol class="ship-qual__steps" aria-label="Shipping milestones">
+        <li class="{% if stage != 'flat' %}is-done{% else %}is-current{% endif %}">{% if stage != 'flat' %}&#10003; {% endif %}{{ plan_min | money_without_trailing_zeros }} flat rate</li>
+        <li class="{% if stage == 'done' %}is-done{% elsif stage == 'free' %}is-current{% endif %}">{% if stage == 'done' %}&#10003; {% endif %}{{ free_min_cents | money_without_trailing_zeros }} free shipping</li>
+      </ol>
     {%- endif -%}
   </div>
 {%- endif -%}
@@ -67,4 +89,9 @@
   .ship-qual__bar { height: 6px; border-radius: 999px; background: rgba(17, 24, 39, 0.1); overflow: hidden; }
   .ship-qual__bar span { display: block; height: 100%; background: #2e4b59; border-radius: inherit; }
   .ship-qual__check { color: #2e7d5b; font-weight: 700; margin-right: 2px; }
+  .ship-qual__bar--free span { background: #2e7d5b; }
+  .ship-qual__steps { list-style: none; margin: 0; padding: 0; display: flex; justify-content: space-between; gap: 8px; font-size: 12px; }
+  .ship-qual__steps li { opacity: .5; }
+  .ship-qual__steps li.is-current { opacity: .85; font-weight: 600; }
+  .ship-qual__steps li.is-done { opacity: 1; color: #2e7d5b; font-weight: 600; }
 </style>
