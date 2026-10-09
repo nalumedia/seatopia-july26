@@ -108,10 +108,10 @@
                     assign show_free_shipping_bar = true
                   endif
                   
-                  if show_free_shipping_bar
-                    render 'free-shipping-bar', minimum_amount: minimum_amount
-                  endif
                 endif
+                # Flat-rate qualification at the $125 minimum replaces the free-shipping bar and the old
+                # minimum message here (snippets/cart-shipping-qualify.liquid).
+                render 'cart-shipping-qualify', free_min: minimum_amount
               -%}
 
               {%- liquid
@@ -607,16 +607,9 @@
                     endif
                   endif
                 -%}
-                {%- render 'product-complementary',
-                  section_id: section.id,
-                  product_id: first_product_id,
-                  image_ratio: settings.product_image_ratio,
-                  image_fill: settings.product_image_fill,
-                  limit: section.settings.cart_recommendations_limit,
-                  heading: section.settings.cart_recommendations_heading,
-                  show_vendor: section.settings.show_cart_recommendations_vendor,
-                  show_price: section.settings.show_cart_recommendations_price,
-                  recommendations_products: section.settings.cart_recommendations_products,
+                {%- render 'cart-favorites',
+                  products: section.settings.cart_recommendations_products,
+                  heading: section.settings.cart_recommendations_heading
                 -%}
               {%- endif -%}
             </div>
@@ -626,7 +619,7 @@
                   {%- if section.settings.show_cart_note -%}
                     <button type="button" class="flex gap-2d5 grow items-center justify-center" aria-controls="CartNote-{{ section.id }}" aria-expanded="false">
                       {%- render 'icon', icon: 'note', size: 'lg', class: 'icon-light shrink-0' -%}
-                      <span class="reversed-link text-sm leading-tight">{{ 'general.cart.note.title' | t }}</span>
+                      <span class="reversed-link text-sm leading-tight">Add a note to my order</span>
                     </button>
                   {%- endif -%}
                   {%- if section.settings.show_shipping_calculator -%}
@@ -788,7 +781,7 @@
                 {%- comment -%} Subscription minimum: see snippets/cart-plan-state.liquid {%- endcomment -%}
                 {%- capture plan_state -%}{%- render 'cart-plan-state' -%}{%- endcapture -%}
                 {%- assign plan_state = plan_state | strip -%}
-                {%- render 'cart-plan-gate', state: plan_state, show_min: true -%}
+                {%- render 'cart-plan-gate', state: plan_state -%}
 
                 {%- if section.settings.show_checkout_button or section.settings.show_view_cart_button -%}
                   <form action="{{ routes.cart_url }}" method="POST" novalidate class="drawer__footer-buttons grid grid-cols-12 gap-4">

@@ -1,0 +1,94 @@
+{%- comment -%}
+  "Add these favorites": one-tap adds in the cart drawer (Ryan, 2026-10-08). Replaces the
+  "You may also like" carousel and its View buttons.
+
+  Products come from the drawer's cart_recommendations_products setting (Theme editor >
+  Cart drawer), so the list is editable without code. Anything already in the cart is skipped.
+  Each row adds the smallest pack. When the cart is on subscription (every line that can
+  subscribe already does), favorites are added as a subscription too, so they join the box
+  instead of breaking it.
+
+  Accepts:
+  - products: {Array} product list setting
+  - heading: {String}
+{%- endcomment -%}
+{%- liquid
+  assign sub_count = 0
+  assign convertible_otp = 0
+  assign preferred_plan = blank
+  assign in_cart = ','
+  for item in cart.items
+    assign in_cart = in_cart | append: item.product_id | append: ','
+    if item.selling_plan_allocation
+      assign sub_count = sub_count | plus: 1
+      if preferred_plan == blank
+        assign preferred_plan = item.selling_plan_allocation.selling_plan.id
+      endif
+    elsif item.variant.selling_plan_allocations.size > 0
+      assign convertible_otp = convertible_otp | plus: 1
+    endif
+  endfor
+  assign subscribe_mode = false
+  if sub_count > 0 and convertible_otp == 0
+    assign subscribe_mode = true
+  endif
+-%}
+{%- capture fav_rows -%}
+  {%- for p in products -%}
+    {%- assign needle = ',' | append: p.id | append: ',' -%}
+    {%- if in_cart contains needle or p.available == false -%}{%- continue -%}{%- endif -%}
+    {%- assign v = p.selected_or_first_available_variant -%}
+    {%- liquid
+      assign plan_id = blank
+      assign price = v.price
+      if subscribe_mode and v.selling_plan_allocations.size > 0
+        assign alloc = v.selling_plan_allocations.first
+        for a in v.selling_plan_allocations
+          if a.selling_plan.id == preferred_plan
+            assign alloc = a
+            break
+          endif
+        endfor
+        assign plan_id = alloc.selling_plan.id
+        assign price = alloc.price
+      endif
+    -%}
+    <li class="cart-fav">
+      {%- if p.featured_image -%}
+        <a class="cart-fav__img" href="{{ p.url }}" tabindex="-1">{{ p.featured_image | image_url: width: 120 | image_tag: loading: 'lazy', width: 48, height: 48, alt: p.title }}</a>
+      {%- endif -%}
+      <span class="cart-fav__name">
+        <a href="{{ p.url }}" class="reversed-link">{{ p.title | escape }}</a>
+        {%- unless p.has_only_default_variant -%}<span class="cart-fav__variant">{{ v.title | escape }}</span>{%- endunless -%}
+      </span>
+      <button type="button" class="cart-fav__add" data-plan-add="{{ v.id }}"{% if plan_id != blank %} data-plan-id="{{ plan_id }}"{% endif %}>
+        Add &middot; {{ price | money_without_trailing_zeros }}
+      </button>
+    </li>
+  {%- endfor -%}
+{%- endcapture -%}
+{%- if fav_rows != blank -%}
+  <div class="cart-favs" data-cart-favs>
+    <p class="cart-favs__head">{{ heading | default: 'Add these favorites' | escape }}{% if subscribe_mode %}<span> &middot; added to your subscription</span>{% endif %}</p>
+    <ul class="cart-favs__list" role="list">{{ fav_rows }}</ul>
+    <p class="plan-gate__error" data-plan-error hidden></p>
+  </div>
+{%- endif -%}
+
+<style>
+  .cart-favs { display: grid; gap: 8px; }
+  .cart-favs__head { margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+  .cart-favs__head span { font-weight: 500; letter-spacing: 0; text-transform: none; opacity: .65; }
+  .cart-favs__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .cart-fav { display: grid; grid-template-columns: 48px 1fr auto; gap: 12px; align-items: center; }
+  .cart-fav__img img { width: 48px; height: 48px; object-fit: cover; border-radius: 8px; display: block; }
+  .cart-fav__name { min-width: 0; font-size: 14px; line-height: 1.25; }
+  .cart-fav__name a { font-weight: 500; }
+  .cart-fav__variant { display: block; font-size: 12px; opacity: .6; }
+  .cart-fav__add {
+    white-space: nowrap; padding: 7px 14px; border-radius: 999px; cursor: pointer; font: inherit; font-size: 13px; font-weight: 600;
+    background: #fff; color: #2e4b59; border: 1px solid rgba(46, 75, 89, 0.45);
+  }
+  .cart-fav__add:hover { background: #2e4b59; border-color: #2e4b59; color: #fff; }
+  .cart-favs[data-plan-busy] { opacity: .55; pointer-events: none; }
+</style>

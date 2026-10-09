@@ -398,7 +398,9 @@
         let cart = await getJSON('cart.js');
         for (const it of intents) {
           if (it.add) {
-            await getJSON('cart/add.js', { items: [{ id: Number(it.add), quantity: 1, selling_plan: Number(it.plan) }] });
+            const item = { id: Number(it.add), quantity: 1 };
+            if (it.plan) item.selling_plan = Number(it.plan); /* no plan = one-time */
+            await getJSON('cart/add.js', { items: [item] });
             cart = await getJSON('cart.js');
             continue;
           }
@@ -438,7 +440,7 @@
       const el = e.target.closest('[data-plan-line], [data-plan-unsub], [data-plan-unsub-all], [data-plan-add], [data-plan-all]');
       if (!el) return;
       const gate = el.closest('cart-plan-gate');
-      const scope = gate || el.closest('cart-items') || null;
+      const scope = gate || el.closest('[data-cart-favs]') || el.closest('cart-items') || null;
       const d = el.dataset;
 
       if (el.hasAttribute('data-plan-line')) {

@@ -1,0 +1,70 @@
+{%- comment -%}
+  Top of the cart drawer: the $125 qualification, stated as what it is. Orders ship at a
+  flat rate from $125 and do not ship below it (Ryan, 2026-10-08). Replaces the
+  free-shipping bar plus the separate "Minimum orders $125" line in the drawer.
+
+  Below the minimum: how much more, with a bar to $125.
+  At or over it: "You qualify for flat-rate shipping", then the free-shipping tier if set.
+
+  Accepts:
+  - free_min: {Number} free-shipping threshold in dollars (the drawer's free_shipping_minimum_amount), optional
+{%- endcomment -%}
+{%- liquid
+  assign plan_min = settings.threshold_amount | default: '125' | strip | times: 100
+  assign free_min_cents = 0
+  if free_min != blank
+    assign free_min_cents = free_min | times: 100
+  endif
+
+  assign gift_wrap_id = blank
+  if linklists.gift-wrapping.links != blank and linklists.gift-wrapping.links.first.type == 'product_link'
+    assign gift_wrap_id = linklists.gift-wrapping.links.first.object.variants.first.id
+  endif
+  assign order_total = cart.total_price
+  assign has_gift_card = false
+  for item in cart.items
+    if gift_wrap_id != blank and item.variant_id == gift_wrap_id
+      assign order_total = order_total | minus: item.final_line_price
+    endif
+    if item.product.type == 'Gift Cards'
+      assign has_gift_card = true
+    endif
+  endfor
+
+  assign gap = plan_min | minus: order_total
+  assign pct = order_total | times: 100 | divided_by: plan_min
+  if pct > 100
+    assign pct = 100
+  endif
+-%}
+{%- if cart.item_count > 0 and has_gift_card == false -%}
+  <div class="ship-qual{% if gap > 0 %} ship-qual--short{% else %} ship-qual--ok{% endif %}">
+    {%- if gap > 0 -%}
+      <p class="ship-qual__line">
+        Add <strong>{{ gap | money }}</strong> to reach {{ plan_min | money_without_trailing_zeros }}.
+        <span class="ship-qual__sub">Orders ship at a flat rate from {{ plan_min | money_without_trailing_zeros }}.</span>
+      </p>
+      <div class="ship-qual__bar" role="img" aria-label="{{ order_total | money }} of {{ plan_min | money_without_trailing_zeros }}"><span style="width: {{ pct }}%"></span></div>
+    {%- else -%}
+      <p class="ship-qual__line">
+        <span class="ship-qual__check" aria-hidden="true">&#10003;</span> You qualify for flat-rate shipping
+        {%- if free_min_cents > 0 -%}
+          {%- if order_total >= free_min_cents -%}
+            <span class="ship-qual__sub">and free shipping is unlocked.</span>
+          {%- else -%}
+            <span class="ship-qual__sub">{{ free_min_cents | minus: order_total | money }} more for free shipping.</span>
+          {%- endif -%}
+        {%- endif -%}
+      </p>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+<style>
+  .ship-qual { display: grid; gap: 8px; }
+  .ship-qual__line { margin: 0; font-size: 15px; line-height: 1.4; }
+  .ship-qual__sub { display: block; font-size: 13px; opacity: .7; }
+  .ship-qual__bar { height: 6px; border-radius: 999px; background: rgba(17, 24, 39, 0.1); overflow: hidden; }
+  .ship-qual__bar span { display: block; height: 100%; background: #2e4b59; border-radius: inherit; }
+  .ship-qual__check { color: #2e7d5b; font-weight: 700; margin-right: 2px; }
+</style>
