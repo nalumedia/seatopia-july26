@@ -126,7 +126,7 @@
                 endfor
                 assign line_sub = alloc.price | times: item.quantity
               -%}
-              <button type="button" class="plan-gate__chip" data-plan-line="{{ item.key }}" data-plan-id="{{ alloc.selling_plan.id }}" data-plan-qty="{{ item.quantity }}">
+              <button type="button" class="plan-gate__chip" data-plan-line="{{ item.key }}" data-plan-variant="{{ item.variant_id }}" data-plan-id="{{ alloc.selling_plan.id }}" data-plan-qty="{{ item.quantity }}">
                 Subscribe &middot; {{ line_sub | money }}
               </button>
             {%- else -%}
@@ -199,7 +199,7 @@
             endif
           -%}
           {%- unless first %},{% endunless -%}
-          {"key": {{ item.key | json }}, "qty": {{ item.quantity }}, "sub": {% if item.selling_plan_allocation %}true{% else %}false{% endif %}, "plan": {{ plan_id | json }}}
+          {"key": {{ item.key | json }}, "variant": {{ item.variant_id }}, "qty": {{ item.quantity }}, "sub": {% if item.selling_plan_allocation %}true{% else %}false{% endif %}, "plan": {{ plan_id | json }}}
           {%- assign first = false -%}
         {%- endfor -%}
       ]
@@ -251,26 +251,54 @@
     if (window.SeatopiaCartPlan) return;
 
     const root = () => ((window.theme && theme.routes && theme.routes.root_url) || '/').replace(/\/?$/, '/');
+    const getJSON = async (url, body) => {
+      const res = await fetch(root() + url, body
+        ? { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(body) }
+        : { headers: { Accept: 'application/json' } });
+      const j = await res.json().catch(() => null);
+      if (!res.ok || !j || j.status) throw new Error((j && (j.description || j.message)) || 'We could not update your cart.');
+      return j;
+    };
 
-    /* Apply cart changes one at a time: changing a selling plan gives that line a new key
-       but leaves every other key alone, so the remaining ids stay valid. */
-    async function apply(steps, scope) {
-      if (!steps.length) return;
+    /*
+      Intents, not keys. A line key in the HTML can be stale by the time it is clicked
+      (anything else on the page that writes to the cart changes keys without re-rendering
+      the drawer), and Shopify answers a stale key with "no valid id or line parameter".
+      So each intent names a variant and the plan state we want; the line is looked up in
+      the LIVE cart, and after every change the cart Shopify returns is used for the next.
+        { variant, plan }   plan = selling plan id to subscribe, or null for one-time
+        { add: variant, plan }  add one unit as a subscription
+    */
+    async function apply(intents, scope) {
+      if (intents.length === 1 && intents[0].allOneTime) {
+        /* "All one-time" expands against the live cart, never the HTML */
+        const live = await getJSON('cart.js').catch(() => ({ items: [] }));
+        intents = (live.items || []).filter((l) => l.selling_plan_allocation).map((l) => ({ variant: l.variant_id, plan: null }));
+      }
+      if (!intents.length) return;
       const busy = scope || document.body;
       busy.setAttribute('data-plan-busy', '');
       const err = scope && scope.querySelector('[data-plan-error]');
+      if (err) err.hidden = true;
       try {
-        for (const step of steps) {
-          const res = await fetch(root() + 'cart/' + step.url + '.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-            body: JSON.stringify(step.body)
-          });
-          if (!res.ok) {
-            const j = await res.json().catch(() => null);
-            throw new Error((j && (j.description || j.message)) || 'We could not update your cart.');
+        let cart = await getJSON('cart.js');
+        for (const it of intents) {
+          if (it.add) {
+            await getJSON('cart/add.js', { items: [{ id: Number(it.add), quantity: 1, selling_plan: Number(it.plan) }] });
+            cart = await getJSON('cart.js');
+            continue;
           }
+          const wantSub = it.plan != null;
+          const line = (cart.items || []).find((l) =>
+            String(l.variant_id) === String(it.variant) && !!l.selling_plan_allocation !== wantSub);
+          if (!line) continue; /* already in the wanted state */
+          cart = await getJSON('cart/change.js', {
+            id: line.key,
+            quantity: line.quantity,
+            selling_plan: wantSub ? Number(it.plan) : null
+          });
         }
+
         const cartPath = ((window.theme && theme.routes && theme.routes.cart_url) || '/cart').replace(/\/$/, '');
         if (window.location.pathname.replace(/\/$/, '') === cartPath) {
           window.location.reload();
@@ -278,45 +306,39 @@
         }
         /* Header count. Not via the cartUpdate pubsub: cart.js's cart-items handler reads
            event.cart.sections unguarded and would throw on a plain /cart.js payload. */
-        const cart = await (await fetch(root() + 'cart.js', { headers: { Accept: 'application/json' } })).json().catch(() => null);
-        if (cart) {
-          document.querySelectorAll('cart-count').forEach((el) => {
-            el.innerText = cart.item_count;
-            el.hidden = cart.item_count === 0;
-          });
-        }
+        document.querySelectorAll('cart-count').forEach((el) => {
+          el.innerText = cart.item_count;
+          el.hidden = cart.item_count === 0;
+        });
         document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true, detail: { open: true } }));
       } catch (e) {
-        if (err) { err.textContent = e.message; err.hidden = false; } else { window.alert(e.message); }
+        /* Shown in place. Not followed by a drawer refresh, which would wipe the message;
+           each step re-reads the live cart, so a half-applied change is very unlikely. */
+        if (err) { err.textContent = e.message + ' Please refresh the page and try again.'; err.hidden = false; }
       } finally {
         busy.removeAttribute('data-plan-busy');
       }
     }
-
-    const change = (id, quantity, plan) => ({ url: 'change', body: { id, quantity: Number(quantity), selling_plan: plan == null ? null : Number(plan) } });
 
     document.addEventListener('click', (e) => {
       const el = e.target.closest('[data-plan-line], [data-plan-unsub], [data-plan-unsub-all], [data-plan-add], [data-plan-all]');
       if (!el) return;
       const gate = el.closest('cart-plan-gate');
       const scope = gate || el.closest('cart-items') || null;
+      const d = el.dataset;
 
       if (el.hasAttribute('data-plan-line')) {
-        apply([change(el.dataset.planLine, el.dataset.planQty, el.dataset.planId)], scope);
+        apply([{ variant: d.planVariant, plan: d.planId }], scope);
       } else if (el.hasAttribute('data-plan-unsub')) {
-        apply([change(el.dataset.planUnsub, el.dataset.planQty, null)], scope);
-      } else if (el.hasAttribute('data-plan-unsub-all')) {
-        const rows = [...(scope || document).querySelectorAll('[data-plan-unsub]')];
-        apply(rows.map((r) => change(r.dataset.planUnsub, r.dataset.planQty, null)), scope);
+        apply([{ variant: d.planVariant, plan: null }], scope);
       } else if (el.hasAttribute('data-plan-add')) {
-        apply([{ url: 'add', body: { items: [{ id: Number(el.dataset.planAdd), quantity: 1, selling_plan: Number(el.dataset.planId) }] } }], scope);
-      } else if (el.hasAttribute('data-plan-all') && gate) {
+        apply([{ add: d.planAdd, plan: d.planId }], scope);
+      } else if (el.hasAttribute('data-plan-unsub-all') || (el.hasAttribute('data-plan-all') && d.planAll === 'onetime')) {
+        apply([{ allOneTime: true }], scope);
+      } else if (el.hasAttribute('data-plan-all') && d.planAll === 'subscribe' && gate) {
         let lines = [];
         try { lines = JSON.parse(gate.querySelector('[data-plan-lines]').textContent) || []; } catch (err) {}
-        const steps = el.dataset.planAll === 'subscribe'
-          ? lines.filter((l) => !l.sub && l.plan).map((l) => change(l.key, l.qty, l.plan))
-          : lines.filter((l) => l.sub).map((l) => change(l.key, l.qty, null));
-        apply(steps, gate);
+        apply(lines.filter((l) => !l.sub && l.plan).map((l) => ({ variant: l.variant, plan: l.plan })), gate);
       }
     });
 

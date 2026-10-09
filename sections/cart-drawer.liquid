@@ -189,7 +189,9 @@
       display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 999px;
       background: #2e4b59; color: #fff; font-size: 11px; font-weight: 600; line-height: 1.5;
     }
-    .cart-lines [data-plan-busy] { opacity: .5; pointer-events: none; }
+    .cart-lines[data-plan-busy], cart-items[data-plan-busy] .cart-lines { opacity: .5; pointer-events: none; }
+    .cart-group__error { flex-basis: 100%; color: #a33; font-size: 12px; font-weight: 500; text-transform: none; letter-spacing: 0; }
+    .cart-group__error[hidden] { display: none; }
   </style>
   <ul class="horizontal-products grid cart-lines" role="list">
 
@@ -203,6 +205,7 @@
           renews at {{ grp_sub_total | money }}
           <button type="button" class="cart-group__action" data-plan-unsub-all>Switch all to one-time</button>
         </span>
+        <span class="cart-group__error" data-plan-error hidden></span>
       </li>
     {%- endif -%}
 
@@ -262,7 +265,7 @@
                   {%- if item.selling_plan_allocation != null -%}
                     <p class="cart-plan-row">
                       <span class="cart-plan-pill">{{ item.selling_plan_allocation.selling_plan.name | split: ' (' | first | escape }}</span>
-                      <button type="button" class="cart-plan-link" data-plan-unsub="{{ item.key }}" data-plan-qty="{{ item.quantity }}">Make one-time</button>
+                      <button type="button" class="cart-plan-link" data-plan-unsub="{{ item.key }}" data-plan-variant="{{ item.variant_id }}" data-plan-qty="{{ item.quantity }}">Make one-time</button>
                     </p>
                   {%- endif -%}
                 {%- endif -%}
@@ -441,7 +444,7 @@
                     assign otp_sub_price = otp_alloc.price | times: item.quantity
                   -%}
                   <p class="cart-plan-row">
-                    <button type="button" class="cart-plan-link" data-plan-line="{{ item.key }}" data-plan-id="{{ otp_alloc.selling_plan.id }}" data-plan-qty="{{ item.quantity }}">Subscribe &middot; {{ otp_sub_price | money }}</button>
+                    <button type="button" class="cart-plan-link" data-plan-line="{{ item.key }}" data-plan-variant="{{ item.variant_id }}" data-plan-id="{{ otp_alloc.selling_plan.id }}" data-plan-qty="{{ item.quantity }}">Subscribe &middot; {{ otp_sub_price | money }}</button>
                   </p>
                 {%- endif -%}
               </div>
