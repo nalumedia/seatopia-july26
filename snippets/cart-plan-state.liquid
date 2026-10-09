@@ -1,0 +1,58 @@
+{%- comment -%}
+  Subscription minimum rule: the single place it is decided. Outputs one word.
+
+    ok         checkout allowed
+    below-min  the cart is under the minimum
+    sub-short  the cart holds a subscription that would renew under the minimum
+
+  The rule (Ryan, 2026-10-08): every order is at least $125, and a subscription must
+  renew at $125 or more on its own. One-time add-ons can ride on a $125+ subscription,
+  but they cannot carry a small one. Mirrors the Build a Box test (sections/build-a-box.liquid).
+
+  Use with capture, so the drawer and the cart page share one answer:
+    {%- capture plan_state -%}{%- render 'cart-plan-state' -%}{%- endcapture -%}
+
+  The minimum is the existing theme setting settings.threshold_amount (Theme settings >
+  Minimum Order Message, default 125), so there is one number to change. Gift-card carts
+  are exempt from the order minimum, matching snippets/free-shipping-bar.liquid. The
+  subscription total uses line prices after discounts, which is what a renewal charges.
+{%- endcomment -%}
+{%- liquid
+  assign plan_min = settings.threshold_amount | default: '125' | strip | times: 100
+  assign sub_total = 0
+  assign has_gift_card = false
+  assign gift_wrap_id = blank
+  if linklists.gift-wrapping.links != blank and linklists.gift-wrapping.links.first.type == 'product_link'
+    assign gift_wrap_id = linklists.gift-wrapping.links.first.object.variants.first.id
+  endif
+
+  for item in cart.items
+    if gift_wrap_id != blank and item.variant_id == gift_wrap_id
+      continue
+    endif
+    if item.product.type == 'Gift Cards'
+      assign has_gift_card = true
+    endif
+    if item.selling_plan_allocation
+      assign sub_total = sub_total | plus: item.final_line_price
+    endif
+  endfor
+
+  # Same order total the existing minimum message uses: cart total less gift wrap.
+  assign cart_total = cart.total_price
+  for item in cart.items
+    if gift_wrap_id != blank and item.variant_id == gift_wrap_id
+      assign cart_total = cart_total | minus: item.final_line_price
+    endif
+  endfor
+
+  if cart.item_count == 0
+    echo 'ok'
+  elsif sub_total > 0 and sub_total < plan_min
+    echo 'sub-short'
+  elsif cart_total < plan_min and has_gift_card == false
+    echo 'below-min'
+  else
+    echo 'ok'
+  endif
+-%}
