@@ -451,7 +451,14 @@
   .plan-toggle__price { font-size: 15px; font-weight: 600; white-space: nowrap; }
   .plan-toggle__price s { font-weight: 400; opacity: .5; margin-left: 4px; }
   .plan-toggle__note { grid-column: 2 / -1; font-size: 12px; opacity: .65; }
-  .plan-toggle[data-plan-busy] { opacity: .55; pointer-events: none; }
+  .plan-toggle[data-plan-busy] { pointer-events: none; }
+  /* Loading: a thin bar under the drawer header, and a soft dim on the cart page. */
+  cart-drawer[data-loading] .drawer__header::after {
+    content: ""; position: absolute; left: 0; bottom: -1px; height: 2px; width: 35%;
+    background: #2e4b59; animation: cart-load 0.9s ease-in-out infinite; z-index: 5;
+  }
+  @keyframes cart-load { 0% { left: -35%; } 100% { left: 100%; } }
+  main-cart[data-loading] { opacity: .6; transition: opacity .15s ease; pointer-events: none; }
   .plan-toggle__more { display: grid; gap: 8px; padding: 0 14px 4px 42px; margin-top: -2px; }
   .plan-toggle__freq { display: flex; align-items: center; gap: 10px; }
   .plan-toggle__freq-label { font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; opacity: .6; }
@@ -490,6 +497,11 @@
         { add: variant, plan }  add one unit as a subscription
     */
     const drawerId = () => { const el = document.querySelector('[id^="MiniCart-"]'); return el ? el.id.slice(9) : null; };
+    const mainId = () => { const el = document.querySelector('[id^="MainCart-"]'); return el ? el.id.slice(9) : null; };
+    /* thin loading bar on the drawer / dim the cart page while Shopify writes (~0.7s) */
+    const loading = (on) => {
+      document.querySelectorAll('cart-drawer, main-cart').forEach((el) => el.toggleAttribute('data-loading', on));
+    };
     const onCartPage = () => {
       const cartPath = ((window.theme && theme.routes && theme.routes.cart_url) || '/cart').replace(/\/$/, '');
       return window.location.pathname.replace(/\/$/, '') === cartPath;
@@ -518,8 +530,13 @@
       const err = scope && scope.querySelector('[data-plan-error]');
       if (err) err.hidden = true;
 
-      const sid = onCartPage() ? null : drawerId();
-      const withSections = sid ? { sections: [sid], sections_url: window.location.pathname } : {};
+      /* Ask Shopify to render the drawer AND the cart page (when on it) in the write's response,
+         so both update in place. The cart page used to do a full reload (~1.5s more). */
+      const sid = drawerId();
+      const mid = mainId();
+      const ids = [sid, mid].filter(Boolean);
+      const withSections = ids.length ? { sections: ids, sections_url: window.location.pathname } : {};
+      loading(true);
       const adds = intents.filter((it) => it.add);
       const changes = intents.filter((it) => !it.add);
 
@@ -566,15 +583,16 @@
           getJSON('cart.js').then((c) => setCount(c.item_count)).catch(() => {});
         }
 
-        if (onCartPage()) { window.location.reload(); return; }
+        const rendered = last && last.sections && ids.some((id) => last.sections[id]);
+        if (!rendered && onCartPage()) { window.location.reload(); return; }
 
-        if (last && last.sections && sid && last.sections[sid]) {
+        if (rendered) {
           setCount(last.item_count);
           if (window.theme && theme.pubsub && theme.pubsub.PUB_SUB_EVENTS) {
             theme.pubsub.publish(theme.pubsub.PUB_SUB_EVENTS.cartUpdate, { source: 'cart-plan', cart: last });
           }
           const drawer = document.querySelector('cart-drawer');
-          if (drawer && !drawer.hasAttribute('open') && typeof drawer.show === 'function') drawer.show();
+          if (!onCartPage() && drawer && !drawer.hasAttribute('open') && typeof drawer.show === 'function') drawer.show();
         } else {
           if (last && typeof last.item_count === 'number') setCount(last.item_count);
           document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true, detail: { open: true } }));
@@ -584,6 +602,7 @@
         if (err) { err.textContent = e.message + ' Please refresh the page and try again.'; err.hidden = false; }
       } finally {
         busy.removeAttribute('data-plan-busy');
+        loading(false);
       }
     }
 
@@ -638,8 +657,15 @@
       const gate = el.closest('cart-plan-gate');
       const scope = gate || el.closest('[data-cart-favs]') || el.closest('cart-items') || null;
       const d = el.dataset;
+      /* Optimistic: flip the switch / toggle the instant it is tapped; the response confirms it. */
+      const group = el.closest('.cart-switch') || (el.classList.contains('plan-toggle__opt') && el.parentElement);
+      if (group) {
+        group.querySelectorAll('.cart-switch__opt, .plan-toggle__opt').forEach((o) => {
+          const on = o === el; o.classList.toggle('is-active', on); o.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+      }
       /* Instant feedback: Shopify takes ~0.7s to add, so the button answers immediately. */
-      if (el.matches('button') && !el.dataset.planBusyLabel) {
+      if (!group && el.matches('button') && !el.dataset.planBusyLabel) {
         el.dataset.planBusyLabel = el.innerHTML;
         el.classList.add('is-adding');
         el.textContent = el.hasAttribute('data-plan-add') ? 'Adding…' : 'Updating…';

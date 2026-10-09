@@ -5370,6 +5370,14 @@ class ProductForm extends HTMLFormElement {
     this.submitButton.setAttribute('aria-disabled', 'true');
     this.submitButton.setAttribute('aria-busy', 'true');
 
+    /* Speed (2026-10-08): open the drawer the moment Add is tapped, with a loading bar, instead
+       of after Shopify's ~0.7s cart write. Its contents fill in when the response arrives. */
+    const openedEarly = !!this.cartDrawer && !this.cartDrawer.hasAttribute('open');
+    if (this.cartDrawer) {
+      this.cartDrawer.setAttribute('data-loading', '');
+      if (openedEarly) this.cartDrawer.show(this.activeElement);
+    }
+
     fetch(`${theme.routes.cart_add_url}`, config)
       .then((response) => response.json())
       .then(async (parsedState) => {
@@ -5381,6 +5389,8 @@ class ProductForm extends HTMLFormElement {
             message: parsedState.message
           });
           this.handleErrorMessage(parsedState.description);
+          /* the drawer was opened early: close it so the error on the form is visible */
+          if (openedEarly && typeof this.cartDrawer.hide === 'function') this.cartDrawer.hide();
           document.dispatchEvent(new CustomEvent('ajaxProduct:error', {
             detail: {
               errorMessage: parsedState.description
@@ -5417,7 +5427,7 @@ class ProductForm extends HTMLFormElement {
           })
         );
 
-        this.cartDrawer?.show(this.activeElement);
+        if (this.cartDrawer && !this.cartDrawer.hasAttribute('open')) this.cartDrawer.show(this.activeElement);
 
         fetch(theme.routes.cart_url, { ...theme.utils.fetchConfig('json', 'GET')})
           .then((response) => response.json())
@@ -5441,6 +5451,7 @@ class ProductForm extends HTMLFormElement {
         console.log(error);
       })
       .finally(() => {
+        this.cartDrawer?.removeAttribute('data-loading');
         this.submitButton.removeAttribute('aria-busy');
         this.submitButtons.forEach(submitButton => submitButton.removeAttribute('aria-busy'));
 
