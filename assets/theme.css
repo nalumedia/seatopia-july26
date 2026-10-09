@@ -15642,7 +15642,12 @@ html.js .product__feed .drawer__header::before {
   font: inherit; font-size: 15px; font-weight: 600; transition: background .15s ease, color .15s ease, border-color .15s ease;
 }
 .card-qa__add:hover, .card-qa__add:focus-visible { background: #2e4b59; border-color: #2e4b59; color: #fff; }
-.card-qa__add[aria-busy="true"] { opacity: .6; cursor: progress; }
+.card-qa__add[aria-busy="true"] { cursor: progress; position: relative; color: transparent; }
+.card-qa__add[aria-busy="true"]::after {
+  content: ""; position: absolute; inset: 0; margin: auto; width: 16px; height: 16px; border-radius: 50%;
+  border: 2px solid rgba(46, 75, 89, 0.3); border-top-color: #2e4b59; animation: card-qa-spin .6s linear infinite;
+}
+@keyframes card-qa-spin { to { transform: rotate(360deg); } }
 .card-qa__add .btn-text { display: inline; }
 /* Vendor under the title, quietly, when the quick-add card layout is on */
 .product-card__vendor-under {
