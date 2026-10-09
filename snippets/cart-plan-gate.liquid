@@ -114,6 +114,9 @@
         assign mode = 'onetime'
       elsif convertible == 0
         assign mode = 'subscribe'
+      elsif sub_total >= plan_min
+        # à la carte: a full subscription plus one-time add-ons
+        assign mode = 'alc'
       endif
       for item in cart.items
         if item.selling_plan_allocation
@@ -193,13 +196,16 @@
         <span class="plan-toggle__price">{{ all_otp_order | money }}</span>
       </button>
 
-      {%- if mode == 'subscribe' or sub_if_all >= plan_min -%}
-        <button type="button" class="plan-toggle__opt{% if mode == 'subscribe' %} is-active{% endif %}" data-plan-all="subscribe" aria-pressed="{% if mode == 'subscribe' %}true{% else %}false{% endif %}">
+      {%- if mode == 'subscribe' or mode == 'alc' or sub_if_all >= plan_min -%}
+        <button type="button" class="plan-toggle__opt{% if mode == 'subscribe' or mode == 'alc' %} is-active{% endif %}"{% unless mode == 'alc' %} data-plan-all="subscribe"{% endunless %} aria-pressed="{% if mode == 'subscribe' or mode == 'alc' %}true{% else %}false{% endif %}">
           <span class="plan-toggle__dot" aria-hidden="true"></span>
           <span class="plan-toggle__name">Subscribe &amp; Save{% if toggle_pct > 0 %} {{ toggle_pct }}%{% endif %}</span>
           <span class="plan-toggle__price">
-            {%- if mode == 'subscribe' -%}{{ order_total | money }} <s>{{ all_otp_order | money }}</s>{%- else -%}{{ all_sub_order | money }} <s>{{ all_otp_order | money }}</s>{%- endif -%}
+            {%- if mode == 'subscribe' -%}{{ order_total | money }} <s>{{ all_otp_order | money }}</s>{%- elsif mode == 'alc' -%}{{ sub_total | money }}{%- else -%}{{ all_sub_order | money }} <s>{{ all_otp_order | money }}</s>{%- endif -%}
           </span>
+          {%- if mode == 'alc' -%}
+            <span class="plan-toggle__note">Plus {{ order_total | minus: sub_total | money }} in one-time add-ons this order.</span>
+          {%- endif -%}
         </button>
         <div class="plan-toggle__more">
           <label class="plan-toggle__freq">
@@ -591,20 +597,39 @@
       apply(lines.filter((l) => l.plan).map((l) => ({ variant: l.variant, plan: sel.value })), gate);
     });
 
-    /* Favorites: pack chips pick the variant (and its plan price) the Add button will add. */
+    /* Favorites: the Add button adds the active chip's variant, as a subscription or a one-time
+       add-on depending on the block's mode (the mode switch appears once the subscription
+       reaches the minimum). */
+    const syncFavRow = (row, mode) => {
+      const chip = row.querySelector('[data-fav-variant].is-active');
+      const add = row.querySelector('[data-plan-add]');
+      if (!add) return;
+      const src = chip || add;
+      if (chip) add.dataset.planAdd = chip.dataset.favVariant;
+      const plan = src.dataset.favPlan;
+      const sub = mode === 'sub' && plan;
+      if (sub) add.dataset.planId = plan; else delete add.dataset.planId;
+      const label = row.querySelector('[data-fav-label]');
+      if (label) label.textContent = sub ? src.dataset.favSub : src.dataset.favOtp;
+    };
     document.addEventListener('click', (e) => {
+      const modeBtn = e.target.closest('[data-fav-mode-set]');
+      if (modeBtn) {
+        const block = modeBtn.closest('[data-cart-favs]');
+        block.dataset.favMode = modeBtn.dataset.favModeSet;
+        block.querySelectorAll('[data-fav-mode-set]').forEach((b) => {
+          const on = b === modeBtn; b.classList.toggle('is-active', on); b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        block.querySelectorAll('[data-fav]').forEach((row) => syncFavRow(row, block.dataset.favMode));
+        return;
+      }
       const chip = e.target.closest('[data-fav-variant]');
       if (!chip || chip.disabled) return;
       const row = chip.closest('[data-fav]');
       if (!row) return;
       row.querySelectorAll('[data-fav-variant]').forEach((c) => c.classList.toggle('is-active', c === chip));
-      const add = row.querySelector('[data-plan-add]');
-      if (add) {
-        add.dataset.planAdd = chip.dataset.favVariant;
-        if (chip.dataset.favPlan) add.dataset.planId = chip.dataset.favPlan; else delete add.dataset.planId;
-      }
-      const label = row.querySelector('[data-fav-label]');
-      if (label) label.textContent = chip.dataset.favText;
+      const block = row.closest('[data-cart-favs]');
+      syncFavRow(row, block ? block.dataset.favMode : 'otp');
     });
 
     document.addEventListener('click', (e) => {

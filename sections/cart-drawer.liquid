@@ -158,6 +158,14 @@
         assign grp_otp_count = grp_otp_count | plus: 1
       endif
     endfor
+
+    # All or nothing until the subscription itself reaches the minimum; from there, à la
+    # carte: each item can be subscription or a one-time add-on (Ryan, 2026-10-08).
+    assign plan_min_cents = settings.threshold_amount | default: '125' | strip | times: 100
+    assign alc_unlocked = false
+    if grp_sub_total >= plan_min_cents
+      assign alc_unlocked = true
+    endif
   -%}
   <style>
     /* Compact cart rows + Subscription / One-time grouping (2026-10-08) */
@@ -190,6 +198,10 @@
       font: inherit; font-size: 12px; background: none; border: 0; padding: 0; cursor: pointer;
       color: inherit; text-decoration: underline; text-underline-offset: 2px; text-transform: none; letter-spacing: 0;
     }
+    .cart-switch { display: inline-flex; border: 1px solid rgba(46, 75, 89, 0.35); border-radius: 999px; overflow: hidden; background: #fff; }
+    .cart-switch__opt { font: inherit; font-size: 11px; font-weight: 600; padding: 4px 10px; border: 0; background: none; color: #2e4b59; cursor: pointer; }
+    .cart-switch__opt.is-active { background: #2e4b59; color: #fff; cursor: default; }
+    .cart-switch__opt[disabled] { opacity: .4; cursor: not-allowed; }
     .cart-plan-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 2px 0 0; font-size: 12px; }
     .cart-plan-pill {
       display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 999px;
@@ -272,8 +284,22 @@
                   </dl>
                   {%- if item.selling_plan_allocation != null -%}
                     <p class="cart-plan-row">
-                      <span class="cart-plan-pill">{{ item.selling_plan_allocation.selling_plan.name | split: ' (' | first | escape }}</span>
-                      <button type="button" class="cart-plan-link" data-plan-unsub="{{ item.key }}" data-plan-variant="{{ item.variant_id }}" data-plan-qty="{{ item.quantity }}">Make one-time</button>
+                      {%- if alc_unlocked -%}
+                        {%- liquid
+                          # Only offer one-time if the subscription stays at the minimum without this line.
+                          assign sub_without = grp_sub_total | minus: item.final_line_price
+                          assign can_drop = false
+                          if sub_without >= plan_min_cents
+                            assign can_drop = true
+                          endif
+                        -%}
+                        <span class="cart-switch" role="group" aria-label="{{ item.product.title | escape }}: subscription or one-time">
+                          <button type="button" class="cart-switch__opt is-active" aria-pressed="true">Subscription</button>
+                          <button type="button" class="cart-switch__opt" aria-pressed="false" data-plan-unsub="{{ item.key }}" data-plan-variant="{{ item.variant_id }}" data-plan-qty="{{ item.quantity }}"{% unless can_drop %} disabled title="Keep your subscription at {{ plan_min_cents | money_without_trailing_zeros }}+"{% endunless %}>One-time</button>
+                        </span>
+                      {%- else -%}
+                        <span class="cart-plan-pill">{{ item.selling_plan_allocation.selling_plan.name | split: ' (' | first | escape }}</span>
+                      {%- endif -%}
                     </p>
                   {%- endif -%}
                 {%- endif -%}
@@ -386,7 +412,7 @@
 
     {%- if grp_otp_count > 0 -%}
       <li class="cart-group cart-group--otp">
-        <span class="cart-group__label">One-time</span>
+        <span class="cart-group__label">{% if alc_unlocked %}One-time add-ons{% else %}One-time{% endif %}</span>
         <span class="cart-group__meta">{{ grp_otp_total | money }}</span>
       </li>
     {%- endif -%}
@@ -451,9 +477,14 @@
                     assign otp_alloc = item.variant.selling_plan_allocations.first
                     assign otp_sub_price = otp_alloc.price | times: item.quantity
                   -%}
-                  <p class="cart-plan-row">
-                    <button type="button" class="cart-plan-link" data-plan-line="{{ item.key }}" data-plan-variant="{{ item.variant_id }}" data-plan-id="{{ otp_alloc.selling_plan.id }}" data-plan-qty="{{ item.quantity }}">Subscribe &middot; {{ otp_sub_price | money }}</button>
-                  </p>
+                  {%- if alc_unlocked -%}
+                    <p class="cart-plan-row">
+                      <span class="cart-switch" role="group" aria-label="{{ item.product.title | escape }}: subscription or one-time">
+                        <button type="button" class="cart-switch__opt" aria-pressed="false" data-plan-line="{{ item.key }}" data-plan-variant="{{ item.variant_id }}" data-plan-id="{{ otp_alloc.selling_plan.id }}" data-plan-qty="{{ item.quantity }}">Subscription &middot; {{ otp_sub_price | money_without_trailing_zeros }}</button>
+                        <button type="button" class="cart-switch__opt is-active" aria-pressed="true">One-time</button>
+                      </span>
+                    </p>
+                  {%- endif -%}
                 {%- endif -%}
               </div>
               <div class="flex flex-col gap-1">
@@ -616,6 +647,7 @@
                 {%- render 'cart-favorites',
                   products: collections['build-your-own-box'].products,
                   limit: 6,
+                  alc_unlocked: alc_unlocked,
                   heading: section.settings.cart_recommendations_heading
                 -%}
               {%- endif -%}
