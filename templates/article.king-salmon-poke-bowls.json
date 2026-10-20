@@ -465,7 +465,7 @@
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "custom_class": "",
-        "image": "shopify://shop_images/IMG_1995.jpg",
+        "image": "shopify://shop_images/IMG_1980.heic",
         "image_height": "600px",
         "image_width": "medium",
         "layout": "image_first",
