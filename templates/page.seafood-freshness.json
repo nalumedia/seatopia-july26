@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "seafood-freshness",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
