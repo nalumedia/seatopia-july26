@@ -7,8 +7,14 @@
       {%- if section.settings.subheading != blank -%}
         <p class="uikit-body-m uikit-hero__sub">{{ section.settings.subheading }}</p>
       {%- endif -%}
+      {%- if section.settings.chip != blank -%}
+        <p class="uikit-label-s uikit-hero__chip">{{ section.settings.chip }}</p>
+      {%- endif -%}
       {%- if section.settings.cta_label != blank -%}
         <a class="uikit-btn uikit-btn--primary" href="{{ section.settings.cta_link | default: '#' }}">{{ section.settings.cta_label }}</a>
+      {%- endif -%}
+      {%- if section.settings.note != blank -%}
+        <p class="uikit-body-s uikit-hero__note">{{ section.settings.note }}</p>
       {%- endif -%}
     </div>
 
@@ -29,6 +35,8 @@
   .uikit-hero__head { gap: 23px; }
   .uikit-hero__head .uikit-h1 { max-width: 836px; }
   .uikit-hero__sub { color: var(--uk-heading); max-width: 720px; }
+  .uikit-hero__chip { display: inline-flex; align-items: center; min-height: 34px; padding: 8px 14px; border: 1px solid var(--uk-gold); border-radius: var(--uk-radius-pill); color: var(--uk-heading); }
+  .uikit-hero__note { color: var(--uk-heading); }
   .uikit-hero__media { height: 622px; }
   .uikit-hero__media--empty { background: var(--uk-gray-4); }
   @media (max-width: 989px) { .uikit-hero { gap: 48px; } .uikit-hero__media { height: 380px; } }
@@ -44,6 +52,8 @@
     { "type": "text", "id": "subheading", "label": "Subheading", "default": "Third-party lab tested, omega-rich, low mercury, with zero microplastics detected." },
     { "type": "text", "id": "cta_label", "label": "Button label", "default": "Order Now" },
     { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "text", "id": "chip", "label": "Offer chip", "info": "Claims guide rule 11: only an offer that is live in Shopify." },
+    { "type": "text", "id": "note", "label": "Note below button", "info": "Use for a paid-partner disclosure. It must stay this size and in this position." },
     { "type": "image_picker", "id": "image", "label": "Hero image" }
   ],
   "presets": [{ "name": "UI kit — hero" }]

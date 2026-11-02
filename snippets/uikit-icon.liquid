@@ -1,0 +1,42 @@
+{%- comment -%}
+  UI kit — 36px line icons from Figma "Seatopia" › Desktop / Home (47:451).
+  Usage: {% render 'uikit-icon', name: 'fish' %}
+  Names: fish, mercury, microplastics, waves
+
+  The Figma microplastics icon carries a strike-through. It is left off here:
+  a crossed-out particle reads as "microplastic-free", which claims guide §4.B
+  bans. The text beside it says what was tested and what came back.
+{%- endcomment -%}
+{%- case name -%}
+  {%- when 'fish' -%}
+    <svg class="uikit-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <path d="M35.5 18C35.5 27.665 27.665 35.5 18 35.5C8.33502 35.5 0.5 27.665 0.5 18C0.5 8.33502 8.33502 0.5 18 0.5C27.665 0.5 35.5 8.33502 35.5 18Z" stroke="#BB8F50"/>
+      <path d="M10.5224 17.9418C10.5224 17.9418 15.6364 13.04 19.6512 12.9995C23.7425 12.9582 29 17.5 29 17.9418C29 18.3835 23.7621 23.041 19.6512 22.999C15.6164 22.9577 10.5224 17.9418 10.5224 17.9418ZM10.5224 17.9418C10.5224 17.9418 7.45307 14.1881 7.11284 14.9534C6.86983 15.5 7.87367 16.7332 7.88274 17.9418C7.8914 19.0957 6.8988 20.1304 7.22282 20.8152C7.54685 21.5 10.5224 17.9418 10.5224 17.9418Z" stroke="#2E4B59"/>
+    </svg>
+  {%- when 'mercury' -%}
+    <svg class="uikit-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <path d="M35.5 18C35.5 27.665 27.665 35.5 18 35.5C8.33502 35.5 0.5 27.665 0.5 18C0.5 8.33502 8.33502 0.5 18 0.5C27.665 0.5 35.5 8.33502 35.5 18Z" stroke="#BB8F50"/>
+      <g transform="translate(17.93 18) rotate(90) translate(-10.5 -7.03)">
+        <path d="M0.5 6.85997C0.5 6.85997 9.38953 14.9495 15.5748 13.3452C19 12.4567 20.5465 9.99731 20.4992 6.85997C20.4529 3.78332 18.5 0.956756 15.5748 0.568339C9.27084 -0.268719 0.5 6.85997 0.5 6.85997Z" stroke-linejoin="round" stroke="#2E4B59"/>
+      </g>
+      <text x="14" y="22.6" font-family="Inter, 'DM Sans', sans-serif" font-size="6" font-weight="500" letter-spacing="-0.54" fill="#2E4B59">Hg</text>
+    </svg>
+  {%- when 'microplastics' -%}
+    <svg class="uikit-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <path d="M35.5 18C35.5 27.665 27.665 35.5 18 35.5C8.33502 35.5 0.5 27.665 0.5 18C0.5 8.33502 8.33502 0.5 18 0.5C27.665 0.5 35.5 8.33502 35.5 18Z" stroke="#BB8F50"/>
+      <g fill="#2E4B59">
+        <circle cx="15" cy="29" r="1"/><circle cx="21" cy="29" r="1"/><circle cx="27" cy="13" r="1"/><circle cx="17" cy="21" r="1"/>
+        <circle cx="27" cy="26" r="1"/><circle cx="23" cy="19" r="1"/><circle cx="28" cy="20" r="1"/><circle cx="21" cy="9" r="1"/>
+        <circle cx="14" cy="9" r="1"/><circle cx="15" cy="15" r="1"/><circle cx="11" cy="22" r="1"/><circle cx="8" cy="15" r="1"/>
+      </g>
+    </svg>
+  {%- when 'waves' -%}
+    <svg class="uikit-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <path d="M35.5 18C35.5 27.665 27.665 35.5 18 35.5C8.33502 35.5 0.5 27.665 0.5 18C0.5 8.33502 8.33502 0.5 18 0.5C27.665 0.5 35.5 8.33502 35.5 18Z" stroke="#BB8F50"/>
+      <g stroke="#2E4B59" stroke-linecap="round">
+        <path d="M8 13.5563C8.49525 13.9445 8.83349 14.1136 9.44118 14.2769C11.4208 14.8089 12.1288 11.9171 14.1765 12.0122C16.045 12.0989 16.5285 14.1902 18.3971 14.2769C20.4447 14.3719 21.0932 11.8026 23.1324 12.0122C24.8195 12.1856 25.1429 14.3287 26.8382 14.2769C27.7277 14.2497 28.2721 14.0683 29 13.5563"/>
+        <path d="M8 18.3038C8.49525 18.6919 8.83349 18.8611 9.44118 19.0244C11.4208 19.5563 12.1288 16.6646 14.1765 16.7596C16.045 16.8464 16.5285 18.9376 18.3971 19.0244C20.4447 19.1194 21.0932 16.55 23.1324 16.7596C24.8195 16.9331 25.1429 19.0761 26.8382 19.0244C27.7277 18.9972 28.2721 18.8157 29 18.3038"/>
+        <path d="M14.1765 21.2891C16.045 21.3758 16.5285 23.467 18.3971 23.5538C20.4447 23.6488 21.1193 20.9023 23.1324 21.2891C24.6765 21.5857 25.0882 22.4092 25.1912 22.6151"/>
+      </g>
+    </svg>
+{%- endcase -%}

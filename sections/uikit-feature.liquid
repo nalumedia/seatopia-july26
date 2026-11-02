@@ -1,0 +1,96 @@
+{%- comment -%}
+  UI kit — image beside text. Built on the testimonial split in Figma node 47:611
+  (590px image, 590px copy, 20px gap) so a quote, a recipe or a farm story can sit
+  in the kit's layout. If no image is picked, an article's image is used.
+{%- endcomment -%}
+
+{%- liquid
+  assign uk_img = section.settings.image
+  if uk_img == blank and section.settings.article != blank
+    assign uk_img = section.settings.article.image
+  endif
+  assign uk_link = section.settings.cta_link
+  if uk_link == blank and section.settings.article != blank
+    assign uk_link = section.settings.article.url
+  endif
+-%}
+
+<div class="uikit uikit-section">
+  <div class="uikit-container uikit-feature uikit-feature--image-{{ section.settings.image_side }}">
+    <div class="uikit-media uikit-feature__media" style="--uk-ratio: {{ section.settings.ratio }};">
+      {%- if uk_img != blank -%}
+        {{ uk_img | image_url: width: 1400 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 590px, 100vw', widths: '400,600,900,1200,1400', alt: uk_img.alt | default: '' }}
+      {%- endif -%}
+    </div>
+
+    <div class="uikit-feature__body">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="uikit-overline">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        {%- if section.settings.heading_is_quote -%}
+          <blockquote class="uikit-h3 uikit-feature__heading">{{ section.settings.heading }}</blockquote>
+        {%- else -%}
+          <h2 class="uikit-h3 uikit-feature__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="uikit-body-m uikit-prose uikit-feature__text">{{ section.settings.text }}</div>
+      {%- endif -%}
+      {%- if section.settings.name != blank -%}
+        <p class="uikit-feature__cite">
+          <span class="uikit-label-m">{{ section.settings.name }}</span>
+          {%- if section.settings.role != blank -%}<span class="uikit-body-s">{{ section.settings.role }}</span>{%- endif -%}
+        </p>
+      {%- endif -%}
+      {%- if section.settings.cta_label != blank and uk_link != blank -%}
+        <a class="uikit-btn uikit-btn--primary uikit-feature__btn" href="{{ uk_link }}">{{ section.settings.cta_label }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<style>
+  .uikit-feature { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 20px; align-items: center; }
+  .uikit-feature__media { aspect-ratio: var(--uk-ratio, 590 / 669); }
+  .uikit-feature--image-right .uikit-feature__media { order: 2; }
+  .uikit-feature__body { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; padding-inline: 50px; max-width: 590px; }
+  .uikit-feature__heading { margin: 0; }
+  .uikit-feature__text { color: var(--uk-heading); }
+  .uikit-feature__text a { color: inherit; }
+  .uikit-feature__cite { display: flex; flex-direction: column; gap: 4px; color: var(--uk-heading); }
+  .uikit-feature__btn { margin-top: 8px; }
+  @media (max-width: 989px) {
+    .uikit-feature { grid-template-columns: 1fr; gap: 32px; }
+    .uikit-feature--image-right .uikit-feature__media { order: 0; }
+    .uikit-feature__body { padding-inline: 0; max-width: none; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "UI kit — image with text",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "article", "id": "article", "label": "Article", "info": "Supplies the image and button link when those are empty." },
+    {
+      "type": "select", "id": "image_side", "label": "Image side", "default": "left",
+      "options": [ { "value": "left", "label": "Left" }, { "value": "right", "label": "Right" } ]
+    },
+    {
+      "type": "select", "id": "ratio", "label": "Image shape", "default": "590 / 669",
+      "options": [ { "value": "590 / 669", "label": "Portrait" }, { "value": "1 / 1", "label": "Square" }, { "value": "4 / 3", "label": "Landscape" } ]
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "textarea", "id": "heading", "label": "Heading" },
+    { "type": "checkbox", "id": "heading_is_quote", "label": "Heading is a quote", "default": false },
+    { "type": "richtext", "id": "text", "label": "Text" },
+    { "type": "text", "id": "name", "label": "Name" },
+    { "type": "text", "id": "role", "label": "Role or disclosure", "info": "For a paid partner, say so here." },
+    { "type": "text", "id": "cta_label", "label": "Button label" },
+    { "type": "url", "id": "cta_link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "UI kit — image with text" }]
+}
+{% endschema %}

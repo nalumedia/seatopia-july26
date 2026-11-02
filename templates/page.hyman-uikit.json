@@ -1,0 +1,457 @@
+{
+  "sections": {
+    "promo": {
+      "type": "uikit-promo-bar",
+      "settings": {
+        "text": "Use code HYMAN for free shipping on your first order of $125 or more.",
+        "link": "/discount/HYMAN?redirect=/pages/hyman",
+        "background": "#2e4b59",
+        "text_color": "#ffffff"
+      }
+    },
+    "hero": {
+      "type": "uikit-hero",
+      "settings": {
+        "heading": "Seafood Dr. Hyman keeps in his freezer.",
+        "subheading": "Third-party tested for nutrition, mercury and microplastics. Results published.",
+        "chip": "Code HYMAN: free shipping on your first order of $125+",
+        "cta_label": "Shop the Salmon Lover's Box",
+        "cta_link": "/pages/hyman#salmon-lovers-box",
+        "note": "Dr. Mark Hyman is a paid partner and a long-time customer.",
+        "image": "shopify://shop_images/hyman-uikit-hand-roll-hero.jpg"
+      }
+    },
+    "problem": {
+      "type": "uikit-feature",
+      "settings": {
+        "image": "shopify://shop_images/hyman-uikit-freezer.jpg",
+        "image_side": "right",
+        "ratio": "4 / 3",
+        "eyebrow": "From Dr. Mark Hyman",
+        "heading": "“I tell my patients to eat more seafood. The hard part is finding some you can trust without having to guess.”",
+        "heading_is_quote": true,
+        "text": "<p>“Seatopia is how I solved that, and why it’s always in my freezer.”</p>",
+        "name": "Mark Hyman, MD",
+        "role": "Paid partner and long-time customer"
+      }
+    },
+    "proof": {
+      "type": "uikit-benefits",
+      "settings": {
+        "heading": "We lab-test our seafood and show you the results.",
+        "text": "Every supplier is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard.",
+        "heading_position": "above",
+        "ruled": true
+      },
+      "blocks": {
+        "b_omega": {
+          "type": "benefit",
+          "settings": {
+            "icon_name": "fish",
+            "title": "",
+            "text": "Our King Salmon tested at 2,414 mg EPA+DHA per 6 oz serving. Values vary by sample and season."
+          }
+        },
+        "b_mercury": {
+          "type": "benefit",
+          "settings": {
+            "icon_name": "mercury",
+            "title": "",
+            "text": "Our limit is 0.1 ppm methylmercury – a tenth of the FDA action level."
+          }
+        },
+        "b_micro": {
+          "type": "benefit",
+          "settings": {
+            "icon_name": "microplastics",
+            "title": "",
+            "text": "No microplastics detected in third-party testing."
+          }
+        },
+        "b_farms": {
+          "type": "benefit",
+          "settings": {
+            "icon_name": "waves",
+            "title": "",
+            "text": "Farms named, panels published."
+          }
+        }
+      },
+      "block_order": [
+        "b_omega",
+        "b_mercury",
+        "b_micro",
+        "b_farms"
+      ]
+    },
+    "box_band": {
+      "type": "uikit-text-band",
+      "settings": {
+        "eyebrow": "The box in Dr. Hyman’s note",
+        "heading": "The Salmon Lover's Box",
+        "text": "<p>Salmon and steelhead in individually sealed portions, blast-frozen to -10°F at harvest and vacuum sealed. Choose 12, 18 or 24 portions, once or on a subscription.</p>",
+        "anchor": "salmon-lovers-box",
+        "tight": true
+      }
+    },
+    "salmon_box": {
+      "type": "featured-product",
+      "blocks": {
+        "title_yxUUQn": {
+          "type": "title",
+          "settings": {
+            "title_size": "product-title-md",
+            "title_size_mobile": "product-title-md",
+            "show_price": true,
+            "show_rating": true
+          }
+        },
+        "description_49EnLY": {
+          "type": "description",
+          "settings": {
+            "text_size": "text-base"
+          }
+        },
+        "variant_picker_DjHBEc": {
+          "type": "variant_picker",
+          "settings": {
+            "show_variant_labels": true,
+            "picker_type": "button",
+            "enable_color_swatches": true,
+            "color_swatch_type": "color",
+            "size_chart": ""
+          }
+        },
+        "subscription_eXgLGz": {
+          "type": "subscription",
+          "settings": {
+            "subscription-title": ""
+          }
+        },
+        "buy_buttons_HWpLrL": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": false,
+            "show_price": true,
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false,
+            "enable_back_in_stock": false,
+            "show_back_in_stock_name": false,
+            "show_back_in_stock_phone": false
+          }
+        },
+        "text_y6Eg4n": {
+          "type": "text",
+          "settings": {
+            "icon": "truck",
+            "icon_width": 20,
+            "text": "Blast-frozen, with a frozen delivery guarantee",
+            "text_size": "text-base"
+          }
+        },
+        "text_RtciBX": {
+          "type": "text",
+          "settings": {
+            "icon": "check_mark",
+            "icon_width": 20,
+            "text": "Every supplier is third-party tested for nutrition, mercury and microplastics",
+            "text_size": "text-base"
+          }
+        },
+        "collapsible_tab_jnpULM": {
+          "type": "collapsible_tab",
+          "settings": {
+            "style": "with-background",
+            "icon": "truck",
+            "heading": "Orders ship Tuesday and Wednesday",
+            "content": "",
+            "page": "",
+            "liquid": "Orders received by Tuesday 12pm EST ship that week and arrive 1–3 days after shipment. We ship nationwide.\n\n<a href=\"/policies/shipping-policy\">Frozen delivery guarantee terms</a>",
+            "opened": false
+          }
+        }
+      },
+      "block_order": [
+        "title_yxUUQn",
+        "description_49EnLY",
+        "variant_picker_DjHBEc",
+        "subscription_eXgLGz",
+        "buy_buttons_HWpLrL",
+        "text_y6Eg4n",
+        "text_RtciBX",
+        "collapsible_tab_jnpULM"
+      ],
+      "settings": {
+        "section_id": "",
+        "product": "salmon-box",
+        "enable_sticky_info": true,
+        "show_chef_notes": false,
+        "media_size": 64,
+        "gallery_layout": "thumbnail",
+        "thumbnail_position": "beside",
+        "image_ratio": "square",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_autoplay": true,
+        "enable_video_looping": true,
+        "mobile_layout": "full_width",
+        "image_ratio_mobile": "square",
+        "mobile_thumbnail": false,
+        "padding_top": 20,
+        "padding_bottom": 100,
+        "divider": false,
+        "full_width": false,
+        "rounded": true
+      }
+    },
+    "recipe": {
+      "type": "uikit-feature",
+      "settings": {
+        "article": "seafood-recipes/spicy-salmon-hand-rolls-with-pickled-radish-avocado-cucumber",
+        "image_side": "left",
+        "ratio": "4 / 3",
+        "eyebrow": "This week from Mark’s Kitchen",
+        "heading": "Spicy salmon hand rolls",
+        "text": "<p>Cubed King Salmon in a creamy, spicy dressing, wrapped in nori with avocado, cucumber and quick-pickled radish. Everyone builds their own at the table, and there’s no cooking involved.</p>",
+        "cta_label": "Get the recipe"
+      }
+    },
+    "standard": {
+      "type": "seatopia-standard",
+      "settings": {
+        "variant": "full",
+        "show_header": true,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "show_coa": true,
+        "show_ocean": false
+      }
+    },
+    "farm": {
+      "type": "uikit-feature",
+      "settings": {
+        "image": "shopify://shop_images/flamingos-esteros-lubimar.jpg",
+        "image_side": "right",
+        "ratio": "590 / 669",
+        "eyebrow": "The farm behind the fish",
+        "heading": "Dr. Hyman visited this farm in 2011.",
+        "text": "<p>He went to Veta la Palma, in the marshlands of southern Spain: the farm chef Dan Barber described in his talk “How I fell in love with a fish.” It operates today as Esteros Lubimar, one of Seatopia’s farm partners, and it is where our branzino comes from.</p>",
+        "cta_label": "Read the farm story",
+        "cta_link": "shopify://pages/esteros-lubimar"
+      }
+    },
+    "reviews": {
+      "type": "uikit-testimonials",
+      "settings": {
+        "heading": "Thousands of subscribers",
+        "text": "Reviews from verified buyers, in their own words."
+      },
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "name": "James J., verified buyer",
+            "quote": "I look forward to every meal from Seatopia. Each of the different versions of Salmon is unique and tasty. I highly recommend the Salmon Lover's box for quality and taste."
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "name": "Andreia W., verified buyer",
+            "quote": "I would typically only eat wild fish, but then I tasted the salmon at Seatopia. Now I’m completely hooked!"
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "name": "Gaith T., verified buyer",
+            "quote": "Heard James on the Hyman podcast. Raving fan — already turned my trainer on to it."
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ]
+    },
+    "steps": {
+      "type": "uikit-how-it-works",
+      "settings": {
+        "heading": "Dinner gets simple again."
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/hyman-uikit-step-box.jpg",
+            "title": "Choose a curated box, or build your own",
+            "text": "Order by Tuesday 12pm EST for delivery that week, or start a subscription."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/hyman-uikit-step-delivery.jpg",
+            "title": "Your seafood arrives at your door",
+            "text": "Blast-frozen, with a frozen delivery guarantee."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/hyman-uikit-step-plate.jpg",
+            "title": "Prepare dinner in minutes.",
+            "text": "Every portion is sealed on its own, so you thaw only what you need. Our recipes take it from there."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
+    },
+    "newsletter": {
+      "type": "newsletter-banner",
+      "blocks": {
+        "h_news": {
+          "type": "heading",
+          "settings": {
+            "heading": "From the Seatopia kitchen, by email",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_news": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Recipes, cooking temperatures and new harvests from the Seatopia kitchen &mdash; plus first word when a species comes back in season.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_news": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "h_news",
+        "t_news",
+        "f_news"
+      ],
+      "name": "t:sections.newsletter-banner.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "transparent_footer": false,
+        "image": "shopify://shop_images/Grilled_Ora_6.png",
+        "image_height": "650px",
+        "content_width": "medium",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "list_tag": "newsletter,hyman-lp"
+      }
+    },
+    "faq": {
+      "type": "uikit-faq",
+      "settings": {
+        "heading": "Questions, answered",
+        "footnote": "<p>Dr. Mark Hyman is a paid partner and a long-time customer. Nutrition results describe tested samples; values vary by sample and season. <a href=\"/policies/shipping-policy\">Frozen delivery guarantee terms</a>.</p>"
+      },
+      "blocks": {
+        "q_often": {
+          "type": "question",
+          "settings": {
+            "question": "How often do you test?",
+            "answer": "<p>All new species from new farms are tested before joining the Seatopia portfolio. For example, branzino is a species we buy from Esteros Lubimar, a farm. We then test multiple samples from all suppliers at random to make sure they stay compliant with the standard.</p><p>Testing random samples is the best way for us to keep products compliant today. As testing costs come down we will increase both the frequency and the number of analytes.</p>"
+          }
+        },
+        "q_mercury": {
+          "type": "question",
+          "settings": {
+            "question": "Is your seafood mercury free?",
+            "answer": "<p>Most fish naturally contain trace amounts of mercury, and it is close to impossible to find seafood that is genuinely “mercury free.” Mercury can sit below what a test can detect, so “mercury free” may not be true even when a result reads zero.</p><p>That is why we talk about mercury <strong>safe</strong> instead, and why we define it: our standard is 0.1 ppm methylmercury or below, a tenth of the FDA’s 1.0 ppm action level. Every supplier is tested against that standard before we approve them, then audited at random to make sure they stay compliant.</p><p>We also test selenium and look at the selenium-to-mercury ratio, because selenium in fish binds mercury so that less of it is absorbed.</p><p>FDA and EPA recommend 2 to 3 servings a week, 4 oz each, from their “Best Choices” list for people who are pregnant or breastfeeding. Salmon is on that list.</p>"
+          }
+        },
+        "q_micro": {
+          "type": "question",
+          "settings": {
+            "question": "Is it microplastic free?",
+            "answer": "<p><strong>We do not claim to be “microplastic free.”</strong> As with mercury, particles could exist below what a test can detect, and some scientists think nanoparticles may be everywhere on earth.</p><p>What we can say is that samples from every farm in the Seatopia portfolio have been tested and no microplastics were detected, which means no particles showed up down to 1 micron: a thousandth of a millimetre. We ship samples straight from our warehouse to the lab, so it is the same fish that gets shipped to you, already cut, blast frozen and vacuum sealed in its packaging.</p><p>Our fish is vacuum-sealed for freshness and safety, and the best available science suggests microplastics come more from what is inside the fish than from what it is wrapped in. Microplastics usually enter a fish through the food chain, when it eats contaminated prey or feed. That is why we lab test the edible portion of the fish itself. If a sample does not pass our microplastic threshold, we do not sell that fish.</p>"
+          }
+        },
+        "q_sashimi": {
+          "type": "question",
+          "settings": {
+            "question": "Is this sashimi grade?",
+            "answer": "<p>There is no official or regulated definition of “sashimi-grade” or “sushi-grade” fish in the United States. Sellers use the terms to signal that fish is safe to eat raw, but they are not a certification or a legal standard. So here is ours.</p><p>All of our seafood is vacuum sealed and blast frozen to -10 °F at peak freshness, which preserves taste, texture and colour, and is processed in an accredited facility. It is lab tested for mercury and microplastics. Farmed fish raised on formulated feed are exempt from the FDA Food Code’s parasite-freezing rule, and we blast-freeze at harvest anyway. That is what sashimi-grade means to us.</p><p>There is always some risk in eating anything raw or undercooked. If you are concerned or particularly sensitive, consult your doctor. The FDA conservatively suggests cooking to an internal temperature of 145 °F.</p>"
+          }
+        },
+        "q_serving": {
+          "type": "question",
+          "settings": {
+            "question": "What counts as a serving?",
+            "answer": "<p>We consider one portion to be 4 to 6 ounces of cooked fish, which matches the FDA’s definition of a serving of seafood. That is the guideline behind how much fish by weight goes into a box described in servings. Some of our fish, such as king salmon, come in larger pieces of 7.5 to 8.5 oz, so a single piece can be two nutritional servings.</p><p>Many of our members work with a nutritionist or practitioner, or use an app, to decide what they should be eating for protein, fats or specific nutrients. The right amount and frequency for you is personal, and our job is to give you the data that makes the decision easy.</p>"
+          }
+        },
+        "q_not_yet": {
+          "type": "question",
+          "settings": {
+            "question": "What don’t you test for yet?",
+            "answer": "<p>We want to test for PCBs, PFAS, histamines and pesticides, and they are on our testing roadmap. Every Seatopia purchase helps us pay for more comprehensive testing and more frequent testing.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q_often",
+        "q_mercury",
+        "q_micro",
+        "q_sashimi",
+        "q_serving",
+        "q_not_yet"
+      ]
+    }
+  },
+  "order": [
+    "promo",
+    "hero",
+    "problem",
+    "proof",
+    "box_band",
+    "salmon_box",
+    "recipe",
+    "standard",
+    "farm",
+    "reviews",
+    "steps",
+    "newsletter",
+    "faq"
+  ]
+}
