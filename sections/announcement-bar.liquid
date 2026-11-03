@@ -229,6 +229,10 @@
       assign hide_announcement_bar = true
     endif
   endif
+  # Campaign landing pages carry their own offer bar (uikit-promo-bar).
+  if template.suffix == 'hyman-uikit'
+    assign hide_announcement_bar = true
+  endif
 -%}
 {%- if show_section and hide_announcement_bar == false -%}
   {% comment %} <style>

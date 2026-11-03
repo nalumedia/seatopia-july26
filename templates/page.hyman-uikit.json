@@ -19,7 +19,43 @@
         "cta_link": "/pages/hyman#salmon-lovers-box",
         "note": "Dr. Mark Hyman is a paid partner and a long-time customer.",
         "image": "shopify://shop_images/hyman-uikit-hand-roll-hero.jpg"
-      }
+      },
+      "blocks": {
+        "badge_coa": {
+          "type": "badge",
+          "settings": {
+            "icon_name": "fish",
+            "text": "Third-party Certificates of Analysis from Edacious and EMSL"
+          }
+        },
+        "badge_hg": {
+          "type": "badge",
+          "settings": {
+            "icon_name": "mercury",
+            "text": "Our limit is 0.1 ppm methylmercury – a tenth of the FDA action level"
+          }
+        },
+        "badge_mp": {
+          "type": "badge",
+          "settings": {
+            "icon_name": "microplastics",
+            "text": "Zero microplastics detected"
+          }
+        },
+        "badge_farms": {
+          "type": "badge",
+          "settings": {
+            "icon_name": "waves",
+            "text": "Farms named, panels published"
+          }
+        }
+      },
+      "block_order": [
+        "badge_coa",
+        "badge_hg",
+        "badge_mp",
+        "badge_farms"
+      ]
     },
     "problem": {
       "type": "uikit-feature",
