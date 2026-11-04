@@ -3,6 +3,13 @@
 <div class="uikit uikit-section">
   <div class="uikit-container uikit-stack uikit-hero">
     <div class="uikit-stack uikit-stack--center uikit-hero__head">
+      {%- if section.settings.partner != 'none' -%}
+        <p class="uikit-hero__lockup">
+          <span class="uikit-hero__lockup-seatopia">SEATOPIA</span>
+          <span class="uikit-hero__lockup-x" aria-hidden="true">×</span>
+          <span class="uikit-hero__lockup-partner">{% render 'partner-logo', name: section.settings.partner, style: 'wordmark' %}</span>
+        </p>
+      {%- endif -%}
       <h1 class="uikit-h1">{{ section.settings.heading }}</h1>
       {%- if section.settings.subheading != blank -%}
         <p class="uikit-body-m uikit-hero__sub">{{ section.settings.subheading }}</p>
@@ -51,6 +58,12 @@
   .uikit-hero__sub { color: var(--uk-heading); max-width: 720px; }
   .uikit-hero__chip { display: inline-flex; align-items: center; min-height: 34px; padding: 8px 14px; border: 1px solid var(--uk-gold); border-radius: var(--uk-radius-pill); color: var(--uk-heading); }
   .uikit-hero__note { color: var(--uk-heading); }
+  .uikit-hero__lockup { display: inline-flex; align-items: center; gap: 18px; margin-bottom: 6px; color: var(--uk-heading); }
+  .uikit-hero__lockup-seatopia { font-family: var(--uk-font-heading, inherit); font-size: 22px; letter-spacing: .14em; line-height: 1; }
+  .uikit-hero__lockup-x { font-size: 18px; color: var(--uk-gold); }
+  .uikit-hero__lockup-partner { display: inline-flex; height: 22px; }
+  .uikit-hero__lockup-partner svg { height: 100%; width: auto; }
+  @media (max-width: 749px) { .uikit-hero__lockup { gap: 12px; } .uikit-hero__lockup-seatopia { font-size: 17px; } .uikit-hero__lockup-partner { height: 17px; } }
   .uikit-hero__stage { position: relative; }
   .uikit-hero__media { height: 622px; }
   .uikit-hero__badges { list-style: none; margin: 0; padding: 0; }
@@ -114,7 +127,11 @@
     { "type": "url", "id": "cta_link", "label": "Button link" },
     { "type": "text", "id": "chip", "label": "Offer chip", "info": "Claims guide rule 11: only an offer that is live in Shopify." },
     { "type": "text", "id": "note", "label": "Note below button", "info": "Use for a paid-partner disclosure. It must stay this size and in this position." },
-    { "type": "image_picker", "id": "image", "label": "Hero image" }
+    { "type": "image_picker", "id": "image", "label": "Hero image" },
+    {
+      "type": "select", "id": "partner", "label": "Partner logo", "default": "none",
+      "options": [ { "value": "none", "label": "None" }, { "value": "eudemonia", "label": "Eudēmonia" } ]
+    }
   ],
   "max_blocks": 4,
   "blocks": [

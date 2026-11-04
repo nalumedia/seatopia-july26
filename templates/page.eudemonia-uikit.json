@@ -6,7 +6,8 @@
         "text": "Eudēmonia exclusive: $50 off orders of $200 or more with code EUDEMONIA26",
         "link": "/discount/EUDEMONIA26?redirect=/pages/eudemonia",
         "background": "#2e4b59",
-        "text_color": "#ffffff"
+        "text_color": "#ffffff",
+        "partner": "eudemonia"
       }
     },
     "hero": {
@@ -18,7 +19,8 @@
         "cta_label": "Shop the Eudēmonia Box",
         "cta_link": "/pages/eudemonia#eudemonia-box",
         "note": "The Seatopia box in Eudēmonia Essentials, the summit’s hand-curated partner bundle.",
-        "image": "shopify://shop_images/eudemonia-kitchen-family.jpg"
+        "image": "shopify://shop_images/eudemonia-kitchen-family.jpg",
+        "partner": "eudemonia"
       },
       "blocks": {
         "badge_coa": {
@@ -844,6 +846,7 @@
         "text": "<p>Tried the Steelhead Sticks at Eudēmonia? Want to carry Seatopia, partner with us or become an ambassador? Tell us here and it reaches our team directly.</p>",
         "topics": "Steelhead Sticks feedback\nPartnerships\nRetail\nAmbassador / affiliate\nSomething else",
         "bg_image": "shopify://shop_images/eudemonia-summit-crowd.jpg",
+        "partner": "eudemonia",
         "button": "Send",
         "success": "Thank you. We read every message and will reply soon."
       }
