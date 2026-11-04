@@ -1,0 +1,95 @@
+{%- comment -%}
+  UI kit — contact form with a topic picker (product feedback, partnerships, retail,
+  ambassadors). Uses Shopify's contact form, so messages reach the store's contact email
+  with the topic and the page in the subject line.
+{%- endcomment -%}
+
+<div class="uikit uikit-section uikit-contact-wrap{% if section.settings.bg_image != blank %} uikit-contact-wrap--bg{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | handleize }}"{% endif %}>
+  {%- if section.settings.bg_image != blank -%}
+    <div class="uikit-contact__bg" aria-hidden="true">{{ section.settings.bg_image | image_url: width: 2400 | image_tag: loading: 'lazy', sizes: '100vw', widths: '800,1200,1600,2000,2400', alt: '' }}</div>
+  {%- endif -%}
+  <div class="uikit-container uikit-contact">
+    <div class="uikit-contact__head">
+      {%- if section.settings.eyebrow != blank -%}<p class="uikit-overline">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.heading != blank -%}<h2 class="uikit-h2">{{ section.settings.heading }}</h2>{%- endif -%}
+      {%- if section.settings.text != blank -%}<div class="uikit-body-m uikit-prose uikit-contact__intro">{{ section.settings.text }}</div>{%- endif -%}
+    </div>
+
+    {%- assign uk_form_id = 'UkContact-' | append: section.id -%}
+    {%- form 'contact', id: uk_form_id, class: 'uikit-contact__form' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="uikit-body-m uikit-contact__ok" role="status">{{ section.settings.success | default: 'Thank you. We read every message and will reply soon.' }}</p>
+      {%- else -%}
+        {%- if form.errors -%}<p class="uikit-body-s uikit-contact__err" role="alert">{{ form.errors | default_errors }}</p>{%- endif -%}
+        {%- assign topics = section.settings.topics | newline_to_br | split: '<br />' -%}
+        <input type="hidden" name="contact[page]" value="{{ page.title | default: request.path | escape }}">
+        <fieldset class="uikit-contact__topics">
+          <legend class="uikit-label-m">What's this about?</legend>
+          {%- for t in topics -%}
+            {%- assign tt = t | strip -%}
+            {%- if tt != blank -%}
+              <label class="uikit-contact__topic"><input type="radio" name="contact[topic]" value="{{ tt | escape }}"{% if forloop.first %} checked{% endif %}><span class="uikit-body-s">{{ tt }}</span></label>
+            {%- endif -%}
+          {%- endfor -%}
+        </fieldset>
+        <div class="uikit-contact__row">
+          <label class="uikit-contact__field"><span class="uikit-label-s">Name</span><input type="text" name="contact[name]" autocomplete="name" required></label>
+          <label class="uikit-contact__field"><span class="uikit-label-s">Email</span><input type="email" name="contact[email]" autocomplete="email" required></label>
+        </div>
+        <label class="uikit-contact__field"><span class="uikit-label-s">Message</span><textarea name="contact[body]" rows="5" required></textarea></label>
+        <button type="submit" class="uikit-btn uikit-btn--primary">{{ section.settings.button | default: 'Send' }}</button>
+      {%- endif -%}
+    {%- endform -%}
+  </div>
+</div>
+
+<style>
+  .uikit-contact-wrap { position: relative; }
+  .uikit-contact__bg { position: absolute; inset: 0; overflow: hidden; }
+  .uikit-contact__bg img { width: 100%; height: 100%; object-fit: cover; }
+  .uikit-contact__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,34,42,.78) 0%, rgba(20,34,42,.55) 45%, rgba(20,34,42,.25) 100%); }
+  .uikit-contact-wrap--bg .uikit-contact { position: relative; }
+  .uikit-contact-wrap--bg .uikit-contact__head, .uikit-contact-wrap--bg .uikit-contact__head :where(h2, p, div), .uikit-contact-wrap--bg .uikit-overline { color: #fff; }
+  .uikit-contact-wrap--bg .uikit-contact__form { padding: 32px; border-radius: var(--uk-radius-card); background: rgba(255,255,255,.96); box-shadow: 0 20px 50px rgba(0,0,0,.18); }
+  .uikit-contact { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 60px; align-items: start; }
+  .uikit-contact__head { display: flex; flex-direction: column; gap: 20px; }
+  .uikit .uikit-contact__intro { color: var(--uk-heading); }
+  .uikit-contact__intro a { color: inherit; }
+  .uikit-contact__form { display: flex; flex-direction: column; gap: 20px; }
+  .uikit-contact__topics { display: flex; flex-wrap: wrap; gap: 8px; border: 0; margin: 0; padding: 0; }
+  .uikit-contact__topics legend { width: 100%; margin-bottom: 10px; color: var(--uk-heading); }
+  .uikit-contact__topic { position: relative; }
+  .uikit-contact__topic input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+  .uikit-contact__topic span { display: inline-block; padding: 9px 16px; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-pill); color: var(--uk-heading); }
+  .uikit-contact__topic input:checked + span { background: var(--uk-heading); border-color: var(--uk-heading); color: var(--uk-white); }
+  .uikit-contact__topic input:focus-visible + span { outline: 2px solid var(--uk-gold); outline-offset: 2px; }
+  .uikit-contact__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .uikit-contact__field { display: flex; flex-direction: column; gap: 8px; color: var(--uk-heading); }
+  .uikit-contact__field input, .uikit-contact__field textarea { width: 100%; padding: 14px 16px; border: 1px solid var(--uk-rule); border-radius: 10px; background: var(--uk-white); color: var(--uk-heading); font: inherit; }
+  .uikit-contact__field input:focus, .uikit-contact__field textarea:focus { outline: none; border-color: var(--uk-heading); }
+  .uikit-contact__form .uikit-btn { align-self: flex-start; }
+  .uikit .uikit-contact__ok { color: var(--uk-heading); padding: 24px; border: 1px solid var(--uk-gold); border-radius: var(--uk-radius-card); }
+  .uikit .uikit-contact__err { color: #a23b2a; }
+  @media (max-width: 989px) {
+    .uikit-contact { grid-template-columns: 1fr; gap: 32px; }
+    .uikit-contact__row { grid-template-columns: 1fr; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "UI kit — contact form",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Talk to us" },
+    { "type": "richtext", "id": "text", "label": "Intro" },
+    { "type": "textarea", "id": "topics", "label": "Topics", "info": "One per line. The first is selected by default.", "default": "Product feedback\nPartnerships\nRetail\nSomething else" },
+    { "type": "text", "id": "button", "label": "Button label", "default": "Send" },
+    { "type": "text", "id": "success", "label": "Thank-you message", "default": "Thank you. We read every message and will reply soon." },
+    { "type": "image_picker", "id": "bg_image", "label": "Background image" },
+    { "type": "text", "id": "anchor", "label": "Anchor ID" }
+  ],
+  "presets": [{ "name": "UI kit — contact form" }]
+}
+{% endschema %}

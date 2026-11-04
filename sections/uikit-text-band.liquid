@@ -1,0 +1,47 @@
+{%- comment -%}
+  UI kit — centred text band. Figma nodes 4516:8636 and 47:419 (the "Text content"
+  frames above a module): a large heading, a short intro, an optional button.
+  "Anchor ID" lets a button elsewhere on the page scroll here.
+{%- endcomment -%}
+
+<div class="uikit uikit-section{% if section.settings.tight %} uikit-section--tight{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | handleize }}"{% endif %}>
+  <div class="uikit-container uikit-stack uikit-stack--center uikit-band">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="uikit-overline">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="uikit-h2 uikit-band__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <div class="uikit-body-m uikit-prose uikit-band__text">{{ section.settings.text }}</div>
+    {%- endif -%}
+    {%- if section.settings.cta_label != blank -%}
+      <a class="uikit-btn uikit-btn--primary" href="{{ section.settings.cta_link | default: '#' }}">{{ section.settings.cta_label }}</a>
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  .uikit-band { gap: 24px; }
+  .uikit-band__heading { max-width: 874px; }
+  .uikit-band__text { color: var(--uk-heading); max-width: 576px; }
+  .uikit-band__text a { color: inherit; }
+  @media (min-width: 750px) { .uikit-band { gap: 40px; } }
+</style>
+
+{% schema %}
+{
+  "name": "UI kit — text band",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Seafood you can trust." },
+    { "type": "richtext", "id": "text", "label": "Text" },
+    { "type": "text", "id": "cta_label", "label": "Button label" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "text", "id": "anchor", "label": "Anchor ID", "info": "Letters, numbers and hyphens. Link to it with #your-id." },
+    { "type": "checkbox", "id": "tight", "label": "Half padding", "default": false }
+  ],
+  "presets": [{ "name": "UI kit — text band" }]
+}
+{% endschema %}

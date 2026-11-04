@@ -1,0 +1,144 @@
+{%- comment -%}
+  UI kit — offer cards. Two to four cards side by side: a show offer, a discount code,
+  gift tiers, a guide. Built for campaign pages (Eudēmonia, Black Friday) so the offer
+  and its terms sit in one card at one weight.
+
+  Claims guide rule 11: only promote an offer that is live in Shopify, and keep the terms
+  in the same card as the headline. "Code" copies the code and can also link to
+  /discount/CODE so the code is applied at checkout.
+{%- endcomment -%}
+
+<div class="uikit uikit-section{% if section.settings.tight %} uikit-section--tight{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | handleize }}"{% endif %}>
+  <div class="uikit-container">
+    {%- if section.settings.heading != blank or section.settings.text != blank -%}
+      <div class="uikit-offers__head">
+        {%- if section.settings.eyebrow != blank -%}<p class="uikit-overline">{{ section.settings.eyebrow }}</p>{%- endif -%}
+        {%- if section.settings.heading != blank -%}<h2 class="uikit-h2">{{ section.settings.heading }}</h2>{%- endif -%}
+        {%- if section.settings.text != blank -%}<div class="uikit-body-m uikit-prose uikit-offers__intro">{{ section.settings.text }}</div>{%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <ul class="uikit-offers uikit-offers--{{ section.blocks.size }}" role="list">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign b = block.settings
+          assign o_img = b.image
+          if o_img == blank and b.image_product != blank
+            assign o_img = b.image_product.featured_image
+          endif
+          if o_img == blank and b.image_article != blank
+            assign o_img = b.image_article.image
+          endif
+        -%}
+        <li class="uikit-offer{% if b.featured %} uikit-offer--featured{% endif %}" {{ block.shopify_attributes }}>
+          {%- if o_img != blank -%}
+            <span class="uikit-media uikit-offer__media">{{ o_img | image_url: width: 1000 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 560px, 100vw', widths: '400,600,900,1000', alt: o_img.alt | default: b.title }}</span>
+          {%- endif -%}
+          <div class="uikit-offer__body">
+            {%- if b.eyebrow != blank -%}<p class="uikit-label-s uikit-offer__eyebrow">{{ b.eyebrow }}</p>{%- endif -%}
+            {%- if b.big != blank -%}<p class="uikit-offer__big">{{ b.big }}</p>{%- endif -%}
+            {%- if b.title != blank -%}<h3 class="uikit-h3 uikit-offer__title">{{ b.title }}</h3>{%- endif -%}
+            {%- if b.text != blank -%}<div class="uikit-body-s uikit-prose uikit-offer__text">{{ b.text }}</div>{%- endif -%}
+            {%- if b.code != blank -%}
+              <button type="button" class="uikit-offer__code" data-uk-copy="{{ b.code | escape }}" aria-label="Copy code {{ b.code | escape }}">
+                <span class="uikit-label-m">{{ b.code }}</span><span class="uikit-body-s" data-uk-copy-label>Copy</span>
+              </button>
+            {%- endif -%}
+            {%- if b.terms != blank -%}<p class="uikit-body-s uikit-offer__terms">{{ b.terms }}</p>{%- endif -%}
+            {%- if b.cta_label != blank and b.cta_link != blank -%}
+              <a class="uikit-btn {% if b.featured %}uikit-btn--primary{% else %}uikit-btn--secondary{% endif %} uikit-offer__btn" href="{{ b.cta_link }}">{{ b.cta_label }}</a>
+            {%- endif -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+
+    {%- if section.settings.footnote != blank -%}
+      <div class="uikit-body-s uikit-muted uikit-prose uikit-offers__foot">{{ section.settings.footnote }}</div>
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  .uikit-offers__head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; max-width: 780px; margin: 0 auto 56px; }
+  .uikit .uikit-offers__intro { color: var(--uk-heading); max-width: 620px; }
+  .uikit-offers { display: grid; gap: 20px; list-style: none; margin: 0; padding: 0; }
+  .uikit-offers--1 { grid-template-columns: minmax(0, 640px); justify-content: center; }
+  .uikit-offers--2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .uikit-offers--3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .uikit-offers--4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+  .uikit-offer { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-card); background: var(--uk-white); }
+  .uikit-offer--featured { border-color: var(--uk-gold); box-shadow: 0 10px 30px rgba(46,75,89,.10); }
+  .uikit-offer__media { aspect-ratio: 16 / 10; border-radius: 0; }
+  .uikit-offer__body { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding: 32px; flex: 1; }
+  .uikit .uikit-offer__eyebrow { color: var(--uk-gold); letter-spacing: .12em; text-transform: uppercase; }
+  .uikit .uikit-offer__big { font-family: var(--uk-font-heading, inherit); font-size: clamp(40px, 4.4vw, 60px); line-height: 1; letter-spacing: -.02em; color: var(--uk-heading); }
+  .uikit .uikit-offer__title { margin: 0; color: var(--uk-heading); }
+  .uikit-offer__text { color: var(--uk-heading); }
+  .uikit .uikit-offer__text ul { margin: 0; padding-left: 1.1em; list-style: disc; }
+  .uikit .uikit-offer__text li + li { margin-top: 6px; }
+  .uikit-offer__text a, .uikit-offers__foot a { color: inherit; text-decoration: underline; }
+  .uikit-offer__code { display: inline-flex; align-items: center; gap: 14px; padding: 10px 16px; border: 1px dashed var(--uk-gold); border-radius: 10px; background: transparent; color: var(--uk-heading); cursor: pointer; font: inherit; }
+  .uikit-offer__code:hover { background: rgba(187,143,80,.08); }
+  .uikit .uikit-offer__terms { color: var(--uk-heading); opacity: .78; }
+  .uikit-offer__btn { margin-top: auto; }
+  .uikit-offers__foot { max-width: 780px; margin: 32px auto 0; text-align: center; }
+  @media (max-width: 989px) {
+    .uikit-offers--3, .uikit-offers--4 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .uikit-offers__head { margin-bottom: 36px; }
+  }
+  @media (max-width: 749px) {
+    .uikit-offers--2, .uikit-offers--3, .uikit-offers--4 { grid-template-columns: 1fr; }
+    .uikit-offer__body { padding: 24px; }
+  }
+</style>
+
+<script>
+  (function () {
+    var root = document.getElementById('shopify-section-{{ section.id }}');
+    if (!root) return;
+    root.querySelectorAll('[data-uk-copy]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var code = btn.getAttribute('data-uk-copy');
+        var label = btn.querySelector('[data-uk-copy-label]');
+        var done = function () { if (label) { label.textContent = 'Copied'; setTimeout(function () { label.textContent = 'Copy'; }, 1800); } };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(code).then(done, done);
+        else done();
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "UI kit — offer cards",
+  "tag": "section",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "paragraph", "content": "Claims guide rule 11: only an offer that is live in Shopify. Keep the terms in the same card." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "richtext", "id": "text", "label": "Intro" },
+    { "type": "richtext", "id": "footnote", "label": "Footnote" },
+    { "type": "text", "id": "anchor", "label": "Anchor ID" },
+    { "type": "checkbox", "id": "tight", "label": "Half padding", "default": false }
+  ],
+  "blocks": [
+    { "type": "offer", "name": "Offer", "settings": [
+      { "type": "checkbox", "id": "featured", "label": "Highlight this card", "default": false },
+      { "type": "image_picker", "id": "image", "label": "Image" },
+      { "type": "product", "id": "image_product", "label": "Or use a product's image" },
+      { "type": "article", "id": "image_article", "label": "Or use a recipe's image" },
+      { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+      { "type": "text", "id": "big", "label": "Big number", "info": "e.g. $50 off" },
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "richtext", "id": "text", "label": "Text" },
+      { "type": "text", "id": "code", "label": "Discount code" },
+      { "type": "text", "id": "terms", "label": "Terms" },
+      { "type": "text", "id": "cta_label", "label": "Button label" },
+      { "type": "url", "id": "cta_link", "label": "Button link" }
+    ]}
+  ],
+  "presets": [{ "name": "UI kit — offer cards" }]
+}
+{% endschema %}
