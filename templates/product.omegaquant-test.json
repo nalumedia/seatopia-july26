@@ -1,0 +1,370 @@
+{
+  "sections": {
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "text": "Sold by Seatopia · Lab analysis by OmegaQuant",
+            "text_size": "text-base"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "product-title-md",
+            "title_size_mobile": "product-title-md",
+            "show_price": true,
+            "show_rating": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "text_size": "text-base"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "show_price": true,
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true,
+            "enable_back_in_stock": true,
+            "show_back_in_stock_name": false,
+            "show_back_in_stock_phone": false
+          }
+        },
+        "t_mail": {
+          "type": "text",
+          "settings": {
+            "icon": "truck",
+            "icon_width": 20,
+            "text": "Prepaid return envelope included. No additional lab fee.",
+            "text_size": "text-base"
+          }
+        },
+        "t_account": {
+          "type": "text",
+          "settings": {
+            "icon": "check_mark",
+            "icon_width": 20,
+            "text": "Results in 2–4 weeks, saved to your Seatopia account",
+            "text_size": "text-base"
+          }
+        },
+        "tab_includes": {
+          "type": "collapsible_tab",
+          "settings": {
+            "style": "with-background",
+            "icon": "check_mark",
+            "heading": "What’s included in your results",
+            "page": "",
+            "liquid": "",
+            "opened": false,
+            "content": "<p>The Omega-3 Index; omega ratios (total omega-6 to omega-3, and arachidonic acid (AA) to EPA); the Trans Fat Index, a measure of industrially produced trans fats in whole blood; and dietary tables. Results are appropriate for the general adult population.</p>"
+          }
+        },
+        "tab_instructions": {
+          "type": "collapsible_tab",
+          "settings": {
+            "style": "with-background",
+            "icon": "support",
+            "heading": "Collection instructions",
+            "page": "",
+            "opened": false,
+            "content": "",
+            "liquid": "<ol>\n<li>Remove all components from the small plastic bag. Locate the collection card with the barcode on the front.</li>\n<li>Register the test kit on our <a href=\"/pages/omegaindex\">Omega Index page</a> using the barcode on the collection card. You will not receive your results unless it is registered.</li>\n<li>Fill out the information requested on the collection card.</li>\n<li>Improve blood flow before the finger prick: wash your hands in warm water, then stand and shake your hand at your side.</li>\n<li>Clean the tip of the finger (index, middle or ring) with the alcohol wipe. Let the alcohol dry on its own.</li>\n<li>Twist off the blue protective lancet cover. Place the lancet lightly on the tip of your clean finger and press down firmly until you hear a click.</li>\n<li>Wipe away the first drop of blood with the gauze.</li>\n<li>Gently squeeze the finger so a blood drop forms. This can take 15–30 seconds, so be patient.</li>\n<li>Let the blood drop fall from your finger onto the center circle of the collection card.</li>\n<li>When the blood spot is collected, press the gauze pad on your finger and bandage the prick site.</li>\n<li>Let the blood spot dry with the flap open for several minutes, then fold the flap over the dried spot.</li>\n<li>Place the collection card in the plastic bag and seal it. Put the bag in the prepaid return envelope and mail it the same day.</li>\n<li>Discard the lancet and other supplies in the trash.</li>\n</ol>"
+          }
+        },
+        "tab_register": {
+          "type": "collapsible_tab",
+          "settings": {
+            "style": "with-background",
+            "icon": "rocket",
+            "heading": "Register your kit",
+            "page": "",
+            "opened": false,
+            "content": "",
+            "liquid": "<p>Before you mail your sample, register it on our <a href=\"/pages/omegaindex\">Omega Index page</a> with the barcode on your collection card and the email you want your results sent to. Lost your barcode? Email <a href=\"mailto:nemo@seatopia.fish\">nemo@seatopia.fish</a> and we’ll help you find it.</p>"
+          }
+        },
+        "tab_safety": {
+          "type": "collapsible_tab",
+          "settings": {
+            "style": "with-background",
+            "icon": "none",
+            "heading": "Before you use the kit",
+            "page": "",
+            "opened": false,
+            "content": "",
+            "liquid": "<p>Persons with bleeding disorders or taking blood thinners should consult with their physicians prior to using this kit.</p>"
+          }
+        },
+        "sticky_buy_button": {
+          "type": "sticky_buy_button",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "description",
+        "buy_buttons",
+        "t_mail",
+        "t_account",
+        "tab_includes",
+        "tab_instructions",
+        "tab_register",
+        "tab_safety",
+        "sticky_buy_button"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable_sticky_info": true,
+        "media_size": 66,
+        "gallery_layout": "scroll",
+        "thumbnail_position": "beside",
+        "image_ratio": "adapt_first",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_autoplay": true,
+        "enable_video_looping": true,
+        "mobile_layout": "full_width",
+        "image_ratio_mobile": "adapt_first",
+        "mobile_thumbnail": false,
+        "padding_top": 0,
+        "padding_bottom": 84,
+        "divider": false,
+        "full_width": true,
+        "rounded": false
+      }
+    },
+    "guide": {
+      "type": "image-with-text",
+      "blocks": {
+        "h": {
+          "type": "heading",
+          "settings": {
+            "heading": "Omegamaxxing: the guide",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t": {
+          "type": "text",
+          "settings": {
+            "text": "<p>What to buy, how to cook it, and how to test. A practical guide to getting more omega-3s from your food, with recipes from the Seatopia kitchen.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "b": {
+          "type": "button",
+          "settings": {
+            "button_label": "Read the guide",
+            "button_link": "/pages/omegamaxxing",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "h",
+        "t",
+        "b"
+      ],
+      "name": "Affiliate Quote",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/omegamaxxing-15-crudo-platter-overhead.jpg",
+        "image_height": "100vh",
+        "image_width": "small",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q_who": {
+          "type": "question",
+          "settings": {
+            "title": "<strong>Who sees my results?</strong>",
+            "text": "<p>Your results are private to you in your Seatopia account.</p>"
+          }
+        },
+        "q_register": {
+          "type": "question",
+          "settings": {
+            "title": "<strong>Already mailed your sample but didn’t register?</strong>",
+            "text": "<p>Register now with the barcode on your kit so the lab can match it, on our <a href=\"/pages/omegaindex\">Omega Index page</a>.</p>"
+          }
+        },
+        "q_barcode": {
+          "type": "question",
+          "settings": {
+            "title": "<strong>Lost your barcode?</strong>",
+            "text": "<p>Contact us at <a href=\"mailto:nemo@seatopia.fish\">nemo@seatopia.fish</a> and we’ll help you locate it.</p>"
+          }
+        },
+        "q_when": {
+          "type": "question",
+          "settings": {
+            "title": "<strong>When should I retest?</strong>",
+            "text": "<p>Your first result is a baseline. Red blood cells live about 120 days, so your Omega-3 Index reflects roughly the past 3–4 months. Take it, change one thing, retest in four months.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q_who",
+        "q_register",
+        "q_barcode",
+        "q_when"
+      ],
+      "settings": {
+        "style": "with-background",
+        "heading": "Questions, answered",
+        "heading_size": "title-lg tracking-heading",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "#ffffff",
+        "color_background": "#335566",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#ffffff",
+        "overlay_opacity": 4,
+        "padding_top": 84,
+        "padding_bottom": 84,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "help-drawer": {
+      "type": "help-drawer",
+      "blocks": {
+        "content-1": {
+          "type": "content",
+          "settings": {
+            "icon": "rocket",
+            "heading": "Shipping Information",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#b45309",
+            "color_background": "#fffbeb",
+            "gradient_background": "",
+            "color_highlight": "#ffddbf",
+            "gradient_highlight": ""
+          }
+        },
+        "content-2": {
+          "type": "content",
+          "settings": {
+            "icon": "headphone",
+            "heading": "Customer Support",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#0369a1",
+            "color_background": "#f0f9ff",
+            "gradient_background": "",
+            "color_highlight": "#ffddbf",
+            "gradient_highlight": ""
+          }
+        },
+        "content-3": {
+          "type": "content",
+          "settings": {
+            "icon": "chat_bubble",
+            "heading": "FAQ’s",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#be123c",
+            "color_background": "#fff1f2",
+            "gradient_background": "",
+            "color_highlight": "#ffddbf",
+            "gradient_highlight": ""
+          }
+        },
+        "content-4": {
+          "type": "content",
+          "settings": {
+            "icon": "phone",
+            "heading": "Contact Us",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#4d7c0f",
+            "color_background": "#f7fee7",
+            "gradient_background": "",
+            "color_highlight": "#ffddbf",
+            "gradient_highlight": ""
+          }
+        }
+      },
+      "block_order": [
+        "content-1",
+        "content-2",
+        "content-3",
+        "content-4"
+      ],
+      "settings": {
+        "heading": "Need help?",
+        "description": "<p>If you have any questions, you are always welcome to contact us. We'll get back to you as soon as possible, within 24 hours on weekdays.</p>"
+      }
+    }
+  },
+  "order": [
+    "main-product",
+    "guide",
+    "faq",
+    "help-drawer"
+  ]
+}
