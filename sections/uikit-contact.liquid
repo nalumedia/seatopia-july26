@@ -38,9 +38,14 @@
           <label class="uikit-contact__field"><span class="uikit-label-s">Email</span><input type="email" name="contact[email]" autocomplete="email" required></label>
         </div>
         <label class="uikit-contact__field"><span class="uikit-label-s">Message</span><textarea name="contact[body]" rows="5" required></textarea></label>
+        {%- if section.settings.destination == 'klaviyo' -%}
+          <label class="uikit-contact__consent"><input type="checkbox" name="contact[accepts_marketing]" value="yes"><span class="uikit-body-s">Email me recipes, new harvests and offers from Seatopia. Unsubscribe anytime.</span></label>
+        {%- endif -%}
         <button type="submit" class="uikit-btn uikit-btn--primary">{{ section.settings.button | default: 'Send' }}</button>
+        <p class="uikit-body-s uikit-contact__err" role="alert" data-uk-err hidden>Something went wrong. Please try again, or email nemo@seatopia.fish.</p>
       {%- endif -%}
     {%- endform -%}
+    <p class="uikit-body-m uikit-contact__ok" role="status" data-uk-ok hidden>{{ section.settings.success | default: 'Thank you. We read every message and will reply soon.' }}</p>
   </div>
 </div>
 
@@ -74,11 +79,69 @@
   .uikit-contact__form .uikit-btn { align-self: flex-start; }
   .uikit .uikit-contact__ok { color: var(--uk-heading); padding: 24px; border: 1px solid var(--uk-gold); border-radius: var(--uk-radius-card); }
   .uikit .uikit-contact__err { color: #a23b2a; }
+  .uikit-contact__consent { display: flex; align-items: flex-start; gap: 10px; color: var(--uk-heading); cursor: pointer; }
+  .uikit-contact__consent input { margin-top: 3px; accent-color: var(--uk-heading); }
+  .uikit-contact__ok[hidden], .uikit-contact__err[hidden] { display: none; }
   @media (max-width: 989px) {
     .uikit-contact { grid-template-columns: 1fr; gap: 32px; }
     .uikit-contact__row { grid-template-columns: 1fr; }
   }
 </style>
+
+{%- if section.settings.destination == 'klaviyo' and section.settings.klaviyo_key != blank -%}
+<script>
+  /* Sends the form to Klaviyo instead of the store inbox: every submission is a
+     "{{ section.settings.klaviyo_metric | escape }}" event on the person's profile (topic,
+     message, page), and people who tick the box are subscribed to list
+     {{ section.settings.klaviyo_list | escape }}. Uses Klaviyo's public client API. */
+  (function () {
+    var root = document.getElementById('shopify-section-{{ section.id }}');
+    var form = root && root.querySelector('form');
+    if (!form) return;
+    var KEY = {{ section.settings.klaviyo_key | json }}, LIST = {{ section.settings.klaviyo_list | json }}, METRIC = {{ section.settings.klaviyo_metric | json }};
+    var post = function (path, body) {
+      return fetch('https://a.klaviyo.com/client/' + path + '/?company_id=' + encodeURIComponent(KEY), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/vnd.api+json', 'revision': '2024-10-15' },
+        body: JSON.stringify(body)
+      }).then(function (r) { if (!r.ok) throw new Error(r.status); });
+    };
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = new FormData(form);
+      var val = function (n) { return (f.get(n) || '').toString().trim(); };
+      var email = val('contact[email]'), name = val('contact[name]');
+      var topic = val('contact[topic]'), message = val('contact[body]'), page = val('contact[page]');
+      var parts = name.split(/\s+/);
+      var btn = form.querySelector('[type="submit"]'), err = form.querySelector('[data-uk-err]');
+      if (btn) btn.disabled = true;
+      if (err) err.hidden = true;
+      var profile = { data: { type: 'profile', attributes: {
+        email: email, first_name: parts[0] || '', last_name: parts.slice(1).join(' '),
+        properties: { eudemonia_2026_topic: topic, eudemonia_2026_source: page }
+      } } };
+      var jobs = [post('events', { data: { type: 'event', attributes: {
+        properties: { topic: topic, message: message, page: page, name: name },
+        metric: { data: { type: 'metric', attributes: { name: METRIC } } },
+        profile: profile
+      } } })];
+      if (f.get('contact[accepts_marketing]') && LIST) {
+        jobs.push(post('subscriptions', { data: { type: 'subscription', attributes: {
+          custom_source: page,
+          profile: { data: { type: 'profile', attributes: { email: email, subscriptions: { email: { marketing: { consent: 'SUBSCRIBED' } } } } } }
+        }, relationships: { list: { data: { type: 'list', id: LIST } } } } }));
+      }
+      Promise.all(jobs).then(function () {
+        form.hidden = true;
+        var ok = root.querySelector('[data-uk-ok]'); if (ok) ok.hidden = false;
+      }).catch(function () {
+        if (btn) btn.disabled = false;
+        if (err) err.hidden = false;
+      });
+    });
+  })();
+</script>
+{%- endif -%}
 
 {% schema %}
 {
@@ -96,7 +159,15 @@
       "type": "select", "id": "partner", "label": "Partner logo", "default": "none",
       "options": [ { "value": "none", "label": "None" }, { "value": "eudemonia", "label": "Eudēmonia" } ]
     },
-    { "type": "text", "id": "anchor", "label": "Anchor ID" }
+    { "type": "text", "id": "anchor", "label": "Anchor ID" },
+    { "type": "header", "content": "Where submissions go" },
+    {
+      "type": "select", "id": "destination", "label": "Send to", "default": "shopify",
+      "options": [ { "value": "shopify", "label": "Store contact email" }, { "value": "klaviyo", "label": "Klaviyo (event + optional list sign-up)" } ]
+    },
+    { "type": "text", "id": "klaviyo_key", "label": "Klaviyo public API key", "info": "Settings > API keys > Public key (site ID)." },
+    { "type": "text", "id": "klaviyo_list", "label": "Klaviyo list ID", "info": "People who tick the email box join this list." },
+    { "type": "text", "id": "klaviyo_metric", "label": "Klaviyo event name", "default": "Landing Page Form Submitted" }
   ],
   "presets": [{ "name": "UI kit — contact form" }]
 }
