@@ -1,0 +1,599 @@
+{
+  "sections": {
+    "promo": {
+      "type": "uikit-promo-bar",
+      "settings": {
+        "text": "Eudēmonia exclusive: $50 off orders of $200 or more with code EUDEMONIA26",
+        "link": "/discount/EUDEMONIA26?redirect=/products/eudemonia-sampler-box",
+        "background": "#2e4b59",
+        "text_color": "#ffffff",
+        "partner": "eudemonia"
+      }
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "eyebrow": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "text": "Featured in Eudēmonia Essentials",
+            "text_size": "text-base"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "product-title-md",
+            "title_size_mobile": "product-title-md",
+            "show_price": true,
+            "show_rating": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "text_size": "text-base"
+          }
+        },
+        "subscription_CThHTM": {
+          "type": "subscription",
+          "settings": {
+            "subscription-title": "",
+            "hide_product_id": ""
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": false,
+            "show_price": false,
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true,
+            "enable_back_in_stock": false,
+            "show_back_in_stock_name": false,
+            "show_back_in_stock_phone": false
+          }
+        },
+        "t_frozen": {
+          "type": "text",
+          "settings": {
+            "icon": "truck",
+            "icon_width": 20,
+            "text": "Blast-frozen, with a frozen delivery guarantee",
+            "text_size": "text-base"
+          }
+        },
+        "t_tested": {
+          "type": "text",
+          "settings": {
+            "icon": "check_mark",
+            "icon_width": 20,
+            "text": "Every supplier is third-party tested for nutrition, mercury and microplastics",
+            "text_size": "text-base"
+          }
+        },
+        "t_chef": {
+          "type": "text",
+          "settings": {
+            "icon": "support",
+            "icon_width": 20,
+            "text": "A free 1:1 chef class with every order",
+            "text_size": "text-base"
+          }
+        },
+        "tab_inside": {
+          "type": "collapsible_tab",
+          "settings": {
+            "style": "with-background",
+            "icon": "check_mark",
+            "heading": "What’s inside",
+            "content": "",
+            "page": "",
+            "liquid": "<ul><li>2 × 6 oz Atlantic Salmon</li><li>2 × 7 oz Alpine King Salmon</li><li>2 × 6 oz Branzino</li><li>10 oz Steelhead Loin (2 × 5 oz)</li><li>1 lb Black Tiger Shrimp</li></ul><p>Twelve portions in eight vacuum-sealed packs, blast-frozen to -10°F at harvest.</p>",
+            "opened": false
+          }
+        },
+        "tab_plan": {
+          "type": "collapsible_tab",
+          "settings": {
+            "style": "with-background",
+            "icon": "rocket",
+            "heading": "The 3-month plan",
+            "content": "",
+            "page": "",
+            "liquid": "<p>Choose <strong>Prepay and Save</strong> above: three Eudēmonia Boxes, one a month, for $379.98 paid up front instead of $480. An OmegaQuant Omega-3 Index Plus test kit comes in box 1 and box 3, so you test when you start and retest at the end. Pause or change a delivery date anytime.</p><p>Can’t be combined with EUDEMONIA26 or other codes.</p>",
+            "opened": false
+          }
+        },
+        "tab_ship": {
+          "type": "collapsible_tab",
+          "settings": {
+            "style": "with-background",
+            "icon": "truck",
+            "heading": "Shipping and the frozen guarantee",
+            "content": "",
+            "page": "",
+            "liquid": "<p>Orders received by Tuesday 12pm EST ship that week and arrive 1–3 days after shipment. We ship nationwide.</p><p><a href=\"/policies/shipping-policy\">Frozen delivery guarantee terms</a></p>",
+            "opened": false
+          }
+        },
+        "sticky_buy_button": {
+          "type": "sticky_buy_button",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "eyebrow",
+        "title",
+        "description",
+        "subscription_CThHTM",
+        "buy_buttons",
+        "t_frozen",
+        "t_tested",
+        "t_chef",
+        "tab_inside",
+        "tab_plan",
+        "tab_ship",
+        "sticky_buy_button"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable_sticky_info": true,
+        "media_size": 58,
+        "gallery_layout": "thumbnail",
+        "thumbnail_position": "beside",
+        "image_ratio": "square",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_autoplay": true,
+        "enable_video_looping": true,
+        "mobile_layout": "full_width",
+        "image_ratio_mobile": "square",
+        "mobile_thumbnail": false,
+        "padding_top": 0,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": true,
+        "rounded": false
+      }
+    },
+    "panels": {
+      "type": "uikit-panels",
+      "settings": {
+        "eyebrow": "The Seatopia Standard",
+        "anchor": "lab-panels",
+        "heading": "Your box, by the numbers",
+        "text": "<p>Twelve portions from five partner farms, each third-party lab tested. Here is what our samples measured, per portion, with a recipe for each.</p>",
+        "total_value": "13.6 g",
+        "total_label": "EPA+DHA across the box’s 12 portions, as tested. Values vary by sample and season.",
+        "footnote": "<p>Every supplier is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard. Our limit is 0.1 ppm methylmercury – a tenth of the FDA action level. LOQ is the lowest level the lab can measure.</p>"
+      },
+      "blocks": {
+        "p_alp": {
+          "type": "panel",
+          "settings": {
+            "name": "Alpine King Salmon",
+            "detail": "2 × 7 oz",
+            "portion": "7 oz portion",
+            "headline_value": "2,315 mg",
+            "headline_label": "EPA+DHA",
+            "embed_product": "mt-cook-king-salmon",
+            "embed_config": "5wfy5l",
+            "product": "mt-cook-alpine-salmon-7oz-filet",
+            "recipe": "seafood-recipes/mt-cook-salmon-roe-poke-bowl-with-orange-butter-rice",
+            "note": "Means across samples tested. Open the lab panel below for the full results.",
+            "stat_1": "Protein::39.1 g",
+            "stat_2": "Vitamin D::41.9 mcg",
+            "stat_3": "Selenium::69.1 mcg",
+            "stat_4": "Vitamin E::13.9 mg",
+            "stat_5": "Mercury::0.033 ppm"
+          }
+        },
+        "p_atl": {
+          "type": "panel",
+          "settings": {
+            "name": "Atlantic Salmon",
+            "detail": "2 × 6 oz",
+            "portion": "6 oz portion",
+            "headline_value": "1,963 mg",
+            "headline_label": "EPA+DHA",
+            "embed_product": "bakkafrost-atlantic-salmon-fillet",
+            "embed_config": "huzutw",
+            "product": "atlantic-salmon-2x-6oz-portions",
+            "recipe": "seafood-recipes/one-pan-mediterranean-salmon-pasta",
+            "note": "Means across samples tested. Open the lab panel below for the full results.",
+            "stat_1": "Protein::36.7 g",
+            "stat_2": "Vitamin D::13.2 mcg",
+            "stat_3": "Selenium::28.1 mcg",
+            "stat_4": "Potassium::919 mg",
+            "stat_5": "Mercury::0.037 ppm"
+          }
+        },
+        "p_brz": {
+          "type": "panel",
+          "settings": {
+            "name": "Branzino",
+            "detail": "2 × 6 oz",
+            "portion": "6 oz portion",
+            "headline_value": "1,357 mg",
+            "headline_label": "EPA+DHA",
+            "embed_product": "esteros-lubimar-branzino-fillet",
+            "embed_config": "1cbnnf",
+            "product": "branzino-bundle-2x-6oz-portions",
+            "recipe": "seafood-recipes/branzino-warm-farro-maitake-salad",
+            "note": "Means across samples tested. Open the lab panel below for the full results.",
+            "stat_1": "Protein::36.6 g",
+            "stat_2": "Vitamin D::6.6 mcg",
+            "stat_3": "Selenium::27.2 mcg",
+            "stat_4": "Zinc::2.0 mg",
+            "stat_5": "Mercury::0.002 ppm"
+          }
+        },
+        "p_stl": {
+          "type": "panel",
+          "settings": {
+            "name": "Steelhead Loin",
+            "detail": "2 × 5 oz",
+            "portion": "5 oz portion",
+            "headline_value": "1,067 mg",
+            "headline_label": "EPA+DHA",
+            "embed_product": "caleta-bay-steelhead-trout-loin",
+            "embed_config": "8uxc5v",
+            "product": "steelhead-sashimi-loin-12oz",
+            "recipe": "seafood-recipes/cured-steelhead-loin-lox-bagel",
+            "note": "Means across samples tested. Open the lab panel below for the full results.",
+            "stat_1": "Protein::29.7 g",
+            "stat_2": "Vitamin D::11.3 mcg",
+            "stat_3": "Selenium::27.8 mcg",
+            "stat_4": "Vitamin B12::3.1 mcg",
+            "stat_5": "Mercury::Below LOQ"
+          }
+        },
+        "p_shr": {
+          "type": "panel",
+          "settings": {
+            "name": "Black Tiger Shrimp",
+            "detail": "1 lb",
+            "portion": "4 oz portion",
+            "headline_value": "20.8 g",
+            "headline_label": "protein",
+            "embed_product": "mangrove-black-tiger-shrimp",
+            "embed_config": "8ufvay",
+            "product": "black-tiger-shrimp-mangrove-regeneration",
+            "recipe": "seafood-recipes/black-tiger-shrimp-vietnamese-fresh-rolls",
+            "note": "Means across samples tested. Open the lab panel below for the full results.",
+            "stat_1": "Total fat::1.6 g",
+            "stat_2": "Selenium::18.0 mcg",
+            "stat_3": "Potassium::203 mg",
+            "stat_4": "Zinc::1.0 mg",
+            "stat_5": "Mercury::0.018 ppm"
+          }
+        }
+      },
+      "block_order": [
+        "p_alp",
+        "p_atl",
+        "p_brz",
+        "p_stl",
+        "p_shr"
+      ]
+    },
+    "offers": {
+      "type": "uikit-offers",
+      "settings": {
+        "eyebrow": "Show specials",
+        "heading": "Two ways to start",
+        "tight": true,
+        "footnote": "<p>Show specials can’t be combined with each other or with other codes. Frozen delivery guarantee terms are in our <a href=\"/policies/shipping-policy\">shipping policy</a>.</p>"
+      },
+      "blocks": {
+        "o_plan": {
+          "type": "offer",
+          "settings": {
+            "featured": true,
+            "image_product": "omegaquant-omega-3-index-plus-test",
+            "eyebrow": "Show special",
+            "big": "$100 off",
+            "title": "The 3-month Eudēmonia plan",
+            "text": "<ul><li>Three Eudēmonia Boxes, one a month, paid up front: $379.98 instead of $480.</li><li>An Omega-3 Index Plus test kit in box 1 and box 3. Test, eat, retest.</li><li>Pause or change your delivery date anytime.</li></ul>",
+            "terms": "Can’t be combined with EUDEMONIA26.",
+            "cta_label": "Choose Prepay and Save",
+            "cta_link": "/products/eudemonia-sampler-box#MainProduct"
+          }
+        },
+        "o_code": {
+          "type": "offer",
+          "settings": {
+            "image": "shopify://shop_images/eudemonia-box-opening.jpg",
+            "eyebrow": "For everyone at Eudēmonia",
+            "big": "$50 off",
+            "title": "On your order of $200 or more",
+            "text": "<p>Add a second box or a few extras to reach $200, then use the code at checkout.</p>",
+            "code": "EUDEMONIA26",
+            "terms": "One code per order.",
+            "cta_label": "Apply the code",
+            "cta_link": "/discount/EUDEMONIA26?redirect=/products/eudemonia-sampler-box"
+          }
+        }
+      },
+      "block_order": [
+        "o_plan",
+        "o_code"
+      ]
+    },
+    "chef": {
+      "type": "uikit-feature",
+      "settings": {
+        "image": "shopify://shop_images/eudemonia-loin-towel.jpg",
+        "image_side": "left",
+        "ratio": "4 / 3",
+        "eyebrow": "Free with every order",
+        "heading": "We know of a great sushi place. Your kitchen.",
+        "text": "<p>Every order comes with a free 1:1 class with our culinary team: defrosting, crispy skin, slicing sashimi, miso marinades. Recipes from the Seatopia kitchen come with it.</p>",
+        "cta_label": "Book your chef 1:1",
+        "cta_link": "/pages/seatopia-member-cooking-classes"
+      }
+    },
+    "steps": {
+      "type": "uikit-how-it-works",
+      "settings": {
+        "heading": "How to prepare your seafood."
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/hyman-uikit-step-box.jpg",
+            "title": "Straight into the freezer",
+            "text": "Every portion is sealed on its own, so you thaw only what you need."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/eudemonia-loin-towel.jpg",
+            "title": "Thaw it in the fridge",
+            "text": "Take it out of the vacuum bag, put it on a plate wrapped in a paper towel, and leave it at least 24 hours. Never on the counter or in the sealed packaging."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/eudemonia-pat-dry.jpg",
+            "title": "Pat dry, then cook",
+            "text": "Pat it dry just before cooking for a better sear and texture. Or slice it raw: it’s sashimi-grade."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
+    },
+    "doctors": {
+      "type": "creator-quote-slider",
+      "blocks": {
+        "slide_hyman": {
+          "disabled": false,
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/05212021_Mark_Hyman9087-Edit.jpg",
+            "eyebrow": "Recommended by Dr. Mark Hyman, MD · Paid partner",
+            "quote": "“We are what our food eats.”",
+            "support": "<p>Seafood delivered to your door. We test and publish omega-3, protein, selenium, vitamin D and B12.</p>",
+            "button_label": "Why Dr. Mark Hyman Supports Seatopia",
+            "button_link": "shopify://pages/mark-hyman"
+          }
+        },
+        "slide_means": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/DrCaseyMeans-Seatopia-33.jpg",
+            "eyebrow": "Recommended by Dr. Casey Means, MD",
+            "quote": "“Regenerative aquaculture is seafood production that enhances, rather than depletes, the oceans.”",
+            "support": "<p>Third-party lab tested seafood, farms named and panels published — delivered to your door.</p>",
+            "button_label": "Why Dr. Casey Means supports Seatopia",
+            "button_link": "/pages/casey-means-good-energy"
+          }
+        },
+        "slide_norwitz": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Nick_1.webp",
+            "eyebrow": "Recommended by Dr. Nick Norwitz, MD PhD · Paid partner",
+            "quote": "“Given how much seafood I eat, quality matters. Seatopia delivers on nutrient density and purity, while proving that exceptional nutrition and regenerative aquaculture can go hand in hand.”",
+            "support": "<p>Quantified omega-3s and third-party testing, species by species &mdash; delivered to your door.</p>",
+            "button_label": "Why Dr. Nick Norwitz supports Seatopia",
+            "button_link": "/pages/nick-norwitz-seatopia"
+          }
+        }
+      },
+      "block_order": [
+        "slide_hyman",
+        "slide_means",
+        "slide_norwitz"
+      ],
+      "settings": {
+        "aria_label": "Creator endorsements",
+        "image_ratio": "4 / 5",
+        "autoplay_seconds": 7,
+        "color_background": "#d45a3c",
+        "color_text": "#ffffff",
+        "color_button_background": "#ffffff",
+        "color_button_text": "#d45a3c",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "fresh": {
+      "type": "uikit-feature",
+      "settings": {
+        "image": "shopify://shop_images/omegamaxxing-24-delivery-box-overhead.jpg",
+        "image_side": "right",
+        "ratio": "4 / 3",
+        "eyebrow": "Rethinking the freezer",
+        "heading": "Freshness is something you preserve.",
+        "text": "<p>Blast-frozen to -10°F at harvest, vacuum sealed, with a frozen delivery guarantee. Sashimi-grade means something specific here: our own handling standard, start to finish.</p>",
+        "cta_label": "Read the science",
+        "cta_link": "/pages/seafood-freshness-omega-3-science"
+      }
+    },
+    "faq": {
+      "type": "uikit-faq",
+      "settings": {
+        "heading": "Questions, answered",
+        "footnote": "<p>Dr. Mark Hyman and Dr. Nick Norwitz are paid partners. Our King Salmon tested at 2,414 mg EPA+DHA per 6 oz serving. Values vary by sample and season. <a href=\"/policies/shipping-policy\">Frozen delivery guarantee terms</a>.</p>"
+      },
+      "blocks": {
+        "q_disc": {
+          "type": "question",
+          "settings": {
+            "question": "How do the Eudēmonia discounts work?",
+            "answer": "<p>Code EUDEMONIA26 takes $50 off any order of $200 or more, for new and existing customers. The 3-month Eudēmonia plan is $100 off three boxes paid up front. One discount per order: the two can’t be combined with each other or with other codes.</p>"
+          }
+        },
+        "q_plan": {
+          "type": "question",
+          "settings": {
+            "question": "What comes in the 3-month plan?",
+            "answer": "<p>A Eudēmonia Box every month for three months, with an OmegaQuant Omega-3 Index Plus test kit in the first and third boxes. Test when you start, retest at the end. You can pause or change a delivery date anytime.</p>"
+          }
+        },
+        "q_sashimi": {
+          "type": "question",
+          "settings": {
+            "question": "Is this sashimi grade?",
+            "answer": "<p>There is no official or regulated definition of “sashimi-grade” or “sushi-grade” fish in the United States. Sellers use the terms to signal that fish is safe to eat raw, but they are not a certification or a legal standard. So here is ours.</p><p>All of our seafood is vacuum sealed and blast frozen to -10 °F at peak freshness, which preserves taste, texture and colour, and is processed in an accredited facility. It is lab tested for mercury and microplastics. Farmed fish raised on formulated feed are exempt from the FDA Food Code’s parasite-freezing rule, and we blast-freeze at harvest anyway. That is what sashimi-grade means to us.</p><p>There is always some risk in eating anything raw or undercooked. If you are concerned or particularly sensitive, consult your doctor. The FDA conservatively suggests cooking to an internal temperature of 145 °F.</p>"
+          }
+        },
+        "q_mercury": {
+          "type": "question",
+          "settings": {
+            "question": "Is your seafood mercury free?",
+            "answer": "<p>Most fish naturally contain trace amounts of mercury, and it is close to impossible to find seafood that is genuinely “mercury free.” Mercury can sit below what a test can detect, so “mercury free” may not be true even when a result reads zero.</p><p>That is why we talk about mercury <strong>safe</strong> instead, and why we define it: our standard is 0.1 ppm methylmercury or below, a tenth of the FDA’s 1.0 ppm action level. Every supplier is tested against that standard before we approve them, then audited at random to make sure they stay compliant.</p><p>We also test selenium and look at the selenium-to-mercury ratio, because selenium in fish binds mercury so that less of it is absorbed.</p><p>FDA and EPA recommend 2 to 3 servings a week, 4 oz each, from their “Best Choices” list for people who are pregnant or breastfeeding. Salmon is on that list.</p>"
+          }
+        },
+        "q_serving": {
+          "type": "question",
+          "settings": {
+            "question": "What counts as a serving?",
+            "answer": "<p>We consider one portion to be 4 to 6 ounces of cooked fish, which matches the FDA’s definition of a serving of seafood. That is the guideline behind how much fish by weight goes into a box described in servings. Some of our fish, such as king salmon, come in larger pieces of 7.5 to 8.5 oz, so a single piece can be two nutritional servings.</p><p>Many of our members work with a nutritionist or practitioner, or use an app, to decide what they should be eating for protein, fats or specific nutrients. The right amount and frequency for you is personal, and our job is to give you the data that makes the decision easy.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q_disc",
+        "q_plan",
+        "q_sashimi",
+        "q_mercury",
+        "q_serving"
+      ]
+    },
+    "boxes": {
+      "type": "uikit-box-grid",
+      "settings": {
+        "layout": "scroll",
+        "show_filters": true,
+        "heading": "Add another box, or build your own.",
+        "text": "Our favorites, then the specialty boxes. Blast-frozen to -10°F at harvest, vacuum sealed.",
+        "cta_label": "Build your own box",
+        "cta_link": "/collections/build-your-own-box"
+      },
+      "blocks": {
+        "b_salmon": {
+          "type": "box",
+          "settings": {
+            "product": "salmon-box",
+            "show_price": true,
+            "show_buy": true,
+            "title": "Salmon Lover’s Box",
+            "group": "Favorites",
+            "show_savings": true,
+            "text": "Salmon and steelhead in individually sealed portions. 12, 18 or 24 portions."
+          }
+        },
+        "b_fs": {
+          "type": "box",
+          "settings": {
+            "product": "fish-shell-variety",
+            "show_price": true,
+            "show_buy": true,
+            "title": "Fish & Shell Variety Box",
+            "group": "Favorites",
+            "show_savings": true,
+            "text": "Salmon, whitefish and Peruvian scallops. 12, 18 or 24 portions."
+          }
+        },
+        "b_white": {
+          "type": "box",
+          "settings": {
+            "product": "white-fish-box",
+            "show_price": true,
+            "show_buy": true,
+            "title": "White Fish Box",
+            "group": "Favorites",
+            "show_savings": true,
+            "text": "Bream, branzino, yellowtail and barramundi. 12, 18 or 24 portions."
+          }
+        },
+        "b_long": {
+          "type": "box",
+          "settings": {
+            "product": "the-seatopia-longevity-box",
+            "show_price": true,
+            "show_buy": true,
+            "title": "The Seatopia Longevity Box",
+            "group": "Specialty",
+            "text": "Steelhead lox and sashimi loins, Ōra King salmon, branzino, black tiger shrimp and salmon roe. About 6.45 lb."
+          }
+        },
+        "b_preg": {
+          "type": "box",
+          "settings": {
+            "product": "the-pregnancy-box",
+            "show_price": true,
+            "show_buy": true,
+            "title": "The Pregnancy Box",
+            "group": "Specialty",
+            "show_savings": true,
+            "text": "King salmon, Atlantic salmon, steelhead loin and salmon roe. FDA and EPA recommend 2 to 3 servings a week, 4 oz each, from their “Best Choices” list for people who are pregnant or breastfeeding. Salmon is on that list."
+          }
+        },
+        "b_ss": {
+          "type": "box",
+          "settings": {
+            "product": "shrimp-and-salmon-box",
+            "show_price": true,
+            "show_buy": true,
+            "title": "Shrimp and Salmon Box",
+            "group": "Specialty",
+            "text": "Salmon and black tiger shrimp, together in one box."
+          }
+        }
+      },
+      "block_order": [
+        "b_salmon",
+        "b_fs",
+        "b_white",
+        "b_long",
+        "b_preg",
+        "b_ss"
+      ]
+    }
+  },
+  "order": [
+    "promo",
+    "main-product",
+    "panels",
+    "offers",
+    "chef",
+    "steps",
+    "doctors",
+    "fresh",
+    "faq",
+    "boxes"
+  ]
+}

@@ -15,7 +15,7 @@
   # Campaign pages carry their own offer bar, so Inflektion's injected creator banner
   # (modals.min.js) is skipped there. Click tracking in inf-footer-scripts still runs.
   assign load_inflektion_banner = load_inflektion
-  if template.suffix == 'eudemonia-uikit' or template.suffix == 'hyman-uikit'
+  if template.suffix == 'eudemonia-uikit' or template.suffix == 'hyman-uikit' or template.suffix == 'eudemonia-box'
     assign load_inflektion_banner = false
   endif
 -%}

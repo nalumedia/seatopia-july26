@@ -17,7 +17,7 @@
         "subheading": "Third-party tested for nutrition, mercury and microplastics, with the results published. Delivered frozen to your door.",
         "chip": "Code EUDEMONIA26: $50 off orders of $200 or more",
         "cta_label": "Shop the Eudēmonia Box",
-        "cta_link": "/pages/eudemonia#eudemonia-box",
+        "cta_link": "/products/eudemonia-sampler-box",
         "note": "The Seatopia box in Eudēmonia Essentials, the summit’s hand-curated partner bundle.",
         "image": "shopify://shop_images/eudemonia-kitchen-family.jpg",
         "partner": "eudemonia"
@@ -314,7 +314,7 @@
             "eyebrow": "Show special",
             "big": "$100 off",
             "title": "The 3-month Eudēmonia plan",
-            "text": "<ul><li>Three Eudēmonia Boxes, one a month, paid up front: $380 instead of $480.</li><li>An Omega-3 Index Plus test kit in box 1 and box 3. Test, eat, retest.</li><li>Pause or change your delivery date anytime.</li></ul>",
+            "text": "<ul><li>Three Eudēmonia Boxes, one a month, paid up front: $379.98 instead of $480.</li><li>An Omega-3 Index Plus test kit in box 1 and box 3. Test, eat, retest.</li><li>Pause or change your delivery date anytime.</li></ul>",
             "terms": "Can’t be combined with EUDEMONIA26.",
             "cta_label": "Choose the 3-month plan",
             "cta_link": "/products/eudemonia-sampler-box"
@@ -518,8 +518,7 @@
             "group": "Specialty",
             "tag": "Eudēmonia exclusive",
             "tag_gold": true,
-            "savings_text": "3-month plan: $380, save $100",
-            "link": "/pages/eudemonia#eudemonia-box",
+            "savings_text": "3-month plan: $379.98, save $100",
             "text": "Eight portions: Atlantic and Alpine King salmon, branzino, steelhead loin and black tiger shrimp."
           }
         },
