@@ -637,8 +637,8 @@ window.waitForElement = (selector, callback, timeout = 5000) => {
       if (firstSellingPlanAllocation && firstSellingPlanAllocation.price && variant.price && firstSellingPlanAllocation.price > variant.price) {
           // Prepaid plan: the allocation is the up-front total for several deliveries. Show it with
           // the per-box price; striking through a single box's price would misstate the saving.
-          strDiscount = `${window.retextionApi.formatMoney(firstSellingPlanAllocation.price)}` +
-            (firstSellingPlanAllocation.per_delivery_price ? ` <span class="rtx-per-box">${window.retextionApi.formatMoney(firstSellingPlanAllocation.per_delivery_price)} per box</span>` : '');
+          // The per-box breakdown lives in the prepaid callout under the plan, not in the price.
+          strDiscount = `${window.retextionApi.formatMoney(firstSellingPlanAllocation.price)}`;
         } else if (firstSellingPlanAllocation && firstSellingPlanAllocation.price && variant.price && firstSellingPlanAllocation.price != variant.price) {
         let percentage = Math.round((1.0 - (firstSellingPlanAllocation.price / variant.price)) * 100);
         if (percentage != 0) {

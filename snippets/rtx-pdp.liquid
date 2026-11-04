@@ -259,7 +259,11 @@
         display: block;
         color: #fff;
       }
-    .rtx-per-box { margin-left: 6px; font-size: .85em; opacity: .75; }
+    .rtx-prepaid { margin: 10px 0 0; padding: 12px 14px; border-radius: 10px; background: rgba(187,143,80,.12); color: #2e4b59; font-size: 14px; line-height: 1.4; }
+.rtx-prepaid__row { display: flex; justify-content: space-between; gap: 12px; margin: 0; }
+.rtx-prepaid__row + .rtx-prepaid__row { margin-top: 4px; }
+.rtx-prepaid__muted { opacity: .8; }
+.rtx-prepaid__code { margin-top: 8px !important; padding-top: 8px; border-top: 1px solid rgba(46,75,89,.15); color: #22543a; }
 </style>
 
 {% assign current_product_id_new = product.id | string | strip%}
@@ -374,9 +378,6 @@
                     endif
                     if selectedOrFirstAllocation.price > currentVariant.price
                       echo selectedOrFirstAllocation.price | money
-                      echo ' <span class="rtx-per-box">'
-                      echo selectedOrFirstAllocation.per_delivery_price | money
-                      echo ' per box</span>'
                     elsif strSavePercentage != blank
                       echo selectedOrFirstAllocation.price | money
                       echo '<del>'
@@ -435,6 +436,32 @@
             {%- if rtx_first and rtx_first.price > currentVariant.price and rtx_first.per_delivery_price > 0 -%}
             {%- assign rtx_boxes = rtx_first.price | divided_by: rtx_first.per_delivery_price -%}
             <li>{{ rtx_boxes }} boxes, one a month, paid up front - pause or change a date anytime.</li>
+            {%- comment -%}
+              Prepaid callout: total and per-box price, worked out from the plan itself. When a
+              campaign page has applied a code to the cart (cart.attributes.promo, see
+              snippets/cart-promo-banner.liquid) and the plan meets its minimum, show the price
+              after the code too. Only codes with known terms are listed.
+            {%- endcomment -%}
+            {%- liquid
+              assign rtx_full = currentVariant.price | times: rtx_boxes
+              assign rtx_save = rtx_full | minus: rtx_first.price
+              assign rtx_promo = cart.attributes.promo | default: '' | upcase
+              assign rtx_code_off = 0
+              if rtx_promo == 'EUDEMONIA26' and rtx_first.price >= 20000
+                assign rtx_code_off = 5000
+              endif
+              assign rtx_after = rtx_first.price | minus: rtx_code_off
+              assign rtx_after_box = rtx_after | divided_by: rtx_boxes
+            -%}
+            </ul>
+            <div class="rtx-prepaid">
+              <p class="rtx-prepaid__row"><span>{{ rtx_boxes }} boxes</span><strong>{{ rtx_first.price | money }}</strong></p>
+              <p class="rtx-prepaid__row rtx-prepaid__muted"><span>Per box</span><span>{{ rtx_first.per_delivery_price | money }}{% if rtx_save > 0 %} &middot; you save {{ rtx_save | money_without_trailing_zeros }}{% endif %}</span></p>
+              {%- if rtx_code_off > 0 -%}
+                <p class="rtx-prepaid__row rtx-prepaid__code"><span>With {{ rtx_promo }}</span><strong>{{ rtx_after | money }} &middot; {{ rtx_after_box | money }} per box</strong></p>
+              {%- endif -%}
+            </div>
+            <ul class="subscription-content" hidden>
             {%- else -%}
              <li>
               Every <span class="subscription_day">{{ freq_days }}</span> days receive a
@@ -700,8 +727,8 @@ buyBox.removeEmptyOption();
         if (firstSellingPlanAllocation && firstSellingPlanAllocation.price && variant.price && firstSellingPlanAllocation.price > variant.price) {
           // Prepaid plan: the allocation is the up-front total for several deliveries. Show it with
           // the per-box price; striking through a single box's price would misstate the saving.
-          strDiscount = `${window.retextionApi.formatMoney(firstSellingPlanAllocation.price)}` +
-            (firstSellingPlanAllocation.per_delivery_price ? ` <span class="rtx-per-box">${window.retextionApi.formatMoney(firstSellingPlanAllocation.per_delivery_price)} per box</span>` : '');
+          // The per-box breakdown lives in the prepaid callout under the plan, not in the price.
+          strDiscount = `${window.retextionApi.formatMoney(firstSellingPlanAllocation.price)}`;
         } else if (firstSellingPlanAllocation && firstSellingPlanAllocation.price && variant.price && firstSellingPlanAllocation.price != variant.price) {
           let percentage = Math.round((1.0 - (firstSellingPlanAllocation.price / variant.price)) * 100);
           if (percentage != 0) {
