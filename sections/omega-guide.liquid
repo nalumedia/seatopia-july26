@@ -1,0 +1,972 @@
+{%- comment -%}
+  Omegamaxxing: a practical guide to getting more omega-3s from your food.
+  Rendered by templates/page.omegamaxxing.json, from the Omegamaxxing PDF guide.
+
+  The section renders in two parts so the template can put native shop sections between them,
+  the way the seasonal guides do:
+  - part one: hero, intro, basics, testing, omega-6s and labels, choosing your seafood
+  - part two: cooking, absorbing, putting it together, recipe ideas, what arrives, references
+
+  Built like the freshness page: the theme's type (heading / title-* / subtext-* / text-*),
+  layout (page-width, --sp-*, --rounded-block) and motion (animate-picture, media-element
+  parallax, theme.Animation fade-ups via data-om-animate). Chips fly in and the oil bars grow
+  when they scroll into view; both sit still under prefers-reduced-motion.
+
+  Copy follows brand/claims-guide.md v0.32. Lines marked "verbatim" are the guide's green
+  wording: do not reword them. The PDF's inflammation spread, its fertility and pregnancy
+  chapter, its omega-3 index bands and its population statistics are not on this page; they
+  are waiting on Clark. A lab figure must keep all three parts in one unit at one weight:
+  product name, number with serving size, and the variance note.
+{%- endcomment -%}
+
+{%- liquid
+  assign s = section.settings
+  assign part = s.part
+  assign eyebrow_class = 'heading normal-case font-medium subtext-lg leading-none tracking-none'
+  assign kicker_class = 'text-sm font-medium text-opacity leading-tight'
+-%}
+
+{%- capture om_check -%}<svg class="om-chip__check" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor" opacity=".16"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>{%- endcapture -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --om-band-space: {{ s.band_padding }}px;
+    --om-band-space-mobile: {{ s.band_padding_mobile }}px;
+  }
+  {%- assign tones = 'sage,dark' | split: ',' -%}
+  {%- for tone in tones -%}
+    {%- case tone -%}
+      {%- when 'sage' -%}{%- assign bg = s.sage_background -%}{%- assign fg = s.sage_text -%}
+      {%- when 'dark' -%}{%- assign bg = s.dark_background -%}{%- assign fg = s.dark_text -%}
+    {%- endcase -%}
+    {%- assign border = fg | color_mix: bg, 18 -%}
+    #shopify-section-{{ section.id }} .om-tone--{{ tone }} {
+      --color-background: {{ bg.red }} {{ bg.green }} {{ bg.blue }};
+      --color-foreground: {{ fg.red }} {{ fg.green }} {{ fg.blue }};
+      --color-border: {{ border | color_extract: 'red' }} {{ border | color_extract: 'green' }} {{ border | color_extract: 'blue' }};
+      background: rgb(var(--color-background));
+      color: rgb(var(--color-foreground));
+    }
+  {%- endfor -%}
+</style>
+
+{%- if part == 'one' -%}
+<style>
+  .om :where(h1, h2, h3, p, figure, dl, dd, ol, ul) { margin: 0; }
+  .om :where(h1, h2, h3) { color: inherit; }
+  .om-band { padding-block: var(--om-band-space); }
+  @media (max-width: 767px) { .om-band { padding-block: var(--om-band-space-mobile); } }
+  .om-reading { max-width: 46rem; }
+  .om-center { margin-inline: auto; text-align: center; }
+  .om-stack { display: flex; flex-direction: column; gap: var(--sp-5); }
+  .om-head { display: flex; flex-direction: column; gap: var(--sp-4); }
+  .om [id^="om-"] { scroll-margin-block-start: calc(var(--header-height, 80px) + var(--sp-6)); }
+
+  /* Media */
+  .om-media { position: relative; overflow: hidden; border-radius: var(--rounded-block); background: rgb(var(--color-placeholder)); }
+  .om-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .om-media--tall { aspect-ratio: 4 / 5; }
+  .om-media--wide { aspect-ratio: 16 / 7; }
+  .om-media--land { aspect-ratio: 3 / 2; }
+  .om-media--square { aspect-ratio: 1 / 1; }
+  @media (max-width: 767px) { .om-media--wide { aspect-ratio: 4 / 3; } }
+
+  /* Chips: glass pills with a check, as in the guide */
+  .om-chips { display: flex; flex-wrap: wrap; gap: var(--sp-3); list-style: none; padding: 0; }
+  .om-chip { display: inline-flex; align-items: center; gap: var(--sp-2d5); padding: var(--sp-2) var(--sp-5) var(--sp-2) var(--sp-2); border-radius: 999px; border: 1px solid rgb(255 255 255 / .28); background: rgb(70 60 55 / .42); color: #fff; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); text-decoration: none; font-weight: 500; line-height: 1.1; }
+  .om-chip__check { flex: none; width: 1.75rem; height: 1.75rem; color: #7bd389; }
+  a.om-chip:hover { border-color: rgb(255 255 255 / .6); }
+  .om-chip--light { background: rgb(255 255 255 / .9); color: rgb(var(--color-foreground)); border-color: rgb(var(--color-border)); }
+  .om-chip--light .om-chip__check { color: #3f8f53; }
+  [data-om-fly] .om-chip { opacity: 0; transform: translate3d(-32px, 10px, 0); transition: opacity .6s ease var(--om-delay, 0ms), transform .8s cubic-bezier(.2,.8,.2,1) var(--om-delay, 0ms); }
+  [data-om-fly].is-in .om-chip { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { [data-om-fly] .om-chip { opacity: 1; transform: none; transition: none; } }
+
+  /* Hero */
+  .om-hero { position: relative; min-height: min(92vh, 880px); display: flex; align-items: flex-end; overflow: hidden; color: #fff; background: #1f211f; }
+  .om-hero__bg { position: absolute; inset: 0; }
+  .om-hero__bg img { width: 100%; height: 100%; object-fit: cover; }
+  .om-hero__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(20 20 18 / .55) 0%, rgb(20 20 18 / .15) 45%, rgb(20 20 18 / .6) 100%); }
+  .om-hero__inner { position: relative; width: 100%; padding-block: calc(var(--sp-8) * 2) var(--sp-8); display: flex; flex-direction: column; gap: var(--sp-6); }
+  .om-hero__deck { max-width: 30rem; font-family: var(--font-heading-family); }
+  .om-wordmark { white-space: nowrap; font-family: var(--font-body-family); font-weight: 600; font-size: clamp(3rem, 12.6vw, 15rem); line-height: .85; letter-spacing: -.045em; margin-block-start: var(--sp-6); }
+  .om-hero .om-chips { margin-block-start: var(--sp-2); }
+  .om-hero__inner, .om-hero__inner :where(p, h1) { color: #fff; }
+
+  /* Intro + contents */
+  .om-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(var(--sp-8), 6vw, calc(var(--sp-8) * 2.5)); align-items: start; }
+  .om-contents { list-style: none; padding: 0; counter-reset: om; }
+  .om-contents li { border-block-start: 1px solid rgb(var(--color-border)); }
+  .om-contents li:last-child { border-block-end: 1px solid rgb(var(--color-border)); }
+  .om-contents a { display: grid; grid-template-columns: 2.5rem 1fr; gap: var(--sp-3); padding-block: var(--sp-4); text-decoration: none; color: inherit; }
+  .om-contents a:hover .om-contents__title { text-decoration: underline; text-underline-offset: .2em; }
+  .om-contents__n { font-variant-numeric: tabular-nums; padding-block-start: .3em; }
+  .om-contents__sub { font-family: var(--font-heading-family); font-style: italic; }
+  @media (max-width: 989px) { .om-intro { grid-template-columns: 1fr; } }
+
+  /* Split: copy beside a photo */
+  .om-split { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(var(--sp-8), 5vw, calc(var(--sp-8) * 2)); align-items: start; }
+  .om-split--flip > :first-child { order: 2; }
+  .om-split__media { position: sticky; top: calc(var(--header-height, 80px) + var(--sp-6)); }
+  @media (max-width: 989px) {
+    .om-split { grid-template-columns: 1fr; }
+    .om-split--flip > :first-child { order: 0; }
+    .om-split__media { position: static; }
+  }
+
+  /* Rows: label column + text */
+  .om-rows > * { display: grid; grid-template-columns: 11rem 1fr; gap: var(--sp-6); padding-block: var(--sp-5); border-block-start: 1px solid rgb(var(--color-border)); }
+  .om-rows > *:last-child { border-block-end: 1px solid rgb(var(--color-border)); }
+  .om-rows dt { display: flex; flex-direction: column; gap: var(--sp-1d5); }
+  .om-rows dd { display: flex; flex-direction: column; gap: var(--sp-1d5); }
+  .om-type { font-family: var(--font-body-family); font-weight: 600; font-size: clamp(2rem, 3.4vw, 2.75rem); letter-spacing: -.03em; line-height: 1; }
+  .om-italic { font-family: var(--font-heading-family); font-style: italic; }
+  .om-tags { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; display: flex; flex-wrap: wrap; gap: .25rem .75rem; }
+  .om-tags a { color: inherit; }
+  @media (max-width: 767px) { .om-rows > * { grid-template-columns: 1fr; gap: var(--sp-2); } }
+
+  /* Numbered cards */
+  .om-grid { display: grid; gap: var(--sp-6); }
+  .om-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .om-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .om-num { display: flex; flex-direction: column; gap: var(--sp-2); padding-block-start: var(--sp-4); border-block-start: 1px solid rgb(var(--color-border)); }
+  .om-num__n { font-variant-numeric: tabular-nums; }
+  @media (max-width: 989px) { .om-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 599px) { .om-grid--2, .om-grid--4 { grid-template-columns: 1fr; } }
+
+  /* Takeaway */
+  .om-takeaway { display: flex; flex-direction: column; gap: var(--sp-2); padding-block-start: var(--sp-5); border-block-start: 1px solid rgb(var(--color-border)); }
+  .om-takeaway p:last-child { font-family: var(--font-heading-family); font-style: italic; }
+
+  /* Levers */
+  .om-levers { list-style: none; padding: 0; }
+  .om-levers li { border-block-start: 1px solid rgb(var(--color-border)); }
+  .om-levers li:last-child { border-block-end: 1px solid rgb(var(--color-border)); }
+  .om-levers a { display: grid; grid-template-columns: 2.5rem 1fr; gap: var(--sp-3); padding-block: var(--sp-4); color: inherit; text-decoration: none; }
+  .om-levers a:hover strong { text-decoration: underline; text-underline-offset: .2em; }
+
+  /* Oil chart */
+  .om-oils { width: 100%; border-collapse: collapse; }
+  .om-oils caption { text-align: start; padding-block-end: var(--sp-4); }
+  .om-oils th, .om-oils td { padding-block: var(--sp-3); border-block-start: 1px solid rgb(var(--color-border)); text-align: start; vertical-align: middle; font-weight: 400; }
+  .om-oils tr:last-child > * { border-block-end: 1px solid rgb(var(--color-border)); }
+  .om-oils__bar { width: 34%; padding-inline: var(--sp-4); }
+  .om-oils__track { display: block; height: .75rem; }
+  .om-oils__fill { display: block; height: 100%; width: var(--om-w); background: rgb(var(--color-foreground)); border-radius: 2px; transform-origin: left center; }
+  .om-oils__fill--mid { opacity: .55; }
+  .om-oils__fill--low { opacity: .3; }
+  .om-oils__pct { white-space: nowrap; font-variant-numeric: tabular-nums; font-weight: 500; padding-inline-end: var(--sp-4); }
+  .om-oils__note { font-family: var(--font-heading-family); font-style: italic; }
+  [data-om-bars] .om-oils__fill { transform: scaleX(0); transition: transform 1s cubic-bezier(.2,.8,.2,1); }
+  [data-om-bars].is-in .om-oils__fill { transform: none; }
+  @media (prefers-reduced-motion: reduce) { [data-om-bars] .om-oils__fill { transform: none; transition: none; } }
+  @media (max-width: 767px) {
+    .om-oils__bar { display: none; }
+    .om-oils th { width: 50%; }
+  }
+
+  /* Label phrases */
+  .om-phrase h3 { font-family: var(--font-body-family); font-weight: 600; letter-spacing: -.02em; }
+
+  /* Published result: product, number with serving, and variance note in one unit at one weight */
+  .om-result { display: flex; flex-direction: column; gap: var(--sp-4); padding: var(--sp-6); border: 1px solid rgb(var(--color-border)); border-radius: var(--rounded-block); background: rgb(var(--color-foreground) / .03); }
+  .om-links { display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-5); }
+</style>
+
+<article class="om" id="omegamaxxing" aria-labelledby="om-title">
+
+  {%- comment -%} ============================ HERO ============================ {%- endcomment -%}
+  {%- liquid
+    assign hero_desk = images['omegamaxxing-01-hero-salmon-platter.jpg']
+    assign hero_mob = images['omegamaxxing-02-hero-mobile-garnish.jpg']
+  -%}
+  <section class="om-hero">
+    <div class="om-hero__bg">
+      <picture is="animate-picture" data-animate="zoom-out" class="block w-full h-full">
+        {%- if hero_mob != blank -%}
+          <source media="(max-width: 749px)" srcset="{{ hero_mob | image_url: width: 750 }} 750w, {{ hero_mob | image_url: width: 1100 }} 1100w, {{ hero_mob | image_url: width: 1333 }} 1333w" sizes="100vw">
+        {%- endif -%}
+        {%- if hero_desk != blank -%}
+          {{ hero_desk | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '900,1200,1600,2000,2400', alt: 'Sliced salmon fanned out on a teal ceramic platter.' }}
+        {%- endif -%}
+      </picture>
+    </div>
+    <div class="page-width om-hero__inner">
+      <p class="{{ eyebrow_class }}">Seatopia · A practical guide</p>
+      <p class="om-hero__deck title-sm leading-tight">A practical guide to getting more omega-3s from your food.</p>
+      <ul class="om-chips" role="list" data-om-fly>
+        <li style="--om-delay: 0ms;"><a class="om-chip" href="#om-buy">{{ om_check }}what to buy</a></li>
+        <li style="--om-delay: 140ms;"><a class="om-chip" href="#om-cook">{{ om_check }}how to cook it</a></li>
+        <li style="--om-delay: 280ms;"><a class="om-chip" href="#om-test">{{ om_check }}how to test</a></li>
+      </ul>
+      <h1 id="om-title" class="om-wordmark">omegamaxxing</h1>
+    </div>
+  </section>
+
+  {%- comment -%} ============================ INTRO + CONTENTS ============================ {%- endcomment -%}
+  <section class="om-band">
+    <div class="page-width om-intro">
+      <div class="om-stack">
+        <p class="{{ eyebrow_class }}">omegamaxxing</p>
+        <h2 class="heading title-lg tracking-heading leading-tight" data-om-animate>A practical guide to getting more omega-3s from your food: what to buy, how to cook it, and how to test.</h2>
+        <p class="text-lg leading-normal">This guide takes a functional medicine approach. Instead of one number for everyone, it looks at what’s happening in your body: how much omega-3 actually reaches your cells, how well you absorb it, and what’s competing with it.</p>
+      </div>
+      <nav aria-label="Contents">
+        <p class="{{ kicker_class }}" style="margin-block-end: var(--sp-3); letter-spacing: .12em; text-transform: uppercase;">Contents</p>
+        <ol class="om-contents" role="list">
+          {%- capture om_toc -%}om-basics|Omega-3 basics|the three types and what they do^om-test|Test, don’t guess|two numbers worth knowing^om-labels|Omega-6s and reading labels|seed oils ranked^om-buy|Choosing your seafood|what to buy first^om-cook|Cooking to protect omega-3s|methods ranked^om-absorb|Absorbing and using omega-3s|what to eat them with^om-together|Putting it all together|weekly target and checklist^om-recipes|Recipe ideas|raw dishes, soups, bakes and more{%- endcapture -%}
+          {%- assign toc = om_toc | split: '^' -%}
+          {%- for row in toc -%}
+            {%- assign r = row | split: '|' -%}
+            <li><a href="#{{ r[0] }}">
+              <span class="om-contents__n text-sm text-opacity">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+              <span class="flex flex-col gap-1">
+                <span class="om-contents__title heading title-sm leading-tight">{{ r[1] }}</span>
+                <span class="om-contents__sub text-base text-opacity">{{ r[2] }}</span>
+              </span>
+            </a></li>
+          {%- endfor -%}
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  {%- comment -%} ============================ 01 BASICS ============================ {%- endcomment -%}
+  {%- assign img_a = images['omegamaxxing-18-chopsticks-bite.jpg'] -%}
+  {%- assign img_b = images['omegamaxxing-07-eggs-roe-avocado-plate.jpg'] -%}
+  <section class="om-band" id="om-basics" style="padding-block-start: 0;">
+    <div class="page-width om-split">
+      <div class="om-stack">
+        <div class="om-head" data-om-animate>
+          <p class="{{ kicker_class }}" style="letter-spacing: .12em; text-transform: uppercase;">Chapter 1</p>
+          <h2 class="heading title-xl tracking-heading leading-none">Omega-3 basics</h2>
+        </div>
+        <p class="heading title-sm leading-tight om-italic">What is an omega-3?</p>
+        <p class="text-lg leading-normal">An omega-3 is a type of fat (a polyunsaturated fatty acid). It’s called essential because your body can’t make it on its own, so you have to get it from food or supplements.</p>
+
+        <p class="{{ kicker_class }}" style="margin-block-start: var(--sp-4); letter-spacing: .12em; text-transform: uppercase;">The three types</p>
+        <dl class="om-rows">
+          <div>
+            <dt><span class="om-type">ALA</span><span class="om-italic text-base text-opacity">the plant omega-3</span></dt>
+            <dd><strong class="text-lg">Flax, chia, walnuts, canola oil</strong><span class="text-base leading-normal">Your body has to convert it into EPA and DHA, and it does this poorly.</span></dd>
+          </div>
+          <div>
+            <dt><span class="om-type">EPA</span><span class="om-italic text-base text-opacity">a marine omega-3</span></dt>
+            <dd><strong class="text-lg">Fatty fish, already formed</strong><span class="text-base leading-normal">One of the two marine omega-3s. We publish how much is in every product.</span></dd>
+          </div>
+          <div>
+            <dt><span class="om-type">DHA</span><span class="om-italic text-base text-opacity">a marine omega-3</span></dt>
+            {%- comment -%} Verbatim: claims guide §4.E short owned form (Clark, accepted risk). No verb of action. {%- endcomment -%}
+            <dd><strong class="text-lg">Fatty fish, already formed</strong><span class="text-base leading-normal">DHA is one of the main structural fats in the brain. We publish how much is in every product.</span></dd>
+          </div>
+        </dl>
+        <p class="text-base leading-normal om-italic">This guide focuses on EPA and DHA, the two “marine” omega-3s. Fish already contains them in the form your body uses, so there’s no conversion step.</p>
+
+        <div class="om-head" style="margin-block-start: var(--sp-8);" data-om-animate>
+          <p class="{{ kicker_class }}" style="letter-spacing: .12em; text-transform: uppercase;">Why they matter</p>
+          <h3 class="heading title-lg tracking-heading leading-tight">EPA and DHA do two jobs.</h3>
+        </div>
+        <div class="om-grid om-grid--2">
+          <div class="om-num" data-om-animate>
+            <span class="om-num__n text-sm text-opacity">01</span>
+            <h4 class="heading title-sm leading-tight">They build your cells.</h4>
+            <p class="text-base leading-normal">They’re part of the outer layer (membrane) of every cell, where they keep it flexible and working well.</p>
+          </div>
+          <div class="om-num" data-om-animate data-om-delay="120">
+            <span class="om-num__n text-sm text-opacity">02</span>
+            <h4 class="heading title-sm leading-tight">They send signals.</h4>
+            <p class="text-base leading-normal">Your body uses them to make signaling molecules.</p>
+          </div>
+        </div>
+      </div>
+      <div class="om-split__media om-stack">
+        <media-element class="om-media om-media--tall block" data-parallax="0.12" data-parallax-dir="vertical">
+          <picture class="block w-full h-full" is="animate-picture" data-animate="zoom-out">
+            {%- if img_a != blank -%}{{ img_a | image_url: width: 1333 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 45vw, 100vw', widths: '500,800,1100,1333', alt: 'A slice of salmon held up with chopsticks outdoors.' }}{%- endif -%}
+          </picture>
+        </media-element>
+        <div class="om-media om-media--land">
+          {%- if img_b != blank -%}{{ img_b | image_url: width: 1600 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 45vw, 100vw', widths: '500,800,1200,1600', alt: 'Soft scrambled eggs topped with salmon roe, beside sliced avocado and greens.' }}{%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} ============================ 02 TEST ============================ {%- endcomment -%}
+  {%- assign img_c = images['omegamaxxing-04-salmon-roe-tin.jpg'] -%}
+  <section class="om-band om-tone--sage" id="om-test">
+    <div class="page-width om-split om-split--flip">
+      <div class="om-stack">
+        <div class="om-head" data-om-animate>
+          <p class="{{ kicker_class }}" style="letter-spacing: .12em; text-transform: uppercase;">Chapter 2 · Your numbers</p>
+          <h2 class="heading title-xl tracking-heading leading-none">Test, don’t guess.</h2>
+        </div>
+        {%- comment -%} Verbatim: claims guide §8.15. {%- endcomment -%}
+        <p class="heading title-sm leading-tight om-italic">Guidelines count servings. We think you should count what’s in your blood.</p>
+        <p class="text-lg leading-normal">Functional medicine starts with testing. One at-home finger-prick test gives you two numbers that tell you more than any food log.</p>
+        <div class="om-grid om-grid--2">
+          <div class="om-num" data-om-animate>
+            <span class="om-num__n text-sm text-opacity">Number 1</span>
+            <h3 class="heading title-sm leading-tight">Your Omega-3 Index</h3>
+            <p class="text-base leading-normal">The percentage of EPA+DHA in the membranes of your red blood cells. Red blood cells live about 120 days, so the result shows your average intake over the past 3–4 months, not what you ate yesterday.</p>
+          </div>
+          <div class="om-num" data-om-animate data-om-delay="120">
+            <span class="om-num__n text-sm text-opacity">Number 2</span>
+            <h3 class="heading title-sm leading-tight">Your omega-6 to omega-3 ratio</h3>
+            <p class="text-base leading-normal">How the two families of fat compare. You improve it from both sides: eat more EPA and DHA, and cut back on refined seed oils and ultra-processed foods.</p>
+          </div>
+        </div>
+        {%- comment -%} Verbatim: claims guide §8.15, green building block 2. {%- endcomment -%}
+        <p class="text-lg leading-normal">Researchers who study the omega-3 index measure blood levels rather than servings, and target higher intakes than general guidelines.</p>
+        <div class="om-takeaway">
+          <p class="{{ kicker_class }}" style="letter-spacing: .12em; text-transform: uppercase;">Takeaway</p>
+          {%- comment -%} Verbatim: claims guide §8.15. {%- endcomment -%}
+          <p class="title-sm leading-tight">There’s a finger-prick test for your omega-3 index. Take it, change one thing, retest in four months.</p>
+        </div>
+        {%- if s.test_product != blank -%}
+          <div>
+            <a class="button button--primary button--md" href="{{ s.test_product.url }}" is="hover-link">
+              <span class="btn-fill" data-fill></span>
+              <span class="btn-text">Get the {{ s.test_product.title | split: ', ' | last }}</span>
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+      <div class="om-split__media">
+        <div class="om-media om-media--tall">
+          {%- if img_c != blank -%}{{ img_c | image_url: width: 1600 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 45vw, 100vw', widths: '500,800,1200,1600', alt: 'An open tin of salmon roe, close up.' }}{%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="om-band">
+    <div class="page-width">
+      <div class="om-split">
+        <div class="om-head" data-om-animate>
+          <p class="{{ kicker_class }}" style="letter-spacing: .12em; text-transform: uppercase;">Chapter 2 · Your numbers</p>
+          <h2 class="heading title-lg tracking-heading leading-tight">The five levers</h2>
+          <p class="text-lg leading-normal">Getting more omega-3s isn’t just about eating more fish. Five things work together:</p>
+        </div>
+        <ol class="om-levers" role="list">
+          {%- capture om_levers -%}om-test|Know your starting point|test your levels^om-labels|Keep omega-6s in check|read labels for seed oils^om-buy|Choose high-EPA/DHA seafood|Chapter 4^om-cook|Cook it without damaging the fat|Chapter 5^om-absorb|Eat it in a way that helps your body absorb it|Chapter 6{%- endcapture -%}
+          {%- assign levers = om_levers | split: '^' -%}
+          {%- for row in levers -%}
+            {%- assign r = row | split: '|' -%}
+            <li data-om-animate data-om-delay="{{ forloop.index0 | times: 80 }}"><a href="#{{ r[0] }}">
+              <span class="text-sm text-opacity" style="padding-block-start: .35em;">{{ forloop.index | prepend: '0' }}</span>
+              <span class="text-lg leading-snug"><strong>{{ r[1] }}</strong> — {{ r[2] }}</span>
+            </a></li>
+          {%- endfor -%}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} ============================ 03 OMEGA-6S ============================ {%- endcomment -%}
+  <section class="om-band" id="om-labels" style="padding-block-start: 0;">
+    <div class="page-width om-stack" style="gap: var(--sp-8);">
+      <div class="om-split" style="align-items: end;">
+        <div class="om-head" data-om-animate>
+          <p class="{{ kicker_class }}" style="letter-spacing: .12em; text-transform: uppercase;">Chapter 3</p>
+          <h2 class="heading title-xl tracking-heading leading-none">Omega-6s and reading labels</h2>
+        </div>
+        <div class="om-stack">
+          <p class="text-lg leading-normal">The main omega-6 in the Western diet is linoleic acid, and most of it comes from refined seed oils. These oils show up in almost everything packaged: alternative milks, dressings, snacks, baked goods and restaurant fryers.</p>
+          <p class="text-lg leading-normal">Whole foods like nuts and seeds also contain omega-6, but they come with fiber, vitamin E and antioxidants. The focus here is refined oils in processed food.</p>
+        </div>
+      </div>
+
+      {%- capture om_oils -%}Safflower oil (regular)|75|~75%|Limit — highest|hi^Grapeseed oil|70|~70%|Limit|hi^Sunflower oil (regular)|65|~65%|Limit|hi^Corn oil|55|~55%|Limit|hi^Cottonseed oil|52|~50–55%|Limit|hi^Soybean oil / “vegetable oil”|52|~50–55%|Limit — the most common|hi^Rice bran oil|35|~35%|Moderate|mid^Peanut oil|30|~30%|Moderate|mid^Canola / rapeseed oil|20|~20%|Middle ground; also has some plant omega-3|mid^High-oleic sunflower or safflower|10|~5–15%|Better choice|low^Olive oil, avocado oil|10|~10%|Good choice|low^Coconut oil, butter, ghee|3|~2–3%|Low omega-6 (but mostly saturated fat)|low{%- endcapture -%}
+      {%- assign oils = om_oils | split: '^' -%}
+      <div data-om-bars>
+        <table class="om-oils">
+          <caption><span class="heading title-sm">Oils ranked by omega-6</span> <span class="om-italic text-base text-opacity">Percent of the oil’s fat that is linoleic acid (approximate)</span></caption>
+          <tbody>
+            {%- for row in oils -%}
+              {%- assign o = row | split: '|' -%}
+              <tr>
+                <th scope="row" class="text-base">{{ o[0] }}</th>
+                <td class="om-oils__bar" aria-hidden="true"><span class="om-oils__track"><span class="om-oils__fill om-oils__fill--{{ o[4] }}" style="--om-w: {{ o[1] | times: 1.33 }}%; transition-delay: {{ forloop.index0 | times: 50 }}ms;"></span></span></td>
+                <td class="om-oils__pct text-base">{{ o[2] }}</td>
+                <td class="om-oils__note text-base text-opacity">{{ o[3] }}</td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="om-head" data-om-animate>
+        <p class="{{ kicker_class }}" style="letter-spacing: .12em; text-transform: uppercase;">Chapter 3 · Omega-6s and reading labels</p>
+        <h3 class="heading title-lg tracking-heading leading-tight">Label phrases to watch for</h3>
+      </div>
+      <div class="om-grid om-grid--4">
+        <div class="om-num om-phrase" data-om-animate><h4 class="title-sm leading-tight">“Vegetable oil”</h4><p class="text-base leading-normal">“Vegetable oil” or “contains one or more of the following: soybean, corn…” usually means the cheapest high-omega-6 oils.</p></div>
+        <div class="om-num om-phrase" data-om-animate data-om-delay="80"><h4 class="title-sm leading-tight">“Sunflower oil”</h4><p class="text-base leading-normal">“Sunflower oil” or “safflower oil” without “high-oleic.” High-oleic versions are bred to be low in omega-6, so that word matters.</p></div>
+        <div class="om-num om-phrase" data-om-animate data-om-delay="160"><h4 class="title-sm leading-tight">“Expeller-pressed”</h4><p class="text-base leading-normal">“Expeller-pressed” or “cold-pressed” describes how the oil was extracted, not what’s in it. Expeller-pressed sunflower oil is still high in omega-6.</p></div>
+        <div class="om-num om-phrase" data-om-animate data-om-delay="240"><h4 class="title-sm leading-tight">Position in the list</h4><p class="text-base leading-normal">Ingredients are listed by weight. An oil in the top three is a real source; near the end, it’s minor.</p></div>
+      </div>
+      <div class="om-takeaway">
+        <p class="{{ kicker_class }}" style="letter-spacing: .12em; text-transform: uppercase;">Takeaway</p>
+        <p class="title-sm leading-tight">Check the oil on the label. Choose olive, avocado or high-oleic oils, which are more heat-stable, and cut back on products made with soybean, corn, sunflower or “vegetable” oil.</p>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} ============================ 04 CHOOSING YOUR SEAFOOD ============================ {%- endcomment -%}
+  {%- assign img_d = images['omegamaxxing-11-salmon-fillets.jpg'] -%}
+  {%- assign img_e = images['omegamaxxing-14-dressing-platter-kitchen.jpg'] -%}
+  <section class="om-band om-tone--dark" id="om-buy">
+    <div class="page-width om-split">
+      <div class="om-stack">
+        <div class="om-head" data-om-animate>
+          <p class="{{ kicker_class }}" style="letter-spacing: .12em; text-transform: uppercase;">Chapter 4</p>
+          <h2 class="heading title-xl tracking-heading leading-none">Choosing your seafood</h2>
+        </div>
+        <h3 class="heading title-sm leading-tight">Rule of thumb for shopping</h3>
+        <p class="text-lg leading-normal">Fattier, cold-water fish (king salmon, steelhead, Atlantic salmon) carry more omega-3s per ounce than lean whitefish or shellfish. If your goal is more EPA/DHA, build your week around salmon and steelhead. Treat whitefish and shellfish as flavor and variety, not your main omega-3 source.</p>
+        <h3 class="heading title-sm leading-tight" style="margin-block-start: var(--sp-4);">Why lab-tested numbers matter</h3>
+        <p class="text-lg leading-normal">We publish lab-tested omega-3 values for our products, backed by third-party Certificates of Analysis from Edacious. That lets you compare options by the number.</p>
+        {%- comment -%} Verbatim: claims guide §4.E published-result format. All three parts, one unit, one weight. {%- endcomment -%}
+        <div class="om-result" data-om-animate>
+          <p class="{{ kicker_class }}" style="letter-spacing: .12em; text-transform: uppercase;">Published result</p>
+          <p class="heading title-md leading-tight">Our King Salmon tested at 2,414 mg EPA+DHA per 6 oz serving. Values vary by sample and season.</p>
+        </div>
+        {%- comment -%} Verbatim: the always-safe sentence, claims guide §3. {%- endcomment -%}
+        <p class="text-base leading-normal text-opacity">Every supplier is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard.</p>
+        <div class="om-links text-base">
+          <a class="link font-medium" href="/products/king-salmon">King Salmon</a>
+          <a class="link font-medium" href="/products/atlantic-salmon-2x-6oz-portions">Atlantic Salmon</a>
+          <a class="link font-medium" href="/products/steelhead-sashimi-loin-12oz">Steelhead Sashimi Loin</a>
+          <a class="link font-medium" href="/products/salmon-box">Salmon Lover’s Box</a>
+        </div>
+      </div>
+      <div class="om-split__media om-stack">
+        <media-element class="om-media om-media--land block" data-parallax="0.12" data-parallax-dir="vertical">
+          <picture class="block w-full h-full" is="animate-picture" data-animate="zoom-out">
+            {%- if img_d != blank -%}{{ img_d | image_url: width: 1800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 45vw, 100vw', widths: '500,800,1200,1800', alt: 'Raw salmon fillets on a board, ready to cook.' }}{%- endif -%}
+          </picture>
+        </media-element>
+        <div class="om-media om-media--land">
+          {%- if img_e != blank -%}{{ img_e | image_url: width: 1800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 45vw, 100vw', widths: '500,800,1200,1800', alt: 'Dressing a platter of sliced salmon in a home kitchen.' }}{%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+</article>
+
+{%- else -%}
+
+<style>
+  .om-k :where(h1, h2, h3, h4, p, figure, dl, dd, ol, ul) { margin: 0; }
+  .om-k :where(h1, h2, h3, h4) { color: inherit; }
+  .om-k .om-band { padding-block: var(--om-band-space); }
+  @media (max-width: 767px) { .om-k .om-band { padding-block: var(--om-band-space-mobile); } }
+  .om-k .om-stack { display: flex; flex-direction: column; gap: var(--sp-5); }
+  .om-k .om-head { display: flex; flex-direction: column; gap: var(--sp-4); }
+  .om-k [id^="om-"] { scroll-margin-block-start: calc(var(--header-height, 80px) + var(--sp-6)); }
+  .om-k .om-media { position: relative; overflow: hidden; border-radius: var(--rounded-block); background: rgb(var(--color-placeholder)); }
+  .om-k .om-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .om-k .om-media--tall { aspect-ratio: 4 / 5; }
+  .om-k .om-media--wide { aspect-ratio: 16 / 6; }
+  .om-k .om-media--land { aspect-ratio: 3 / 2; }
+  .om-k .om-media--square { aspect-ratio: 1 / 1; }
+  @media (max-width: 767px) { .om-k .om-media--wide { aspect-ratio: 4 / 3; } }
+  .om-k .om-italic { font-family: var(--font-heading-family); font-style: italic; }
+  .om-k .om-label { letter-spacing: .12em; text-transform: uppercase; }
+
+  .om-k .om-chips { display: flex; flex-wrap: wrap; gap: var(--sp-3); list-style: none; padding: 0; }
+  .om-k .om-chip { display: inline-flex; align-items: center; gap: var(--sp-2d5); padding: var(--sp-2) var(--sp-5) var(--sp-2) var(--sp-2); border-radius: 999px; border: 1px solid rgb(255 255 255 / .28); background: rgb(70 60 55 / .45); color: #fff; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); font-weight: 500; line-height: 1.1; }
+  .om-k .om-chip__check { flex: none; width: 1.75rem; height: 1.75rem; color: #7bd389; }
+  .om-k .om-chips--over { position: absolute; inset-inline-start: var(--sp-5); inset-block-end: var(--sp-5); flex-direction: column; align-items: flex-start; z-index: 1; }
+  .om-k .om-chips--top { inset-block-end: auto; inset-block-start: var(--sp-5); }
+  .om-k [data-om-fly] .om-chip { opacity: 0; transform: translate3d(-32px, 10px, 0); transition: opacity .6s ease var(--om-delay, 0ms), transform .8s cubic-bezier(.2,.8,.2,1) var(--om-delay, 0ms); }
+  .om-k [data-om-fly].is-in .om-chip { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .om-k [data-om-fly] .om-chip { opacity: 1; transform: none; transition: none; } }
+
+  .om-k .om-split { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(var(--sp-8), 5vw, calc(var(--sp-8) * 2)); align-items: start; }
+  .om-k .om-split--flip > :first-child { order: 2; }
+  .om-k .om-split__media { position: sticky; top: calc(var(--header-height, 80px) + var(--sp-6)); }
+  @media (max-width: 989px) {
+    .om-k .om-split { grid-template-columns: 1fr; }
+    .om-k .om-split--flip > :first-child { order: 0; }
+    .om-k .om-split__media { position: static; }
+  }
+  .om-k .om-grid { display: grid; gap: var(--sp-6); }
+  .om-k .om-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .om-k .om-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .om-k .om-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  @media (max-width: 989px) { .om-k .om-grid--3, .om-k .om-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 599px) { .om-k .om-grid--2, .om-k .om-grid--3, .om-k .om-grid--4 { grid-template-columns: 1fr; } }
+  .om-k .om-num { display: flex; flex-direction: column; gap: var(--sp-2); padding-block-start: var(--sp-4); border-block-start: 1px solid rgb(var(--color-border)); }
+  .om-k .om-rank__word { font-family: var(--font-body-family); font-weight: 600; letter-spacing: -.03em; font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1; }
+  .om-k .om-rank:nth-child(2) .om-rank__word { opacity: .78; }
+  .om-k .om-rank:nth-child(3) .om-rank__word { opacity: .56; }
+  .om-k .om-rank:nth-child(4) .om-rank__word { opacity: .38; }
+  .om-k .om-rule { display: flex; flex-direction: column; gap: var(--sp-3); }
+  .om-k .om-notes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-6); }
+  .om-k .om-notes > * { display: flex; flex-direction: column; gap: var(--sp-2); padding-block-start: var(--sp-4); border-block-start: 1px solid rgb(var(--color-border)); }
+  .om-k .om-notes p:last-child { font-family: var(--font-heading-family); font-style: italic; }
+  @media (max-width: 989px) { .om-k .om-notes { grid-template-columns: 1fr; } }
+
+  .om-k .om-card { display: flex; flex-direction: column; gap: var(--sp-3); padding: var(--sp-6); border: 1px solid rgb(var(--color-border)); border-radius: var(--rounded-block); background: rgb(var(--color-foreground) / .03); }
+  .om-k .om-list { list-style: none; padding: 0; }
+  .om-k .om-list li { padding-block: var(--sp-3); border-block-start: 1px solid rgb(var(--color-border)); }
+  .om-k .om-list li:last-child { border-block-end: 1px solid rgb(var(--color-border)); }
+
+  .om-k .om-big { font-family: var(--font-body-family); font-weight: 600; letter-spacing: -.05em; font-size: clamp(6rem, 16vw, 14rem); line-height: .85; }
+  .om-k .om-checks { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 var(--sp-6); }
+  .om-k .om-checks li { display: grid; grid-template-columns: 1.25rem 1fr; gap: var(--sp-3); padding-block: var(--sp-4); border-block-start: 1px solid rgb(var(--color-border)); }
+  .om-k .om-checks li::before { content: ""; width: 1.1rem; height: 1.1rem; margin-block-start: .2em; border: 1.5px solid currentColor; border-radius: 3px; opacity: .7; }
+  @media (max-width: 989px) { .om-k .om-checks { grid-template-columns: 1fr; } }
+
+  .om-k .om-ideas > div { display: grid; grid-template-columns: 12rem 1fr; gap: var(--sp-6); padding-block: var(--sp-5); border-block-start: 1px solid rgb(var(--color-border)); }
+  .om-k .om-ideas > div:last-child { border-block-end: 1px solid rgb(var(--color-border)); }
+  .om-k .om-ideas dd { display: flex; flex-direction: column; gap: var(--sp-2); }
+  .om-k .om-tags { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; display: flex; flex-wrap: wrap; gap: .25rem .9rem; }
+  .om-k .om-tags a { color: inherit; }
+  @media (max-width: 767px) { .om-k .om-ideas > div { grid-template-columns: 1fr; gap: var(--sp-2); } }
+
+  .om-k .om-recipes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-5); }
+  .om-k .om-recipe { display: flex; flex-direction: column; gap: var(--sp-3); color: inherit; text-decoration: none; }
+  .om-k .om-recipe .om-media { aspect-ratio: 4 / 5; }
+  .om-k .om-recipe .om-media img { transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+  .om-k .om-recipe:hover .om-media img { transform: scale(1.04); }
+  .om-k .om-recipe:hover .om-recipe__title { text-decoration: underline; text-underline-offset: .2em; }
+  @media (max-width: 989px) {
+    .om-k .om-recipes { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(15rem, 70%); overflow-x: auto; scroll-snap-type: x mandatory; padding-block-end: var(--sp-3); }
+    .om-k .om-recipe { scroll-snap-align: start; }
+  }
+
+  .om-k .om-refs ol { padding-inline-start: var(--sp-5); display: flex; flex-direction: column; gap: var(--sp-3); }
+  .om-k .om-refs a { overflow-wrap: anywhere; }
+</style>
+
+<article class="om-k" id="omegamaxxing-kitchen" aria-label="Omegamaxxing in the kitchen">
+
+  {%- comment -%} ============================ 05 COOKING ============================ {%- endcomment -%}
+  {%- assign img_wide = images['omegamaxxing-03-sliced-salmon-garden.jpg'] -%}
+  <section class="om-band" id="om-cook">
+    <div class="page-width om-stack" style="gap: var(--sp-8);">
+      <div class="om-split" style="align-items: start;">
+        <div class="om-head" data-om-animate>
+          <p class="{{ kicker_class }} om-label">Chapter 5 · Cooking to protect omega-3s</p>
+          <h2 class="heading title-xl tracking-heading leading-none">Reduce heat, air and time.</h2>
+          <p class="text-lg leading-normal">EPA and DHA are fragile. Their structure has several weak points that break down with heat and oxygen, a process called oxidation. The more heat, air and time, the more omega-3 you lose.</p>
+        </div>
+        <div class="om-stack">
+          <p class="{{ kicker_class }} om-label">Cooking methods ranked</p>
+          <div class="om-grid om-grid--2">
+            <div class="om-num om-rank" data-om-animate><span class="om-rank__word">Best</span><h3 class="heading title-sm leading-tight">Poach, steam, sous vide</h3><p class="text-base leading-normal">Low, controlled heat (usually under 200°F) and little contact with air. The gentlest option.</p></div>
+            <div class="om-num om-rank" data-om-animate data-om-delay="80"><span class="om-rank__word">Good</span><h3 class="heading title-sm leading-tight">Bake or roast at 275–325°F</h3><p class="text-base leading-normal">Short cook time; pull before it’s opaque all the way through. Wrapping in foil or parchment (en papillote) keeps air out.</p></div>
+            <div class="om-num om-rank" data-om-animate data-om-delay="160"><span class="om-rank__word">Okay</span><h3 class="heading title-sm leading-tight">Quick sear, grill, air fry</h3><p class="text-base leading-normal">High heat but brief. Sear hot and fast, skin-side down first so the skin shields the flesh.</p></div>
+            <div class="om-num om-rank" data-om-animate data-om-delay="240"><span class="om-rank__word">Minimize</span><h3 class="heading title-sm leading-tight">Deep frying, long pan frying</h3><p class="text-base leading-normal">High heat plus hot oil and air does the most damage to omega-3s.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <figure class="om-media om-media--wide">
+        <media-element class="block w-full h-full" data-parallax="0.15" data-parallax-dir="vertical">
+          <picture class="block w-full h-full" is="animate-picture" data-animate="zoom-out">
+            {%- if img_wide != blank -%}{{ img_wide | image_url: width: 2400 | image_tag: loading: 'lazy', sizes: '100vw', widths: '800,1200,1600,2000,2400', alt: 'A platter of sliced salmon on a garden table.' }}{%- endif -%}
+          </picture>
+        </media-element>
+        <ul class="om-chips om-chips--over" role="list" data-om-fly>
+          <li><span class="om-chip">{{ om_check }}gentlest: poach, steam, sous vide</span></li>
+        </ul>
+      </figure>
+
+      <div class="om-head" data-om-animate>
+        <p class="{{ kicker_class }} om-label">Chapter 5 · Cooking to protect omega-3s</p>
+        <h3 class="heading title-lg tracking-heading leading-tight">Practical rules</h3>
+      </div>
+      {%- capture om_rules -%}omegamaxxing-22-thermometer-check.jpg|A thermometer checking a tray of baked salmon fillets.|Cook to medium, not well-done.|Pull salmon or steelhead at 120–130°F inside; it will rise to about 135°F as it rests. Every extra minute of heat means more oxidation.^omegamaxxing-21-lemon-squeeze-bake.jpg|Lemon squeezed over salmon on a sheet pan.|Favor moist methods.|Poaching in broth or olive oil, steaming and en papillote baking all limit air exposure.^omegamaxxing-23-oven-bake.jpg|A tray of salmon going into the oven.|Reheat gently, or not at all.|Warm leftovers in a low oven or steamer, or eat them cold in a salad or poke bowl. Avoid microwaving on high or re-searing.^omegamaxxing-16-sashimi-plate.jpg|Sashimi slices on a ceramic plate.|Raw and lightly cured keep the most.|Sashimi, poke, crudo and ceviche skip heat entirely, so you get the full omega-3 content of a sashimi-grade portion.{%- endcapture -%}
+      {%- assign rules = om_rules | split: '^' -%}
+      <div class="om-grid om-grid--4">
+        {%- for row in rules -%}
+          {%- assign r = row | split: '|' -%}
+          {%- assign rimg = images[r[0]] -%}
+          <div class="om-rule" data-om-animate data-om-delay="{{ forloop.index0 | times: 80 }}">
+            <div class="om-media om-media--square">
+              {%- if rimg != blank -%}{{ rimg | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 22vw, (min-width: 600px) 45vw, 100vw', widths: '400,600,900', alt: r[1] }}{%- endif -%}
+            </div>
+            <h4 class="heading title-sm leading-tight">{{ r[2] }}</h4>
+            <p class="text-base leading-normal">{{ r[3] }}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+      <div class="om-notes">
+        <div>
+          <p class="{{ kicker_class }} om-label">Takeaway</p>
+          <p class="text-lg leading-snug">Low heat, less air, less time. Raw or gently cooked fish keeps the most omega-3s.</p>
+        </div>
+        <div>
+          <p class="{{ kicker_class }} om-label">Raw and undercooked</p>
+          {%- comment -%} Verbatim: claims guide §9.5. {%- endcomment -%}
+          <p class="text-lg leading-snug">Eating raw or undercooked seafood may increase your risk of foodborne illness. The FDA conservatively suggests cooking to an internal temperature of 145°F.</p>
+        </div>
+        <div>
+          <p class="{{ kicker_class }} om-label">Pregnant?</p>
+          <p class="text-lg leading-snug">Cook fish to 145°F. Poaching, steaming and en papillote cook fish all the way through gently. More in <a class="link" href="#om-pregnancy">pregnancy and breastfeeding</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} ============================ 06 ABSORBING ============================ {%- endcomment -%}
+  {%- assign img_abs = images['omegamaxxing-08-eggs-roe-handheld.jpg'] -%}
+  {%- assign img_de = images['omegamaxxing-06-greens-avocado-nuts.jpg'] -%}
+  <section class="om-band om-tone--sage" id="om-absorb">
+    <div class="page-width om-stack" style="gap: var(--sp-8);">
+      <div class="om-split om-split--flip">
+        <div class="om-stack">
+          <div class="om-head" data-om-animate>
+            <p class="{{ kicker_class }} om-label">Chapter 6</p>
+            <h2 class="heading title-xl tracking-heading leading-none">Absorbing and using omega-3s</h2>
+          </div>
+          <p class="text-lg leading-normal">Getting EPA and DHA onto your plate is only half the job. Omega-3s are fat-soluble, so what you eat them with changes how much your body takes in and keeps.</p>
+          <p class="{{ kicker_class }} om-label" style="margin-block-start: var(--sp-4);">Four habits that help</p>
+          <div class="om-grid om-grid--2">
+            <div class="om-num" data-om-animate><span class="text-sm text-opacity">01</span><h3 class="heading title-sm leading-tight">Eat them with fat.</h3><p class="text-base leading-normal">Your body needs bile to absorb omega-3s, and bile is released when you eat fat. A drizzle of olive oil, some avocado, or the fish’s own skin-on fat is enough.</p></div>
+            <div class="om-num" data-om-animate data-om-delay="80"><span class="text-sm text-opacity">02</span><h3 class="heading title-sm leading-tight">Pair them with vitamin E.</h3><p class="text-base leading-normal">Vitamin E sits beside omega-3s in your cell membranes and protects them from oxidation.</p></div>
+            <div class="om-num" data-om-animate data-om-delay="160"><span class="text-sm text-opacity">03</span><h3 class="heading title-sm leading-tight">Keep vitamin D in the mix.</h3><p class="text-base leading-normal">Vitamin D is another nutrient fatty fish supplies. We test and publish omega-3, protein, selenium, vitamin D and B12.</p></div>
+            <div class="om-num" data-om-animate data-om-delay="240"><span class="text-sm text-opacity">04</span><h3 class="heading title-sm leading-tight">Watch your omega-6s.</h3><p class="text-base leading-normal">Omega-3 and omega-6 fats compete for the same spots in your cell membranes and the same enzymes. Fewer seed oils means more room for omega-3s to work (see <a class="link" href="#om-labels">Chapter 3</a>).</p></div>
+          </div>
+        </div>
+        <div class="om-split__media om-stack">
+          <div class="om-media om-media--tall">
+            {%- if img_abs != blank -%}{{ img_abs | image_url: width: 1333 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 45vw, 100vw', widths: '500,800,1100,1333', alt: 'A plate of eggs, salmon roe and avocado held in one hand.' }}{%- endif -%}
+            <ul class="om-chips om-chips--over om-chips--top" role="list" data-om-fly>
+              <li style="--om-delay: 0ms;"><span class="om-chip">{{ om_check }}with fat</span></li>
+              <li style="--om-delay: 140ms;"><span class="om-chip">{{ om_check }}with vitamin E</span></li>
+              <li style="--om-delay: 280ms;"><span class="om-chip">{{ om_check }}with fewer seed oils</span></li>
+            </ul>
+          </div>
+          <div class="om-card">
+            <p class="{{ kicker_class }} om-label">Whole food vs. supplements</p>
+            {%- comment -%} Verbatim: claims guide §4.E, with its rider that supplements work. {%- endcomment -%}
+            <p class="heading title-sm leading-tight om-italic">A capsule gives you two molecules. A fillet gives you the whole matrix.</p>
+            <p class="text-base leading-normal">Supplements can have a useful place, including for people who don’t eat seafood or have specific nutritional needs.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="om-split">
+        <div class="om-stack">
+          <div class="om-head" data-om-animate>
+            <p class="{{ kicker_class }} om-label">Chapter 6 · Absorbing and using omega-3s</p>
+            <h3 class="heading title-lg tracking-heading leading-tight">Vitamin D and vitamin E sources</h3>
+          </div>
+          <div class="om-grid om-grid--2">
+            <div class="om-stack" style="gap: var(--sp-3);">
+              <h4 class="title-sm leading-tight" style="font-family: var(--font-body-family); font-weight: 600;">Vitamin D sources</h4>
+              <ul class="om-list text-lg leading-snug" role="list">
+                <li>Fatty fish like salmon, trout, mackerel, sardines and herring (the same fish that are high in omega-3s)</li>
+                <li>Egg yolks</li>
+                <li>Beef liver</li>
+              </ul>
+            </div>
+            <div class="om-stack" style="gap: var(--sp-3);">
+              <h4 class="title-sm leading-tight" style="font-family: var(--font-body-family); font-weight: 600;">Vitamin E sources</h4>
+              <ul class="om-list text-lg leading-snug" role="list">
+                <li>Sunflower seeds</li>
+                <li>Almonds and hazelnuts</li>
+                <li>Peanuts and peanut butter</li>
+                <li>Avocado</li>
+                <li>Spinach and Swiss chard</li>
+              </ul>
+            </div>
+          </div>
+          <div class="om-card">
+            <p class="{{ kicker_class }} om-label">Pregnant?</p>
+            <p class="text-base leading-normal om-italic">Beef liver is very high in preformed vitamin A. Ask your OB about liver and vitamin A during pregnancy.</p>
+          </div>
+        </div>
+        <div class="om-media om-media--land">
+          {%- if img_de != blank -%}{{ img_de | image_url: width: 1800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 45vw, 100vw', widths: '500,800,1200,1800', alt: 'Chard, spinach, avocado, almonds and seeds on a round wooden board.' }}{%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} ============================ 07 TOGETHER ============================ {%- endcomment -%}
+  {%- assign img_tog = images['omegamaxxing-15-crudo-platter-overhead.jpg'] -%}
+  {%- assign img_cut = images['omegamaxxing-12-slicing-salmon.jpg'] -%}
+  <section class="om-band" id="om-together">
+    <div class="page-width om-stack" style="gap: var(--sp-8);">
+      <div class="om-split" style="align-items: center;">
+        <div class="om-stack">
+          <div class="om-head" data-om-animate>
+            <p class="{{ kicker_class }} om-label">Chapter 7</p>
+            <h2 class="heading title-xl tracking-heading leading-none">Putting it all together</h2>
+          </div>
+          <p class="{{ kicker_class }} om-label" style="margin-block-start: var(--sp-6);">A weekly target</p>
+          <p class="om-big" data-om-animate>2–3</p>
+          <p class="heading title-sm leading-tight om-italic">servings a week, from the FDA/EPA Best Choices list.</p>
+          <p class="text-lg leading-normal">Start with FDA/EPA’s 2–3 servings a week, test your Omega-3 Index, and adjust from there.</p>
+        </div>
+        <media-element class="om-media om-media--tall block" data-parallax="0.12" data-parallax-dir="vertical">
+          <picture class="block w-full h-full" is="animate-picture" data-animate="zoom-out">
+            {%- if img_tog != blank -%}{{ img_tog | image_url: width: 1600 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 45vw, 100vw', widths: '500,800,1200,1600', alt: 'Salmon crudo on a platter, seen from above.' }}{%- endif -%}
+          </picture>
+        </media-element>
+      </div>
+
+      <div class="om-head" data-om-animate>
+        <p class="{{ kicker_class }} om-label">Chapter 7 · Putting it all together</p>
+        <h3 class="heading title-lg tracking-heading leading-tight">Quick checklist</h3>
+      </div>
+      <ul class="om-checks text-lg leading-snug" role="list">
+        <li>Test your Omega-3 Index and omega-6:omega-3 ratio, then retest after 3–4 months.</li>
+        <li>Buy fattier, cold-water fish first (salmon, steelhead).</li>
+        <li>Cut back on refined seed oils and processed foods.</li>
+        <li>Keep portions frozen until the day you cook them; thaw overnight in the fridge.</li>
+        <li>Default to poaching, steaming, low-temp baking or a quick sear.</li>
+        <li>Cook to rare or medium, not well-done — pull it a little earlier than you think.</li>
+        <li>Eat it with fat and vitamin E: olive oil, avocado, nuts or seeds.</li>
+        <li>Try a raw preparation (sashimi, poke, crudo) now and then: nothing is lost to cooking.</li>
+        <li>If you supplement, choose a fresh, third-party-tested product and take it with a meal.</li>
+      </ul>
+      <div class="om-media om-media--wide">
+        {%- if img_cut != blank -%}{{ img_cut | image_url: width: 2400 | image_tag: loading: 'lazy', sizes: '100vw', widths: '800,1200,1600,2000,2400', alt: 'Cubing a salmon fillet on a dark cutting board.' }}{%- endif -%}
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%}
+    Pregnancy and breastfeeding. Claims guide §4.G: state their advice about fish, never our
+    conclusion about our fish for that group. The FDA/EPA sentence and the Food Code line are
+    verbatim green. The PDF's fertility and preconception copy is held for Clark.
+  {%- endcomment -%}
+  {%- assign img_preg = images['omegamaxxing-09-smoked-salmon-toast.jpg'] -%}
+  <section class="om-band om-tone--sage" id="om-pregnancy">
+    <div class="page-width om-split" style="align-items: center;">
+      <div class="om-stack">
+        <div class="om-head" data-om-animate>
+          <p class="{{ kicker_class }} om-label">If you’re pregnant or breastfeeding</p>
+          <h2 class="heading title-lg tracking-heading leading-tight">What FDA and EPA recommend</h2>
+        </div>
+        <p class="heading title-sm leading-tight">FDA and EPA recommend 2 to 3 servings a week, 4 oz each, from their “Best Choices” list for people who are pregnant or breastfeeding. Salmon is on that list.</p>
+        <p class="text-base"><a class="link font-medium" href="https://www.fda.gov/food/consumers/advice-about-eating-fish" target="_blank" rel="noopener">Read the FDA/EPA advice about eating fish</a></p>
+        <h3 class="heading title-sm leading-tight" style="margin-block-start: var(--sp-4);">Raw and smoked fish</h3>
+        <p class="text-lg leading-normal">Farmed fish are exempt from the FDA Food Code’s parasite-freezing rule. We blast-freeze at harvest anyway.</p>
+        <p class="text-lg leading-normal">Freezing doesn’t eliminate Listeria, though, so standard pregnancy guidance still recommends cooking fish to 145°F and avoiding cold-smoked fish.</p>
+      </div>
+      <div class="om-media om-media--land">
+        {%- if img_preg != blank -%}{{ img_preg | image_url: width: 1800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 45vw, 100vw', widths: '500,800,1200,1800', alt: 'Smoked salmon on toast with avocado, chives and edible flowers.' }}{%- endif -%}
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} ============================ 08 RECIPE IDEAS ============================ {%- endcomment -%}
+  {%- capture om_groups -%}raw|Raw: the most omega-3s|Easy ways to work salmon or steelhead into your week, grouped from most omega-3s kept to least. Every idea works with either fish.|No heat means nothing lost to cooking. Pair with avocado, sesame, olive oil or seaweed so the fat helps you absorb it.|omegamaxxing-19-shiso-roe-bite.jpg|Salmon and roe on a shiso leaf.^liquid|Gently cooked in liquid: most omega-3s kept|Low heat and liquid keep oxygen out, so these are the best cooked options.||omegamaxxing-17-sashimi-chopsticks-overhead.jpg|Sliced salmon and chopsticks on a plate, from above.^bake|One-pan bake: easy and still good|||omegamaxxing-20-one-pan-bake.jpg|Salmon fillets, tomatoes, olives and feta on one sheet pan.{%- endcapture -%}
+  {%- assign groups = om_groups | split: '^' -%}
+  <section class="om-band" id="om-recipes">
+    <div class="page-width om-stack" style="gap: calc(var(--sp-8) * 1.5);">
+      <div class="om-head" data-om-animate>
+        <p class="{{ kicker_class }} om-label">Chapter 8</p>
+        <h2 class="heading title-xl tracking-heading leading-none">Recipe ideas</h2>
+      </div>
+
+      {%- for grow in groups -%}
+        {%- assign g = grow | split: '|' -%}
+        {%- assign gimg = images[g[4]] -%}
+        <div class="om-stack" style="gap: var(--sp-6);">
+          <div class="om-split{% cycle '', ' om-split--flip', '' %}" style="align-items: start;">
+            <div class="om-stack">
+              <h3 class="heading title-lg tracking-heading leading-tight" data-om-animate>{{ g[1] }}</h3>
+              {%- if g[2] != blank -%}<p class="text-lg leading-normal">{{ g[2] }}</p>{%- endif -%}
+              {%- if g[3] != blank -%}<p class="text-lg leading-normal om-italic">{{ g[3] }}</p>{%- endif -%}
+              <dl class="om-ideas">
+                {%- case g[0] -%}
+                  {%- when 'raw' -%}
+                    <div><dt class="heading title-sm">Crudo</dt><dd><span class="text-base leading-normal">Thin slices with good olive oil, citrus, flaky salt and a few herbs. Ready in five minutes.</span><span class="om-tags"><a href="/products/steelhead-sashimi-loin-12oz">Steelhead loin</a><a href="/products/scallop-meat-16oz">Scallops</a></span></dd></div>
+                    <div><dt class="heading title-sm">Poke bowl</dt><dd><span class="text-base leading-normal">Cubes tossed with tamari, sesame oil and scallion, over rice or greens with avocado and cucumber.</span><span class="om-tags"><a href="/products/atlantic-salmon-2x-6oz-portions">Atlantic salmon</a></span></dd></div>
+                    <div><dt class="heading title-sm">Sushi or sashimi</dt><dd><span class="text-base leading-normal">Sliced over seasoned rice, or on its own with a little wasabi and pickled ginger.</span><span class="om-tags"><a href="/products/king-salmon">King salmon</a><a href="/products/atlantic-salmon-2x-6oz-portions">Atlantic salmon</a><a href="/products/steelhead-sashimi-loin-12oz">Steelhead loin</a></span></dd></div>
+                    <div><dt class="heading title-sm">Hand rolls</dt><dd><span class="text-base leading-normal">Nori, a spoonful of rice, a strip of fish, avocado and cucumber. Set everything out and let everyone roll their own.</span><span class="om-tags"><a href="/products/atlantic-salmon-2x-6oz-portions">Atlantic salmon</a></span></dd></div>
+                    <div><dt class="heading title-sm">Cold-smoked lox</dt><dd><span class="text-base leading-normal">Ready to eat as it comes, with no cooking step.</span><span class="om-tags"><a href="/products/seatopia-steelhead-4oz-smoked">Steelhead lox</a></span></dd></div>
+                  {%- when 'liquid' -%}
+                    <div><dt class="heading title-sm">Poached in miso soup</dt><dd><span class="text-base leading-normal">Bring the broth to a bare simmer, not a boil. Add bite-size pieces with tofu and greens, and turn off the heat once the fish turns opaque. Stir in the miso last.</span></dd></div>
+                    <div><dt class="heading title-sm">Chowder</dt><dd><span class="text-base leading-normal">Build the base first (potatoes, leeks, corn, broth or milk). Add chunks of fish in the last few minutes and let them cook through in the hot soup, off the boil.</span></dd></div>
+                    <div><dt class="heading title-sm">Any soup or stew</dt><dd><span class="text-base leading-normal">The same rule works everywhere: add the fish last, keep the heat low, and stop cooking as soon as it’s done.</span></dd></div>
+                  {%- when 'bake' -%}
+                    <div><dt class="heading title-sm">Sheet-pan or parchment bake</dt><dd><span class="text-base leading-normal">Put fish and vegetables (asparagus, cherry tomatoes, fennel, lemon slices) on one pan with olive oil. Bake at 275–325°F until just done. Wrapping each portion in parchment (en papillote) keeps air out and the fish moist.</span></dd></div>
+                    <div><dt class="heading title-sm">Smoked fish: a treat, not the staple</dt><dd><span class="text-base leading-normal">Hot-smoked at home: brine, then smoke low and slow until the fish flakes. Smoking takes longer than other methods, so you’ll lose more omega-3s. Enjoy it for flavor and variety, and flake it onto salads, eggs, toast or pasta.</span></dd></div>
+                {%- endcase -%}
+              </dl>
+              {%- if g[0] == 'raw' -%}
+                <p class="text-base leading-normal"><strong>Pregnant?</strong> Skip raw and cold-smoked fish (see <a class="link" href="#om-pregnancy">pregnancy and breastfeeding</a>).</p>
+                <p class="text-sm leading-normal text-opacity om-italic">Eating raw or undercooked seafood may increase your risk of foodborne illness. The FDA conservatively suggests cooking to an internal temperature of 145°F.</p>
+              {%- endif -%}
+            </div>
+            <div class="om-split__media om-stack">
+              <div class="om-media om-media--land">
+                {%- if gimg != blank -%}{{ gimg | image_url: width: 1800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 45vw, 100vw', widths: '500,800,1200,1800', alt: g[5] }}{%- endif -%}
+                {%- if g[0] == 'liquid' -%}
+                  <ul class="om-chips om-chips--over" role="list" data-om-fly><li><span class="om-chip">{{ om_check }}a simmer, not a boil</span></li></ul>
+                {%- endif -%}
+              </div>
+              {%- if g[0] == 'raw' -%}
+                {%- assign roe_img = images['omegamaxxing-05-salmon-roe-spoon.jpg'] -%}
+                <a class="om-card" href="/products/lab-tested-salmon-roe-caviar" style="color: inherit; text-decoration: none; flex-direction: row; align-items: center; gap: var(--sp-5);">
+                  <span class="om-media" style="flex: none; width: 6.5rem; aspect-ratio: 1;">{%- if roe_img != blank -%}{{ roe_img | image_url: width: 300 | image_tag: loading: 'lazy', widths: '150,300', sizes: '104px', alt: 'A spoonful of salmon roe.' }}{%- endif -%}</span>
+                  <span class="flex flex-col gap-1">
+                    <span class="{{ kicker_class }} om-label">Finish anything with roe</span>
+                    <span class="text-base leading-normal om-italic">A spoonful of salmon roe adds omega-3s to eggs, salads, potatoes, toast or crudités.</span>
+                    <span class="text-sm font-medium" style="text-decoration: underline; text-underline-offset: .2em;">Shop Salmon Roe Caviar</span>
+                  </span>
+                </a>
+              {%- endif -%}
+            </div>
+          </div>
+
+          {%- liquid
+            assign group_blocks = section.blocks | where: 'type', 'recipe'
+            assign shown = 0
+          -%}
+          <div class="om-recipes">
+            {%- for block in group_blocks -%}
+              {%- if block.settings.group != g[0] -%}{%- continue -%}{%- endif -%}
+              {%- assign art = block.settings.article -%}
+              {%- if art == blank -%}{%- continue -%}{%- endif -%}
+              {%- assign shown = shown | plus: 1 -%}
+              <a class="om-recipe" href="{{ art.url }}" {{ block.shopify_attributes }} data-om-animate data-om-delay="{{ shown | minus: 1 | times: 80 }}">
+                <span class="om-media">
+                  {%- if art.image != blank -%}{{ art.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 22vw, 70vw', widths: '400,600,800', alt: art.image.alt | default: art.title }}{%- endif -%}
+                </span>
+                <span class="text-sm text-opacity">Recipe</span>
+                <span class="om-recipe__title heading title-sm leading-tight">{{ art.title | remove: 'Seafood 101: ' | remove: 'Seafood 201: ' | remove: 'Seafood 101:  ' | strip }}</span>
+              </a>
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </section>
+
+  {%- comment -%} ============================ WHAT ARRIVES ============================ {%- endcomment -%}
+  {%- assign box_d = images['omegamaxxing-24-delivery-box-overhead.jpg'] -%}
+  {%- assign box_m = images['omegamaxxing-25-delivery-box-vertical.jpg'] -%}
+  <section class="om-band om-tone--dark">
+    <div class="page-width om-split" style="align-items: center;">
+      <div class="om-stack">
+        <div class="om-head" data-om-animate>
+          <p class="{{ kicker_class }} om-label">What arrives</p>
+          <h2 class="heading title-xl tracking-heading leading-none">Frozen at harvest. Ready when you are.</h2>
+        </div>
+        {%- comment -%} Verbatim: claims guide §4.F. {%- endcomment -%}
+        <p class="text-lg leading-normal">Blast-frozen to -10°F at harvest, vacuum sealed. Keep portions frozen until the day you cook them, then thaw overnight in the fridge.</p>
+        <p class="text-lg leading-normal">Blast-frozen, with a frozen delivery guarantee. <a class="link" href="/policies/shipping-policy">See the terms</a>.</p>
+        <div class="flex flex-wrap gap-4 items-center">
+          <a class="button button--primary button--md" href="{{ s.shop_link | default: '/products/salmon-box' }}" is="hover-link">
+            <span class="btn-fill" data-fill></span>
+            <span class="btn-text">{{ s.shop_label | default: 'Shop the Salmon Lover’s Box' }}</span>
+          </a>
+          <a class="link font-medium text-base" href="/blogs/seafood-recipes/best-ways-to-defrost-sushi-grade-seafood-for-sashimi-and-cooking">How to defrost</a>
+        </div>
+      </div>
+      <div class="om-media om-media--land">
+        <picture class="block w-full h-full">
+          {%- if box_m != blank -%}<source media="(max-width: 749px)" srcset="{{ box_m | image_url: width: 750 }} 750w, {{ box_m | image_url: width: 1100 }} 1100w" sizes="100vw">{%- endif -%}
+          {%- if box_d != blank -%}{{ box_d | image_url: width: 1800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 45vw, 100vw', widths: '600,900,1200,1800', alt: 'An open Seatopia delivery box of vacuum-sealed frozen seafood, from above.' }}{%- endif -%}
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} ============================ REFERENCES ============================ {%- endcomment -%}
+  <section class="om-band" style="padding-block-end: 0;">
+    <div class="page-width">
+      <div class="om-stack om-refs" style="max-width: 46rem; padding-block-start: var(--sp-8); border-block-start: 1px solid rgb(var(--color-border));">
+        <h2 class="heading title-sm">Sources</h2>
+        <ol class="text-sm leading-normal text-opacity">
+          <li>U.S. Food and Drug Administration and U.S. Environmental Protection Agency. <a class="link" href="https://www.fda.gov/food/consumers/advice-about-eating-fish"><em>Advice about eating fish.</em></a></li>
+          <li>FDA Food Code 3-402.11, parasite destruction. <a class="link" href="https://www.law.cornell.edu/regulations/washington/WAC-246-215-03425"><em>Parasite destruction (as adopted).</em></a></li>
+          <li>Seatopia. Lab results published on each product page, from third-party Certificates of Analysis by Edacious and EMSL.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+</article>
+{%- endif -%}
+
+<script>
+  (function () {
+    var root = document.getElementById('shopify-section-{{ section.id }}');
+    if (!root) return;
+    var reveal = function (sel) {
+      var els = root.querySelectorAll(sel);
+      if (!els.length) return;
+      if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('is-in'); }); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+      }, { threshold: 0.3 });
+      els.forEach(function (el) { io.observe(el); });
+    };
+    reveal('[data-om-fly]');
+    reveal('[data-om-bars]');
+
+    /* Fade-ups through the theme's own Animation class, as on the freshness page. */
+    var run = function () {
+      if (!window.theme || !theme.Animation || !window.Motion || theme.config.motionReduced) return;
+      root.querySelectorAll('[data-om-animate]').forEach(function (el) {
+        el.setAttribute('data-animate', 'fade-up');
+        if (el.hasAttribute('data-om-delay')) el.setAttribute('data-animate-delay', el.getAttribute('data-om-delay'));
+        var a = new theme.Animation(el);
+        a.type = 'fade-up';
+        a.beforeLoad();
+        Motion.inView(el, function () { a.load(); }, { margin: '0px 0px -10% 0px' });
+      });
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+    else run();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Omegamaxxing guide",
+  "tag": "section",
+  "class": "section-omega-guide",
+  "settings": [
+    {
+      "type": "select", "id": "part", "label": "Part", "default": "one",
+      "options": [
+        { "value": "one", "label": "Part one: basics, testing, labels, choosing" },
+        { "value": "two", "label": "Part two: cooking, absorbing, recipes" }
+      ],
+      "info": "Copy follows the claims guide. Edit wording in code, with the guide open."
+    },
+    { "type": "product", "id": "test_product", "label": "Omega-3 test product", "info": "Part one. Button under the testing chapter." },
+    { "type": "text", "id": "shop_label", "label": "Shop button label", "default": "Shop the Salmon Lover’s Box" },
+    { "type": "url", "id": "shop_link", "label": "Shop button link" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "band_padding", "label": "Band padding (desktop)", "min": 40, "max": 160, "step": 4, "unit": "px", "default": 96 },
+    { "type": "range", "id": "band_padding_mobile", "label": "Band padding (mobile)", "min": 24, "max": 120, "step": 4, "unit": "px", "default": 60 },
+    { "type": "header", "content": "Sage band" },
+    { "type": "color", "id": "sage_background", "label": "Background", "default": "#CDD9D1" },
+    { "type": "color", "id": "sage_text", "label": "Text", "default": "#1D3D3E" },
+    { "type": "header", "content": "Dark band" },
+    { "type": "color", "id": "dark_background", "label": "Background", "default": "#1D3D3E" },
+    { "type": "color", "id": "dark_text", "label": "Text", "default": "#F7EFE6" }
+  ],
+  "blocks": [
+    {
+      "type": "recipe",
+      "name": "Recipe card",
+      "settings": [
+        {
+          "type": "select", "id": "group", "label": "Shows under", "default": "raw",
+          "options": [
+            { "value": "raw", "label": "Raw" },
+            { "value": "liquid", "label": "Gently cooked in liquid" },
+            { "value": "bake", "label": "One-pan bake" }
+          ]
+        },
+        { "type": "article", "id": "article", "label": "Recipe" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Omegamaxxing guide" }]
+}
+{% endschema %}
