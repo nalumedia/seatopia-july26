@@ -687,7 +687,7 @@
         "anchor": "gift",
         "heading": "Give the gift of seafood they can trust.",
         "text": "<p>Buy a Seatopia gift card for someone on your team, and we’ll send you a bonus gift card for yourself.</p>",
-        "footnote": "<p>Bonus applies to gift card purchases in one order and is emailed to you as a separate gift card after purchase.</p>"
+        "footnote": "<p>Based on the gift card total in one order, through December 31, 2026. Your bonus gift card is emailed to you within 2 business days of purchase and can be used on your own order.</p>"
       },
       "blocks": {
         "g1": {
@@ -695,9 +695,9 @@
           "settings": {
             "image": "shopify://shop_images/omegamaxxing-15-crudo-platter-overhead.jpg",
             "big": "Get $25",
-            "title": "when you give $100",
-            "cta_label": "Shop gift cards",
-            "cta_link": "/products/seatopia-gift-card"
+            "title": "when you give $150",
+            "cta_label": "Give $150",
+            "cta_link": "/products/seatopia-gift-card?variant=45093617631483"
           }
         },
         "g2": {
@@ -706,9 +706,9 @@
             "image": "shopify://shop_images/omegamaxxing-09-smoked-salmon-toast.jpg",
             "featured": true,
             "big": "Get $75",
-            "title": "when you give $250",
-            "cta_label": "Shop gift cards",
-            "cta_link": "/products/seatopia-gift-card"
+            "title": "when you give $350",
+            "cta_label": "Give $350",
+            "cta_link": "/products/seatopia-gift-card?variant=43747562553595"
           }
         },
         "g3": {
@@ -716,9 +716,9 @@
           "settings": {
             "image": "shopify://shop_images/omegamaxxing-20-one-pan-bake.jpg",
             "big": "Get $150",
-            "title": "when you give $400",
-            "cta_label": "Shop gift cards",
-            "cta_link": "/products/seatopia-gift-card"
+            "title": "when you give $500",
+            "cta_label": "Give $500",
+            "cta_link": "/products/seatopia-gift-card?variant=43747562586363"
           }
         }
       },
@@ -808,7 +808,7 @@
           "type": "question",
           "settings": {
             "question": "How do the gift card bonuses work?",
-            "answer": "<p>Buy $100 in Seatopia gift cards in one order and we’ll email you a $25 bonus gift card; $250 gets you $75, and $400 gets you $150. The bonus is a separate gift card for you to keep.</p>"
+            "answer": "<p>Buy $150 in Seatopia gift cards in one order and we’ll email you a $25 bonus gift card; $350 gets you $75, and $500 or more gets you $150. Through December 31, 2026. The bonus arrives as a separate gift card within 2 business days.</p>"
           }
         },
         "q_sashimi": {
