@@ -12,14 +12,35 @@
 
     <ul class="uikit-boxgrid" role="list">
       {%- for block in section.blocks -%}
+        {%- liquid
+          assign bp = block.settings.product
+          assign b_img = block.settings.image
+          if b_img == blank and bp != blank
+            assign b_img = bp.featured_image
+          endif
+          assign b_link = block.settings.link
+          if b_link == blank and bp != blank
+            assign b_link = bp.url
+          endif
+          assign b_title = block.settings.title
+          if b_title == blank and bp != blank
+            assign b_title = bp.title
+          endif
+        -%}
         <li class="uikit-boxgrid__item" {{ block.shopify_attributes }}>
-          <a class="uikit-boxgrid__link" href="{{ block.settings.link | default: '#' }}">
+          <a class="uikit-boxgrid__link" href="{{ b_link | default: '#' }}">
             <span class="uikit-media uikit-boxgrid__media" style="--uk-ratio: 4 / 3;">
-              {%- if block.settings.image != blank -%}
-                {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 373px, 100vw', widths: '400,600,900', alt: block.settings.image.alt | default: '' }}
+              {%- if b_img != blank -%}
+                {{ b_img | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 373px, 100vw', widths: '400,600,900', alt: b_img.alt | default: b_title }}
+              {%- endif -%}
+              {%- if block.settings.tag != blank -%}<span class="uikit-label-s uikit-boxgrid__tag">{{ block.settings.tag }}</span>{%- endif -%}
+            </span>
+            <span class="uikit-boxgrid__row">
+              <span class="uikit-label-l uikit-boxgrid__name">{{ b_title }}</span>
+              {%- if block.settings.show_price and bp != blank -%}
+                <span class="uikit-body-s uikit-boxgrid__price">{% if bp.price_varies %}From {% endif %}{{ bp.price_min | money_without_trailing_zeros }}</span>
               {%- endif -%}
             </span>
-            <span class="uikit-label-l uikit-boxgrid__name">{{ block.settings.title }}</span>
             <span class="uikit-body-s uikit-muted">{{ block.settings.text }}</span>
           </a>
         </li>
@@ -36,6 +57,10 @@
   .uikit-boxgrid__link { display: flex; flex-direction: column; gap: 12px; color: inherit; text-decoration: none; }
   .uikit-boxgrid__media { aspect-ratio: 4 / 3; }
   .uikit-boxgrid__name { color: var(--uk-heading); }
+  .uikit-boxgrid__media { position: relative; }
+  .uikit-boxgrid__tag { position: absolute; left: 16px; top: 16px; padding: 6px 12px; border-radius: var(--uk-radius-pill); background: var(--uk-white); color: var(--uk-heading); }
+  .uikit-boxgrid__row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .uikit-boxgrid__price { color: var(--uk-heading); white-space: nowrap; }
   .uikit-boxgrid__link:hover .uikit-boxgrid__media { opacity: .9; }
   @media (max-width: 989px) { .uikit-boxgrid { grid-template-columns: 1fr; gap: 32px; } }
 </style>
@@ -52,6 +77,9 @@
   ],
   "blocks": [
     { "type": "box", "name": "Box", "settings": [
+      { "type": "product", "id": "product", "label": "Product", "info": "Supplies the image, title, link and price when those are empty." },
+      { "type": "checkbox", "id": "show_price", "label": "Show starting price", "default": false },
+      { "type": "text", "id": "tag", "label": "Tag on image" },
       { "type": "image_picker", "id": "image", "label": "Image" },
       { "type": "text", "id": "title", "label": "Title", "default": "Salmon Lovers Box" },
       { "type": "textarea", "id": "text", "label": "Text" },

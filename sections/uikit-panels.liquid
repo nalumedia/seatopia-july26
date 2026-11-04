@@ -1,0 +1,120 @@
+{%- comment -%}
+  UI kit — published lab panels, one tab per product. Each tab renders the same Edacious
+  embed the product page carries (loaded globally in layout/theme.liquid), so the numbers
+  are the ones we already publish, never retyped. Find a product's embed ID and config in
+  its product template's liquid block (data-edacious-product).
+{%- endcomment -%}
+
+<div class="uikit uikit-section"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | handleize }}"{% endif %}>
+  <div class="uikit-container uikit-panels">
+    <div class="uikit-panels__head">
+      {%- if section.settings.eyebrow != blank -%}<p class="uikit-overline">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.heading != blank -%}<h2 class="uikit-h2">{{ section.settings.heading }}</h2>{%- endif -%}
+      {%- if section.settings.text != blank -%}<div class="uikit-body-m uikit-prose uikit-panels__intro">{{ section.settings.text }}</div>{%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="uikit-panels__tabs" role="tablist" aria-label="{{ section.settings.heading | escape }}">
+        {%- for block in section.blocks -%}
+          <button type="button" role="tab" class="uikit-panels__tab" id="uk-tab-{{ block.id }}" aria-controls="uk-panel-{{ block.id }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" tabindex="{% if forloop.first %}0{% else %}-1{% endif %}" {{ block.shopify_attributes }}>
+            <span class="uikit-label-m">{{ block.settings.name }}</span>
+            {%- if block.settings.detail != blank -%}<span class="uikit-body-s uikit-muted">{{ block.settings.detail }}</span>{%- endif -%}
+          </button>
+        {%- endfor -%}
+      </div>
+
+      {%- for block in section.blocks -%}
+        <div class="uikit-panels__panel" role="tabpanel" id="uk-panel-{{ block.id }}" aria-labelledby="uk-tab-{{ block.id }}"{% unless forloop.first %} hidden{% endunless %}>
+          <div class="uikit-panels__embed">
+            {%- if block.settings.embed_product != blank and block.settings.embed_config != blank -%}
+              <div data-edacious-product='{"brand":"seatopia","product":"{{ block.settings.embed_product | escape }}","config":"{{ block.settings.embed_config | escape }}"}'></div>
+            {%- endif -%}
+          </div>
+          <div class="uikit-panels__side">
+            {%- if block.settings.text != blank -%}<div class="uikit-body-m uikit-prose">{{ block.settings.text }}</div>{%- endif -%}
+            {%- if block.settings.product != blank -%}
+              <a class="uikit-btn uikit-btn--secondary uikit-btn--s" href="{{ block.settings.product.url }}">See {{ block.settings.product.title }}</a>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    {%- endif -%}
+
+    {%- if section.settings.footnote != blank -%}
+      <div class="uikit-body-s uikit-muted uikit-prose uikit-panels__foot">{{ section.settings.footnote }}</div>
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  .uikit-panels__head { display: flex; flex-direction: column; gap: 20px; max-width: 760px; margin-bottom: 40px; }
+  .uikit .uikit-panels__intro { color: var(--uk-heading); }
+  .uikit-panels__tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 28px; scrollbar-width: none; }
+  .uikit-panels__tabs::-webkit-scrollbar { display: none; }
+  .uikit-panels__tab { flex: none; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 14px 20px; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-card); background: var(--uk-white); color: var(--uk-heading); cursor: pointer; font: inherit; text-align: left; transition: border-color .2s ease, background .2s ease; }
+  .uikit-panels__tab[aria-selected="true"] { border-color: var(--uk-heading); background: var(--uk-heading); color: var(--uk-white); }
+  .uikit-panels__tab[aria-selected="true"] .uikit-muted { color: inherit; opacity: .8; }
+  .uikit-panels__panel { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 40px; align-items: center; }
+  .uikit-panels__panel[hidden] { display: none; }
+  .uikit-panels__embed { padding: 20px; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-card); background: var(--uk-white); }
+  .uikit-panels__side { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; color: var(--uk-heading); }
+  .uikit-panels__side a:not(.uikit-btn) { color: inherit; }
+  .uikit-panels__foot { margin-top: 28px; max-width: 760px; }
+  .uikit-panels__foot a { color: inherit; text-decoration: underline; }
+  @media (max-width: 989px) {
+    .uikit-panels__panel { grid-template-columns: 1fr; gap: 24px; }
+    .uikit-panels__embed { padding: 16px; }
+  }
+</style>
+
+<script>
+  (function () {
+    var root = document.getElementById('shopify-section-{{ section.id }}');
+    if (!root) return;
+    var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+    var select = function (tab) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        var p = document.getElementById(t.getAttribute('aria-controls'));
+        if (p) p.hidden = !on;
+      });
+    };
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(t); });
+      t.addEventListener('keydown', function (e) {
+        var n = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : null;
+        if (n === null) return;
+        e.preventDefault();
+        var next = tabs[(n + tabs.length) % tabs.length];
+        select(next); next.focus();
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "UI kit — lab panels",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What's inside, by the numbers" },
+    { "type": "richtext", "id": "text", "label": "Intro" },
+    { "type": "richtext", "id": "footnote", "label": "Footnote" },
+    { "type": "text", "id": "anchor", "label": "Anchor ID" }
+  ],
+  "blocks": [
+    { "type": "panel", "name": "Product panel", "settings": [
+      { "type": "text", "id": "name", "label": "Tab name" },
+      { "type": "text", "id": "detail", "label": "Tab detail", "info": "e.g. 2 portions" },
+      { "type": "text", "id": "embed_product", "label": "Edacious product ID", "info": "From the product template, e.g. bakkafrost-atlantic-salmon-fillet" },
+      { "type": "text", "id": "embed_config", "label": "Edacious config", "info": "e.g. huzutw" },
+      { "type": "richtext", "id": "text", "label": "Text beside the panel" },
+      { "type": "product", "id": "product", "label": "Product page link" }
+    ]}
+  ],
+  "presets": [{ "name": "UI kit — lab panels" }]
+}
+{% endschema %}
