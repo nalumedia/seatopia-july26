@@ -6,7 +6,8 @@
         "text": "Eudēmonia exclusive: $50 off orders of $200 or more with code EUDEMONIA26",
         "link": "/discount/EUDEMONIA26?redirect=/pages/eudemonia",
         "background": "#2e4b59",
-        "text_color": "#ffffff"
+        "text_color": "#ffffff",
+        "partner": "eudemonia"
       }
     },
     "hero": {
@@ -16,9 +17,10 @@
         "subheading": "Third-party tested for nutrition, mercury and microplastics, with the results published. Delivered frozen to your door.",
         "chip": "Code EUDEMONIA26: $50 off orders of $200 or more",
         "cta_label": "Shop the Eudēmonia Box",
-        "cta_link": "/pages/eudemonia#eudemonia-box",
+        "cta_link": "/products/eudemonia-sampler-box",
         "note": "The Seatopia box in Eudēmonia Essentials, the summit’s hand-curated partner bundle.",
-        "image": "shopify://shop_images/eudemonia-kitchen-family.jpg"
+        "image": "shopify://shop_images/eudemonia-kitchen-family.jpg",
+        "partner": "eudemonia"
       },
       "blocks": {
         "badge_coa": {
@@ -312,7 +314,7 @@
             "eyebrow": "Show special",
             "big": "$100 off",
             "title": "The 3-month Eudēmonia plan",
-            "text": "<ul><li>Three Eudēmonia Boxes, one a month, paid up front: $380 instead of $480.</li><li>An Omega-3 Index Plus test kit in box 1 and box 3. Test, eat, retest.</li><li>Pause or change your delivery date anytime.</li></ul>",
+            "text": "<ul><li>Three Eudēmonia Boxes, one a month, paid up front: $379.98 instead of $480.</li><li>An Omega-3 Index Plus test kit in box 1 and box 3. Test, eat, retest.</li><li>Pause or change your delivery date anytime.</li></ul>",
             "terms": "Can’t be combined with EUDEMONIA26.",
             "cta_label": "Choose the 3-month plan",
             "cta_link": "/products/eudemonia-sampler-box"
@@ -463,8 +465,9 @@
       "type": "uikit-box-grid",
       "settings": {
         "layout": "scroll",
+        "show_filters": true,
         "heading": "Choose a curated box, or build your own.",
-        "text": "Our three most-loved boxes, then the specialty boxes. Blast-frozen to -10°F at harvest, vacuum sealed.",
+        "text": "Our favorites, then the specialty boxes. Blast-frozen to -10°F at harvest, vacuum sealed.",
         "cta_label": "Build your own box",
         "cta_link": "/collections/build-your-own-box"
       },
@@ -474,8 +477,9 @@
           "settings": {
             "product": "salmon-box",
             "show_price": true,
+            "show_buy": true,
             "title": "Salmon Lover’s Box",
-            "group": "Most loved",
+            "group": "Favorites",
             "show_savings": true,
             "text": "Salmon and steelhead in individually sealed portions. 12, 18 or 24 portions."
           }
@@ -485,8 +489,9 @@
           "settings": {
             "product": "fish-shell-variety",
             "show_price": true,
+            "show_buy": true,
             "title": "Fish & Shell Variety Box",
-            "group": "Most loved",
+            "group": "Favorites",
             "show_savings": true,
             "text": "Salmon, whitefish and Peruvian scallops. 12, 18 or 24 portions."
           }
@@ -496,8 +501,9 @@
           "settings": {
             "product": "white-fish-box",
             "show_price": true,
+            "show_buy": true,
             "title": "White Fish Box",
-            "group": "Most loved",
+            "group": "Favorites",
             "show_savings": true,
             "text": "Bream, branzino, yellowtail and barramundi. 12, 18 or 24 portions."
           }
@@ -507,12 +513,12 @@
           "settings": {
             "product": "eudemonia-sampler-box",
             "show_price": true,
+            "show_buy": true,
             "title": "The Eudēmonia Box",
             "group": "Specialty",
             "tag": "Eudēmonia exclusive",
             "tag_gold": true,
-            "savings_text": "3-month plan: $380, save $100",
-            "link": "/pages/eudemonia#eudemonia-box",
+            "savings_text": "3-month plan: $379.98, save $100",
             "text": "Eight portions: Atlantic and Alpine King salmon, branzino, steelhead loin and black tiger shrimp."
           }
         },
@@ -521,6 +527,7 @@
           "settings": {
             "product": "the-seatopia-longevity-box",
             "show_price": true,
+            "show_buy": true,
             "title": "The Seatopia Longevity Box",
             "group": "Specialty",
             "text": "Steelhead lox and sashimi loins, Ōra King salmon, branzino, black tiger shrimp and salmon roe. About 6.45 lb."
@@ -531,6 +538,7 @@
           "settings": {
             "product": "the-pregnancy-box",
             "show_price": true,
+            "show_buy": true,
             "title": "The Pregnancy Box",
             "group": "Specialty",
             "show_savings": true,
@@ -542,6 +550,7 @@
           "settings": {
             "product": "shrimp-and-salmon-box",
             "show_price": true,
+            "show_buy": true,
             "title": "Shrimp and Salmon Box",
             "group": "Specialty",
             "text": "Salmon and black tiger shrimp, together in one box."
@@ -677,7 +686,7 @@
         "anchor": "gift",
         "heading": "Give the gift of seafood they can trust.",
         "text": "<p>Buy a Seatopia gift card for someone on your team, and we’ll send you a bonus gift card for yourself.</p>",
-        "footnote": "<p>Bonus applies to gift card purchases in one order and is emailed to you as a separate gift card after purchase.</p>"
+        "footnote": "<p>Based on the gift card total in one order, through December 31, 2026. Your bonus gift card is emailed to you within 2 business days of purchase and can be used on your own order.</p>"
       },
       "blocks": {
         "g1": {
@@ -685,9 +694,9 @@
           "settings": {
             "image": "shopify://shop_images/omegamaxxing-15-crudo-platter-overhead.jpg",
             "big": "Get $25",
-            "title": "when you give $100",
-            "cta_label": "Shop gift cards",
-            "cta_link": "/products/seatopia-gift-card"
+            "title": "when you give $150",
+            "cta_label": "Give $150",
+            "cta_link": "/products/seatopia-gift-card?variant=45093617631483"
           }
         },
         "g2": {
@@ -696,9 +705,9 @@
             "image": "shopify://shop_images/omegamaxxing-09-smoked-salmon-toast.jpg",
             "featured": true,
             "big": "Get $75",
-            "title": "when you give $250",
-            "cta_label": "Shop gift cards",
-            "cta_link": "/products/seatopia-gift-card"
+            "title": "when you give $350",
+            "cta_label": "Give $350",
+            "cta_link": "/products/seatopia-gift-card?variant=43747562553595"
           }
         },
         "g3": {
@@ -706,9 +715,9 @@
           "settings": {
             "image": "shopify://shop_images/omegamaxxing-20-one-pan-bake.jpg",
             "big": "Get $150",
-            "title": "when you give $400",
-            "cta_label": "Shop gift cards",
-            "cta_link": "/products/seatopia-gift-card"
+            "title": "when you give $500",
+            "cta_label": "Give $500",
+            "cta_link": "/products/seatopia-gift-card?variant=43747562586363"
           }
         }
       },
@@ -798,7 +807,7 @@
           "type": "question",
           "settings": {
             "question": "How do the gift card bonuses work?",
-            "answer": "<p>Buy $100 in Seatopia gift cards in one order and we’ll email you a $25 bonus gift card; $250 gets you $75, and $400 gets you $150. The bonus is a separate gift card for you to keep.</p>"
+            "answer": "<p>Buy $150 in Seatopia gift cards in one order and we’ll email you a $25 bonus gift card; $350 gets you $75, and $500 or more gets you $150. Through December 31, 2026. The bonus arrives as a separate gift card within 2 business days.</p>"
           }
         },
         "q_sashimi": {
@@ -844,6 +853,7 @@
         "text": "<p>Tried the Steelhead Sticks at Eudēmonia? Want to carry Seatopia, partner with us or become an ambassador? Tell us here and it reaches our team directly.</p>",
         "topics": "Steelhead Sticks feedback\nPartnerships\nRetail\nAmbassador / affiliate\nSomething else",
         "bg_image": "shopify://shop_images/eudemonia-summit-crowd.jpg",
+        "partner": "eudemonia",
         "button": "Send",
         "success": "Thank you. We read every message and will reply soon."
       }

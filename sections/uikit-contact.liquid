@@ -10,6 +10,7 @@
   {%- endif -%}
   <div class="uikit-container uikit-contact">
     <div class="uikit-contact__head">
+      {%- if section.settings.partner != 'none' -%}<span class="uikit-contact__partner">{% render 'partner-logo', name: section.settings.partner, style: 'wordmark' %}</span>{%- endif -%}
       {%- if section.settings.eyebrow != blank -%}<p class="uikit-overline">{{ section.settings.eyebrow }}</p>{%- endif -%}
       {%- if section.settings.heading != blank -%}<h2 class="uikit-h2">{{ section.settings.heading }}</h2>{%- endif -%}
       {%- if section.settings.text != blank -%}<div class="uikit-body-m uikit-prose uikit-contact__intro">{{ section.settings.text }}</div>{%- endif -%}
@@ -45,6 +46,9 @@
 
 <style>
   .uikit-contact-wrap { position: relative; }
+  .uikit-contact__partner { display: inline-flex; height: 30px; color: var(--uk-heading); }
+  .uikit-contact-wrap--bg .uikit-contact__partner { color: #fff; }
+  .uikit-contact__partner svg { height: 100%; width: auto; }
   .uikit-contact__bg { position: absolute; inset: 0; overflow: hidden; }
   .uikit-contact__bg img { width: 100%; height: 100%; object-fit: cover; }
   .uikit-contact__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,34,42,.78) 0%, rgba(20,34,42,.55) 45%, rgba(20,34,42,.25) 100%); }
@@ -88,6 +92,10 @@
     { "type": "text", "id": "button", "label": "Button label", "default": "Send" },
     { "type": "text", "id": "success", "label": "Thank-you message", "default": "Thank you. We read every message and will reply soon." },
     { "type": "image_picker", "id": "bg_image", "label": "Background image" },
+    {
+      "type": "select", "id": "partner", "label": "Partner logo", "default": "none",
+      "options": [ { "value": "none", "label": "None" }, { "value": "eudemonia", "label": "Eudēmonia" } ]
+    },
     { "type": "text", "id": "anchor", "label": "Anchor ID" }
   ],
   "presets": [{ "name": "UI kit — contact form" }]

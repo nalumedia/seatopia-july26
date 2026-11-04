@@ -259,7 +259,8 @@
         display: block;
         color: #fff;
       }
-    </style>
+    .rtx-per-box { margin-left: 6px; font-size: .85em; opacity: .75; }
+</style>
 
 {% assign current_product_id_new = product.id | string | strip%}
 
@@ -371,7 +372,12 @@
                     if opt.value_type == 'percentage'
                       assign strSavePercentage = opt.value
                     endif
-                    if strSavePercentage != blank
+                    if selectedOrFirstAllocation.price > currentVariant.price
+                      echo selectedOrFirstAllocation.price | money
+                      echo ' <span class="rtx-per-box">'
+                      echo selectedOrFirstAllocation.per_delivery_price | money
+                      echo ' per box</span>'
+                    elsif strSavePercentage != blank
                       echo selectedOrFirstAllocation.price | money
                       echo '<del>'
                       echo currentVariant.price | money
@@ -424,7 +430,12 @@
               <span class="selected-variant-text">{{ product.selected_or_first_available_variant.title }}</span>
             </li> -->
             <li>Free member gifts, rewards & access to exclusive products 🎁</li>
-            <li>Make clean seafood a regular part of how you eat</li>
+            <li>Make lab-tested seafood a regular part of how you eat</li>
+            {%- assign rtx_first = selectedOrFirstAllocation | default: currentVariant.selling_plan_allocations.first -%}
+            {%- if rtx_first and rtx_first.price > currentVariant.price and rtx_first.per_delivery_price > 0 -%}
+            {%- assign rtx_boxes = rtx_first.price | divided_by: rtx_first.per_delivery_price -%}
+            <li>{{ rtx_boxes }} boxes, one a month, paid up front - pause or change a date anytime.</li>
+            {%- else -%}
              <li>
               Every <span class="subscription_day">{{ freq_days }}</span> days receive a
               <span class="selected-variant-text">
@@ -437,6 +448,7 @@
                 - Pause, skip, or cancel anytime.
               </span>
             </li>
+            {%- endif -%}
           </ul>
         </label>
 
@@ -685,7 +697,12 @@ buyBox.removeEmptyOption();
 
         // Calculate discount and percentage
         let strDiscount = '', strPercentage = '';
-        if (firstSellingPlanAllocation && firstSellingPlanAllocation.price && variant.price && firstSellingPlanAllocation.price != variant.price) {
+        if (firstSellingPlanAllocation && firstSellingPlanAllocation.price && variant.price && firstSellingPlanAllocation.price > variant.price) {
+          // Prepaid plan: the allocation is the up-front total for several deliveries. Show it with
+          // the per-box price; striking through a single box's price would misstate the saving.
+          strDiscount = `${window.retextionApi.formatMoney(firstSellingPlanAllocation.price)}` +
+            (firstSellingPlanAllocation.per_delivery_price ? ` <span class="rtx-per-box">${window.retextionApi.formatMoney(firstSellingPlanAllocation.per_delivery_price)} per box</span>` : '');
+        } else if (firstSellingPlanAllocation && firstSellingPlanAllocation.price && variant.price && firstSellingPlanAllocation.price != variant.price) {
           let percentage = Math.round((1.0 - (firstSellingPlanAllocation.price / variant.price)) * 100);
           if (percentage != 0) {
             strPercentage = `${percentage.toFixed(0)}%`;

@@ -75,7 +75,15 @@
               </a>
             {%- endif -%}
             {%- if b.product != blank -%}
-              <a class="uikit-btn uikit-btn--secondary uikit-btn--s" href="{{ b.product.url }}">Shop {{ b.product.title }}</a>
+              {%- comment -%} The build-your-box buy bar: pack chips with savings, one-tap add to cart. {%- endcomment -%}
+              <div class="uikit-panels__buy">
+                <div class="uikit-panels__buy-head">
+                  <span class="uikit-label-m">{{ b.product.title }}</span>
+                  <a class="uikit-body-s uikit-panels__details" href="{{ b.product.url }}" target="_blank" rel="noopener">View details<span class="visually-hidden"> (opens in a new tab)</span> &#8599;</a>
+                </div>
+                {%- capture pid -%}{{ block.id }}-{{ b.product.id }}{%- endcapture -%}
+                {%- render 'product-card-quick-add', product: b.product, section_id: section.id, product_id: pid -%}
+              </div>
             {%- endif -%}
           </div>
         </div>
@@ -117,6 +125,10 @@
   .uikit-panels__recipe:hover .uikit-panels__recipe-title { text-decoration: underline; text-underline-offset: .2em; }
   .uikit .uikit-panels__recipe-eyebrow { color: var(--uk-gold); letter-spacing: .12em; text-transform: uppercase; }
   .uikit-panels__recipe-title { color: var(--uk-heading); }
+  .uikit-panels__buy { width: 100%; padding: 20px; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-card); background: var(--uk-white); }
+  .uikit-panels__buy-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; color: var(--uk-heading); }
+  .uikit-panels__details { color: var(--uk-heading); text-decoration: underline; text-underline-offset: .2em; white-space: nowrap; }
+  .uikit-panels__buy .card-qa { padding-top: 4px; }
   .uikit-panels__foot { margin-top: 28px; max-width: 760px; }
   .uikit-panels__foot a { color: inherit; text-decoration: underline; }
   @media (max-width: 989px) {

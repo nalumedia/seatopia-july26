@@ -28,6 +28,28 @@
       {%- endif -%}
     </div>
 
+    {%- liquid
+      assign groups = ''
+      for block in section.blocks
+        if block.settings.group != blank
+          assign key = '|' | append: block.settings.group | append: '|'
+          unless groups contains key
+            assign groups = groups | append: key
+          endunless
+        endif
+      endfor
+      assign group_list = groups | remove_first: '|' | split: '||'
+    -%}
+    {%- if section.settings.show_filters and group_list.size > 1 -%}
+      <div class="uikit-boxgrid__filters" role="group" aria-label="Filter boxes">
+        <button type="button" class="uikit-boxgrid__filter" data-uk-filter="" aria-pressed="true">All</button>
+        {%- for g in group_list -%}
+          {%- assign gg = g | remove: '|' -%}
+          <button type="button" class="uikit-boxgrid__filter" data-uk-filter="{{ gg | handleize }}" aria-pressed="false">{{ gg }}</button>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
     <ul class="uikit-boxgrid{% if scroll %} uikit-boxgrid--scroll{% endif %}" role="list" data-uk-track>
       {%- for block in section.blocks -%}
         {%- liquid
@@ -60,7 +82,7 @@
             endif
           endif
         -%}
-        <li class="uikit-boxgrid__item" {{ block.shopify_attributes }}>
+        <li class="uikit-boxgrid__item" data-uk-group="{{ block.settings.group | handleize }}" {{ block.shopify_attributes }}>
           {%- if block.settings.group != blank -%}<p class="uikit-label-s uikit-boxgrid__group">{{ block.settings.group }}</p>{%- endif -%}
           <a class="uikit-boxgrid__link" href="{{ b_link | default: '#' }}">
             <span class="uikit-media uikit-boxgrid__media" style="--uk-ratio: 4 / 3;">
@@ -78,10 +100,17 @@
             <span class="uikit-body-s uikit-muted">{{ block.settings.text }}</span>
             {%- if block.settings.savings_text != blank -%}
               <span class="uikit-label-s uikit-boxgrid__save">{{ block.settings.savings_text }}</span>
-            {%- elsif b_save != '' -%}
+            {%- elsif b_save != '' and block.settings.show_buy == false -%}
               <span class="uikit-label-s uikit-boxgrid__save">{{ b_save }}</span>
             {%- endif -%}
           </a>
+          {%- if block.settings.show_buy and bp != blank -%}
+            {%- comment -%} The curated-boxes buy bar: size chips with savings, one-tap add. {%- endcomment -%}
+            <div class="uikit-boxgrid__buy">
+              {%- capture qa_pid -%}{{ block.id }}-{{ bp.id }}{%- endcapture -%}
+              {%- render 'product-card-quick-add', product: bp, section_id: section.id, product_id: qa_pid -%}
+            </div>
+          {%- endif -%}
         </li>
       {%- endfor -%}
     </ul>
@@ -113,6 +142,12 @@
   .uikit-boxgrid__price { color: var(--uk-heading); white-space: nowrap; }
   .uikit .uikit-boxgrid__save { align-self: flex-start; padding: 5px 10px; border-radius: 6px; background: rgba(187,143,80,.14); color: #8a6430; }
   .uikit-boxgrid__link:hover .uikit-boxgrid__media { opacity: .9; }
+  .uikit-boxgrid__buy { margin-top: auto; }
+  .uikit-boxgrid__buy .card-qa { padding-top: 0; }
+  .uikit-boxgrid__item[hidden] { display: none; }
+  .uikit-boxgrid__filters { display: flex; flex-wrap: wrap; gap: 8px; margin: -24px 0 32px; }
+  .uikit-boxgrid__filter { padding: 10px 20px; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-pill); background: var(--uk-white); color: var(--uk-heading); font: inherit; cursor: pointer; }
+  .uikit-boxgrid__filter[aria-pressed="true"] { background: var(--uk-heading); border-color: var(--uk-heading); color: var(--uk-white); }
   @media (max-width: 989px) {
     .uikit-boxgrid { grid-template-columns: 1fr; gap: 32px; }
     .uikit-boxgrid--scroll { grid-template-columns: none; grid-auto-columns: 72%; gap: 16px; }
@@ -120,6 +155,25 @@
     .uikit-boxgrid__arrows { display: none; }
   }
 </style>
+
+<script>
+  (function () {
+    var root = document.getElementById('shopify-section-{{ section.id }}');
+    if (!root) return;
+    var fs = root.querySelectorAll('[data-uk-filter]');
+    var track = root.querySelector('[data-uk-track]');
+    fs.forEach(function (f) {
+      f.addEventListener('click', function () {
+        var g = f.getAttribute('data-uk-filter');
+        fs.forEach(function (x) { x.setAttribute('aria-pressed', x === f ? 'true' : 'false'); });
+        root.querySelectorAll('.uikit-boxgrid__item').forEach(function (it) {
+          it.hidden = g !== '' && it.getAttribute('data-uk-group') !== g;
+        });
+        if (track) { track.scrollLeft = 0; track.dispatchEvent(new Event('scroll')); }
+      });
+    });
+  })();
+</script>
 
 {%- if scroll -%}
   <script>
@@ -159,6 +213,7 @@
     { "type": "textarea", "id": "text", "label": "Intro", "default": "Lab-tested seafood delivered to your door, snap frozen. Select 12, 18, or 24 portion curated boxes, or build your own." },
     { "type": "text", "id": "cta_label", "label": "Button label", "default": "Build Your Box" },
     { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "checkbox", "id": "show_filters", "label": "Filter buttons by group", "default": false },
     {
       "type": "select", "id": "layout", "label": "Layout", "default": "grid",
       "options": [ { "value": "grid", "label": "Grid" }, { "value": "scroll", "label": "Scrolling" } ]
@@ -168,9 +223,10 @@
     { "type": "box", "name": "Box", "settings": [
       { "type": "product", "id": "product", "label": "Product", "info": "Supplies the image, title, link and price when those are empty." },
       { "type": "checkbox", "id": "show_price", "label": "Show starting price", "default": false },
+      { "type": "checkbox", "id": "show_buy", "label": "Show size picker and Add button", "default": false },
       { "type": "checkbox", "id": "show_savings", "label": "Show per-portion savings", "info": "Largest size against smallest, from the variant names.", "default": false },
       { "type": "text", "id": "savings_text", "label": "Savings line", "info": "Overrides the calculated saving. Only an offer that is live." },
-      { "type": "text", "id": "group", "label": "Group label above card", "info": "e.g. Most loved, Specialty" },
+      { "type": "text", "id": "group", "label": "Group label above card", "info": "e.g. Favorites, Specialty. Also drives the filter buttons." },
       { "type": "text", "id": "tag", "label": "Tag on image" },
       { "type": "checkbox", "id": "tag_gold", "label": "Gold tag", "default": false },
       { "type": "image_picker", "id": "image", "label": "Image" },
