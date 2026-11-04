@@ -332,7 +332,7 @@
         "eyebrow": "Show specials",
         "heading": "Two ways to start",
         "tight": true,
-        "footnote": "<p>Show specials can’t be combined with each other or with other codes. Frozen delivery guarantee terms are in our <a href=\"/policies/shipping-policy\">shipping policy</a>.</p>"
+        "footnote": "<p>EUDEMONIA26 works on one-time orders and subscriptions, and stacks with the 3-month plan. One code per order. Frozen delivery guarantee terms are in our <a href=\"/policies/shipping-policy\">shipping policy</a>.</p>"
       },
       "blocks": {
         "o_plan": {
@@ -344,7 +344,7 @@
             "big": "$100 off",
             "title": "The 3-month Eudēmonia plan",
             "text": "<ul><li>Three Eudēmonia Boxes, one a month, paid up front: $379.98 instead of $480.</li><li>An Omega-3 Index Plus test kit in box 1 and box 3. Test, eat, retest.</li><li>Pause or change your delivery date anytime.</li></ul>",
-            "terms": "Can’t be combined with EUDEMONIA26.",
+            "terms": "Add EUDEMONIA26 at checkout and it’s $329.98 for all three.",
             "cta_label": "Choose the 3-month plan",
             "cta_link": "/products/eudemonia-sampler-box"
           }
@@ -801,7 +801,7 @@
           "type": "question",
           "settings": {
             "question": "How do the Eudēmonia discounts work?",
-            "answer": "<p>Code EUDEMONIA26 takes $50 off any order of $200 or more, for new and existing customers. The 3-month Eudēmonia plan is $100 off three boxes paid up front. One discount per order: the two can’t be combined with each other or with other codes.</p>"
+            "answer": "<p>Code EUDEMONIA26 takes $50 off any order of $200 or more, for new and existing customers, on one-time orders or subscriptions. The 3-month Eudēmonia plan is $379.98 for three boxes paid up front ($100 off), and EUDEMONIA26 stacks with it: $329.98 for all three. One code per order.</p>"
           }
         },
         "q_plan": {
