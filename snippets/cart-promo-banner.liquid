@@ -1,0 +1,67 @@
+{%- comment -%}
+  Cart drawer savings line for campaign codes. Shows only when a campaign landing page has
+  set the cart attribute "promo" (page.eudemonia-uikit does, and applies the code to the
+  cart at the same time; see uikit-promo-bar).
+
+  Every line is worked out from the cart, so it never claims a saving the customer won't get
+  (claims guide rule 11): the amount comes from the discount Shopify actually applied, and
+  below the minimum it says how far there is to go instead.
+
+  The prepaid 3-month Eudēmonia plan carries its own $100 saving and the code doesn't
+  combine with it, so that line wins when the plan is in the cart.
+{%- endcomment -%}
+{%- liquid
+  assign promo = cart.attributes.promo | default: '' | strip | upcase
+
+  assign plan_in_cart = false
+  for item in cart.items
+    if item.selling_plan_allocation and item.selling_plan_allocation.price > item.variant.price
+      if item.product.handle == 'eudemonia-sampler-box'
+        assign plan_in_cart = true
+      endif
+    endif
+  endfor
+
+  assign applied = 0
+  for app in cart.cart_level_discount_applications
+    assign t = app.title | upcase
+    if t == promo
+      assign applied = applied | plus: app.total_allocated_amount
+    endif
+  endfor
+  for item in cart.items
+    for alloc in item.line_level_discount_allocations
+      assign t = alloc.discount_application.title | upcase
+      if t == promo
+        assign applied = applied | plus: alloc.amount
+      endif
+    endfor
+  endfor
+
+  assign min_cents = 0
+  assign off_label = ''
+  case promo
+    when 'EUDEMONIA26'
+      assign min_cents = 20000
+      assign off_label = '$50'
+  endcase
+-%}
+{%- if plan_in_cart and applied > 0 -%}
+  {%- assign both = applied | plus: 10000 -%}
+  <p class="cart-promo cart-promo--on" role="status">✓ You’re saving <strong>{{ both | money_without_trailing_zeros }}</strong>: $100 on the 3-month Eudēmonia plan and {{ applied | money_without_trailing_zeros }} with {{ promo }}.</p>
+{%- elsif plan_in_cart -%}
+  <p class="cart-promo cart-promo--on" role="status">✓ You’re saving <strong>$100</strong> on the 3-month Eudēmonia plan.</p>
+{%- elsif promo == '' -%}
+{%- elsif applied > 0 -%}
+  <p class="cart-promo cart-promo--on" role="status">✓ You’re saving <strong>{{ applied | money_without_trailing_zeros }}</strong> with {{ promo }}.</p>
+{%- elsif min_cents > 0 and cart.items_subtotal_price < min_cents -%}
+  {%- assign gap = min_cents | minus: cart.items_subtotal_price -%}
+  <p class="cart-promo" role="status">Add <strong>{{ gap | money }}</strong> more to save {{ off_label }} with {{ promo }}.</p>
+{%- elsif off_label != '' -%}
+  <p class="cart-promo cart-promo--on" role="status">✓ {{ promo }} is on your order: {{ off_label }} off at checkout.</p>
+{%- endif -%}
+<style>
+  .cart-promo { margin: 10px 0 0; padding: 10px 14px; border-radius: 10px; background: rgba(187,143,80,.12); color: #2e4b59; font-size: 14px; line-height: 1.35; }
+  .cart-promo--on { background: rgba(63,143,83,.12); color: #22543a; }
+  .cart-promo strong { font-weight: 700; }
+</style>
