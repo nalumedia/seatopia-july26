@@ -119,6 +119,7 @@
                 # minimum message here (snippets/cart-shipping-qualify.liquid).
                 render 'cart-shipping-qualify', free_min: minimum_amount
               -%}
+              {%- render 'cart-promo-banner' -%}
 
               {%- liquid
                 if linklists.gift-wrapping.links != blank and linklists.gift-wrapping.links.first.type == 'product_link'

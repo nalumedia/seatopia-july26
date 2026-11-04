@@ -7,7 +7,8 @@
         "link": "/discount/EUDEMONIA26?redirect=/products/eudemonia-sampler-box",
         "background": "#2e4b59",
         "text_color": "#ffffff",
-        "partner": "eudemonia"
+        "partner": "eudemonia",
+        "cart_promo": "EUDEMONIA26"
       }
     },
     "main-product": {

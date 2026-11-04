@@ -19,6 +19,27 @@
   </div>
 </div>
 
+{%- if section.settings.cart_promo != blank -%}
+  <script>
+    /* Campaign pages: apply the code to the cart and tag the cart, so the cart drawer can
+       show the saving (snippets/cart-promo-banner.liquid). Runs once per cart. */
+    (function () {
+      var code = {{ section.settings.cart_promo | strip | upcase | json }};
+      fetch('/cart.js', { headers: { 'Accept': 'application/json' } })
+        .then(function (r) { return r.json(); })
+        .then(function (cart) {
+          if (cart.attributes && cart.attributes.promo === code) return;
+          return fetch('/cart/update.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ attributes: { promo: code }, discount: code })
+          });
+        })
+        .catch(function () {});
+    })();
+  </script>
+{%- endif -%}
+
 <style>
   .uikit-promo { background: var(--uk-promo-bg); color: var(--uk-promo-fg); }
   .uikit-promo__inner { display: flex; align-items: center; justify-content: center; min-height: 53px; text-align: center; }
@@ -36,6 +57,7 @@
     { "type": "paragraph", "content": "Rule 11 of the claims guide: never promote an offer that is not live. Confirm the code is active before publishing." },
     { "type": "text", "id": "text", "label": "Text", "default": "Use code: GREENFIELD for 20% off first order" },
     { "type": "url", "id": "link", "label": "Link" },
+    { "type": "text", "id": "cart_promo", "label": "Apply this code to the cart", "info": "Campaign pages: the code is applied when someone lands here, and the cart shows the saving. Only a live code." },
     {
       "type": "select", "id": "partner", "label": "Partner logo", "default": "none",
       "options": [ { "value": "none", "label": "None" }, { "value": "eudemonia", "label": "Eudēmonia" } ]
