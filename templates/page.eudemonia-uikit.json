@@ -465,8 +465,9 @@
       "type": "uikit-box-grid",
       "settings": {
         "layout": "scroll",
+        "show_filters": true,
         "heading": "Choose a curated box, or build your own.",
-        "text": "Our three most-loved boxes, then the specialty boxes. Blast-frozen to -10°F at harvest, vacuum sealed.",
+        "text": "Our favorites, then the specialty boxes. Blast-frozen to -10°F at harvest, vacuum sealed.",
         "cta_label": "Build your own box",
         "cta_link": "/collections/build-your-own-box"
       },
@@ -476,8 +477,9 @@
           "settings": {
             "product": "salmon-box",
             "show_price": true,
+            "show_buy": true,
             "title": "Salmon Lover’s Box",
-            "group": "Most loved",
+            "group": "Favorites",
             "show_savings": true,
             "text": "Salmon and steelhead in individually sealed portions. 12, 18 or 24 portions."
           }
@@ -487,8 +489,9 @@
           "settings": {
             "product": "fish-shell-variety",
             "show_price": true,
+            "show_buy": true,
             "title": "Fish & Shell Variety Box",
-            "group": "Most loved",
+            "group": "Favorites",
             "show_savings": true,
             "text": "Salmon, whitefish and Peruvian scallops. 12, 18 or 24 portions."
           }
@@ -498,8 +501,9 @@
           "settings": {
             "product": "white-fish-box",
             "show_price": true,
+            "show_buy": true,
             "title": "White Fish Box",
-            "group": "Most loved",
+            "group": "Favorites",
             "show_savings": true,
             "text": "Bream, branzino, yellowtail and barramundi. 12, 18 or 24 portions."
           }
@@ -509,6 +513,7 @@
           "settings": {
             "product": "eudemonia-sampler-box",
             "show_price": true,
+            "show_buy": true,
             "title": "The Eudēmonia Box",
             "group": "Specialty",
             "tag": "Eudēmonia exclusive",
@@ -523,6 +528,7 @@
           "settings": {
             "product": "the-seatopia-longevity-box",
             "show_price": true,
+            "show_buy": true,
             "title": "The Seatopia Longevity Box",
             "group": "Specialty",
             "text": "Steelhead lox and sashimi loins, Ōra King salmon, branzino, black tiger shrimp and salmon roe. About 6.45 lb."
@@ -533,6 +539,7 @@
           "settings": {
             "product": "the-pregnancy-box",
             "show_price": true,
+            "show_buy": true,
             "title": "The Pregnancy Box",
             "group": "Specialty",
             "show_savings": true,
@@ -544,6 +551,7 @@
           "settings": {
             "product": "shrimp-and-salmon-box",
             "show_price": true,
+            "show_buy": true,
             "title": "Shrimp and Salmon Box",
             "group": "Specialty",
             "text": "Salmon and black tiger shrimp, together in one box."
