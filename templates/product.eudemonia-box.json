@@ -374,59 +374,87 @@
       ]
     },
     "doctors": {
-      "type": "creator-quote-slider",
+      "type": "uikit-trust",
+      "settings": {
+        "heading": "Trusted by doctors and thousands of subscribers",
+        "text": "What the doctors who eat it say, and what our subscribers say.",
+        "stat_1": "54,000+::orders delivered",
+        "stat_2": "Thousands::of subscribers",
+        "stat_3": "140+::analytes on our lab panel"
+      },
       "blocks": {
-        "slide_hyman": {
-          "disabled": false,
-          "type": "slide",
+        "d_hyman": {
+          "type": "doctor",
           "settings": {
             "image": "shopify://shop_images/05212021_Mark_Hyman9087-Edit.jpg",
-            "eyebrow": "Recommended by Dr. Mark Hyman, MD · Paid partner",
+            "name": "Dr. Mark Hyman, MD",
+            "role": "Functional medicine physician",
+            "disclosure": "Paid partner",
             "quote": "“We are what our food eats.”",
-            "support": "<p>Seafood delivered to your door. We test and publish omega-3, protein, selenium, vitamin D and B12.</p>",
-            "button_label": "Why Dr. Mark Hyman Supports Seatopia",
-            "button_link": "shopify://pages/mark-hyman"
+            "link": "shopify://pages/mark-hyman",
+            "link_label": "Why he supports Seatopia"
           }
         },
-        "slide_means": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/DrCaseyMeans-Seatopia-33.jpg",
-            "eyebrow": "Recommended by Dr. Casey Means, MD",
-            "quote": "“Regenerative aquaculture is seafood production that enhances, rather than depletes, the oceans.”",
-            "support": "<p>Third-party lab tested seafood, farms named and panels published — delivered to your door.</p>",
-            "button_label": "Why Dr. Casey Means supports Seatopia",
-            "button_link": "/pages/casey-means-good-energy"
-          }
-        },
-        "slide_norwitz": {
-          "type": "slide",
+        "d_norwitz": {
+          "type": "doctor",
           "settings": {
             "image": "shopify://shop_images/Nick_1.webp",
-            "eyebrow": "Recommended by Dr. Nick Norwitz, MD PhD · Paid partner",
+            "name": "Dr. Nick Norwitz, MD PhD",
+            "role": "Physician and researcher",
+            "disclosure": "Paid partner",
             "quote": "“Given how much seafood I eat, quality matters. Seatopia delivers on nutrient density and purity, while proving that exceptional nutrition and regenerative aquaculture can go hand in hand.”",
-            "support": "<p>Quantified omega-3s and third-party testing, species by species &mdash; delivered to your door.</p>",
-            "button_label": "Why Dr. Nick Norwitz supports Seatopia",
-            "button_link": "/pages/nick-norwitz-seatopia"
+            "link": "/pages/nick-norwitz-seatopia",
+            "link_label": "Why he supports Seatopia"
+          }
+        },
+        "d_means": {
+          "type": "doctor",
+          "settings": {
+            "image": "shopify://shop_images/DrCaseyMeans-Seatopia-33.jpg",
+            "name": "Dr. Casey Means, MD",
+            "role": "Physician and author",
+            "disclosure": "",
+            "quote": "“Regenerative aquaculture is seafood production that enhances, rather than depletes, the oceans.”",
+            "link": "/pages/casey-means-good-energy",
+            "link_label": "Why she supports Seatopia"
+          }
+        },
+        "r0": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "I look forward to every meal from Seatopia. Each of the different versions of Salmon is unique and tasty. I highly recommend the Salmon Lover's box for quality and taste.",
+            "name": "James J., verified buyer",
+            "disclosure": ""
+          }
+        },
+        "r1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "I would typically only eat wild fish, but then I tasted the salmon at Seatopia. Now I’m completely hooked!",
+            "name": "Andreia W., verified buyer",
+            "disclosure": ""
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "Heard James on the Hyman podcast. Raving fan — already turned my trainer on to it.",
+            "name": "Gaith T., verified buyer",
+            "disclosure": ""
           }
         }
       },
       "block_order": [
-        "slide_hyman",
-        "slide_means",
-        "slide_norwitz"
-      ],
-      "settings": {
-        "aria_label": "Creator endorsements",
-        "image_ratio": "4 / 5",
-        "autoplay_seconds": 7,
-        "color_background": "#d45a3c",
-        "color_text": "#ffffff",
-        "color_button_background": "#ffffff",
-        "color_button_text": "#d45a3c",
-        "padding_top": 72,
-        "padding_bottom": 72
-      }
+        "d_hyman",
+        "d_norwitz",
+        "d_means",
+        "r0",
+        "r1",
+        "r2"
+      ]
     },
     "fresh": {
       "type": "uikit-feature",
