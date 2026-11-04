@@ -308,6 +308,7 @@
           "type": "offer",
           "settings": {
             "featured": true,
+            "image_product": "omegaquant-omega-3-index-plus-test",
             "eyebrow": "Show special",
             "big": "$100 off",
             "title": "The 3-month Eudēmonia plan",
@@ -320,6 +321,7 @@
         "o_code": {
           "type": "offer",
           "settings": {
+            "image": "shopify://shop_images/eudemonia-box-opening.jpg",
             "eyebrow": "For everyone at Eudēmonia",
             "big": "$50 off",
             "title": "Any order of $200 or more",
@@ -342,52 +344,90 @@
         "eyebrow": "The Seatopia Standard",
         "anchor": "lab-panels",
         "heading": "What’s in the Eudēmonia Box, by the numbers",
-        "text": "<p>These are the lab panels we publish on each product page: omega-3s, protein, selenium, vitamin D, mercury and more. Values vary by sample and season.</p>",
-        "footnote": "<p>Every supplier is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard. No microplastics detected in third-party testing. Our limit is 0.1 ppm methylmercury – a tenth of the FDA action level.</p>"
+        "text": "<p>Twelve portions from five partner farms, each third-party lab tested. Here is what our samples measured, per portion, with a recipe for each.</p>",
+        "total_value": "13.6 g",
+        "total_label": "EPA+DHA across the box’s 12 portions, as tested. Values vary by sample and season.",
+        "footnote": "<p>Every supplier is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard. Our limit is 0.1 ppm methylmercury – a tenth of the FDA action level. LOQ is the lowest level the lab can measure.</p>"
       },
       "blocks": {
-        "p_atl": {
-          "type": "panel",
-          "settings": {
-            "name": "Atlantic Salmon",
-            "detail": "2 portions",
-            "embed_product": "bakkafrost-atlantic-salmon-fillet",
-            "embed_config": "huzutw",
-            "product": "atlantic-salmon-2x-6oz-portions",
-            "text": "<p>Open the panel for the full Atlantic Salmon results: omega-3s, protein, minerals and contaminants, as published on the product page.</p>"
-          }
-        },
         "p_alp": {
           "type": "panel",
           "settings": {
             "name": "Alpine King Salmon",
-            "detail": "2 portions",
+            "detail": "2 × 7 oz",
+            "portion": "7 oz portion",
+            "headline_value": "2,315 mg",
+            "headline_label": "EPA+DHA",
             "embed_product": "mt-cook-king-salmon",
             "embed_config": "5wfy5l",
             "product": "mt-cook-alpine-salmon-7oz-filet",
-            "text": "<p>Open the panel for the full Alpine King Salmon results: omega-3s, protein, minerals and contaminants, as published on the product page.</p>"
+            "recipe": "seafood-recipes/mt-cook-salmon-roe-poke-bowl-with-orange-butter-rice",
+            "note": "Means across samples tested. Open the lab panel below for the full results.",
+            "stat_1": "Protein::39.1 g",
+            "stat_2": "Vitamin D::41.9 mcg",
+            "stat_3": "Selenium::69.1 mcg",
+            "stat_4": "Vitamin E::13.9 mg",
+            "stat_5": "Mercury::0.033 ppm"
+          }
+        },
+        "p_atl": {
+          "type": "panel",
+          "settings": {
+            "name": "Atlantic Salmon",
+            "detail": "2 × 6 oz",
+            "portion": "6 oz portion",
+            "headline_value": "1,963 mg",
+            "headline_label": "EPA+DHA",
+            "embed_product": "bakkafrost-atlantic-salmon-fillet",
+            "embed_config": "huzutw",
+            "product": "atlantic-salmon-2x-6oz-portions",
+            "recipe": "seafood-recipes/one-pan-mediterranean-salmon-pasta",
+            "note": "Means across samples tested. Open the lab panel below for the full results.",
+            "stat_1": "Protein::36.7 g",
+            "stat_2": "Vitamin D::13.2 mcg",
+            "stat_3": "Selenium::28.1 mcg",
+            "stat_4": "Potassium::919 mg",
+            "stat_5": "Mercury::0.037 ppm"
           }
         },
         "p_brz": {
           "type": "panel",
           "settings": {
             "name": "Branzino",
-            "detail": "2 fillets",
+            "detail": "2 × 6 oz",
+            "portion": "6 oz portion",
+            "headline_value": "1,357 mg",
+            "headline_label": "EPA+DHA",
             "embed_product": "esteros-lubimar-branzino-fillet",
             "embed_config": "1cbnnf",
             "product": "branzino-bundle-2x-6oz-portions",
-            "text": "<p>Open the panel for the full Branzino results: omega-3s, protein, minerals and contaminants, as published on the product page.</p>"
+            "recipe": "seafood-recipes/branzino-warm-farro-maitake-salad",
+            "note": "Means across samples tested. Open the lab panel below for the full results.",
+            "stat_1": "Protein::36.6 g",
+            "stat_2": "Vitamin D::6.6 mcg",
+            "stat_3": "Selenium::27.2 mcg",
+            "stat_4": "Zinc::2.0 mg",
+            "stat_5": "Mercury::0.002 ppm"
           }
         },
         "p_stl": {
           "type": "panel",
           "settings": {
             "name": "Steelhead Loin",
-            "detail": "10 oz",
+            "detail": "2 × 5 oz",
+            "portion": "5 oz portion",
+            "headline_value": "1,067 mg",
+            "headline_label": "EPA+DHA",
             "embed_product": "caleta-bay-steelhead-trout-loin",
             "embed_config": "8uxc5v",
             "product": "steelhead-sashimi-loin-12oz",
-            "text": "<p>Open the panel for the full Steelhead Loin results: omega-3s, protein, minerals and contaminants, as published on the product page.</p>"
+            "recipe": "seafood-recipes/cured-steelhead-loin-lox-bagel",
+            "note": "Means across samples tested. Open the lab panel below for the full results.",
+            "stat_1": "Protein::29.7 g",
+            "stat_2": "Vitamin D::11.3 mcg",
+            "stat_3": "Selenium::27.8 mcg",
+            "stat_4": "Vitamin B12::3.1 mcg",
+            "stat_5": "Mercury::Below LOQ"
           }
         },
         "p_shr": {
@@ -395,16 +435,25 @@
           "settings": {
             "name": "Black Tiger Shrimp",
             "detail": "1 lb",
+            "portion": "4 oz portion",
+            "headline_value": "20.8 g",
+            "headline_label": "protein",
             "embed_product": "mangrove-black-tiger-shrimp",
             "embed_config": "8ufvay",
             "product": "black-tiger-shrimp-mangrove-regeneration",
-            "text": "<p>Open the panel for the full Black Tiger Shrimp results: omega-3s, protein, minerals and contaminants, as published on the product page.</p>"
+            "recipe": "seafood-recipes/black-tiger-shrimp-vietnamese-fresh-rolls",
+            "note": "Means across samples tested. Open the lab panel below for the full results.",
+            "stat_1": "Total fat::1.6 g",
+            "stat_2": "Selenium::18.0 mcg",
+            "stat_3": "Potassium::203 mg",
+            "stat_4": "Zinc::1.0 mg",
+            "stat_5": "Mercury::0.018 ppm"
           }
         }
       },
       "block_order": [
-        "p_atl",
         "p_alp",
+        "p_atl",
         "p_brz",
         "p_stl",
         "p_shr"
@@ -413,45 +462,100 @@
     "boxes": {
       "type": "uikit-box-grid",
       "settings": {
+        "layout": "scroll",
         "heading": "Choose a curated box, or build your own.",
-        "text": "Curated boxes chosen by our chefs, or every portion picked by you. Blast-frozen to -10°F at harvest, vacuum sealed.",
+        "text": "Our three most-loved boxes, then the specialty boxes. Blast-frozen to -10°F at harvest, vacuum sealed.",
         "cta_label": "Build your own box",
         "cta_link": "/collections/build-your-own-box"
       },
       "blocks": {
+        "b_salmon": {
+          "type": "box",
+          "settings": {
+            "product": "salmon-box",
+            "show_price": true,
+            "title": "Salmon Lover’s Box",
+            "group": "Most loved",
+            "show_savings": true,
+            "text": "Salmon and steelhead in individually sealed portions. 12, 18 or 24 portions."
+          }
+        },
+        "b_fs": {
+          "type": "box",
+          "settings": {
+            "product": "fish-shell-variety",
+            "show_price": true,
+            "title": "Fish & Shell Variety Box",
+            "group": "Most loved",
+            "show_savings": true,
+            "text": "Salmon, whitefish and Peruvian scallops. 12, 18 or 24 portions."
+          }
+        },
+        "b_white": {
+          "type": "box",
+          "settings": {
+            "product": "white-fish-box",
+            "show_price": true,
+            "title": "White Fish Box",
+            "group": "Most loved",
+            "show_savings": true,
+            "text": "Bream, branzino, yellowtail and barramundi. 12, 18 or 24 portions."
+          }
+        },
+        "b_eud": {
+          "type": "box",
+          "settings": {
+            "product": "eudemonia-sampler-box",
+            "show_price": true,
+            "title": "The Eudēmonia Box",
+            "group": "Specialty",
+            "tag": "Eudēmonia exclusive",
+            "tag_gold": true,
+            "savings_text": "3-month plan: $380, save $100",
+            "link": "/pages/eudemonia#eudemonia-box",
+            "text": "Eight portions: Atlantic and Alpine King salmon, branzino, steelhead loin and black tiger shrimp."
+          }
+        },
         "b_long": {
           "type": "box",
           "settings": {
             "product": "the-seatopia-longevity-box",
-            "title": "The Seatopia Longevity Box",
             "show_price": true,
-            "tag": "Chef’s pick",
-            "text": "Steelhead lox and sashimi loins, Ōra King salmon, branzino, black tiger shrimp and salmon roe. About 6.45 lb for sushi nights and long dinners."
+            "title": "The Seatopia Longevity Box",
+            "group": "Specialty",
+            "text": "Steelhead lox and sashimi loins, Ōra King salmon, branzino, black tiger shrimp and salmon roe. About 6.45 lb."
           }
         },
         "b_preg": {
           "type": "box",
           "settings": {
             "product": "the-pregnancy-box",
-            "title": "The Pregnancy Box",
             "show_price": true,
+            "title": "The Pregnancy Box",
+            "group": "Specialty",
+            "show_savings": true,
             "text": "King salmon, Atlantic salmon, steelhead loin and salmon roe. FDA and EPA recommend 2 to 3 servings a week, 4 oz each, from their “Best Choices” list for people who are pregnant or breastfeeding. Salmon is on that list."
           }
         },
-        "b_salmon": {
+        "b_ss": {
           "type": "box",
           "settings": {
-            "product": "salmon-box",
-            "title": "Salmon Lover’s Box",
+            "product": "shrimp-and-salmon-box",
             "show_price": true,
-            "text": "Salmon and steelhead in individually sealed portions. 12, 18 or 24 portions."
+            "title": "Shrimp and Salmon Box",
+            "group": "Specialty",
+            "text": "Salmon and black tiger shrimp, together in one box."
           }
         }
       },
       "block_order": [
+        "b_salmon",
+        "b_fs",
+        "b_white",
+        "b_eud",
         "b_long",
         "b_preg",
-        "b_salmon"
+        "b_ss"
       ]
     },
     "chef": {
@@ -579,6 +683,7 @@
         "g1": {
           "type": "offer",
           "settings": {
+            "image": "shopify://shop_images/omegamaxxing-15-crudo-platter-overhead.jpg",
             "big": "Get $25",
             "title": "when you give $100",
             "cta_label": "Shop gift cards",
@@ -588,6 +693,7 @@
         "g2": {
           "type": "offer",
           "settings": {
+            "image": "shopify://shop_images/omegamaxxing-09-smoked-salmon-toast.jpg",
             "featured": true,
             "big": "Get $75",
             "title": "when you give $250",
@@ -598,6 +704,7 @@
         "g3": {
           "type": "offer",
           "settings": {
+            "image": "shopify://shop_images/omegamaxxing-20-one-pan-bake.jpg",
             "big": "Get $150",
             "title": "when you give $400",
             "cta_label": "Shop gift cards",
@@ -736,6 +843,7 @@
         "heading": "Feedback, partnerships, retail.",
         "text": "<p>Tried the Steelhead Sticks at Eudēmonia? Want to carry Seatopia, partner with us or become an ambassador? Tell us here and it reaches our team directly.</p>",
         "topics": "Steelhead Sticks feedback\nPartnerships\nRetail\nAmbassador / affiliate\nSomething else",
+        "bg_image": "shopify://shop_images/eudemonia-summit-crowd.jpg",
         "button": "Send",
         "success": "Thank you. We read every message and will reply soon."
       }

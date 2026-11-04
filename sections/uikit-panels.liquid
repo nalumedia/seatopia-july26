@@ -1,16 +1,31 @@
 {%- comment -%}
-  UI kit — published lab panels, one tab per product. Each tab renders the same Edacious
-  embed the product page carries (loaded globally in layout/theme.liquid), so the numbers
-  are the ones we already publish, never retyped. Find a product's embed ID and config in
-  its product template's liquid block (data-edacious-product).
+  UI kit — published lab results, one tab per product.
+
+  Each tab can carry the headline numbers for one portion, a recipe for that product, and
+  the Edacious embed the product page already carries (loaded globally in
+  layout/theme.liquid; find a product's ID and config in its product template).
+
+  Claims guide §4.E / §8.8: a figure is a published test result only in the three-part
+  format, in one visual unit at one weight: (1) the product name from the catalogue, not
+  the farm; (2) the number with its unit and portion size; (3) the variance note. The
+  sentence below renders all three together. Use figures only as supplied in writing, never
+  rounded or recomputed, and only for a product name that maps to a single tested source.
 {%- endcomment -%}
 
 <div class="uikit uikit-section"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | handleize }}"{% endif %}>
   <div class="uikit-container uikit-panels">
-    <div class="uikit-panels__head">
-      {%- if section.settings.eyebrow != blank -%}<p class="uikit-overline">{{ section.settings.eyebrow }}</p>{%- endif -%}
-      {%- if section.settings.heading != blank -%}<h2 class="uikit-h2">{{ section.settings.heading }}</h2>{%- endif -%}
-      {%- if section.settings.text != blank -%}<div class="uikit-body-m uikit-prose uikit-panels__intro">{{ section.settings.text }}</div>{%- endif -%}
+    <div class="uikit-panels__top">
+      <div class="uikit-panels__head">
+        {%- if section.settings.eyebrow != blank -%}<p class="uikit-overline">{{ section.settings.eyebrow }}</p>{%- endif -%}
+        {%- if section.settings.heading != blank -%}<h2 class="uikit-h2">{{ section.settings.heading }}</h2>{%- endif -%}
+        {%- if section.settings.text != blank -%}<div class="uikit-body-m uikit-prose uikit-panels__intro">{{ section.settings.text }}</div>{%- endif -%}
+      </div>
+      {%- if section.settings.total_value != blank -%}
+        <div class="uikit-panels__total">
+          <p class="uikit-panels__total-num">{{ section.settings.total_value }}</p>
+          <p class="uikit-body-s uikit-panels__total-label">{{ section.settings.total_label }}</p>
+        </div>
+      {%- endif -%}
     </div>
 
     {%- if section.blocks.size > 0 -%}
@@ -24,16 +39,43 @@
       </div>
 
       {%- for block in section.blocks -%}
+        {%- assign b = block.settings -%}
+        {%- assign rec = b.recipe -%}
         <div class="uikit-panels__panel" role="tabpanel" id="uk-panel-{{ block.id }}" aria-labelledby="uk-tab-{{ block.id }}"{% unless forloop.first %} hidden{% endunless %}>
-          <div class="uikit-panels__embed">
-            {%- if block.settings.embed_product != blank and block.settings.embed_config != blank -%}
-              <div data-edacious-product='{"brand":"seatopia","product":"{{ block.settings.embed_product | escape }}","config":"{{ block.settings.embed_config | escape }}"}'></div>
+          <div class="uikit-panels__card">
+            {%- if b.headline_value != blank -%}
+              <p class="uikit-h3 uikit-panels__result">Our {{ b.name }} tested at <strong>{{ b.headline_value }}</strong> {{ b.headline_label }} per {{ b.portion }}. Values vary by sample and season.</p>
             {%- endif -%}
+            {%- capture stats -%}{{ b.stat_1 }}|{{ b.stat_2 }}|{{ b.stat_3 }}|{{ b.stat_4 }}|{{ b.stat_5 }}{%- endcapture -%}
+            {%- assign stat_list = stats | split: '|' -%}
+            <dl class="uikit-panels__stats">
+              {%- for st in stat_list -%}
+                {%- assign pair = st | split: '::' -%}
+                {%- if pair.size == 2 -%}
+                  <div><dt class="uikit-body-s uikit-muted">{{ pair[0] | strip }}</dt><dd class="uikit-panels__stat">{{ pair[1] | strip }}</dd></div>
+                {%- endif -%}
+              {%- endfor -%}
+            </dl>
+            {%- if b.note != blank -%}<p class="uikit-body-s uikit-panels__note">{{ b.note }}</p>{%- endif -%}
+            <div class="uikit-panels__embed">
+              {%- if b.embed_product != blank and b.embed_config != blank -%}
+                <div data-edacious-product='{"brand":"seatopia","product":"{{ b.embed_product | escape }}","config":"{{ b.embed_config | escape }}"}'></div>
+              {%- endif -%}
+            </div>
           </div>
+
           <div class="uikit-panels__side">
-            {%- if block.settings.text != blank -%}<div class="uikit-body-m uikit-prose">{{ block.settings.text }}</div>{%- endif -%}
-            {%- if block.settings.product != blank -%}
-              <a class="uikit-btn uikit-btn--secondary uikit-btn--s" href="{{ block.settings.product.url }}">See {{ block.settings.product.title }}</a>
+            {%- if rec != blank -%}
+              <a class="uikit-panels__recipe" href="{{ rec.url }}">
+                <span class="uikit-media uikit-panels__recipe-media">
+                  {%- if rec.image != blank -%}{{ rec.image | image_url: width: 1000 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 440px, 100vw', widths: '500,800,1000', alt: rec.image.alt | default: rec.title }}{%- endif -%}
+                </span>
+                <span class="uikit-label-s uikit-panels__recipe-eyebrow">Cook it tonight</span>
+                <span class="uikit-label-l uikit-panels__recipe-title">{{ rec.title | split: ' | ' | first }}</span>
+              </a>
+            {%- endif -%}
+            {%- if b.product != blank -%}
+              <a class="uikit-btn uikit-btn--secondary uikit-btn--s" href="{{ b.product.url }}">Shop {{ b.product.title }}</a>
             {%- endif -%}
           </div>
         </div>
@@ -47,23 +89,44 @@
 </div>
 
 <style>
-  .uikit-panels__head { display: flex; flex-direction: column; gap: 20px; max-width: 760px; margin-bottom: 40px; }
+  .uikit-panels__top { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 40px; }
+  .uikit-panels__head { display: flex; flex-direction: column; gap: 20px; max-width: 760px; }
   .uikit .uikit-panels__intro { color: var(--uk-heading); }
+  .uikit-panels__total { flex: none; text-align: right; }
+  .uikit .uikit-panels__total-num { font-family: var(--uk-font-heading, inherit); font-size: clamp(48px, 6vw, 84px); line-height: 1; letter-spacing: -.02em; color: var(--uk-heading); }
+  .uikit .uikit-panels__total-label { max-width: 260px; margin-left: auto; color: var(--uk-heading); }
   .uikit-panels__tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 28px; scrollbar-width: none; }
   .uikit-panels__tabs::-webkit-scrollbar { display: none; }
   .uikit-panels__tab { flex: none; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 14px 20px; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-card); background: var(--uk-white); color: var(--uk-heading); cursor: pointer; font: inherit; text-align: left; transition: border-color .2s ease, background .2s ease; }
   .uikit-panels__tab[aria-selected="true"] { border-color: var(--uk-heading); background: var(--uk-heading); color: var(--uk-white); }
   .uikit-panels__tab[aria-selected="true"] .uikit-muted { color: inherit; opacity: .8; }
-  .uikit-panels__panel { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 40px; align-items: center; }
+  .uikit-panels__panel { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 28px; align-items: stretch; }
   .uikit-panels__panel[hidden] { display: none; }
-  .uikit-panels__embed { padding: 20px; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-card); background: var(--uk-white); }
-  .uikit-panels__side { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; color: var(--uk-heading); }
-  .uikit-panels__side a:not(.uikit-btn) { color: inherit; }
+  .uikit-panels__card { display: flex; flex-direction: column; gap: 28px; padding: 36px; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-card); background: var(--uk-white); }
+  .uikit .uikit-panels__result { margin: 0; color: var(--uk-heading); }
+  .uikit-panels__result strong { font-weight: inherit; color: var(--uk-gold); }
+  .uikit-panels__stats { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 0; margin: 0; border-top: 1px solid var(--uk-rule); }
+  .uikit-panels__stats > div { padding: 18px 12px 0 0; display: flex; flex-direction: column; gap: 6px; }
+  .uikit-panels__stats dd { margin: 0; }
+  .uikit .uikit-panels__stat { font-family: var(--uk-font-heading, inherit); font-size: 26px; line-height: 1.1; color: var(--uk-heading); }
+  .uikit .uikit-panels__note { color: var(--uk-heading); opacity: .75; }
+  .uikit-panels__embed { margin-top: auto; }
+  .uikit-panels__side { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+  .uikit-panels__recipe { display: flex; flex-direction: column; gap: 10px; width: 100%; color: inherit; text-decoration: none; }
+  .uikit-panels__recipe-media { aspect-ratio: 4 / 3; }
+  .uikit-panels__recipe:hover .uikit-panels__recipe-title { text-decoration: underline; text-underline-offset: .2em; }
+  .uikit .uikit-panels__recipe-eyebrow { color: var(--uk-gold); letter-spacing: .12em; text-transform: uppercase; }
+  .uikit-panels__recipe-title { color: var(--uk-heading); }
   .uikit-panels__foot { margin-top: 28px; max-width: 760px; }
   .uikit-panels__foot a { color: inherit; text-decoration: underline; }
   @media (max-width: 989px) {
+    .uikit-panels__top { flex-direction: column; align-items: flex-start; gap: 24px; }
+    .uikit-panels__total { text-align: left; }
+    .uikit .uikit-panels__total-label { margin-left: 0; }
     .uikit-panels__panel { grid-template-columns: 1fr; gap: 24px; }
-    .uikit-panels__embed { padding: 16px; }
+    .uikit-panels__card { padding: 24px; }
+    .uikit-panels__stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .uikit-panels__stats > div { padding-bottom: 14px; }
   }
 </style>
 
@@ -99,19 +162,31 @@
   "name": "UI kit — lab panels",
   "tag": "section",
   "settings": [
+    { "type": "paragraph", "content": "Claims guide §8.8: figures only as supplied in writing, product name not farm name, portion size and variance note always shown." },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "What's inside, by the numbers" },
     { "type": "richtext", "id": "text", "label": "Intro" },
+    { "type": "text", "id": "total_value", "label": "Headline total", "info": "e.g. 13.6 g" },
+    { "type": "text", "id": "total_label", "label": "Headline total label" },
     { "type": "richtext", "id": "footnote", "label": "Footnote" },
     { "type": "text", "id": "anchor", "label": "Anchor ID" }
   ],
   "blocks": [
     { "type": "panel", "name": "Product panel", "settings": [
-      { "type": "text", "id": "name", "label": "Tab name" },
+      { "type": "text", "id": "name", "label": "Product name", "info": "Catalogue name, e.g. Alpine King Salmon. Not the farm." },
       { "type": "text", "id": "detail", "label": "Tab detail", "info": "e.g. 2 portions" },
-      { "type": "text", "id": "embed_product", "label": "Edacious product ID", "info": "From the product template, e.g. bakkafrost-atlantic-salmon-fillet" },
-      { "type": "text", "id": "embed_config", "label": "Edacious config", "info": "e.g. huzutw" },
-      { "type": "richtext", "id": "text", "label": "Text beside the panel" },
+      { "type": "text", "id": "portion", "label": "Portion", "info": "e.g. 7 oz portion" },
+      { "type": "text", "id": "headline_value", "label": "Headline number", "info": "e.g. 2,315 mg" },
+      { "type": "text", "id": "headline_label", "label": "Headline nutrient", "default": "EPA+DHA" },
+      { "type": "text", "id": "stat_1", "label": "Stat 1", "info": "Label::value, e.g. Protein::39.1 g" },
+      { "type": "text", "id": "stat_2", "label": "Stat 2" },
+      { "type": "text", "id": "stat_3", "label": "Stat 3" },
+      { "type": "text", "id": "stat_4", "label": "Stat 4" },
+      { "type": "text", "id": "stat_5", "label": "Stat 5" },
+      { "type": "text", "id": "note", "label": "Note under the numbers" },
+      { "type": "text", "id": "embed_product", "label": "Edacious product ID" },
+      { "type": "text", "id": "embed_config", "label": "Edacious config" },
+      { "type": "article", "id": "recipe", "label": "Recipe" },
       { "type": "product", "id": "product", "label": "Product page link" }
     ]}
   ],

@@ -4,7 +4,10 @@
   with the topic and the page in the subject line.
 {%- endcomment -%}
 
-<div class="uikit uikit-section"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | handleize }}"{% endif %}>
+<div class="uikit uikit-section uikit-contact-wrap{% if section.settings.bg_image != blank %} uikit-contact-wrap--bg{% endif %}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | handleize }}"{% endif %}>
+  {%- if section.settings.bg_image != blank -%}
+    <div class="uikit-contact__bg" aria-hidden="true">{{ section.settings.bg_image | image_url: width: 2400 | image_tag: loading: 'lazy', sizes: '100vw', widths: '800,1200,1600,2000,2400', alt: '' }}</div>
+  {%- endif -%}
   <div class="uikit-container uikit-contact">
     <div class="uikit-contact__head">
       {%- if section.settings.eyebrow != blank -%}<p class="uikit-overline">{{ section.settings.eyebrow }}</p>{%- endif -%}
@@ -41,6 +44,13 @@
 </div>
 
 <style>
+  .uikit-contact-wrap { position: relative; }
+  .uikit-contact__bg { position: absolute; inset: 0; overflow: hidden; }
+  .uikit-contact__bg img { width: 100%; height: 100%; object-fit: cover; }
+  .uikit-contact__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,34,42,.78) 0%, rgba(20,34,42,.55) 45%, rgba(20,34,42,.25) 100%); }
+  .uikit-contact-wrap--bg .uikit-contact { position: relative; }
+  .uikit-contact-wrap--bg .uikit-contact__head, .uikit-contact-wrap--bg .uikit-contact__head :where(h2, p, div), .uikit-contact-wrap--bg .uikit-overline { color: #fff; }
+  .uikit-contact-wrap--bg .uikit-contact__form { padding: 32px; border-radius: var(--uk-radius-card); background: rgba(255,255,255,.96); box-shadow: 0 20px 50px rgba(0,0,0,.18); }
   .uikit-contact { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 60px; align-items: start; }
   .uikit-contact__head { display: flex; flex-direction: column; gap: 20px; }
   .uikit .uikit-contact__intro { color: var(--uk-heading); }
@@ -77,6 +87,7 @@
     { "type": "textarea", "id": "topics", "label": "Topics", "info": "One per line. The first is selected by default.", "default": "Product feedback\nPartnerships\nRetail\nSomething else" },
     { "type": "text", "id": "button", "label": "Button label", "default": "Send" },
     { "type": "text", "id": "success", "label": "Thank-you message", "default": "Thank you. We read every message and will reply soon." },
+    { "type": "image_picker", "id": "bg_image", "label": "Background image" },
     { "type": "text", "id": "anchor", "label": "Anchor ID" }
   ],
   "presets": [{ "name": "UI kit — contact form" }]

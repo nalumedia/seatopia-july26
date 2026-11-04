@@ -20,10 +20,19 @@
 
     <ul class="uikit-offers uikit-offers--{{ section.blocks.size }}" role="list">
       {%- for block in section.blocks -%}
-        {%- assign b = block.settings -%}
+        {%- liquid
+          assign b = block.settings
+          assign o_img = b.image
+          if o_img == blank and b.image_product != blank
+            assign o_img = b.image_product.featured_image
+          endif
+          if o_img == blank and b.image_article != blank
+            assign o_img = b.image_article.image
+          endif
+        -%}
         <li class="uikit-offer{% if b.featured %} uikit-offer--featured{% endif %}" {{ block.shopify_attributes }}>
-          {%- if b.image != blank -%}
-            <span class="uikit-media uikit-offer__media">{{ b.image | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 400px, 100vw', widths: '400,600,900', alt: b.image.alt | default: '' }}</span>
+          {%- if o_img != blank -%}
+            <span class="uikit-media uikit-offer__media">{{ o_img | image_url: width: 1000 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 560px, 100vw', widths: '400,600,900,1000', alt: o_img.alt | default: b.title }}</span>
           {%- endif -%}
           <div class="uikit-offer__body">
             {%- if b.eyebrow != blank -%}<p class="uikit-label-s uikit-offer__eyebrow">{{ b.eyebrow }}</p>{%- endif -%}
@@ -66,7 +75,8 @@
   .uikit .uikit-offer__big { font-family: var(--uk-font-heading, inherit); font-size: clamp(40px, 4.4vw, 60px); line-height: 1; letter-spacing: -.02em; color: var(--uk-heading); }
   .uikit .uikit-offer__title { margin: 0; color: var(--uk-heading); }
   .uikit-offer__text { color: var(--uk-heading); }
-  .uikit-offer__text ul { margin: 0; padding-left: 1.1em; }
+  .uikit .uikit-offer__text ul { margin: 0; padding-left: 1.1em; list-style: disc; }
+  .uikit .uikit-offer__text li + li { margin-top: 6px; }
   .uikit-offer__text a, .uikit-offers__foot a { color: inherit; text-decoration: underline; }
   .uikit-offer__code { display: inline-flex; align-items: center; gap: 14px; padding: 10px 16px; border: 1px dashed var(--uk-gold); border-radius: 10px; background: transparent; color: var(--uk-heading); cursor: pointer; font: inherit; }
   .uikit-offer__code:hover { background: rgba(187,143,80,.08); }
@@ -117,6 +127,8 @@
     { "type": "offer", "name": "Offer", "settings": [
       { "type": "checkbox", "id": "featured", "label": "Highlight this card", "default": false },
       { "type": "image_picker", "id": "image", "label": "Image" },
+      { "type": "product", "id": "image_product", "label": "Or use a product's image" },
+      { "type": "article", "id": "image_article", "label": "Or use a recipe's image" },
       { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
       { "type": "text", "id": "big", "label": "Big number", "info": "e.g. $50 off" },
       { "type": "text", "id": "title", "label": "Title" },
