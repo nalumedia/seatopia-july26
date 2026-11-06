@@ -17,7 +17,18 @@
     <link rel="preconnect" href="https://cdn.intelligems.io" crossorigin>
     {% render 'intelligems' %}
 
-    <link rel="canonical" href="{{ canonical_url }}">
+    {%- comment -%}
+      A product can hand its search ranking to another product with the text metafield
+      custom.canonical_product (that product's handle). Used where two products sell the same fish
+      and both must stay purchasable, e.g. for live subscriptions.
+    {%- endcomment -%}
+    {%- liquid
+      assign seo_canonical = canonical_url
+      if request.page_type == 'product' and product.metafields.custom.canonical_product != blank
+        assign seo_canonical = shop.url | append: '/products/' | append: product.metafields.custom.canonical_product
+      endif
+    -%}
+    <link rel="canonical" href="{{ seo_canonical }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
     <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {% # theme-check-disable RemoteAsset %}

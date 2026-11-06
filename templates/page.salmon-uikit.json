@@ -63,7 +63,7 @@
         "ora": {
           "type": "box",
           "settings": {
-            "product": "buy-ora-king-salmon-portion-new-zealand",
+            "product": "king-salmon",
             "show_price": true,
             "show_buy": true,
             "title": "Ora King Salmon",
@@ -212,12 +212,12 @@
         "k_ora": {
           "type": "offer",
           "settings": {
-            "image_product": "buy-ora-king-salmon-portion-new-zealand",
+            "image_product": "king-salmon",
             "eyebrow": "King salmon · New Zealand",
             "title": "Ora King salmon",
             "text": "<p>King salmon (Chinook, <em>Oncorhynchus tshawytscha</em>), raised in the Marlborough Sounds by the New Zealand King Salmon Company, from more than two decades of selective breeding. Rich, buttery and finely marbled; the one for sashimi, crudo and a crisp-skinned sear. <a href=\"/pages/ora-king-salmon-new-zealand\">Meet the farm</a>.</p><p>Our King Salmon tested at 1,140 mg EPA and 2,290 mg DHA, plus 64 mcg selenium, per 8.5 oz skin-on, sushi-grade portion. Values vary by sample and season.</p>",
             "cta_label": "Shop Ora King salmon",
-            "cta_link": "/products/buy-ora-king-salmon-portion-new-zealand",
+            "cta_link": "/products/king-salmon",
             "featured": true
           }
         },
@@ -452,7 +452,7 @@
           "type": "question",
           "settings": {
             "question": "What is Ora King salmon?",
-            "answer": "<p>Ora King is a king salmon (Chinook, <em>Oncorhynchus tshawytscha</em>) raised in the Marlborough Sounds of New Zealand by the New Zealand King Salmon Company. It comes from more than two decades of selective breeding, and it is known for rich marbling, deep color and a buttery texture.</p><p>Ours arrives as skin-on, sushi-grade 8.5 oz portions, blast-frozen to -10°F at harvest and vacuum sealed. <a href=\"/products/buy-ora-king-salmon-portion-new-zealand\">Shop Ora King salmon</a> or <a href=\"/pages/ora-king-salmon-new-zealand\">read about the farm</a>.</p>"
+            "answer": "<p>Ora King is a king salmon (Chinook, <em>Oncorhynchus tshawytscha</em>) raised in the Marlborough Sounds of New Zealand by the New Zealand King Salmon Company. It comes from more than two decades of selective breeding, and it is known for rich marbling, deep color and a buttery texture.</p><p>Ours arrives as skin-on, sushi-grade 8.5 oz portions, blast-frozen to -10°F at harvest and vacuum sealed. <a href=\"/products/king-salmon\">Shop Ora King salmon</a> or <a href=\"/pages/ora-king-salmon-new-zealand\">read about the farm</a>.</p>"
           }
         },
         "q_types": {

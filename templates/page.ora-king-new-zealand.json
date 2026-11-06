@@ -153,7 +153,7 @@
         "text_aXfMMX": {
           "type": "text",
           "settings": {
-            "text": "<p>Ōra King Salmon is the result of over two decades of careful breeding, thoughtful farming, and culinary collaboration. Raised in the deep, clear waters of New Zealand’s Marlborough Sounds, these King salmon are bred for excellence—producing fillets with lush marbling, vibrant color, and a clean, umami-rich flavor that’s prized by top chefs around the world. With sashimi-level quality, a naturally high omega-3 content, and meticulous attention to welfare and sustainability, Ōra King has become the benchmark for premium King salmon—a fish that performs beautifully raw or cooked and honors the care with which it was raised.</p>",
+            "text": "<p>Ōra King Salmon is the result of over two decades of careful breeding, thoughtful farming, and culinary collaboration. Raised in the deep, clear waters of New Zealand’s Marlborough Sounds, these King salmon are bred for lush marbling, vibrant color, and a rich, umami flavor that chefs around the world cook with. It performs beautifully raw or cooked, and we publish what our lab found in it.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -302,12 +302,12 @@
         "image_b7LfNg"
       ],
       "settings": {
-        "heading": "Pristine Bays, Pure Ocean Currents",
+        "heading": "Remote Bays, Cold Ocean Currents",
         "heading_size": "title-md",
         "heading_alignment": "text-center md:items-center",
         "heading_tag": "h2",
         "subheading": "",
-        "description": "<p>Ōra King salmon are raised in the isolated bays and deep inlets of the Marlborough Sounds, where cool ocean currents flow in from the Cook Strait and the surrounding mountains create a sheltered, temperate microclimate. The waters here are cold, clean, and consistently refreshed by tide and rainfall, making them ideal for salmon farming. The remoteness of this region provides natural biosecurity and allows the farm to operate with low environmental impact while maintaining world-leading water quality standards.</p>",
+        "description": "<p>Ōra King salmon are raised in the isolated bays and deep inlets of the Marlborough Sounds, where cool ocean currents flow in from the Cook Strait and the surrounding mountains create a sheltered, temperate microclimate. The waters here are cold and consistently refreshed by tide and rainfall, and the remoteness of the region gives the farm natural biosecurity.</p>",
         "button_label": "",
         "button_link": "",
         "button_external": false,
@@ -346,7 +346,7 @@
         "text_KKca6r": {
           "type": "text",
           "settings": {
-            "text": "<p>The team behind Ōra King is a collective of lifelong fish farmers, scientists, and stewards of the Marlborough Sounds, all working under the heritage-rich New Zealand King Salmon Company. Over decades, they’ve honed a selective breeding program to produce what many consider the “Wagyu of the Sea.” Each fish reflects the expertise of farmers who feed by hand, observe carefully, and manage every stage of the life cycle—from hatchery to harvest. With deep ties to the region and a culture of transparency and care, their goal has always been simple: to produce the world’s finest King salmon, sustainably and with soul.</p>",
+            "text": "<p>The team behind Ōra King is a collective of lifelong fish farmers, scientists, and stewards of the Marlborough Sounds, all working under the heritage-rich New Zealand King Salmon Company. Over decades, they’ve honed a selective breeding program to produce what many consider the “Wagyu of the Sea.” Each fish reflects the expertise of farmers who observe carefully and manage every stage of the life cycle, from hatchery to harvest.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -486,7 +486,7 @@
           "type": "question",
           "settings": {
             "title": "What can be in it?",
-            "text": "<p><strong>Algae oil:</strong></p><p>The original source of EPA and DHA omega-3s. Fish don't make omega-3s, they accumulate them from what they eat. Algae is where those fats come from in the ocean too.</p><p><strong>Marine ingredients (fishmeal, fish oil):</strong></p><p>Protein and fats in the form fish evolved to digest. We work to reduce this share over time, not eliminate the nutrition it provides. A large amount of marine ingredients already come from offcuts, meaning parts of fish that are not suitable for human consumption, and so reducing ocean impact further.</p><p><strong>Plant proteins (soy, pea, barley, corn, pistachio):</strong></p><p>Non-GMO, high-protein, highly digestible. Replaces wild-caught protein without issues for the fish, reducing ocean impact.&nbsp;</p><p><strong>Amino acids and minerals:</strong></p><p>Fills the specific nutritional gaps plant proteins leave, so nothing is missing from the diet.</p><p><strong>Astaxanthin:</strong></p><p>A naturally occurring carotenoid, the same one found in kelp, krill and shellfish. It's an antioxidant for the fish and the reason salmon flesh is pink.</p>",
+            "text": "<p>We work with a number of different farms around the world, and the specific feeds vary by farm, by species, and even by the phase of the growout cycle. To meet the Seatopia Standard at Aquaculture 2.0, a feed diet includes a combination of algae oil, marine ingredients (fish meal and fish oil), high-protein plants (soy, pea, barley, corn or pistachio), essential amino acids, minerals and astaxanthin. Preventative antibiotics, hormones, GMOs and synthetic colouring agents are prohibited.</p><p>These feeds are built so the fish get the nutrition they need to produce good nutrition for humans: nutrient-dense, highly digestible, and balanced on protein, omega-3s, micronutrients and fats.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -495,7 +495,7 @@
           "type": "question",
           "settings": {
             "title": "What's never in it?",
-            "text": "<p>Preventative antibiotics, hormones, GMOs, synthetic colouring agents.</p>",
+            "text": "<p>Preventative antibiotics, hormones, GMOs and synthetic colouring agents are prohibited.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -504,7 +504,7 @@
           "type": "question",
           "settings": {
             "title": "Why is there plant protein in fish feed?",
-            "text": "<p>Because the alternative is more wild fish. Aquaculture used to run almost entirely on fishmeal and fish oil, which meant catching enormous volumes of small wild fish to grow larger ones. Swapping part of that for high-protein plants takes pressure off those wild stocks while still giving the fish bioavailable protein.</p><p>There's a second reason: wild fish carry what the ocean carries. Less wild fish in the feed means less mercury, fewer microplastics and lower parasite risk arriving in your fillet. A controlled diet is what makes a clean fish possible.</p>",
+            "text": "<p>Yes. Many of our farm partners include a percentage of high-protein, non-GMO plant meal such as soy, grains or legumes in their feed, particularly for omnivorous species or during early life stages.</p><p>Here is why. In the early days of aquaculture, what we call Aquaculture 1.0, feed was mostly fishmeal and fish oil. It was easy to produce and efficient for the fish, but it was not sustainable. Using plant proteins means less reliance on wild fishmeal while still giving fish bioavailable protein. Less wild fish in the feed also means more control over exposure to mercury, microplastics, parasites and other environmental toxins.</p><p>Seatopia exists to generate market demand for the next wave of feeds, what we call Aquaculture 3.0: species-appropriate ingredients rich in EPA and DHA, like algae, soldier fly protein and mycelium, that give fish what they need without relying on fishmeal. Some of our farms already use these ingredients and we are pushing for larger inclusions and full substitutions. Getting every partner there is the goal.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -513,7 +513,7 @@
           "type": "question",
           "settings": {
             "title": "Are the fish dyed?",
-            "text": "<p>No. Post-harvest colouring agents are prohibited across everything we sell. Colour comes from astaxanthin in the feed, a natural carotenoid found in kelp, krill and shellfish. Wild salmon get their colour the same way. So do flamingos.</p>",
+            "text": "<p>Post-harvest and unnatural colouring agents are strictly prohibited. Colour comes from the feed, not from anything added afterwards.</p><p>Astaxanthin is the carotenoid largely responsible for a salmon’s colour. It is a naturally occurring nutrient found in kelp, krill, shrimp, lobster and crab, and it reaches the fish through what it eats. Both wild and farmed salmon get their colour from astaxanthin in their diet. It is also what makes flamingos pink.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -533,7 +533,7 @@
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
         "subheading": "",
-        "description": "<p>Feed is the single biggest factor in how clean and how nutritious a fish is. A fish is built from what it eats, which means the feed decides its omega-3s, its mineral profile, and how much mercury or microplastic it carries. That's why we treat feed as a sourcing requirement rather than a farm detail, and why every farm we work with has to tell us exactly what goes into the pellet.</p><p>Feed varies by farm, by species, and by stage of growth. The ingredients and the rules below hold across all of them.</p>",
+        "description": "<p>A fish is built from what it eats, so feed decides its omega-3s and its mineral profile, and it shapes its exposure to mercury and microplastics. That’s why we treat feed as a sourcing requirement rather than a farm detail, and why every farm we work with has to tell us what goes into the pellet. Feed varies by farm, by species, and by stage of growth.</p>",
         "button_label": "",
         "button_link": "",
         "button_external": false,
@@ -563,7 +563,7 @@
         "heading_zMMcwg": {
           "type": "heading",
           "settings": {
-            "heading": "Sustainably Fed, Ethically Farmed, Lab-Tested to Meet the Seatopia Standard",
+            "heading": "Responsibly Farmed, Lab-Tested to the Seatopia Standard",
             "heading_size": "title-lg tracking-heading",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -639,7 +639,7 @@
         "text_e9xqD8": {
           "type": "text",
           "settings": {
-            "text": "<p>Ōra King salmon are fed a specially formulated diet that mirrors the nutrition of their wild counterparts—rich in high-quality marine proteins and oils, carefully balanced with plant-based ingredients to promote health and sustainability. Their feed is free from antibiotics and GMO ingredients, and the farm operates under Best Aquaculture Practices (BAP) and Global GAP certifications. Stocking densities are kept low to reduce stress and encourage natural behavior, and regular audits ensure environmental responsibility at every step. By raising their fish slowly, with intention and precision, the Ōra King team delivers salmon that is as ethically raised as it is exquisite to eat.</p>",
+            "text": "<p>Ōra King raises its salmon in ocean net pens in the Marlborough Sounds. Every supplier is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard.</p><p>Our King Salmon tested at 1,140 mg EPA and 2,290 mg DHA, plus 64 mcg selenium, per 8.5 oz skin-on, sushi-grade portion. Values vary by sample and season.</p><p>When we choose farm partners, we look for farms that manage animal health without antibiotics. Many of our farms have no need for them by design, which is the case with scallops and with many of our land-based recirculating farms. Others have transitioned away entirely: our Atlantic salmon partner, Bakkafrost, has used zero antibiotics since 2004.</p><p>In the rare case of a significant animal health threat, some of our farms reserve the right to use therapeutic antibiotics under veterinary guidance. If that happens, the fish are held for a mandatory withdrawal period so that no trace remains before harvest. Antibiotics on the World Health Organization’s list of drugs critically important to human medicine are not permitted.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -722,7 +722,7 @@
           "settings": {
             "image": "shopify://shop_images/Screenshot_2025-06-25_at_8.45.54_AM.png",
             "heading": "Spirulina-Infused Crudo",
-            "text": "<p><em>Prepare Steelhead Crudo with green spirulina emulsion. Seatopia’s sushi-grade seafood delivers abundant Omega-3s to support heart and brain health.</em></p><p>👉🏽 <a href=\"https://seatopia.fish/blogs/seafood-recipes/spirulina-infused-crudo-with-seatopia-steelhead\" target=\"_blank\" title=\"https://seatopia.fish/blogs/seafood-recipes/spirulina-infused-crudo-with-seatopia-steelhead\">Get the recipe</a></p>",
+            "text": "<p>Prepare Steelhead Crudo with a green spirulina emulsion, made with Seatopia’s sushi-grade steelhead. 👉🏽 <a href=\"/blogs/seafood-recipes/spirulina-infused-crudo-with-seatopia-steelhead\">Get the recipe</a></p>",
             "color_text": "#ffffff",
             "color_background": "#171717"
           }
@@ -732,7 +732,7 @@
           "settings": {
             "image": "shopify://shop_images/Screenshot_2025-06-25_at_8.47.03_AM.png",
             "heading": "Salmon Poke Bowl",
-            "text": "<p>Join us in this new recipe where we dive into the traditional flavors of Hawaii with a classic Salmon Poke, made with New Zealand King Salmon from Seatopia. This step-by-step guide walks you through preparing a flavorful poke, marrying the rich taste of sushi-grade salmon, loaded with omega-3s, with the freshness of pickled ginger and garlic, known for their digestive and immune-supporting properties. Perfectly paired with organic sushi rice and creamy avocado, this dish is a true celebration of Hawaiian cuisine and wholesome nourishment.</p><p>👉🏽 <a href=\"https://seatopia.fish/blogs/seafood-recipes/salmon-poke-101-tamari-ginger-garlic\" target=\"_blank\" title=\"https://seatopia.fish/blogs/seafood-recipes/salmon-poke-101-tamari-ginger-garlic\">Get the recipe</a></p>",
+            "text": "<p>Join us in this new recipe where we dive into the traditional flavors of Hawaii with a classic Salmon Poke, made with New Zealand King Salmon from Seatopia. This step-by-step guide walks you through preparing a flavorful poke, marrying the rich taste of sushi-grade salmon, with the freshness of pickled ginger and garlic, two classic poke partners. Perfectly paired with sushi rice and creamy avocado, this dish is a true celebration of Hawaiian cuisine and Hawaiian flavor at home.</p><p>👉🏽 <a href=\"https://seatopia.fish/blogs/seafood-recipes/salmon-poke-101-tamari-ginger-garlic\" target=\"_blank\" title=\"https://seatopia.fish/blogs/seafood-recipes/salmon-poke-101-tamari-ginger-garlic\">Get the recipe</a></p>",
             "color_text": "#ffffff",
             "color_background": "#171717"
           }
