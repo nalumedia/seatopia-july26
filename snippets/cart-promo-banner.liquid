@@ -1,6 +1,6 @@
 {%- comment -%}
   Cart drawer savings line for campaign codes. Shows only when a campaign landing page has
-  set the cart attribute "promo" (page.eudemonia-uikit does, and applies the code to the
+  set the cart attribute "promo" (page.eudemonia-uikit and page.hyman-uikit do, and applies the code to the
   cart at the same time; see uikit-promo-bar).
 
   Every line is worked out from the cart, so it never claims a saving the customer won't get
@@ -40,10 +40,15 @@
 
   assign min_cents = 0
   assign off_label = ''
+  assign off_scope = ''
   case promo
     when 'EUDEMONIA26'
       assign min_cents = 20000
       assign off_label = '$50'
+    when 'HYMAN'
+      assign min_cents = 20000
+      assign off_label = '$50'
+      assign off_scope = ' your first order'
   endcase
 -%}
 {%- if plan_in_cart and applied > 0 -%}
@@ -56,9 +61,9 @@
   <p class="cart-promo cart-promo--on" role="status">✓ You’re saving <strong>{{ applied | money_without_trailing_zeros }}</strong> with {{ promo }}.</p>
 {%- elsif min_cents > 0 and cart.items_subtotal_price < min_cents -%}
   {%- assign gap = min_cents | minus: cart.items_subtotal_price -%}
-  <p class="cart-promo" role="status">Add <strong>{{ gap | money }}</strong> more to save {{ off_label }} with {{ promo }}.</p>
+  <p class="cart-promo" role="status">Add <strong>{{ gap | money }}</strong> more to save {{ off_label }}{% if off_scope != '' %} on{{ off_scope }}{% endif %} with {{ promo }}.</p>
 {%- elsif off_label != '' -%}
-  <p class="cart-promo cart-promo--on" role="status">✓ {{ promo }} is on your order: {{ off_label }} off at checkout.</p>
+  <p class="cart-promo cart-promo--on" role="status">✓ {{ promo }} is on your order: {{ off_label }} off{% if off_scope != '' %}{{ off_scope }}{% endif %} at checkout.</p>
 {%- endif -%}
 <style>
   .cart-promo { margin: 10px 0 0; padding: 10px 14px; border-radius: 10px; background: rgba(187,143,80,.12); color: #2e4b59; font-size: 14px; line-height: 1.35; }

@@ -3,10 +3,11 @@
     "promo": {
       "type": "uikit-promo-bar",
       "settings": {
-        "text": "Use code HYMAN for free shipping on your first order of $125 or more.",
-        "link": "/discount/HYMAN?redirect=/pages/hyman",
+        "text": "Code HYMAN: $50 off your first order of $200 or more",
+        "link": "/discount/HYMAN?redirect=/pages/mark-hyman",
         "background": "#2e4b59",
-        "text_color": "#ffffff"
+        "text_color": "#ffffff",
+        "cart_promo": "HYMAN"
       }
     },
     "hero": {
@@ -14,9 +15,9 @@
       "settings": {
         "heading": "Seafood Dr. Hyman keeps in his freezer.",
         "subheading": "Third-party tested for nutrition, mercury and microplastics. Results published.",
-        "chip": "Code HYMAN: free shipping on your first order of $125+",
+        "chip": "Code HYMAN: $50 off your first order of $200+",
         "cta_label": "Shop the Salmon Lover's Box",
-        "cta_link": "/pages/hyman#salmon-lovers-box",
+        "cta_link": "/pages/mark-hyman#salmon-lovers-box",
         "note": "Dr. Mark Hyman is a paid partner and a long-time customer.",
         "image": "shopify://shop_images/hyman-uikit-hand-roll-hero.jpg"
       },
@@ -63,10 +64,10 @@
         "image": "shopify://shop_images/hyman-uikit-freezer.jpg",
         "image_side": "right",
         "ratio": "4 / 3",
-        "eyebrow": "From Dr. Mark Hyman",
-        "heading": "“I tell my patients to eat more seafood. The hard part is finding some you can trust without having to guess.”",
+        "eyebrow": "From Mark’s Kitchen",
+        "heading": "“I tell my patients to eat more seafood, and finding a source I trust has made it easier to follow my own advice.”",
         "heading_is_quote": true,
-        "text": "<p>“Seatopia is how I solved that, and why it’s always in my freezer.”</p>",
+        "text": "<p>“That’s why Seatopia is always in my freezer. I can thaw exactly what I need to help meet my goal of eating fatty fish 3–4 times a week.”</p>",
         "name": "Mark Hyman, MD",
         "role": "Paid partner and long-time customer"
       }
@@ -75,7 +76,7 @@
       "type": "uikit-benefits",
       "settings": {
         "heading": "We lab-test our seafood and show you the results.",
-        "text": "Every supplier is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard.",
+        "text": "Every supplier is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard. We test and publish omega-3, protein, selenium, vitamin D and B12.",
         "heading_position": "above",
         "ruled": true
       },
@@ -101,7 +102,7 @@
           "settings": {
             "icon_name": "microplastics",
             "title": "",
-            "text": "No microplastics detected in third-party testing."
+            "text": "Tested for microplastics down to 1 micron. Third-party Certificates of Analysis from EMSL."
           }
         },
         "b_farms": {
@@ -125,7 +126,7 @@
       "settings": {
         "eyebrow": "The box in Dr. Hyman’s note",
         "heading": "The Salmon Lover's Box",
-        "text": "<p>Salmon and steelhead in individually sealed portions, blast-frozen to -10°F at harvest and vacuum sealed. Choose 12, 18 or 24 portions, once or on a subscription.</p>",
+        "text": "<p>King salmon, Atlantic salmon and steelhead in individually sealed portions, blast-frozen to -10°F at harvest and vacuum sealed, so you thaw exactly what you need. Choose 12, 18 or 24 portions, once or on a subscription.</p>",
         "anchor": "salmon-lovers-box",
         "tight": true
       }
@@ -243,12 +244,12 @@
     "recipe": {
       "type": "uikit-feature",
       "settings": {
-        "article": "seafood-recipes/spicy-salmon-hand-rolls-with-pickled-radish-avocado-cucumber",
+        "article": "seafood-recipes/one-pan-seafood-skillet-with-cannellini-jammy-tomatoes",
         "image_side": "left",
         "ratio": "4 / 3",
         "eyebrow": "This week from Mark’s Kitchen",
-        "heading": "Spicy salmon hand rolls",
-        "text": "<p>Cubed King Salmon in a creamy, spicy dressing, wrapped in nori with avocado, cucumber and quick-pickled radish. Everyone builds their own at the table, and there’s no cooking involved.</p>",
+        "heading": "One-Pan Seafood Skillet",
+        "text": "<p>Salmon, branzino and shrimp with cannellini beans, kale and jammy tomatoes. “When the weather cools down, this is my kind of dinner,” Dr. Hyman writes: warming, satisfying, and fewer dishes.</p>",
         "cta_label": "Get the recipe"
       }
     },
@@ -260,7 +261,8 @@
         "padding_top": 80,
         "padding_bottom": 80,
         "show_coa": true,
-        "show_ocean": false
+        "show_ocean": false,
+        "eyebrow": "Tested and published."
       }
     },
     "farm": {
@@ -271,40 +273,46 @@
         "ratio": "590 / 669",
         "eyebrow": "The farm behind the fish",
         "heading": "Dr. Hyman visited this farm in 2011.",
-        "text": "<p>He went to Veta la Palma, in the marshlands of southern Spain: the farm chef Dan Barber described in his talk “How I fell in love with a fish.” It operates today as Esteros Lubimar, one of Seatopia’s farm partners, and it is where our branzino comes from.</p>",
+        "text": "<p>He went to Veta la Palma, in the marshlands of southern Spain: the farm chef Dan Barber described in his talk “How I fell in love with a fish.” It operates today as Esteros Lubimar, one of Seatopia’s farm partners, and it is where the branzino in this week’s skillet comes from.</p>",
         "cta_label": "Read the farm story",
         "cta_link": "shopify://pages/esteros-lubimar"
       }
     },
     "reviews": {
-      "type": "uikit-testimonials",
+      "type": "uikit-trust",
       "settings": {
-        "heading": "Thousands of subscribers",
-        "text": "Reviews from verified buyers, in their own words."
+        "heading": "Trusted by Dr. Hyman and thousands of subscribers",
+        "text": "Reviews from verified buyers, in their own words.",
+        "stat_1": "54,000+::orders delivered",
+        "stat_2": "Thousands::of subscribers",
+        "stat_3": "140+::analytes on our lab panel"
       },
       "blocks": {
         "r1": {
           "type": "review",
           "settings": {
             "rating": 5,
-            "name": "James J., verified buyer",
-            "quote": "I look forward to every meal from Seatopia. Each of the different versions of Salmon is unique and tasty. I highly recommend the Salmon Lover's box for quality and taste."
+            "name": "James J.",
+            "quote": "I look forward to every meal from Seatopia. Each of the different versions of Salmon is unique and tasty. I highly recommend the Salmon Lover's box for quality and taste.",
+            "disclosure": "Verified buyer"
           }
         },
         "r2": {
           "type": "review",
           "settings": {
             "rating": 5,
-            "name": "Andreia W., verified buyer",
-            "quote": "I would typically only eat wild fish, but then I tasted the salmon at Seatopia. Now I’m completely hooked!"
+            "name": "Andreia W.",
+            "quote": "I would typically only eat wild fish, but then I tasted the salmon at Seatopia. Now I’m completely hooked!",
+            "disclosure": "Verified buyer"
           }
         },
         "r3": {
           "type": "review",
           "settings": {
             "rating": 5,
-            "name": "Gaith T., verified buyer",
-            "quote": "Heard James on the Hyman podcast. Raving fan — already turned my trainer on to it."
+            "name": "Gaith T.",
+            "quote": "Heard James on the Hyman podcast. Raving fan — already turned my trainer on to it.",
+            "disclosure": "Verified buyer"
           }
         }
       },
@@ -312,6 +320,97 @@
         "r1",
         "r2",
         "r3"
+      ]
+    },
+    "boxes": {
+      "type": "uikit-box-grid",
+      "settings": {
+        "layout": "scroll",
+        "show_filters": true,
+        "heading": "Stock your freezer for the holidays.",
+        "text": "Our favorites, then the specialty boxes. Code HYMAN takes $50 off a first order of $200 or more.",
+        "cta_label": "Build your own box",
+        "cta_link": "/collections/build-your-own-box"
+      },
+      "blocks": {
+        "b_salmon": {
+          "type": "box",
+          "settings": {
+            "product": "salmon-box",
+            "show_price": true,
+            "show_buy": true,
+            "title": "Salmon Lover’s Box",
+            "group": "Favorites",
+            "show_savings": true,
+            "text": "King salmon, Atlantic salmon and steelhead. 12, 18 or 24 portions."
+          }
+        },
+        "b_fs": {
+          "type": "box",
+          "settings": {
+            "product": "fish-shell-variety",
+            "show_price": true,
+            "show_buy": true,
+            "title": "Fish & Shell Variety Box",
+            "group": "Favorites",
+            "show_savings": true,
+            "text": "Salmon, whitefish and Peruvian scallops. 12, 18 or 24 portions."
+          }
+        },
+        "b_white": {
+          "type": "box",
+          "settings": {
+            "product": "white-fish-box",
+            "show_price": true,
+            "show_buy": true,
+            "title": "White Fish Box",
+            "group": "Favorites",
+            "show_savings": true,
+            "text": "Bream, branzino, yellowtail and barramundi. 12, 18 or 24 portions."
+          }
+        },
+        "b_long": {
+          "type": "box",
+          "settings": {
+            "product": "the-seatopia-longevity-box",
+            "show_price": true,
+            "show_buy": true,
+            "title": "The Seatopia Longevity Box",
+            "group": "Specialty",
+            "text": "Steelhead lox and sashimi loins, Ōra King salmon, branzino, black tiger shrimp and salmon roe. About 6.45 lb."
+          }
+        },
+        "b_ss": {
+          "type": "box",
+          "settings": {
+            "product": "shrimp-and-salmon-box",
+            "show_price": true,
+            "show_buy": true,
+            "title": "Shrimp and Salmon Box",
+            "group": "Specialty",
+            "text": "Salmon and black tiger shrimp, together in one box."
+          }
+        },
+        "b_preg": {
+          "type": "box",
+          "settings": {
+            "product": "the-pregnancy-box",
+            "show_price": true,
+            "show_buy": true,
+            "title": "The Pregnancy Box",
+            "group": "Specialty",
+            "show_savings": true,
+            "text": "King salmon, Atlantic salmon, steelhead loin and salmon roe. FDA and EPA recommend 2 to 3 servings a week, 4 oz each, from their “Best Choices” list for people who are pregnant or breastfeeding. Salmon is on that list."
+          }
+        }
+      },
+      "block_order": [
+        "b_salmon",
+        "b_fs",
+        "b_white",
+        "b_long",
+        "b_ss",
+        "b_preg"
       ]
     },
     "steps": {
@@ -422,6 +521,13 @@
         "footnote": "<p>Dr. Mark Hyman is a paid partner and a long-time customer. Nutrition results describe tested samples; values vary by sample and season. <a href=\"/policies/shipping-policy\">Frozen delivery guarantee terms</a>.</p>"
       },
       "blocks": {
+        "q_code": {
+          "type": "question",
+          "settings": {
+            "question": "How does code HYMAN work?",
+            "answer": "<p>Code HYMAN takes $50 off your first Seatopia order of $200 or more. Arriving from this page adds it to your cart for you, and your cart shows the saving; you can also enter it at checkout.</p>"
+          }
+        },
         "q_often": {
           "type": "question",
           "settings": {
@@ -466,6 +572,7 @@
         }
       },
       "block_order": [
+        "q_code",
         "q_often",
         "q_mercury",
         "q_micro",
@@ -483,9 +590,10 @@
     "box_band",
     "salmon_box",
     "recipe",
+    "reviews",
+    "boxes",
     "standard",
     "farm",
-    "reviews",
     "steps",
     "newsletter",
     "faq"
