@@ -28,6 +28,25 @@
   </div>
 </div>
 
+{%- if section.settings.faq_schema and section.blocks.size > 0 -%}
+  {%- comment -%} FAQPage structured data for search results; text matches what is on the page. {%- endcomment -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for block in section.blocks -%}
+          {
+            "@type": "Question",
+            "name": {{ block.settings.question | strip_html | json }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ block.settings.answer | strip_html | strip | json }} }
+          }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+{%- endif -%}
+
 <style>
   .uikit-faq { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 20px 60px; align-items: start; }
   .uikit-faq__list { border-bottom: 1px solid var(--uk-rule); }
@@ -58,7 +77,8 @@
   "settings": [
     { "type": "paragraph", "content": "Use the claims guide §9 approved answers, whole." },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Questions, answered" },
-    { "type": "richtext", "id": "footnote", "label": "Footnote" }
+    { "type": "richtext", "id": "footnote", "label": "Footnote" },
+    { "type": "checkbox", "id": "faq_schema", "label": "Add FAQ structured data for Google", "default": false }
   ],
   "blocks": [
     { "type": "question", "name": "Question", "settings": [

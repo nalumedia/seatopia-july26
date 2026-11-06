@@ -1,4 +1,7 @@
 {%- comment -%} UI kit — hero. Figma node 47:413 {%- endcomment -%}
+{%- comment -%} The kit's fonts and stylesheet, for pages that open with the hero and no promo bar. {%- endcomment -%}
+{%- render 'uikit-fonts' -%}
+{{ 'uikit.css' | asset_url | stylesheet_tag }}
 
 <div class="uikit uikit-section">
   <div class="uikit-container uikit-stack uikit-hero">

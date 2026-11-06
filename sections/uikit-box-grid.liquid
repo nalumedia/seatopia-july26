@@ -10,7 +10,7 @@
 {%- assign scroll = false -%}
 {%- if section.settings.layout == 'scroll' -%}{%- assign scroll = true -%}{%- endif -%}
 
-<div class="uikit uikit-section">
+<div class="uikit uikit-section"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | handleize }}"{% endif %}>
   <div class="uikit-container">
     <div class="uikit-boxgrid__head{% if scroll %} uikit-boxgrid__head--scroll{% endif %}">
       <div class="uikit-boxgrid__headtext">
@@ -214,6 +214,7 @@
     { "type": "text", "id": "cta_label", "label": "Button label", "default": "Build Your Box" },
     { "type": "url", "id": "cta_link", "label": "Button link" },
     { "type": "checkbox", "id": "show_filters", "label": "Filter buttons by group", "default": false },
+    { "type": "text", "id": "anchor", "label": "Anchor ID", "info": "Letters, numbers and hyphens. Link to it with #your-id." },
     {
       "type": "select", "id": "layout", "label": "Layout", "default": "grid",
       "options": [ { "value": "grid", "label": "Grid" }, { "value": "scroll", "label": "Scrolling" } ]
