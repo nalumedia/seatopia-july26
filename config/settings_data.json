@@ -9,7 +9,7 @@
  */
 {
   "current": {
-    "free_shipping_discount_codes": "FREESHIP|HYMAN|VIP20|WELCOME10|SHIPMEFREE|SUNSHINE26|RACHELFREESHIP|BLAIRFREESHIP|ASHFREESHIP|LETSGO720",
+    "free_shipping_discount_codes": "FREESHIP|VIP20|WELCOME10|SHIPMEFREE|SUNSHINE26|RACHELFREESHIP|BLAIRFREESHIP|ASHFREESHIP|LETSGO720",
     "free_shipping_discount_message": "🥳 You got FREE SHIPPING, using : <code></code>",
     "logo": "shopify://shop_images/Seatopia_Logo_3.png",
     "white_logo": "shopify://shop_images/Seatopia_Logo_185f8a92-62e6-4002-87c0-b7e71ecbe906.png",
