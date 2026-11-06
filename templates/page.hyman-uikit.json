@@ -261,7 +261,8 @@
         "padding_top": 80,
         "padding_bottom": 80,
         "show_coa": true,
-        "show_ocean": false
+        "show_ocean": false,
+        "eyebrow": "Tested and published."
       }
     },
     "farm": {
@@ -287,16 +288,6 @@
         "stat_3": "140+::analytes on our lab panel"
       },
       "blocks": {
-        "d_hyman": {
-          "type": "doctor",
-          "settings": {
-            "image": "shopify://shop_images/05212021_Mark_Hyman9087-Edit.jpg",
-            "name": "Dr. Mark Hyman, MD",
-            "role": "Functional medicine physician",
-            "disclosure": "Paid partner and long-time customer",
-            "quote": "“We are what our food eats.”"
-          }
-        },
         "r1": {
           "type": "review",
           "settings": {
@@ -326,7 +317,6 @@
         }
       },
       "block_order": [
-        "d_hyman",
         "r1",
         "r2",
         "r3"
