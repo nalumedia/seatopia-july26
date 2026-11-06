@@ -153,7 +153,7 @@
         "text_aXfMMX": {
           "type": "text",
           "settings": {
-            "text": "<p>Mt. Cook Alpine Salmon is the highest-altitude salmon farm in the world, redefining what freshwater aquaculture can be. Located high in New Zealand’s Southern Alps, Mt. Cook raises freshwater king salmon in fast-flowing, hydroelectric canals fed by the alpine snowmelt. &nbsp;Raised without antibiotics, hormones, and GMOs, Mt. Cook’s low-density, high-flow environment mimics a wild river system, allowing salmon to swim the equivalent of a marathon each day, upstream. This is king salmon without compromise. Clean, sustainable, and as pure as the water they’re raised in.&nbsp;</p>",
+            "text": "<p>Mt. Cook Alpine Salmon raises freshwater king salmon high in New Zealand’s Southern Alps, in fast-flowing hydroelectric canals fed by alpine snowmelt. The low-density, high-flow environment keeps the salmon swimming against a steady current, much like a river.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -307,7 +307,7 @@
         "heading_alignment": "text-center md:items-center",
         "heading_tag": "h2",
         "subheading": "",
-        "description": "<p>Mt. Cook is set apart by their glacial-fed hydroelectric canal system. A completely unique, man-made waterway originally designed for renewable energy, now repurposed to support sustainable aquaculture. Because of the altitude and snowmelt, the canals maintain constant, fast-moving flow, creating ideal conditions for salmon to thrive. Water stays cold year-round, naturally oxygenated and clean. One of a kind, and one of the most innovative freshwater farming systems anywhere.</p>",
+        "description": "<p>Mt. Cook is set apart by its glacier-fed hydroelectric canal system: a man-made waterway originally designed for renewable energy, now repurposed for salmon farming. Because of the altitude and snowmelt, the canals keep a constant, fast-moving flow, and the water stays cold year-round and naturally oxygenated.</p>",
         "button_label": "",
         "button_link": "",
         "button_external": false,
@@ -336,7 +336,7 @@
         "heading_3hdhjW": {
           "type": "heading",
           "settings": {
-            "heading": "Stewards Crafting Nature’s Finest",
+            "heading": "Stewards of the Southern Alps",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -486,7 +486,7 @@
           "type": "question",
           "settings": {
             "title": "What can be in it?",
-            "text": "<p><strong>Algae oil:</strong></p><p>The original source of EPA and DHA omega-3s. Fish don't make omega-3s, they accumulate them from what they eat. Algae is where those fats come from in the ocean too.</p><p><strong>Marine ingredients (fishmeal, fish oil):</strong></p><p>Protein and fats in the form fish evolved to digest. We work to reduce this share over time, not eliminate the nutrition it provides. A large amount of marine ingredients already come from offcuts, meaning parts of fish that are not suitable for human consumption, and so reducing ocean impact further.</p><p><strong>Plant proteins (soy, pea, barley, corn, pistachio):</strong></p><p>Non-GMO, high-protein, highly digestible. Replaces wild-caught protein without issues for the fish, reducing ocean impact.&nbsp;</p><p><strong>Amino acids and minerals:</strong></p><p>Fills the specific nutritional gaps plant proteins leave, so nothing is missing from the diet.</p><p><strong>Astaxanthin:</strong></p><p>A naturally occurring carotenoid, the same one found in kelp, krill and shellfish. It's an antioxidant for the fish and the reason salmon flesh is pink.</p>",
+            "text": "<p>We work with a number of different farms around the world, and the specific feeds vary by farm, by species, and even by the phase of the growout cycle. To meet the Seatopia Standard at Aquaculture 2.0, a feed diet includes a combination of algae oil, marine ingredients (fish meal and fish oil), high-protein plants (soy, pea, barley, corn or pistachio), essential amino acids, minerals and astaxanthin. Preventative antibiotics, hormones, GMOs and synthetic colouring agents are prohibited.</p><p>These feeds are built so the fish get the nutrition they need to produce good nutrition for humans: nutrient-dense, highly digestible, and balanced on protein, omega-3s, micronutrients and fats.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -495,7 +495,7 @@
           "type": "question",
           "settings": {
             "title": "What's never in it?",
-            "text": "<p>Preventative antibiotics, hormones, GMOs, synthetic colouring agents.</p>",
+            "text": "<p>Preventative antibiotics, hormones, GMOs and synthetic colouring agents are prohibited.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -504,7 +504,7 @@
           "type": "question",
           "settings": {
             "title": "Why is there plant protein in fish feed?",
-            "text": "<p>Because the alternative is more wild fish. Aquaculture used to run almost entirely on fishmeal and fish oil, which meant catching enormous volumes of small wild fish to grow larger ones. Swapping part of that for high-protein plants takes pressure off those wild stocks while still giving the fish bioavailable protein.</p><p>There's a second reason: wild fish carry what the ocean carries. Less wild fish in the feed means less mercury, fewer microplastics and lower parasite risk arriving in your fillet. A controlled diet is what makes a clean fish possible.</p>",
+            "text": "<p>Yes. Many of our farm partners include a percentage of high-protein, non-GMO plant meal such as soy, grains or legumes in their feed, particularly for omnivorous species or during early life stages.</p><p>Here is why. In the early days of aquaculture, what we call Aquaculture 1.0, feed was mostly fishmeal and fish oil. It was easy to produce and efficient for the fish, but it was not sustainable. Using plant proteins means less reliance on wild fishmeal while still giving fish bioavailable protein. Less wild fish in the feed also means more control over exposure to mercury, microplastics, parasites and other environmental toxins.</p><p>Seatopia exists to generate market demand for the next wave of feeds, what we call Aquaculture 3.0: species-appropriate ingredients rich in EPA and DHA, like algae, soldier fly protein and mycelium, that give fish what they need without relying on fishmeal. Some of our farms already use these ingredients and we are pushing for larger inclusions and full substitutions. Getting every partner there is the goal.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -513,7 +513,7 @@
           "type": "question",
           "settings": {
             "title": "Are the fish dyed?",
-            "text": "<p>No. Post-harvest colouring agents are prohibited across everything we sell. Colour comes from astaxanthin in the feed, a natural carotenoid found in kelp, krill and shellfish. Wild salmon get their colour the same way. So do flamingos.</p>",
+            "text": "<p>Post-harvest and unnatural colouring agents are strictly prohibited. Colour comes from the feed, not from anything added afterwards.</p><p>Astaxanthin is the carotenoid largely responsible for a salmon’s colour. It is a naturally occurring nutrient found in kelp, krill, shrimp, lobster and crab, and it reaches the fish through what it eats. Both wild and farmed salmon get their colour from astaxanthin in their diet. It is also what makes flamingos pink.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -533,7 +533,7 @@
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
         "subheading": "",
-        "description": "<p>Feed is the single biggest factor in how clean and how nutritious a fish is. A fish is built from what it eats, which means the feed decides its omega-3s, its mineral profile, and how much mercury or microplastic it carries. That's why we treat feed as a sourcing requirement rather than a farm detail, and why every farm we work with has to tell us exactly what goes into the pellet.</p><p>Feed varies by farm, by species, and by stage of growth. The ingredients and the rules below hold across all of them.</p>",
+        "description": "<p>A fish is built from what it eats, so feed decides its omega-3s and its mineral profile, and it shapes its exposure to mercury and microplastics. That’s why we treat feed as a sourcing requirement rather than a farm detail, and why every farm we work with has to tell us what goes into the pellet. Feed varies by farm, by species, and by stage of growth.</p>",
         "button_label": "",
         "button_link": "",
         "button_external": false,
@@ -639,7 +639,7 @@
         "text_e9xqD8": {
           "type": "text",
           "settings": {
-            "text": "<p>The salmon at Mt. Cook are nourished with a premium, hand-fed diet tailored to support both fish health and clean flavor. Their feed is free from GMOs, hormones, and antibiotics, and is composed of sustainably sourced marine proteins, poultry oil, essential plant-based nutrients like fava beans, and naturally derived astaxanthin: the antioxidant that gives king salmon their deep coral hue. This balanced diet supports robust health, a high omega-3 profile, and excellent taste while being species appropriate and environmentally conscious. With full traceability and thoughtful formulation, Mt. Cook’s feed philosophy is an extension of their commitment to purity, sustainability, and responsible farming.</p>",
+            "text": "<p>Mt. Cook raises its king salmon in freshwater raceways fed by the Southern Alps. Every supplier is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard.</p><p>Our Alpine King Salmon tested at 800 mg EPA and 1,510 mg DHA, plus 69 mcg selenium, per 7 oz skin-on portion. Values vary by sample and season.</p><p>When we choose farm partners, we look for farms that manage animal health without antibiotics. Many of our farms have no need for them by design, which is the case with scallops and with many of our land-based recirculating farms. Others have transitioned away entirely: our Atlantic salmon partner, Bakkafrost, has used zero antibiotics since 2004.</p><p>In the rare case of a significant animal health threat, some of our farms reserve the right to use therapeutic antibiotics under veterinary guidance. If that happens, the fish are held for a mandatory withdrawal period so that no trace remains before harvest. Antibiotics on the World Health Organization’s list of drugs critically important to human medicine are not permitted.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -722,7 +722,7 @@
           "settings": {
             "image": "shopify://shop_images/Screenshot_2025-06-25_at_8.45.54_AM.png",
             "heading": "Spirulina-Infused Crudo",
-            "text": "<p><em>Prepare Steelhead Crudo with green spirulina emulsion. Seatopia’s sushi-grade seafood delivers abundant Omega-3s to support heart and brain health.</em></p><p>👉🏽 <a href=\"https://seatopia.fish/blogs/seafood-recipes/spirulina-infused-crudo-with-seatopia-steelhead\" target=\"_blank\" title=\"https://seatopia.fish/blogs/seafood-recipes/spirulina-infused-crudo-with-seatopia-steelhead\">Get the recipe</a></p>",
+            "text": "<p>Prepare Steelhead Crudo with a green spirulina emulsion, made with Seatopia’s sushi-grade steelhead. 👉🏽 <a href=\"/blogs/seafood-recipes/spirulina-infused-crudo-with-seatopia-steelhead\">Get the recipe</a></p>",
             "color_text": "#ffffff",
             "color_background": "#171717"
           }
@@ -732,7 +732,7 @@
           "settings": {
             "image": "shopify://shop_images/Screenshot_2025-06-25_at_8.47.03_AM.png",
             "heading": "Salmon Poke Bowl",
-            "text": "<p>Join us in this new recipe where we dive into the traditional flavors of Hawaii with a classic Salmon Poke, made with New Zealand King Salmon from Seatopia. This step-by-step guide walks you through preparing a flavorful poke, marrying the rich taste of sushi-grade salmon, loaded with omega-3s, with the freshness of pickled ginger and garlic, known for their digestive and immune-supporting properties. Perfectly paired with organic sushi rice and creamy avocado, this dish is a true celebration of Hawaiian cuisine and wholesome nourishment.</p><p>👉🏽 <a href=\"https://seatopia.fish/blogs/seafood-recipes/salmon-poke-101-tamari-ginger-garlic\" target=\"_blank\" title=\"https://seatopia.fish/blogs/seafood-recipes/salmon-poke-101-tamari-ginger-garlic\">Get the recipe</a></p>",
+            "text": "<p>Join us in this new recipe where we dive into the traditional flavors of Hawaii with a classic Salmon Poke, made with New Zealand King Salmon from Seatopia. This step-by-step guide walks you through preparing a flavorful poke, marrying the rich taste of sushi-grade salmon, with the freshness of pickled ginger and garlic, two classic poke partners. Perfectly paired with sushi rice and creamy avocado, this dish is a true celebration of Hawaiian cuisine and Hawaiian flavor at home.</p><p>👉🏽 <a href=\"https://seatopia.fish/blogs/seafood-recipes/salmon-poke-101-tamari-ginger-garlic\" target=\"_blank\" title=\"https://seatopia.fish/blogs/seafood-recipes/salmon-poke-101-tamari-ginger-garlic\">Get the recipe</a></p>",
             "color_text": "#ffffff",
             "color_background": "#171717"
           }
