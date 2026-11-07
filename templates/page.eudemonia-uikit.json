@@ -21,6 +21,8 @@
         "cta_link": "/products/eudemonia-sampler-box",
         "note": "The Seatopia box in Eudēmonia Essentials, the summit’s hand-curated partner bundle.",
         "image": "shopify://shop_images/eudemonia-kitchen-family.jpg",
+        "cta2_label": "See the 3-month plan with 2 omega-3 tests",
+        "cta2_link": "/pages/eudemonia#plan",
         "partner": "eudemonia"
       },
       "blocks": {
@@ -125,8 +127,8 @@
           "settings": {
             "rating": 5,
             "quote": "I look forward to every meal from Seatopia. Each of the different versions of Salmon is unique and tasty. I highly recommend the Salmon Lover's box for quality and taste.",
-            "name": "James J., verified buyer",
-            "disclosure": ""
+            "name": "James J.",
+            "disclosure": "Verified buyer"
           }
         },
         "r1": {
@@ -134,8 +136,8 @@
           "settings": {
             "rating": 5,
             "quote": "I would typically only eat wild fish, but then I tasted the salmon at Seatopia. Now I’m completely hooked!",
-            "name": "Andreia W., verified buyer",
-            "disclosure": ""
+            "name": "Andreia W.",
+            "disclosure": "Verified buyer"
           }
         },
         "r2": {
@@ -143,8 +145,8 @@
           "settings": {
             "rating": 5,
             "quote": "Heard James on the Hyman podcast. Raving fan — already turned my trainer on to it.",
-            "name": "Gaith T., verified buyer",
-            "disclosure": ""
+            "name": "Gaith T.",
+            "disclosure": "Verified buyer"
           }
         }
       },
@@ -187,7 +189,7 @@
           "settings": {
             "icon_name": "microplastics",
             "title": "",
-            "text": "No microplastics detected in third-party testing."
+            "text": "Tested for microplastics down to 1 micron. Third-party Certificates of Analysis from EMSL."
           }
         },
         "b_farms": {
@@ -326,12 +328,89 @@
         "rounded": true
       }
     },
+    "measure": {
+      "type": "uikit-test",
+      "settings": {
+        "anchor": "measure",
+        "eyebrow": "Included in the 3-month plan",
+        "heading": "Don’t just eat more omega-3s. Measure yours.",
+        "text": "<p>The 3-month Eudēmonia plan comes with two at-home Omega-3 Index Plus tests ($178 value). A finger-prick at home, one envelope in the mail, and your numbers in 2–4 weeks. Test when you start, retest at the end, and see both results in your Seatopia account.</p>",
+        "measures_label": "What each test measures",
+        "cta_label": "Choose the 3-month plan",
+        "cta_link": "/pages/eudemonia#plan",
+        "mock_value": "5.2",
+        "mock_first_when": "Kit in box 1",
+        "mock_second_when": "Kit in box 3",
+        "caption": "Illustration with an example value. Your Omega-3 Index results are saved to your account, dated, with your baseline and retest side by side."
+      },
+      "blocks": {
+        "m_o3": {
+          "type": "measure",
+          "settings": {
+            "title": "Omega-3 Index",
+            "text": "EPA+DHA as a percentage of the fatty acids in your red blood cells. Red blood cells live about 120 days, so it reflects roughly the past 3–4 months."
+          }
+        },
+        "m_o6": {
+          "type": "measure",
+          "settings": {
+            "title": "Omega-6 to omega-3 ratio",
+            "text": "Your total omega-6 fatty acids against your total omega-3s."
+          }
+        },
+        "m_aa": {
+          "type": "measure",
+          "settings": {
+            "title": "AA to EPA ratio",
+            "text": "Arachidonic acid, an omega-6, against EPA."
+          }
+        },
+        "m_tf": {
+          "type": "measure",
+          "settings": {
+            "title": "Trans Fat Index",
+            "text": "A measure of industrially produced trans fats in whole blood."
+          }
+        },
+        "s_1": {
+          "type": "step",
+          "settings": {
+            "when": "Box 1",
+            "text": "Take your first test before you change anything. That’s your baseline."
+          }
+        },
+        "s_2": {
+          "type": "step",
+          "settings": {
+            "when": "Months 1–3",
+            "text": "A Eudēmonia Box each month, every portion third-party lab tested, with the numbers published."
+          }
+        },
+        "s_3": {
+          "type": "step",
+          "settings": {
+            "when": "Box 3",
+            "text": "Your second kit arrives. Retest and compare your results in your account."
+          }
+        }
+      },
+      "block_order": [
+        "m_o3",
+        "m_o6",
+        "m_aa",
+        "m_tf",
+        "s_1",
+        "s_2",
+        "s_3"
+      ]
+    },
     "offers": {
       "type": "uikit-offers",
       "settings": {
         "eyebrow": "Show specials",
         "heading": "Two ways to start",
         "tight": true,
+        "anchor": "plan",
         "footnote": "<p>EUDEMONIA26 works on one-time orders and subscriptions, and stacks with the 3-month plan. One code per order. Frozen delivery guarantee terms are in our <a href=\"/policies/shipping-policy\">shipping policy</a>.</p>"
       },
       "blocks": {
@@ -340,10 +419,10 @@
           "settings": {
             "featured": true,
             "image_product": "omegaquant-omega-3-index-plus-test",
-            "eyebrow": "Show special",
+            "eyebrow": "Show special · 2 tests included",
             "big": "$100 off",
             "title": "The 3-month Eudēmonia plan",
-            "text": "<ul><li>Three Eudēmonia Boxes, one a month, paid up front: $379.98 instead of $480.</li><li>An Omega-3 Index Plus test kit in box 1 and box 3. Test, eat, retest.</li><li>Pause or change your delivery date anytime.</li></ul>",
+            "text": "<ul><li>Three Eudēmonia Boxes, one a month, paid up front: $379.98 instead of $480.</li><li>Two at-home Omega-3 Index Plus tests ($178 value) to measure your omega-3 levels and fatty acid balance: one in box 1, one in box 3.</li><li>Your baseline and retest, side by side in your Seatopia account.</li><li>Pause or change your delivery date anytime.</li></ul>",
             "terms": "Add EUDEMONIA26 at checkout and it’s $329.98 for all three.",
             "cta_label": "Choose the 3-month plan",
             "cta_link": "/products/eudemonia-sampler-box"
@@ -697,7 +776,7 @@
           "settings": {
             "icon_name": "mercury",
             "title": "Your numbers, in your account",
-            "text": "Omega-3 Index results from your test kit, tracked over time."
+            "text": "On the 3-month plan, each Omega-3 Index result is saved to your account, dated, so you can compare your baseline and retest."
           }
         }
       },
@@ -778,10 +857,10 @@
           "type": "offer",
           "settings": {
             "image": "shopify://shop_images/omegamaxxing-04-salmon-roe-tin.jpg",
-            "title": "The Omega-3 Index test",
-            "text": "<p>Guidelines count servings. We think you should count what’s in your blood. Take it, change one thing, retest in four months.</p>",
-            "cta_label": "See the test kit",
-            "cta_link": "/products/omegaquant-omega-3-index-plus-test"
+            "title": "The Omega-3 Index Plus test",
+            "text": "<p>Guidelines count servings. We think you should count what’s in your blood. The 3-month plan includes two tests, so you measure where you start and retest at the end. Or <a href=\"/products/omegaquant-omega-3-index-plus-test\">buy a single test</a>.</p>",
+            "cta_label": "See the 3-month plan",
+            "cta_link": "/pages/eudemonia#plan"
           }
         }
       },
@@ -808,7 +887,14 @@
           "type": "question",
           "settings": {
             "question": "What comes in the 3-month plan?",
-            "answer": "<p>A Eudēmonia Box every month for three months, with an OmegaQuant Omega-3 Index Plus test kit in the first and third boxes. Test when you start, retest at the end. You can pause or change a delivery date anytime.</p>"
+            "answer": "<p>A Eudēmonia Box every month for three months, plus two at-home OmegaQuant Omega-3 Index Plus tests ($178 value): one in box 1 and one in box 3. You can pause or change a delivery date anytime.</p>"
+          }
+        },
+        "q_test": {
+          "type": "question",
+          "settings": {
+            "question": "How do the omega-3 tests work?",
+            "answer": "<p>Take the first test when box 1 arrives, before you change anything: that’s your baseline. It’s a finger-prick at home. Put a few drops of blood on the collection card, mail it in the prepaid envelope, and your results come back in 2–4 weeks. The second kit comes in box 3, so you can retest toward the end of the plan.</p><p>Each test reports your Omega-3 Index, your omega-6 to omega-3 ratio, your AA to EPA ratio and your Trans Fat Index. Your Omega-3 Index results are saved to your Seatopia account, dated, so your baseline and retest sit side by side.</p><p>People with bleeding disorders or taking blood thinners should talk to their physician before using the kit.</p>"
           }
         },
         "q_sticks": {
@@ -864,6 +950,7 @@
       "block_order": [
         "q_disc",
         "q_plan",
+        "q_test",
         "q_gift",
         "q_sticks",
         "q_amb",
@@ -964,6 +1051,7 @@
     "proof",
     "box_band",
     "box",
+    "measure",
     "offers",
     "panels",
     "boxes",

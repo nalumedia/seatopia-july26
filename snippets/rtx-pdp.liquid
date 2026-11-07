@@ -263,6 +263,8 @@
 .rtx-prepaid__row { display: flex; justify-content: space-between; gap: 12px; margin: 0; }
 .rtx-prepaid__row + .rtx-prepaid__row { margin-top: 4px; }
 .rtx-prepaid__muted { opacity: .8; }
+.rtx-prepaid__kits { margin-top: 8px !important; padding-top: 8px; border-top: 1px solid rgba(46,75,89,.15); font-weight: 600; }
+.rtx-prepaid__kits span:last-child { white-space: nowrap; }
 .rtx-prepaid__code { margin-top: 8px !important; padding-top: 8px; border-top: 1px solid rgba(46,75,89,.15); color: #22543a; }
 </style>
 
@@ -457,6 +459,11 @@
             <div class="rtx-prepaid">
               <p class="rtx-prepaid__row"><span>{{ rtx_boxes }} boxes</span><strong>{{ rtx_first.price | money }}</strong></p>
               <p class="rtx-prepaid__row rtx-prepaid__muted"><span>Per box</span><span>{{ rtx_first.per_delivery_price | money }}{% if rtx_save > 0 %} &middot; you save {{ rtx_save | money_without_trailing_zeros }}{% endif %}</span></p>
+              {%- if product.handle == 'eudemonia-sampler-box' -%}
+                {%- comment -%} The plan ships an Omega-3 Index Plus kit in box 1 and box 3; value = 2 × the kit's own price. {%- endcomment -%}
+                {%- assign rtx_kit = all_products['omegaquant-omega-3-index-plus-test'] -%}
+                <p class="rtx-prepaid__row rtx-prepaid__kits"><span>+ 2 at-home Omega-3 Index Plus tests, in box 1 and box 3</span>{% if rtx_kit.price > 0 %}<span>{{ rtx_kit.price | times: 2 | money_without_trailing_zeros }} value</span>{% endif %}</p>
+              {%- endif -%}
               {%- if rtx_code_off > 0 -%}
                 <p class="rtx-prepaid__row rtx-prepaid__code"><span>With {{ rtx_promo }}</span><strong>{{ rtx_after | money }} &middot; {{ rtx_after_box | money }} per box</strong></p>
               {%- endif -%}

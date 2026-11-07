@@ -20,8 +20,15 @@
       {%- if section.settings.chip != blank -%}
         <p class="uikit-label-s uikit-hero__chip">{{ section.settings.chip }}</p>
       {%- endif -%}
-      {%- if section.settings.cta_label != blank -%}
-        <a class="uikit-btn uikit-btn--primary" href="{{ section.settings.cta_link | default: '#' }}">{{ section.settings.cta_label }}</a>
+      {%- if section.settings.cta_label != blank or section.settings.cta2_label != blank -%}
+        <div class="uikit-hero__ctas">
+          {%- if section.settings.cta_label != blank -%}
+            <a class="uikit-btn uikit-btn--primary" href="{{ section.settings.cta_link | default: '#' }}">{{ section.settings.cta_label }}</a>
+          {%- endif -%}
+          {%- if section.settings.cta2_label != blank -%}
+            <a class="uikit-btn uikit-btn--secondary" href="{{ section.settings.cta2_link | default: '#' }}">{{ section.settings.cta2_label }}</a>
+          {%- endif -%}
+        </div>
       {%- endif -%}
       {%- if section.settings.note != blank -%}
         <p class="uikit-body-s uikit-hero__note">{{ section.settings.note }}</p>
@@ -61,6 +68,7 @@
   .uikit-hero__sub { color: var(--uk-heading); max-width: 720px; }
   .uikit-hero__chip { display: inline-flex; align-items: center; min-height: 34px; padding: 8px 14px; border: 1px solid var(--uk-gold); border-radius: var(--uk-radius-pill); color: var(--uk-heading); }
   .uikit-hero__note { color: var(--uk-heading); }
+  .uikit-hero__ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
   .uikit-hero__lockup { display: inline-flex; align-items: center; gap: 18px; margin-bottom: 6px; color: var(--uk-heading); }
   .uikit-hero__lockup-seatopia { font-family: var(--uk-font-heading, inherit); font-size: 22px; letter-spacing: .14em; line-height: 1; }
   .uikit-hero__lockup-x { font-size: 18px; color: var(--uk-gold); }
@@ -128,6 +136,8 @@
     { "type": "text", "id": "subheading", "label": "Subheading", "default": "Third-party lab tested, omega-rich, low mercury, with zero microplastics detected." },
     { "type": "text", "id": "cta_label", "label": "Button label", "default": "Order Now" },
     { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "text", "id": "cta2_label", "label": "Second button label", "info": "Optional. An outlined button beside the first." },
+    { "type": "url", "id": "cta2_link", "label": "Second button link" },
     { "type": "text", "id": "chip", "label": "Offer chip", "info": "Claims guide rule 11: only an offer that is live in Shopify." },
     { "type": "text", "id": "note", "label": "Note below button", "info": "Use for a paid-partner disclosure. It must stay this size and in this position." },
     { "type": "image_picker", "id": "image", "label": "Hero image" },

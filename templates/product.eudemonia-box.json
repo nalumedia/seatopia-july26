@@ -104,7 +104,7 @@
             "heading": "The 3-month plan",
             "content": "",
             "page": "",
-            "liquid": "<p>Choose <strong>Prepay and Save</strong> above: three Eudēmonia Boxes, one a month, for $379.98 paid up front instead of $480. An OmegaQuant Omega-3 Index Plus test kit comes in box 1 and box 3, so you test when you start and retest at the end. Pause or change a delivery date anytime.</p><p>Stacks with EUDEMONIA26: $329.98 for all three boxes with the code.</p>",
+            "liquid": "<p>Choose <strong>Prepay and Save</strong> above: three Eudēmonia Boxes, one a month, for $379.98 paid up front instead of $480. Two at-home OmegaQuant Omega-3 Index Plus tests ($178 value) come with it, one in box 1 and one in box 3: test when you start, retest at the end, and see both results side by side in your Seatopia account. Pause or change a delivery date anytime.</p><p>Stacks with EUDEMONIA26: $329.98 for all three boxes with the code.</p>",
             "opened": false
           }
         },
@@ -295,10 +295,10 @@
           "settings": {
             "featured": true,
             "image_product": "omegaquant-omega-3-index-plus-test",
-            "eyebrow": "Show special",
+            "eyebrow": "Show special · 2 tests included",
             "big": "$100 off",
             "title": "The 3-month Eudēmonia plan",
-            "text": "<ul><li>Three Eudēmonia Boxes, one a month, paid up front: $379.98 instead of $480.</li><li>An Omega-3 Index Plus test kit in box 1 and box 3. Test, eat, retest.</li><li>Pause or change your delivery date anytime.</li></ul>",
+            "text": "<ul><li>Three Eudēmonia Boxes, one a month, paid up front: $379.98 instead of $480.</li><li>Two at-home Omega-3 Index Plus tests ($178 value) to measure your omega-3 levels and fatty acid balance: one in box 1, one in box 3.</li><li>Your baseline and retest, side by side in your Seatopia account.</li><li>Pause or change your delivery date anytime.</li></ul>",
             "terms": "Add EUDEMONIA26 at checkout and it’s $329.98 for all three.",
             "cta_label": "Choose Prepay and Save",
             "cta_link": "/products/eudemonia-sampler-box#MainProduct"
@@ -488,7 +488,7 @@
           "type": "question",
           "settings": {
             "question": "What comes in the 3-month plan?",
-            "answer": "<p>A Eudēmonia Box every month for three months, with an OmegaQuant Omega-3 Index Plus test kit in the first and third boxes. Test when you start, retest at the end. You can pause or change a delivery date anytime.</p>"
+            "answer": "<p>A Eudēmonia Box every month for three months, plus two at-home OmegaQuant Omega-3 Index Plus tests ($178 value): one in box 1 and one in box 3. Take the first when box 1 arrives for your baseline, and retest with the second toward the end of the plan. Your Omega-3 Index results are saved to your Seatopia account, side by side. You can pause or change a delivery date anytime.</p>"
           }
         },
         "q_sashimi": {
