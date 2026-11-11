@@ -8,6 +8,7 @@
   - search_placeholder: {String} Search input placeholder
 
   The Partners dropdown (recipe-nav-partners) appears on its own when the blog has partner recipes.
+  The Guides dropdown (recipe-nav-guides) lists the `recipe-guides` menu and appears once that menu has links.
 {%- endcomment -%}
 
 <div class="recipe-nav" data-recipe-nav>
@@ -18,6 +19,7 @@
       {%- render 'recipe-nav-dropdown', label: label3, tags: tags3, blog: blog -%}
       {%- render 'recipe-nav-dropdown', label: label4, tags: tags4, blog: blog -%}
       {%- render 'recipe-nav-partners', blog: blog -%}
+      {%- render 'recipe-nav-guides' -%}
     </nav>
 
     {%- if enable_search -%}

@@ -1,0 +1,43 @@
+{%- comment -%}
+  "Guides" dropdown for the recipe filter nav. Same markup and behaviour as recipe-nav-dropdown,
+  but the links come from the Shopify menu with handle `recipe-guides` (Online Store > Navigation),
+  and each one is marked as a guide so it doesn't read as a recipe filter.
+  Renders nothing while that menu is empty.
+
+  Before adding a page to the menu, check it against the claims guide: a link in the nav promotes it.
+{%- endcomment -%}
+{%- assign guide_menu = linklists['recipe-guides'] -%}
+{%- if guide_menu.links.size > 0 -%}
+  <div class="recipe-nav__item recipe-nav__item--guides" data-recipe-dropdown>
+    <button type="button" class="recipe-nav__trigger" aria-expanded="false" aria-haspopup="true" data-recipe-trigger>
+      <svg class="recipe-nav__book" width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5A2.5 2.5 0 0 1 4 20.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      </svg>
+      <span>{{ guide_menu.title | default: 'Guides' | escape }}</span>
+      <svg class="recipe-nav__caret" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="recipe-nav__panel recipe-nav__panel--guides" data-recipe-panel hidden>
+      <p class="recipe-nav__panel-label">Guides from the Seatopia kitchen</p>
+      <ul>
+        {%- for link in guide_menu.links -%}
+          <li>
+            <a href="{{ link.url }}" class="recipe-nav__link recipe-nav__link--guide{% if link.active %} is-active{% endif %}">
+              <span class="recipe-nav__guide-tag">Guide</span>
+              <span>{{ link.title | escape }}</span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+  <style>
+    .recipe-nav__book { flex: none; color: #bb8f50; }
+    .recipe-nav__panel--guides { min-width: 280px; }
+    .recipe-nav__panel-label { margin: 4px 12px 6px; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #9ca3af; }
+    .recipe-nav__link--guide { display: flex; align-items: center; gap: 10px; }
+    .recipe-nav__guide-tag { flex: none; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: #bb8f50; padding: 3px 7px; border-radius: 999px; }
+  </style>
+{%- endif -%}
