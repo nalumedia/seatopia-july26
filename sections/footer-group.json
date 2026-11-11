@@ -132,7 +132,8 @@
         "padding_bottom": 72,
         "divider": false,
         "full_width": false,
-        "rounded": false
+        "rounded": false,
+        "hide_on_pages": "become-a-seatopia-ambassador"
       }
     },
     "footer": {

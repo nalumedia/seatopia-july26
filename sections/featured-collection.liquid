@@ -1,3 +1,17 @@
+{%- comment -%} Pages listed in "Hide on these pages" skip this section (used by the footer group's boxes row). {%- endcomment -%}
+{%- liquid
+  assign fc_hidden = false
+  if request.page_type == 'page' and section.settings.hide_on_pages != blank
+    assign fc_hide_list = section.settings.hide_on_pages | split: ','
+    for h in fc_hide_list
+      assign h_clean = h | strip
+      if h_clean == page.handle
+        assign fc_hidden = true
+      endif
+    endfor
+  endif
+-%}
+{%- unless fc_hidden -%}
 <style>
   #shopify-section-{{ section.id }} {
     --section-padding-top: {{ section.settings.padding_top }}px;
@@ -116,11 +130,18 @@
     {%- endif -%}
   </div>
 </div>
+{%- endunless -%}
 
 {% schema %}
 {
   "name": "t:sections.featured-collection.name",
   "settings": [
+    {
+      "type": "text",
+      "id": "hide_on_pages",
+      "label": "Hide on these pages",
+      "info": "Page handles, comma-separated, e.g. become-a-seatopia-ambassador"
+    },
     {
       "type": "collection",
       "id": "collection",
