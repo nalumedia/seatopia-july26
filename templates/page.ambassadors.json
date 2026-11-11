@@ -2197,12 +2197,91 @@
         "padding_top": 40,
         "padding_bottom": 56
       }
+    },
+    "creator_archetypes": {
+      "type": "creator-archetypes",
+      "blocks": {
+        "archetype_1": {
+          "type": "archetype",
+          "settings": {
+            "title": "Functional Medicine Practitioners",
+            "text": "Clinical perspectives on nutrition and health.",
+            "categories": ""
+          }
+        },
+        "archetype_2": {
+          "type": "archetype",
+          "settings": {
+            "title": "Nutrition Educators",
+            "text": "Dietitians, nutritionists and food educators who help people understand food quality and make informed choices.",
+            "categories": "Nutrition Educator"
+          }
+        },
+        "archetype_3": {
+          "type": "archetype",
+          "settings": {
+            "title": "Performance & Fitness Experts",
+            "text": "Trainers, athletes and strength coaches who bring protein, strength, recovery and consistent healthy habits.",
+            "categories": "Performance & Strength Coach, Active Lifestyle Guide, Food-as-Fuel Creator"
+          }
+        },
+        "archetype_4": {
+          "type": "archetype",
+          "settings": {
+            "title": "Conscious Chefs",
+            "text": "Culinary creators who care about ingredient sourcing, cooking technique and exceptional flavor.",
+            "categories": "Conscious Chef"
+          }
+        },
+        "archetype_5": {
+          "type": "archetype",
+          "settings": {
+            "title": "Everyday Home Cooks",
+            "text": "Accessible recipes that make seafood feel approachable, achievable and delicious at home.",
+            "categories": "Everyday Home Cook"
+          }
+        },
+        "archetype_6": {
+          "type": "archetype",
+          "settings": {
+            "title": "Intentional Wellness Creators",
+            "text": "Thoughtful food choices within a wellness-minded daily routine.",
+            "categories": "Intentional Wellness Creator"
+          }
+        },
+        "archetype_7": {
+          "type": "archetype",
+          "settings": {
+            "title": "Family Table Creators",
+            "text": "Nourishing households with simple meals, thoughtful sourcing and shared meal habits.",
+            "categories": "Family Table Creator"
+          }
+        }
+      },
+      "block_order": [
+        "archetype_1",
+        "archetype_2",
+        "archetype_3",
+        "archetype_4",
+        "archetype_5",
+        "archetype_6",
+        "archetype_7"
+      ],
+      "settings": {
+        "eyebrow": "Our creators",
+        "heading": "Who we love to work with",
+        "text": "<p>We partner with people who care where their food comes from and love cooking it well. Most of our creators fit one of these archetypes. If you see yourself here, we’d love to hear from you.</p>",
+        "partners_anchor": "recipe-partners",
+        "padding_top": 56,
+        "padding_bottom": 24
+      }
     }
   },
   "order": [
     "main-page",
     "image_with_text_rQeGCd",
     "rich_text_BXnx4X",
+    "creator_archetypes",
     "recipe_partners",
     "collage_grid_c6z7Kh",
     "faq_frX88Q",

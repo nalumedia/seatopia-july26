@@ -1,0 +1,117 @@
+{%- comment -%}
+  Creator archetypes: the kinds of creators Seatopia works with, one card per block. Each card can show
+  the current creators in that archetype: list the matching recipe_creator "category" values in the
+  block's "Creator categories" setting (comma separated, e.g. "Performance & Strength Coach, Active Lifestyle Guide").
+{%- endcomment -%}
+<style>
+  .ca-show__head { max-width: 760px; margin: 0 0 36px; }
+  .ca-show__eyebrow { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #bb8f50; font-weight: 600; margin: 0 0 10px; }
+  .ca-show__heading { margin: 0 0 14px; }
+  .ca-show__text { font-size: 17px; line-height: 1.55; }
+  .ca-show__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+  .ca-card { display: flex; flex-direction: column; gap: 10px; background: #faf8f4; border: 1px solid #e5e2dc; border-radius: 18px; padding: 22px; }
+  .ca-card p { margin: 0; }
+  .ca-card__n { font-size: 12px; font-weight: 700; letter-spacing: .1em; color: #bb8f50; }
+  .ca-card__title { font-size: 19px; font-weight: 600; line-height: 1.25; }
+  .ca-card__text { font-size: 15px; line-height: 1.5; color: #4a4a4a; }
+  .ca-card__who { margin-top: auto; padding-top: 12px; display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+  .ca-card__faces { display: flex; flex: none; }
+  .ca-card__face { width: 34px; height: 34px; border-radius: 50%; overflow: hidden; background: #eee; box-shadow: 0 0 0 2px #faf8f4; }
+  .ca-card__face + .ca-card__face { margin-left: -8px; }
+  .ca-card__face img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ca-card__names { font-size: 13px; line-height: 1.35; color: #5c5c5c; }
+  a.ca-card__who:hover .ca-card__names { color: #171717; text-decoration: underline; }
+  @media (max-width: 989px) { .ca-show__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 599px) { .ca-show__grid { grid-template-columns: 1fr; } .ca-card { padding: 18px; } }
+</style>
+
+<div class="ca-show" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+  <div class="page-width">
+    <div class="ca-show__head">
+      {%- if section.settings.eyebrow != blank -%}<p class="ca-show__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.heading != blank -%}<h2 class="ca-show__heading heading">{{ section.settings.heading }}</h2>{%- endif -%}
+      {%- if section.settings.text != blank -%}<div class="ca-show__text rte">{{ section.settings.text }}</div>{%- endif -%}
+    </div>
+
+    <ul class="ca-show__grid" role="list">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign cats = block.settings.categories | split: ','
+          assign faces = ''
+          assign names = ''
+          assign n_found = 0
+          for creator in shop.metaobjects.recipe_creator.values
+            assign c_cat = creator.category.value | strip
+            if c_cat == blank or creator.relationship.value == 'In-house'
+              continue
+            endif
+            assign hit = false
+            for c in cats
+              assign c_clean = c | strip
+              if c_clean == c_cat
+                assign hit = true
+              endif
+            endfor
+            unless hit
+              continue
+            endunless
+            assign n_found = n_found | plus: 1
+            if n_found <= 4 and creator.photo.value != blank
+              capture face
+                echo '<span class="ca-card__face">'
+                echo creator.photo.value | image_url: width: 80 | image_tag: width: 34, height: 34, loading: 'lazy', alt: ''
+                echo '</span>'
+              endcapture
+              assign faces = faces | append: face
+            endif
+            if names != blank
+              assign names = names | append: ', '
+            endif
+            assign names = names | append: creator.name.value
+          endfor
+        -%}
+        <li class="ca-card" {{ block.shopify_attributes }}>
+          <p class="ca-card__n">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</p>
+          <p class="ca-card__title">{{ block.settings.title | escape }}</p>
+          {%- if block.settings.text != blank -%}<p class="ca-card__text">{{ block.settings.text | escape }}</p>{%- endif -%}
+          {%- if n_found > 0 -%}
+            {%- if section.settings.partners_anchor != blank -%}
+              <a class="ca-card__who" href="#{{ section.settings.partners_anchor | handleize }}">
+            {%- else -%}
+              <div class="ca-card__who">
+            {%- endif -%}
+              <span class="ca-card__faces" aria-hidden="true">{{ faces }}</span>
+              <span class="ca-card__names">{{ names | escape }}</span>
+            {%- if section.settings.partners_anchor != blank -%}</a>{%- else -%}</div>{%- endif -%}
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Creator archetypes",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Who we love to work with" },
+    { "type": "richtext", "id": "text", "label": "Text" },
+    { "type": "text", "id": "partners_anchor", "label": "Partners section anchor", "info": "Creator names link here, e.g. recipe-partners.", "default": "recipe-partners" },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 56 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 24 }
+  ],
+  "blocks": [
+    {
+      "type": "archetype", "name": "Archetype",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "text", "label": "What they bring" },
+        { "type": "text", "id": "categories", "label": "Creator categories", "info": "Comma-separated Category values from Content > Metaobjects > Recipe creator. Matching creators show on the card." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Creator archetypes" }]
+}
+{% endschema %}
