@@ -6,8 +6,9 @@
   those tags on every card, and the "All recipes" link is their tag page, so the tag must stay on the article
   or that page 404s.
 
-  Disclosure (claims guide: material connections): the badge shows the creator's relationship field.
-  Creators with no relationship set show "Recipe partner".
+  The badge shows the creator's category field (what kind of creator they are: Chef, Functional fitness...),
+  falling back to "Recipe partner". Disclosure (claims guide: material connections) lives in the footnote,
+  so keep it filled in while paid partners or affiliates are listed.
 {%- endcomment -%}
 {%- liquid
   assign rc_blog = blogs[section.settings.blog]
@@ -46,7 +47,7 @@
               assign c_count = c_count | plus: 1
             endif
           endfor
-          assign c_badge = c_rel | default: 'Recipe partner'
+          assign c_badge = creator.category.value | default: 'Recipe partner'
         -%}
         <li class="rc-card">
           <div class="rc-card__top">

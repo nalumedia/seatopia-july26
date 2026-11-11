@@ -2193,7 +2193,7 @@
         "blog": "seafood-recipes",
         "recipes_per_creator": 3,
         "include_in_house": false,
-        "footnote": "<p>Paid partners and affiliates are compensated by Seatopia.</p>",
+        "footnote": "<p>Every creator here is a Seatopia partner. Some are paid by Seatopia and some earn a commission on orders they refer.</p>",
         "padding_top": 40,
         "padding_bottom": 56
       }
