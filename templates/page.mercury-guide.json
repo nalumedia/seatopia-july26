@@ -1,0 +1,199 @@
+{
+  "sections": {
+    "guide": {
+      "type": "seatopia-guide",
+      "settings": {
+        "anchor": "mercury-guide"
+      },
+      "blocks": {
+        "b00_hero": {
+          "type": "hero",
+          "settings": {
+            "image": "shopify://shop_images/spicy_stonefruit_and_yellowtail_Hamachi_Crudo_6_of_22.jpg",
+            "image_mobile": "shopify://shop_images/omegamaxxing-18-chopsticks-bite.jpg",
+            "eyebrow": "Seatopia · A guide for raw-fish lovers",
+            "deck": "Where mercury comes from, how we measure it, and how to choose seafood you’ll eat raw.",
+            "chips": "mg-where|where it comes from\nmg-number|the number we hold\nmg-raw|eating it raw",
+            "title": "mercury & sushi"
+          }
+        },
+        "b01_intro": {
+          "type": "intro",
+          "settings": {
+            "eyebrow": "Mercury & sushi",
+            "heading": "If you love sashimi, crudo and poke, it’s worth knowing what’s in the fish. Here’s what we measure, and why.",
+            "text": "<p>Most fish contain trace amounts of mercury. How much depends on the species, where it was raised and what it ate. This guide explains where mercury comes from, the number we hold every supplier to, and what else we test for, so you can choose with the facts in front of you.</p>"
+          }
+        },
+        "b02_chapter": {
+          "type": "chapter",
+          "settings": {
+            "anchor": "mg-where",
+            "label": "Chapter 1",
+            "heading": "Where mercury comes from",
+            "toc_sub": "and why some fish carry more",
+            "text": "<p>Mercury reaches oceans and rivers from natural sources, like volcanoes, and from human activity, like burning coal. In water it is converted to methylmercury, the form that fish take up. [1]</p><p>Methylmercury builds up through the food chain. Fish that live longer and eat other fish tend to carry more of it. That is why FDA and EPA sort fish by mercury into “Best Choices,” “Good Choices” and “Choices to Avoid.” [2]</p>",
+            "layout": "split",
+            "tone": "light",
+            "points": "",
+            "points_columns": "3",
+            "takeaway": "<p>Species and source both matter, so the useful question is not “is there mercury?” but “how much, and how do you know?”</p>",
+            "takeaway_label": "The takeaway",
+            "toc_title": "",
+            "image": "shopify://shop_images/hyman-uikit-hand-roll-hero.jpg"
+          }
+        },
+        "b03_chapter": {
+          "type": "chapter",
+          "settings": {
+            "anchor": "mg-number",
+            "label": "Chapter 2",
+            "heading": "Mercury free isn’t a real thing. Here’s our number.",
+            "toc_sub": "mercury safe, defined",
+            "text": "<p>Most fish naturally contain trace amounts of mercury, and it is close to impossible to find seafood that is genuinely “mercury free.” Mercury can sit below what a test can detect, so “mercury free” may not be true even when a result reads zero.</p><p>That is why we talk about mercury <strong>safe</strong> instead, and why we define it: our standard is 0.1 ppm methylmercury or below, a tenth of the FDA’s 1.0 ppm action level. Every supplier is tested against that standard before we approve them, then audited at random to make sure they stay compliant.</p><p>We also test selenium and look at the selenium-to-mercury ratio, because selenium in fish binds mercury so that less of it is absorbed.</p><p>FDA and EPA recommend 2 to 3 servings a week, 4 oz each, from their “Best Choices” list for people who are pregnant or breastfeeding. Salmon is on that list.</p><p>Our 0.1 ppm standard is below every mercury screening value FDA and EPA publish. [3]</p>",
+            "layout": "flip",
+            "tone": "light",
+            "points": "",
+            "points_columns": "3",
+            "takeaway": "",
+            "takeaway_label": "",
+            "toc_title": "Our number",
+            "image": "shopify://shop_images/omegamaxxing-16-sashimi-plate.jpg"
+          }
+        },
+        "b04_chapter": {
+          "type": "chapter",
+          "settings": {
+            "anchor": "mg-selenium",
+            "label": "Chapter 3",
+            "heading": "Selenium and mercury",
+            "toc_sub": "why we test both",
+            "text": "<p>Selenium is a trace mineral that supports antioxidant activity, thyroid function and brain health. It also binds mercury, which reduces how much of it the body absorbs. [4]</p><p>That is why our panel measures selenium alongside mercury, and why we look at the ratio between them rather than either number alone.</p>",
+            "layout": "split",
+            "tone": "sage",
+            "points": "",
+            "points_columns": "3",
+            "takeaway": "",
+            "takeaway_label": "",
+            "toc_title": "",
+            "image": "shopify://shop_images/omegamaxxing-12-slicing-salmon.jpg"
+          }
+        },
+        "b05_chapter": {
+          "type": "chapter",
+          "settings": {
+            "anchor": "mg-testing",
+            "label": "Chapter 4",
+            "heading": "How we test",
+            "toc_sub": "what, how often, and what’s next",
+            "text": "<p>Because we deserve to know both what's in our food (nutrients) and what's not in our food (toxins). Lab testing is how we identify partners as committed as we are to raising and delivering seafood that meets the Seatopia Standard.</p><p>All new species from new farms are tested before joining the Seatopia portfolio. For example, branzino is a species we buy from Esteros Lubimar, a farm. We then test multiple samples from all suppliers at random to make sure they stay compliant with the standard.</p><p>Testing random samples is the best way for us to keep products compliant today. As testing costs come down we will increase both the frequency and the number of analytes.</p>",
+            "layout": "reading",
+            "tone": "dark",
+            "points": "Mercury|Every supplier must test at or below 0.1 ppm methylmercury. The FDA action level is 1.0 ppm.\nMicroplastics|Tested for microplastics down to 1 micron. No microplastics detected in third-party testing.\nSelenium|Measured on the same panel, with the selenium-to-mercury ratio.\nFatty acids|The complete fatty acid profile, including omega-3s and the omega 3:6 ratio.\nVitamins and minerals|Including vitamin D, selenium and zinc.\nNot yet|We want to test for PCBs, PFAS, histamines and pesticides, and they are on our testing roadmap. Every Seatopia purchase helps us pay for more comprehensive testing and more frequent testing.",
+            "points_columns": "3",
+            "takeaway": "<p>Farms named, panels published. Every product page carries its lab results.</p>",
+            "takeaway_label": "The takeaway",
+            "toc_title": ""
+          }
+        },
+        "b06_chapter": {
+          "type": "chapter",
+          "settings": {
+            "anchor": "mg-plastics",
+            "label": "Chapter 5",
+            "heading": "Microplastics and the packaging question",
+            "toc_sub": "what we do and don’t claim",
+            "text": "<p><strong>We do not claim to be “microplastic free.”</strong> As with mercury, particles could exist below what a test can detect, and some scientists think nanoparticles may be everywhere on earth.</p><p>What we can say is that samples from every farm in the Seatopia portfolio have been tested and no microplastics were detected, which means no particles showed up down to 1 micron: a thousandth of a millimetre. We ship samples straight from our warehouse to the lab, so it is the same fish that gets shipped to you, already cut, blast frozen and vacuum sealed in its packaging.</p><p>Our fish is vacuum-sealed for freshness and safety, and the best available science suggests microplastics come more from what is inside the fish than from what it is wrapped in. Microplastics usually enter a fish through the food chain, when it eats contaminated prey or feed. That is why we lab test the edible portion of the fish itself. If a sample does not pass our microplastic threshold, we do not sell that fish.</p>",
+            "layout": "split",
+            "tone": "light",
+            "points": "",
+            "points_columns": "3",
+            "takeaway": "",
+            "takeaway_label": "",
+            "toc_title": "",
+            "image": "shopify://shop_images/eudemonia-pat-dry.jpg"
+          }
+        },
+        "b07_chapter": {
+          "type": "chapter",
+          "settings": {
+            "anchor": "mg-raw",
+            "label": "Chapter 6",
+            "heading": "Eating it raw",
+            "toc_sub": "parasites, freezing and sashimi-grade",
+            "text": "<p>There is no official or regulated definition of “sashimi-grade” or “sushi-grade” fish in the United States. Sellers use the terms to signal that fish is safe to eat raw, but they are not a certification or a legal standard. So here is ours.</p><p>All of our seafood is vacuum sealed and blast frozen to -10 °F at peak freshness, which preserves taste, texture and colour, and is processed in an accredited facility. It is lab tested for mercury and microplastics. Farmed fish raised on formulated feed are exempt from the FDA Food Code’s parasite-freezing rule, and we blast-freeze at harvest anyway. That is what sashimi-grade means to us.</p><p>There is always some risk in eating anything raw or undercooked. If you are concerned or particularly sensitive, consult your doctor. The FDA conservatively suggests cooking to an internal temperature of 145 °F.</p><p>The FDA cautions against eating seafood raw, because it can carry parasites, bacteria and viruses. Parasites are typically ingested by fish eating other fish or live feed, which is why farmed fish raised in net pens or tanks on formulated feed are exempt from the FDA Food Code’s freezing requirement for parasite destruction.</p><p>The FDA’s parasite destruction protocol for raw finfish eaten uncooked is freezing to -4 °F (-20 °C) for 7 days, or to -31 °F (-35 °C) until solid and then held at -31 °F for 15 hours or at -4 °F for 24 hours. Any of those combinations kills parasites.</p><p>All Seatopia seafood is vacuum sealed and blast frozen to FDA standards anyway. We guarantee it arrives frozen and never defrosted, or we issue a replacement.</p><p>Eating raw or undercooked meat, poultry, seafood, shellfish or eggs may increase your risk of foodborne illness, especially with certain medical conditions. Consult your doctor if you think you may be sensitive.</p><p><strong>Pregnant?</strong> FDA advises avoiding raw and undercooked fish during pregnancy. [5]</p>",
+            "layout": "wide",
+            "tone": "sage",
+            "points": "",
+            "points_columns": "3",
+            "takeaway": "",
+            "takeaway_label": "",
+            "toc_title": "",
+            "image": "shopify://shop_images/omegamaxxing-15-crudo-platter-overhead.jpg"
+          }
+        },
+        "b08_recipes": {
+          "type": "recipes",
+          "settings": {
+            "anchor": "mg-recipes",
+            "label": "Recipes",
+            "heading": "Raw recipes to start with",
+            "toc_sub": "crudo, poke, ceviche and hand rolls",
+            "text": "<p>Recipes from our kitchen and our partners, built for fish you’ll eat raw.</p>",
+            "note": "<p>Eating raw or undercooked seafood may increase your risk of foodborne illness. The FDA conservatively suggests cooking to an internal temperature of 145 °F.</p>",
+            "article_1": "seafood-recipes/spicy-green-salmon-crudo",
+            "article_2": "seafood-recipes/king-salmon-poke-bowls",
+            "article_3": "seafood-recipes/persimmon-passion-fruit-scallop-ceviche",
+            "article_4": "seafood-recipes/sushi-date-night",
+            "article_5": "seafood-recipes/seatopia-king-salmon-crudo",
+            "article_6": "seafood-recipes/spicy-salmon-hand-rolls-with-pickled-radish-avocado-cucumber"
+          }
+        },
+        "b09_gate": {
+          "type": "gate",
+          "settings": {
+            "anchor": "download",
+            "label": "Free download",
+            "heading": "Take the guide with you",
+            "toc_title": "Download the guide",
+            "toc_sub": "the full guide as a PDF",
+            "text": "<p>The whole guide as a PDF: where mercury comes from, our number, selenium, how we test, and eating raw fish, with recipes.</p>",
+            "guide_name": "Mercury & Sushi",
+            "cover": "shopify://shop_images/omegamaxxing-19-shiso-roe-bite.jpg",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/Seatopia-Mercury-and-Sushi-Guide.pdf?v=1794409113",
+            "button_label": "Unlock the guide",
+            "download_label": "Download the PDF",
+            "success": "You’re in. Your guide is ready, and we’ve added you to our emails.",
+            "fine_print": "<p>By unlocking the guide you agree to receive emails from Seatopia. Unsubscribe anytime. <a href=\"/policies/privacy-policy\">Privacy policy</a>.</p>",
+            "klaviyo_key": "UzEgpY",
+            "klaviyo_list": "QQL98p",
+            "tone": "sage"
+          }
+        },
+        "b10_sources": {
+          "type": "sources",
+          "settings": {
+            "heading": "Sources",
+            "text": "<ol><li>U.S. Environmental Protection Agency. <a href=\"https://www.epa.gov/mercury/basic-information-about-mercury\"><em>Basic information about mercury.</em></a></li><li>U.S. Food and Drug Administration and U.S. Environmental Protection Agency. <a href=\"https://www.fda.gov/food/consumers/advice-about-eating-fish\"><em>Advice about eating fish.</em></a></li><li>U.S. Food and Drug Administration. <a href=\"https://www.fda.gov/food/environmental-contaminants-food/technical-information-development-fdaepa-advice-about-eating-fish-those-who-might-become-or-are\"><em>Technical information on development of FDA/EPA advice about eating fish.</em></a></li><li>Ralston NVC, Raymond LJ. Dietary selenium’s protective effects against methylmercury toxicity. <em>Toxicology</em> 2010;278(1):112–123.</li><li>U.S. Food and Drug Administration. <a href=\"https://www.fda.gov/food/people-risk-foodborne-illness/seafood-safety-moms-be\"><em>Seafood safety for moms-to-be.</em></a></li><li>Seatopia. Lab results published on each product page, from third-party Certificates of Analysis by Edacious and EMSL.</li></ol>"
+          }
+        }
+      },
+      "block_order": [
+        "b00_hero",
+        "b01_intro",
+        "b02_chapter",
+        "b03_chapter",
+        "b04_chapter",
+        "b05_chapter",
+        "b06_chapter",
+        "b07_chapter",
+        "b08_recipes",
+        "b09_gate",
+        "b10_sources"
+      ]
+    }
+  },
+  "order": [
+    "guide"
+  ]
+}
