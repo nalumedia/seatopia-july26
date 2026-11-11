@@ -1,0 +1,838 @@
+{
+  "sections": {
+    "main-article-banner": {
+      "type": "main-article-banner",
+      "blocks": {
+        "spacing": {
+          "type": "spacing",
+          "settings": {
+            "height": 68,
+            "height_mobile": 0
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "title-lg tracking-heading",
+            "show_tags": true,
+            "show_date": false,
+            "show_comments": false,
+            "show_author": true
+          }
+        }
+      },
+      "block_order": [
+        "spacing",
+        "title"
+      ],
+      "settings": {
+        "transparent_header": true,
+        "show_image": true,
+        "image": "shopify://shop_images/IMG_4820.heic",
+        "image_height": "750px",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-center",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_overlay": "#000000",
+        "overlay_opacity": 40,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "collab_card": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "recipe-collab",
+        "liquid": "<style>\n  .sea-collab {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    border: 1px solid var(--line);\n    border-radius: 18px;\n    background: var(--wash);\n    padding: 24px 28px;\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n    color: var(--ink);\n  }\n  .sea-collab__avatar {\n    flex: 0 0 auto;\n    width: 68px;\n    height: 68px;\n    border-radius: 50%;\n    overflow: hidden;\n    border: 2px solid #fff;\n    box-shadow: 0 0 0 2px var(--gold);\n    background: #eee;\n  }\n  .sea-collab__badge::before {\n    content: \"\\00b7\";\n    margin: 0 .5em 0 0;\n  }\n  .sea-collab__avatar img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    object-position: 50% 30%;\n    display: block;\n  }\n  .sea-collab__body {\n    flex: 1 1 260px;\n    min-width: 0;\n  }\n  .sea-collab__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 5px;\n  }\n  .sea-collab__name {\n    font-size: 21px;\n    font-weight: 600;\n    line-height: 1.2;\n    margin: 0 0 4px;\n  }\n  .sea-collab__role {\n    font-size: 15px;\n    color: var(--muted);\n    line-height: 1.45;\n    margin: 0;\n  }\n  .sea-collab__cred {\n    font-size: 13px;\n    color: var(--muted);\n    line-height: 1.5;\n    margin: 10px 0 0;\n    padding-top: 10px;\n    border-top: 1px solid var(--line);\n  }\n  .sea-collab__follow {\n    flex: 0 0 auto;\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    padding: 11px 20px;\n    border: 1px solid var(--ink);\n    border-radius: 999px;\n    font-size: 15px;\n    font-weight: 600;\n    text-decoration: none;\n    color: var(--ink);\n    background: #fff;\n    transition: background .18s ease, color .18s ease;\n  }\n  .sea-collab__follow:hover {\n    background: var(--ink);\n    color: #fff;\n  }\n  .sea-collab__follow svg {\n    width: 18px;\n    height: 18px;\n  }\n  @media (max-width: 749px) {\n    .sea-collab {\n      padding: 20px;\n      gap: 16px;\n    }\n    .sea-collab__follow {\n      width: 100%;\n      justify-content: center;\n    }\n    .sea-collab__name {\n      font-size: 19px;\n    }\n  }\n</style>\n\n<div class=\"sea-collab\">\n  <div class=\"sea-collab__avatar\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0222/9882/0682/files/miriam-thom-headshot.jpg?width=200\" alt=\"Miriam Thom\" width=\"136\" height=\"136\" loading=\"lazy\" decoding=\"async\">\n  </div>\n\n  <div class=\"sea-collab__body\">\n    <p class=\"sea-collab__eyebrow\">\n      <span>From the Seatopia kitchen</span>\n      <span class=\"sea-collab__badge\">In-house</span>\n    </p>\n    <p class=\"sea-collab__name\">Recipe by Miriam Thom</p>\n    <p class=\"sea-collab__role\">Culinary Education at Seatopia &mdash; she develops the recipes that ship with the boxes and teaches the <a href=\"/pages/seatopia-member-cooking-classes\" title=\"Seatopia Member Cooking Classes\">member cooking classes</a></p>\n    <p class=\"sea-collab__cred\">Serves 4 &middot; about 30 minutes &middot; warm or chilled</p>\n  </div>\n\n  <a class=\"sea-collab__follow\" href=\"https://www.instagram.com/miriamthom\" target=\"_blank\" rel=\"noopener noreferrer\">\n    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n      <rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\"></rect>\n      <circle cx=\"12\" cy=\"12\" r=\"4\"></circle>\n      <circle cx=\"17.5\" cy=\"6.5\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"></circle>\n    </svg>\n    <span>Follow</span>\n  </a>\n</div>",
+        "padding_top": 28,
+        "padding_bottom": 8,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "rich_text_intro": {
+      "type": "rich-text",
+      "blocks": {
+        "text_intro": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A crunchy, colorful bowl built around king salmon, gently poached with lemon, bay leaf and salt so it stays buttery and rich.</p><p>Serve the salmon warm over the salad, or chill it and flake it on top for a cold lunch that packs well.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "text_intro"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_width": "small",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "at_a_glance": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "g_time": {
+          "type": "column",
+          "settings": {
+            "icon": "time",
+            "custom_icon": "",
+            "heading": "About 30 minutes",
+            "text": "<p>Fifteen minutes of chopping while the salmon poaches for 8&ndash;12, plus a 5-minute rest. Add 20 minutes to serve it cold.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_serves": {
+          "type": "column",
+          "settings": {
+            "icon": "users",
+            "custom_icon": "",
+            "heading": "Serves 4",
+            "text": "<p>Two fillets of our King Salmon, flaked over four bowls of salad.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_rice": {
+          "type": "column",
+          "settings": {
+            "icon": "heart",
+            "custom_icon": "",
+            "heading": "One pan",
+            "text": "<p>A wide pan for the salmon. The salad and dressing need only a bowl and a whisk.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_cold": {
+          "type": "column",
+          "settings": {
+            "icon": "check_mark",
+            "custom_icon": "",
+            "heading": "Barely shivering",
+            "text": "<p>Small bubbles, never a boil. Keep the poaching liquid just below a simmer.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "g_time",
+        "g_serves",
+        "g_rice",
+        "g_cold"
+      ],
+      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "settings": {
+        "custom_class": "",
+        "section_id": "at-a-glance",
+        "style": "with-border",
+        "columns": 4,
+        "text_alignment": "left",
+        "dt_txt_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "At a glance",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "heat_note": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "how-it-comes-together",
+        "liquid": "<style>\n  .sea-pepper {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-pepper__grid {\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);\n    gap: 34px;\n    align-items: center;\n  }\n  .sea-pepper__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-pepper__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n  }\n  .sea-pepper__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 22px;\n  }\n  .sea-pepper__rows {\n    display: grid;\n    gap: 14px;\n  }\n  .sea-pepper__row {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 15px 17px;\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) auto;\n    gap: 10px 16px;\n    align-items: center;\n  }\n  .sea-pepper__row--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-pepper__name {\n    grid-column: 1;\n    margin: 0;\n    font-size: 15px;\n    font-weight: 600;\n    line-height: 1.3;\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-wrap: wrap;\n  }\n  .sea-pepper__tag {\n    font-size: 10px;\n    font-weight: 700;\n    letter-spacing: .08em;\n    text-transform: uppercase;\n    color: #fff;\n    background: var(--gold);\n    padding: 3px 8px;\n    border-radius: 999px;\n  }\n  .sea-pepper__meter {\n    grid-column: 2;\n    grid-row: 1;\n    display: flex;\n    gap: 4px;\n    align-items: center;\n  }\n  .sea-pepper__pip {\n    width: 9px;\n    height: 9px;\n    border-radius: 50%;\n    background: #fff;\n    border: 1.5px solid #d8cfc0;\n  }\n  .sea-pepper__pip.is-on {\n    background: #b8462f;\n    border-color: #b8462f;\n  }\n  .sea-pepper__note {\n    grid-column: 1 / -1;\n    margin: 0;\n    font-size: 13.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  .sea-pepper__legend {\n    margin: 16px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  .sea-pepper__figure {\n    margin: 0;\n  }\n  .sea-pepper__figure img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-pepper__cap {\n    margin: 10px 0 0;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  @media (max-width: 989px) {\n    .sea-pepper {\n      padding: 22px;\n    }\n    .sea-pepper__grid {\n      grid-template-columns: 1fr;\n      gap: 24px;\n    }\n    .sea-pepper__figure {\n      order: -1;\n    }\n  }\n  .sea-pepper__step {\n    grid-column: 2;\n    grid-row: 1;\n    font-size: 11px;\n    font-weight: 600;\n    letter-spacing: .1em;\n    text-transform: uppercase;\n    color: var(--gold);\n  }\n  .sea-pepper__figure video {\n    width: 100%;\n    height: auto;\n    aspect-ratio: 9 / 16;\n    object-fit: cover;\n    display: block;\n    border-radius: 16px;\n    background: #e9e4dc;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n</style>\n\n<div class=\"sea-pepper\">\n  <div class=\"sea-pepper__grid\">\n\n    <div class=\"sea-pepper__body\">\n      <p class=\"sea-pepper__eyebrow\">How it comes together</p>\n      <h2 class=\"sea-pepper__heading\">Poach, rest, flake.</h2>\n      <p class=\"sea-pepper__lede\">\n        Get the salmon into the pan first. Everything else happens while it poaches.\n      </p>\n\n      <div class=\"sea-pepper__rows\">\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Build the poaching liquid</span>\n          <span class=\"sea-pepper__tag\">5 minutes</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 1</span>\n        <p class=\"sea-pepper__note\">Water, lemon rounds, bay leaves and salt in a wide pan, brought to a gentle simmer, then turned down until it barely shivers.</p>\n      </div>\n      <div class=\"sea-pepper__row sea-pepper__row--pick\">\n        <p class=\"sea-pepper__name\">\n          <span>Poach the salmon</span>\n          <span class=\"sea-pepper__tag\">8&ndash;12 minutes</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 2</span>\n        <p class=\"sea-pepper__note\">Patted dry and slid in skin-side down, fully covered. Pull it at 120&ndash;125&deg;F for a silky, medium center, when it just flakes at the thickest part.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Rest and flake</span>\n          <span class=\"sea-pepper__tag\">5 minutes</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 3</span>\n        <p class=\"sea-pepper__note\">Onto a plate to rest, skin peeled off, then broken into large flakes. Serve warm, or chill for 20 minutes.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Chop the salad</span>\n          <span class=\"sea-pepper__tag\">10 minutes</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 4</span>\n        <p class=\"sea-pepper__note\">Romaine chopped, carrots and cabbage shredded, onion sliced, cucumber and tomato diced, all into one big bowl.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Dress and serve</span>\n          <span class=\"sea-pepper__tag\">2 minutes</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 5</span>\n        <p class=\"sea-pepper__note\">Most of the dressing tossed through the vegetables, salmon and eggs on top, the rest drizzled over.</p>\n      </div>\n      </div>\n\n      <p class=\"sea-pepper__legend\">\n        Fillets vary in thickness, so go by the thickest part: it should just flake when you press it.\n      </p>\n    </div>\n\n    <figure class=\"sea-pepper__figure\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0222/9882/0682/files/IMG_4825_2.heic?width=700\" alt=\"Two king salmon fillets in a bowl beside bay leaves and a bag of pink Himalayan salt, with a pot on the stove behind\" width=\"5051\" height=\"3788\" loading=\"lazy\" decoding=\"async\">\n      <figcaption class=\"sea-pepper__cap\">\n        King salmon, bay and salt, ready for the pan.\n      </figcaption>\n    </figure>\n\n  </div>\n</div>\n",
+        "padding_top": 40,
+        "padding_bottom": 16,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      },
+      "disabled": false
+    },
+    "recipe_kit_card": {
+      "type": "apps",
+      "blocks": {
+        "recipe_kit_app_block_rainbow": {
+          "type": "shopify://apps/recipe-kit/blocks/app-block/0afa374e-81c7-4989-96de-e1ac84640954",
+          "settings": {
+            "custom_js": "",
+            "custom_css": ".rk_direction_image { margin-top: 14px; }\n.rk_direction_image img { max-height: 400px; width: 100%; object-fit: cover; border-radius: 12px; }\n@media (max-width: 749px) {\n  .rk_direction_image img { max-height: 280px; }\n}\n"
+          }
+        }
+      },
+      "block_order": [
+        "recipe_kit_app_block_rainbow"
+      ],
+      "settings": {
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "shop_the_plate": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "",
+        "products": [
+          "king-salmon",
+          "mt-cook-alpine-salmon-7oz-filet",
+          "salmon-box"
+        ],
+        "product_limit": 3,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Two fillets of our King Salmon are the only thing from the freezer. Alpine King Salmon is the swap. The rest is romaine, carrots, purple cabbage, a red onion, a cucumber, a Roma tomato, two eggs if you like, and for the poaching liquid and dressing, lemons, bay leaves, olive oil, garlic and salt.</p>",
+        "heading": "Everything on this plate",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "dressing_note": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "lemon-dressing",
+        "liquid": "<style>\n  .sea-sheet {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-sheet__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-sheet__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n    max-width: 22ch;\n  }\n  .sea-sheet__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 24px;\n    max-width: 68ch;\n  }\n  .sea-sheet__cols {\n    display: grid;\n    grid-template-columns: repeat(3, minmax(0, 1fr));\n    gap: 14px;\n  }\n  .sea-sheet__col {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 18px;\n  }\n  .sea-sheet__col--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-sheet__num {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 26px;\n    height: 26px;\n    border-radius: 50%;\n    background: var(--ink);\n    color: #fff;\n    font-size: 12px;\n    font-weight: 700;\n    margin: 0 0 10px;\n  }\n  .sea-sheet__col h3 {\n    font-size: 15.5px;\n    font-weight: 600;\n    line-height: 1.3;\n    margin: 0 0 7px;\n  }\n  .sea-sheet__col p {\n    font-size: 13.5px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0;\n  }\n  .sea-sheet__foot {\n    margin: 18px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  @media (max-width: 749px) {\n    .sea-sheet {\n      padding: 22px;\n    }\n    .sea-sheet__cols {\n      grid-template-columns: 1fr;\n    }\n  }\n\n  .sea-sheet__fig {\n    margin: 22px auto 0;\n    max-width: 360px;\n  }\n  .sea-sheet__fig img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-sheet__figcap {\n    margin: 10px auto 0;\n    max-width: 360px;\n    text-align: center;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n</style>\n\n<div class=\"sea-sheet\">\n  <p class=\"sea-sheet__eyebrow\">The dressing</p>\n  <h2 class=\"sea-sheet__heading\">Lemon, garlic and olive oil.</h2>\n  <p class=\"sea-sheet__lede\">\n    A simple lemon dressing that lets the salmon lead. Whisk it while the salmon rests.\n  </p>\n\n  <div class=\"sea-sheet__cols\">\n    <div class=\"sea-sheet__col sea-sheet__col--pick\">\n      <span class=\"sea-sheet__num\">1</span>\n      <h3>Whisk it</h3>\n      <p>3 tbsp olive oil, 2 tbsp fresh lemon juice and 1 minced garlic clove, with salt and pepper to taste.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">2</span>\n      <h3>Toss with most of it</h3>\n      <p>Toss the vegetables with most of the dressing and divide among 4 bowls.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">3</span>\n      <h3>Finish with the rest</h3>\n      <p>Salmon flakes and egg halves on top, then a drizzle of the remaining dressing.</p>\n    </div>\n  </div>\n\n  <figure class=\"sea-sheet__fig\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0222/9882/0682/files/IMG_4846.heic?width=760\" alt=\"A bowl of shredded purple cabbage, carrot, cucumber and tomato beside a tin of olive oil, halved lemons, garlic and two poached king salmon fillets\" width=\"5102\" height=\"3827\" loading=\"lazy\" decoding=\"async\">\n    <figcaption class=\"sea-sheet__figcap\">\n      Olive oil, lemon and garlic, beside the chopped salad.\n    </figcaption>\n  </figure>\n</div>\n",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "divider": false,
+        "narrow": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      },
+      "disabled": false
+    },
+    "swap_table": {
+      "type": "table-content",
+      "blocks": {
+        "w_head": {
+          "type": "row",
+          "settings": {
+            "version1": "As written",
+            "version2": "Easy swap",
+            "version3": "What changes"
+          }
+        },
+        "w_fish": {
+          "type": "row",
+          "settings": {
+            "feature": "The salmon",
+            "version1": "King Salmon",
+            "version2": "Alpine King Salmon",
+            "version3": "Leaner and a little milder; start checking at 8 minutes"
+          }
+        },
+        "w_greens": {
+          "type": "row",
+          "settings": {
+            "feature": "The greens",
+            "version1": "Romaine",
+            "version2": "Little gem or butter lettuce",
+            "version3": "Softer and sweeter; dress just before serving"
+          }
+        },
+        "w_cabbage": {
+          "type": "row",
+          "settings": {
+            "feature": "The crunch",
+            "version1": "Purple cabbage",
+            "version2": "Shaved fennel",
+            "version3": "Lighter, with a mild anise note"
+          }
+        },
+        "w_acid": {
+          "type": "row",
+          "settings": {
+            "feature": "The lemon",
+            "version1": "Fresh lemon juice",
+            "version2": "Red wine vinegar",
+            "version3": "Sharper; use a little less"
+          }
+        },
+        "w_egg": {
+          "type": "row",
+          "settings": {
+            "feature": "The eggs",
+            "version1": "Hard-boiled eggs",
+            "version2": "Leave them out",
+            "version3": "Lighter; the salmon carries the bowl"
+          }
+        },
+        "w_salt": {
+          "type": "row",
+          "settings": {
+            "feature": "The salt",
+            "version1": "Pink Himalayan salt",
+            "version2": "Kosher salt",
+            "version3": "Same amount in the poaching liquid"
+          }
+        }
+      },
+      "block_order": [
+        "w_head",
+        "w_fish",
+        "w_greens",
+        "w_cabbage",
+        "w_acid",
+        "w_egg",
+        "w_salt"
+      ],
+      "name": "Table content",
+      "settings": {
+        "custom_class": "",
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Miriam’s salad is a starting point. Swap in whatever you have.</p>",
+        "heading": "Swaps that work",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": ""
+      },
+      "disabled": false
+    },
+    "meal_prep": {
+      "type": "image-with-text",
+      "blocks": {
+        "m_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Meal prep",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "m_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Poach once, eat all week",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Poach the salmon up to 2 days ahead and refrigerate it whole, then flake it just before serving. Chop the vegetables and keep the dressing in its own jar, so the greens stay crisp for lunches on the go.</p><p>Thaw the fillets in the fridge overnight, and pat them dry before they go into the pan.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop King Salmon",
+            "button_link": "/products/king-salmon",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "m_sub",
+        "m_head",
+        "m_text",
+        "m_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/IMG_4850.heic",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "rich_text_standard": {
+      "type": "image-with-text",
+      "blocks": {
+        "f_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "What's in the pack",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "f_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "King Salmon, tested and published",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our King Salmon comes from Ōra King in New Zealand, in skin-on 8.5 oz portions.</p><p>Our King Salmon tested at 1,140 mg EPA and 2,290 mg DHA, about 3,430 mg of marine omega-3s, plus 64 mcg selenium, per 8.5 oz skin-on portion. Values vary by sample and season.</p><p>Low mercury, tested to a tenth of the FDA action level. Every supplier is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard. Farms named, panels published.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Meet the farm",
+            "button_link": "/pages/ora-king-salmon-new-zealand",
+            "button_style": "secondary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "f_sub",
+        "f_head",
+        "f_text",
+        "f_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/IMG_4830.heic",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_testimonials_carousel_king": {
+          "type": "shopify://apps/judge-me-reviews/blocks/testimonials_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": false,
+            "reviews_selection": "custom_products",
+            "products": [
+              "king-salmon"
+            ],
+            "star_rating": "all",
+            "max_reviews": 20,
+            "quote_marks_size": "small",
+            "product_name_text_size": "small",
+            "verified_badge_style": "icon",
+            "card_height": "medium",
+            "text_size": "small",
+            "stars_size": "medium",
+            "arrows_position": "bottom",
+            "max_width": 1100,
+            "corner_styling": "soft",
+            "quote_marks_style": "serif",
+            "card_color": "#f9f9f9",
+            "stars_and_quote_marks_color": "#7bc3f3",
+            "text_color": "#000000",
+            "arrows_color": "#000000",
+            "show_border": false,
+            "border_color": "#108474",
+            "show_drop_shadow": false,
+            "transition_speed": 5,
+            "header_text": "Seatopians on our King Salmon",
+            "show_average_rating": true
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_testimonials_carousel_king"
+      ],
+      "settings": {
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": ""
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q_thaw": {
+          "type": "question",
+          "settings": {
+            "title": "How do I thaw the salmon?",
+            "text": "<p>Move the fillets to the fridge the night before. Take them out of the packaging and pat them dry just before they go into the pan.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_done": {
+          "type": "question",
+          "settings": {
+            "title": "Is 120&ndash;125&deg;F done?",
+            "text": "<p>It gives the silky, medium center Miriam pulls her salmon at, when it just flakes at the thickest part. The FDA conservatively suggests cooking fish to an internal temperature of 145&deg;F, so poach it a few minutes longer if you prefer it cooked through. Eating raw or undercooked seafood may increase your risk of foodborne illness, especially with certain medical conditions.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_tear": {
+          "type": "question",
+          "settings": {
+            "title": "Why keep it below a simmer?",
+            "text": "<p>A rolling boil tightens the outside before the center is ready. Small bubbles, the water barely shivering, cook it gently and evenly.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_ahead": {
+          "type": "question",
+          "settings": {
+            "title": "Can I make it ahead?",
+            "text": "<p>Poach the salmon up to 2 days ahead and refrigerate it whole, then flake it just before serving. Keep the dressing separate until you eat, so the greens stay crisp.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_hold": {
+          "type": "question",
+          "settings": {
+            "title": "Warm or cold?",
+            "text": "<p>Either. Flake it straight onto the salad while it is warm, or chill it for 20 minutes for a cold salad.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_sauce": {
+          "type": "question",
+          "settings": {
+            "title": "Do I need the eggs?",
+            "text": "<p>No. They are optional, and the bowl works without them.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "q_thaw",
+        "q_done",
+        "q_tear",
+        "q_ahead",
+        "q_hold",
+        "q_sauce"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "rounded": false,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "heading": "Poached salmon salad, answered",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "seafood-recipes",
+        "post_limit": 8,
+        "columns": 3,
+        "carousel_on_desktop": true,
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "landscape",
+        "show_tags": false,
+        "show_date": false,
+        "show_comments": false,
+        "show_author": false,
+        "show_excerpt": false,
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Recipes from our kitchen and from the people who cook with us.</p>",
+        "heading": "More seafood to cook this week",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle"
+      }
+    },
+    "newsletter_banner": {
+      "type": "newsletter-banner",
+      "blocks": {
+        "h_news": {
+          "type": "heading",
+          "settings": {
+            "heading": "Be the first to know",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_news": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get on the list for more seasonal seafood, cooking temperatures and recipes from our kitchen, straight to your inbox.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_news": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "h_news",
+        "t_news",
+        "f_news"
+      ],
+      "name": "t:sections.newsletter-banner.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "transparent_footer": false,
+        "image": "shopify://shop_images/IMG_4846.heic",
+        "image_height": "650px",
+        "content_width": "medium",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    }
+  },
+  "order": [
+    "main-article-banner",
+    "collab_card",
+    "rich_text_intro",
+    "at_a_glance",
+    "heat_note",
+    "recipe_kit_card",
+    "shop_the_plate",
+    "dressing_note",
+    "swap_table",
+    "meal_prep",
+    "rich_text_standard",
+    "reviews",
+    "faq",
+    "blog-posts",
+    "newsletter_banner"
+  ]
+}
