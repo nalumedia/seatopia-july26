@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main-article-banner": {
@@ -53,14 +62,14 @@
       "settings": {
         "section_id": "recipe-collab",
         "liquid": "<style>\n  .sea-collab {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    border: 1px solid var(--line);\n    border-radius: 18px;\n    background: var(--wash);\n    padding: 24px 28px;\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n    color: var(--ink);\n  }\n  .sea-collab__avatar {\n    flex: 0 0 auto;\n    width: 68px;\n    height: 68px;\n    border-radius: 50%;\n    overflow: hidden;\n    border: 2px solid #fff;\n    box-shadow: 0 0 0 2px var(--gold);\n    background: #eee;\n  }\n  .sea-collab__badge::before {\n    content: \"\\00b7\";\n    margin: 0 .5em 0 0;\n  }\n  .sea-collab__avatar img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    object-position: 50% 30%;\n    display: block;\n  }\n  .sea-collab__body {\n    flex: 1 1 260px;\n    min-width: 0;\n  }\n  .sea-collab__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 5px;\n  }\n  .sea-collab__name {\n    font-size: 21px;\n    font-weight: 600;\n    line-height: 1.2;\n    margin: 0 0 4px;\n  }\n  .sea-collab__role {\n    font-size: 15px;\n    color: var(--muted);\n    line-height: 1.45;\n    margin: 0;\n  }\n  .sea-collab__cred {\n    font-size: 13px;\n    color: var(--muted);\n    line-height: 1.5;\n    margin: 10px 0 0;\n    padding-top: 10px;\n    border-top: 1px solid var(--line);\n  }\n  .sea-collab__follow {\n    flex: 0 0 auto;\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    padding: 11px 20px;\n    border: 1px solid var(--ink);\n    border-radius: 999px;\n    font-size: 15px;\n    font-weight: 600;\n    text-decoration: none;\n    color: var(--ink);\n    background: #fff;\n    transition: background .18s ease, color .18s ease;\n  }\n  .sea-collab__follow:hover {\n    background: var(--ink);\n    color: #fff;\n  }\n  .sea-collab__follow svg {\n    width: 18px;\n    height: 18px;\n  }\n  @media (max-width: 749px) {\n    .sea-collab {\n      padding: 20px;\n      gap: 16px;\n    }\n    .sea-collab__follow {\n      width: 100%;\n      justify-content: center;\n    }\n    .sea-collab__name {\n      font-size: 19px;\n    }\n  }\n</style>\n\n<div class=\"sea-collab\">\n  <div class=\"sea-collab__avatar\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0222/9882/0682/files/miriam-thom-headshot.jpg?width=200\" alt=\"Miriam Thom\" width=\"136\" height=\"136\" loading=\"lazy\" decoding=\"async\">\n  </div>\n\n  <div class=\"sea-collab__body\">\n    <p class=\"sea-collab__eyebrow\">\n      <span>From the Seatopia kitchen</span>\n      <span class=\"sea-collab__badge\">In-house</span>\n    </p>\n    <p class=\"sea-collab__name\">Recipe by Miriam Thom</p>\n    <p class=\"sea-collab__role\">Culinary Education at Seatopia &mdash; she develops the recipes that ship with the boxes and teaches the <a href=\"/pages/seatopia-member-cooking-classes\" title=\"Seatopia Member Cooking Classes\">member cooking classes</a></p>\n    <p class=\"sea-collab__cred\">Serves 4 &middot; about 1 hour 40 minutes &middot; crisp skin, silky puree</p>\n  </div>\n\n  <a class=\"sea-collab__follow\" href=\"https://www.instagram.com/miriamthom\" target=\"_blank\" rel=\"noopener noreferrer\">\n    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n      <rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\"></rect>\n      <circle cx=\"12\" cy=\"12\" r=\"4\"></circle>\n      <circle cx=\"17.5\" cy=\"6.5\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"></circle>\n    </svg>\n    <span>Follow</span>\n  </a>\n</div>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
         "padding_top": 28,
         "padding_bottom": 8,
         "divider": false,
         "narrow": false,
-        "rounded": false,
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": ""
+        "rounded": false
       }
     },
     "rich_text_intro": {
@@ -88,14 +97,9 @@
         "text_alignment": "left",
         "text_alignment_mobile": "left",
         "heading": "",
-        "heading_width": "small",
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "divider": false,
-        "narrow": true,
-        "rounded": false,
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
         "heading_tag": "h2",
         "subheading": "",
         "description": "",
@@ -103,6 +107,8 @@
         "button_link": "",
         "button_external": false,
         "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -111,8 +117,11 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle"
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
       }
     },
     "at_a_glance": {
@@ -177,11 +186,7 @@
         "columns": 4,
         "text_alignment": "left",
         "dt_txt_alignment": "left",
-        "padding_top": 40,
-        "padding_bottom": 24,
-        "divider": false,
-        "full_width": false,
-        "rounded": false,
+        "heading": "At a glance",
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
@@ -191,7 +196,8 @@
         "button_link": "",
         "button_external": false,
         "button_icon": true,
-        "heading": "At a glance",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -200,8 +206,11 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle"
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
       }
     },
     "heat_note": {
@@ -210,16 +219,15 @@
       "settings": {
         "section_id": "how-it-comes-together",
         "liquid": "<style>\n  .sea-pepper {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-pepper__grid {\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);\n    gap: 34px;\n    align-items: center;\n  }\n  .sea-pepper__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-pepper__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n  }\n  .sea-pepper__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 22px;\n  }\n  .sea-pepper__rows {\n    display: grid;\n    gap: 14px;\n  }\n  .sea-pepper__row {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 15px 17px;\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) auto;\n    gap: 10px 16px;\n    align-items: center;\n  }\n  .sea-pepper__row--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-pepper__name {\n    grid-column: 1;\n    margin: 0;\n    font-size: 15px;\n    font-weight: 600;\n    line-height: 1.3;\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-wrap: wrap;\n  }\n  .sea-pepper__tag {\n    font-size: 10px;\n    font-weight: 700;\n    letter-spacing: .08em;\n    text-transform: uppercase;\n    color: #fff;\n    background: var(--gold);\n    padding: 3px 8px;\n    border-radius: 999px;\n  }\n  .sea-pepper__meter {\n    grid-column: 2;\n    grid-row: 1;\n    display: flex;\n    gap: 4px;\n    align-items: center;\n  }\n  .sea-pepper__pip {\n    width: 9px;\n    height: 9px;\n    border-radius: 50%;\n    background: #fff;\n    border: 1.5px solid #d8cfc0;\n  }\n  .sea-pepper__pip.is-on {\n    background: #b8462f;\n    border-color: #b8462f;\n  }\n  .sea-pepper__note {\n    grid-column: 1 / -1;\n    margin: 0;\n    font-size: 13.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  .sea-pepper__legend {\n    margin: 16px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  .sea-pepper__figure {\n    margin: 0;\n  }\n  .sea-pepper__figure img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-pepper__cap {\n    margin: 10px 0 0;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  @media (max-width: 989px) {\n    .sea-pepper {\n      padding: 22px;\n    }\n    .sea-pepper__grid {\n      grid-template-columns: 1fr;\n      gap: 24px;\n    }\n    .sea-pepper__figure {\n      order: -1;\n    }\n  }\n  .sea-pepper__step {\n    grid-column: 2;\n    grid-row: 1;\n    font-size: 11px;\n    font-weight: 600;\n    letter-spacing: .1em;\n    text-transform: uppercase;\n    color: var(--gold);\n  }\n  .sea-pepper__figure video {\n    width: 100%;\n    height: auto;\n    aspect-ratio: 9 / 16;\n    object-fit: cover;\n    display: block;\n    border-radius: 16px;\n    background: #e9e4dc;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n</style>\n\n<div class=\"sea-pepper\">\n  <div class=\"sea-pepper__grid\">\n\n    <div class=\"sea-pepper__body\">\n      <p class=\"sea-pepper__eyebrow\">How it comes together</p>\n      <h2 class=\"sea-pepper__heading\">Squash first, fish last.</h2>\n      <p class=\"sea-pepper__lede\">\n        The squash takes the longest, so it goes in first. Everything else is ready by the time the fish hits the pan.\n      </p>\n\n      <div class=\"sea-pepper__rows\">\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Roast the squash</span>\n          <span class=\"sea-pepper__tag\">About 30 minutes</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 1</span>\n        <p class=\"sea-pepper__note\">Cut sides rubbed with olive oil and salt, roasted cut-side down at 400&deg;F until a knife slides into the thickest part.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Make the puree</span>\n          <span class=\"sea-pepper__tag\">5 minutes</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 2</span>\n        <p class=\"sea-pepper__note\">Flesh scooped out and mashed or blended, with olive oil added a spoonful at a time until silky and spreadable.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Prep the fish and salad</span>\n          <span class=\"sea-pepper__tag\">10 minutes</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 3</span>\n        <p class=\"sea-pepper__note\">Oven down to 380&deg;F. Fillets patted very dry, salted and zested. Celery sliced thin, dressing whisked.</p>\n      </div>\n      <div class=\"sea-pepper__row sea-pepper__row--pick\">\n        <p class=\"sea-pepper__name\">\n          <span>Sear the branzino</span>\n          <span class=\"sea-pepper__tag\">2&ndash;3 minutes</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 4</span>\n        <p class=\"sea-pepper__note\">Skin-side down in shimmering ghee, each fillet pressed for 10 seconds, then left alone until the skin is golden and releases.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Finish and brown the butter</span>\n          <span class=\"sea-pepper__tag\">5 minutes</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 5</span>\n        <p class=\"sea-pepper__note\">The skillet goes into the oven while the sage crisps and the butter turns nutty and golden-brown.</p>\n      </div>\n      </div>\n\n      <p class=\"sea-pepper__legend\">\n        Don&rsquo;t crowd the pan. If all four fillets don&rsquo;t fit with space between them, sear in two batches.\n      </p>\n    </div>\n\n    <figure class=\"sea-pepper__figure\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0222/9882/0682/files/IMG_4634.heic?width=700\" alt=\"A branzino fillet seared skin-side down in a cast iron skillet, pressed flat with a fish spatula\" width=\"4961\" height=\"3720\" loading=\"lazy\" decoding=\"async\">\n      <figcaption class=\"sea-pepper__cap\">\n        Skin-side down, pressed flat for 10 seconds.\n      </figcaption>\n    </figure>\n\n  </div>\n</div>\n",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
         "padding_top": 40,
         "padding_bottom": 16,
         "divider": false,
         "narrow": false,
-        "rounded": false,
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": ""
-      },
-      "disabled": false
+        "rounded": false
+      }
     },
     "recipe_kit_card": {
       "type": "apps",
@@ -236,11 +244,6 @@
         "recipe_kit_app_block_branzino"
       ],
       "settings": {
-        "padding_top": 8,
-        "padding_bottom": 8,
-        "divider": false,
-        "full_width": true,
-        "rounded": false,
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -248,7 +251,12 @@
         "gradient_highlight": "",
         "color_button_text": "",
         "color_button_background": "",
-        "color_button_gradient": ""
+        "color_button_gradient": "",
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "divider": false,
+        "full_width": true,
+        "rounded": false
       }
     },
     "shop_the_plate": {
@@ -267,17 +275,14 @@
         "show_view_all": false,
         "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "padding_top": 56,
-        "padding_bottom": 56,
-        "divider": false,
-        "full_width": false,
-        "rounded": false,
+        "heading": "Everything on this plate",
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
         "subheading": "",
         "description": "<p>Four fillets of our Branzino are the only thing from the freezer. Sea Bream is the swap. The rest is small butternut squash, celery, raisins, parsley, pine nuts, soft goat cheese, lemons, garlic, fresh sage, butter, ghee and olive oil.</p>",
-        "heading": "Everything on this plate",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -286,8 +291,11 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle"
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
       }
     },
     "dressing_note": {
@@ -296,16 +304,15 @@
       "settings": {
         "section_id": "celery-salad",
         "liquid": "<style>\n  .sea-sheet {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-sheet__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-sheet__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n    max-width: 22ch;\n  }\n  .sea-sheet__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 24px;\n    max-width: 68ch;\n  }\n  .sea-sheet__cols {\n    display: grid;\n    grid-template-columns: repeat(3, minmax(0, 1fr));\n    gap: 14px;\n  }\n  .sea-sheet__col {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 18px;\n  }\n  .sea-sheet__col--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-sheet__num {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 26px;\n    height: 26px;\n    border-radius: 50%;\n    background: var(--ink);\n    color: #fff;\n    font-size: 12px;\n    font-weight: 700;\n    margin: 0 0 10px;\n  }\n  .sea-sheet__col h3 {\n    font-size: 15.5px;\n    font-weight: 600;\n    line-height: 1.3;\n    margin: 0 0 7px;\n  }\n  .sea-sheet__col p {\n    font-size: 13.5px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0;\n  }\n  .sea-sheet__foot {\n    margin: 18px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  @media (max-width: 749px) {\n    .sea-sheet {\n      padding: 22px;\n    }\n    .sea-sheet__cols {\n      grid-template-columns: 1fr;\n    }\n  }\n\n  .sea-sheet__fig {\n    margin: 22px auto 0;\n    max-width: 360px;\n  }\n  .sea-sheet__fig img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-sheet__figcap {\n    margin: 10px auto 0;\n    max-width: 360px;\n    text-align: center;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n</style>\n\n<div class=\"sea-sheet\">\n  <p class=\"sea-sheet__eyebrow\">The celery salad</p>\n  <h2 class=\"sea-sheet__heading\">Celery leaves, front and center.</h2>\n  <p class=\"sea-sheet__lede\">\n    Thin-sliced celery and its pale inner leaves, with raisins, parsley and toasted pine nuts, under a goat cheese dressing.\n  </p>\n\n  <div class=\"sea-sheet__cols\">\n    <div class=\"sea-sheet__col sea-sheet__col--pick\">\n      <span class=\"sea-sheet__num\">1</span>\n      <h3>Slice it thin</h3>\n      <p>4 celery stalks sliced very thinly on an angle, or on a mandoline, tossed with 2 tbsp chopped raisins, 2 tbsp parsley and the celery leaves.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">2</span>\n      <h3>Whisk the dressing</h3>\n      <p>Juice of &frac12; lemon, 2 tbsp soft goat cheese and 2 grated garlic cloves, thinned with 2&ndash;3 tbsp olive oil until pourable. Salt and pepper.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">3</span>\n      <h3>Dress it at the end</h3>\n      <p>Keep the pine nuts and dressing separate until you plate, so everything stays crisp. Dress, scatter the pine nuts, and pile it beside the fish.</p>\n    </div>\n  </div>\n\n  <figure class=\"sea-sheet__fig\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0222/9882/0682/files/IMG_4632.heic?width=760\" alt=\"A bowl of thinly sliced celery topped with chopped raisins, parsley and pine nuts, beside goat cheese, sage, a lemon dressing and a glass of white wine\" width=\"5712\" height=\"4284\" loading=\"lazy\" decoding=\"async\">\n    <figcaption class=\"sea-sheet__figcap\">\n      Celery, raisins, parsley and pine nuts, ready to dress.\n    </figcaption>\n  </figure>\n</div>\n",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
         "padding_top": 24,
         "padding_bottom": 24,
         "divider": false,
         "narrow": false,
-        "rounded": false,
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": ""
-      },
-      "disabled": false
+        "rounded": false
+      }
     },
     "swap_table": {
       "type": "table-content",
@@ -375,22 +382,21 @@
       "name": "Table content",
       "settings": {
         "custom_class": "",
-        "padding_top": 24,
-        "padding_bottom": 56,
-        "divider": false,
-        "full_width": false,
-        "rounded": false,
+        "heading": "Swaps that work",
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
         "subheading": "",
         "description": "<p>Miriam’s swaps, for whatever you have on hand.</p>",
-        "heading": "Swaps that work",
         "color_text": "",
         "color_background": "",
-        "gradient_background": ""
-      },
-      "disabled": false
+        "gradient_background": "",
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
     },
     "meal_prep": {
       "type": "image-with-text",
@@ -455,23 +461,23 @@
         "image_mobile": "",
         "image_height_mobile": "auto",
         "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
         "color_background_2": "",
         "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
         "padding_top": 40,
         "padding_bottom": 40,
         "divider": false,
         "full_width": false,
         "rounded": true,
         "enable_parallax": true,
-        "parallax_direction": "vertical",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": ""
+        "parallax_direction": "vertical"
       }
     },
     "rich_text_standard": {
@@ -537,23 +543,23 @@
         "image_mobile": "",
         "image_height_mobile": "auto",
         "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
         "color_background_2": "",
         "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
         "padding_top": 40,
         "padding_bottom": 40,
         "divider": false,
         "full_width": false,
         "rounded": true,
         "enable_parallax": true,
-        "parallax_direction": "vertical",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": ""
+        "parallax_direction": "vertical"
       }
     },
     "reviews": {
@@ -596,11 +602,6 @@
         "judge_me_reviews_testimonials_carousel_branzino"
       ],
       "settings": {
-        "padding_top": 56,
-        "padding_bottom": 56,
-        "divider": false,
-        "full_width": false,
-        "rounded": false,
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -608,7 +609,12 @@
         "gradient_highlight": "",
         "color_button_text": "",
         "color_button_background": "",
-        "color_button_gradient": ""
+        "color_button_gradient": "",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
       }
     },
     "faq": {
@@ -679,10 +685,7 @@
       ],
       "name": "t:sections.faq.presets.name",
       "settings": {
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "divider": false,
-        "rounded": false,
+        "heading": "Crispy-skin branzino, answered",
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
@@ -692,7 +695,8 @@
         "button_link": "",
         "button_external": false,
         "button_icon": true,
-        "heading": "Crispy-skin branzino, answered",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -701,8 +705,10 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle"
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "rounded": false
       }
     },
     "blog-posts": {
@@ -721,17 +727,14 @@
         "show_comments": false,
         "show_author": false,
         "show_excerpt": false,
-        "padding_top": 32,
-        "padding_bottom": 32,
-        "divider": false,
-        "full_width": false,
-        "rounded": true,
+        "heading": "More seafood to cook this week",
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
         "subheading": "",
         "description": "<p>Recipes from our kitchen and from the people who cook with us.</p>",
-        "heading": "More seafood to cook this week",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -740,8 +743,11 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle"
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "full_width": false,
+        "rounded": true
       }
     },
     "newsletter_banner": {
