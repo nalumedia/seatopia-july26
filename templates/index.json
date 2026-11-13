@@ -1805,12 +1805,26 @@
             "link_label": "Read the guide",
             "pdf_url": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/The-Seatopia-Reset-Guide.pdf?v=1794409113"
           }
+        },
+        "autumn": {
+          "type": "guide",
+          "settings": {
+            "page": "the-autumn-equinox",
+            "image": "shopify://shop_images/20260825-Stetten-Wilson-218.jpg",
+            "kicker": "A seasonal menu",
+            "title": "The Autumn Equinox",
+            "short_name": "The Autumn Equinox",
+            "text": "Four fall dinners from Chef Miriam, each under an hour, with the seafood a click away.",
+            "link_label": "Read the guide",
+            "pdf_url": ""
+          }
         }
       },
       "block_order": [
         "omega",
         "mercury",
-        "reset"
+        "reset",
+        "autumn"
       ],
       "settings": {
         "label": "Free guides",
