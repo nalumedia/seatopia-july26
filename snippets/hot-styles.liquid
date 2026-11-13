@@ -224,4 +224,12 @@
 .hot .hot-plan b { display: block; font-weight: 600; margin-bottom: 2px; }
 .hot .hot-plan span { color: var(--ink-2); font-size: .95rem; }
 .hot .hot-sback { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.hot .hot-fish .card-qa { padding-top: 4px; margin-top: 2px; }
+.hot .hot-fish .card-qa__packs { justify-content: flex-start; padding-top: 14px; }
+@media (min-width: 700px) {
+  .hot .hot-course .hot-fish { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 280px); column-gap: 28px; row-gap: 6px; align-items: center; }
+  .hot .hot-course .hot-fish > p { grid-column: 1; }
+  .hot .hot-course .hot-fish .card-qa { grid-column: 2; grid-row: 1 / span 3; align-self: center; margin: 0; padding: 0; }
+  .hot .hot-course .hot-fish .card-qa__packs { padding-top: 12px; }
+}
 </style>
