@@ -154,7 +154,7 @@
 }
 .hot .hot-prod { display:grid;grid-template-rows:auto 1fr;background:var(--surface);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:var(--shadow) }
 .hot .hot-prod img { width:100%;aspect-ratio:1;object-fit:cover }
-.hot .hot-prod div { padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px }
+.hot .hot-prod > div { padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px }
 .hot .hot-prod h4 { font-size:1.2rem }
 .hot .hot-prod .hot-blurb { font-size:.9rem;flex:1 }
 .hot .hot-prod .hot-more { font-size:.9rem;color:var(--link);margin-top:6px }
@@ -183,6 +183,17 @@
 .hot [id] { scroll-margin-top: calc(var(--sticky-header-height, 0px) + 64px); }
 .hot .hot-chapnav { top: var(--sticky-header-height, 0px); }
 .hot .hot-hero-shade { display: block; }
+.hot .hot-fish { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; padding-top: 12px; border-top: 1px dashed var(--rule); }
+.hot .hot-fish-name { font-size: .78rem; letter-spacing: .09em; text-transform: uppercase; font-weight: 500; }
+.hot .hot-fish-name a { color: var(--muted); text-decoration: none; }
+.hot .hot-fish-name a:hover { color: var(--ink); text-decoration: underline; }
+.hot .hot-fish-hl { display: flex; flex-wrap: wrap; gap: 6px; }
+.hot .hot-fish-chip { display: inline-flex; gap: 4px; align-items: baseline; padding: 3px 10px; border-radius: 999px; background: var(--surface-2); color: var(--ink-2); font-size: .82rem; line-height: 1.4; }
+.hot .hot-fish-chip b { color: var(--ink); font-weight: 600; }
+.hot .hot-fish-basis { font-size: .74rem; color: var(--muted); line-height: 1.4; }
+.hot .hot-fish .card-qa { margin-top: 4px; }
+.hot .hot-prod-img { display: block; }
+.hot .hot-prod h4 a { color: inherit; text-decoration: none; }
 .hot .hot-subhead { font-family: var(--font-heading-family); font-style: italic; font-size: clamp(1.25rem, 2.2vw, 1.7rem); color: #F7EFE6; margin: -4px 0 14px; }
 
 </style>
@@ -204,7 +215,7 @@
   <div class="hot-tides-head">
     <div>
       <p class="hot-eyebrow hot-gold">Built around the tides</p>
-      <h2>We keep time by the moon, not the retail calendar</h2>
+      <h2>Celebrate the season with Seatopia</h2>
     </div>
     <p>Seatopia runs on ocean time. The year turns at the solstice on December 21, the longest night, and two full moons bracket the season. The holidays are the gatherings that happen in between. Here is the stretch of water we are cooking across, so you can plan the freezer before you plan the table.</p>
   </div>
@@ -221,7 +232,7 @@
 
 <nav class="hot-chapnav" aria-label="Chapters"><div class="hot-wrap"><ul>
   <li><a href="#thanksgiving">Thanksgiving</a></li>
-  <li><a href="#hanukkah">Eight nights</a></li>
+  <li><a href="#hanukkah">Hanukkah</a></li>
   <li><a href="#christmas">Christmas Eve &amp; Seven Fishes</a></li>
   <li><a href="#brunch">Holiday brunch</a></li>
   <li><a href="#nye">New Year's Eve</a></li>
@@ -252,7 +263,13 @@
     <h3><a href="/blogs/seafood-recipes/hudson-valley-steelhead-trout-thanksgiving-stuffing-recipe">Pescatarian Thanksgiving Stuffing</a></h3>
     <p class="hot-meta">Hudson Valley steelhead · The centerpiece</p>
     <p class="hot-lede">Chef Mike Tully&#x27;s herb stuffing with flaked, crisp-skinned steelhead folded through and the shattered skin on top. Lead with this. It is the one recipe nobody else has.</p>
-    <p class="hot-btns"><a class="hot-btn" href="/blogs/seafood-recipes/hudson-valley-steelhead-trout-thanksgiving-stuffing-recipe">Full recipe</a><a class="hot-btn hot-btn-ghost" href="/products/steelhead-2x-6oz-filets">Add the Steelhead</a></p>
+    <p class="hot-btns"><a class="hot-btn" href="/blogs/seafood-recipes/hudson-valley-steelhead-trout-thanksgiving-stuffing-recipe">Full recipe</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/steelhead-2x-6oz-filets">{{ all_products['steelhead-2x-6oz-filets'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>2,130 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>27 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz skin-on portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-2x-6oz-filets'], section_id: section.id, product_id: 'hg1' %}
+</div>
   </div>
 </article>
   <div class="hot-grid"><article class="hot-card">
@@ -262,7 +279,13 @@
     <h4><a href="/blogs/seafood-recipes/apple-cider-poached-steelhead-braised-leeks">Apple Cider Poached Steelhead with Braised Leeks</a></h4>
     <p class="hot-meta">45 min · Serves 2</p>
     <p class="hot-blurb">Cider, brown butter, leeks and a tarragon mustard. Held at 160 to 175°F the loin stays silky. It tastes like a French holiday kitchen.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/apple-cider-poached-steelhead-braised-leeks">Full recipe →</a><a class="hot-card-prod" href="/products/steelhead-sashimi-loin-12oz">Add the Steelhead, Sashimi Loin</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/apple-cider-poached-steelhead-braised-leeks">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/steelhead-sashimi-loin-12oz">{{ all_products['steelhead-sashimi-loin-12oz'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>2,560 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>67 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 12 oz loin. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-sashimi-loin-12oz'], section_id: section.id, product_id: 'hg6' %}
+</div>
   </div>
 </article><article class="hot-card">
   <a class="hot-card-img" href="/blogs/seafood-recipes/butter-pumpkin-shrimp-curry">{{ articles['seafood-recipes/butter-pumpkin-shrimp-curry'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "Butter Pumpkin Shrimp with Toasted Coconut, Lime and Fresno" }}</a>
@@ -271,7 +294,13 @@
     <h4><a href="/blogs/seafood-recipes/butter-pumpkin-shrimp-curry">Butter Pumpkin Shrimp with Toasted Coconut, Lime and Fresno</a></h4>
     <p class="hot-meta">50 min · Serves 4</p>
     <p class="hot-blurb">Roasted kabocha through a blender, not an hour of reducing. The warm, spice-forward plate for guests who do not want another fillet.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/butter-pumpkin-shrimp-curry">Full recipe →</a><a class="hot-card-prod" href="/products/black-tiger-shrimp-mangrove-regeneration">Add the Mangrove Black Tiger Shrimp</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/butter-pumpkin-shrimp-curry">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/black-tiger-shrimp-mangrove-regeneration">{{ all_products['black-tiger-shrimp-mangrove-regeneration'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>18 mcg</b> selenium</span><span class="hot-fish-chip"><b>40 mg</b> EPA + DHA</span></p>
+<p class="hot-fish-basis">As tested, per 4 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['black-tiger-shrimp-mangrove-regeneration'], section_id: section.id, product_id: 'hg7' %}
+</div>
   </div>
 </article><article class="hot-card">
   <a class="hot-card-img" href="/blogs/seafood-recipes/harvest-quinoa-bowl-honey-cinnamon-salmon-turmeric-tahini">{{ articles['seafood-recipes/harvest-quinoa-bowl-honey-cinnamon-salmon-turmeric-tahini'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "Harvest Quinoa Bowl with Honey Cinnamon Salmon" }}</a>
@@ -280,7 +309,13 @@
     <h4><a href="/blogs/seafood-recipes/harvest-quinoa-bowl-honey-cinnamon-salmon-turmeric-tahini">Harvest Quinoa Bowl with Honey Cinnamon Salmon</a></h4>
     <p class="hot-meta">Makes 2 bowls</p>
     <p class="hot-blurb">Erica Casavecchia&#x27;s fall bowl: delicata, kale, lentils, cashews and a turmeric tahini. For the Thursday that is not twelve people.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/harvest-quinoa-bowl-honey-cinnamon-salmon-turmeric-tahini">Full recipe →</a><a class="hot-card-prod" href="/products/atlantic-salmon-2x-6oz-portions">Add the Atlantic Salmon</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/harvest-quinoa-bowl-honey-cinnamon-salmon-turmeric-tahini">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/atlantic-salmon-2x-6oz-portions">{{ all_products['atlantic-salmon-2x-6oz-portions'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>1,960 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>28 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['atlantic-salmon-2x-6oz-portions'], section_id: section.id, product_id: 'hg8' %}
+</div>
   </div>
 </article><article class="hot-card">
   <a class="hot-card-img" href="/blogs/seafood-recipes/urfa-pepper-ora-king-salmon-warm-apple-farro-salad">{{ articles['seafood-recipes/urfa-pepper-ora-king-salmon-warm-apple-farro-salad'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "Urfa Pepper King Salmon with Warm Apple &amp; Farro Salad" }}</a>
@@ -289,7 +324,13 @@
     <h4><a href="/blogs/seafood-recipes/urfa-pepper-ora-king-salmon-warm-apple-farro-salad">Urfa Pepper King Salmon with Warm Apple &amp; Farro Salad</a></h4>
     <p class="hot-meta">Crisp skin</p>
     <p class="hot-blurb">Sweet-tart apple, dried fruit, pickled onion and toasted pepitas under crisp skin, with the slow, raisin-dark heat of Urfa pepper.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/urfa-pepper-ora-king-salmon-warm-apple-farro-salad">Full recipe →</a><a class="hot-card-prod" href="/products/buy-ora-king-salmon-portion-new-zealand">Add the Ōra King Salmon</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/urfa-pepper-ora-king-salmon-warm-apple-farro-salad">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/buy-ora-king-salmon-portion-new-zealand">{{ all_products['buy-ora-king-salmon-portion-new-zealand'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>3,430 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>64 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 8.5 oz skin-on portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['buy-ora-king-salmon-portion-new-zealand'], section_id: section.id, product_id: 'hg9' %}
+</div>
   </div>
 </article><article class="hot-card">
   <a class="hot-card-img" href="/blogs/seafood-recipes/white-bean-potato-salad-with-rainbow-trout-and-aromatics">{{ articles['seafood-recipes/white-bean-potato-salad-with-rainbow-trout-and-aromatics'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "White Bean, Potato Salad with Rainbow Trout" }}</a>
@@ -298,7 +339,13 @@
     <h4><a href="/blogs/seafood-recipes/white-bean-potato-salad-with-rainbow-trout-and-aromatics">White Bean, Potato Salad with Rainbow Trout</a></h4>
     <p class="hot-meta">Buffet side</p>
     <p class="hot-blurb">Dill, lemon and aromatics. A buffet side that travels, or a light main for the quieter end of the table.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/white-bean-potato-salad-with-rainbow-trout-and-aromatics">Full recipe →</a><a class="hot-card-prod" href="/products/whole-trout-12oz">Add the Whole Trout</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/white-bean-potato-salad-with-rainbow-trout-and-aromatics">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/whole-trout-12oz">{{ all_products['whole-trout-12oz'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>830 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>31 g</b> protein</span><span class="hot-fish-chip"><b>29 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz serving. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['whole-trout-12oz'], section_id: section.id, product_id: 'hg10' %}
+</div>
   </div>
 </article><article class="hot-card">
   <a class="hot-card-img" href="/blogs/seafood-recipes/branzino-warm-farro-maitake-salad">{{ articles['seafood-recipes/branzino-warm-farro-maitake-salad'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "Crispy Branzino with Warm Farro, Maitake and Asian Pear" }}</a>
@@ -307,7 +354,13 @@
     <h4><a href="/blogs/seafood-recipes/branzino-warm-farro-maitake-salad">Crispy Branzino with Warm Farro, Maitake and Asian Pear</a></h4>
     <p class="hot-meta">50 min · Serves 2</p>
     <p class="hot-blurb">Crisp skin is thirty seconds under a spatula. Make the farro the day before; it is better overnight and good at room temperature.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/branzino-warm-farro-maitake-salad">Full recipe →</a><a class="hot-card-prod" href="/products/branzino-bundle-2x-6oz-portions">Add the Branzino</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/branzino-warm-farro-maitake-salad">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/branzino-bundle-2x-6oz-portions">{{ all_products['branzino-bundle-2x-6oz-portions'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>1,360 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>27 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz skin-on portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['branzino-bundle-2x-6oz-portions'], section_id: section.id, product_id: 'hg11' %}
+</div>
   </div>
 </article></div>
 </section>
@@ -315,8 +368,8 @@
 <section class="hot-chapter hot-wrap" id="hanukkah">
   <div class="hot-chapter-head">
     <div>
-      <p class="hot-eyebrow">Evening of Friday, December 4, through Saturday, December 12</p>
-      <h2>Eight nights, one small plate each</h2>
+      <p class="hot-eyebrow">Hanukkah · Friday evening, December 4, through Saturday, December 12</p>
+      <h2>Hanukkah: eight nights, one small plate each</h2>
     </div>
     <div>
       <p class="hot-lede">A dairy-and-fish table, already in the freezer: lox, bagels, cream cheese, cucumber, roe. Not eight dinners. One thing on the table each night, under the candles, that people can stand around.</p>
@@ -336,10 +389,16 @@
     <h3><a href="/blogs/seafood-recipes/cured-steelhead-loin-lox-bagel">Cured Steelhead Loin &amp; Lox Bagel</a></h3>
     <p class="hot-meta">Citrus-cured steelhead · Night 1</p>
     <p class="hot-lede">The bagel-and-lox spread. Set the table, light the first candle, let people build their own.</p>
-    <p class="hot-btns"><a class="hot-btn" href="/blogs/seafood-recipes/cured-steelhead-loin-lox-bagel">Full recipe</a><a class="hot-btn hot-btn-ghost" href="/products/steelhead-sashimi-loin-12oz">Add the Steelhead, Sashimi Loin</a></p>
+    <p class="hot-btns"><a class="hot-btn" href="/blogs/seafood-recipes/cured-steelhead-loin-lox-bagel">Full recipe</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/steelhead-sashimi-loin-12oz">{{ all_products['steelhead-sashimi-loin-12oz'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>2,560 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>67 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 12 oz loin. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-sashimi-loin-12oz'], section_id: section.id, product_id: 'hg2' %}
+</div>
   </div>
 </article>
-      <p class="hot-note"><strong>What this is not.</strong> None of these is a potato latke, and there is no gefilte fish here. What Seatopia has is a very good lox-and-bagel table. We would rather tell you that than pretend otherwise.</p>
+      
     </div>
     <ol class="hot-nights">
       <li class="hot-night">
@@ -349,6 +408,12 @@
     <p class="hot-eyebrow">Fri Dec 4 · Set the table</p>
     <h4><a href="/blogs/seafood-recipes/cured-steelhead-loin-lox-bagel">Cured Steelhead Loin &amp; Lox Bagel</a></h4>
     <p class="hot-blurb">The bagel-and-lox spread. Set the table, light the first candle, let people build their own.</p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/steelhead-sashimi-loin-12oz">{{ all_products['steelhead-sashimi-loin-12oz'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>2,560 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>67 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 12 oz loin. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-sashimi-loin-12oz'], section_id: section.id, product_id: 'hg30' %}
+</div>
   </div>
 </li>
       <li class="hot-night">
@@ -358,6 +423,12 @@
     <p class="hot-eyebrow">Sat Dec 5 · No-cook bites</p>
     <h4><a href="/blogs/seafood-recipes/smoked-lox-pastrami-cucumber-bites">Smoked Lox Pastrami Cucumber Bites</a></h4>
     <p class="hot-blurb">Cream cheese, a ribbon of lox, dill. No cooking, fifteen minutes, a platter for the first people through the door.</p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/steelhead-pastrami-smoked-4oz">{{ all_products['steelhead-pastrami-smoked-4oz'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>1,420 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>18 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 4 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-pastrami-smoked-4oz'], section_id: section.id, product_id: 'hg31' %}
+</div>
   </div>
 </li>
       <li class="hot-night">
@@ -367,6 +438,12 @@
     <p class="hot-eyebrow">Sun Dec 6 · Grazing</p>
     <h4><a href="/blogs/seafood-recipes/smoked-steelhead-whipped-cream-cheese-bowl">Smoked Steelhead &amp; Whipped Cream Cheese Bowl</a></h4>
     <p class="hot-blurb">Citrus whipped cream cheese, capers, smoked fish. The bowl people stand around between candles and conversation.</p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/seatopia-steelhead-4oz-smoked">{{ all_products['seatopia-steelhead-4oz-smoked'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>850 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>22 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 4 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['seatopia-steelhead-4oz-smoked'], section_id: section.id, product_id: 'hg32' %}
+</div>
   </div>
 </li>
       <li class="hot-night">
@@ -376,6 +453,12 @@
     <p class="hot-eyebrow">Mon Dec 7 · Color of the light</p>
     <h4><a href="/blogs/seafood-recipes/beet-cured-steelhead-lox-recipe">Beet-Cured Steelhead Lox</a></h4>
     <p class="hot-blurb">Jewel-red slices that photograph like candlelight. Start the cure two days ahead.</p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/steelhead-sashimi-loin-12oz">{{ all_products['steelhead-sashimi-loin-12oz'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>2,560 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>67 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 12 oz loin. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-sashimi-loin-12oz'], section_id: section.id, product_id: 'hg33' %}
+</div>
   </div>
 </li>
       <li class="hot-night">
@@ -385,6 +468,12 @@
     <p class="hot-eyebrow">Tue Dec 8 · The latke twist</p>
     <h4><a href="/blogs/seafood-recipes/courgette-fritters-with-pastrami-smoked-lox-and-hot-honey">Courgette Fritters with Pastrami Smoked Lox and Hot Honey</a></h4>
     <p class="hot-blurb">Crisp zucchini fritters, smoked fish, hot honey. A twist on the latke, and we say so: it is not a potato latke.</p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/steelhead-pastrami-smoked-4oz">{{ all_products['steelhead-pastrami-smoked-4oz'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>1,420 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>18 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 4 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-pastrami-smoked-4oz'], section_id: section.id, product_id: 'hg34' %}
+</div>
   </div>
 </li>
       <li class="hot-night">
@@ -394,6 +483,12 @@
     <p class="hot-eyebrow">Wed Dec 9 · Slice and serve</p>
     <h4><a href="/blogs/seafood-recipes/regal-salmon-beetroot-gravlax-recipe">Regal Salmon Beetroot Gravlax</a></h4>
     <p class="hot-blurb">Beet, dill, vodka and horseradish, sliced thin onto toasted sourdough with crème fraîche.</p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/king-salmon">{{ all_products['king-salmon'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>3,430 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>64 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 8.5 oz skin-on portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['king-salmon'], section_id: section.id, product_id: 'hg35' %}
+</div>
   </div>
 </li>
       <li class="hot-night">
@@ -403,6 +498,12 @@
     <p class="hot-eyebrow">Thu Dec 10 · Brunch energy</p>
     <h4><a href="/blogs/seafood-recipes/trout-hash-with-kefir-crema-salmon-roe">Trout Hash with Kefir Crema &amp; Salmon Roe</a></h4>
     <p class="hot-blurb">Hashbrowns, a kefir sauce and a spoon of roe on top. Family style, not formal. It works for night seven and for any weekend morning.</p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/lab-tested-salmon-roe-caviar">{{ all_products['lab-tested-salmon-roe-caviar'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>525 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>27 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 30 g tin. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['lab-tested-salmon-roe-caviar'], section_id: section.id, product_id: 'hg36' %}
+</div>
   </div>
 </li>
       <li class="hot-night">
@@ -412,6 +513,12 @@
     <p class="hot-eyebrow">Fri Dec 11 into Sat Dec 12 · Abundance</p>
     <h4><a href="/products/lab-tested-salmon-roe-caviar">Salmon roe, on whatever is on the table</a></h4>
     <p class="hot-blurb">A spoon of salmon roe on the hash, on the bagel, on a cracker with crème fraîche. A quiet last-night still, not a production.</p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/lab-tested-salmon-roe-caviar">{{ all_products['lab-tested-salmon-roe-caviar'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>525 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>27 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 30 g tin. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['lab-tested-salmon-roe-caviar'], section_id: section.id, product_id: 'hg37' %}
+</div>
   </div>
 </li>
     </ol>
@@ -440,7 +547,13 @@
     <h3><a href="/blogs/seafood-recipes/cured-holiday-fish-ham">Cured Holiday Fish Ham</a></h3>
     <p class="hot-meta">Steelhead or yellowtail side · The centerpiece · Plan ahead</p>
     <p class="hot-lede">A maple-miso &#x27;ham&#x27; scored and studded with cloves, finished with pomegranate and a Christmas-tree garnish. The most Christmas recipe on the site, and a side of fish rather than a roast.</p>
-    <p class="hot-btns"><a class="hot-btn" href="/blogs/seafood-recipes/cured-holiday-fish-ham">Full recipe</a><a class="hot-btn hot-btn-ghost" href="/products/steelhead-sashimi-loin-12oz">Add the Steelhead, Sashimi Loin</a></p>
+    <p class="hot-btns"><a class="hot-btn" href="/blogs/seafood-recipes/cured-holiday-fish-ham">Full recipe</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/steelhead-sashimi-loin-12oz">{{ all_products['steelhead-sashimi-loin-12oz'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>2,560 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>67 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 12 oz loin. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-sashimi-loin-12oz'], section_id: section.id, product_id: 'hg3' %}
+</div>
   </div>
 </article>
   <p class="hot-eyebrow" style="margin:34px 0 14px">Other centerpieces · choose one</p>
@@ -451,7 +564,13 @@
     <h4><a href="/blogs/seafood-recipes/steelhead-trout-wellington">Steelhead Trout Wellington</a></h4>
     <p class="hot-meta">Centerpiece</p>
     <p class="hot-blurb">The pastry showpiece for a sit-down dinner, for the table that wants a Wellington without a beef roast.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/steelhead-trout-wellington">Full recipe →</a><a class="hot-card-prod" href="/products/steelhead-sashimi-loin-12oz">Add the Steelhead, Sashimi Loin</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/steelhead-trout-wellington">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/steelhead-sashimi-loin-12oz">{{ all_products['steelhead-sashimi-loin-12oz'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>2,560 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>67 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 12 oz loin. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-sashimi-loin-12oz'], section_id: section.id, product_id: 'hg12' %}
+</div>
   </div>
 </article><article class="hot-card">
   <a class="hot-card-img" href="/blogs/seafood-recipes/how-to-salt-bake-rainbow-trout-whole-fish-recipe">{{ articles['seafood-recipes/how-to-salt-bake-rainbow-trout-whole-fish-recipe'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "Salt-Baked Whole Rainbow Trout" }}</a>
@@ -460,7 +579,13 @@
     <h4><a href="/blogs/seafood-recipes/how-to-salt-bake-rainbow-trout-whole-fish-recipe">Salt-Baked Whole Rainbow Trout</a></h4>
     <p class="hot-meta">Centerpiece · Whole fish</p>
     <p class="hot-blurb">Pack it in salt, bake it, and crack the crust open at the table. The quietest kind of theatre.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/how-to-salt-bake-rainbow-trout-whole-fish-recipe">Full recipe →</a><a class="hot-card-prod" href="/products/whole-trout-12oz">Add the Whole Trout</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/how-to-salt-bake-rainbow-trout-whole-fish-recipe">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/whole-trout-12oz">{{ all_products['whole-trout-12oz'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>830 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>31 g</b> protein</span><span class="hot-fish-chip"><b>29 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz serving. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['whole-trout-12oz'], section_id: section.id, product_id: 'hg13' %}
+</div>
   </div>
 </article><article class="hot-card">
   <a class="hot-card-img" href="/blogs/seafood-recipes/whole-roasted-trout-blistered-grapes-potatoes">{{ articles['seafood-recipes/whole-roasted-trout-blistered-grapes-potatoes'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "Whole Roasted Trout with Blistered Grapes and Baby Potatoes" }}</a>
@@ -469,7 +594,13 @@
     <h4><a href="/blogs/seafood-recipes/whole-roasted-trout-blistered-grapes-potatoes">Whole Roasted Trout with Blistered Grapes and Baby Potatoes</a></h4>
     <p class="hot-meta">50 min · Serves 2</p>
     <p class="hot-blurb">One sheet pan. Potatoes get a head start, grapes go in last, and the fish comes off the bone in three movements.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/whole-roasted-trout-blistered-grapes-potatoes">Full recipe →</a><a class="hot-card-prod" href="/products/whole-trout-12oz">Add the Whole Trout</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/whole-roasted-trout-blistered-grapes-potatoes">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/whole-trout-12oz">{{ all_products['whole-trout-12oz'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>830 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>31 g</b> protein</span><span class="hot-fish-chip"><b>29 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz serving. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['whole-trout-12oz'], section_id: section.id, product_id: 'hg14' %}
+</div>
   </div>
 </article></div>
   <div class="hot-grid" style="margin-top:clamp(16px,2.4vw,28px)"><article class="hot-card">
@@ -479,7 +610,13 @@
     <h4><a href="/blogs/seafood-recipes/polenta-salmon-garlic-pom">Maple Broiled Garlic Steelhead on Polenta</a></h4>
     <p class="hot-meta">Centerpiece · Under an hour</p>
     <p class="hot-blurb">Maple-garlic glaze, soft polenta, pomegranate seeds. Red and gold on a white plate.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/polenta-salmon-garlic-pom">Full recipe →</a><a class="hot-card-prod" href="/products/steelhead-sashimi-loin-12oz">Add the Steelhead, Sashimi Loin</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/polenta-salmon-garlic-pom">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/steelhead-sashimi-loin-12oz">{{ all_products['steelhead-sashimi-loin-12oz'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>2,560 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>67 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 12 oz loin. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-sashimi-loin-12oz'], section_id: section.id, product_id: 'hg15' %}
+</div>
   </div>
 </article><article class="hot-card">
   <a class="hot-card-img" href="/blogs/seafood-recipes/sea-bass-en-papillote-with-spinach-asparagus-lemon-and-herbs">{{ articles['seafood-recipes/sea-bass-en-papillote-with-spinach-asparagus-lemon-and-herbs'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "Sea Bass en Papillote with Spinach, Asparagus, Lemon and Herbs" }}</a>
@@ -489,6 +626,12 @@
     <p class="hot-meta">Quiet main</p>
     <p class="hot-blurb">For the guest who does not want a whole fish. Lemon, herbs, butter, a parcel each.</p>
     <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/sea-bass-en-papillote-with-spinach-asparagus-lemon-and-herbs">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/branzino-bundle-2x-6oz-portions">{{ all_products['branzino-bundle-2x-6oz-portions'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>1,360 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>27 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz skin-on portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['branzino-bundle-2x-6oz-portions'], section_id: section.id, product_id: 'hg16' %}
+</div>
   </div>
 </article><article class="hot-card">
   <a class="hot-card-img" href="/blogs/seafood-recipes/crispy-skin-barramundi-with-shaved-fennel-salad">{{ articles['seafood-recipes/crispy-skin-barramundi-with-shaved-fennel-salad'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "Crispy Skin Barramundi with Shaved Fennel" }}</a>
@@ -497,7 +640,13 @@
     <h4><a href="/blogs/seafood-recipes/crispy-skin-barramundi-with-shaved-fennel-salad">Crispy Skin Barramundi with Shaved Fennel</a></h4>
     <p class="hot-meta">Quiet main</p>
     <p class="hot-blurb">A refined white-fish plate. Written for New Year, equally at home on Christmas Eve.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/crispy-skin-barramundi-with-shaved-fennel-salad">Full recipe →</a><a class="hot-card-prod" href="/products/barramundi-2-pack">Add the Barramundi</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/crispy-skin-barramundi-with-shaved-fennel-salad">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/barramundi-2-pack">{{ all_products['barramundi-2-pack'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>530 mg</b> EPA + DHA</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['barramundi-2-pack'], section_id: section.id, product_id: 'hg17' %}
+</div>
   </div>
 </article></div>
 
@@ -515,6 +664,12 @@
     <p class="hot-eyebrow">Peruvian scallops · cold first course</p>
     <h4><a href="/blogs/seafood-recipes/persimmon-passion-fruit-scallop-ceviche">Persimmon &amp; Passion Fruit Scallop Ceviche</a></h4>
     <p class="hot-blurb">Fuyu persimmon, tart passion fruit, lime and yuzu, served back in the shells. The cold first course.</p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/half-shell-scallops-2x-12oz-bag">{{ all_products['half-shell-scallops-2x-12oz-bag'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>8 g</b> protein</span><span class="hot-fish-chip"><b>7 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 2 oz serving. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['half-shell-scallops-2x-12oz-bag'], section_id: section.id, product_id: 'hg38' %}
+</div>
   </div>
   <a class="hot-course-img" href="/blogs/seafood-recipes/persimmon-passion-fruit-scallop-ceviche">{{ articles['seafood-recipes/persimmon-passion-fruit-scallop-ceviche'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "" }}</a>
 </li>
@@ -533,6 +688,12 @@
     <p class="hot-eyebrow">Branzino · winter citrus</p>
     <h4><a href="/blogs/seafood-recipes/vanessas-blood-orange-branzino-crudo">Vanessa&#x27;s Blood Orange Branzino Crudo</a></h4>
     <p class="hot-blurb">Winter citrus before the cooking starts. If you want a lighter seven, swap this for the shrimp fresh rolls so there is only one raw course after the ceviche.</p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/branzino-bundle-2x-6oz-portions">{{ all_products['branzino-bundle-2x-6oz-portions'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>1,360 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>27 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz skin-on portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['branzino-bundle-2x-6oz-portions'], section_id: section.id, product_id: 'hg39' %}
+</div>
   </div>
   <a class="hot-course-img" href="/blogs/seafood-recipes/vanessas-blood-orange-branzino-crudo">{{ articles['seafood-recipes/vanessas-blood-orange-branzino-crudo'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "" }}</a>
 </li>
@@ -542,6 +703,12 @@
     <p class="hot-eyebrow">Mangrove black tiger shrimp · first warm plate</p>
     <h4><a href="/blogs/seafood-recipes/harissa-shrimp-with-garlic-yogurt">Harissa Shrimp with Garlic Yogurt</a></h4>
     <p class="hot-blurb">The first warm, shareable plate. Written as a spread to pass down the table.</p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/black-tiger-shrimp-mangrove-regeneration">{{ all_products['black-tiger-shrimp-mangrove-regeneration'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>18 mcg</b> selenium</span><span class="hot-fish-chip"><b>40 mg</b> EPA + DHA</span></p>
+<p class="hot-fish-basis">As tested, per 4 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['black-tiger-shrimp-mangrove-regeneration'], section_id: section.id, product_id: 'hg40' %}
+</div>
   </div>
   <a class="hot-course-img" href="/blogs/seafood-recipes/harissa-shrimp-with-garlic-yogurt">{{ articles['seafood-recipes/harissa-shrimp-with-garlic-yogurt'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "" }}</a>
 </li>
@@ -551,6 +718,12 @@
     <p class="hot-eyebrow">Shrimp, scallops and roe · the pot on the table</p>
     <h4><a href="/blogs/seafood-recipes/shrimp-scallop-seafood-pasta-with-salmon-roe">Shrimp &amp; Scallop Seafood Pasta with Salmon Roe</a> <span class="hot-alt">or <a href="/blogs/seafood-recipes/kampachi-amp-corn-chowder">Yellowtail Kanpachi, Kelp &amp; Corn Chowder</a></span></h4>
     <p class="hot-blurb">The communal course. The pasta is three seafoods in one bowl; the chowder is the cozier pot if you would rather spoon than twirl. Either one repeats a species, and that is fine.</p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/black-tiger-shrimp-mangrove-regeneration">{{ all_products['black-tiger-shrimp-mangrove-regeneration'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>18 mcg</b> selenium</span><span class="hot-fish-chip"><b>40 mg</b> EPA + DHA</span></p>
+<p class="hot-fish-basis">As tested, per 4 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['black-tiger-shrimp-mangrove-regeneration'], section_id: section.id, product_id: 'hg41' %}
+</div>
   </div>
   <a class="hot-course-img" href="/blogs/seafood-recipes/shrimp-scallop-seafood-pasta-with-salmon-roe">{{ articles['seafood-recipes/shrimp-scallop-seafood-pasta-with-salmon-roe'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "" }}</a>
 </li>
@@ -560,6 +733,12 @@
     <p class="hot-eyebrow">King or Atlantic salmon · quiet, buttery</p>
     <h4><a href="/blogs/seafood-recipes/salmon-en-papillote-with-fennel-broccolini-dill">Salmon en Papillote with Fennel, Broccolini &amp; Dill</a> <span class="hot-alt">or <a href="/blogs/seafood-recipes/citrus-cured-atlantic-salmon-carpaccio">Citrus-Cured Atlantic Salmon Carpaccio</a></span></h4>
     <p class="hot-blurb">Quiet, buttery, low mess. The carpaccio is the cold alternative if you want to keep the oven clear for what comes next.</p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/atlantic-salmon-2x-6oz-portions">{{ all_products['atlantic-salmon-2x-6oz-portions'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>1,960 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>28 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['atlantic-salmon-2x-6oz-portions'], section_id: section.id, product_id: 'hg42' %}
+</div>
   </div>
   <a class="hot-course-img" href="/blogs/seafood-recipes/salmon-en-papillote-with-fennel-broccolini-dill">{{ articles['seafood-recipes/salmon-en-papillote-with-fennel-broccolini-dill'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "" }}</a>
 </li>
@@ -569,6 +748,12 @@
     <p class="hot-eyebrow">Steelhead or whole rainbow trout · the centerpiece</p>
     <h4><a href="/blogs/seafood-recipes/cured-holiday-fish-ham">Cured Holiday Fish Ham</a></h4>
     <p class="hot-blurb">The fish ham, the Wellington, the salt-baked trout or the trout with blistered grapes. One of them, not all four.</p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/steelhead-sashimi-loin-12oz">{{ all_products['steelhead-sashimi-loin-12oz'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>2,560 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>67 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 12 oz loin. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-sashimi-loin-12oz'], section_id: section.id, product_id: 'hg43' %}
+</div>
   </div>
   <a class="hot-course-img" href="/blogs/seafood-recipes/cured-holiday-fish-ham">{{ articles['seafood-recipes/cured-holiday-fish-ham'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "" }}</a>
 </li>
@@ -596,7 +781,13 @@
     <h3><a href="/blogs/seafood-recipes/braided-steelhead-lox-crepe-recipe-a-healthy-sustainable-holiday-tradition">Braided Steelhead Lox Crêpes</a></h3>
     <p class="hot-meta">Cold-smoked steelhead, salmon roe · The brunch</p>
     <p class="hot-lede">Crêpes in the kitchen, lox and roe on the table, a toppings bar in the middle, and everyone builds their own. Already written as a holiday tradition.</p>
-    <p class="hot-btns"><a class="hot-btn" href="/blogs/seafood-recipes/braided-steelhead-lox-crepe-recipe-a-healthy-sustainable-holiday-tradition">Full recipe</a><a class="hot-btn hot-btn-ghost" href="/products/seatopia-steelhead-4oz-smoked">Add the Steelhead, Cold-Smoked Lox</a></p>
+    <p class="hot-btns"><a class="hot-btn" href="/blogs/seafood-recipes/braided-steelhead-lox-crepe-recipe-a-healthy-sustainable-holiday-tradition">Full recipe</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/seatopia-steelhead-4oz-smoked">{{ all_products['seatopia-steelhead-4oz-smoked'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>850 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>22 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 4 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['seatopia-steelhead-4oz-smoked'], section_id: section.id, product_id: 'hg4' %}
+</div>
   </div>
 </article>
   <div class="hot-grid"><article class="hot-card">
@@ -606,7 +797,13 @@
     <h4><a href="/blogs/seafood-recipes/smoked-trout-crispy-potato-breakfast-skillet">Smoked Trout &amp; Crispy Potato Breakfast Skillet</a></h4>
     <p class="hot-meta">Serves 2</p>
     <p class="hot-blurb">Golden Yukons, jammy eggs, goat cheese and a finish of salmon roe. One cast-iron skillet that feels special.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/smoked-trout-crispy-potato-breakfast-skillet">Full recipe →</a><a class="hot-card-prod" href="/products/smoke-in-chimneys-smoked-trout-filet">Add the Smoked Trout Filets</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/smoked-trout-crispy-potato-breakfast-skillet">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/smoke-in-chimneys-smoked-trout-filet">{{ all_products['smoke-in-chimneys-smoked-trout-filet'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>765 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>28 g</b> protein</span><span class="hot-fish-chip"><b>27 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 5.5 oz fillet. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['smoke-in-chimneys-smoked-trout-filet'], section_id: section.id, product_id: 'hg18' %}
+</div>
   </div>
 </article><article class="hot-card">
   <a class="hot-card-img" href="/blogs/seafood-recipes/trout-hash-with-kefir-crema-salmon-roe">{{ articles['seafood-recipes/trout-hash-with-kefir-crema-salmon-roe'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "Trout Hash with Kefir Crema &amp; Salmon Roe" }}</a>
@@ -615,7 +812,13 @@
     <h4><a href="/blogs/seafood-recipes/trout-hash-with-kefir-crema-salmon-roe">Trout Hash with Kefir Crema &amp; Salmon Roe</a></h4>
     <p class="hot-meta">Night 7 · Brunch energy</p>
     <p class="hot-blurb">Hashbrowns, a kefir sauce and a spoon of roe on top. Family style, not formal. It works for night seven and for any weekend morning.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/trout-hash-with-kefir-crema-salmon-roe">Full recipe →</a><a class="hot-card-prod" href="/products/lab-tested-salmon-roe-caviar">Add the Salmon Roe Caviar</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/trout-hash-with-kefir-crema-salmon-roe">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/lab-tested-salmon-roe-caviar">{{ all_products['lab-tested-salmon-roe-caviar'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>525 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>27 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 30 g tin. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['lab-tested-salmon-roe-caviar'], section_id: section.id, product_id: 'hg19' %}
+</div>
   </div>
 </article><article class="hot-card">
   <a class="hot-card-img" href="/blogs/seafood-recipes/scandinavian-crispy-salmon-rosti-bowl">{{ articles['seafood-recipes/scandinavian-crispy-salmon-rosti-bowl'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "Scandinavian Crispy Salmon R\u00f6sti Bowl" }}</a>
@@ -624,7 +827,13 @@
     <h4><a href="/blogs/seafood-recipes/scandinavian-crispy-salmon-rosti-bowl">Scandinavian Crispy Salmon Rösti Bowl</a></h4>
     <p class="hot-meta">Under an hour</p>
     <p class="hot-blurb">Lingonberry-Dijon salmon over craggy potato rösti with quick-pickled cucumber. Nordic and festive, especially next to the gravlax.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/scandinavian-crispy-salmon-rosti-bowl">Full recipe →</a><a class="hot-card-prod" href="/products/atlantic-salmon-2x-6oz-portions">Add the Atlantic Salmon</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/scandinavian-crispy-salmon-rosti-bowl">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/atlantic-salmon-2x-6oz-portions">{{ all_products['atlantic-salmon-2x-6oz-portions'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>1,960 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>28 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['atlantic-salmon-2x-6oz-portions'], section_id: section.id, product_id: 'hg20' %}
+</div>
   </div>
 </article><article class="hot-card">
   <a class="hot-card-img" href="/blogs/seafood-recipes/how-to-cure-king-salmon">{{ articles['seafood-recipes/how-to-cure-king-salmon'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "Cured King Salmon with Pickled Onions, Fennel and Cucumbers" }}</a>
@@ -633,7 +842,13 @@
     <h4><a href="/blogs/seafood-recipes/how-to-cure-king-salmon">Cured King Salmon with Pickled Onions, Fennel and Cucumbers</a></h4>
     <p class="hot-meta">Plan ahead</p>
     <p class="hot-blurb">The same cured fish from the Hanukkah table, rebuilt as a Christmas-week brunch.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/how-to-cure-king-salmon">Full recipe →</a><a class="hot-card-prod" href="/products/king-salmon">Add the King Salmon</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/how-to-cure-king-salmon">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/king-salmon">{{ all_products['king-salmon'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>3,430 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>64 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 8.5 oz skin-on portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['king-salmon'], section_id: section.id, product_id: 'hg21' %}
+</div>
   </div>
 </article><article class="hot-card">
   <a class="hot-card-img" href="/blogs/seafood-recipes/broiled-miso-salmon-bowl-sushi-rice-avocado">{{ articles['seafood-recipes/broiled-miso-salmon-bowl-sushi-rice-avocado'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "Nobu-Style Miso-Glazed King Salmon Bento" }}</a>
@@ -642,7 +857,13 @@
     <h4><a href="/blogs/seafood-recipes/broiled-miso-salmon-bowl-sushi-rice-avocado">Nobu-Style Miso-Glazed King Salmon Bento</a></h4>
     <p class="hot-meta">The week after · Plan ahead</p>
     <p class="hot-blurb">A 48-hour sake-miso cure. Cook once on the 26th and eat through the week.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/broiled-miso-salmon-bowl-sushi-rice-avocado">Full recipe →</a><a class="hot-card-prod" href="/products/king-salmon">Add the King Salmon</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/broiled-miso-salmon-bowl-sushi-rice-avocado">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/king-salmon">{{ all_products['king-salmon'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>3,430 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>64 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 8.5 oz skin-on portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['king-salmon'], section_id: section.id, product_id: 'hg22' %}
+</div>
   </div>
 </article></div>
 </section>
@@ -668,7 +889,13 @@
     <h3><a href="/blogs/seafood-recipes/sea-cuterie-board">Seacuterie Board</a></h3>
     <p class="hot-meta">Smoked and pastrami steelhead, scallops, salmon roe · The board</p>
     <p class="hot-lede">Cured fish, scallops, salmon pearls, cheeses and citrus. The party appetizer, assembled in twenty minutes.</p>
-    <p class="hot-btns"><a class="hot-btn" href="/blogs/seafood-recipes/sea-cuterie-board">Full recipe</a><a class="hot-btn hot-btn-ghost" href="/products/seatopia-steelhead-4oz-smoked">Add the Steelhead, Cold-Smoked Lox</a></p>
+    <p class="hot-btns"><a class="hot-btn" href="/blogs/seafood-recipes/sea-cuterie-board">Full recipe</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/seatopia-steelhead-4oz-smoked">{{ all_products['seatopia-steelhead-4oz-smoked'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>850 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>22 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 4 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['seatopia-steelhead-4oz-smoked'], section_id: section.id, product_id: 'hg5' %}
+</div>
   </div>
 </article>
   <div class="hot-grid"><article class="hot-card">
@@ -678,7 +905,13 @@
     <h4><a href="/blogs/seafood-recipes/sushi-date-night">Sushi Date Night</a></h4>
     <p class="hot-meta">Build your own</p>
     <p class="hot-blurb">Five kinds of sushi from one loin and one pot of rice, set out so everyone builds their own. For two, or for ten.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/sushi-date-night">Full recipe →</a><a class="hot-card-prod" href="/products/steelhead-sashimi-loin-12oz">Add the Steelhead, Sashimi Loin</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/sushi-date-night">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/steelhead-sashimi-loin-12oz">{{ all_products['steelhead-sashimi-loin-12oz'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>2,560 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>67 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 12 oz loin. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-sashimi-loin-12oz'], section_id: section.id, product_id: 'hg23' %}
+</div>
   </div>
 </article><article class="hot-card">
   <a class="hot-card-img" href="/blogs/seafood-recipes/seatopia-yellowtail-scallop-tartare-a-fresh-twist-on-classic-crudo">{{ articles['seafood-recipes/seatopia-yellowtail-scallop-tartare-a-fresh-twist-on-classic-crudo'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "Yellowtail &amp; Scallop Tartare" }}</a>
@@ -687,7 +920,13 @@
     <h4><a href="/blogs/seafood-recipes/seatopia-yellowtail-scallop-tartare-a-fresh-twist-on-classic-crudo">Yellowtail &amp; Scallop Tartare</a></h4>
     <p class="hot-meta">First course</p>
     <p class="hot-blurb">Molded tartare, ponzu, a spoon of roe on top. A sharp first course before midnight.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/seatopia-yellowtail-scallop-tartare-a-fresh-twist-on-classic-crudo">Full recipe →</a><a class="hot-card-prod" href="/products/half-shell-scallops-2x-12oz-bag">Add the Half-Shell Scallops</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/seatopia-yellowtail-scallop-tartare-a-fresh-twist-on-classic-crudo">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/half-shell-scallops-2x-12oz-bag">{{ all_products['half-shell-scallops-2x-12oz-bag'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>8 g</b> protein</span><span class="hot-fish-chip"><b>7 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 2 oz serving. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['half-shell-scallops-2x-12oz-bag'], section_id: section.id, product_id: 'hg24' %}
+</div>
   </div>
 </article><article class="hot-card">
   <a class="hot-card-img" href="/blogs/seafood-recipes/black-garlic-tamari-steelhead-with-activated-charcoal-and-fresh-wasabi">{{ articles['seafood-recipes/black-garlic-tamari-steelhead-with-activated-charcoal-and-fresh-wasabi'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "Black Garlic Tamari Steelhead Sashimi" }}</a>
@@ -696,7 +935,13 @@
     <h4><a href="/blogs/seafood-recipes/black-garlic-tamari-steelhead-with-activated-charcoal-and-fresh-wasabi">Black Garlic Tamari Steelhead Sashimi</a></h4>
     <p class="hot-meta">No cooking</p>
     <p class="hot-blurb">Dark sauce, pale fish, fresh wasabi. The dramatic plated appetizer.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/black-garlic-tamari-steelhead-with-activated-charcoal-and-fresh-wasabi">Full recipe →</a><a class="hot-card-prod" href="/products/steelhead-sashimi-loin-12oz">Add the Steelhead, Sashimi Loin</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/black-garlic-tamari-steelhead-with-activated-charcoal-and-fresh-wasabi">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/steelhead-sashimi-loin-12oz">{{ all_products['steelhead-sashimi-loin-12oz'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>2,560 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>67 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 12 oz loin. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-sashimi-loin-12oz'], section_id: section.id, product_id: 'hg25' %}
+</div>
   </div>
 </article><article class="hot-card">
   <a class="hot-card-img" href="/blogs/seafood-recipes/seatopia-steelhead-plankton-marino-crudo">{{ articles['seafood-recipes/seatopia-steelhead-plankton-marino-crudo'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "Steelhead Crudo with Plankton Marino" }}</a>
@@ -705,7 +950,13 @@
     <h4><a href="/blogs/seafood-recipes/seatopia-steelhead-plankton-marino-crudo">Steelhead Crudo with Plankton Marino</a></h4>
     <p class="hot-meta">No cooking</p>
     <p class="hot-blurb">Plankton oil, lemon zest, caviar in the center. Minimalist luxury.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/seatopia-steelhead-plankton-marino-crudo">Full recipe →</a><a class="hot-card-prod" href="/products/steelhead-sashimi-loin-12oz">Add the Steelhead, Sashimi Loin</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/seatopia-steelhead-plankton-marino-crudo">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/steelhead-sashimi-loin-12oz">{{ all_products['steelhead-sashimi-loin-12oz'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>2,560 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>67 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 12 oz loin. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-sashimi-loin-12oz'], section_id: section.id, product_id: 'hg26' %}
+</div>
   </div>
 </article><article class="hot-card">
   <a class="hot-card-img" href="/blogs/seafood-recipes/citrus-cured-atlantic-salmon-carpaccio">{{ articles['seafood-recipes/citrus-cured-atlantic-salmon-carpaccio'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "Citrus-Cured Atlantic Salmon Carpaccio" }}</a>
@@ -714,7 +965,13 @@
     <h4><a href="/blogs/seafood-recipes/citrus-cured-atlantic-salmon-carpaccio">Citrus-Cured Atlantic Salmon Carpaccio</a></h4>
     <p class="hot-meta">Course 6 · Cold alternate</p>
     <p class="hot-blurb">Thin-sliced salmon, hand-squeezed citrus, roe. Bright, cold and fast. The alternate sixth course, or a New Year&#x27;s Eve plate.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/citrus-cured-atlantic-salmon-carpaccio">Full recipe →</a><a class="hot-card-prod" href="/products/atlantic-salmon-2x-6oz-portions">Add the Atlantic Salmon</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/citrus-cured-atlantic-salmon-carpaccio">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/atlantic-salmon-2x-6oz-portions">{{ all_products['atlantic-salmon-2x-6oz-portions'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>1,960 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>28 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['atlantic-salmon-2x-6oz-portions'], section_id: section.id, product_id: 'hg27' %}
+</div>
   </div>
 </article><article class="hot-card">
   <a class="hot-card-img" href="/blogs/seafood-recipes/black-tiger-shrimp-vietnamese-fresh-rolls">{{ articles['seafood-recipes/black-tiger-shrimp-vietnamese-fresh-rolls'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "Black Tiger Shrimp Vietnamese Fresh Rolls" }}</a>
@@ -723,7 +980,13 @@
     <h4><a href="/blogs/seafood-recipes/black-tiger-shrimp-vietnamese-fresh-rolls">Black Tiger Shrimp Vietnamese Fresh Rolls</a></h4>
     <p class="hot-meta">Passed app</p>
     <p class="hot-blurb">Shrimp poached in a lime broth, rolled with herbs and rice noodles, with a black garlic peanut sauce. Makes 10 to 12; double it.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/black-tiger-shrimp-vietnamese-fresh-rolls">Full recipe →</a><a class="hot-card-prod" href="/products/black-tiger-shrimp-mangrove-regeneration">Add the Mangrove Black Tiger Shrimp</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/black-tiger-shrimp-vietnamese-fresh-rolls">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/black-tiger-shrimp-mangrove-regeneration">{{ all_products['black-tiger-shrimp-mangrove-regeneration'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>18 mcg</b> selenium</span><span class="hot-fish-chip"><b>40 mg</b> EPA + DHA</span></p>
+<p class="hot-fish-basis">As tested, per 4 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['black-tiger-shrimp-mangrove-regeneration'], section_id: section.id, product_id: 'hg28' %}
+</div>
   </div>
 </article><article class="hot-card">
   <a class="hot-card-img" href="/blogs/seafood-recipes/smoked-trout-tostadas-avocado-lime-crema">{{ articles['seafood-recipes/smoked-trout-tostadas-avocado-lime-crema'].image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '300,500,800,1000', sizes: '(min-width: 800px) 50vw, 100vw', alt: "Smoked Trout Tostadas with Avocado Lime Crema" }}</a>
@@ -732,7 +995,13 @@
     <h4><a href="/blogs/seafood-recipes/smoked-trout-tostadas-avocado-lime-crema">Smoked Trout Tostadas with Avocado Lime Crema</a></h4>
     <p class="hot-meta">Passed app · No cooking</p>
     <p class="hot-blurb">Crisp tostadas, avocado lime crema, big flakes of trout, pomegranate and salsa macha. No cooking, fifteen minutes.</p>
-    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/smoked-trout-tostadas-avocado-lime-crema">Full recipe →</a><a class="hot-card-prod" href="/products/smoke-in-chimneys-smoked-trout-filet">Add the Smoked Trout Filets</a></p>
+    <p class="hot-card-links"><a class="hot-more" href="/blogs/seafood-recipes/smoked-trout-tostadas-avocado-lime-crema">Full recipe →</a></p>
+<div class="hot-fish">
+<p class="hot-fish-name"><a href="/products/smoke-in-chimneys-smoked-trout-filet">{{ all_products['smoke-in-chimneys-smoked-trout-filet'].title }}</a></p>
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>765 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>28 g</b> protein</span><span class="hot-fish-chip"><b>27 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 5.5 oz fillet. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['smoke-in-chimneys-smoked-trout-filet'], section_id: section.id, product_id: 'hg29' %}
+</div>
   </div>
 </article></div>
 </section>
@@ -785,49 +1054,103 @@
     </div>
     <p class="hot-lede">The fish behind this guide's menus, plus the ones we reach for alongside them. The fish is blast-frozen to −10°F at harvest and vacuum sealed, and the roe and caviar tins arrive frozen, so it all keeps until the night you want it. Prices are per pack and start at the figure shown.</p>
   </div>
-  <div class="hot-prods"><a class="hot-prod" href="/products/steelhead-2x-6oz-filets">
-  {{ all_products['steelhead-2x-6oz-filets'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Steelhead" }}
-  <div><h4>Steelhead</h4><p class="hot-meta">from {{ all_products['steelhead-2x-6oz-filets'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">The stuffing fish. Six-ounce fillets, skin on, for flaking and crisping.</p><span class="hot-more">Shop →</span></div>
-</a><a class="hot-prod" href="/products/steelhead-sashimi-loin-12oz">
-  {{ all_products['steelhead-sashimi-loin-12oz'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Steelhead, Sashimi Loin" }}
-  <div><h4>Steelhead, Sashimi Loin</h4><p class="hot-meta">from {{ all_products['steelhead-sashimi-loin-12oz'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">The loin behind the cider poach, the fish ham, the Wellington and the beet cure.</p><span class="hot-more">Shop →</span></div>
-</a><a class="hot-prod" href="/products/seatopia-steelhead-4oz-smoked">
-  {{ all_products['seatopia-steelhead-4oz-smoked'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Steelhead, Cold-Smoked Lox" }}
-  <div><h4>Steelhead, Cold-Smoked Lox</h4><p class="hot-meta">from {{ all_products['seatopia-steelhead-4oz-smoked'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">For the bagel spread, the crêpes and the seacuterie board.</p><span class="hot-more">Shop →</span></div>
-</a><a class="hot-prod" href="/products/steelhead-pastrami-smoked-4oz">
-  {{ all_products['steelhead-pastrami-smoked-4oz'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Pastrami Smoked Lox" }}
-  <div><h4>Pastrami Smoked Lox</h4><p class="hot-meta">from {{ all_products['steelhead-pastrami-smoked-4oz'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">Peppery and dark-edged. The cucumber bites, the cream cheese bowl, the fritters.</p><span class="hot-more">Shop →</span></div>
-</a><a class="hot-prod" href="/products/king-salmon">
-  {{ all_products['king-salmon'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "King Salmon" }}
-  <div><h4>King Salmon</h4><p class="hot-meta">from {{ all_products['king-salmon'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">For the gravlax, the miso cure and the apple-farro plate.</p><span class="hot-more">Shop →</span></div>
-</a><a class="hot-prod" href="/products/atlantic-salmon-2x-6oz-portions">
-  {{ all_products['atlantic-salmon-2x-6oz-portions'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Atlantic Salmon" }}
-  <div><h4>Atlantic Salmon</h4><p class="hot-meta">from {{ all_products['atlantic-salmon-2x-6oz-portions'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">The harvest bowl, the papillote, the carpaccio and the rösti.</p><span class="hot-more">Shop →</span></div>
-</a><a class="hot-prod" href="/products/whole-trout-12oz">
-  {{ all_products['whole-trout-12oz'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Whole Trout" }}
-  <div><h4>Whole Trout</h4><p class="hot-meta">from {{ all_products['whole-trout-12oz'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">Salt-baked or roasted with grapes. One fish serves two.</p><span class="hot-more">Shop →</span></div>
-</a><a class="hot-prod" href="/products/smoke-in-chimneys-smoked-trout-filet">
-  {{ all_products['smoke-in-chimneys-smoked-trout-filet'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Smoked Trout Filets" }}
-  <div><h4>Smoked Trout Filets</h4><p class="hot-meta">from {{ all_products['smoke-in-chimneys-smoked-trout-filet'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">Already cooked. The breakfast skillet and the tostadas.</p><span class="hot-more">Shop →</span></div>
-</a><a class="hot-prod" href="/products/branzino-bundle-2x-6oz-portions">
-  {{ all_products['branzino-bundle-2x-6oz-portions'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Branzino" }}
-  <div><h4>Branzino</h4><p class="hot-meta">from {{ all_products['branzino-bundle-2x-6oz-portions'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">Crisp skin over farro, or sliced thin with blood orange.</p><span class="hot-more">Shop →</span></div>
-</a><a class="hot-prod" href="/products/black-tiger-shrimp-mangrove-regeneration">
-  {{ all_products['black-tiger-shrimp-mangrove-regeneration'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Mangrove Black Tiger Shrimp" }}
-  <div><h4>Mangrove Black Tiger Shrimp</h4><p class="hot-meta">from {{ all_products['black-tiger-shrimp-mangrove-regeneration'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">Pumpkin shrimp, harissa shrimp, fresh rolls. A 16 oz bag serves four.</p><span class="hot-more">Shop →</span></div>
-</a><a class="hot-prod" href="/products/half-shell-scallops-2x-12oz-bag">
-  {{ all_products['half-shell-scallops-2x-12oz-bag'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Half-Shell Scallops" }}
-  <div><h4>Half-Shell Scallops</h4><p class="hot-meta">from {{ all_products['half-shell-scallops-2x-12oz-bag'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">Ceviche in the shell, tartare, the seafood pasta.</p><span class="hot-more">Shop →</span></div>
-</a><a class="hot-prod" href="/products/lab-tested-salmon-roe-caviar">
-  {{ all_products['lab-tested-salmon-roe-caviar'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Salmon Roe Caviar" }}
-  <div><h4>Salmon Roe Caviar</h4><p class="hot-meta">from {{ all_products['lab-tested-salmon-roe-caviar'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">The garnish that ties the whole season together. Night eight, the crêpes, the tartare.</p><span class="hot-more">Shop →</span></div>
-</a><a class="hot-prod" href="/products/marshallberg-classic-osetra-caviar">
-  {{ all_products['marshallberg-classic-osetra-caviar'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Osetra Caviar" }}
-  <div><h4>Osetra Caviar</h4><p class="hot-meta">from {{ all_products['marshallberg-classic-osetra-caviar'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">For midnight. A tin, a spoon, something sparkling.</p><span class="hot-more">Shop →</span></div>
-</a><a class="hot-prod" href="/products/barramundi-2-pack">
-  {{ all_products['barramundi-2-pack'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Barramundi" }}
-  <div><h4>Barramundi</h4><p class="hot-meta">from {{ all_products['barramundi-2-pack'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">The quiet white-fish main with shaved fennel.</p><span class="hot-more">Shop →</span></div>
-</a></div>
+  <div class="hot-prods"><div class="hot-prod"><a class="hot-prod-img" href="/products/steelhead-2x-6oz-filets">{{ all_products['steelhead-2x-6oz-filets'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Steelhead" }}</a>
+<div><h4><a href="/products/steelhead-2x-6oz-filets">Steelhead</a></h4><p class="hot-meta">from {{ all_products['steelhead-2x-6oz-filets'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">The stuffing fish. Six-ounce fillets, skin on, for flaking and crisping.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>2,130 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>27 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz skin-on portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-2x-6oz-filets'], section_id: section.id, product_id: 'hg44' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/steelhead-sashimi-loin-12oz">{{ all_products['steelhead-sashimi-loin-12oz'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Steelhead, Sashimi Loin" }}</a>
+<div><h4><a href="/products/steelhead-sashimi-loin-12oz">Steelhead, Sashimi Loin</a></h4><p class="hot-meta">from {{ all_products['steelhead-sashimi-loin-12oz'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">The loin behind the cider poach, the fish ham, the Wellington and the beet cure.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>2,560 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>67 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 12 oz loin. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-sashimi-loin-12oz'], section_id: section.id, product_id: 'hg45' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/seatopia-steelhead-4oz-smoked">{{ all_products['seatopia-steelhead-4oz-smoked'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Steelhead, Cold-Smoked Lox" }}</a>
+<div><h4><a href="/products/seatopia-steelhead-4oz-smoked">Steelhead, Cold-Smoked Lox</a></h4><p class="hot-meta">from {{ all_products['seatopia-steelhead-4oz-smoked'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">For the bagel spread, the crêpes and the seacuterie board.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>850 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>22 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 4 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['seatopia-steelhead-4oz-smoked'], section_id: section.id, product_id: 'hg46' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/steelhead-pastrami-smoked-4oz">{{ all_products['steelhead-pastrami-smoked-4oz'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Pastrami Smoked Lox" }}</a>
+<div><h4><a href="/products/steelhead-pastrami-smoked-4oz">Pastrami Smoked Lox</a></h4><p class="hot-meta">from {{ all_products['steelhead-pastrami-smoked-4oz'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">Peppery and dark-edged. The cucumber bites, the cream cheese bowl, the fritters.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>1,420 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>18 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 4 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-pastrami-smoked-4oz'], section_id: section.id, product_id: 'hg47' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/king-salmon">{{ all_products['king-salmon'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "King Salmon" }}</a>
+<div><h4><a href="/products/king-salmon">King Salmon</a></h4><p class="hot-meta">from {{ all_products['king-salmon'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">For the gravlax, the miso cure and the apple-farro plate.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>3,430 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>64 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 8.5 oz skin-on portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['king-salmon'], section_id: section.id, product_id: 'hg48' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/atlantic-salmon-2x-6oz-portions">{{ all_products['atlantic-salmon-2x-6oz-portions'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Atlantic Salmon" }}</a>
+<div><h4><a href="/products/atlantic-salmon-2x-6oz-portions">Atlantic Salmon</a></h4><p class="hot-meta">from {{ all_products['atlantic-salmon-2x-6oz-portions'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">The harvest bowl, the papillote, the carpaccio and the rösti.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>1,960 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>28 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['atlantic-salmon-2x-6oz-portions'], section_id: section.id, product_id: 'hg49' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/whole-trout-12oz">{{ all_products['whole-trout-12oz'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Whole Trout" }}</a>
+<div><h4><a href="/products/whole-trout-12oz">Whole Trout</a></h4><p class="hot-meta">from {{ all_products['whole-trout-12oz'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">Salt-baked or roasted with grapes. One fish serves two.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>830 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>31 g</b> protein</span><span class="hot-fish-chip"><b>29 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz serving. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['whole-trout-12oz'], section_id: section.id, product_id: 'hg50' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/smoke-in-chimneys-smoked-trout-filet">{{ all_products['smoke-in-chimneys-smoked-trout-filet'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Smoked Trout Filets" }}</a>
+<div><h4><a href="/products/smoke-in-chimneys-smoked-trout-filet">Smoked Trout Filets</a></h4><p class="hot-meta">from {{ all_products['smoke-in-chimneys-smoked-trout-filet'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">Already cooked. The breakfast skillet and the tostadas.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>765 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>28 g</b> protein</span><span class="hot-fish-chip"><b>27 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 5.5 oz fillet. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['smoke-in-chimneys-smoked-trout-filet'], section_id: section.id, product_id: 'hg51' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/branzino-bundle-2x-6oz-portions">{{ all_products['branzino-bundle-2x-6oz-portions'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Branzino" }}</a>
+<div><h4><a href="/products/branzino-bundle-2x-6oz-portions">Branzino</a></h4><p class="hot-meta">from {{ all_products['branzino-bundle-2x-6oz-portions'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">Crisp skin over farro, or sliced thin with blood orange.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>1,360 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>27 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz skin-on portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['branzino-bundle-2x-6oz-portions'], section_id: section.id, product_id: 'hg52' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/black-tiger-shrimp-mangrove-regeneration">{{ all_products['black-tiger-shrimp-mangrove-regeneration'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Mangrove Black Tiger Shrimp" }}</a>
+<div><h4><a href="/products/black-tiger-shrimp-mangrove-regeneration">Mangrove Black Tiger Shrimp</a></h4><p class="hot-meta">from {{ all_products['black-tiger-shrimp-mangrove-regeneration'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">Pumpkin shrimp, harissa shrimp, fresh rolls. A 16 oz bag serves four.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>18 mcg</b> selenium</span><span class="hot-fish-chip"><b>40 mg</b> EPA + DHA</span></p>
+<p class="hot-fish-basis">As tested, per 4 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['black-tiger-shrimp-mangrove-regeneration'], section_id: section.id, product_id: 'hg53' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/half-shell-scallops-2x-12oz-bag">{{ all_products['half-shell-scallops-2x-12oz-bag'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Half-Shell Scallops" }}</a>
+<div><h4><a href="/products/half-shell-scallops-2x-12oz-bag">Half-Shell Scallops</a></h4><p class="hot-meta">from {{ all_products['half-shell-scallops-2x-12oz-bag'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">Ceviche in the shell, tartare, the seafood pasta.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>8 g</b> protein</span><span class="hot-fish-chip"><b>7 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 2 oz serving. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['half-shell-scallops-2x-12oz-bag'], section_id: section.id, product_id: 'hg54' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/lab-tested-salmon-roe-caviar">{{ all_products['lab-tested-salmon-roe-caviar'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Salmon Roe Caviar" }}</a>
+<div><h4><a href="/products/lab-tested-salmon-roe-caviar">Salmon Roe Caviar</a></h4><p class="hot-meta">from {{ all_products['lab-tested-salmon-roe-caviar'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">The garnish that ties the whole season together. Night eight, the crêpes, the tartare.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>525 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>27 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 30 g tin. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['lab-tested-salmon-roe-caviar'], section_id: section.id, product_id: 'hg55' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/marshallberg-classic-osetra-caviar">{{ all_products['marshallberg-classic-osetra-caviar'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Osetra Caviar" }}</a>
+<div><h4><a href="/products/marshallberg-classic-osetra-caviar">Osetra Caviar</a></h4><p class="hot-meta">from {{ all_products['marshallberg-classic-osetra-caviar'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">For midnight. A tin, a spoon, something sparkling.</p>
+<div class="hot-fish">
+{% render 'product-card-quick-add', product: all_products['marshallberg-classic-osetra-caviar'], section_id: section.id, product_id: 'hg56' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/barramundi-2-pack">{{ all_products['barramundi-2-pack'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Barramundi" }}</a>
+<div><h4><a href="/products/barramundi-2-pack">Barramundi</a></h4><p class="hot-meta">from {{ all_products['barramundi-2-pack'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">The quiet white-fish main with shaved fennel.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>530 mg</b> EPA + DHA</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['barramundi-2-pack'], section_id: section.id, product_id: 'hg57' %}
+</div></div>
+</div></div>
   <p class="hot-btns" style="margin-top:28px"><a class="hot-btn" href="/collections/all">Build your own box</a><a class="hot-btn hot-btn-ghost" href="/products/salmon-box">Salmon Lover's Box</a></p>
 </section>
 
