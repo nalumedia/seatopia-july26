@@ -180,7 +180,7 @@
       if (LIST) {
         jobs.push(post('subscriptions', { data: { type: 'subscription', attributes: {
           custom_source: 'Homepage guides',
-          profile: { data: { type: 'profile', attributes: { email: email, subscriptions: { email: { marketing: { consent: 'SUBSCRIBED' } } } } } }
+          profile: { data: { type: 'profile', attributes: { email: email } } }
         }, relationships: { list: { data: { type: 'list', id: LIST } } } } }));
       }
       jobs.push(post('events', { data: { type: 'event', attributes: {
