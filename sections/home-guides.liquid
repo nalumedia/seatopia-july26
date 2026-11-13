@@ -40,6 +40,8 @@
   .hg-label { letter-spacing: .12em; text-transform: uppercase; }
 
   .hg-cards { display: grid; grid-template-columns: repeat({% if shown > 3 %}4{% else %}3{% endif %}, minmax(0, 1fr)); gap: var(--sp-6); list-style: none; padding: 0; }
+  .hg-cards--scroll { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: calc((100% - 3 * var(--sp-6)) / 3.6); overflow-x: auto; scroll-snap-type: x mandatory; padding-block-end: var(--sp-3); }
+  .hg-cards--scroll .hg-card { scroll-snap-align: start; }
   .hg-card { position: relative; display: flex; flex-direction: column; gap: var(--sp-4); }
   .hg-card__media { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--rounded-block); background: rgb(var(--color-placeholder, 220 220 220)); }
   .hg-card__media img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
@@ -86,7 +88,7 @@
       {%- if s.text != blank -%}<div class="text-lg leading-normal">{{ s.text }}</div>{%- endif -%}
     </div>
 
-    <ul class="hg-cards" role="list">
+    <ul class="hg-cards{% if shown > 4 %} hg-cards--scroll{% endif %}" role="list">
       {%- for g in guides -%}
         {%- assign gs = g.settings -%}
         {%- if gs.page == blank -%}{%- continue -%}{%- endif -%}

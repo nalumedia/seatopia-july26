@@ -1,0 +1,306 @@
+{%- comment -%} Holiday guide hub (The holiday season, on ocean time). Occasion chapters render the same snippets
+  as their spoke pages (sections/holiday-occasion.liquid). Built by build_hub.py from the designed export. {%- endcomment -%}
+{%- render 'hot-styles' -%}
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://seatopia.fish/"}, {"@type": "ListItem", "position": 2, "name": "Holiday guide", "item": "https://seatopia.fish/pages/holiday-seafood-guide"}]}, {"@type": "ItemList", "name": "Holidays on ocean time", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Seatopia for Thanksgiving", "url": "https://seatopia.fish/pages/pescatarian-thanksgiving"}, {"@type": "ListItem", "position": 2, "name": "Seatopia for Hanukkah", "url": "https://seatopia.fish/pages/hanukkah-fish-recipes"}, {"@type": "ListItem", "position": 3, "name": "Seatopia for Christmas Eve", "url": "https://seatopia.fish/pages/feast-of-the-seven-fishes"}, {"@type": "ListItem", "position": 4, "name": "Seatopia for Holiday Brunch", "url": "https://seatopia.fish/pages/holiday-brunch-seafood"}, {"@type": "ListItem", "position": 5, "name": "Seatopia for New Year’s Eve", "url": "https://seatopia.fish/pages/new-years-eve-seafood"}, {"@type": "ListItem", "position": 6, "name": "Seatopia for Host Gifts", "url": "https://seatopia.fish/pages/seafood-host-gifts"}]}]}</script>
+<div class="hot">
+<header class="hot-hero" id="top">
+  {{ images['holiday-guide-hero.jpg'] | image_url: width: 2000 | image_tag: loading: 'eager', widths: '800,1200,1600,2000', sizes: '100vw', alt: "Cured holiday fish ham, scored and studded with cloves, with pomegranate and a Christmas-tree garnish", fetchpriority: 'high' }}
+  <div class="hot-hero-shade"></div>
+  <div class="hot-hero-text hot-wrap">
+    <p class="hot-eyebrow">A Seatopia holiday guide · Winter 2026</p>
+    <h1>The holiday season, on ocean time</h1>
+    <p class="hot-subhead">How to enjoy Seatopia this holiday season.</p>
+    <p class="hot-lede">Recipes to share around your table from now until the new year: Thanksgiving, eight nights of Hanukkah, Christmas Eve and the Feast of the Seven Fishes, a slow brunch, and a board at midnight. Every recipe is live, with the fish a click away.</p>
+    <p class="hot-btns"><a class="hot-btn hot-btn-light" href="#thanksgiving">Start with Thanksgiving</a><a class="hot-btn hot-btn-ghost" style="color:#F7EFE6;border-color:#F7EFE6" href="#freezer">What to put in the freezer</a></p>
+  </div>
+</header>
+
+<section class="hot-tides hot-wrap" id="tides">
+  <div class="hot-tides-head">
+    <div>
+      <p class="hot-eyebrow hot-gold">Built around the tides</p>
+      <h2>Celebrate the season with Seatopia</h2>
+    </div>
+    <p>Seatopia runs on ocean time. The year turns at the solstice on December 21, the longest night, and two full moons bracket the season. The holidays are the gatherings that happen in between. Here is the stretch of water we are cooking across, so you can plan the freezer before you plan the table.</p>
+  </div>
+  <ol class="hot-tide">
+    <li class="hot-moon"><span class="hot-d">Nov 24</span><span class="hot-l">Full moon</span></li>
+    <li><span class="hot-d">Nov 26</span><span class="hot-l"><a href="#thanksgiving">Thanksgiving</a></span></li>
+    <li><span class="hot-d">Dec 4–12</span><span class="hot-l"><a href="#hanukkah">Hanukkah</a>, first candle Friday evening</span></li>
+    <li class="hot-sun"><span class="hot-d">Dec 21</span><span class="hot-l"><a href="#solstice">Winter solstice</a></span></li>
+    <li class="hot-moon"><span class="hot-d">Dec 23</span><span class="hot-l">Full moon</span></li>
+    <li><span class="hot-d">Dec 24</span><span class="hot-l"><a href="#christmas">Christmas Eve · Seven Fishes</a></span></li>
+    <li><span class="hot-d">Dec 31</span><span class="hot-l"><a href="#nye">New Year's Eve</a></span></li>
+  </ol>
+</section>
+
+<section class="hot-hubrow hot-wrap" id="by-holiday" aria-labelledby="by-holiday-title"><div class="hot-hubrow-head"><p class="hot-eyebrow hot-gold">Plan by holiday</p><h2 id="by-holiday-title">A guide for every holiday this season</h2><p class="hot-lede">Each holiday has its own page: the menu, an order-and-thaw plan with dates, the fish to buy and the questions people ask.</p></div><div class="hot-hubcards"><a class="hot-hubcard" href="/pages/pescatarian-thanksgiving"><span class="hot-hubcard-img">{{ articles['seafood-recipes/hudson-valley-steelhead-trout-thanksgiving-stuffing-recipe'].image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '400,600,800,1000,1400', sizes: '(min-width: 990px) 16vw, 45vw', alt: '' }}</span><span class="hot-hubcard-body"><span class="hot-eyebrow">Thanksgiving</span><span class="hot-hubcard-title">Seatopia for Thanksgiving</span><span class="hot-hubcard-blurb">Keep the stuffing, change the bird.</span></span></a>
+<a class="hot-hubcard" href="/pages/hanukkah-fish-recipes"><span class="hot-hubcard-img">{{ articles['seafood-recipes/cured-steelhead-loin-lox-bagel'].image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '400,600,800,1000,1400', sizes: '(min-width: 990px) 16vw, 45vw', alt: '' }}</span><span class="hot-hubcard-body"><span class="hot-eyebrow">Hanukkah</span><span class="hot-hubcard-title">Seatopia for Hanukkah</span><span class="hot-hubcard-blurb">Eight nights, one small plate each.</span></span></a>
+<a class="hot-hubcard" href="/pages/feast-of-the-seven-fishes"><span class="hot-hubcard-img">{{ articles['seafood-recipes/cured-holiday-fish-ham'].image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '400,600,800,1000,1400', sizes: '(min-width: 990px) 16vw, 45vw', alt: '' }}</span><span class="hot-hubcard-body"><span class="hot-eyebrow">Christmas Eve</span><span class="hot-hubcard-title">Seatopia for Christmas Eve</span><span class="hot-hubcard-blurb">The Seven Fishes, in order.</span></span></a>
+<a class="hot-hubcard" href="/pages/holiday-brunch-seafood"><span class="hot-hubcard-img">{{ articles['seafood-recipes/braided-steelhead-lox-crepe-recipe-a-healthy-sustainable-holiday-tradition'].image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '400,600,800,1000,1400', sizes: '(min-width: 990px) 16vw, 45vw', alt: '' }}</span><span class="hot-hubcard-body"><span class="hot-eyebrow">Holiday brunch</span><span class="hot-hubcard-title">Seatopia for Holiday Brunch</span><span class="hot-hubcard-blurb">Holiday brunch, the slow kind.</span></span></a>
+<a class="hot-hubcard" href="/pages/new-years-eve-seafood"><span class="hot-hubcard-img">{{ articles['seafood-recipes/sea-cuterie-board'].image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '400,600,800,1000,1400', sizes: '(min-width: 990px) 16vw, 45vw', alt: '' }}</span><span class="hot-hubcard-body"><span class="hot-eyebrow">New Year’s Eve</span><span class="hot-hubcard-title">Seatopia for New Year’s Eve</span><span class="hot-hubcard-blurb">A board and a toast, not another roast.</span></span></a>
+<a class="hot-hubcard" href="/pages/seafood-host-gifts"><span class="hot-hubcard-img">{{ articles['seafood-recipes/beet-cured-steelhead-lox-recipe'].image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '400,600,800,1000,1400', sizes: '(min-width: 990px) 16vw, 45vw', alt: '' }}</span><span class="hot-hubcard-body"><span class="hot-eyebrow">Host gifts</span><span class="hot-hubcard-title">Seatopia for Host Gifts</span><span class="hot-hubcard-blurb">Bring the fish, not another bottle.</span></span></a></div></section>
+<nav class="hot-chapnav" aria-label="Chapters"><div class="hot-wrap"><ul>
+  <li><a href="#thanksgiving">Thanksgiving</a></li>
+  <li><a href="#hanukkah">Hanukkah</a></li>
+  <li><a href="#christmas">Christmas Eve &amp; Seven Fishes</a></li>
+  <li><a href="#brunch">Holiday brunch</a></li>
+  <li><a href="#nye">New Year's Eve</a></li>
+  <li><a href="#gifts">Bring the fish</a></li>
+  <li><a href="#freezer">The freezer</a></li>
+  <li><a href="#before">Before you order</a></li>
+</ul></div></nav>
+
+<section class="hot-chapter hot-wrap" id="thanksgiving">
+  <div class="hot-chapter-head">
+    <div>
+      <p class="hot-eyebrow">Thursday, November 26</p>
+      <h2>Thanksgiving: keep the stuffing, change the bird</h2>
+    </div>
+    <div>
+      <p class="hot-lede">The one irreplaceable recipe is the stuffing. Build the rest of the table around it: a showpiece steelhead main, a warm squash-and-spice shrimp for the people who do not want another fillet, and sides that travel.</p>
+      <ul class="hot-hooks">
+        <li>Crispy skin is the leftover people fight over. Put the steelhead skin back on top of the stuffing.</li>
+        <li>Apple cider and brown butter already taste like the holiday. The fish is the quiet center of the plate.</li>
+        <li>Make the farro salad the day before. It gets better overnight.</li>
+      </ul>
+    </div>
+  <p class="hot-spoke-cta"><a class="hot-btn" href="/pages/pescatarian-thanksgiving">Seatopia for Thanksgiving: the menu and the plan →</a></p>
+</div>
+  {%- render 'hot-ch-thanksgiving', section_id: section.id -%}
+</section>
+
+<section class="hot-chapter hot-wrap" id="hanukkah">
+  <div class="hot-chapter-head">
+    <div>
+      <p class="hot-eyebrow">Hanukkah · Friday evening, December 4, through Saturday, December 12</p>
+      <h2>Hanukkah: eight nights, one small plate each</h2>
+    </div>
+    <div>
+      <p class="hot-lede">A dairy-and-fish table, already in the freezer: lox, bagels, cream cheese, cucumber, roe. Not eight dinners. One thing on the table each night, under the candles, that people can stand around.</p>
+      <ul class="hot-hooks">
+        <li>The color of the oil: beet-cured steelhead and salmon roe against a dark plate and a candle.</li>
+        <li>Be honest about the fritters. They are a twist on the latke, not the tradition.</li>
+        <li>Finish the eighth night with roe, on whatever is on the table.</li>
+      </ul>
+    </div>
+  <p class="hot-spoke-cta"><a class="hot-btn" href="/pages/hanukkah-fish-recipes">Seatopia for Hanukkah: the menu and the plan →</a></p>
+</div>
+  {%- render 'hot-ch-hanukkah', section_id: section.id -%}
+</section>
+
+<section class="hot-chapter hot-wrap" id="christmas">
+  <div class="hot-chapter-head">
+    <div>
+      <p class="hot-eyebrow">Thursday, December 24</p>
+      <h2>Christmas Eve and the Feast of the Seven Fishes</h2>
+    </div>
+    <div>
+      <p class="hot-lede">Pick one centerpiece, not all five. Then, if you want the full Italian-American Christmas Eve, here are seven courses and seven species in an order that works, with the oven kept clear for the main.</p>
+      <ul class="hot-hooks">
+        <li>A new holiday ham, except it is a side of steelhead: scored, cloves, pomegranate, mint.</li>
+        <li>Crack the salt crust at the table.</li>
+        <li>Pomegranate on polenta, grapes on trout: red fruit, white fish, December light.</li>
+      </ul>
+    </div>
+  <p class="hot-spoke-cta"><a class="hot-btn" href="/pages/feast-of-the-seven-fishes">Seatopia for Christmas Eve: the menu and the plan →</a></p>
+</div>
+  {%- render 'hot-ch-christmas', section_id: section.id -%}
+</section>
+
+<section class="hot-chapter hot-wrap" id="brunch">
+  <div class="hot-chapter-head">
+    <div>
+      <p class="hot-eyebrow">Hanukkah mornings · Christmas week · New Year's Day</p>
+      <h2>Holiday brunch, the slow kind</h2>
+    </div>
+    <div>
+      <p class="hot-lede">Brunch runs underneath the whole season. Crêpes in the kitchen, lox and roe on the table, everyone builds their own. The same cured fish from the Hanukkah table comes back as Christmas-week breakfast.</p>
+      <ul class="hot-hooks">
+        <li>Batter in the pan, a toppings bar overhead, roe as the last spoonful.</li>
+        <li>Cook the miso cure once on the 26th and eat through the week.</li>
+      </ul>
+    </div>
+  <p class="hot-spoke-cta"><a class="hot-btn" href="/pages/holiday-brunch-seafood">Seatopia for Holiday Brunch: the menu and the plan →</a></p>
+</div>
+  {%- render 'hot-ch-brunch', section_id: section.id -%}
+</section>
+
+<section class="hot-chapter hot-wrap" id="nye">
+  <div class="hot-chapter-head">
+    <div>
+      <p class="hot-eyebrow">Thursday, December 31</p>
+      <h2>New Year's Eve: a board and a toast, not another roast</h2>
+    </div>
+    <div>
+      <p class="hot-lede">Stay in. Put a board on the table, open something sparkling, and let the sashimi plates do the talking. One loin and one pot of rice is a sushi night for two or for ten. Save the <a href="/pages/seatopia-reset-guide">January reset</a> for after the first.</p>
+      <ul class="hot-hooks">
+        <li>Assemble the seacuterie in twenty minutes. Spoon roe onto the tartare. Toast with a sashimi plate.</li>
+        <li>Pair the sushi night with our <a href="/blogs/seatopia-collective-community/how-to-host-a-sushi-dinner-party-a-celebration-of-food-friends-amp-ritual">guide to hosting a sushi dinner party</a>.</li>
+      </ul>
+    </div>
+  <p class="hot-spoke-cta"><a class="hot-btn" href="/pages/new-years-eve-seafood">Seatopia for New Year’s Eve: the menu and the plan →</a></p>
+</div>
+  {%- render 'hot-ch-nye', section_id: section.id -%}
+</section>
+
+<section class="hot-chapter hot-wrap" id="gifts">
+  <div class="hot-chapter-head">
+    <div>
+      <p class="hot-eyebrow">Host gifts · December</p>
+      <h2>Bring the fish, not another bottle</h2>
+    </div>
+    <p class="hot-lede">A whole cured piece and a card, not a casserole. Several of the recipes above already behave like host gifts if you let them. Three ways to arrive.</p>
+  <p class="hot-spoke-cta"><a class="hot-btn" href="/pages/seafood-host-gifts">Seatopia for Host Gifts: the menu and the plan →</a></p>
+</div>
+  {%- render 'hot-ch-gifts', section_id: section.id -%}
+</section>
+
+<section class="hot-chapter hot-wrap" id="freezer">
+  <div class="hot-chapter-head">
+    <div>
+      <p class="hot-eyebrow">Our picks for the season</p>
+      <h2>What to put in the freezer now</h2>
+    </div>
+    <p class="hot-lede">The fish behind this guide's menus, plus the ones we reach for alongside them. The fish is blast-frozen to −10°F at harvest and vacuum sealed, and the roe and caviar tins arrive frozen, so it all keeps until the night you want it. Prices are per pack and start at the figure shown.</p>
+  </div>
+  <div class="hot-prods"><div class="hot-prod"><a class="hot-prod-img" href="/products/steelhead-2x-6oz-filets">{{ all_products['steelhead-2x-6oz-filets'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Steelhead" }}</a>
+<div><h4><a href="/products/steelhead-2x-6oz-filets">Steelhead</a></h4><p class="hot-meta">from {{ all_products['steelhead-2x-6oz-filets'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">The stuffing fish. Six-ounce fillets, skin on, for flaking and crisping.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>2,130 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>27 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz skin-on portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-2x-6oz-filets'], section_id: section.id, product_id: 'hg44' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/steelhead-sashimi-loin-12oz">{{ all_products['steelhead-sashimi-loin-12oz'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Steelhead, Sashimi Loin" }}</a>
+<div><h4><a href="/products/steelhead-sashimi-loin-12oz">Steelhead, Sashimi Loin</a></h4><p class="hot-meta">from {{ all_products['steelhead-sashimi-loin-12oz'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">The loin behind the cider poach, the fish ham, the Wellington and the beet cure.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>2,560 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>67 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 12 oz loin. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-sashimi-loin-12oz'], section_id: section.id, product_id: 'hg45' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/seatopia-steelhead-4oz-smoked">{{ all_products['seatopia-steelhead-4oz-smoked'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Steelhead, Cold-Smoked Lox" }}</a>
+<div><h4><a href="/products/seatopia-steelhead-4oz-smoked">Steelhead, Cold-Smoked Lox</a></h4><p class="hot-meta">from {{ all_products['seatopia-steelhead-4oz-smoked'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">For the bagel spread, the crêpes and the seacuterie board.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>850 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>22 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 4 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['seatopia-steelhead-4oz-smoked'], section_id: section.id, product_id: 'hg46' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/steelhead-pastrami-smoked-4oz">{{ all_products['steelhead-pastrami-smoked-4oz'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Pastrami Smoked Lox" }}</a>
+<div><h4><a href="/products/steelhead-pastrami-smoked-4oz">Pastrami Smoked Lox</a></h4><p class="hot-meta">from {{ all_products['steelhead-pastrami-smoked-4oz'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">Peppery and dark-edged. The cucumber bites, the cream cheese bowl, the fritters.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>1,420 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>18 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 4 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['steelhead-pastrami-smoked-4oz'], section_id: section.id, product_id: 'hg47' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/king-salmon">{{ all_products['king-salmon'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "King Salmon" }}</a>
+<div><h4><a href="/products/king-salmon">King Salmon</a></h4><p class="hot-meta">from {{ all_products['king-salmon'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">For the gravlax, the miso cure and the apple-farro plate.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>3,430 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>64 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 8.5 oz skin-on portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['king-salmon'], section_id: section.id, product_id: 'hg48' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/atlantic-salmon-2x-6oz-portions">{{ all_products['atlantic-salmon-2x-6oz-portions'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Atlantic Salmon" }}</a>
+<div><h4><a href="/products/atlantic-salmon-2x-6oz-portions">Atlantic Salmon</a></h4><p class="hot-meta">from {{ all_products['atlantic-salmon-2x-6oz-portions'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">The harvest bowl, the papillote, the carpaccio and the rösti.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>1,960 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>28 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['atlantic-salmon-2x-6oz-portions'], section_id: section.id, product_id: 'hg49' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/whole-trout-12oz">{{ all_products['whole-trout-12oz'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Whole Trout" }}</a>
+<div><h4><a href="/products/whole-trout-12oz">Whole Trout</a></h4><p class="hot-meta">from {{ all_products['whole-trout-12oz'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">Salt-baked or roasted with grapes. One fish serves two.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>830 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>31 g</b> protein</span><span class="hot-fish-chip"><b>29 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz serving. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['whole-trout-12oz'], section_id: section.id, product_id: 'hg50' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/smoke-in-chimneys-smoked-trout-filet">{{ all_products['smoke-in-chimneys-smoked-trout-filet'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Smoked Trout Filets" }}</a>
+<div><h4><a href="/products/smoke-in-chimneys-smoked-trout-filet">Smoked Trout Filets</a></h4><p class="hot-meta">from {{ all_products['smoke-in-chimneys-smoked-trout-filet'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">Already cooked. The breakfast skillet and the tostadas.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>765 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>28 g</b> protein</span><span class="hot-fish-chip"><b>27 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 5.5 oz fillet. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['smoke-in-chimneys-smoked-trout-filet'], section_id: section.id, product_id: 'hg51' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/branzino-bundle-2x-6oz-portions">{{ all_products['branzino-bundle-2x-6oz-portions'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Branzino" }}</a>
+<div><h4><a href="/products/branzino-bundle-2x-6oz-portions">Branzino</a></h4><p class="hot-meta">from {{ all_products['branzino-bundle-2x-6oz-portions'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">Crisp skin over farro, or sliced thin with blood orange.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>1,360 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>27 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz skin-on portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['branzino-bundle-2x-6oz-portions'], section_id: section.id, product_id: 'hg52' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/black-tiger-shrimp-mangrove-regeneration">{{ all_products['black-tiger-shrimp-mangrove-regeneration'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Mangrove Black Tiger Shrimp" }}</a>
+<div><h4><a href="/products/black-tiger-shrimp-mangrove-regeneration">Mangrove Black Tiger Shrimp</a></h4><p class="hot-meta">from {{ all_products['black-tiger-shrimp-mangrove-regeneration'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">Pumpkin shrimp, harissa shrimp, fresh rolls. A 16 oz bag serves four.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>18 mcg</b> selenium</span><span class="hot-fish-chip"><b>40 mg</b> EPA + DHA</span></p>
+<p class="hot-fish-basis">As tested, per 4 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['black-tiger-shrimp-mangrove-regeneration'], section_id: section.id, product_id: 'hg53' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/half-shell-scallops-2x-12oz-bag">{{ all_products['half-shell-scallops-2x-12oz-bag'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Half-Shell Scallops" }}</a>
+<div><h4><a href="/products/half-shell-scallops-2x-12oz-bag">Half-Shell Scallops</a></h4><p class="hot-meta">from {{ all_products['half-shell-scallops-2x-12oz-bag'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">Ceviche in the shell, tartare, the seafood pasta.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>8 g</b> protein</span><span class="hot-fish-chip"><b>7 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 2 oz serving. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['half-shell-scallops-2x-12oz-bag'], section_id: section.id, product_id: 'hg54' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/lab-tested-salmon-roe-caviar">{{ all_products['lab-tested-salmon-roe-caviar'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Salmon Roe Caviar" }}</a>
+<div><h4><a href="/products/lab-tested-salmon-roe-caviar">Salmon Roe Caviar</a></h4><p class="hot-meta">from {{ all_products['lab-tested-salmon-roe-caviar'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">The garnish that ties the whole season together. Night eight, the crêpes, the tartare.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>525 mg</b> EPA + DHA</span><span class="hot-fish-chip"><b>27 mcg</b> selenium</span></p>
+<p class="hot-fish-basis">As tested, per 30 g tin. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['lab-tested-salmon-roe-caviar'], section_id: section.id, product_id: 'hg55' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/marshallberg-classic-osetra-caviar">{{ all_products['marshallberg-classic-osetra-caviar'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Osetra Caviar" }}</a>
+<div><h4><a href="/products/marshallberg-classic-osetra-caviar">Osetra Caviar</a></h4><p class="hot-meta">from {{ all_products['marshallberg-classic-osetra-caviar'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">For midnight. A tin, a spoon, something sparkling.</p>
+<div class="hot-fish">
+{% render 'product-card-quick-add', product: all_products['marshallberg-classic-osetra-caviar'], section_id: section.id, product_id: 'hg56' %}
+</div></div>
+</div><div class="hot-prod"><a class="hot-prod-img" href="/products/barramundi-2-pack">{{ all_products['barramundi-2-pack'].featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1000px) 25vw, 50vw', alt: "Barramundi" }}</a>
+<div><h4><a href="/products/barramundi-2-pack">Barramundi</a></h4><p class="hot-meta">from {{ all_products['barramundi-2-pack'].price_min | money_without_trailing_zeros }}</p><p class="hot-blurb">The quiet white-fish main with shaved fennel.</p>
+<div class="hot-fish">
+<p class="hot-fish-hl"><span class="hot-fish-chip"><b>530 mg</b> EPA + DHA</span></p>
+<p class="hot-fish-basis">As tested, per 6 oz portion. Values vary by sample and season.</p>
+{% render 'product-card-quick-add', product: all_products['barramundi-2-pack'], section_id: section.id, product_id: 'hg57' %}
+</div></div>
+</div></div>
+  <p class="hot-btns" style="margin-top:28px"><a class="hot-btn" href="/collections/all">Build your own box</a><a class="hot-btn hot-btn-ghost" href="/products/salmon-box">Salmon Lover's Box</a></p>
+</section>
+
+<section class="hot-chapter hot-wrap hot-narrow" id="before">
+  <p class="hot-eyebrow">Before you order</p>
+  <h2 style="margin:8px 0 28px">The things people ask before their first box</h2>
+  <div class="hot-faq">
+    <details><summary>Is it fresh or frozen?</summary><p class="hot-a">Frozen, on purpose. Our fish is blast-frozen to −10°F at harvest and vacuum sealed, so you can fill the freezer in November and cook across the whole season. <a href="/pages/seafood-freshness-omega-3-science">Why we freeze it.</a></p></details>
+    <details><summary>How does it arrive?</summary><p class="hot-a">Insulated and frozen, with a frozen delivery guarantee; the published terms are on our <a href="/policies/shipping-policy">shipping policy</a> page. Open the box and move everything to the freezer as soon as it lands. The policy asks you to inspect it within 90 minutes of delivery.</p></details>
+    <details><summary>When do I need to order for a holiday table?</summary><p class="hot-a">Orders ship on Tuesday or Wednesday and usually arrive Wednesday or Thursday, and delivery is not guaranteed for an exact day. So order at least a week before the table you are planning; the full terms are on our <a href="/policies/shipping-policy">shipping policy</a> page. The simplest plan is the one on this page: fill the freezer early, then cook across the season.</p></details>
+    <details><summary>How long can I keep it in the freezer?</summary><p class="hot-a">Keep it sealed and at a steady freezer temperature, and do not refreeze anything you have already thawed. Each product page carries its own storage notes; the roe and caviar tins, for example, keep 2 months frozen unopened.</p></details>
+    <details><summary>Do I need to thaw it first?</summary><p class="hot-a">Yes, for every recipe here. Overnight in the refrigerator in the sealed pack is best, about 12 hours, then pat it dry. In a hurry, submerge the sealed pack in a bowl of chilled water for 20 to 30 minutes, changing the water once. Never at room temperature, and never in warm water.</p></details>
+    <details><summary>How many people does each item feed?</summary><p class="hot-a">It is on every product page. As a guide for these menus: a steelhead loin and a whole trout each serve two, a 16 oz bag of shrimp serves four, branzino comes as two 6 oz fillets, and a 30 g tin of salmon roe finishes a plate for four.</p></details>
+    <details><summary>What does the testing actually cover?</summary><p class="hot-a">Every supplier is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard. <a href="/pages/why-clean-seafood-matters">How we source it.</a></p></details>
+  </div>
+</section>
+
+<section class="hot-solstice" id="solstice">
+  <div class="hot-wrap hot-cols">
+    <div>
+      <p class="hot-eyebrow">Monday, December 21 · The longest night</p>
+      <h2>A ritual for the solstice</h2>
+      <p>The solstice is the turning point of the year: the shortest day, the longest night, and from here the light comes back a minute at a time. It falls between the Hanukkah candles and Christmas Eve, two days before the full moon, and it is the moment we actually mark.</p>
+    </div>
+    <div>
+      <p>Before the meal, step outside at dusk and watch the light go. Bring something back in: a branch, a stone, a piece of kindling. Light the candles from one match. Before anyone sits, take a breath and look at the people at the table. No toast required. Then put the board down, and let the long night be long.</p>
+      <p class="hot-btns"><a class="hot-btn hot-btn-light" href="#nye">Plan the board</a><a class="hot-btn hot-btn-ghost" style="color:#F7EFE6;border-color:#F7EFE6" href="#freezer">Fill the freezer</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="hot-closing hot-wrap">
+  <p class="hot-trust">Seafood you can trust, at every table this season.</p>
+  <p>Every supplier is tested before we approve them, then randomly audited to ensure consistent compliance with the Seatopia Standard: third-party lab tested for nutrition, mercury and microplastics. Farms named, panels published. The rest is up to you and whoever is coming to dinner.</p>
+  <div class="hot-credits" style="margin-top:40px">
+    <span>Recipes by Chef Miriam Thom, Chef Mike Tully, Anna Sorochuk, Erica Casavecchia, Sarah Harris, Geronimo Ramos and the Seatopia kitchen.</span>
+    <span><a href="#top">Back to top ↑</a></span>
+  </div>
+</section>
+</div>
+{% schema %}
+{ "name": "Holiday guide", "tag": "section", "class": "holiday-guide-section", "settings": [], "presets": [{ "name": "Holiday guide" }] }
+{% endschema %}

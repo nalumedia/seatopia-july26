@@ -1818,9 +1818,23 @@
             "link_label": "Read the guide",
             "pdf_url": ""
           }
+        },
+        "holiday": {
+          "type": "guide",
+          "settings": {
+            "page": "holiday-seafood-guide",
+            "image": "shopify://shop_images/holiday-guide-hero.jpg",
+            "kicker": "Holiday menus",
+            "title": "The Holiday Season on Ocean Time",
+            "short_name": "The Holiday Season on Ocean Time",
+            "text": "Thanksgiving, eight nights of Hanukkah, the Seven Fishes, a slow brunch and a board at midnight.",
+            "link_label": "Read the guide",
+            "pdf_url": ""
+          }
         }
       },
       "block_order": [
+        "holiday",
         "omega",
         "mercury",
         "reset",
