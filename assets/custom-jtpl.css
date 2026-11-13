@@ -1407,3 +1407,9 @@ a.recipe-byline__name:hover {
   text-decoration: underline;
 }
     
+
+/* "Featured in the … guide" on recipe cards - snippets/recipe-guide-feature.liquid */
+.recipe-guide-feature { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 15px; line-height: 1.4; color: #5c5c5c; }
+.recipe-guide-feature svg { flex: none; color: #bb8f50; }
+.recipe-guide-feature a { color: #2e4b59; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.recipe-guide-feature a:hover { color: #bb8f50; }

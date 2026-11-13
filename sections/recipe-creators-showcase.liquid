@@ -1,0 +1,145 @@
+{%- comment -%}
+  Recipe partners showcase: one card per recipe_creator metaobject (Content > Metaobjects > Recipe creator),
+  with their disclosure, Instagram, a few of their recipes and a link to all of them.
+
+  A creator's recipes are the recipe-blog articles tagged with their filter tag ("By {name}"). The theme hides
+  those tags on every card, and the "All recipes" link is their tag page, so the tag must stay on the article
+  or that page 404s.
+
+  The badge shows the creator's category field (what kind of creator they are: Chef, Functional fitness...),
+  falling back to "Recipe partner". Disclosure (claims guide: material connections) lives in the footnote,
+  so keep it filled in while paid partners or affiliates are listed.
+{%- endcomment -%}
+{%- liquid
+  assign rc_blog = blogs[section.settings.blog]
+  if rc_blog == blank
+    assign rc_blog = blogs['seafood-recipes']
+  endif
+  assign rc_limit = section.settings.recipes_per_creator | default: 3
+-%}
+
+<div class="rc-show" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | handleize }}"{% endif %}>
+  <div class="page-width">
+    <div class="rc-show__head">
+      {%- if section.settings.eyebrow != blank -%}<p class="rc-show__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.heading != blank -%}<h2 class="rc-show__heading heading">{{ section.settings.heading }}</h2>{%- endif -%}
+      {%- if section.settings.text != blank -%}<div class="rc-show__text rte">{{ section.settings.text }}</div>{%- endif -%}
+    </div>
+
+    <ul class="rc-show__grid" role="list">
+      {%- paginate rc_blog.articles by 250 -%}
+      {%- for creator in shop.metaobjects.recipe_creator.values -%}
+        {%- liquid
+          assign c_tag = creator.filter_tag.value
+          assign c_rel = creator.relationship.value
+          if c_tag == blank
+            continue
+          endif
+          if c_rel == 'In-house' and section.settings.include_in_house == false
+            continue
+          endif
+          unless rc_blog.all_tags contains c_tag
+            continue
+          endunless
+          assign c_count = 0
+          for a in rc_blog.articles
+            if a.tags contains c_tag
+              assign c_count = c_count | plus: 1
+            endif
+          endfor
+          assign c_badge = creator.category.value | default: 'Recipe partner'
+        -%}
+        <li class="rc-card">
+          <div class="rc-card__top">
+            <div class="rc-card__avatar">
+              {%- if creator.photo.value != blank -%}
+                {{ creator.photo.value | image_url: width: 160 | image_tag: width: 72, height: 72, loading: 'lazy', alt: creator.name.value }}
+              {%- endif -%}
+            </div>
+            <div class="rc-card__who">
+              <p class="rc-card__badge">{{ c_badge | escape }}</p>
+              <p class="rc-card__name">{{ creator.name.value | escape }}</p>
+              {%- if creator.instagram_handle.value != blank -%}
+                <a class="rc-card__ig" href="https://www.instagram.com/{{ creator.instagram_handle.value | remove: '@' }}" target="_blank" rel="noopener noreferrer">@{{ creator.instagram_handle.value | remove: '@' }}</a>
+              {%- endif -%}
+            </div>
+          </div>
+
+          <ul class="rc-card__recipes" role="list">
+            {%- assign shown = 0 -%}
+            {%- for a in rc_blog.articles -%}
+              {%- unless a.tags contains c_tag -%}{%- continue -%}{%- endunless -%}
+              {%- if shown >= rc_limit -%}{%- break -%}{%- endif -%}
+              {%- assign shown = shown | plus: 1 -%}
+              <li>
+                <a class="rc-recipe" href="{{ a.url }}">
+                  <span class="rc-recipe__img">
+                    {%- if a.image != blank -%}
+                      {{ a.image | image_url: width: 240 | image_tag: width: 80, height: 60, loading: 'lazy', alt: '' }}
+                    {%- endif -%}
+                  </span>
+                  <span class="rc-recipe__title">{{ a.title | escape }}</span>
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+
+          <a class="rc-card__all" href="{{ rc_blog.url }}/tagged/{{ c_tag | handleize }}">
+            {%- if c_count > 1 -%}All {{ c_count }} recipes{%- else -%}See the recipe{%- endif %} &rarr;
+          </a>
+        </li>
+      {%- endfor -%}
+      {%- endpaginate -%}
+    </ul>
+
+    {%- if section.settings.footnote != blank -%}<div class="rc-show__foot rte">{{ section.settings.footnote }}</div>{%- endif -%}
+  </div>
+</div>
+
+<style>
+  .rc-show__head { max-width: 760px; margin: 0 0 36px; }
+  .rc-show__eyebrow { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #bb8f50; font-weight: 600; margin: 0 0 10px; }
+  .rc-show__heading { margin: 0 0 14px; }
+  .rc-show__text { font-size: 17px; line-height: 1.55; }
+  .rc-show__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .rc-card { display: flex; flex-direction: column; gap: 16px; background: #faf8f4; border: 1px solid #e5e2dc; border-radius: 18px; padding: 22px; }
+  .rc-card__top { display: flex; align-items: center; gap: 14px; }
+  .rc-card__avatar { flex: none; width: 72px; height: 72px; border-radius: 50%; overflow: hidden; background: #eee; box-shadow: 0 0 0 2px #fff, 0 0 0 4px #bb8f50; }
+  .rc-card__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .rc-card__who { min-width: 0; }
+  .rc-card__who p { margin: 0; }
+  .rc-card__badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: #bb8f50; padding: 3px 8px; border-radius: 999px; margin-bottom: 6px !important; }
+  .rc-card__name { font-size: 20px; font-weight: 600; line-height: 1.2; }
+  .rc-card__ig { font-size: 14px; color: #5c5c5c; text-decoration: none; }
+  .rc-card__ig:hover { color: #171717; text-decoration: underline; }
+  .rc-card__recipes { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .rc-recipe { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: 12px; align-items: center; text-decoration: none; color: inherit; }
+  .rc-recipe__img { width: 80px; height: 60px; border-radius: 10px; overflow: hidden; background: #eee; display: block; }
+  .rc-recipe__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .rc-recipe__title { font-size: 14.5px; line-height: 1.35; font-weight: 500; }
+  .rc-recipe:hover .rc-recipe__title { text-decoration: underline; }
+  .rc-card__all { margin-top: auto; font-size: 14px; font-weight: 600; color: #2e4b59; text-decoration: underline; text-underline-offset: 3px; }
+  .rc-show__foot { margin-top: 24px; font-size: 13px; color: #5c5c5c; }
+  @media (max-width: 989px) { .rc-show__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 599px) { .rc-show__grid { grid-template-columns: 1fr; } .rc-card { padding: 18px; } }
+</style>
+
+{% schema %}
+{
+  "name": "Recipe partners showcase",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Anchor" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Cook with our partners" },
+    { "type": "richtext", "id": "text", "label": "Text" },
+    { "type": "text", "id": "blog", "label": "Recipe blog handle", "default": "seafood-recipes" },
+    { "type": "range", "id": "recipes_per_creator", "label": "Recipes per partner", "min": 1, "max": 5, "step": 1, "default": 3 },
+    { "type": "checkbox", "id": "include_in_house", "label": "Include in-house chefs", "default": false },
+    { "type": "richtext", "id": "footnote", "label": "Footnote" },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 56 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 200, "step": 4, "unit": "px", "default": 56 }
+  ],
+  "presets": [{ "name": "Recipe partners showcase" }]
+}
+{% endschema %}

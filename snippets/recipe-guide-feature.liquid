@@ -1,0 +1,22 @@
+{%- comment -%}
+  "Featured in the … guide" line on recipe cards. Reads the article metafield custom.featured_in_guides
+  (list of pages; Content > Blog posts > the recipe > Metafields), so a recipe a guide features links back to it.
+  The guide's name is its page title up to any colon: "Omegamaxxing: A Practical Guide…" shows as "Omegamaxxing".
+
+  Accepts:
+  - article: {Object} Article Liquid object
+{%- endcomment -%}
+{%- assign guides = article.metafields.custom.featured_in_guides.value -%}
+{%- if guides != blank -%}
+  {%- for guide in guides -%}
+    {%- assign guide_name = guide.title | split: ':' | first | strip -%}
+    {%- assign guide_down = guide_name | downcase -%}
+    <p class="recipe-guide-feature">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5A2.5 2.5 0 0 1 4 20.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      </svg>
+      <span>Featured in the <a href="{{ guide.url }}">{{ guide_name | escape }}{% unless guide_down contains 'guide' %} guide{% endunless %}</a></span>
+    </p>
+  {%- endfor -%}
+{%- endif -%}
