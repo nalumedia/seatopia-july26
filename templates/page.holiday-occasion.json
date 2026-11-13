@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "holiday-occasion",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
