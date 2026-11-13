@@ -1,0 +1,169 @@
+{%- comment -%}
+  UI kit — buy box hero for paid-traffic landing pages (/pages/salmon first).
+  Everything a click from an ad needs sits above the fold: the headline, the live rating, one product
+  with a clear price, one Add button (the site's quick-add bar: pack chips + Add, opens the cart drawer),
+  the shipping terms and the testing proof.
+  Proof wording is the claims guide's: "Tested and published" replaces "Certified Clean" (red: names no
+  certifier). The mercury and microplastics lines match the product pages' published results.
+{%- endcomment -%}
+{%- render 'uikit-fonts' -%}
+{{ 'uikit.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign s = section.settings
+  assign p = s.product
+  if p != blank
+    assign v0 = p.variants.first
+    assign n = v0.title | downcase | split: '-' | first | split: ' ' | first | times: 1
+    assign per = 0
+    if n > 1
+      assign per = v0.price | divided_by: n
+    endif
+    assign rating = p.metafields.reviews.rating.value
+    assign rating_count = p.metafields.reviews.rating_count.value
+  endif
+  assign img = s.image | default: p.featured_image
+-%}
+<style>
+  #shopify-section-{{ section.id }} .sbb { padding-block: 18px 40px; }
+  .sbb__grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+  .sbb__media { position: relative; border-radius: var(--uk-radius-media); overflow: hidden; aspect-ratio: 1 / 1; max-height: 560px; background: #eae4dc; }
+  .sbb__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .sbb__panel { display: flex; flex-direction: column; gap: 11px; }
+  .sbb__eyebrow { color: var(--uk-gold); letter-spacing: .08em; text-transform: uppercase; font-size: 12px; font-weight: 600; margin: 0; }
+  .sbb .uikit-h1 { font-size: clamp(34px, 3.6vw, 46px); margin: 0; }
+  .sbb__rating { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--uk-text); text-decoration: none; }
+  .sbb__stars { color: var(--uk-gold); letter-spacing: 1px; font-size: 15px; }
+  .sbb__rating:hover span:last-child { text-decoration: underline; }
+  .sbb__offer { background: #fff; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-card); padding: 14px 18px; display: flex; flex-direction: column; gap: 4px; }
+  .sbb__offer-top { display: flex; gap: 12px; align-items: center; }
+  .sbb__thumb { display: none; width: 64px; height: 64px; border-radius: 10px; overflow: hidden; flex: none; }
+  .sbb__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .sbb__name { margin: 0; font-weight: 600; font-size: 15px; color: var(--uk-heading); }
+  .sbb__name a { color: inherit; text-decoration: none; }
+  .sbb__name small { display: block; font-weight: 400; color: var(--uk-muted); font-size: 13px; }
+  .sbb__price { margin: 0; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .sbb__price b { font-family: var(--uk-font-heading); font-size: 34px; line-height: 1; color: var(--uk-heading); font-weight: 500; }
+  .sbb__price span { font-size: 14px; color: var(--uk-muted); }
+  .sbb .card-qa { padding-top: 0; margin-top: 4px; }
+  .sbb .card-qa__packs { justify-content: flex-start; }
+  .sbb .card-qa__add { background: var(--uk-gold); border-color: var(--uk-gold); color: #fff; min-height: 52px; font-size: 16px; font-weight: 600; }
+  .sbb .card-qa__add:hover, .sbb .card-qa__add:focus-visible { background: var(--uk-dark-blue); border-color: var(--uk-dark-blue); color: #fff; }
+  .sbb__ship { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13.5px; color: var(--uk-text); }
+  .sbb__ship li { display: inline-flex; align-items: center; gap: 6px; }
+  .sbb__ship svg { width: 16px; height: 16px; color: var(--uk-gold); flex: none; }
+  .sbb__ship a { color: inherit; }
+  .sbb__proof { list-style: none; margin: 0; padding: 12px 0 0; border-top: 1px solid var(--uk-rule); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 16px; }
+  .sbb__proof li { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; line-height: 1.35; color: var(--uk-text); }
+  .sbb__proof .sbb__icon { width: 26px; height: 26px; flex: none; color: var(--uk-gold); }
+  .sbb__proof .sbb__icon svg { width: 100%; height: 100%; }
+  .sbb__proof b { color: var(--uk-heading); }
+  .sbb__more { font-size: 14px; color: var(--uk-deep-blue); }
+  @media (max-width: 989px) {
+    #shopify-section-{{ section.id }} .sbb { padding-block: 14px 28px; }
+    .sbb__grid { grid-template-columns: 1fr; gap: 0; }
+    .sbb__media { display: none; }
+    .sbb__panel { gap: 10px; }
+    .sbb .uikit-h1 { font-size: 32px; }
+    .sbb__thumb { display: block; }
+    .sbb__price b { font-size: 28px; }
+    .sbb__proof { grid-template-columns: 1fr 1fr; }
+    .sbb__proof li { font-size: 12px; }
+    .sbb__proof .sbb__icon { width: 22px; height: 22px; }
+  }
+</style>
+
+<div class="uikit uikit-section sbb">
+  <div class="uikit-container sbb__grid">
+    <div class="sbb__media">
+      {%- if img != blank -%}
+        {{ img | image_url: width: 1400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600,900,1200,1400', sizes: '(min-width: 990px) 50vw, 0px', alt: img.alt | default: '' }}
+      {%- endif -%}
+    </div>
+
+    <div class="sbb__panel">
+      {%- if s.eyebrow != blank -%}<p class="sbb__eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+      <h1 class="uikit-h1">{{ s.heading }}</h1>
+      {%- if rating != blank and rating_count > 0 -%}
+        <a class="sbb__rating" href="{{ s.reviews_link | default: '#reviews' }}">
+          <span class="sbb__stars" aria-hidden="true">★★★★★</span>
+          <span><b>{{ rating.rating | round: 2 }}</b> from {{ rating_count }} reviews of our {{ p.title }}</span>
+        </a>
+      {%- endif -%}
+
+      {%- if p != blank -%}
+        <div class="sbb__offer">
+          <div class="sbb__offer-top">
+            {%- if img != blank -%}<span class="sbb__thumb">{{ img | image_url: width: 160 | image_tag: loading: 'eager', alt: '' }}</span>{%- endif -%}
+            <div>
+              <p class="sbb__name"><a href="{{ p.url }}">{{ p.title }}</a>{%- if s.product_note != blank -%}<small>{{ s.product_note }}</small>{%- endif -%}</p>
+              <p class="sbb__price">
+                <b>{{ v0.price | money_without_trailing_zeros }}</b>
+                <span>{{ v0.title | downcase | replace: '-pack', ' portions' }}{% if per > 0 %} · {{ per | money_without_trailing_zeros }} a portion{% endif %}</span>
+              </p>
+            </div>
+          </div>
+          {%- render 'product-card-quick-add', product: p, section_id: section.id, product_id: 'buybox' -%}
+        </div>
+      {%- endif -%}
+
+      <ul class="sbb__ship" role="list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M4.9 6l14.2 12M19.1 6 4.9 18"/></svg>{{ s.ship_1 }}</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg><a href="/policies/shipping-policy">{{ s.ship_2 }}</a></li>
+        {%- if s.ship_3 != blank -%}<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17" cy="17.5" r="1.5"/></svg>{{ s.ship_3 }}</li>{%- endif -%}
+      </ul>
+
+      <ul class="sbb__proof" role="list">
+        {%- for block in section.blocks -%}
+          <li {{ block.shopify_attributes }}>
+            <span class="sbb__icon">{% render 'uikit-icon', name: block.settings.icon_name %}</span>
+            <span>{%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}" style="color:inherit">{{ block.settings.text }}</a>{%- else -%}{{ block.settings.text }}{%- endif -%}</span>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      {%- if s.more_label != blank -%}<a class="sbb__more" href="{{ s.more_link }}">{{ s.more_label }}</a>{%- endif -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var a = document.querySelector('#shopify-section-{{ section.id }} .sbb__rating');
+    if (!a || a.getAttribute('href') !== '#reviews' || document.getElementById('reviews')) return;
+    var target = document.querySelector('[id$="__reviews"]');
+    if (target) a.setAttribute('href', '#' + target.id);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "UI kit: buy box hero",
+  "tag": "section",
+  "class": "uikit-buybox-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Salmon, delivered to your door." },
+    { "type": "product", "id": "product", "label": "Featured product" },
+    { "type": "text", "id": "product_note", "label": "Product note", "info": "Under the product name, e.g. the farm." },
+    { "type": "image_picker", "id": "image", "label": "Image", "info": "Defaults to the product image." },
+    { "type": "text", "id": "reviews_link", "label": "Rating link", "default": "#reviews" },
+    { "type": "text", "id": "ship_1", "label": "Shipping line 1", "default": "Ships frozen Tue or Wed, arrives Wed or Thu" },
+    { "type": "text", "id": "ship_2", "label": "Shipping line 2 (links to the shipping policy)", "default": "Frozen delivery guarantee" },
+    { "type": "text", "id": "ship_3", "label": "Shipping line 3", "default": "Free overnight shipping over $500" },
+    { "type": "text", "id": "more_label", "label": "Secondary link label", "default": "Or shop every salmon ↓" },
+    { "type": "text", "id": "more_link", "label": "Secondary link", "default": "#shop" }
+  ],
+  "blocks": [
+    {
+      "type": "proof", "name": "Proof point", "limit": 4,
+      "settings": [
+        { "type": "select", "id": "icon_name", "label": "Icon", "default": "fish",
+          "options": [ { "value": "fish", "label": "Fish" }, { "value": "mercury", "label": "Mercury" }, { "value": "microplastics", "label": "Microplastics" }, { "value": "waves", "label": "Waves" } ] },
+        { "type": "text", "id": "text", "label": "Text" },
+        { "type": "text", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "UI kit: buy box hero" }]
+}
+{% endschema %}
