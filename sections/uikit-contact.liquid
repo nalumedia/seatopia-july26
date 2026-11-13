@@ -128,7 +128,7 @@
       if (f.get('contact[accepts_marketing]') && LIST) {
         jobs.push(post('subscriptions', { data: { type: 'subscription', attributes: {
           custom_source: page,
-          profile: { data: { type: 'profile', attributes: { email: email, subscriptions: { email: { marketing: { consent: 'SUBSCRIBED' } } } } } }
+          profile: { data: { type: 'profile', attributes: { email: email } } }
         }, relationships: { list: { data: { type: 'list', id: LIST } } } } }));
       }
       Promise.all(jobs).then(function () {
