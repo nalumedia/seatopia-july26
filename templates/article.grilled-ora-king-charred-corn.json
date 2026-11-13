@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main-article-banner": {
@@ -53,14 +62,14 @@
       "settings": {
         "section_id": "recipe-collab",
         "liquid": "<style>\n  .sea-collab {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    border: 1px solid var(--line);\n    border-radius: 18px;\n    background: var(--wash);\n    padding: 24px 28px;\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n    color: var(--ink);\n  }\n  .sea-collab__avatar {\n    flex: 0 0 auto;\n    width: 68px;\n    height: 68px;\n    border-radius: 50%;\n    overflow: hidden;\n    border: 2px solid #fff;\n    box-shadow: 0 0 0 2px var(--gold);\n    background: #eee;\n  }\n  .sea-collab__badge::before {\n    content: \"\\00b7\";\n    margin: 0 .5em 0 0;\n  }\n  .sea-collab__avatar img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    object-position: 50% 30%;\n    display: block;\n  }\n  .sea-collab__body {\n    flex: 1 1 260px;\n    min-width: 0;\n  }\n  .sea-collab__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 5px;\n  }\n  .sea-collab__name {\n    font-size: 21px;\n    font-weight: 600;\n    line-height: 1.2;\n    margin: 0 0 4px;\n  }\n  .sea-collab__role {\n    font-size: 15px;\n    color: var(--muted);\n    line-height: 1.45;\n    margin: 0;\n  }\n  .sea-collab__cred {\n    font-size: 13px;\n    color: var(--muted);\n    line-height: 1.5;\n    margin: 10px 0 0;\n    padding-top: 10px;\n    border-top: 1px solid var(--line);\n  }\n  .sea-collab__follow {\n    flex: 0 0 auto;\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    padding: 11px 20px;\n    border: 1px solid var(--ink);\n    border-radius: 999px;\n    font-size: 15px;\n    font-weight: 600;\n    text-decoration: none;\n    color: var(--ink);\n    background: #fff;\n    transition: background .18s ease, color .18s ease;\n  }\n  .sea-collab__follow:hover {\n    background: var(--ink);\n    color: #fff;\n  }\n  .sea-collab__follow svg {\n    width: 18px;\n    height: 18px;\n  }\n  @media (max-width: 749px) {\n    .sea-collab {\n      padding: 20px;\n      gap: 16px;\n    }\n    .sea-collab__follow {\n      width: 100%;\n      justify-content: center;\n    }\n    .sea-collab__name {\n      font-size: 19px;\n    }\n  }\n</style>\n\n{%- comment -%} Disclosure (16 CFR Part 255): badge matches Jason Pabst's recipe_creator record, Affiliate. {%- endcomment -%}\n<div class=\"sea-collab\">\n  <div class=\"sea-collab__avatar\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0222/9882/0682/files/extra-photo-1.jpg?width=300\" alt=\"Jason Pabst\" width=\"136\" height=\"136\" loading=\"lazy\" decoding=\"async\">\n  </div>\n\n  <div class=\"sea-collab__body\">\n    <p class=\"sea-collab__eyebrow\">\n      <span>Guest recipe</span>\n      <span class=\"sea-collab__badge\">Affiliate</span>\n    </p>\n    <p class=\"sea-collab__name\">Recipe by Jason Pabst</p>\n    <p class=\"sea-collab__role\">Developed for Seatopia using <a href=\"/products/king-salmon\" title=\"Seatopia King Salmon\">our King Salmon from Ōra King</a>, grilled over an open fire by the creek</p>\n    <p class=\"sea-collab__cred\">Serves 3 &middot; about 45 minutes &middot; grill or stovetop</p>\n  </div>\n\n  <a class=\"sea-collab__follow\" href=\"https://www.instagram.com/jasonpabst_\" target=\"_blank\" rel=\"noopener noreferrer\">\n    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n      <rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\"></rect>\n      <circle cx=\"12\" cy=\"12\" r=\"4\"></circle>\n      <circle cx=\"17.5\" cy=\"6.5\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"></circle>\n    </svg>\n    <span>Follow</span>\n  </a>\n</div>\n",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
         "padding_top": 28,
         "padding_bottom": 8,
         "divider": false,
         "narrow": false,
-        "rounded": false,
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": ""
+        "rounded": false
       }
     },
     "rich_text_intro": {
@@ -88,14 +97,9 @@
         "text_alignment": "left",
         "text_alignment_mobile": "left",
         "heading": "",
-        "heading_width": "small",
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "divider": false,
-        "narrow": true,
-        "rounded": false,
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
         "heading_tag": "h2",
         "subheading": "",
         "description": "",
@@ -103,6 +107,8 @@
         "button_link": "",
         "button_external": false,
         "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -111,8 +117,11 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle"
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
       }
     },
     "at_a_glance": {
@@ -177,11 +186,7 @@
         "columns": 4,
         "text_alignment": "left",
         "dt_txt_alignment": "left",
-        "padding_top": 40,
-        "padding_bottom": 24,
-        "divider": false,
-        "full_width": false,
-        "rounded": false,
+        "heading": "At a glance",
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
@@ -191,7 +196,8 @@
         "button_link": "",
         "button_external": false,
         "button_icon": true,
-        "heading": "At a glance",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -200,8 +206,11 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle"
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
       }
     },
     "heat_note": {
@@ -210,16 +219,15 @@
       "settings": {
         "section_id": "how-it-comes-together",
         "liquid": "<style>\n  .sea-pepper {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-pepper__grid {\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);\n    gap: 34px;\n    align-items: center;\n  }\n  .sea-pepper__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-pepper__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n  }\n  .sea-pepper__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 22px;\n  }\n  .sea-pepper__rows {\n    display: grid;\n    gap: 14px;\n  }\n  .sea-pepper__row {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 15px 17px;\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) auto;\n    gap: 10px 16px;\n    align-items: center;\n  }\n  .sea-pepper__row--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-pepper__name {\n    grid-column: 1;\n    margin: 0;\n    font-size: 15px;\n    font-weight: 600;\n    line-height: 1.3;\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-wrap: wrap;\n  }\n  .sea-pepper__tag {\n    font-size: 10px;\n    font-weight: 700;\n    letter-spacing: .08em;\n    text-transform: uppercase;\n    color: #fff;\n    background: var(--gold);\n    padding: 3px 8px;\n    border-radius: 999px;\n  }\n  .sea-pepper__meter {\n    grid-column: 2;\n    grid-row: 1;\n    display: flex;\n    gap: 4px;\n    align-items: center;\n  }\n  .sea-pepper__pip {\n    width: 9px;\n    height: 9px;\n    border-radius: 50%;\n    background: #fff;\n    border: 1.5px solid #d8cfc0;\n  }\n  .sea-pepper__pip.is-on {\n    background: #b8462f;\n    border-color: #b8462f;\n  }\n  .sea-pepper__note {\n    grid-column: 1 / -1;\n    margin: 0;\n    font-size: 13.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  .sea-pepper__legend {\n    margin: 16px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  .sea-pepper__figure {\n    margin: 0;\n  }\n  .sea-pepper__figure img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-pepper__cap {\n    margin: 10px 0 0;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  @media (max-width: 989px) {\n    .sea-pepper {\n      padding: 22px;\n    }\n    .sea-pepper__grid {\n      grid-template-columns: 1fr;\n      gap: 24px;\n    }\n    .sea-pepper__figure {\n      order: -1;\n    }\n  }\n  .sea-pepper__step {\n    grid-column: 2;\n    grid-row: 1;\n    font-size: 11px;\n    font-weight: 600;\n    letter-spacing: .1em;\n    text-transform: uppercase;\n    color: var(--gold);\n  }\n  .sea-pepper__figure video {\n    width: 100%;\n    height: auto;\n    aspect-ratio: 9 / 16;\n    object-fit: cover;\n    display: block;\n    border-radius: 16px;\n    background: #e9e4dc;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n</style>\n\n<div class=\"sea-pepper\">\n  <div class=\"sea-pepper__grid\">\n\n    <div class=\"sea-pepper__body\">\n      <p class=\"sea-pepper__eyebrow\">How it comes together</p>\n      <h2 class=\"sea-pepper__heading\">Vegetables first, salmon last.</h2>\n      <p class=\"sea-pepper__lede\">\n        Make the vinaigrette before you light the grill, so it has time to sit while everything chars.\n      </p>\n\n      <div class=\"sea-pepper__rows\">\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Make the vinaigrette</span>\n          <span class=\"sea-pepper__tag\">2 minutes</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 1</span>\n        <p class=\"sea-pepper__note\">Cilantro, garlic, olive oil, lime juice, oregano, chili flakes and salt, stirred together in a small jar.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Heat the grill</span>\n          <span class=\"sea-pepper__tag\">To 450&deg;F</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 2</span>\n        <p class=\"sea-pepper__note\">Get the grill hot before anything goes on: vegetables first, salmon last.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Char the vegetables</span>\n          <span class=\"sea-pepper__tag\">5&ndash;7 minutes</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 3</span>\n        <p class=\"sea-pepper__note\">Corn rubbed with oil and paprika, the poblano and the green onions, turned until charred evenly.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Saut&eacute; the zucchini</span>\n          <span class=\"sea-pepper__tag\">About 5 minutes</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 4</span>\n        <p class=\"sea-pepper__note\">In a cast iron or stainless pan set on the grill, with a tablespoon of oil, salt and pepper.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Build the salsa</span>\n          <span class=\"sea-pepper__tag\">5 minutes</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 5</span>\n        <p class=\"sea-pepper__note\">Corn cut off the cob, poblano and green onions chopped, then tossed with the zucchini, tomatoes, oil and lime.</p>\n      </div>\n      <div class=\"sea-pepper__row sea-pepper__row--pick\">\n        <p class=\"sea-pepper__name\">\n          <span>Grill the salmon</span>\n          <span class=\"sea-pepper__tag\">6&ndash;8 minutes</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 6</span>\n        <p class=\"sea-pepper__note\">Patted dry, oiled and salted, skin side up for 3&ndash;4 minutes, flipped for 3&ndash;4 more, then a squeeze of lemon.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Plate it</span>\n          <span class=\"sea-pepper__tag\">2 minutes</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 7</span>\n        <p class=\"sea-pepper__note\">Salsa down, salmon on top, greens and avocado alongside, and the vinaigrette spooned over everything.</p>\n      </div>\n      </div>\n\n      <p class=\"sea-pepper__legend\">\n        No grill? Cook the vegetables and the salmon in a cast iron or stainless pan on the stove.\n      </p>\n    </div>\n\n    {%- comment -%} Silent copy of Jason's reel. The original voiceover makes a red health claim about omega-3s (claims guide §4.G), so only this audio-free upload is used. Do not swap in the original. {%- endcomment -%}\n    <figure class=\"sea-pepper__figure\">\n      <video class=\"sea-pepper__loop\" muted loop playsinline preload=\"none\" disablepictureinpicture disableremoteplayback\n        poster=\"https://cdn.shopify.com/s/files/1/0222/9882/0682/files/pabst-grilled-salmon-step-7-grill-the-salmon-option-3.jpg?width=700\" width=\"606\" height=\"1080\"\n        data-src=\"https://cdn.shopify.com/videos/c/vp/50073e240b794066a77bf013799a4d55/50073e240b794066a77bf013799a4d55.HD-720p-2.1Mbps-100879207.mp4\"\n        aria-label=\"Jason grilling corn, peppers and king salmon over a fire by a creek, then plating it on charred corn salsa\"></video>\n      <figcaption class=\"sea-pepper__cap\">\n        Jason cooks it start to finish by the creek.\n      </figcaption>\n    </figure>\n\n  </div>\n</div>\n\n<script>\n  (function () {\n    var v = document.querySelector('.sea-pepper__loop');\n    if (!v) return;\n    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;\n    var start = function () {\n      if (!v.src) v.src = v.getAttribute('data-src');\n      var p = v.play();\n      if (p && p.catch) p.catch(function () {});\n    };\n    if (!('IntersectionObserver' in window)) { start(); return; }\n    new IntersectionObserver(function (entries) {\n      entries.forEach(function (e) { if (e.isIntersecting) { start(); } else if (v.src) { v.pause(); } });\n    }, { rootMargin: '200px' }).observe(v);\n  })();\n</script>\n",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
         "padding_top": 40,
         "padding_bottom": 16,
         "divider": false,
         "narrow": false,
-        "rounded": false,
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": ""
-      },
-      "disabled": false
+        "rounded": false
+      }
     },
     "recipe_kit_card": {
       "type": "apps",
@@ -236,11 +244,6 @@
         "recipe_kit_app_block_grill"
       ],
       "settings": {
-        "padding_top": 8,
-        "padding_bottom": 8,
-        "divider": false,
-        "full_width": true,
-        "rounded": false,
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -248,7 +251,12 @@
         "gradient_highlight": "",
         "color_button_text": "",
         "color_button_background": "",
-        "color_button_gradient": ""
+        "color_button_gradient": "",
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "divider": false,
+        "full_width": true,
+        "rounded": false
       }
     },
     "shop_the_plate": {
@@ -267,17 +275,14 @@
         "show_view_all": false,
         "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "padding_top": 56,
-        "padding_bottom": 56,
-        "divider": false,
-        "full_width": false,
-        "rounded": false,
+        "heading": "Everything on this plate",
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
         "subheading": "",
         "description": "<p>Three fillets of our King Salmon are the only thing from the freezer. Any Seatopia salmon fillet works: Jason says they all will. The rest is corn, green and yellow zucchini, a poblano, green onions, cherry tomatoes, cilantro, garlic, limes, a lemon, salad greens and an avocado, with olive oil, paprika, oregano and chili flakes.</p>",
-        "heading": "Everything on this plate",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -286,8 +291,11 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle"
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
       }
     },
     "dressing_note": {
@@ -296,16 +304,15 @@
       "settings": {
         "section_id": "cilantro-lime-vinaigrette",
         "liquid": "<style>\n  .sea-sheet {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-sheet__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-sheet__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n    max-width: 22ch;\n  }\n  .sea-sheet__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 24px;\n    max-width: 68ch;\n  }\n  .sea-sheet__cols {\n    display: grid;\n    grid-template-columns: repeat(3, minmax(0, 1fr));\n    gap: 14px;\n  }\n  .sea-sheet__col {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 18px;\n  }\n  .sea-sheet__col--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-sheet__num {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 26px;\n    height: 26px;\n    border-radius: 50%;\n    background: var(--ink);\n    color: #fff;\n    font-size: 12px;\n    font-weight: 700;\n    margin: 0 0 10px;\n  }\n  .sea-sheet__col h3 {\n    font-size: 15.5px;\n    font-weight: 600;\n    line-height: 1.3;\n    margin: 0 0 7px;\n  }\n  .sea-sheet__col p {\n    font-size: 13.5px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0;\n  }\n  .sea-sheet__foot {\n    margin: 18px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  @media (max-width: 749px) {\n    .sea-sheet {\n      padding: 22px;\n    }\n    .sea-sheet__cols {\n      grid-template-columns: 1fr;\n    }\n  }\n\n  .sea-sheet__fig {\n    margin: 22px auto 0;\n    max-width: 360px;\n  }\n  .sea-sheet__fig img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-sheet__figcap {\n    margin: 10px auto 0;\n    max-width: 360px;\n    text-align: center;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n</style>\n\n<div class=\"sea-sheet\">\n  <p class=\"sea-sheet__eyebrow\">The cilantro lime vinaigrette</p>\n  <h2 class=\"sea-sheet__heading\">One jar, one stir.</h2>\n  <p class=\"sea-sheet__lede\">\n    Make it first. It goes over the salmon and the greens, and it only gets better while the grill heats.\n  </p>\n\n  <div class=\"sea-sheet__cols\">\n    <div class=\"sea-sheet__col sea-sheet__col--pick\">\n      <span class=\"sea-sheet__num\">1</span>\n      <h3>Chop and mince</h3>\n      <p>1 bunch cilantro, finely chopped, and 3 cloves garlic, minced, into a small jar.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">2</span>\n      <h3>Add the rest</h3>\n      <p>&frac14; cup olive oil, the juice of 2 limes, 1 tbsp dried oregano, &frac12; tsp chili flakes and salt.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">3</span>\n      <h3>Stir and spoon</h3>\n      <p>Stir to combine, then spoon it over the salmon and the salad when you plate.</p>\n    </div>\n  </div>\n\n  <figure class=\"sea-sheet__fig\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0222/9882/0682/files/pabst-grilled-salmon-step-1-cilantro-lime-vinaigrette-option-2.jpg?width=760\" alt=\"A jar of cilantro lime vinaigrette with a wooden spoon, on a rock beside a creek\" width=\"1920\" height=\"2400\" loading=\"lazy\" decoding=\"async\">\n    <figcaption class=\"sea-sheet__figcap\">\n      Cilantro, garlic, lime and oregano, stirred in the jar.\n    </figcaption>\n  </figure>\n</div>\n",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
         "padding_top": 24,
         "padding_bottom": 24,
         "divider": false,
         "narrow": false,
-        "rounded": false,
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": ""
-      },
-      "disabled": false
+        "rounded": false
+      }
     },
     "swap_table": {
       "type": "table-content",
@@ -385,22 +392,21 @@
       "name": "Table content",
       "settings": {
         "custom_class": "",
-        "padding_top": 24,
-        "padding_bottom": 56,
-        "divider": false,
-        "full_width": false,
-        "rounded": false,
+        "heading": "Swaps that work",
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
         "subheading": "",
         "description": "<p>Jason’s plate is a starting point. Swap in whatever you have.</p>",
-        "heading": "Swaps that work",
         "color_text": "",
         "color_background": "",
-        "gradient_background": ""
-      },
-      "disabled": false
+        "gradient_background": "",
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
     },
     "meal_prep": {
       "type": "image-with-text",
@@ -465,23 +471,23 @@
         "image_mobile": "",
         "image_height_mobile": "auto",
         "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
         "color_background_2": "",
         "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
         "padding_top": 40,
         "padding_bottom": 40,
         "divider": false,
         "full_width": false,
         "rounded": true,
         "enable_parallax": true,
-        "parallax_direction": "vertical",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": ""
+        "parallax_direction": "vertical"
       }
     },
     "rich_text_standard": {
@@ -547,23 +553,23 @@
         "image_mobile": "",
         "image_height_mobile": "auto",
         "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
         "color_background_2": "",
         "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
         "padding_top": 40,
         "padding_bottom": 40,
         "divider": false,
         "full_width": false,
         "rounded": true,
         "enable_parallax": true,
-        "parallax_direction": "vertical",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": ""
+        "parallax_direction": "vertical"
       }
     },
     "reviews": {
@@ -606,11 +612,6 @@
         "judge_me_reviews_testimonials_carousel_grill"
       ],
       "settings": {
-        "padding_top": 56,
-        "padding_bottom": 56,
-        "divider": false,
-        "full_width": false,
-        "rounded": false,
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -618,7 +619,12 @@
         "gradient_highlight": "",
         "color_button_text": "",
         "color_button_background": "",
-        "color_button_gradient": ""
+        "color_button_gradient": "",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
       }
     },
     "faq": {
@@ -689,10 +695,7 @@
       ],
       "name": "t:sections.faq.presets.name",
       "settings": {
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "divider": false,
-        "rounded": false,
+        "heading": "Grilled salmon and salsa, answered",
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
@@ -702,7 +705,8 @@
         "button_link": "",
         "button_external": false,
         "button_icon": true,
-        "heading": "Grilled salmon and salsa, answered",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -711,8 +715,10 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle"
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "rounded": false
       }
     },
     "blog-posts": {
@@ -731,17 +737,14 @@
         "show_comments": false,
         "show_author": false,
         "show_excerpt": false,
-        "padding_top": 32,
-        "padding_bottom": 32,
-        "divider": false,
-        "full_width": false,
-        "rounded": true,
+        "heading": "More seafood to cook this week",
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
         "subheading": "",
         "description": "<p>Recipes from our kitchen and from the people who cook with us.</p>",
-        "heading": "More seafood to cook this week",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
@@ -750,8 +753,11 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle"
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "full_width": false,
+        "rounded": true
       }
     },
     "newsletter_banner": {

@@ -234,12 +234,12 @@
       "settings": {
         "section_id": "",
         "transparent_header": true,
-        "image": "shopify://shop_images/20260825-Stetten-Wilson-316-shopify.jpg",
+        "image": "shopify://shop_images/Rainbow_Salad_bb197d40-e422-4b01-ba9f-01e35fe46088.png",
         "image_height": "600px",
         "content_width": "medium",
         "content_position": "md:items-center md:justify-center",
         "text_alignment": "center",
-        "image_mobile": "shopify://shop_images/20260825-Stetten-Wilson-316-shopify.jpg",
+        "image_mobile": "shopify://shop_images/Rainbow_Salad_bb197d40-e422-4b01-ba9f-01e35fe46088.png",
         "priority_image": true,
         "image_height_mobile": "auto",
         "content_position_mobile": "items-end justify-start",
@@ -1571,6 +1571,101 @@
         "rounded": false
       }
     },
+    "home_guides": {
+      "type": "home-guides",
+      "blocks": {
+        "holiday": {
+          "type": "guide",
+          "settings": {
+            "page": "holiday-seafood-guide",
+            "image": "shopify://shop_images/holiday-guide-hero.jpg",
+            "kicker": "Holiday menus",
+            "title": "The Holiday Season on Ocean Time",
+            "short_name": "The Holiday Season on Ocean Time",
+            "text": "Thanksgiving, eight nights of Hanukkah, the Seven Fishes, a slow brunch and a board at midnight.",
+            "link_label": "Read the guide",
+            "pdf_url": ""
+          }
+        },
+        "omega": {
+          "type": "guide",
+          "settings": {
+            "page": "omegamaxxing",
+            "image": "shopify://shop_images/omegamaxxing-02-hero-mobile-garnish.jpg",
+            "kicker": "Omega-3s",
+            "title": "Omegamaxxing",
+            "short_name": "Omegamaxxing",
+            "text": "A practical guide to getting more omega-3s from your food.",
+            "link_label": "Read the guide",
+            "pdf_url": ""
+          }
+        },
+        "mercury": {
+          "type": "guide",
+          "settings": {
+            "page": "mercury-detox-guide-for-sushi-lovers",
+            "image": "shopify://shop_images/spicy_stonefruit_and_yellowtail_Hamachi_Crudo_6_of_22.jpg",
+            "kicker": "For sushi lovers",
+            "title": "Mercury & Sushi",
+            "short_name": "Mercury & Sushi",
+            "text": "Where mercury comes from, how we measure it, and how to choose seafood you’ll eat raw.",
+            "link_label": "Read the guide",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/Seatopia-Mercury-and-Sushi-Guide.pdf?v=1794409113"
+          }
+        },
+        "reset": {
+          "type": "guide",
+          "settings": {
+            "page": "seatopia-reset-guide",
+            "image": "shopify://shop_images/eudemonia-kitchen-family.jpg",
+            "kicker": "A kitchen guide",
+            "title": "The Seatopia Reset",
+            "short_name": "The Seatopia Reset",
+            "text": "Fewer unknowns on your plate: tested seafood, simple ingredients, and a week of recipes.",
+            "link_label": "Read the guide",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/The-Seatopia-Reset-Guide.pdf?v=1794409113"
+          }
+        },
+        "autumn": {
+          "type": "guide",
+          "settings": {
+            "page": "the-autumn-equinox",
+            "image": "shopify://shop_images/20260825-Stetten-Wilson-218.jpg",
+            "kicker": "A seasonal menu",
+            "title": "The Autumn Equinox",
+            "short_name": "The Autumn Equinox",
+            "text": "Four fall dinners from Chef Miriam, each under an hour, with the seafood a click away.",
+            "link_label": "Read the guide",
+            "pdf_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "holiday",
+        "omega",
+        "mercury",
+        "reset",
+        "autumn"
+      ],
+      "settings": {
+        "label": "Free guides",
+        "heading": "Guides from the Seatopia kitchen",
+        "text": "<p>Short, practical guides to choosing and cooking seafood. Read them here, or unlock the PDFs below.</p>",
+        "unlock_heading": "Get the guides as PDFs",
+        "unlock_text": "<p>Enter your email to download the guides, to keep on your phone or print for the kitchen.</p>",
+        "button_label": "Unlock the guides",
+        "success": "You’re in. Your guides are ready, and we’ve added you to our emails.",
+        "fine_print": "<p>By unlocking the guides you agree to receive emails from Seatopia. Unsubscribe anytime. <a href=\"/policies/privacy-policy\">Privacy policy</a>.</p>",
+        "klaviyo_key": "UzEgpY",
+        "klaviyo_list": "QQL98p",
+        "background": "#ffffff",
+        "text_color": "#2b3a44",
+        "panel_background": "#2b3a44",
+        "panel_text": "#ffffff",
+        "padding": 96,
+        "padding_mobile": 64
+      }
+    },
     "testimonials-banner": {
       "type": "testimonials-banner",
       "blocks": {
@@ -1762,101 +1857,6 @@
         "divider": false,
         "full_width": false,
         "rounded": true
-      }
-    },
-    "home_guides": {
-      "type": "home-guides",
-      "blocks": {
-        "omega": {
-          "type": "guide",
-          "settings": {
-            "page": "omegamaxxing",
-            "image": "shopify://shop_images/omegamaxxing-02-hero-mobile-garnish.jpg",
-            "kicker": "Omega-3s",
-            "title": "Omegamaxxing",
-            "short_name": "Omegamaxxing",
-            "text": "A practical guide to getting more omega-3s from your food.",
-            "link_label": "Read the guide",
-            "pdf_url": ""
-          }
-        },
-        "mercury": {
-          "type": "guide",
-          "settings": {
-            "page": "mercury-detox-guide-for-sushi-lovers",
-            "image": "shopify://shop_images/spicy_stonefruit_and_yellowtail_Hamachi_Crudo_6_of_22.jpg",
-            "kicker": "For sushi lovers",
-            "title": "Mercury & Sushi",
-            "short_name": "Mercury & Sushi",
-            "text": "Where mercury comes from, how we measure it, and how to choose seafood you’ll eat raw.",
-            "link_label": "Read the guide",
-            "pdf_url": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/Seatopia-Mercury-and-Sushi-Guide.pdf?v=1794409113"
-          }
-        },
-        "reset": {
-          "type": "guide",
-          "settings": {
-            "page": "seatopia-reset-guide",
-            "image": "shopify://shop_images/eudemonia-kitchen-family.jpg",
-            "kicker": "A kitchen guide",
-            "title": "The Seatopia Reset",
-            "short_name": "The Seatopia Reset",
-            "text": "Fewer unknowns on your plate: tested seafood, simple ingredients, and a week of recipes.",
-            "link_label": "Read the guide",
-            "pdf_url": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/The-Seatopia-Reset-Guide.pdf?v=1794409113"
-          }
-        },
-        "autumn": {
-          "type": "guide",
-          "settings": {
-            "page": "the-autumn-equinox",
-            "image": "shopify://shop_images/20260825-Stetten-Wilson-218.jpg",
-            "kicker": "A seasonal menu",
-            "title": "The Autumn Equinox",
-            "short_name": "The Autumn Equinox",
-            "text": "Four fall dinners from Chef Miriam, each under an hour, with the seafood a click away.",
-            "link_label": "Read the guide",
-            "pdf_url": ""
-          }
-        },
-        "holiday": {
-          "type": "guide",
-          "settings": {
-            "page": "holiday-seafood-guide",
-            "image": "shopify://shop_images/holiday-guide-hero.jpg",
-            "kicker": "Holiday menus",
-            "title": "The Holiday Season on Ocean Time",
-            "short_name": "The Holiday Season on Ocean Time",
-            "text": "Thanksgiving, eight nights of Hanukkah, the Seven Fishes, a slow brunch and a board at midnight.",
-            "link_label": "Read the guide",
-            "pdf_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "holiday",
-        "omega",
-        "mercury",
-        "reset",
-        "autumn"
-      ],
-      "settings": {
-        "label": "Free guides",
-        "heading": "Guides from the Seatopia kitchen",
-        "unlock_heading": "Get the guides as PDFs",
-        "unlock_text": "<p>Enter your email to download the guides, to keep on your phone or print for the kitchen.</p>",
-        "button_label": "Unlock the guides",
-        "success": "You’re in. Your guides are ready, and we’ve added you to our emails.",
-        "fine_print": "<p>By unlocking the guides you agree to receive emails from Seatopia. Unsubscribe anytime. <a href=\"/policies/privacy-policy\">Privacy policy</a>.</p>",
-        "klaviyo_key": "UzEgpY",
-        "klaviyo_list": "QQL98p",
-        "background": "#ffffff",
-        "panel_background": "#2b3a44",
-        "panel_text": "#ffffff",
-        "padding": 96,
-        "padding_mobile": 64,
-        "text_color": "#2b3a44",
-        "text": "<p>Short, practical guides to choosing and cooking seafood. Read them here, or unlock the PDFs below.</p>"
       }
     }
   },
