@@ -1,0 +1,240 @@
+{%- comment -%}
+  Home guides: a row of guide cards, each linking to its guide page, plus one email form that unlocks
+  every guide PDF at once. Same Klaviyo client calls as the guide pages' gate (seatopia-guide.liquid):
+  subscribe to the list, record a "Guide Downloaded" event, then reveal the downloads. PDF links stay
+  out of the page (base64 in a data attribute) until the form succeeds.
+
+  A guide block whose page is unpublished renders nothing, so a guide can be added here before launch.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign guides = section.blocks | where: 'type', 'guide'
+  assign pdf_count = 0
+  assign shown = 0
+  for g in guides
+    if g.settings.page != blank
+      assign shown = shown | plus: 1
+      if g.settings.pdf_url != blank
+        assign pdf_count = pdf_count | plus: 1
+      endif
+    endif
+  endfor
+  assign border = s.text_color | color_mix: s.background, 16
+-%}
+{%- if shown > 0 -%}
+<style>
+  #shopify-section-{{ section.id }} {
+    --color-background: {{ s.background.red }} {{ s.background.green }} {{ s.background.blue }};
+    --color-foreground: {{ s.text_color.red }} {{ s.text_color.green }} {{ s.text_color.blue }};
+    --color-border: {{ border | color_extract: 'red' }} {{ border | color_extract: 'green' }} {{ border | color_extract: 'blue' }};
+    --hg-panel: {{ s.panel_background.red }} {{ s.panel_background.green }} {{ s.panel_background.blue }};
+    --hg-panel-text: {{ s.panel_text.red }} {{ s.panel_text.green }} {{ s.panel_text.blue }};
+    background: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+  }
+  .hg { padding-block: {{ s.padding }}px; overflow-x: clip; }
+  .hg-cards, .hg-unlock, .hg-unlock > * { min-width: 0; }
+  @media (max-width: 767px) { .hg { padding-block: {{ s.padding_mobile }}px; } }
+  .hg :where(h2, h3, p, ul) { margin: 0; color: inherit; }
+  .hg-head { display: flex; flex-direction: column; gap: var(--sp-4); max-width: 44rem; margin-block-end: clamp(var(--sp-8), 4vw, calc(var(--sp-8) * 1.5)); }
+  .hg-label { letter-spacing: .12em; text-transform: uppercase; }
+
+  .hg-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-6); list-style: none; padding: 0; }
+  .hg-card { position: relative; display: flex; flex-direction: column; gap: var(--sp-4); }
+  .hg-card__media { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--rounded-block); background: rgb(var(--color-placeholder, 220 220 220)); }
+  .hg-card__media img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+  .hg-card:hover .hg-card__media img { transform: scale(1.04); }
+  .hg-card__pills { position: absolute; inset: var(--sp-4) var(--sp-4) auto var(--sp-4); display: flex; gap: var(--sp-2); flex-wrap: wrap; }
+  .hg-pill { display: inline-flex; align-items: center; gap: .35em; padding: .35em .8em; border-radius: 999px; font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; line-height: 1; }
+  .hg-pill--guide { background: #c9a35b; color: #1f211f; }
+  .hg-pill--pdf { background: rgb(255 255 255 / .9); color: #1f211f; }
+  .hg-card__title a { color: inherit; text-decoration: none; }
+  .hg-card__title a::after { content: ""; position: absolute; inset: 0; }
+  .hg-card:hover .hg-card__title a { text-decoration: underline; text-underline-offset: .2em; }
+  .hg-card__text { font-size: 1.0625rem; line-height: 1.55; opacity: .85; }
+  .hg-card__more { margin-block-start: auto; display: inline-flex; align-items: center; gap: var(--sp-2); font-weight: 600; }
+  .hg-card__more svg { transition: transform .3s ease; }
+  .hg-card:hover .hg-card__more svg { transform: translateX(4px); }
+  .hg-card__kicker { font-family: var(--font-heading-family); font-style: italic; }
+  @media (max-width: 989px) {
+    .hg-cards { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(16rem, 78%); overflow-x: auto; scroll-snap-type: x mandatory; padding-block-end: var(--sp-3); }
+    .hg-card { scroll-snap-align: start; }
+  }
+
+  .hg-unlock { margin-block-start: clamp(var(--sp-8), 4vw, calc(var(--sp-8) * 1.5)); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(var(--sp-6), 4vw, calc(var(--sp-8) * 1.5)); align-items: center; padding: clamp(var(--sp-6), 4vw, calc(var(--sp-8) * 1.25)); border-radius: var(--rounded-block); background: rgb(var(--hg-panel)); color: rgb(var(--hg-panel-text)); }
+  .hg-unlock :where(h3, p) { color: inherit; }
+  .hg-unlock__copy { display: flex; flex-direction: column; gap: var(--sp-3); }
+  .hg-form { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+  .hg-form input[type="email"] { flex: 1 1 13rem; min-width: 0; min-height: 3.25rem; padding: 0 var(--sp-5); border-radius: 999px; border: 1px solid rgb(var(--hg-panel-text) / .3); background: rgb(255 255 255 / .96); color: #1f211f; font: inherit; }
+  .hg-btn { min-height: 3.25rem; padding: 0 var(--sp-6); border-radius: 999px; border: 0; background: #c9a35b; color: #1f211f; font: inherit; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: var(--sp-2); text-decoration: none; }
+  .hg-btn[disabled] { opacity: .6; cursor: progress; }
+  .hg-btn--ghost { background: transparent; color: inherit; border: 1px solid rgb(var(--hg-panel-text) / .4); }
+  .hg-fine { font-size: .8125rem; line-height: 1.5; opacity: .75; margin-block-start: var(--sp-3); }
+  .hg-fine a { color: inherit; }
+  .hg-error { font-size: .9375rem; color: #f2a48f; margin-block-start: var(--sp-3); }
+  .hg-done { display: flex; flex-direction: column; gap: var(--sp-4); }
+  .hg-downloads { display: flex; flex-wrap: wrap; gap: var(--sp-3); list-style: none; padding: 0; }
+  .hg-unlock [hidden] { display: none !important; }
+  @media (max-width: 989px) { .hg-unlock { grid-template-columns: minmax(0, 1fr); } }
+</style>
+
+<section class="hg" aria-labelledby="hg-title-{{ section.id }}">
+  <div class="page-width">
+    <div class="hg-head">
+      {%- if s.label != blank -%}<p class="hg-label text-sm font-medium">{{ s.label }}</p>{%- endif -%}
+      <h2 id="hg-title-{{ section.id }}" class="title-md heading">{{ s.heading }}</h2>
+      {%- if s.text != blank -%}<div class="text-lg leading-normal">{{ s.text }}</div>{%- endif -%}
+    </div>
+
+    <ul class="hg-cards" role="list">
+      {%- for g in guides -%}
+        {%- assign gs = g.settings -%}
+        {%- if gs.page == blank -%}{%- continue -%}{%- endif -%}
+        <li class="hg-card" {{ g.shopify_attributes }}>
+          <div class="hg-card__media">
+            {%- if gs.image != blank -%}
+              {{ gs.image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '400,600,800,1000', sizes: '(min-width: 990px) 30vw, 78vw', alt: '' }}
+            {%- endif -%}
+            <div class="hg-card__pills">
+              <span class="hg-pill hg-pill--guide">Guide</span>
+              {%- if gs.pdf_url != blank -%}<span class="hg-pill hg-pill--pdf">Free PDF</span>{%- endif -%}
+            </div>
+          </div>
+          {%- if gs.kicker != blank -%}<p class="hg-card__kicker text-base">{{ gs.kicker }}</p>{%- endif -%}
+          <h3 class="hg-card__title title-sm heading leading-tight"><a href="{{ gs.page.url }}">{{ gs.title | default: gs.page.title }}</a></h3>
+          {%- if gs.text != blank -%}<p class="hg-card__text">{{ gs.text }}</p>{%- endif -%}
+          <span class="hg-card__more" aria-hidden="true">{{ gs.link_label | default: 'Read the guide' }} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </li>
+      {%- endfor -%}
+    </ul>
+
+    {%- if pdf_count > 0 -%}
+      <div class="hg-unlock" data-hg-gate data-key="{{ s.klaviyo_key | escape }}" data-list="{{ s.klaviyo_list | escape }}">
+        <div class="hg-unlock__copy">
+          <h3 class="title-sm heading leading-tight">{{ s.unlock_heading }}</h3>
+          {%- if s.unlock_text != blank -%}<div class="text-base leading-normal">{{ s.unlock_text }}</div>{%- endif -%}
+        </div>
+        <div>
+          <form class="hg-form" novalidate>
+            <label class="sr-only" for="hg-email-{{ section.id }}">Email</label>
+            <input id="hg-email-{{ section.id }}" type="email" name="email" autocomplete="email" placeholder="Your email" required>
+            <button class="hg-btn" type="submit">{{ s.button_label | default: 'Unlock the guides' }}</button>
+          </form>
+          <p class="hg-error" role="alert" hidden>That didn’t go through. Check the email address and try again.</p>
+          <div class="hg-done" role="status" hidden>
+            <p class="text-base leading-normal">{{ s.success | default: 'You’re in. Your guides are ready.' }}</p>
+            <ul class="hg-downloads" role="list">
+              {%- for g in guides -%}
+                {%- assign gs = g.settings -%}
+                {%- if gs.page == blank -%}{%- continue -%}{%- endif -%}
+                {%- if gs.pdf_url != blank -%}
+                  <li><a class="hg-btn" href="#" data-file="{{ gs.pdf_url | base64_encode }}" data-guide="{{ gs.title | default: gs.page.title | escape }}" target="_blank" rel="noopener" download>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v11m0 0 4.5-4.5M12 15l-4.5-4.5M5 19h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    {{ gs.short_name | default: gs.title | default: gs.page.title }}
+                  </a></li>
+                {%- else -%}
+                  <li><a class="hg-btn hg-btn--ghost" href="{{ gs.page.url }}">{{ gs.short_name | default: gs.title | default: gs.page.title }}: read online</a></li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </div>
+          {%- if s.fine_print != blank -%}<div class="hg-fine">{{ s.fine_print }}</div>{%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<script>
+  (function () {
+    var gate = document.querySelector('#shopify-section-{{ section.id }} [data-hg-gate]');
+    if (!gate) return;
+    var form = gate.querySelector('.hg-form');
+    var done = gate.querySelector('.hg-done');
+    var err = gate.querySelector('.hg-error');
+    var files = gate.querySelectorAll('[data-file]');
+    var KEY = gate.dataset.key, LIST = gate.dataset.list;
+    var names = Array.prototype.map.call(files, function (a) { return a.dataset.guide; });
+    var storeKey = 'hg-guides-unlocked';
+    var unlock = function () {
+      try { files.forEach(function (a) { a.href = atob(a.dataset.file); }); } catch (e) { return; }
+      form.hidden = true; err.hidden = true; done.hidden = false;
+    };
+    try { if (localStorage.getItem(storeKey)) unlock(); } catch (e) {}
+    var post = function (path, body) {
+      return fetch('https://a.klaviyo.com/client/' + path + '/?company_id=' + encodeURIComponent(KEY), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/vnd.api+json', 'revision': '2024-10-15' },
+        body: JSON.stringify(body)
+      }).then(function (r) { if (!r.ok) throw new Error(r.status); return r; });
+    };
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = (form.email.value || '').trim();
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { err.hidden = false; form.email.focus(); return; }
+      var btn = form.querySelector('button');
+      btn.disabled = true; err.hidden = true;
+      var jobs = [];
+      if (LIST) {
+        jobs.push(post('subscriptions', { data: { type: 'subscription', attributes: {
+          custom_source: 'Homepage guides',
+          profile: { data: { type: 'profile', attributes: { email: email, subscriptions: { email: { marketing: { consent: 'SUBSCRIBED' } } } } } }
+        }, relationships: { list: { data: { type: 'list', id: LIST } } } } }));
+      }
+      jobs.push(post('events', { data: { type: 'event', attributes: {
+        properties: { guide: 'All guides', guides: names, page: location.pathname },
+        metric: { data: { type: 'metric', attributes: { name: 'Guide Downloaded' } } },
+        profile: { data: { type: 'profile', attributes: { email: email } } }
+      } } }));
+      Promise.all(jobs).then(function () {
+        try { localStorage.setItem(storeKey, '1'); } catch (e2) {}
+        unlock();
+      }).catch(function () { err.hidden = false; btn.disabled = false; });
+    });
+  })();
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Home guides",
+  "tag": "div",
+  "class": "home-guides-section",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label", "default": "Free guides" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Guides from the Seatopia kitchen" },
+    { "type": "richtext", "id": "text", "label": "Text" },
+    { "type": "header", "content": "Email unlock" },
+    { "type": "text", "id": "unlock_heading", "label": "Heading", "default": "Get the guides as PDFs" },
+    { "type": "richtext", "id": "unlock_text", "label": "Text" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Unlock the guides" },
+    { "type": "text", "id": "success", "label": "Success message", "default": "You’re in. Your guides are ready." },
+    { "type": "richtext", "id": "fine_print", "label": "Fine print" },
+    { "type": "text", "id": "klaviyo_key", "label": "Klaviyo public API key" },
+    { "type": "text", "id": "klaviyo_list", "label": "Klaviyo list ID" },
+    { "type": "header", "content": "Colors and spacing" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#F8F8F8" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#2B3A44" },
+    { "type": "color", "id": "panel_background", "label": "Unlock panel background", "default": "#2B3A44" },
+    { "type": "color", "id": "panel_text", "label": "Unlock panel text", "default": "#FFFFFF" },
+    { "type": "range", "id": "padding", "label": "Padding (desktop)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 },
+    { "type": "range", "id": "padding_mobile", "label": "Padding (mobile)", "min": 0, "max": 120, "step": 8, "unit": "px", "default": 64 }
+  ],
+  "blocks": [
+    {
+      "type": "guide", "name": "Guide", "limit": 6,
+      "settings": [
+        { "type": "page", "id": "page", "label": "Guide page", "info": "Hidden until the page is published." },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "kicker", "label": "Kicker" },
+        { "type": "text", "id": "title", "label": "Title", "info": "Defaults to the page title." },
+        { "type": "text", "id": "short_name", "label": "Short name", "info": "Used on the download button." },
+        { "type": "textarea", "id": "text", "label": "Text" },
+        { "type": "text", "id": "link_label", "label": "Link label", "default": "Read the guide" },
+        { "type": "text", "id": "pdf_url", "label": "PDF URL", "info": "Content > Files > copy link. Only revealed after sign-up. Leave empty if the guide has no PDF." }
+      ]
+    }
+  ],
+  "presets": [ { "name": "Home guides" } ]
+}
+{% endschema %}

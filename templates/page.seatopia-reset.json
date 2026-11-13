@@ -1,0 +1,162 @@
+{
+  "sections": {
+    "guide": {
+      "type": "seatopia-guide",
+      "settings": {
+        "anchor": "seatopia-reset"
+      },
+      "blocks": {
+        "b00_hero": {
+          "type": "hero",
+          "settings": {
+            "image": "shopify://shop_images/eudemonia-kitchen-family.jpg",
+            "image_mobile": "shopify://shop_images/omegamaxxing-13-chef-slicing-kitchen.jpg",
+            "eyebrow": "Seatopia · A kitchen guide",
+            "deck": "Fewer unknowns on your plate: tested seafood, simple ingredients, and a week of recipes.",
+            "chips": "rs-choose|what to choose\nrs-framework|the framework\nrs-recipes|a week of recipes",
+            "title": "the seatopia reset"
+          }
+        },
+        "b01_intro": {
+          "type": "intro",
+          "settings": {
+            "eyebrow": "The Seatopia Reset",
+            "heading": "A practical way to rebuild a week of eating around food you know more about.",
+            "text": "<p>This isn’t a diet plan, and it doesn’t promise anything about your body. It’s a reset of what goes on your plate: seafood with published lab results, more vegetables and whole foods, and cooking that keeps things simple.</p><p>If you’re changing how you eat for a health reason, do it with your doctor. They can tell you what to measure and what the numbers mean for you.</p>"
+          }
+        },
+        "b02_chapter": {
+          "type": "chapter",
+          "settings": {
+            "anchor": "rs-choose",
+            "label": "Chapter 1",
+            "heading": "Start with what you choose",
+            "toc_sub": "the seafood, and how to know what’s in it",
+            "text": "<p>FDA and EPA sort fish by mercury into “Best Choices,” “Good Choices” and “Choices to Avoid.” Salmon, trout, scallops and shrimp are all on the Best Choices list. [1]</p><p>Low mercury, tested to a tenth of the FDA action level. Every supplier is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard.</p><p>Scan the QR on the box and the farm page opens with its panels. Farms named, panels published.</p>",
+            "layout": "split",
+            "tone": "light",
+            "points": "",
+            "points_columns": "3",
+            "takeaway": "<p>FDA and EPA recommend 2 to 3 servings a week. Most Americans eat fish about once. [2]</p>",
+            "takeaway_label": "The takeaway",
+            "toc_title": "",
+            "image": "shopify://shop_images/omegamaxxing-11-salmon-fillets.jpg"
+          }
+        },
+        "b03_chapter": {
+          "type": "chapter",
+          "settings": {
+            "anchor": "rs-framework",
+            "label": "Chapter 2",
+            "heading": "The framework",
+            "toc_sub": "six habits for the week",
+            "text": "<p>Six habits that change what’s on the plate. None of them needs a supplement, a special drink or a day of not eating.</p>",
+            "layout": "reading",
+            "tone": "sage",
+            "points": "Swap in tested seafood|Make two or three meals a week seafood with published lab results. Every recipe below starts with one.\nFill the plate with plants|Build the rest around vegetables, herbs, beans and whole grains: leafy and bitter greens, broccoli and cabbage, lemons and plenty of herbs.\nCook it gently|Poach, steam or bake at moderate heat. It’s quick, it’s forgiving, and it suits delicate fish.\nRead the oil on the label|Cook with olive oil, and check which oils are in packaged foods. Omegamaxxing explains how to read labels.\nKeep it simple in the kitchen|Store and reheat leftovers in glass or ceramic, and keep a few staples ready: frozen fish, grains, lemons, greens.\nPlan the week, not the meal|Thaw tomorrow’s fish in the fridge tonight, and poach or bake extra for lunches.",
+            "points_columns": "3",
+            "takeaway": "<p>Small, repeatable changes beat a strict week you won’t repeat.</p>",
+            "takeaway_label": "The takeaway",
+            "toc_title": ""
+          }
+        },
+        "b04_chapter": {
+          "type": "chapter",
+          "settings": {
+            "anchor": "rs-nutrients",
+            "label": "Chapter 3",
+            "heading": "Nutrients you can count",
+            "toc_sub": "published results, per portion",
+            "text": "<p>Our King Salmon tested at 1,140 mg EPA and 2,290 mg DHA, about 3,430 mg of marine omega-3s, plus 64 mcg selenium, per 8.5 oz skin-on portion. Values vary by sample and season.</p><p>Our Half-Shell Scallops tested at about 8 g protein and 7 mcg selenium per 2 oz serving. Values vary by sample and season.</p><p>We consider one portion to be 4 to 6 ounces of cooked fish, which matches the FDA’s definition of a serving of seafood. That is the guideline behind how much fish by weight goes into a box described in servings. Some of our fish, such as king salmon, come in larger pieces of 7.5 to 8.5 oz, so a single piece can be two nutritional servings.</p><p>Many of our members work with a nutritionist or practitioner, or use an app, to decide what they should be eating for protein, fats or specific nutrients. The right amount and frequency for you is personal, and our job is to give you the data that makes the decision easy.</p>",
+            "layout": "flip",
+            "tone": "light",
+            "points": "",
+            "points_columns": "3",
+            "takeaway": "",
+            "takeaway_label": "",
+            "toc_title": "",
+            "image": "shopify://shop_images/eudemonia-box-opening.jpg"
+          }
+        },
+        "b05_chapter": {
+          "type": "chapter",
+          "settings": {
+            "anchor": "rs-measure",
+            "label": "Chapter 4",
+            "heading": "Measure, don’t guess",
+            "toc_sub": "testing your own numbers",
+            "text": "<p>Guidelines count servings. We think you should count what’s in your blood.</p><p>There’s a finger-prick test for your omega-3 index. Take it, change one thing, retest in four months. <a href=\"/products/omegaquant-omega-3-index-plus-test\">See the Omega-3 Index Plus test</a>.</p><p>If you want to know your own mercury level, ask your doctor about a blood test.</p>",
+            "layout": "reading",
+            "tone": "dark",
+            "points": "",
+            "points_columns": "3",
+            "takeaway": "",
+            "takeaway_label": "",
+            "toc_title": ""
+          }
+        },
+        "b06_recipes": {
+          "type": "recipes",
+          "settings": {
+            "anchor": "rs-recipes",
+            "label": "Recipes",
+            "heading": "A week of recipes",
+            "toc_sub": "eight dinners and lunches",
+            "text": "<p>Recipes from our kitchen and our partners, each built around one tested seafood and a lot of plants.</p>",
+            "note": "<p>Eating raw or undercooked seafood may increase your risk of foodborne illness. The FDA conservatively suggests cooking to an internal temperature of 145 °F.</p>",
+            "article_1": "seafood-recipes/rainbow-salad-lemon-bay-poached-king-salmon",
+            "article_2": "seafood-recipes/poached-steelhead-in-a-miso-ginger-broth",
+            "article_3": "seafood-recipes/apple-cider-poached-steelhead-braised-leeks",
+            "article_4": "seafood-recipes/french-nicoise-steelhead-salad",
+            "article_5": "seafood-recipes/black-tiger-shrimp-vietnamese-fresh-rolls",
+            "article_6": "seafood-recipes/harvest-quinoa-bowl-honey-cinnamon-salmon-turmeric-tahini",
+            "article_7": "seafood-recipes/persimmon-passion-fruit-scallop-ceviche",
+            "article_8": "seafood-recipes/king-salmon-poke-bowls"
+          }
+        },
+        "b07_gate": {
+          "type": "gate",
+          "settings": {
+            "anchor": "download",
+            "label": "Free download",
+            "heading": "Take the guide with you",
+            "toc_title": "Download the guide",
+            "toc_sub": "the full guide as a PDF",
+            "text": "<p>The whole guide as a PDF: what to choose, the six habits, nutrients per portion, and a week of recipes.</p>",
+            "guide_name": "The Seatopia Reset",
+            "cover": "shopify://shop_images/omegamaxxing-20-one-pan-bake.jpg",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/The-Seatopia-Reset-Guide.pdf?v=1794409113",
+            "button_label": "Unlock the guide",
+            "download_label": "Download the PDF",
+            "success": "You’re in. Your guide is ready, and we’ve added you to our emails.",
+            "fine_print": "<p>By unlocking the guide you agree to receive emails from Seatopia. Unsubscribe anytime. <a href=\"/policies/privacy-policy\">Privacy policy</a>.</p>",
+            "klaviyo_key": "UzEgpY",
+            "klaviyo_list": "QQL98p",
+            "tone": "sage"
+          }
+        },
+        "b08_sources": {
+          "type": "sources",
+          "settings": {
+            "heading": "Sources",
+            "text": "<ol><li>U.S. Food and Drug Administration and U.S. Environmental Protection Agency. <a href=\"https://www.fda.gov/food/consumers/advice-about-eating-fish\"><em>Advice about eating fish.</em></a></li><li>U.S. Department of Agriculture and U.S. Department of Health and Human Services. <a href=\"https://www.dietaryguidelines.gov/\"><em>Dietary Guidelines for Americans, 2020–2025.</em></a></li><li>Seatopia. Lab results published on each product page, from third-party Certificates of Analysis by Edacious and EMSL.</li></ol>"
+          }
+        }
+      },
+      "block_order": [
+        "b00_hero",
+        "b01_intro",
+        "b02_chapter",
+        "b03_chapter",
+        "b04_chapter",
+        "b05_chapter",
+        "b06_recipes",
+        "b07_gate",
+        "b08_sources"
+      ]
+    }
+  },
+  "order": [
+    "guide"
+  ]
+}

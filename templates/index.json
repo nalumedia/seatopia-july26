@@ -47,7 +47,7 @@
           "disabled": true,
           "settings": {
             "image": "shopify://shop_images/DSC06513_1be0410f-7a1b-4bab-b0cf-a10ed5d3f18d.jpg",
-            "heading": "Lab-Tested Seafood </br>                 Delivered to Your Door",
+            "heading": "Lab-Tested Seafood                 Delivered to Your Door",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "button_label": "Shop More",
@@ -727,7 +727,6 @@
       "type": "creator-quote-slider",
       "blocks": {
         "slide_hyman": {
-          "disabled": false,
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/05212021_Mark_Hyman9087-Edit.jpg",
@@ -1076,89 +1075,10 @@
         "rounded": false
       }
     },
-    "index_new_testimonials_pzqmAP": {
-      "type": "index-new-testimonials",
-      "blocks": {
-        "review_q74D3V": {
-          "disabled": true,
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/Mark_hyman.png",
-            "image_url": "shopify://blogs/seafood-recipes/asian-scallop-crudo-with-citrus-soy-marinade",
-            "title": "Dr. Mark Hyman",
-            "job": "Leader in Functional Medicine",
-            "Start_number": "5",
-            "text": "<p>“We are what foods we eats and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs or antibiotics”</p>",
-            "block_background": "",
-            "block_text_color": ""
-          }
-        },
-        "review_NMBUf7": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/Lisa_giffen.png",
-            "image_url": "shopify://blogs/regenerative-aquaculture/are-we-still-mermaids-embracing-our-aquatic-roots-for-modern-health",
-            "title": "Lisa Giffen",
-            "job": "The Audrey",
-            "Start_number": "5",
-            "text": "<p>\"It's rare to find consistent seafood with clean and unique flavors that's also sustainable. Without a doubt Seatopia meets such high standards. Looking forward to anything and everything Seatopia has to offer.\"</p>",
-            "block_background": "",
-            "block_text_color": ""
-          }
-        },
-        "review_aPC9Vb": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/Ben_greenfield_89fa6ea5-3395-4d81-975e-1f952ba5b657.png",
-            "image_url": "shopify://blogs/regenerative-aquaculture",
-            "title": "Ben Greenfield, paid partner",
-            "job": "Health & Fitness Coach",
-            "Start_number": "5",
-            "text": "<p>\"If you want healthy, gourmet-style seafood, in the comfort of your own home, seafood that goes above and beyond any you've tasted before, you need Seatopia in your life!\"</p>",
-            "block_background": "",
-            "block_text_color": ""
-          }
-        },
-        "review_WJgNcy": {
-          "type": "review",
-          "disabled": true,
-          "settings": {
-            "image_url": "",
-            "title": "Testimonial name",
-            "job": "Founder, Company",
-            "Start_number": "5",
-            "text": "<p>Use this text to showcase a review from one of your customers.  A great review is honest and relatable.  A great reviewer is a person who represents your target audience and can speak to concerns that might block your customers from buying.</p>",
-            "block_background": "",
-            "block_text_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "review_q74D3V",
-        "review_NMBUf7",
-        "review_aPC9Vb",
-        "review_WJgNcy"
-      ],
-      "disabled": true,
-      "settings": {
-        "custom_class": "",
-        "section_id": "",
-        "title": "",
-        "sub_title": "",
-        "section_cont_position": "center",
-        "padding_top": 0,
-        "padding_bottom": 28,
-        "section_background": "#fafafa",
-        "text_color": "#171717",
-        "star_color": "#f59e0b",
-        "rounded": false
-      }
-    },
     "index_new_testimonials_ziwW9y": {
       "type": "index-new-testimonials",
       "blocks": {
         "review_hUgdXR": {
-          "disabled": false,
           "type": "review",
           "settings": {
             "image": "shopify://shop_images/Mark_hyman.png",
@@ -1172,8 +1092,8 @@
           }
         },
         "review_KMBfjf": {
-          "disabled": true,
           "type": "review",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Mark_hyman.jpg",
             "image_url": "shopify://blogs/regenerative-aquaculture/are-we-still-mermaids-embracing-our-aquatic-roots-for-modern-health",
@@ -1655,8 +1575,8 @@
       "type": "testimonials-banner",
       "blocks": {
         "testimonial-1": {
-          "disabled": true,
           "type": "testimonial",
+          "disabled": true,
           "settings": {
             "icon": "quote",
             "text": "<p>Thanks to Seatopia, throughout my pregnancy and while breastfeeding, I’ve confidently enjoyed sushi-grade, low mercury, omega-rich seafood from the comfort of my home!</p>",
@@ -1670,8 +1590,8 @@
           }
         },
         "testimonial-2": {
-          "disabled": true,
           "type": "testimonial",
+          "disabled": true,
           "settings": {
             "icon": "quote",
             "text": "<p>We are what our food eats, and thanks to Seatopia the next generation of omega-rich, microalgae-fed farmed seafood can help us live more vital lives with mitigated exposure to heavy metals, microplastics, GMOs  or antibiotics.\"</p>",
@@ -1843,6 +1763,73 @@
         "full_width": false,
         "rounded": true
       }
+    },
+    "home_guides": {
+      "type": "home-guides",
+      "blocks": {
+        "omega": {
+          "type": "guide",
+          "settings": {
+            "page": "omegamaxxing",
+            "image": "shopify://shop_images/omegamaxxing-02-hero-mobile-garnish.jpg",
+            "kicker": "Omega-3s",
+            "title": "Omegamaxxing",
+            "short_name": "Omegamaxxing",
+            "text": "A practical guide to getting more omega-3s from your food.",
+            "link_label": "Read the guide",
+            "pdf_url": ""
+          }
+        },
+        "mercury": {
+          "type": "guide",
+          "settings": {
+            "page": "mercury-detox-guide-for-sushi-lovers",
+            "image": "shopify://shop_images/spicy_stonefruit_and_yellowtail_Hamachi_Crudo_6_of_22.jpg",
+            "kicker": "For sushi lovers",
+            "title": "Mercury & Sushi",
+            "short_name": "Mercury & Sushi",
+            "text": "Where mercury comes from, how we measure it, and how to choose seafood you’ll eat raw.",
+            "link_label": "Read the guide",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/Seatopia-Mercury-and-Sushi-Guide.pdf?v=1794409113"
+          }
+        },
+        "reset": {
+          "type": "guide",
+          "settings": {
+            "page": "seatopia-reset-guide",
+            "image": "shopify://shop_images/eudemonia-kitchen-family.jpg",
+            "kicker": "A kitchen guide",
+            "title": "The Seatopia Reset",
+            "short_name": "The Seatopia Reset",
+            "text": "Fewer unknowns on your plate: tested seafood, simple ingredients, and a week of recipes.",
+            "link_label": "Read the guide",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/The-Seatopia-Reset-Guide.pdf?v=1794409113"
+          }
+        }
+      },
+      "block_order": [
+        "omega",
+        "mercury",
+        "reset"
+      ],
+      "settings": {
+        "label": "Free guides",
+        "heading": "Guides from the Seatopia kitchen",
+        "unlock_heading": "Get the guides as PDFs",
+        "unlock_text": "<p>Enter your email to download the guides, to keep on your phone or print for the kitchen.</p>",
+        "button_label": "Unlock the guides",
+        "success": "You’re in. Your guides are ready, and we’ve added you to our emails.",
+        "fine_print": "<p>By unlocking the guides you agree to receive emails from Seatopia. Unsubscribe anytime. <a href=\"/policies/privacy-policy\">Privacy policy</a>.</p>",
+        "klaviyo_key": "UzEgpY",
+        "klaviyo_list": "QQL98p",
+        "background": "#ffffff",
+        "panel_background": "#2b3a44",
+        "panel_text": "#ffffff",
+        "padding": 96,
+        "padding_mobile": 64,
+        "text_color": "#2b3a44",
+        "text": "<p>Short, practical guides to choosing and cooking seafood. Read them here, or unlock the PDFs below.</p>"
+      }
     }
   },
   "order": [
@@ -1861,13 +1848,13 @@
     "custom_image_with_txt_founder_inQRng",
     "image_with_text_overlay_XfR4my",
     "rich_text_i7ywpp",
-    "index_new_testimonials_pzqmAP",
     "index_new_testimonials_ziwW9y",
     "index_review_judge_me_dyVrn9",
     "countdown-timer",
     "rich-text-2",
     "product-bundle",
     "shop_the_feed_ciB8jx",
+    "home_guides",
     "testimonials-banner",
     "featured-collections",
     "blog_posts_collage_cr6q7j"
