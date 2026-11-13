@@ -1,53 +1,5 @@
 {
   "sections": {
-    "hero": {
-      "type": "uikit-hero",
-      "settings": {
-        "heading": "Salmon, delivered to your door.",
-        "subheading": "Ora King salmon, Alpine King salmon, Atlantic salmon, steelhead, smoked lox and salmon roe. Sashimi-grade, blast-frozen to -10°F at harvest, and third-party tested with the results published.",
-        "chip": "Ships frozen nationwide, Tuesday and Wednesday",
-        "cta_label": "Shop salmon",
-        "cta_link": "/pages/salmon#shop",
-        "note": "",
-        "image": "shopify://shop_images/omegamaxxing-01-hero-salmon-platter.jpg"
-      },
-      "blocks": {
-        "badge_coa": {
-          "type": "badge",
-          "settings": {
-            "icon_name": "fish",
-            "text": "Third-party Certificates of Analysis from Edacious and EMSL"
-          }
-        },
-        "badge_hg": {
-          "type": "badge",
-          "settings": {
-            "icon_name": "mercury",
-            "text": "Our limit is 0.1 ppm methylmercury – a tenth of the FDA action level"
-          }
-        },
-        "badge_mp": {
-          "type": "badge",
-          "settings": {
-            "icon_name": "microplastics",
-            "text": "Zero microplastics detected"
-          }
-        },
-        "badge_farms": {
-          "type": "badge",
-          "settings": {
-            "icon_name": "waves",
-            "text": "Farms named, panels published"
-          }
-        }
-      },
-      "block_order": [
-        "badge_coa",
-        "badge_hg",
-        "badge_mp",
-        "badge_farms"
-      ]
-    },
     "shop": {
       "type": "uikit-box-grid",
       "settings": {
@@ -587,10 +539,66 @@
         "parallax_direction": "vertical",
         "list_tag": "newsletter,salmon-lp"
       }
+    },
+    "buybox": {
+      "type": "uikit-buybox",
+      "blocks": {
+        "p_tested": {
+          "type": "proof",
+          "settings": {
+            "icon_name": "fish",
+            "text": "<b>Tested and published:</b> third-party lab results for every supplier",
+            "link": "/pages/why-clean-seafood-matters"
+          }
+        },
+        "p_hg": {
+          "type": "proof",
+          "settings": {
+            "icon_name": "mercury",
+            "text": "Our mercury limit is 0.1 ppm, a tenth of the FDA action level",
+            "link": ""
+          }
+        },
+        "p_mp": {
+          "type": "proof",
+          "settings": {
+            "icon_name": "microplastics",
+            "text": "Zero microplastics detected in third-party testing",
+            "link": ""
+          }
+        },
+        "p_farms": {
+          "type": "proof",
+          "settings": {
+            "icon_name": "waves",
+            "text": "Farms named, panels published",
+            "link": "/pages/ora-king-salmon-new-zealand"
+          }
+        }
+      },
+      "block_order": [
+        "p_tested",
+        "p_hg",
+        "p_mp",
+        "p_farms"
+      ],
+      "settings": {
+        "eyebrow": "Sashimi-grade · Tested and published",
+        "heading": "Salmon, delivered to your door.",
+        "product": "king-salmon",
+        "product_note": "Ōra King, New Zealand · 8.5 oz skin-on portions",
+        "image": "shopify://shop_images/omegamaxxing-01-hero-salmon-platter.jpg",
+        "reviews_link": "#reviews",
+        "ship_1": "Ships frozen Tue or Wed, arrives Wed or Thu",
+        "ship_2": "Frozen delivery guarantee",
+        "ship_3": "Free overnight shipping over $500",
+        "more_label": "Or shop every salmon ↓",
+        "more_link": "#shop"
+      }
     }
   },
   "order": [
-    "hero",
+    "buybox",
     "shop",
     "join",
     "guide",
