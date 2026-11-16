@@ -232,7 +232,7 @@
         <p class="mbr-strip__eyebrow {{ kicker_class }}">SEATOPIA STANDARD™ · Verified clean · a certificate behind every claim</p>
         <div class="mbr-grid mbr-grid--4">
           {%- assign strip_n = 'Clean seafood, monthly|Member value|Guidance, not guesswork|On ocean time' | split: '|' -%}
-          {%- assign strip_d = 'Clean seafood, third-party lab tested at the supplier level, delivered snap-frozen on a rhythm you set.|10% off every order, member gifts &amp; rewards, and quarterly access to limited harvests.|Free 1:1 chef classes and a dedicated concierge for questions, cooking, and scheduling.|Monthly or bi-monthly, pause up to 3 months, change size and cadence, or cancel anytime.' | split: '|' -%}
+          {%- assign strip_d = 'Clean seafood, third-party lab tested at the supplier level, delivered snap-frozen on a rhythm you set.|10% off every order, member gifts &amp; rewards, and quarterly access to limited harvests.|Free 1:1 chef classes and a dedicated concierge for questions, cooking, and scheduling.|Every 30, 45 or 60 days, pause up to 3 months, change size and cadence, or cancel anytime.' | split: '|' -%}
           {%- for item in strip_n -%}
             <div class="mbr-strip__item">
               <span class="{{ kicker_class }}">{{ forloop.index | prepend: '0' }}</span>
@@ -378,7 +378,7 @@
       </div>
       <div class="mbr-note">
         <p class="heading text-xl leading-tight">Benefits compound. Consistency is the mechanism.</p>
-        <p class="leading-normal text-opacity">Your Omega-3 Index rises with steady intake and settles back without it. The easiest way to keep it up is to make clean seafood automatic — a box at your door every month or two, at 10% off every order.</p>
+        <p class="leading-normal text-opacity">Your Omega-3 Index rises with steady intake and settles back without it. The easiest way to keep it up is to make clean seafood automatic — a box at your door every 30, 45 or 60 days, at 10% off every order.</p>
       </div>
     </div>
   </section>
@@ -429,7 +429,7 @@
       <div class="mbr-commit">
         <span class="font-medium">Our flexibility commitment</span>
         <ul class="mbr-commit__list text-sm text-opacity">
-          <li>Monthly or bi-monthly</li>
+          <li>Every 30, 45 or 60 days</li>
           <li>Pause up to 3 months</li>
           <li>Change size &amp; cadence</li>
           <li>Cancel anytime</li>
@@ -507,7 +507,7 @@
         </div>
         <div class="mbr-faq">
           {%- assign faq_q = 'How does the membership work?|Can I choose what goes in my box?|What does "verified clean" actually mean?|What are the member benefits and rewards?|Do I need to be an experienced cook?|How does it ship?' | split: '|' -%}
-          {%- assign faq_a = 'Seatopia is a monthly or bi-monthly membership. You can customize your box size, change how often it ships, pause for up to 3 months, or cancel any time before your next billing cycle.|Yes. Mix and match freely, or start from a curated box and refine it over time — the box should fit your taste, your household, and your goals.|Seatopia third-party lab tests every supplier, and then continues to audit them regularly to ensure that they consistently meet their standards. Tested to ≤ 0.1 ppm mercury &ndash; a tenth of the FDA action level, with no microplastics detected in third-party testing, and EPA/DHA quantified per serving. Each SKU has a downloadable Certificate of Analysis, part of 134+ published product quality reports.|Members get 10% off every order, quarterly access to limited seasonal harvests, member gifts &amp; rewards (a recent reward was free shipping on the next order; another was free caviar), free 1:1 chef classes, and a dedicated concierge.|Not at all. Free 1:1 chef classes and concierge guidance make preparing raw and lightly cooked seafood approachable, whatever your starting point.|Orders arrive snap-frozen, 1–3 days after shipment, with a snap-frozen guarantee: if it does not arrive properly frozen, we will refund it or send a replacement.' | split: '|' -%}
+          {%- assign faq_a = 'Seatopia is a membership that delivers every 30, 45 or 60 days. You can customize your box size, change how often it ships, pause for up to 3 months, or cancel any time before your next billing cycle.|Yes. Mix and match freely, or start from a curated box and refine it over time — the box should fit your taste, your household, and your goals.|Seatopia third-party lab tests every supplier, and then continues to audit them regularly to ensure that they consistently meet their standards. Tested to ≤ 0.1 ppm mercury &ndash; a tenth of the FDA action level, with no microplastics detected in third-party testing, and EPA/DHA quantified per serving. Each SKU has a downloadable Certificate of Analysis, part of 134+ published product quality reports.|Members get 10% off every order, quarterly access to limited seasonal harvests, member gifts &amp; rewards (a recent reward was free shipping on the next order; another was free caviar), free 1:1 chef classes, and a dedicated concierge.|Not at all. Free 1:1 chef classes and concierge guidance make preparing raw and lightly cooked seafood approachable, whatever your starting point.|Orders arrive snap-frozen, 1–3 days after shipment, with a snap-frozen guarantee: if it does not arrive properly frozen, we will refund it or send a replacement.' | split: '|' -%}
           {%- for q in faq_q -%}
             <details class="mbr-faq__item">
               <summary class="heading text-xl leading-tight"><span>{{ q }}</span><svg class="mbr-faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M12 5v14"/></svg></summary>
