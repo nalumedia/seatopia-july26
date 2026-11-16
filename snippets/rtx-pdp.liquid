@@ -470,18 +470,7 @@
             </div>
             <ul class="subscription-content" hidden>
             {%- else -%}
-             <li>
-              Every <span class="subscription_day">{{ freq_days }}</span> days receive a
-              <span class="selected-variant-text">
-                {% assign variant_title = product.selected_or_first_available_variant.title %}
-                {% if variant_title == "Default Title" or variant_title == blank %}
-                  box
-                {% else %}
-                  {{ variant_title }}
-                {% endif %}
-                - Pause, skip, or cancel anytime.
-              </span>
-            </li>
+             <li>Easily manage your subscription in your member portal. Pause, skip, or cancel anytime.</li>
             {%- endif -%}
           </ul>
         </label>
@@ -784,13 +773,8 @@ if (price_addCart && getAddToBtn) {
           const selectedFrequency = selectedOption.textContent;
           const subscriptionDay = buyBox.root?.querySelector('.subscription_day');
           if (subscriptionDay) {
-            if (selectedFrequency.includes('2')) {
-              subscriptionDay.textContent = '60';
-            } else if (selectedFrequency.includes('3')) {
-              subscriptionDay.textContent = '90';
-            } else {
-              subscriptionDay.textContent = '30';
-            }
+            const m = selectedFrequency.match(/(\d+)\s*(day|week|month)/i);
+            if (m) subscriptionDay.textContent = String(+m[1] * (/week/i.test(m[2]) ? 7 : /month/i.test(m[2]) ? 30 : 1));
           }
         }
       } catch (error) {

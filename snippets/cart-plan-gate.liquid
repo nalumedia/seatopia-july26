@@ -180,12 +180,23 @@
       endif
 
       # Same delivery wording as the product page subscribe block (snippets/rtx-pdp.liquid).
+      # Days between deliveries, read from the plan's own number ("every 45 days", "Every 2 Months").
+      # Matching on digits alone misread "every 30 days" as 90 (it contains a 3).
       assign freq_days = 30
-      if plan_name_full contains '3'
-        assign freq_days = 90
-      elsif plan_name_full contains '2'
-        assign freq_days = 60
-      endif
+      assign freq_words = plan_name_full | downcase | split: ' '
+      for freq_w in freq_words
+        assign freq_n = freq_w | plus: 0
+        if freq_n > 0
+          assign freq_unit = freq_words[forloop.index] | default: 'days'
+          assign freq_days = freq_n
+          if freq_unit contains 'week'
+            assign freq_days = freq_n | times: 7
+          elsif freq_unit contains 'month'
+            assign freq_days = freq_n | times: 30
+          endif
+          break
+        endif
+      endfor
       # Only the plan's own published wording - no subscription terms beyond it (claims guide 4.F).
       assign plan_terms = plan_name_full | replace: ' (', ' · ' | remove: ')'
     -%}
