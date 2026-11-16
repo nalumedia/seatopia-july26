@@ -88,7 +88,6 @@
             "subscription_label": "Subscribe & Save",
             "subscription_tag": "Popular",
             "subscription_details_type": "one-line",
-            "subscription_details": "<ul><li>Every 30 days receive a free 2-Pack</li><li>Get access to exclusive products first</li><li>Pause or cancel anytime</li></ul>",
             "icon_path_1": "",
             "icon_path_2": "",
             "icon_path_3": "",
@@ -449,7 +448,7 @@
         "heading_PHt9yN": {
           "type": "heading",
           "settings": {
-            "heading": "Seatopia offers clean, sustainable seafood that </br>                                                     supports your body and the oceans.",
+            "heading": "Seatopia offers clean, sustainable seafood that supports your body and the oceans.",
             "heading_size": "title-sm",
             "heading_tag": "h2",
             "highlighted_text": "none",
