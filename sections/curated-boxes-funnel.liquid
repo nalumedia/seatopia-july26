@@ -3,22 +3,23 @@
   Curated Boxes Funnel
   ============================================================================
   Three-step wizard (Seafood -> Size -> Checkout) over ONE Shopify product with
-  two options: Style x Size = 9 variants.
+  two options: Style x Size = 9 variants. Visual reference:
+  https://seatopiastandard.com/curated-boxes (the standalone React build).
 
-  DESIGN CONSTRAINT: build on the theme's existing design system. This section
-  reuses `section section--padding`, `page-width`, `card-grid`, and the
-  `button button--primary` markup (including the btn-fill / btn-text spans the
-  theme's button styles expect). The only new CSS is in the {% stylesheet %}
-  block at the bottom — ~40 lines, all expressed in existing theme tokens
-  (--sp-*, --card-radius, --color-base-*) so it inherits the design system
-  rather than introducing a parallel one. It compiles into the theme's section
-  CSS bundle, so it costs no extra request.
+  DESIGN: runs on the Seatopia UI kit (assets/uikit.css + snippets/uikit-fonts)
+  the way the uikit-* sections do, so it inherits Crimson Pro / DM Sans and the
+  kit palette. Everything funnel-specific is namespaced .cbf-* in the
+  {% stylesheet %} block below and expressed in --uk-* tokens plus one accent
+  colour that is a section setting.
 
   DATA THIS SECTION READS (and degrades gracefully without):
     variant.metafields.custom.box_components  JSON: [{sku,name,quantity}, ...]
-    shop.metafields.custom.omega_by_sku       JSON: {SKU: {epaDhaMg, servingOz}}
-  Neither exists yet. When absent, the "What's inside" and "Omega-3" blocks are
-  omitted entirely — never estimated. See the README block in the schema.
+    shop.metafields.custom.omega_by_sku       JSON: {SKU: {epaDhaMg, servingOz, name}}
+  When absent, the "What's inside" and "Omega-3" blocks are omitted entirely -
+  never estimated. Omega figures are shown as published test results with the
+  variance note the claims guide requires (brand/claims-guide.md §8.8). The
+  2,000 mg/day "days of omega-3" figure from the reference is deliberately not
+  rendered: it is unsourced and AMBER in the guide (§8.12).
 {%- endcomment -%}
 
 {%- liquid
@@ -35,12 +36,11 @@
     endif
   endfor
 
-  assign omega_raw = shop.metafields.custom.omega_by_sku
-  assign target_mg = section.settings.daily_target_mg | default: 2000
+  assign omega_mf = shop.metafields.custom.omega_by_sku
+  assign accent = section.settings.accent | default: '#497991'
 -%}
 
 {%- if product == blank or style_option == blank or size_option == blank -%}
-  {%- comment -%} Editor-visible guidance rather than a silent blank section. {%- endcomment -%}
   {%- if request.design_mode -%}
     <div class="section section--padding">
       <div class="page-width">
@@ -60,20 +60,19 @@
   {%- endif -%}
 {%- else -%}
 
+  {%- render 'uikit-fonts' -%}
+  {{ 'uikit.css' | asset_url | stylesheet_tag }}
+
   {%- comment -%} ---- variant data for the client, built once ---- {%- endcomment -%}
   {%- capture variant_json -%}
     [
-    {%- comment -%}
-      Index by option POSITION. Liquid's variant.options is a flat array of
-      value strings — the {name, value} objects only exist in the GraphQL API,
-      so matching on so.name silently yields empty strings here.
-    {%- endcomment -%}
     {%- assign style_idx = style_option.position | minus: 1 -%}
     {%- assign size_idx = size_option.position | minus: 1 -%}
     {%- for v in product.variants -%}
       {%- liquid
         assign v_style = v.options[style_idx]
         assign v_size = v.options[size_idx]
+        assign v_img = v.image | default: product.featured_image
       -%}
       {
         "id": {{ v.id }},
@@ -82,9 +81,10 @@
         "sku": {{ v.sku | json }},
         "price": {{ v.price }},
         "priceText": {{ v.price | money | json }},
+        "priceShort": {{ v.price | money_without_trailing_zeros | json }},
         "available": {{ v.available }},
-        "image": {{ v.image | default: product.featured_image | image_url: width: 900 | json }},
-        "components": {{ v.metafields.custom.box_components.value | default: nil | json }},
+        "image": {{ v_img | image_url: width: 900 | json }},
+        "components": {{ v.metafields.custom.box_components.value | json }},
         "plans": [
           {%- for alloc in v.selling_plan_allocations -%}
             {
@@ -100,41 +100,67 @@
     ]
   {%- endcapture -%}
 
-  <section
-    class="section section--padding{% if section.settings.divider %} section--divider{% endif %}"
-    id="CuratedFunnel-{{ section.id }}"
-  >
-    <div class="page-width">
+  {%- capture icon_fish -%}
+    <svg class="cbf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6.5 12c2.5-4 6-6 11.5-6 0 0-1 2.5-1 6s1 6 1 6c-5.5 0-9-2-11.5-6Z"/><path d="M6.5 12 2 8.5v7L6.5 12Z"/><path d="M14 10.5h.01"/></svg>
+  {%- endcapture -%}
+  {%- capture icon_check -%}
+    <svg class="cbf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+  {%- endcapture -%}
+  {%- capture icon_star -%}
+    <svg class="cbf-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>
+  {%- endcapture -%}
+
+  <section class="uikit cbf-section" id="CuratedFunnel-{{ section.id }}" style="--cbf-accent: {{ accent }};">
+    <div class="uikit-container cbf-container">
       <curated-funnel
-        class="cbf block"
-        data-target-mg="{{ target_mg }}"
+        class="cbf"
         data-style-name="{{ section.settings.style_option_name | escape }}"
         data-size-name="{{ section.settings.size_option_name | escape }}"
+        data-sub-label="{{ section.settings.submit_sub_label | default: 'Subscribe' | escape }}"
+        data-once-label="{{ section.settings.submit_once_label | default: 'Checkout' | escape }}"
+        data-require-email="{% if section.settings.email_label != blank %}true{% else %}false{% endif %}"
       >
         <script type="application/json" data-cbf-variants>{{ variant_json }}</script>
-        {%- if omega_raw != blank -%}
-          <script type="application/json" data-cbf-omega>{{ omega_raw }}</script>
+        {%- if omega_mf != blank -%}
+          <script type="application/json" data-cbf-omega>{{ omega_mf.value | json }}</script>
+        {%- endif -%}
+
+        {%- comment -%} ---------- phone pill ---------- {%- endcomment -%}
+        {%- if section.settings.phone != blank -%}
+          {%- assign tel = section.settings.phone | remove: '(' | remove: ')' | remove: ' ' | remove: '-' | remove: '.' -%}
+          <p class="cbf-phone uikit-body-s">
+            {{ section.settings.phone_label | escape }}
+            <a href="tel:{{ tel }}">{{ section.settings.phone | escape }}</a>
+          </p>
         {%- endif -%}
 
         {%- comment -%} ---------- progress ---------- {%- endcomment -%}
-        <ol class="cbf-progress flex items-center gap-2 md:gap-4" aria-label="Progress">
+        <ol class="cbf-progress" aria-label="Progress">
           {%- assign step_labels = section.settings.step_labels | default: 'Seafood,Size,Checkout' | split: ',' -%}
           {%- for label in step_labels -%}
-            <li class="cbf-progress__item flex items-center gap-2 grow" data-cbf-progress="{{ forloop.index }}">
+            <li class="cbf-progress__item{% if forloop.first %} is-active{% endif %}" data-cbf-progress="{{ forloop.index }}">
               <button
                 type="button"
-                class="cbf-progress__btn link text-sm leading-tight"
+                class="cbf-progress__btn"
                 data-cbf-goto="{{ forloop.index }}"
                 aria-current="{% if forloop.first %}step{% else %}false{% endif %}"
               >
-                <span class="cbf-progress__num">{{ forloop.index }}</span>
-                <span>{{ label | strip | escape }}</span>
+                <span class="cbf-progress__num">
+                  <span class="cbf-progress__digit">{{ forloop.index }}</span>
+                  <span class="cbf-progress__check">{{ icon_check }}</span>
+                </span>
+                <span class="cbf-progress__label uikit-body-s">{{ label | strip | escape }}</span>
               </button>
             </li>
+            {%- unless forloop.last -%}
+              <li class="cbf-progress__wave" aria-hidden="true">
+                <svg viewBox="0 0 120 24" preserveAspectRatio="none"><path d="M0 12 Q15 2, 30 12 T60 12 T90 12 T120 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+              </li>
+            {%- endunless -%}
           {%- endfor -%}
         </ol>
 
-        <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data" data-cbf-form>
+        <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data" data-cbf-form novalidate>
           <input type="hidden" name="id" value="" data-cbf-variant-id>
           <input type="hidden" name="selling_plan" value="" data-cbf-selling-plan>
           <input type="hidden" name="quantity" value="1">
@@ -143,25 +169,27 @@
           {%- comment -%} ================= STEP 1 : STYLE ================= {%- endcomment -%}
           <div class="cbf-step" data-cbf-step="1">
             <div class="cbf-head">
-              <h2 class="heading title-md">{{ section.settings.step1_heading | escape }}</h2>
+              <h2 class="cbf-h uikit-h3">{{ section.settings.step1_heading | escape }}</h2>
               {%- if section.settings.step1_subheading != blank -%}
-                <p class="rte">{{ section.settings.step1_subheading }}</p>
+                <div class="cbf-sub uikit-body-m uikit-muted">{{ section.settings.step1_subheading }}</div>
               {%- endif -%}
             </div>
 
             <fieldset class="cbf-fieldset">
-              <legend class="sr-only">{{ section.settings.step1_heading | escape }}</legend>
-              <div class="card-grid card-grid--3 mobile:card-grid--1 grid">
+              <legend class="visually-hidden">{{ section.settings.step1_heading | escape }}</legend>
+              <div class="cbf-grid">
                 {%- for value in style_option.values -%}
                   {%- liquid
                     assign vstr = value | downcase
                     assign img = null
                     assign blurb = ''
                     for block in section.blocks
-                      assign bname = block.settings.style_value | downcase | strip
-                      if bname == vstr
-                        assign img = block.settings.image
-                        assign blurb = block.settings.description
+                      if block.type == 'style'
+                        assign bname = block.settings.style_value | downcase | strip
+                        if bname == vstr
+                          assign img = block.settings.image
+                          assign blurb = block.settings.description
+                        endif
                       endif
                     endfor
 
@@ -175,108 +203,36 @@
                       endif
                     endfor
                   -%}
-                  <label class="cbf-opt card">
+                  <label class="cbf-opt">
                     <input
                       type="radio"
-                      class="sr-only"
+                      class="visually-hidden"
                       name="cbf-style"
                       value="{{ value | escape }}"
                       data-cbf-style
-                      {% if forloop.first %}checked{% endif %}
                     >
-                    <span class="cbf-card">
-                      <span class="cbf-card__media media media--square block relative overflow-hidden">
+                    <span class="cbf-card cbf-card--style">
+                      <span class="cbf-card__media">
                         {%- if img != blank -%}
-                          {{ img | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 33vw, 100vw', widths: '300,400,600,800', class: 'w-full h-full' }}
+                          {{ img | image_url: width: 1000 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 400px, 100vw', widths: '400,600,800,1000', alt: value }}
                         {%- elsif product.featured_image -%}
-                          {{ product.featured_image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 33vw, 100vw', widths: '300,400,600,800', class: 'w-full h-full' }}
+                          {{ product.featured_image | image_url: width: 1000 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 400px, 100vw', widths: '400,600,800,1000', alt: value }}
                         {%- endif -%}
                       </span>
                       <span class="cbf-card__body">
-                        <span class="cbf-card__title heading text-base-xl font-medium">{{ value | escape }}</span>
+                        <span class="cbf-card__row">
+                          <span class="cbf-card__title">{{ value | escape }}</span>
+                          <span class="cbf-radio" aria-hidden="true">{{ icon_check }}</span>
+                        </span>
                         {%- if blurb != blank -%}
-                          <span class="cbf-card__text rte text-sm">{{ blurb }}</span>
+                          <span class="cbf-card__text uikit-body-s uikit-muted">{{ blurb }}</span>
                         {%- endif -%}
                         {%- if lowest != nil -%}
-                          {%- comment -%}
-                            Reuse the theme's own key. Note `| t | default:` is a
-                            trap here: a missing key returns the truthy string
-                            "Translation missing: ...", so `default` never fires.
-                          {%- endcomment -%}
-                          {%- comment -%}
-                            Format first. In a filter chain `| t: price: lowest | money`
-                            the money filter applies to t's OUTPUT, not to lowest,
-                            which silently renders $0.00.
-                          {%- endcomment -%}
-                          {%- assign lowest_money = lowest | money -%}
-                          <span class="cbf-card__price font-medium">
-                            {{- 'products.price.from_price_html' | t: price: lowest_money -}}
-                          </span>
+                          <span class="cbf-card__price uikit-body-s uikit-muted">From <strong>{{ lowest | money_without_trailing_zeros }}</strong></span>
                         {%- endif -%}
-                        <span class="cbf-card__omega text-sm" data-cbf-style-omega="{{ value | escape }}" hidden></span>
-                      </span>
-                    </span>
-                  </label>
-                {%- endfor -%}
-              </div>
-            </fieldset>
-
-            <div class="cbf-actions">
-              <button type="button" class="button button--primary button--md" data-cbf-next="2">
-                <span class="btn-fill" data-fill></span>
-                <span class="btn-text">{{ section.settings.continue_label | escape }}</span>
-              </button>
-            </div>
-          </div>
-
-          {%- comment -%} ================= STEP 2 : SIZE ================= {%- endcomment -%}
-          <div class="cbf-step" data-cbf-step="2" hidden>
-            <div class="cbf-head">
-              <h2 class="heading title-md">{{ section.settings.step2_heading | escape }}</h2>
-              {%- if section.settings.step2_subheading != blank -%}
-                <p class="rte">{{ section.settings.step2_subheading }}</p>
-              {%- endif -%}
-            </div>
-
-            <fieldset class="cbf-fieldset">
-              <legend class="sr-only">{{ section.settings.step2_heading | escape }}</legend>
-              <div class="card-grid card-grid--3 mobile:card-grid--1 grid">
-                {%- for value in size_option.values -%}
-                  {%- liquid
-                    assign vstr = value | downcase
-                    assign tagline = ''
-                    assign detail = ''
-                    assign badge = ''
-                    for block in section.blocks
-                      assign bname = block.settings.size_value | downcase | strip
-                      if bname == vstr
-                        assign tagline = block.settings.tagline
-                        assign detail = block.settings.description
-                        assign badge = block.settings.badge
-                      endif
-                    endfor
-                    assign portions = value | split: ' ' | first
-                  -%}
-                  <label class="cbf-opt card">
-                    <input
-                      type="radio"
-                      class="sr-only"
-                      name="cbf-size"
-                      value="{{ value | escape }}"
-                      data-cbf-size
-                      {% if forloop.first %}checked{% endif %}
-                    >
-                    <span class="cbf-card cbf-card--plain">
-                      <span class="cbf-card__body">
-                        {%- if badge != blank -%}
-                          <span class="cbf-badge text-sm font-medium">{{ badge | escape }}</span>
-                        {%- endif -%}
-                        <span class="cbf-portions heading title-lg">{{ portions }}</span>
-                        <span class="cbf-card__title font-medium">{{ 'Portions' }}</span>
-                        {%- if tagline != blank -%}<span class="cbf-card__text">{{ tagline | escape }}</span>{%- endif -%}
-                        {%- if detail != blank -%}<span class="cbf-card__text text-sm">{{ detail }}</span>{%- endif -%}
-                        <span class="cbf-card__price font-medium" data-cbf-size-price="{{ value | escape }}"></span>
-                        <span class="cbf-card__omega text-sm" data-cbf-size-omega="{{ value | escape }}" hidden></span>
+                        <span class="cbf-card__omega uikit-body-s" data-cbf-style-omega="{{ value | escape }}" hidden>
+                          {{ icon_fish }}<span data-cbf-style-omega-text></span>
+                        </span>
                       </span>
                     </span>
                   </label>
@@ -285,41 +241,108 @@
             </fieldset>
 
             {%- if section.settings.omega_footnote != blank -%}
-              <div class="cbf-note rte text-sm" data-cbf-omega-note hidden>{{ section.settings.omega_footnote }}</div>
+              <div class="cbf-note uikit-body-s uikit-muted" data-cbf-omega-note hidden>{{ section.settings.omega_footnote }}</div>
+            {%- endif -%}
+
+            <div class="cbf-actions cbf-actions--end">
+              <button type="button" class="cbf-btn cbf-btn--primary" data-cbf-next="2" data-cbf-needs="style" disabled>
+                {{ section.settings.continue_label | escape }}
+                <span class="cbf-btn__arrow" aria-hidden="true">&rarr;</span>
+              </button>
+            </div>
+          </div>
+
+          {%- comment -%} ================= STEP 2 : SIZE ================= {%- endcomment -%}
+          <div class="cbf-step" data-cbf-step="2" hidden>
+            <div class="cbf-head">
+              <h2 class="cbf-h uikit-h3">{{ section.settings.step2_heading | escape }}</h2>
+              {%- if section.settings.step2_subheading != blank -%}
+                <div class="cbf-sub uikit-body-m uikit-muted">{{ section.settings.step2_subheading }}</div>
+              {%- endif -%}
+            </div>
+
+            <fieldset class="cbf-fieldset">
+              <legend class="visually-hidden">{{ section.settings.step2_heading | escape }}</legend>
+              <div class="cbf-grid">
+                {%- for value in size_option.values -%}
+                  {%- liquid
+                    assign vstr = value | downcase
+                    assign tagline = ''
+                    assign detail = ''
+                    assign badge = ''
+                    assign emoji = ''
+                    for block in section.blocks
+                      if block.type == 'size'
+                        assign bname = block.settings.size_value | downcase | strip
+                        if bname == vstr
+                          assign tagline = block.settings.tagline
+                          assign detail = block.settings.description
+                          assign badge = block.settings.badge
+                          assign emoji = block.settings.emoji
+                        endif
+                      endif
+                    endfor
+                    assign portions = value | split: ' ' | first
+                  -%}
+                  <label class="cbf-opt">
+                    <input
+                      type="radio"
+                      class="visually-hidden"
+                      name="cbf-size"
+                      value="{{ value | escape }}"
+                      data-cbf-size
+                    >
+                    <span class="cbf-card cbf-card--size">
+                      {%- if badge != blank -%}
+                        <span class="cbf-badge">{{ badge | escape }}</span>
+                      {%- endif -%}
+                      <span class="cbf-card__body cbf-card__body--center">
+                        {%- if emoji != blank -%}<span class="cbf-emoji" aria-hidden="true">{{ emoji }}</span>{%- endif -%}
+                        <span class="cbf-portions">{{ portions }}</span>
+                        <span class="cbf-portions__label uikit-body-m uikit-muted">Portions</span>
+                        {%- if tagline != blank -%}<span class="cbf-tagline uikit-label-s">{{ tagline | escape }}</span>{%- endif -%}
+                        {%- if detail != blank -%}<span class="cbf-card__text uikit-body-s uikit-muted">{{ detail }}</span>{%- endif -%}
+                        <span class="cbf-card__price uikit-body-m uikit-muted" data-cbf-size-price="{{ value | escape }}"></span>
+                        <span class="cbf-card__omega cbf-card__omega--stack" data-cbf-size-omega="{{ value | escape }}" hidden>
+                          <span class="cbf-card__omega-big" data-cbf-size-omega-big></span>
+                          <span class="uikit-body-s uikit-muted" data-cbf-size-omega-sub></span>
+                        </span>
+                      </span>
+                    </span>
+                  </label>
+                {%- endfor -%}
+              </div>
+            </fieldset>
+
+            {%- if section.settings.omega_footnote != blank -%}
+              <div class="cbf-note uikit-body-s uikit-muted" data-cbf-omega-note hidden>{{ section.settings.omega_footnote }}</div>
             {%- endif -%}
 
             <div class="cbf-actions">
-              <button type="button" class="button button--secondary button--md" data-cbf-next="1">
-                <span class="btn-fill" data-fill></span>
-                <span class="btn-text">{{ section.settings.back_label | escape }}</span>
+              <button type="button" class="cbf-btn cbf-btn--ghost" data-cbf-next="1">
+                <span class="cbf-btn__arrow" aria-hidden="true">&larr;</span>
+                {{ section.settings.back_label | escape }}
               </button>
-              <button type="button" class="button button--primary button--md" data-cbf-next="3">
-                <span class="btn-fill" data-fill></span>
-                <span class="btn-text">{{ section.settings.continue_label | escape }}</span>
+              <button type="button" class="cbf-btn cbf-btn--primary" data-cbf-next="3" data-cbf-needs="size" disabled>
+                {{ section.settings.continue_label | escape }}
+                <span class="cbf-btn__arrow" aria-hidden="true">&rarr;</span>
               </button>
             </div>
           </div>
 
           {%- comment -%} ================= STEP 3 : REVIEW ================= {%- endcomment -%}
-          <div class="cbf-step" data-cbf-step="3" hidden>
+          <div class="cbf-step cbf-step--narrow" data-cbf-step="3" hidden>
             <div class="cbf-head">
-              <h2 class="heading title-md">{{ section.settings.step3_heading | escape }}</h2>
+              <h2 class="cbf-h uikit-h3">{{ section.settings.step3_heading | escape }}</h2>
               {%- if section.settings.step3_subheading != blank -%}
-                <p class="rte">{{ section.settings.step3_subheading }}</p>
+                <div class="cbf-sub uikit-body-m uikit-muted">{{ section.settings.step3_subheading }}</div>
               {%- endif -%}
             </div>
 
             {%- comment -%} a) summary {%- endcomment -%}
-            <div class="cbf-summary card">
-              {%- comment -%}
-                Render a real initial image rather than src="". An empty src is
-                not merely a lint warning — browsers may resolve it against the
-                current document and re-request the page. JS swaps this per
-                variant; declaring the true intrinsic dimensions keeps the box
-                reserved before it loads.
-              {%- endcomment -%}
+            <div class="cbf-summary">
               {%- assign summary_img = product.selected_or_first_available_variant.image | default: product.featured_image -%}
-              <span class="cbf-summary__media media media--square block relative overflow-hidden">
+              <span class="cbf-summary__media">
                 {%- if summary_img != blank -%}
                   <img
                     src="{{ summary_img | image_url: width: 600 }}"
@@ -332,78 +355,95 @@
                 {%- endif -%}
               </span>
               <div class="cbf-summary__body">
-                <p class="heading text-base-xl font-medium" data-cbf-summary-title></p>
-                <p class="text-sm" data-cbf-summary-size></p>
+                <div class="cbf-card__row">
+                  <span class="cbf-summary__title" data-cbf-summary-title></span>
+                  <span class="cbf-summary__size uikit-label-s" data-cbf-summary-size></span>
+                </div>
                 {%- if section.settings.ship_copy != blank -%}
-                  <p class="text-sm">{{ section.settings.ship_copy }}</p>
+                  <div class="uikit-body-s uikit-muted">{{ section.settings.ship_copy }}</div>
                 {%- endif -%}
-                {%- if product.metafields.reviews.rating_count.value > 0 -%}
-                  <p class="text-sm">
-                    {{ product.metafields.reviews.rating.value.rating }} / {{ product.metafields.reviews.rating.value.scale_max }}
-                    &middot; {{ product.metafields.reviews.rating_count.value }} reviews
-                  </p>
-                {%- endif -%}
-                <p class="heading title-sm" data-cbf-summary-price></p>
+                <div class="cbf-card__row cbf-summary__foot">
+                  <span class="cbf-summary__price">
+                    <span data-cbf-summary-price></span>
+                    <s class="uikit-body-s uikit-muted" data-cbf-summary-compare hidden></s>
+                  </span>
+                  {%- assign rating_count = product.metafields.reviews.rating_count.value | default: 0 -%}
+                  {%- if rating_count > 0 -%}
+                    {%- assign rating_val = product.metafields.reviews.rating.value.rating | default: 5 | round -%}
+                    <span class="cbf-rating" aria-label="Rated {{ product.metafields.reviews.rating.value.rating }} out of 5">
+                      <span class="cbf-rating__stars" aria-hidden="true">
+                        {%- for i in (1..5) -%}
+                          <span class="cbf-rating__star{% if i > rating_val %} is-off{% endif %}">{{ icon_star }}</span>
+                        {%- endfor -%}
+                      </span>
+                      <span class="uikit-body-s uikit-muted">{{ rating_count }} reviews</span>
+                    </span>
+                  {%- endif -%}
+                </div>
               </div>
             </div>
 
-            {%- comment -%} b) contents — only when the metafield exists {%- endcomment -%}
-            <div class="cbf-block" data-cbf-contents hidden>
-              <h3 class="heading title-sm">{{ section.settings.contents_heading | escape }}</h3>
+            {%- comment -%} b) contents - only when the metafield exists {%- endcomment -%}
+            <div class="cbf-panel" data-cbf-contents hidden>
+              <h3 class="cbf-panel__title">{{ icon_fish }}{{ section.settings.contents_heading | escape }}</h3>
               <ul class="cbf-list" data-cbf-contents-list></ul>
               {%- if section.settings.contents_disclaimer != blank -%}
-                <div class="cbf-note rte text-sm">{{ section.settings.contents_disclaimer }}</div>
+                <div class="cbf-note cbf-note--tight uikit-body-s uikit-muted">{{ section.settings.contents_disclaimer }}</div>
               {%- endif -%}
             </div>
 
-            {%- comment -%} c) omega — only when lab data exists {%- endcomment -%}
-            <div class="cbf-block" data-cbf-omega-block hidden>
-              <h3 class="heading title-sm">{{ section.settings.omega_heading | escape }}</h3>
-              <div class="card-grid card-grid--3 mobile:card-grid--1 grid">
-                <div class="cbf-stat card">
-                  <span class="heading title-sm" data-cbf-omega-total></span>
-                  <span class="text-sm">Total EPA + DHA</span>
+            {%- comment -%} c) omega - only when lab data exists {%- endcomment -%}
+            <div class="cbf-panel" data-cbf-omega-block hidden>
+              <h3 class="cbf-panel__title">{{ icon_fish }}{{ section.settings.omega_heading | escape }}</h3>
+              <div class="cbf-stats">
+                <div class="cbf-stat">
+                  <span class="cbf-stat__num" data-cbf-omega-total></span>
+                  <span class="uikit-body-s uikit-muted">EPA+DHA</span>
                 </div>
-                <div class="cbf-stat card">
-                  <span class="heading title-sm" data-cbf-omega-days></span>
-                  <span class="text-sm">at the ~{{ target_mg }} mg/day target</span>
+                <div class="cbf-stat">
+                  <span class="cbf-stat__num" data-cbf-omega-servings></span>
+                  <span class="uikit-body-s uikit-muted">lab-tested servings</span>
                 </div>
-                <div class="cbf-stat card">
-                  <span class="heading title-sm" data-cbf-omega-servings></span>
-                  <span class="text-sm">Lab-tested servings</span>
+                <div class="cbf-stat">
+                  <span class="cbf-stat__num" data-cbf-omega-portions></span>
+                  <span class="uikit-body-s uikit-muted">portions in this box</span>
                 </div>
               </div>
               {%- if section.settings.omega_disclaimer != blank -%}
-                <div class="cbf-note rte text-sm">{{ section.settings.omega_disclaimer }}</div>
+                <div class="cbf-note cbf-note--tight uikit-body-s uikit-muted">{{ section.settings.omega_disclaimer }}</div>
               {%- endif -%}
-              <div class="cbf-note rte text-sm" data-cbf-omega-partial hidden>
-                {{ section.settings.omega_partial_note }}
-              </div>
+              <div class="cbf-note cbf-note--tight uikit-body-s uikit-muted" data-cbf-omega-partial hidden>{{ section.settings.omega_partial_note }}</div>
             </div>
 
             {%- comment -%} d) purchase type {%- endcomment -%}
             {%- if product.selling_plan_groups.size > 0 -%}
-              <fieldset class="cbf-block cbf-fieldset">
-                <legend class="heading title-sm">{{ section.settings.purchase_heading | escape }}</legend>
+              <fieldset class="cbf-fieldset cbf-purchase">
+                <legend class="visually-hidden">{{ section.settings.purchase_heading | escape }}</legend>
 
-                <label class="cbf-opt cbf-opt--row card">
-                  <input type="radio" class="sr-only" name="cbf-purchase" value="subscription" data-cbf-purchase checked>
-                  <span class="cbf-card cbf-card--plain">
-                    <span class="cbf-card__body">
-                      <span class="font-medium">{{ section.settings.subscribe_label | escape }}</span>
-                      <span class="cbf-plans" data-cbf-plans></span>
-                      {%- if section.settings.subscribe_benefits != blank -%}
-                        <span class="rte text-sm">{{ section.settings.subscribe_benefits }}</span>
-                      {%- endif -%}
+                <label class="cbf-opt cbf-opt--row">
+                  <input type="radio" class="visually-hidden" name="cbf-purchase" value="onetime" data-cbf-purchase>
+                  <span class="cbf-card cbf-card--row">
+                    <span class="cbf-card__row">
+                      <span class="cbf-row__lead"><span class="cbf-dot" aria-hidden="true"></span><span class="uikit-label-m">{{ section.settings.onetime_label | escape }}</span></span>
+                      <span class="uikit-label-m" data-cbf-once-price></span>
                     </span>
                   </span>
                 </label>
 
-                <label class="cbf-opt cbf-opt--row card">
-                  <input type="radio" class="sr-only" name="cbf-purchase" value="onetime" data-cbf-purchase>
-                  <span class="cbf-card cbf-card--plain">
-                    <span class="cbf-card__body">
-                      <span class="font-medium">{{ section.settings.onetime_label | escape }}</span>
+                <label class="cbf-opt cbf-opt--row">
+                  <input type="radio" class="visually-hidden" name="cbf-purchase" value="subscription" data-cbf-purchase checked>
+                  <span class="cbf-card cbf-card--row">
+                    <span class="cbf-card__row">
+                      <span class="cbf-row__lead"><span class="cbf-dot" aria-hidden="true"></span><span class="uikit-label-m">{{ section.settings.subscribe_label | escape }}</span></span>
+                      <span class="cbf-row__price"><span class="uikit-label-m" data-cbf-sub-price></span> <s class="uikit-body-s uikit-muted" data-cbf-sub-compare></s></span>
+                    </span>
+                    <span class="cbf-sub-detail" data-cbf-sub-detail>
+                      <span class="cbf-select-wrap">
+                        <select class="cbf-select uikit-body-s" data-cbf-plan-select aria-label="Delivery frequency"></select>
+                      </span>
+                      {%- if section.settings.subscribe_benefits != blank -%}
+                        <span class="cbf-benefits uikit-body-s">{{ section.settings.subscribe_benefits }}</span>
+                      {%- endif -%}
                     </span>
                   </span>
                 </label>
@@ -411,33 +451,38 @@
             {%- endif -%}
 
             {%- comment -%} e) email + checkout {%- endcomment -%}
-            <div class="cbf-block">
+            <div class="cbf-checkout">
               {%- if section.settings.email_label != blank -%}
-                <label class="form__label" for="CbfEmail-{{ section.id }}">{{ section.settings.email_label }}</label>
+                <label class="cbf-label uikit-body-s" for="CbfEmail-{{ section.id }}">{{ section.settings.email_label | escape }}</label>
                 <input
                   id="CbfEmail-{{ section.id }}"
-                  class="input w-full"
+                  class="cbf-input uikit-body-m"
                   type="email"
                   name="properties[Email]"
                   autocomplete="email"
-                  placeholder="you@example.com"
+                  placeholder="you@email.com"
                   data-cbf-email
                 >
-                <p class="text-sm" data-cbf-email-error hidden>{{ section.settings.email_error | escape }}</p>
+                <p class="cbf-error uikit-body-s" data-cbf-email-error hidden>{{ section.settings.email_error | escape }}</p>
               {%- endif -%}
 
-              <button type="submit" class="button button--primary button--lg w-full" data-cbf-submit>
-                <span class="btn-fill" data-fill></span>
-                <span class="btn-text" data-cbf-submit-text>{{ section.settings.checkout_label | escape }}</span>
+              <button type="submit" class="cbf-btn cbf-btn--primary cbf-btn--block" data-cbf-submit>
+                <span data-cbf-submit-text>{{ section.settings.checkout_label | escape }}</span>
+              </button>
+              <p class="cbf-error uikit-body-s" data-cbf-submit-error hidden>Something went wrong adding this box. Please try again.</p>
+
+              <button type="button" class="cbf-btn cbf-btn--ghost cbf-btn--center" data-cbf-next="2">
+                <span class="cbf-btn__arrow" aria-hidden="true">&larr;</span>
+                {{ section.settings.change_size_label | default: 'Change size' | escape }}
               </button>
             </div>
           </div>
         </form>
       </curated-funnel>
 
-      {%- comment -%} ---------- social proof: reuse Judge.me, every step ---------- {%- endcomment -%}
+      {%- comment -%} ---------- social proof: reuse Judge.me ---------- {%- endcomment -%}
       {%- if section.settings.show_reviews and product.metafields.judgeme.widget != blank -%}
-        <div class="cbf-block">{{ product.metafields.judgeme.widget }}</div>
+        <div class="cbf-reviews">{{ product.metafields.judgeme.widget }}</div>
       {%- endif -%}
     </div>
   </section>
@@ -448,21 +493,29 @@
 
       customElements.define('curated-funnel', class extends HTMLElement {
         connectedCallback() {
-          this.targetMg = parseInt(this.dataset.targetMg, 10) || 2000;
           this.variants = this.readJSON('[data-cbf-variants]') || [];
           this.omega = this.readJSON('[data-cbf-omega]') || null;
           this.form = this.querySelector('[data-cbf-form]');
+          this.requireEmail = this.dataset.requireEmail === 'true';
           this.step = 1;
+          this.busy = false;
 
           this.addEventListener('change', this.onChange.bind(this));
           this.addEventListener('click', this.onClick.bind(this));
+          if (this.form) this.form.addEventListener('submit', this.onSubmit.bind(this));
 
           var email = this.querySelector('[data-cbf-email]');
-          if (email) email.addEventListener('blur', this.captureLead.bind(this));
+          if (email) {
+            email.addEventListener('blur', this.captureLead.bind(this));
+            email.addEventListener('input', this.update.bind(this));
+          }
+
+          var note = this.querySelectorAll('[data-cbf-omega-note]');
+          note.forEach(function (el) { el.hidden = !this.omega; }, this);
 
           this.renderStyleOmega();
           this.update();
-          this.goto(1);
+          this.goto(1, false);
         }
 
         readJSON(sel) {
@@ -478,16 +531,17 @@
 
         current() {
           var s = this.val('style'), z = this.val('size');
+          if (!s || !z) return null;
           return this.variants.filter(function (v) { return v.style === s && v.size === z; })[0] || null;
         }
 
         onChange(e) {
-          if (e.target.matches('[data-cbf-style],[data-cbf-size],[data-cbf-purchase],[data-cbf-plan]')) this.update();
+          if (e.target.matches('[data-cbf-style],[data-cbf-size],[data-cbf-purchase],[data-cbf-plan-select]')) this.update();
         }
 
         onClick(e) {
           var next = e.target.closest('[data-cbf-next]');
-          if (next) { e.preventDefault(); this.goto(parseInt(next.dataset.cbfNext, 10)); return; }
+          if (next && !next.disabled) { e.preventDefault(); this.goto(parseInt(next.dataset.cbfNext, 10)); return; }
           var goto = e.target.closest('[data-cbf-goto]');
           if (goto) {
             var n = parseInt(goto.dataset.cbfGoto, 10);
@@ -495,7 +549,9 @@
           }
         }
 
-        goto(n) {
+        goto(n, scroll) {
+          if (n === 2 && !this.val('style')) return;
+          if (n === 3 && !this.current()) return;
           this.step = n;
           this.querySelectorAll('[data-cbf-step]').forEach(function (el) {
             el.hidden = parseInt(el.dataset.cbfStep, 10) !== n;
@@ -507,7 +563,12 @@
             var b = el.querySelector('[data-cbf-goto]');
             if (b) b.setAttribute('aria-current', i === n ? 'step' : 'false');
           });
-          if (n > 1) this.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          var waves = this.querySelectorAll('.cbf-progress__wave');
+          waves.forEach(function (w, i) { w.classList.toggle('is-active', i + 1 < n); });
+          if (scroll !== false) {
+            var top = this.getBoundingClientRect().top + window.pageYOffset - 24;
+            window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+          }
         }
 
         /* ---- omega helpers. No lab data -> no numbers, ever. ---- */
@@ -515,13 +576,25 @@
           if (!this.omega || !components || !components.length) return null;
           var total = 0, servings = 0, noData = 0;
           components.forEach(function (c) {
-            var rec = this.omega[c.sku];
+            var rec = this.omega[(c.sku || '').trim()];
             var qty = parseInt(c.quantity, 10) || 0;
-            if (rec && typeof rec.epaDhaMg === 'number') { total += rec.epaDhaMg * qty; servings += qty; }
+            if (rec && typeof rec.epaDhaMg === 'number' && rec.epaDhaMg > 0) { total += rec.epaDhaMg * qty; servings += qty; }
             else { noData += qty; }
           }, this);
           if (!servings) return null;
           return { total: total, servings: servings, noData: noData };
+        }
+
+        fmtMg(mg) { return Math.round(mg).toLocaleString('en-US') + ' mg'; }
+        fmtG(mg) {
+          return mg >= 1000
+            ? (mg / 1000).toLocaleString('en-US', { maximumFractionDigits: 1 }) + ' g'
+            : this.fmtMg(mg);
+        }
+        shortName(c) {
+          var n = c.name || c.sku || '';
+          var i = n.indexOf(', ');
+          return i > -1 ? n.slice(i + 2) : n;
         }
 
         renderStyleOmega() {
@@ -532,25 +605,32 @@
             var sum = 0, n = 0;
             self.variants.filter(function (v) { return v.style === style; }).forEach(function (v) {
               var o = self.omegaFor(v.components);
-              if (o) { sum += o.total / o.servings; n++; }
+              if (o) { sum += o.total; n += o.servings; }
             });
             if (!n) return;
-            el.textContent = '≈ ' + Math.round(sum / n).toLocaleString() + ' mg EPA+DHA per serving';
+            var txt = el.querySelector('[data-cbf-style-omega-text]');
+            if (txt) txt.textContent = '≈ ' + self.fmtMg(sum / n) + ' EPA+DHA per serving';
             el.hidden = false;
           });
         }
 
         update() {
-          var v = this.current();
           var self = this;
-
-          /* per-size prices on step 2, for the currently chosen style */
           var style = this.val('style');
+          var v = this.current();
+
+          /* step gates */
+          this.querySelectorAll('[data-cbf-needs]').forEach(function (btn) {
+            var need = btn.dataset.cbfNeeds;
+            btn.disabled = need === 'style' ? !style : !v;
+          });
+
+          /* per-size prices + omega on step 2, for the chosen style */
           this.querySelectorAll('[data-cbf-size-price]').forEach(function (el) {
             var match = self.variants.filter(function (x) {
               return x.style === style && x.size === el.dataset.cbfSizePrice;
             })[0];
-            el.textContent = match ? 'Starting at ' + match.priceText : '';
+            el.innerHTML = match ? 'Starting at <strong>' + match.priceShort + '</strong>' : '';
           });
           this.querySelectorAll('[data-cbf-size-omega]').forEach(function (el) {
             var match = self.variants.filter(function (x) {
@@ -558,46 +638,60 @@
             })[0];
             var o = match ? self.omegaFor(match.components) : null;
             if (!o) { el.hidden = true; return; }
-            el.textContent = Math.round(o.total / 1000) + 'g omega-3 · ~' +
-              Math.round(o.total / self.targetMg) + ' days';
+            var big = el.querySelector('[data-cbf-size-omega-big]');
+            var sub = el.querySelector('[data-cbf-size-omega-sub]');
+            if (big) big.textContent = self.fmtG(o.total) + ' omega-3' + (o.noData ? '*' : '');
+            if (sub) sub.textContent = 'EPA+DHA per box · ' + o.servings + ' lab-tested servings';
             el.hidden = false;
           });
-          var note = this.querySelector('[data-cbf-omega-note]');
-          if (note) note.hidden = !this.omega;
 
           if (!v) return;
 
-          /* selling plan */
-          var wantsSub = this.val('purchase') !== 'onetime' && v.plans.length > 0;
-          var plansEl = this.querySelector('[data-cbf-plans]');
-          if (plansEl && v.plans.length && !plansEl.dataset.built) {
-            plansEl.innerHTML = v.plans.map(function (p, i) {
-              return '<label class="cbf-plan text-sm"><input type="radio" name="cbf-plan" value="' + p.id +
-                '" data-cbf-plan' + (i === 0 ? ' checked' : '') + '> ' + p.name + '</label>';
+          /* selling plans */
+          var select = this.querySelector('[data-cbf-plan-select]');
+          var hasPlans = v.plans && v.plans.length > 0;
+          if (select && hasPlans && select.dataset.builtFor !== String(v.id)) {
+            var keep = select.value;
+            select.innerHTML = v.plans.map(function (p) {
+              return '<option value="' + p.id + '">' + p.name + '</option>';
             }).join('');
-            plansEl.dataset.built = '1';
+            if (keep && v.plans.some(function (p) { return String(p.id) === keep; })) select.value = keep;
+            select.dataset.builtFor = String(v.id);
           }
-          var planId = null;
+          var purchase = this.val('purchase') || 'subscription';
+          var wantsSub = purchase === 'subscription' && hasPlans;
+          var planId = null, plan = null;
           if (wantsSub) {
-            var chosen = this.querySelector('[data-cbf-plan]:checked');
-            planId = chosen ? chosen.value : (v.plans[0] && v.plans[0].id);
+            planId = select && select.value ? select.value : v.plans[0].id;
+            plan = v.plans.filter(function (p) { return String(p.id) === String(planId); })[0] || v.plans[0];
+            planId = plan.id;
           }
-          var priceText = v.priceText;
-          if (planId) {
-            var p = v.plans.filter(function (x) { return String(x.id) === String(planId); })[0];
-            if (p) priceText = p.priceText;
-          }
+          var subPlan = hasPlans ? v.plans[0] : null;
+          var subDetail = this.querySelector('[data-cbf-sub-detail]');
+          if (subDetail) subDetail.hidden = !wantsSub;
 
+          this.setText('[data-cbf-once-price]', v.priceText);
+          this.setText('[data-cbf-sub-price]', subPlan ? subPlan.priceText : '');
+          this.setText('[data-cbf-sub-compare]', subPlan && subPlan.price < v.price ? v.priceText : '');
+
+          var priceText = plan ? plan.priceText : v.priceText;
           this.querySelector('[data-cbf-variant-id]').value = v.id;
           this.querySelector('[data-cbf-selling-plan]').value = planId || '';
 
           var img = this.querySelector('[data-cbf-summary-image]');
-          if (img && v.image) { img.src = v.image; img.alt = v.style; }
+          if (img && v.image) { img.src = v.image; img.srcset = ''; img.alt = v.style; }
           this.setText('[data-cbf-summary-title]', v.style);
-          this.setText('[data-cbf-summary-size]', v.size);
+          var sizeEl = this.querySelector('[data-cbf-summary-size]');
+          if (sizeEl) {
+            var sizeCard = this.querySelector('[data-cbf-size][value="' + v.size.replace(/"/g, '\\"') + '"]');
+            var emoji = sizeCard ? sizeCard.parentElement.querySelector('.cbf-emoji') : null;
+            sizeEl.textContent = (emoji ? emoji.textContent + ' ' : '') + v.size;
+          }
           this.setText('[data-cbf-summary-price]', priceText);
+          var cmp = this.querySelector('[data-cbf-summary-compare]');
+          if (cmp) { cmp.textContent = v.priceText; cmp.hidden = !(plan && plan.price < v.price); }
           this.setText('[data-cbf-submit-text]',
-            (planId ? this.subLabel() : this.onceLabel()) + ' — ' + priceText);
+            (plan ? this.dataset.subLabel : this.dataset.onceLabel) + ' — ' + priceText);
 
           /* contents */
           var box = this.querySelector('[data-cbf-contents]');
@@ -605,7 +699,9 @@
           if (box && list) {
             if (v.components && v.components.length) {
               list.innerHTML = v.components.map(function (c) {
-                return '<li class="cbf-list__row"><span>' + (c.name || c.sku) + '</span><span>×' + c.quantity + '</span></li>';
+                return '<li class="cbf-list__row"><span class="cbf-list__name">' +
+                  '<svg class="cbf-icon cbf-icon--ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>' +
+                  self.esc(self.shortName(c)) + '</span><span class="cbf-list__qty">×' + (parseInt(c.quantity, 10) || 0) + '</span></li>';
               }).join('');
               box.hidden = false;
             } else { box.hidden = true; }
@@ -616,9 +712,10 @@
           var o = this.omegaFor(v.components);
           if (ob) {
             if (o) {
-              this.setText('[data-cbf-omega-total]', o.total.toLocaleString() + ' mg');
-              this.setText('[data-cbf-omega-days]', '~' + Math.round(o.total / this.targetMg) + ' days');
+              var portions = (v.components || []).reduce(function (a, c) { return a + (parseInt(c.quantity, 10) || 0); }, 0);
+              this.setText('[data-cbf-omega-total]', this.fmtG(o.total));
               this.setText('[data-cbf-omega-servings]', String(o.servings));
+              this.setText('[data-cbf-omega-portions]', String(portions));
               var partial = this.querySelector('[data-cbf-omega-partial]');
               if (partial) partial.hidden = o.noData === 0;
               ob.hidden = false;
@@ -626,19 +723,60 @@
           }
 
           var submit = this.querySelector('[data-cbf-submit]');
-          if (submit) submit.disabled = !v.available;
+          if (submit) submit.disabled = this.busy || !v.available || (this.requireEmail && !this.emailOk());
         }
 
-        subLabel() { return this.querySelector('[data-cbf-submit]').dataset.sub || 'Subscribe'; }
-        onceLabel() { return this.querySelector('[data-cbf-submit]').dataset.once || 'Checkout'; }
+        emailOk() {
+          var email = this.querySelector('[data-cbf-email]');
+          if (!email) return true;
+          return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test((email.value || '').trim());
+        }
 
+        esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
         setText(sel, text) { var el = this.querySelector(sel); if (el) el.textContent = text; }
 
-        /* Klaviyo is already on every page — identify the lead without adding
+        /* Add to cart via AJAX, then straight to checkout, like the reference. */
+        onSubmit(e) {
+          e.preventDefault();
+          var v = this.current();
+          if (!v || this.busy) return;
+          if (this.requireEmail && !this.emailOk()) {
+            var err = this.querySelector('[data-cbf-email-error]');
+            if (err) err.hidden = false;
+            return;
+          }
+          var self = this;
+          var submit = this.querySelector('[data-cbf-submit]');
+          var label = this.querySelector('[data-cbf-submit-text]');
+          var errBox = this.querySelector('[data-cbf-submit-error]');
+          var prev = label ? label.textContent : '';
+          this.busy = true;
+          if (submit) submit.disabled = true;
+          if (label) label.textContent = 'Processing…';
+          if (errBox) errBox.hidden = true;
+
+          var body = new FormData(this.form);
+          if (!body.get('selling_plan')) body.delete('selling_plan');
+          fetch(window.Shopify && window.Shopify.routes ? window.Shopify.routes.root + 'cart/add.js' : '/cart/add.js', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: body
+          }).then(function (r) {
+            if (!r.ok) throw new Error('add failed');
+            window.location.href = (window.Shopify && window.Shopify.routes ? window.Shopify.routes.root : '/') + 'checkout';
+          }).catch(function () {
+            self.busy = false;
+            if (label) label.textContent = prev;
+            if (errBox) errBox.hidden = false;
+            self.update();
+          });
+        }
+
+        /* Klaviyo is already on every page - identify the lead without adding
            a dependency. Fails silently if Klaviyo has not booted yet. */
         captureLead(e) {
           var email = (e.target.value || '').trim();
-          var ok = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+          var ok = this.emailOk();
           var err = this.querySelector('[data-cbf-email-error]');
           if (err) err.hidden = ok || !email;
           if (!ok) return;
@@ -658,49 +796,161 @@
 {%- endif -%}
 
 {% stylesheet %}
-/* Curated Boxes Funnel — minimal, expressed in existing theme tokens. */
-.cbf-progress { list-style: none; margin: 0 0 var(--sp-6); padding: 0; }
-.cbf-progress__item { opacity: 0.45; }
-.cbf-progress__item.is-active,
-.cbf-progress__item.is-done { opacity: 1; }
-.cbf-progress__btn { display: flex; align-items: center; gap: var(--sp-2); background: none; border: 0; padding: 0; cursor: default; }
+/* Curated Boxes Funnel - namespaced .cbf-*, built on the UI kit tokens. */
+.cbf-section { --cbf-ink: var(--uk-deep-deep-blue); --cbf-line: #cdd9d1; --cbf-surface: var(--uk-white); padding-block: 32px 80px; }
+.cbf-container { position: relative; }
+.cbf { display: block; }
+
+/* phone pill */
+.cbf-phone { display: flex; justify-content: flex-end; margin: 0 0 12px; }
+.cbf-phone a { font-weight: 600; color: inherit; }
+@media (min-width: 990px) {
+  .cbf-phone { position: absolute; top: -24px; right: var(--uk-gutter); margin: 0; padding: 10px 18px; border-radius: 0 0 12px 12px; background: #bfe0f7; color: var(--uk-dark-blue); }
+}
+@media (max-width: 989px) {
+  .cbf-phone { justify-content: center; text-align: center; gap: 4px; flex-wrap: wrap; }
+}
+
+/* progress */
+.cbf-progress { list-style: none; display: flex; align-items: flex-start; justify-content: center; max-width: 440px; margin: 0 auto 28px; padding: 0; }
+.cbf-progress__item { flex: 0 0 auto; }
+.cbf-progress__btn { display: flex; flex-direction: column; align-items: center; gap: 6px; background: none; border: 0; padding: 0; cursor: default; color: var(--uk-muted); font-family: var(--uk-font-body); }
 .cbf-progress__item.is-done .cbf-progress__btn { cursor: pointer; }
-.cbf-progress__num {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 1.75rem; height: 1.75rem; border-radius: 50%;
-  border: 1px solid rgb(var(--color-base-text) / 0.35);
-}
+.cbf-progress__item.is-active .cbf-progress__btn,
+.cbf-progress__item.is-done .cbf-progress__btn { color: var(--uk-text); }
+.cbf-progress__num { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--cbf-line); color: #6b8588; font-weight: 700; font-size: 14px; transition: background-color .18s ease, transform .18s ease; }
 .cbf-progress__item.is-active .cbf-progress__num,
-.cbf-progress__item.is-done .cbf-progress__num {
-  background: rgb(var(--color-base-text)); color: rgb(var(--color-base-background));
-}
+.cbf-progress__item.is-done .cbf-progress__num { background: var(--cbf-accent); color: #fff; }
+.cbf-progress__item.is-done .cbf-progress__btn:hover .cbf-progress__num { transform: scale(1.08); }
+.cbf-progress__check { display: none; width: 16px; height: 16px; }
+.cbf-progress__check .cbf-icon { width: 16px; height: 16px; }
+.cbf-progress__item.is-done .cbf-progress__digit { display: none; }
+.cbf-progress__item.is-done .cbf-progress__check { display: inline-flex; }
+.cbf-progress__label { font-weight: 500; }
+.cbf-progress__wave { flex: 1 1 60px; height: 16px; margin: 10px 6px 0; color: var(--cbf-line); }
+.cbf-progress__wave.is-active { color: var(--cbf-accent); }
+.cbf-progress__wave svg { display: block; width: 100%; height: 16px; }
 
-.cbf-head { margin-bottom: var(--sp-4); }
-.cbf-fieldset { border: 0; margin: 0 0 var(--sp-4); padding: 0; }
-.cbf-block { margin-top: var(--sp-6); }
-.cbf-actions { display: flex; gap: var(--sp-3); margin-top: var(--sp-4); }
-.cbf-note { margin-top: var(--sp-3); opacity: 0.75; }
+/* headings */
+.cbf-head { text-align: center; margin-bottom: 22px; }
+.cbf-h { margin: 0 0 8px; }
+.cbf-sub p { margin: 0; }
 
-.cbf-opt { display: block; cursor: pointer; height: 100%; }
-.cbf-card { display: flex; flex-direction: column; height: 100%; border-radius: var(--card-radius); overflow: hidden; }
-.cbf-card__body { display: flex; flex-direction: column; gap: var(--sp-2); padding: var(--sp-4); }
-.cbf-opt input:focus-visible + .cbf-card { outline: 2px solid rgb(var(--color-base-text)); outline-offset: 2px; }
-.cbf-opt input:checked + .cbf-card { box-shadow: inset 0 0 0 2px rgb(var(--color-base-text)); }
-.cbf-opt--row { margin-bottom: var(--sp-3); }
+/* grids + cards */
+.cbf-fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.cbf-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 749px) { .cbf-grid { grid-template-columns: 1fr; gap: 14px; } }
 
-.cbf-badge { align-self: flex-start; padding: 0 var(--sp-2); border-radius: var(--buttons-radius); background: rgb(var(--color-base-text)); color: rgb(var(--color-base-background)); }
-.cbf-summary { display: grid; grid-template-columns: minmax(0, 30%) minmax(0, 1fr); gap: var(--sp-4); border-radius: var(--card-radius); overflow: hidden; }
-.cbf-summary__body { display: flex; flex-direction: column; gap: var(--sp-2); padding: var(--sp-4) var(--sp-4) var(--sp-4) 0; }
-.cbf-stat { display: flex; flex-direction: column; gap: var(--sp-1); padding: var(--sp-4); border-radius: var(--card-radius); }
-.cbf-list { list-style: none; margin: 0; padding: 0; }
-.cbf-list__row { display: flex; justify-content: space-between; gap: var(--sp-4); padding: var(--sp-2) 0; border-bottom: 1px solid rgb(var(--color-base-text) / 0.12); }
-.cbf-plan { display: block; }
+.cbf-opt { display: block; position: relative; cursor: pointer; height: 100%; }
+.cbf-card { position: relative; display: flex; flex-direction: column; height: 100%; border: 2px solid var(--cbf-line); border-radius: var(--uk-radius-card); background: var(--cbf-surface); overflow: hidden; transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease; }
+.cbf-opt:hover .cbf-card { border-color: color-mix(in srgb, var(--cbf-accent) 55%, var(--cbf-line)); }
+.cbf-opt input:checked + .cbf-card { border-color: var(--cbf-accent); box-shadow: 0 0 0 1px var(--cbf-accent); }
+.cbf-opt input:focus-visible + .cbf-card { outline: 2px solid var(--uk-sky-blue); outline-offset: 2px; }
+.cbf-card--size { background: transparent; }
+.cbf-opt input:checked + .cbf-card--size { background: color-mix(in srgb, var(--cbf-accent) 4%, transparent); }
 
-@media screen and (max-width: 749px) {
+.cbf-card__media { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--uk-gray-4); }
+.cbf-card__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.cbf-card__body { display: flex; flex-direction: column; gap: 8px; padding: 20px; }
+.cbf-card__body--center { align-items: center; text-align: center; padding: 28px 20px 24px; }
+.cbf-card__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.cbf-card__title { font-family: var(--uk-font-heading); font-weight: 500; font-size: 22px; line-height: 1.15; color: var(--cbf-ink); }
+.cbf-card__text p { margin: 0; }
+.cbf-card__price strong { color: var(--uk-text); font-weight: 700; }
+.cbf-card__omega { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; padding-top: 12px; border-top: 1px solid var(--cbf-line); color: var(--cbf-accent); font-weight: 600; }
+.cbf-card__omega--stack { flex-direction: column; align-self: stretch; gap: 2px; margin-top: 8px; }
+.cbf-card__omega-big { font-size: 18px; font-weight: 700; color: var(--cbf-accent); }
+.cbf-icon { width: 16px; height: 16px; flex: 0 0 auto; }
+
+.cbf-radio { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex: 0 0 auto; border: 2px solid var(--cbf-line); border-radius: 50%; color: #fff; background: transparent; transition: background-color .18s ease, border-color .18s ease; }
+.cbf-radio .cbf-icon { width: 14px; height: 14px; opacity: 0; }
+.cbf-opt input:checked + .cbf-card .cbf-radio { background: var(--cbf-accent); border-color: var(--cbf-accent); }
+.cbf-opt input:checked + .cbf-card .cbf-radio .cbf-icon { opacity: 1; }
+
+.cbf-badge { position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); padding: 6px 14px; border-radius: var(--uk-radius-pill); background: var(--cbf-accent); color: #fff; font-size: 13px; font-weight: 600; white-space: nowrap; z-index: 1; }
+.cbf-emoji { font-size: 26px; line-height: 1; }
+.cbf-portions { font-size: 44px; line-height: 1; font-weight: 700; color: var(--cbf-ink); margin-top: 4px; }
+.cbf-portions__label { margin-top: -2px; }
+.cbf-tagline { color: var(--cbf-accent); }
+
+/* notes + actions */
+.cbf-note { text-align: center; max-width: 720px; margin: 18px auto 0; }
+.cbf-note--tight { text-align: left; margin: 12px 0 0; }
+.cbf-note p { margin: 0; }
+.cbf-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 28px; }
+.cbf-actions--end { justify-content: flex-end; }
+@media (max-width: 749px) { .cbf-actions { flex-direction: column-reverse; align-items: stretch; } }
+
+.cbf-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 14px 28px; border: 1px solid transparent; border-radius: var(--uk-radius-pill); font-family: var(--uk-font-body); font-size: 16px; font-weight: 600; line-height: 1; cursor: pointer; text-decoration: none; transition: background-color .18s ease, color .18s ease, opacity .18s ease; }
+.cbf-btn--primary { background: var(--cbf-accent); color: #fff; min-width: 200px; }
+.cbf-btn--primary:hover:not(:disabled) { background: var(--uk-dark-blue); }
+.cbf-btn--primary:disabled { background: #a8b7bb; cursor: not-allowed; }
+.cbf-btn--ghost { background: transparent; color: var(--uk-muted); padding-inline: 12px; }
+.cbf-btn--ghost:hover { color: var(--uk-text); }
+.cbf-btn--block { width: 100%; min-height: 56px; font-size: 17px; }
+.cbf-btn--center { margin: 10px auto 0; display: flex; }
+.cbf-btn__arrow { font-size: 18px; line-height: 1; }
+.cbf-btn:focus-visible { outline: 2px solid var(--uk-sky-blue); outline-offset: 2px; }
+
+/* step 3 */
+.cbf-step--narrow { max-width: 760px; margin-inline: auto; }
+.cbf-summary { display: grid; grid-template-columns: minmax(0, 30%) minmax(0, 1fr); border: 2px solid var(--cbf-accent); border-radius: var(--uk-radius-card); background: var(--cbf-surface); overflow: hidden; }
+.cbf-summary__media { display: block; aspect-ratio: 1; overflow: hidden; background: var(--uk-gray-4); }
+.cbf-summary__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.cbf-summary__body { display: flex; flex-direction: column; justify-content: center; gap: 8px; padding: 20px 22px; min-width: 0; }
+.cbf-summary__title { font-family: var(--uk-font-heading); font-weight: 500; font-size: 22px; line-height: 1.15; color: var(--cbf-ink); }
+.cbf-summary__size { color: var(--cbf-accent); white-space: nowrap; }
+.cbf-summary__foot { margin-top: 4px; flex-wrap: wrap; }
+.cbf-summary__price { display: inline-flex; align-items: baseline; gap: 8px; font-size: 26px; font-weight: 700; color: var(--cbf-ink); }
+.cbf-rating { display: inline-flex; align-items: center; gap: 6px; }
+.cbf-rating__stars { display: inline-flex; gap: 2px; }
+.cbf-star { width: 14px; height: 14px; fill: var(--cbf-accent); }
+.cbf-rating__star.is-off .cbf-star { fill: var(--cbf-line); }
+@media (max-width: 749px) {
   .cbf-summary { grid-template-columns: 1fr; }
-  .cbf-summary__body { padding: 0 var(--sp-4) var(--sp-4); }
-  .cbf-actions { flex-direction: column; }
+  .cbf-summary__media { aspect-ratio: 16 / 9; }
 }
+
+.cbf-panel { margin-top: 20px; padding: 20px 22px; border: 2px solid color-mix(in srgb, var(--cbf-accent) 15%, transparent); border-radius: var(--uk-radius-card); background: color-mix(in srgb, var(--cbf-accent) 4%, var(--cbf-surface)); }
+.cbf-panel__title { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; font-family: var(--uk-font-heading); font-weight: 500; font-size: 20px; color: var(--cbf-ink); }
+.cbf-panel__title .cbf-icon { color: var(--cbf-accent); width: 18px; height: 18px; }
+.cbf-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.cbf-list__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 16px; }
+.cbf-list__name { display: inline-flex; align-items: center; gap: 8px; min-width: 0; color: var(--cbf-ink); }
+.cbf-icon--ok { color: #2f9e6d; width: 15px; height: 15px; }
+.cbf-list__qty { font-weight: 700; color: var(--cbf-accent); }
+.cbf-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; text-align: center; }
+.cbf-stat { display: flex; flex-direction: column; gap: 2px; }
+.cbf-stat__num { font-size: 26px; font-weight: 700; color: var(--cbf-accent); line-height: 1.1; }
+
+/* purchase type */
+.cbf-purchase { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+.cbf-opt--row { height: auto; }
+.cbf-card--row { padding: 16px 18px; gap: 12px; }
+.cbf-row__lead { display: inline-flex; align-items: center; gap: 12px; }
+.cbf-dot { display: inline-flex; width: 18px; height: 18px; border: 2px solid #9fb0b4; border-radius: 50%; position: relative; flex: 0 0 auto; }
+.cbf-dot::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; background: var(--cbf-accent); opacity: 0; transition: opacity .15s ease; }
+.cbf-opt input:checked + .cbf-card .cbf-dot { border-color: var(--cbf-accent); }
+.cbf-opt input:checked + .cbf-card .cbf-dot::after { opacity: 1; }
+.cbf-row__price { white-space: nowrap; }
+.cbf-sub-detail { display: flex; flex-direction: column; gap: 12px; padding-left: 30px; }
+.cbf-sub-detail[hidden] { display: none; }
+.cbf-select-wrap { position: relative; display: block; }
+.cbf-select { width: 100%; appearance: none; -webkit-appearance: none; padding: 10px 40px 10px 14px; border: 1px solid var(--cbf-line); border-radius: 10px; background: var(--cbf-surface); color: var(--uk-text); font-family: var(--uk-font-body); }
+.cbf-select-wrap::after { content: ""; position: absolute; right: 14px; top: 50%; width: 8px; height: 8px; border-right: 2px solid var(--uk-muted); border-bottom: 2px solid var(--uk-muted); transform: translateY(-70%) rotate(45deg); pointer-events: none; }
+.cbf-benefits ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.cbf-benefits li { position: relative; padding-left: 22px; }
+.cbf-benefits li::before { content: ""; position: absolute; left: 0; top: 0.35em; width: 6px; height: 10px; border-right: 2px solid var(--cbf-accent); border-bottom: 2px solid var(--cbf-accent); transform: rotate(45deg); }
+
+/* email + checkout */
+.cbf-checkout { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+.cbf-label { font-weight: 600; color: var(--cbf-ink); }
+.cbf-input { width: 100%; padding: 12px 14px; border: 2px solid color-mix(in srgb, var(--cbf-accent) 30%, transparent); border-radius: 10px; background: var(--cbf-surface); font-family: var(--uk-font-body); color: var(--uk-text); transition: border-color .18s ease, box-shadow .18s ease; }
+.cbf-input:focus { outline: none; border-color: var(--cbf-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--cbf-accent) 25%, transparent); }
+.cbf-error { margin: 0; color: #b23a3a; }
+
+/* reviews block from Judge.me */
+.cbf-reviews { margin-top: 56px; }
 {% endstylesheet %}
 
 {% schema %}
@@ -715,9 +965,13 @@
     { "type": "product", "id": "product", "label": "Curated box product" },
     { "type": "text", "id": "style_option_name", "label": "Style option name", "default": "Style" },
     { "type": "text", "id": "size_option_name", "label": "Size option name", "default": "Size" },
+    { "type": "color", "id": "accent", "label": "Accent colour", "default": "#497991" },
     { "type": "text", "id": "step_labels", "label": "Progress labels (comma separated)", "default": "Seafood,Size,Checkout" },
     { "type": "text", "id": "continue_label", "label": "Continue button", "default": "Continue" },
     { "type": "text", "id": "back_label", "label": "Back button", "default": "Back" },
+    { "type": "text", "id": "change_size_label", "label": "Change size button (step 3)", "default": "Change size" },
+    { "type": "text", "id": "phone_label", "label": "Phone pill text", "default": "Prefer to talk? Call us to order" },
+    { "type": "text", "id": "phone", "label": "Phone number", "default": "(818) 646-4251" },
 
     { "type": "header", "content": "Step 1 — Seafood" },
     { "type": "text", "id": "step1_heading", "label": "Heading", "default": "Choose Your Seafood" },
@@ -726,29 +980,29 @@
     { "type": "header", "content": "Step 2 — Size" },
     { "type": "text", "id": "step2_heading", "label": "Heading", "default": "Choose Your Size" },
     { "type": "richtext", "id": "step2_subheading", "label": "Subheading", "default": "<p>Choose the box size that fits your household.</p>" },
-    { "type": "richtext", "id": "omega_footnote", "label": "Omega footnote", "default": "<p>Omega-3 (EPA+DHA) is associated with better long-term heart and brain outcomes. Per-serving values from Edacious lab tests on box components.</p>" },
+    { "type": "richtext", "id": "omega_footnote", "label": "Omega footnote (steps 1 and 2)", "info": "Shown only when lab data exists. Keep the variance note — it is what makes the figure a published test result rather than a guarantee (claims guide §8.8).", "default": "<p>Per-serving EPA+DHA figures are our published third-party test results from Edacious for each portion in the box, averaged across the box. Values vary by sample and season.</p>" },
 
     { "type": "header", "content": "Step 3 — Review" },
     { "type": "text", "id": "step3_heading", "label": "Heading", "default": "Your Box is Built!" },
     { "type": "richtext", "id": "step3_subheading", "label": "Subheading", "default": "<p>Review your selections and checkout.</p>" },
-    { "type": "richtext", "id": "ship_copy", "label": "Shipping copy", "default": "<p>Arrives snap frozen. Orders ship Tuesday & Wednesday.</p>" },
+    { "type": "richtext", "id": "ship_copy", "label": "Shipping copy", "default": "<p>Arrives snap frozen. Orders ship Tuesday &amp; Wednesday.</p>" },
     { "type": "text", "id": "contents_heading", "label": "Contents heading", "default": "What's inside this box" },
     { "type": "richtext", "id": "contents_disclaimer", "label": "Contents disclaimer", "default": "<p>Chef-curated selection — exact varieties may shift slightly with the season and best available harvest.</p>" },
     { "type": "text", "id": "omega_heading", "label": "Omega heading", "default": "Omega-3 in this box" },
-    { "type": "number", "id": "daily_target_mg", "label": "Daily EPA+DHA target (mg)", "default": 2000 },
-    { "type": "richtext", "id": "omega_disclaimer", "label": "Omega disclaimer", "default": "<p>Values from Edacious lab tests on box components.</p>" },
-    { "type": "richtext", "id": "omega_partial_note", "label": "Partial-data note", "default": "<p>Totals reflect lab-tested selections only.</p>" },
+    { "type": "richtext", "id": "omega_disclaimer", "label": "Omega disclaimer", "default": "<p>Published Edacious test results for each portion, summed for the box. Values vary by sample and season.</p>" },
+    { "type": "richtext", "id": "omega_partial_note", "label": "Partial-data note", "default": "<p>Totals include lab-tested portions only.</p>" },
 
     { "type": "header", "content": "Purchase" },
-    { "type": "text", "id": "purchase_heading", "label": "Heading", "default": "How would you like it?" },
+    { "type": "text", "id": "purchase_heading", "label": "Heading (screen readers)", "default": "How would you like it?" },
     { "type": "text", "id": "subscribe_label", "label": "Subscribe label", "default": "Subscribe & Save 10%" },
-    { "type": "richtext", "id": "subscribe_benefits", "label": "Subscribe benefits", "default": "<ul><li>FREE Cooking Class with every order</li><li>Arrives super frozen or we replace it</li><li>Pause or cancel anytime</li></ul>" },
+    { "type": "richtext", "id": "subscribe_benefits", "label": "Subscribe benefits", "default": "<ul><li>Free 1:1 chef classes</li><li>Arrives snap-frozen or we replace it</li><li>Pause, skip, or cancel anytime</li></ul>" },
     { "type": "text", "id": "onetime_label", "label": "One-time label", "default": "One-time purchase" },
-    { "type": "text", "id": "email_label", "label": "Email label", "default": "Enter your email to unlock your FREE Seafood Detox eBook and continue checkout" },
+    { "type": "text", "id": "email_label", "label": "Email label (blank = no email gate)", "default": "Enter your email to continue to checkout" },
     { "type": "text", "id": "email_error", "label": "Email error", "default": "Please enter a valid email address." },
-    { "type": "text", "id": "checkout_label", "label": "Checkout button", "default": "Checkout" },
-    { "type": "checkbox", "id": "show_reviews", "label": "Show Judge.me reviews", "default": true },
-    { "type": "checkbox", "id": "divider", "label": "Show divider", "default": false }
+    { "type": "text", "id": "checkout_label", "label": "Checkout button (before a price is known)", "default": "Checkout" },
+    { "type": "text", "id": "submit_sub_label", "label": "Checkout button, subscription", "default": "Subscribe" },
+    { "type": "text", "id": "submit_once_label", "label": "Checkout button, one-time", "default": "Checkout" },
+    { "type": "checkbox", "id": "show_reviews", "label": "Show Judge.me reviews", "default": true }
   ],
   "blocks": [
     {
@@ -765,6 +1019,7 @@
       "name": "Size card",
       "settings": [
         { "type": "text", "id": "size_value", "label": "Matches Size option value" },
+        { "type": "text", "id": "emoji", "label": "Emoji" },
         { "type": "text", "id": "tagline", "label": "Tagline" },
         { "type": "richtext", "id": "description", "label": "Detail line" },
         { "type": "text", "id": "badge", "label": "Badge" }
