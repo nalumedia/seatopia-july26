@@ -1,0 +1,836 @@
+{
+  "sections": {
+    "main-article-banner": {
+      "type": "main-article-banner",
+      "blocks": {
+        "spacing": {
+          "type": "spacing",
+          "settings": {
+            "height": 68,
+            "height_mobile": 0
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "title-lg tracking-heading",
+            "show_tags": true,
+            "show_date": false,
+            "show_comments": false,
+            "show_author": true
+          }
+        }
+      },
+      "block_order": [
+        "spacing",
+        "title"
+      ],
+      "settings": {
+        "transparent_header": true,
+        "show_image": true,
+        "image": "shopify://shop_images/seatopia-peruvian-scallops-geronimo-ramos-18.jpg",
+        "image_height": "750px",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-center",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_overlay": "#000000",
+        "overlay_opacity": 40,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "collab_card": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "recipe-collab",
+        "liquid": "<style>\n  .sea-collab {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    border: 1px solid var(--line);\n    border-radius: 18px;\n    background: var(--wash);\n    padding: 24px 28px;\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n    color: var(--ink);\n  }\n  .sea-collab__avatar {\n    flex: 0 0 auto;\n    width: 68px;\n    height: 68px;\n    border-radius: 50%;\n    overflow: hidden;\n    border: 2px solid #fff;\n    box-shadow: 0 0 0 2px var(--gold);\n    background: #eee;\n  }\n  .sea-collab__badge::before {\n    content: \"\\00b7\";\n    margin: 0 .5em 0 0;\n  }\n  .sea-collab__avatar img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    object-position: 50% 30%;\n    display: block;\n  }\n  .sea-collab__body {\n    flex: 1 1 260px;\n    min-width: 0;\n  }\n  .sea-collab__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 5px;\n  }\n  .sea-collab__name {\n    font-size: 21px;\n    font-weight: 600;\n    line-height: 1.2;\n    margin: 0 0 4px;\n  }\n  .sea-collab__role {\n    font-size: 15px;\n    color: var(--muted);\n    line-height: 1.45;\n    margin: 0;\n  }\n  .sea-collab__cred {\n    font-size: 13px;\n    color: var(--muted);\n    line-height: 1.5;\n    margin: 10px 0 0;\n    padding-top: 10px;\n    border-top: 1px solid var(--line);\n  }\n  .sea-collab__follow {\n    flex: 0 0 auto;\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    padding: 11px 20px;\n    border: 1px solid var(--ink);\n    border-radius: 999px;\n    font-size: 15px;\n    font-weight: 600;\n    text-decoration: none;\n    color: var(--ink);\n    background: #fff;\n    transition: background .18s ease, color .18s ease;\n  }\n  .sea-collab__follow:hover {\n    background: var(--ink);\n    color: #fff;\n  }\n  .sea-collab__follow svg {\n    width: 18px;\n    height: 18px;\n  }\n  @media (max-width: 749px) {\n    .sea-collab {\n      padding: 20px;\n      gap: 16px;\n    }\n    .sea-collab__follow {\n      width: 100%;\n      justify-content: center;\n    }\n    .sea-collab__name {\n      font-size: 19px;\n    }\n  }\n</style>\n\n{%- comment -%}\n  Disclosure: the \"Affiliate\" badge carries the 4.H material connection (16 CFR Part 255).\n  Geronimo has an active affiliate discount code with Seatopia. Change the badge to\n  \"Paid partner\" if this recipe was also a paid commission.\n{%- endcomment -%}\n\n<div class=\"sea-collab\">\n  <div class=\"sea-collab__avatar\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0222/9882/0682/files/317954084_536934878448812_7477395931531424226_n.jpg?width=200\" alt=\"Geronimo Ramos\" width=\"136\" height=\"136\" loading=\"lazy\" decoding=\"async\">\n  </div>\n\n  <div class=\"sea-collab__body\">\n    <p class=\"sea-collab__eyebrow\">\n      <span>Guest recipe</span>\n      <span class=\"sea-collab__badge\">Affiliate</span>\n    </p>\n    <p class=\"sea-collab__name\">Recipe by &#64;geronimocramos</p>\n    <p class=\"sea-collab__role\">Pop-up chef Geronimo Ramos, cooking with <a href=\"/products/half-shell-scallops-2x-12oz-bag\" title=\"Seatopia Half-Shell Scallops\">our Half-Shell Scallops</a></p>\n    <p class=\"sea-collab__cred\">Serves 2 &middot; 15 minutes active &middot; 12 scallops, one pan</p>\n  </div>\n\n  <a class=\"sea-collab__follow\" href=\"https://www.instagram.com/geronimocramos\" target=\"_blank\" rel=\"noopener noreferrer\">\n    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n      <rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\"></rect>\n      <circle cx=\"12\" cy=\"12\" r=\"4\"></circle>\n      <circle cx=\"17.5\" cy=\"6.5\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"></circle>\n    </svg>\n    <span>Follow</span>\n  </a>\n</div>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "padding_top": 28,
+        "padding_bottom": 8,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "rich_text_intro": {
+      "type": "rich-text",
+      "blocks": {
+        "text_intro": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Golden seared scallops on the half shell over a punchy, bright green chili sauce. Light, fast, and made for a weeknight. The scallops need an hour or two in the fridge to defrost and dry, and the sauce blends in five minutes while you wait. The sear itself is about two minutes a batch.</p><p><em>Serve them right away, before the acid starts to change the texture of the scallop.</em> &mdash; Geronimo</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "text_intro"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom-class": "",
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
+    "at_a_glance": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "g_time": {
+          "type": "column",
+          "settings": {
+            "icon": "time",
+            "custom_icon": "",
+            "heading": "15 minutes active",
+            "text": "<p>Plus 1 to 2 hours in the fridge while the scallops defrost and dry. The sauce blends in the meantime.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_serves": {
+          "type": "column",
+          "settings": {
+            "icon": "users",
+            "custom_icon": "",
+            "heading": "Serves 2",
+            "text": "<p>Six scallops each, from one package of our Half-Shell Scallops. Feeding 4? Grab 2 packages.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_rice": {
+          "type": "column",
+          "settings": {
+            "icon": "heart",
+            "custom_icon": "",
+            "heading": "Stainless or cast iron",
+            "text": "<p>Never nonstick. A heavy pan, hot enough that the oil shimmers, is what makes the golden crust.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "g_cold": {
+          "type": "column",
+          "settings": {
+            "icon": "check_mark",
+            "custom_icon": "",
+            "heading": "Dry is the key",
+            "text": "<p>Rinse off the ice glaze, pat every scallop dry and let them defrost uncovered on paper towels. A dry surface is what sears.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "g_time",
+        "g_serves",
+        "g_rice",
+        "g_cold"
+      ],
+      "name": "t:sections.multicolumn-with-icons.presets.name",
+      "settings": {
+        "custom_class": "",
+        "section_id": "at-a-glance",
+        "style": "with-border",
+        "columns": 4,
+        "text_alignment": "left",
+        "dt_txt_alignment": "left",
+        "heading": "At a glance",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "heat_note": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "how-it-comes-together",
+        "liquid": "<style>\n  .sea-pepper {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-pepper__grid {\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);\n    gap: 34px;\n    align-items: center;\n  }\n  .sea-pepper__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-pepper__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n  }\n  .sea-pepper__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 22px;\n  }\n  .sea-pepper__rows {\n    display: grid;\n    gap: 14px;\n  }\n  .sea-pepper__row {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 15px 17px;\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) auto;\n    gap: 10px 16px;\n    align-items: center;\n  }\n  .sea-pepper__row--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-pepper__name {\n    grid-column: 1;\n    margin: 0;\n    font-size: 15px;\n    font-weight: 600;\n    line-height: 1.3;\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-wrap: wrap;\n  }\n  .sea-pepper__tag {\n    font-size: 10px;\n    font-weight: 700;\n    letter-spacing: .08em;\n    text-transform: uppercase;\n    color: #fff;\n    background: var(--gold);\n    padding: 3px 8px;\n    border-radius: 999px;\n  }\n  .sea-pepper__meter {\n    grid-column: 2;\n    grid-row: 1;\n    display: flex;\n    gap: 4px;\n    align-items: center;\n  }\n  .sea-pepper__pip {\n    width: 9px;\n    height: 9px;\n    border-radius: 50%;\n    background: #fff;\n    border: 1.5px solid #d8cfc0;\n  }\n  .sea-pepper__pip.is-on {\n    background: #b8462f;\n    border-color: #b8462f;\n  }\n  .sea-pepper__note {\n    grid-column: 1 / -1;\n    margin: 0;\n    font-size: 13.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  .sea-pepper__legend {\n    margin: 16px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  .sea-pepper__figure {\n    margin: 0;\n  }\n  .sea-pepper__figure img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-pepper__cap {\n    margin: 10px 0 0;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n  @media (max-width: 989px) {\n    .sea-pepper {\n      padding: 22px;\n    }\n    .sea-pepper__grid {\n      grid-template-columns: 1fr;\n      gap: 24px;\n    }\n    .sea-pepper__figure {\n      order: -1;\n    }\n  }\n  .sea-pepper__step {\n    grid-column: 2;\n    grid-row: 1;\n    font-size: 11px;\n    font-weight: 600;\n    letter-spacing: .1em;\n    text-transform: uppercase;\n    color: var(--gold);\n  }\n  .sea-pepper__figure video {\n    width: 100%;\n    height: auto;\n    aspect-ratio: 9 / 16;\n    object-fit: cover;\n    display: block;\n    border-radius: 16px;\n    background: #e9e4dc;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n</style>\n\n<div class=\"sea-pepper\">\n  <div class=\"sea-pepper__grid\">\n\n    <div class=\"sea-pepper__body\">\n      <p class=\"sea-pepper__eyebrow\">How it comes together</p>\n      <h2 class=\"sea-pepper__heading\">Sauce while they dry, then sear.</h2>\n      <p class=\"sea-pepper__lede\">\n        The scallops need an hour or two in the fridge to defrost and dry. The sauce takes five minutes, so make it while you wait.\n      </p>\n\n      <div class=\"sea-pepper__rows\">\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Rinse and shuck</span>\n          <span class=\"sea-pepper__tag\">About 5 minutes</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 1</span>\n        <p class=\"sea-pepper__note\">Straight from the freezer, rinsed under cold running water to lift the thin ice glaze, then each scallop slid gently off its shell with a spoon. The shells get rinsed and dried for serving.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Dry in the fridge</span>\n          <span class=\"sea-pepper__tag\">1&ndash;2 hours</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 2</span>\n        <p class=\"sea-pepper__note\">Patted dry, set on a fresh paper towel-lined plate and refrigerated uncovered until fully defrosted. Any moisture that comes out gets blotted away.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Blend the sauce</span>\n          <span class=\"sea-pepper__tag\">5 minutes</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 3</span>\n        <p class=\"sea-pepper__note\">Herbs, chilies, garlic, calamansi, olive oil, patis and salt, roughly chopped and blended until smooth. Strained if you want it silky, then chilled.</p>\n      </div>\n      <div class=\"sea-pepper__row sea-pepper__row--pick\">\n        <p class=\"sea-pepper__name\">\n          <span>Sear</span>\n          <span class=\"sea-pepper__tag\">About 2 minutes a batch</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 4</span>\n        <p class=\"sea-pepper__note\">Patted dry once more and salted, then larger, flatter side down in shimmering avocado oil, 6 at a time, untouched until golden-brown rings show at the bottom edge, 60 to 90 seconds. Flipped for 30 to 60 seconds more, until just opaque in the center.</p>\n      </div>\n      <div class=\"sea-pepper__row\">\n        <p class=\"sea-pepper__name\">\n          <span>Plate and finish</span>\n          <span class=\"sea-pepper__tag\">2 minutes</span>\n        </p>\n        <span class=\"sea-pepper__step\">Step 5</span>\n        <p class=\"sea-pepper__note\">1 to 2 tsp of sauce pooled in each shell, a scallop on top, then a thin slice of red chili and a pinch of flaky salt.</p>\n      </div>\n      </div>\n\n      <p class=\"sea-pepper__legend\">\n        Pull the smaller scallops out first, and add a little more oil before the second batch.\n      </p>\n    </div>\n\n    <figure class=\"sea-pepper__figure\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0222/9882/0682/files/seatopia-peruvian-scallops-geronimo-ramos-12.jpg?width=700\" alt=\"Six scallops searing in a stainless steel pan, golden-brown crusts forming on the bottom\" width=\"2272\" height=\"3408\" loading=\"lazy\" decoding=\"async\">\n      <figcaption class=\"sea-pepper__cap\">\n        Golden rings around the bottom edge mean they are ready to flip.\n      </figcaption>\n    </figure>\n\n  </div>\n</div>\n",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "padding_top": 40,
+        "padding_bottom": 16,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "recipe_kit_card": {
+      "type": "apps",
+      "blocks": {
+        "recipe_kit_app_block_scallops": {
+          "type": "shopify://apps/recipe-kit/blocks/app-block/0afa374e-81c7-4989-96de-e1ac84640954",
+          "settings": {
+            "custom_js": "",
+            "custom_css": ".rk_direction_image { margin-top: 14px; }\n.rk_direction_image img { max-height: 400px; width: 100%; object-fit: cover; border-radius: 12px; }\n@media (max-width: 749px) {\n  .rk_direction_image img { max-height: 280px; }\n}\n"
+          }
+        }
+      },
+      "block_order": [
+        "recipe_kit_app_block_scallops"
+      ],
+      "settings": {
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "divider": false,
+        "full_width": true,
+        "rounded": false
+      }
+    },
+    "shop_the_plate": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "",
+        "products": [
+          "half-shell-scallops-2x-12oz-bag",
+          "scallop-meat-16oz",
+          "fish-shell-variety"
+        ],
+        "product_limit": 3,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "Everything on this plate",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>One package of our Half-Shell Scallops is the only thing from the freezer, and the shells become the serving dish. Shell-off Scallops work too: serve them on a plate or over rice. The rest is cilantro, flat-leaf parsley, a jalape&ntilde;o and a serrano, a garlic clove, calamansi juice (or lime), olive oil, patis, avocado oil, kosher and flaky salt, and a red chili to finish.</p>",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "dressing_note": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "section_id": "calamansi-green-chili-sauce",
+        "liquid": "<style>\n  .sea-sheet {\n    --ink: #171717;\n    --muted: #5c5c5c;\n    --line: #e5e2dc;\n    --wash: #faf8f4;\n    --gold: #bb8f50;\n    color: var(--ink);\n    background: var(--wash);\n    border: 1px solid var(--line);\n    border-radius: 20px;\n    padding: 30px;\n  }\n  .sea-sheet__eyebrow {\n    font-size: 11px;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    color: var(--gold);\n    font-weight: 600;\n    margin: 0 0 8px;\n  }\n  .sea-sheet__heading {\n    font-size: clamp(23px, 2.8vw, 30px);\n    line-height: 1.15;\n    font-weight: 600;\n    margin: 0 0 10px;\n    max-width: 22ch;\n  }\n  .sea-sheet__lede {\n    font-size: 15px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0 0 24px;\n    max-width: 68ch;\n  }\n  .sea-sheet__cols {\n    display: grid;\n    grid-template-columns: repeat(3, minmax(0, 1fr));\n    gap: 14px;\n  }\n  .sea-sheet__col {\n    background: #fff;\n    border: 1px solid var(--line);\n    border-radius: 14px;\n    padding: 18px;\n  }\n  .sea-sheet__col--pick {\n    border-color: var(--gold);\n    box-shadow: 0 0 0 1px var(--gold);\n  }\n  .sea-sheet__num {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 26px;\n    height: 26px;\n    border-radius: 50%;\n    background: var(--ink);\n    color: #fff;\n    font-size: 12px;\n    font-weight: 700;\n    margin: 0 0 10px;\n  }\n  .sea-sheet__col h3 {\n    font-size: 15.5px;\n    font-weight: 600;\n    line-height: 1.3;\n    margin: 0 0 7px;\n  }\n  .sea-sheet__col p {\n    font-size: 13.5px;\n    line-height: 1.55;\n    color: var(--muted);\n    margin: 0;\n  }\n  .sea-sheet__foot {\n    margin: 18px 0 0;\n    padding-top: 14px;\n    border-top: 1px solid var(--line);\n    font-size: 13px;\n    line-height: 1.55;\n    color: var(--muted);\n  }\n  @media (max-width: 749px) {\n    .sea-sheet {\n      padding: 22px;\n    }\n    .sea-sheet__cols {\n      grid-template-columns: 1fr;\n    }\n  }\n\n  .sea-sheet__fig {\n    margin: 22px auto 0;\n    max-width: 360px;\n  }\n  .sea-sheet__fig img {\n    width: 100%;\n    height: auto;\n    display: block;\n    border-radius: 16px;\n    box-shadow: 0 14px 34px -22px rgba(0,0,0,.5);\n  }\n  .sea-sheet__figcap {\n    margin: 10px auto 0;\n    max-width: 360px;\n    text-align: center;\n    font-size: 12.5px;\n    line-height: 1.5;\n    color: var(--muted);\n  }\n</style>\n\n<div class=\"sea-sheet\">\n  <p class=\"sea-sheet__eyebrow\">The calamansi green chili sauce</p>\n  <h2 class=\"sea-sheet__heading\">Bright, green and punchy.</h2>\n  <p class=\"sea-sheet__lede\">\n    Makes about 1 cup. Cilantro and parsley for the color, jalape&ntilde;o and serrano for the heat, calamansi for the acid, patis for depth.\n  </p>\n\n  <div class=\"sea-sheet__cols\">\n    <div class=\"sea-sheet__col sea-sheet__col--pick\">\n      <span class=\"sea-sheet__num\">1</span>\n      <h3>Chop and blend</h3>\n      <p>1 packed cup cilantro, &frac12; packed cup flat-leaf parsley, a seeded jalape&ntilde;o and serrano, 1 small garlic clove, &frac12; cup calamansi juice, &frac14; cup olive oil, 1 tsp patis, 1 tsp kosher salt and a pinch of black pepper, roughly chopped and blended until smooth.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">2</span>\n      <h3>Strain if you like</h3>\n      <p>Smooth from the blender is fine. Push it through a fine sieve if you want it silky. Taste for salt, then chill until serving.</p>\n    </div>\n    <div class=\"sea-sheet__col\">\n      <span class=\"sea-sheet__num\">3</span>\n      <h3>Make it creamy</h3>\n      <p>Add &frac14; avocado to the blender for a creamier sauce that won&rsquo;t separate.</p>\n    </div>\n  </div>\n\n  <p class=\"sea-sheet__foot\">\n    The sauce makes extra. It keeps 1 to 2 days in the fridge; the color dulls a little, but it still tastes great spooned over eggs, rice, or any seafood. Make it the same day you serve it for the brightest green.\n  </p>\n\n  <figure class=\"sea-sheet__fig\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0222/9882/0682/files/seatopia-peruvian-scallops-geronimo-ramos-6.jpg?width=760\" alt=\"Bright green calamansi chili sauce being poured from a ladle into a small wooden bowl\" width=\"1515\" height=\"2272\" loading=\"lazy\" decoding=\"async\">\n    <figcaption class=\"sea-sheet__figcap\">\n      Blended smooth, then chilled until the scallops are ready.\n    </figcaption>\n  </figure>\n</div>\n",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "swap_table": {
+      "type": "table-content",
+      "blocks": {
+        "w_head": {
+          "type": "row",
+          "settings": {
+            "version1": "As written",
+            "version2": "Easy swap",
+            "version3": "What changes"
+          }
+        },
+        "w_scallop": {
+          "type": "row",
+          "settings": {
+            "feature": "The scallops",
+            "version1": "Half-Shell Scallops",
+            "version2": "Scallops (shell-off)",
+            "version3": "Same scallops, no shucking; serve them on a plate or over rice"
+          }
+        },
+        "w_citrus": {
+          "type": "row",
+          "settings": {
+            "feature": "The citrus",
+            "version1": "Calamansi juice",
+            "version2": "Lime juice",
+            "version3": "Geronimo&rsquo;s own swap. A little less floral; taste for salt"
+          }
+        },
+        "w_chile": {
+          "type": "row",
+          "settings": {
+            "feature": "The chilies",
+            "version1": "Jalape&ntilde;o and serrano",
+            "version2": "Two jalape&ntilde;os",
+            "version3": "Milder; keep a few seeds if you want the heat back"
+          }
+        },
+        "w_patis": {
+          "type": "row",
+          "settings": {
+            "feature": "The fish sauce",
+            "version1": "Patis",
+            "version2": "Any fish sauce",
+            "version3": "Same job; brands vary in salt, so taste before adding more"
+          }
+        },
+        "w_oil": {
+          "type": "row",
+          "settings": {
+            "feature": "The searing oil",
+            "version1": "Avocado oil",
+            "version2": "Ghee or another high-heat oil",
+            "version3": "Anything that takes high heat; extra-virgin olive oil smokes"
+          }
+        },
+        "w_finish": {
+          "type": "row",
+          "settings": {
+            "feature": "The finish",
+            "version1": "Red chili, thinly sliced",
+            "version2": "Fresno pepper",
+            "version3": "Same bright finish; slice it thin"
+          }
+        }
+      },
+      "block_order": [
+        "w_head",
+        "w_scallop",
+        "w_citrus",
+        "w_chile",
+        "w_patis",
+        "w_oil",
+        "w_finish"
+      ],
+      "name": "Table content",
+      "settings": {
+        "custom_class": "",
+        "heading": "Swaps that work",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Geronimo&rsquo;s recipe is the starting point. Swap in what you have.</p>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "meal_prep": {
+      "type": "image-with-text",
+      "blocks": {
+        "m_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Defrost and dry",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "m_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Rinse, shuck, pat dry, then wait",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Straight from the freezer, rinse the scallops under cold running water to remove the thin ice glaze. Once they loosen, gently slide each scallop off its shell with a spoon, then rinse and dry the shells for serving. Pat every scallop dry, making sure no glaze is left, set them on a fresh paper towel-lined plate and refrigerate uncovered for 1 to 2 hours, until fully defrosted. Blot away any moisture that comes out.</p><p>Pat them dry once more and season with kosher salt right before they go into the pan. A dry surface is the key to a golden crust.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "m_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Half-Shell Scallops",
+            "button_link": "/products/half-shell-scallops-2x-12oz-bag",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "m_sub",
+        "m_head",
+        "m_text",
+        "m_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/seatopia-peruvian-scallops-geronimo-ramos-9.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "rich_text_standard": {
+      "type": "image-with-text",
+      "blocks": {
+        "f_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "What's in the pack",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "f_head": {
+          "type": "heading",
+          "settings": {
+            "heading": "Half-Shell Scallops, tested and published",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Each package holds 16 oz of Peruvian scallops on the half shell, shucked and individually snap-frozen. They are raised in Sechura Bay, Peru, in traditional hanging lantern baskets.</p><p>Our Half-Shell Scallops tested at about 8 g protein and 7 mcg selenium per 2 oz serving. Values vary by sample and season.</p><p>Low mercury, tested to a tenth of the FDA action level. Every supplier is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard. Farms named, panels published.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_btn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Meet the farm",
+            "button_link": "/pages/peruvian-scallops-seacorp",
+            "button_style": "secondary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "f_sub",
+        "f_head",
+        "f_text",
+        "f_btn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify://shop_images/seatopia-peruvian-scallops-geronimo-ramos-2.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_mobile": "",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "full_width": false,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_testimonials_carousel_scallops": {
+          "type": "shopify://apps/judge-me-reviews/blocks/testimonials_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": false,
+            "reviews_selection": "custom_products",
+            "products": [
+              "half-shell-scallops-2x-12oz-bag",
+              "scallop-meat-16oz"
+            ],
+            "star_rating": "all",
+            "max_reviews": 20,
+            "quote_marks_size": "small",
+            "product_name_text_size": "small",
+            "verified_badge_style": "icon",
+            "card_height": "medium",
+            "text_size": "small",
+            "stars_size": "medium",
+            "arrows_position": "bottom",
+            "max_width": 1100,
+            "corner_styling": "soft",
+            "quote_marks_style": "serif",
+            "card_color": "#f9f9f9",
+            "stars_and_quote_marks_color": "#7bc3f3",
+            "text_color": "#000000",
+            "arrows_color": "#000000",
+            "show_border": false,
+            "border_color": "#108474",
+            "show_drop_shadow": false,
+            "transition_speed": 5,
+            "header_text": "Seatopians on our scallops",
+            "show_average_rating": true
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_testimonials_carousel_scallops"
+      ],
+      "settings": {
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q_thaw": {
+          "type": "question",
+          "settings": {
+            "title": "How do I defrost the scallops?",
+            "text": "<p>Rinse them under cold running water straight from the freezer to remove the ice glaze, slide them off the shells with a spoon, pat them dry and refrigerate them uncovered on paper towels for 1 to 2 hours. Blot away any moisture before they go into the pan.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_done": {
+          "type": "question",
+          "settings": {
+            "title": "How do I know they&rsquo;re done?",
+            "text": "<p>Watch for golden-brown rings around the bottom edge, about 60 to 90 seconds, then flip for 30 to 60 seconds more, until just opaque in the center. They release from the pan when they&rsquo;re ready. Small scallops cook faster than large ones, so watch the rings rather than the clock. The FDA conservatively suggests cooking to an internal temperature of 145&deg;F.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_tear": {
+          "type": "question",
+          "settings": {
+            "title": "Why didn&rsquo;t my scallops brown?",
+            "text": "<p>Usually moisture, a pan that isn&rsquo;t hot enough, or a nonstick pan. Pat them dry once more right before you salt them, heat the oil until it shimmers, use stainless steel or cast iron, and give them space in two batches of 6.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_ahead": {
+          "type": "question",
+          "settings": {
+            "title": "Can I make the sauce ahead?",
+            "text": "<p>Yes, the same day for the brightest green. It keeps 1 to 2 days in the fridge; the color dulls a little, but it still tastes great spooned over eggs, rice, or any seafood.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_hold": {
+          "type": "question",
+          "settings": {
+            "title": "What is calamansi?",
+            "text": "<p>A small, fragrant citrus used across Filipino cooking, somewhere between a lime and a mandarin. Bottled calamansi juice works, and lime juice is Geronimo&rsquo;s swap.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "q_sauce": {
+          "type": "question",
+          "settings": {
+            "title": "How do I make it dinner?",
+            "text": "<p>Serve the scallops over steamed rice with avocado and greens, with extra sauce spooned over, or pile them onto a handful of greens.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "q_thaw",
+        "q_done",
+        "q_tear",
+        "q_ahead",
+        "q_hold",
+        "q_sauce"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "heading": "Seared scallops, answered",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "rounded": false
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "seafood-recipes",
+        "post_limit": 8,
+        "columns": 3,
+        "carousel_on_desktop": true,
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "landscape",
+        "show_tags": false,
+        "show_date": false,
+        "show_comments": false,
+        "show_author": false,
+        "show_excerpt": false,
+        "heading": "More seafood to cook this week",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Recipes from our kitchen and from the people who cook with us.</p>",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "full_width": false,
+        "rounded": true
+      }
+    },
+    "newsletter_banner": {
+      "type": "newsletter-banner",
+      "blocks": {
+        "h_news": {
+          "type": "heading",
+          "settings": {
+            "heading": "Be the first to know",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_news": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get on the list for more seasonal seafood, cooking temperatures and recipes from our kitchen, straight to your inbox.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_news": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "h_news",
+        "t_news",
+        "f_news"
+      ],
+      "name": "t:sections.newsletter-banner.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "transparent_footer": false,
+        "image": "shopify://shop_images/seatopia-peruvian-scallops-geronimo-ramos-25.jpg",
+        "image_height": "650px",
+        "content_width": "medium",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    }
+  },
+  "order": [
+    "main-article-banner",
+    "collab_card",
+    "rich_text_intro",
+    "at_a_glance",
+    "heat_note",
+    "recipe_kit_card",
+    "shop_the_plate",
+    "dressing_note",
+    "swap_table",
+    "meal_prep",
+    "rich_text_standard",
+    "reviews",
+    "faq",
+    "blog-posts",
+    "newsletter_banner"
+  ]
+}
