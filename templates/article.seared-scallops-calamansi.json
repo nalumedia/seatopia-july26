@@ -814,12 +814,21 @@
         "enable_parallax": true,
         "parallax_direction": "vertical"
       }
+    },
+    "creator_video": {
+      "type": "custom-liquid",
+      "settings": {
+        "liquid": "<style>\n  .sea-vid { max-width: 520px; margin: 0 auto; }\n  .sea-vid__frame {\n    position: relative;\n    border-radius: 18px;\n    overflow: hidden;\n    background: #111;\n    aspect-ratio: 9 / 16;\n  }\n  .sea-vid__frame video { width: 100%; height: 100%; object-fit: cover; display: block; }\n  .sea-vid__cap {\n    margin-top: 12px;\n    text-align: center;\n    font-size: 14px;\n    color: #5c5c5c;\n  }\n</style>\n\n{%- comment -%}\n  Geronimo's scallops video, 40 s. Uses the transcoded HD-720p rendition, never the original\n  upload. Voiceover (burned-in captions) checked against the claims guide 2026-11-17: no\n  health, testing or comparison claims. It promotes his code GERONIMO, so the caption carries\n  the code's terms; keep them matched to Shopify.\n{%- endcomment -%}\n\n<div class=\"sea-vid\">\n  <div class=\"sea-vid__frame\">\n    <video\n      controls\n      playsinline\n      preload=\"metadata\"\n      poster=\"https://cdn.shopify.com/s/files/1/0222/9882/0682/files/seatopia-peruvian-scallops-geronimo-ramos-14.jpg?width=800\"\n      width=\"720\" height=\"1280\">\n      <source src=\"https://cdn.shopify.com/videos/c/vp/45ade4b75d494d41a4babcd23f809b7e/45ade4b75d494d41a4babcd23f809b7e.HD-720p-4.5Mbps-101754574.mp4\" type=\"video/mp4\">\n    </video>\n  </div>\n  <p class=\"sea-vid__cap\">Geronimo makes the scallops, start to finish.<br>His code GERONIMO takes $20 off a first order of $125 or more.</p>\n</div>",
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
     }
   },
   "order": [
     "main-article-banner",
     "collab_card",
     "rich_text_intro",
+    "creator_video",
     "at_a_glance",
     "heat_note",
     "recipe_kit_card",
