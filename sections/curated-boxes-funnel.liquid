@@ -594,10 +594,15 @@
           var waves = this.querySelectorAll('.cbf-progress__rule');
           waves.forEach(function (w, i) { w.classList.toggle('is-active', i + 1 < n); });
           if (scroll !== false) {
-            /* the theme's sticky header publishes its height as --sticky-header-height */
+            /* Keep the page still. Only when the funnel's top has been scrolled past (the user
+               pressed Continue at the bottom of a long step) bring the new step's heading into
+               view, instantly: an animated scroll reads as the page jumping. The theme's sticky
+               header publishes its height as --sticky-header-height. */
             var hh = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sticky-header-height'), 10) || 0;
-            var top = this.getBoundingClientRect().top + window.pageYOffset - hh - 24;
-            window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+            var rect = this.getBoundingClientRect();
+            if (rect.top < hh) {
+              window.scrollTo({ top: Math.max(0, rect.top + window.pageYOffset - hh - 16), behavior: 'auto' });
+            }
           }
         }
 
