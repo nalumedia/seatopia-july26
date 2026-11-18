@@ -561,7 +561,9 @@
           var waves = this.querySelectorAll('.cbf-progress__rule');
           waves.forEach(function (w, i) { w.classList.toggle('is-active', i + 1 < n); });
           if (scroll !== false) {
-            var top = this.getBoundingClientRect().top + window.pageYOffset - 24;
+            /* the theme's sticky header publishes its height as --sticky-header-height */
+            var hh = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sticky-header-height'), 10) || 0;
+            var top = this.getBoundingClientRect().top + window.pageYOffset - hh - 24;
             window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
           }
         }
@@ -891,7 +893,7 @@
 
 /* panels, as the kit's white cards (uikit-panels__buy) with its stat type (uikit-panels__stat) */
 .cbf-panel { margin-top: 20px; padding: 24px; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-card); background: var(--uk-white); }
-.cbf-panel__title { display: flex; align-items: center; gap: 8px; margin: 0 0 14px; color: var(--uk-heading); }
+.uikit .cbf-panel__title { display: flex; align-items: center; gap: 8px; margin: 0 0 14px; font-family: var(--uk-font-body); font-size: 16px; font-weight: 600; line-height: 1.2; letter-spacing: 0; color: var(--uk-heading); }
 .cbf-panel__title .cbf-icon { color: var(--uk-gold); width: 18px; height: 18px; }
 .cbf-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
 .cbf-list__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 16px; }
