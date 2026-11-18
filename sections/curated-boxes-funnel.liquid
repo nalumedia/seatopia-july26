@@ -280,6 +280,11 @@
               {%- if section.settings.step2_subheading != blank -%}
                 <div class="cbf-sub uikit-body-m uikit-muted">{{ section.settings.step2_subheading }}</div>
               {%- endif -%}
+              <button type="button" class="cbf-chosen" data-cbf-next="1" data-cbf-chosen hidden aria-label="Change your box">
+                <span class="cbf-chosen__media"><img src="" alt="" width="32" height="32" loading="lazy" data-cbf-chosen-image></span>
+                <span class="uikit-label-s">{{ section.settings.chosen_label | default: 'Your box' | escape }}: <span data-cbf-chosen-title></span></span>
+                <span class="cbf-chosen__change uikit-body-s">{{ section.settings.chosen_change_label | default: 'Change' | escape }}</span>
+              </button>
             </div>
 
             <fieldset class="cbf-fieldset">
@@ -672,6 +677,18 @@
             el.hidden = false;
           });
 
+          /* step 2: the box chosen on step 1 */
+          var chosen = this.querySelector('[data-cbf-chosen]');
+          if (chosen) {
+            var sv = style ? this.variants.filter(function (x) { return x.style === style; })[0] : null;
+            if (sv) {
+              var ci = chosen.querySelector('[data-cbf-chosen-image]');
+              if (ci && sv.image && ci.getAttribute('src') !== sv.image) ci.src = sv.image;
+              this.setText('[data-cbf-chosen-title]', sv.style);
+            }
+            chosen.hidden = !sv;
+          }
+
           if (!v) return;
 
           /* selling plans */
@@ -862,6 +879,15 @@
 .cbf-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; max-width: 780px; margin: 0 auto 18px; }
 .cbf-sub p { margin: 0; }
 
+/* the box chosen on step 1, as the kit's gold-outlined chip (uikit-hero__chip) */
+.cbf-chosen { display: inline-flex; align-items: center; gap: 10px; margin-top: 6px; padding: 5px 14px 5px 5px; border: 1px solid var(--uk-gold); border-radius: var(--uk-radius-pill); background: var(--uk-white); color: var(--uk-heading); font: inherit; cursor: pointer; transition: border-color .18s ease; }
+.cbf-chosen:hover { border-color: var(--uk-dark-blue); }
+.cbf-chosen:focus-visible { outline: 2px solid var(--uk-gold); outline-offset: 2px; }
+.cbf-chosen[hidden] { display: none; }
+.cbf-chosen__media { display: block; width: 32px; height: 32px; border-radius: 50%; overflow: hidden; background: var(--uk-gray-4); flex: 0 0 auto; }
+.cbf-chosen__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.cbf-chosen__change { color: var(--cbf-gold-text); text-decoration: underline; text-underline-offset: 2px; }
+
 /* grids + cards: white, 1px kit rule, kit card radius; chosen = gold rule + the kit's featured shadow */
 .cbf-fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .cbf-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
@@ -1024,6 +1050,8 @@
 
     { "type": "header", "content": "Step 2 — Size" },
     { "type": "text", "id": "step2_heading", "label": "Heading", "default": "Choose Your Size" },
+    { "type": "text", "id": "chosen_label", "label": "Chosen box label", "default": "Your box" },
+    { "type": "text", "id": "chosen_change_label", "label": "Chosen box change link", "default": "Change" },
     { "type": "richtext", "id": "step2_subheading", "label": "Subheading", "default": "<p>Choose the box size that fits your household.</p>" },
     { "type": "richtext", "id": "omega_footnote", "label": "Omega footnote (steps 1 and 2)", "info": "Shown only when lab data exists. Keep the variance note — it is what makes the figure a published test result rather than a guarantee (claims guide §8.8).", "default": "<p>Per-serving EPA+DHA figures are our published third-party test results from Edacious for each portion in the box, averaged across the box. Values vary by sample and season.</p>" },
 
