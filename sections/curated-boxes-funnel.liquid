@@ -7,10 +7,12 @@
   https://seatopiastandard.com/curated-boxes (the standalone React build).
 
   DESIGN: runs on the Seatopia UI kit (assets/uikit.css + snippets/uikit-fonts)
-  the way the uikit-* sections do, so it inherits Crimson Pro / DM Sans and the
-  kit palette. Everything funnel-specific is namespaced .cbf-* in the
-  {% stylesheet %} block below and expressed in --uk-* tokens plus one accent
-  colour that is a section setting.
+  exactly like the Hyman and Eudēmonia pages: kit buttons (.uikit-btn), kit type
+  classes, gold accent, white cards on the kit surface with the kit rule and
+  radius. The .cbf-* rules in the stylesheet block at the end are layout only;
+  every colour, radius and font comes from a --uk-* token or a value the
+  uikit-* sections already use (gold text #8a6430, error #a23b2a). There is no
+  accent setting: the kit's gold is the accent.
 
   DATA THIS SECTION READS (and degrades gracefully without):
     variant.metafields.custom.box_components  JSON: [{sku,name,quantity}, ...]
@@ -37,7 +39,6 @@
   endfor
 
   assign omega_mf = shop.metafields.custom.omega_by_sku
-  assign accent = section.settings.accent | default: '#497991'
 -%}
 
 {%- if product == blank or style_option == blank or size_option == blank -%}
@@ -110,7 +111,7 @@
     <svg class="cbf-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>
   {%- endcapture -%}
 
-  <section class="uikit cbf-section" id="CuratedFunnel-{{ section.id }}" style="--cbf-accent: {{ accent }};">
+  <section class="uikit uikit-section uikit-section--tight cbf-section" id="CuratedFunnel-{{ section.id }}">
     <div class="uikit-container cbf-container">
       <curated-funnel
         class="cbf"
@@ -128,9 +129,9 @@
         {%- comment -%} ---------- phone pill ---------- {%- endcomment -%}
         {%- if section.settings.phone != blank -%}
           {%- assign tel = section.settings.phone | remove: '(' | remove: ')' | remove: ' ' | remove: '-' | remove: '.' -%}
-          <p class="cbf-phone uikit-body-s">
+          <p class="cbf-phone uikit-body-s uikit-muted">
             {{ section.settings.phone_label | escape }}
-            <a href="tel:{{ tel }}">{{ section.settings.phone | escape }}</a>
+            <a class="uikit-link" href="tel:{{ tel }}">{{ section.settings.phone | escape }}</a>
           </p>
         {%- endif -%}
 
@@ -149,13 +150,11 @@
                   <span class="cbf-progress__digit">{{ forloop.index }}</span>
                   <span class="cbf-progress__check">{{ icon_check }}</span>
                 </span>
-                <span class="cbf-progress__label uikit-body-s">{{ label | strip | escape }}</span>
+                <span class="cbf-progress__label uikit-label-s">{{ label | strip | escape }}</span>
               </button>
             </li>
             {%- unless forloop.last -%}
-              <li class="cbf-progress__wave" aria-hidden="true">
-                <svg viewBox="0 0 120 24" preserveAspectRatio="none"><path d="M0 12 Q15 2, 30 12 T60 12 T90 12 T120 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
-              </li>
+              <li class="cbf-progress__rule" aria-hidden="true"></li>
             {%- endunless -%}
           {%- endfor -%}
         </ol>
@@ -169,7 +168,7 @@
           {%- comment -%} ================= STEP 1 : STYLE ================= {%- endcomment -%}
           <div class="cbf-step" data-cbf-step="1">
             <div class="cbf-head">
-              <h2 class="cbf-h uikit-h3">{{ section.settings.step1_heading | escape }}</h2>
+              <h2 class="cbf-h uikit-h2">{{ section.settings.step1_heading | escape }}</h2>
               {%- if section.settings.step1_subheading != blank -%}
                 <div class="cbf-sub uikit-body-m uikit-muted">{{ section.settings.step1_subheading }}</div>
               {%- endif -%}
@@ -221,7 +220,7 @@
                       </span>
                       <span class="cbf-card__body">
                         <span class="cbf-card__row">
-                          <span class="cbf-card__title">{{ value | escape }}</span>
+                          <span class="cbf-card__title uikit-label-l">{{ value | escape }}</span>
                           <span class="cbf-radio" aria-hidden="true">{{ icon_check }}</span>
                         </span>
                         {%- if blurb != blank -%}
@@ -245,9 +244,8 @@
             {%- endif -%}
 
             <div class="cbf-actions cbf-actions--end">
-              <button type="button" class="cbf-btn cbf-btn--primary" data-cbf-next="2" data-cbf-needs="style" disabled>
+              <button type="button" class="uikit-btn uikit-btn--primary" data-cbf-next="2" data-cbf-needs="style" disabled>
                 {{ section.settings.continue_label | escape }}
-                <span class="cbf-btn__arrow" aria-hidden="true">&rarr;</span>
               </button>
             </div>
           </div>
@@ -255,7 +253,7 @@
           {%- comment -%} ================= STEP 2 : SIZE ================= {%- endcomment -%}
           <div class="cbf-step" data-cbf-step="2" hidden>
             <div class="cbf-head">
-              <h2 class="cbf-h uikit-h3">{{ section.settings.step2_heading | escape }}</h2>
+              <h2 class="cbf-h uikit-h2">{{ section.settings.step2_heading | escape }}</h2>
               {%- if section.settings.step2_subheading != blank -%}
                 <div class="cbf-sub uikit-body-m uikit-muted">{{ section.settings.step2_subheading }}</div>
               {%- endif -%}
@@ -294,13 +292,13 @@
                     >
                     <span class="cbf-card cbf-card--size">
                       {%- if badge != blank -%}
-                        <span class="cbf-badge">{{ badge | escape }}</span>
+                        <span class="cbf-badge uikit-label-s">{{ badge | escape }}</span>
                       {%- endif -%}
                       <span class="cbf-card__body cbf-card__body--center">
                         {%- if emoji != blank -%}<span class="cbf-emoji" aria-hidden="true">{{ emoji }}</span>{%- endif -%}
                         <span class="cbf-portions">{{ portions }}</span>
-                        <span class="cbf-portions__label uikit-body-m uikit-muted">Portions</span>
-                        {%- if tagline != blank -%}<span class="cbf-tagline uikit-label-s">{{ tagline | escape }}</span>{%- endif -%}
+                        <span class="cbf-portions__label uikit-body-s uikit-muted">Portions</span>
+                        {%- if tagline != blank -%}<span class="cbf-eyebrow uikit-label-s">{{ tagline | escape }}</span>{%- endif -%}
                         {%- if detail != blank -%}<span class="cbf-card__text uikit-body-s uikit-muted">{{ detail }}</span>{%- endif -%}
                         <span class="cbf-card__price uikit-body-m uikit-muted" data-cbf-size-price="{{ value | escape }}"></span>
                         <span class="cbf-card__omega cbf-card__omega--stack" data-cbf-size-omega="{{ value | escape }}" hidden>
@@ -319,13 +317,11 @@
             {%- endif -%}
 
             <div class="cbf-actions">
-              <button type="button" class="cbf-btn cbf-btn--ghost" data-cbf-next="1">
-                <span class="cbf-btn__arrow" aria-hidden="true">&larr;</span>
+              <button type="button" class="uikit-btn uikit-btn--secondary" data-cbf-next="1">
                 {{ section.settings.back_label | escape }}
               </button>
-              <button type="button" class="cbf-btn cbf-btn--primary" data-cbf-next="3" data-cbf-needs="size" disabled>
+              <button type="button" class="uikit-btn uikit-btn--primary" data-cbf-next="3" data-cbf-needs="size" disabled>
                 {{ section.settings.continue_label | escape }}
-                <span class="cbf-btn__arrow" aria-hidden="true">&rarr;</span>
               </button>
             </div>
           </div>
@@ -333,7 +329,7 @@
           {%- comment -%} ================= STEP 3 : REVIEW ================= {%- endcomment -%}
           <div class="cbf-step cbf-step--narrow" data-cbf-step="3" hidden>
             <div class="cbf-head">
-              <h2 class="cbf-h uikit-h3">{{ section.settings.step3_heading | escape }}</h2>
+              <h2 class="cbf-h uikit-h2">{{ section.settings.step3_heading | escape }}</h2>
               {%- if section.settings.step3_subheading != blank -%}
                 <div class="cbf-sub uikit-body-m uikit-muted">{{ section.settings.step3_subheading }}</div>
               {%- endif -%}
@@ -356,8 +352,8 @@
               </span>
               <div class="cbf-summary__body">
                 <div class="cbf-card__row">
-                  <span class="cbf-summary__title" data-cbf-summary-title></span>
-                  <span class="cbf-summary__size uikit-label-s" data-cbf-summary-size></span>
+                  <span class="cbf-summary__title uikit-label-l" data-cbf-summary-title></span>
+                  <span class="cbf-eyebrow uikit-label-s" data-cbf-summary-size></span>
                 </div>
                 {%- if section.settings.ship_copy != blank -%}
                   <div class="uikit-body-s uikit-muted">{{ section.settings.ship_copy }}</div>
@@ -385,7 +381,7 @@
 
             {%- comment -%} b) contents - only when the metafield exists {%- endcomment -%}
             <div class="cbf-panel" data-cbf-contents hidden>
-              <h3 class="cbf-panel__title">{{ icon_fish }}{{ section.settings.contents_heading | escape }}</h3>
+              <h3 class="cbf-panel__title uikit-label-m">{{ icon_fish }}{{ section.settings.contents_heading | escape }}</h3>
               <ul class="cbf-list" data-cbf-contents-list></ul>
               {%- if section.settings.contents_disclaimer != blank -%}
                 <div class="cbf-note cbf-note--tight uikit-body-s uikit-muted">{{ section.settings.contents_disclaimer }}</div>
@@ -394,7 +390,7 @@
 
             {%- comment -%} c) omega - only when lab data exists {%- endcomment -%}
             <div class="cbf-panel" data-cbf-omega-block hidden>
-              <h3 class="cbf-panel__title">{{ icon_fish }}{{ section.settings.omega_heading | escape }}</h3>
+              <h3 class="cbf-panel__title uikit-label-m">{{ icon_fish }}{{ section.settings.omega_heading | escape }}</h3>
               <div class="cbf-stats">
                 <div class="cbf-stat">
                   <span class="cbf-stat__num" data-cbf-omega-total></span>
@@ -453,7 +449,7 @@
             {%- comment -%} e) email + checkout {%- endcomment -%}
             <div class="cbf-checkout">
               {%- if section.settings.email_label != blank -%}
-                <label class="cbf-label uikit-body-s" for="CbfEmail-{{ section.id }}">{{ section.settings.email_label | escape }}</label>
+                <label class="cbf-label uikit-label-s" for="CbfEmail-{{ section.id }}">{{ section.settings.email_label | escape }}</label>
                 <input
                   id="CbfEmail-{{ section.id }}"
                   class="cbf-input uikit-body-m"
@@ -466,13 +462,12 @@
                 <p class="cbf-error uikit-body-s" data-cbf-email-error hidden>{{ section.settings.email_error | escape }}</p>
               {%- endif -%}
 
-              <button type="submit" class="cbf-btn cbf-btn--primary cbf-btn--block" data-cbf-submit>
+              <button type="submit" class="uikit-btn uikit-btn--primary cbf-btn--block" data-cbf-submit>
                 <span data-cbf-submit-text>{{ section.settings.checkout_label | escape }}</span>
               </button>
               <p class="cbf-error uikit-body-s" data-cbf-submit-error hidden>Something went wrong adding this box. Please try again.</p>
 
-              <button type="button" class="cbf-btn cbf-btn--ghost cbf-btn--center" data-cbf-next="2">
-                <span class="cbf-btn__arrow" aria-hidden="true">&larr;</span>
+              <button type="button" class="uikit-btn uikit-btn--secondary cbf-btn--center" data-cbf-next="2">
                 {{ section.settings.change_size_label | default: 'Change size' | escape }}
               </button>
             </div>
@@ -563,7 +558,7 @@
             var b = el.querySelector('[data-cbf-goto]');
             if (b) b.setAttribute('aria-current', i === n ? 'step' : 'false');
           });
-          var waves = this.querySelectorAll('.cbf-progress__wave');
+          var waves = this.querySelectorAll('.cbf-progress__rule');
           waves.forEach(function (w, i) { w.classList.toggle('is-active', i + 1 < n); });
           if (scroll !== false) {
             var top = this.getBoundingClientRect().top + window.pageYOffset - 24;
@@ -796,162 +791,148 @@
 {%- endif -%}
 
 {% stylesheet %}
-/* Curated Boxes Funnel - namespaced .cbf-*, built on the UI kit tokens. */
-.cbf-section { --cbf-ink: var(--uk-deep-deep-blue); --cbf-line: #cdd9d1; --cbf-surface: var(--uk-white); padding-block: 32px 80px; }
+/* Curated Boxes Funnel. Layout only: every colour, font and radius is a UI kit
+   token or a value the uikit-* sections already use, so this page reads like
+   the Hyman and Eudēmonia pages. */
+.cbf-section { --cbf-gold-text: #8a6430; --cbf-shadow: 0 10px 30px rgba(46,75,89,.10); }
 .cbf-container { position: relative; }
 .cbf { display: block; }
 
-/* phone pill */
-.cbf-phone { display: flex; justify-content: flex-end; margin: 0 0 12px; }
-.cbf-phone a { font-weight: 600; color: inherit; }
-@media (min-width: 990px) {
-  .cbf-phone { position: absolute; top: -24px; right: var(--uk-gutter); margin: 0; padding: 10px 18px; border-radius: 0 0 12px 12px; background: #bfe0f7; color: var(--uk-dark-blue); }
-}
-@media (max-width: 989px) {
-  .cbf-phone { justify-content: center; text-align: center; gap: 4px; flex-wrap: wrap; }
-}
+/* phone line */
+.cbf-phone { display: flex; justify-content: flex-end; gap: 4px; margin: 0 0 20px; }
+@media (max-width: 749px) { .cbf-phone { justify-content: center; text-align: center; flex-wrap: wrap; } }
 
 /* progress */
-.cbf-progress { list-style: none; display: flex; align-items: flex-start; justify-content: center; max-width: 440px; margin: 0 auto 28px; padding: 0; }
+.cbf-progress { list-style: none; display: flex; align-items: flex-start; justify-content: center; max-width: 440px; margin: 0 auto 40px; padding: 0; }
 .cbf-progress__item { flex: 0 0 auto; }
-.cbf-progress__btn { display: flex; flex-direction: column; align-items: center; gap: 6px; background: none; border: 0; padding: 0; cursor: default; color: var(--uk-muted); font-family: var(--uk-font-body); }
+.cbf-progress__btn { display: flex; flex-direction: column; align-items: center; gap: 8px; background: none; border: 0; padding: 0; cursor: default; color: var(--uk-muted); font: inherit; }
 .cbf-progress__item.is-done .cbf-progress__btn { cursor: pointer; }
 .cbf-progress__item.is-active .cbf-progress__btn,
-.cbf-progress__item.is-done .cbf-progress__btn { color: var(--uk-text); }
-.cbf-progress__num { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--cbf-line); color: #6b8588; font-weight: 700; font-size: 14px; transition: background-color .18s ease, transform .18s ease; }
+.cbf-progress__item.is-done .cbf-progress__btn { color: var(--uk-heading); }
+.cbf-progress__num { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-pill); background: var(--uk-white); color: var(--uk-muted); font-weight: 600; font-size: 14px; transition: background-color .18s ease, border-color .18s ease, color .18s ease; }
 .cbf-progress__item.is-active .cbf-progress__num,
-.cbf-progress__item.is-done .cbf-progress__num { background: var(--cbf-accent); color: #fff; }
-.cbf-progress__item.is-done .cbf-progress__btn:hover .cbf-progress__num { transform: scale(1.08); }
+.cbf-progress__item.is-done .cbf-progress__num { background: var(--uk-gold); border-color: var(--uk-gold); color: var(--uk-white); }
 .cbf-progress__check { display: none; width: 16px; height: 16px; }
 .cbf-progress__check .cbf-icon { width: 16px; height: 16px; }
 .cbf-progress__item.is-done .cbf-progress__digit { display: none; }
 .cbf-progress__item.is-done .cbf-progress__check { display: inline-flex; }
-.cbf-progress__label { font-weight: 500; }
-.cbf-progress__wave { flex: 1 1 60px; height: 16px; margin: 10px 6px 0; color: var(--cbf-line); }
-.cbf-progress__wave.is-active { color: var(--cbf-accent); }
-.cbf-progress__wave svg { display: block; width: 100%; height: 16px; }
+.cbf-progress__rule { flex: 1 1 60px; height: 1px; margin: 18px 10px 0; background: var(--uk-rule); }
+.cbf-progress__rule.is-active { background: var(--uk-gold); }
 
-/* headings */
-.cbf-head { text-align: center; margin-bottom: 22px; }
-.cbf-h { margin: 0 0 8px; }
+/* headings, as the kit's offer / box-grid heads */
+.cbf-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; max-width: 780px; margin: 0 auto 40px; }
 .cbf-sub p { margin: 0; }
 
-/* grids + cards */
+/* grids + cards: white, 1px kit rule, kit card radius; chosen = gold rule + the kit's featured shadow */
 .cbf-fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .cbf-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 @media (max-width: 749px) { .cbf-grid { grid-template-columns: 1fr; gap: 14px; } }
 
 .cbf-opt { display: block; position: relative; cursor: pointer; height: 100%; }
-.cbf-card { position: relative; display: flex; flex-direction: column; height: 100%; border: 2px solid var(--cbf-line); border-radius: var(--uk-radius-card); background: var(--cbf-surface); overflow: hidden; transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease; }
-.cbf-opt:hover .cbf-card { border-color: color-mix(in srgb, var(--cbf-accent) 55%, var(--cbf-line)); }
-.cbf-opt input:checked + .cbf-card { border-color: var(--cbf-accent); box-shadow: 0 0 0 1px var(--cbf-accent); }
-.cbf-opt input:focus-visible + .cbf-card { outline: 2px solid var(--uk-sky-blue); outline-offset: 2px; }
-.cbf-card--size { background: transparent; overflow: visible; }
-.cbf-opt input:checked + .cbf-card--size { background: color-mix(in srgb, var(--cbf-accent) 4%, transparent); }
+.cbf-card { position: relative; display: flex; flex-direction: column; height: 100%; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-card); background: var(--uk-white); overflow: hidden; transition: border-color .18s ease, box-shadow .18s ease; }
+.cbf-opt:hover .cbf-card { border-color: var(--uk-gray-2); }
+.cbf-opt input:checked + .cbf-card { border-color: var(--uk-gold); box-shadow: var(--cbf-shadow); }
+.cbf-opt input:focus-visible + .cbf-card { outline: 2px solid var(--uk-gold); outline-offset: 2px; }
+.cbf-card--size { overflow: visible; }
 
 .cbf-card__media { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--uk-gray-4); }
 .cbf-card__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.cbf-card__body { display: flex; flex-direction: column; gap: 8px; padding: 20px; }
-.cbf-card__body--center { align-items: center; text-align: center; padding: 28px 20px 24px; }
+.cbf-card__body { display: flex; flex-direction: column; gap: 8px; padding: 24px; }
+.cbf-card__body--center { align-items: center; text-align: center; padding: 32px 24px 28px; }
 .cbf-card__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.cbf-card__title { font-family: var(--uk-font-heading); font-weight: 500; font-size: 22px; line-height: 1.15; color: var(--cbf-ink); }
+.cbf-card__title { color: var(--uk-heading); }
 .cbf-card__text p { margin: 0; }
-.cbf-card__price strong { color: var(--uk-text); font-weight: 700; }
-.cbf-card__omega { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; padding-top: 12px; border-top: 1px solid var(--cbf-line); color: var(--cbf-accent); font-weight: 600; }
+.cbf-card__price strong { color: var(--uk-heading); font-weight: 600; }
+.cbf-card__omega { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; padding-top: 12px; border-top: 1px solid var(--uk-rule); color: var(--cbf-gold-text); font-weight: 600; }
 .cbf-card__omega--stack { flex-direction: column; align-self: stretch; gap: 2px; margin-top: 8px; }
-.cbf-card__omega-big { font-size: 18px; font-weight: 700; color: var(--cbf-accent); }
+.cbf-card__omega-big { font-size: 18px; font-weight: 600; color: var(--cbf-gold-text); }
 .cbf-icon { width: 16px; height: 16px; flex: 0 0 auto; }
 
-.cbf-radio { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex: 0 0 auto; border: 2px solid var(--cbf-line); border-radius: 50%; color: #fff; background: transparent; transition: background-color .18s ease, border-color .18s ease; }
+.cbf-radio { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex: 0 0 auto; border: 1px solid var(--uk-gray-2); border-radius: 50%; color: var(--uk-white); background: transparent; transition: background-color .18s ease, border-color .18s ease; }
 .cbf-radio .cbf-icon { width: 14px; height: 14px; opacity: 0; }
-.cbf-opt input:checked + .cbf-card .cbf-radio { background: var(--cbf-accent); border-color: var(--cbf-accent); }
+.cbf-opt input:checked + .cbf-card .cbf-radio { background: var(--uk-gold); border-color: var(--uk-gold); }
 .cbf-opt input:checked + .cbf-card .cbf-radio .cbf-icon { opacity: 1; }
 
-.cbf-badge { position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); padding: 6px 14px; border-radius: var(--uk-radius-pill); background: var(--cbf-accent); color: #fff; font-size: 13px; font-weight: 600; white-space: nowrap; z-index: 1; }
+/* the kit's gold tag (uikit-boxgrid__tag--gold) and gold eyebrow (uikit-offer__eyebrow) */
+.cbf-badge { position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); padding: 6px 12px; border-radius: var(--uk-radius-pill); background: var(--uk-gold); color: var(--uk-white); white-space: nowrap; z-index: 1; }
+.uikit .cbf-eyebrow { color: var(--uk-gold); letter-spacing: .12em; text-transform: uppercase; }
 .cbf-emoji { font-size: 26px; line-height: 1; }
-.cbf-portions { font-size: 44px; line-height: 1; font-weight: 700; color: var(--cbf-ink); margin-top: 4px; }
+.uikit .cbf-portions { font-family: var(--uk-font-heading); font-weight: 300; font-size: 56px; line-height: 1; letter-spacing: -.02em; color: var(--uk-heading); margin-top: 4px; }
 .cbf-portions__label { margin-top: -2px; }
-.cbf-tagline { color: var(--cbf-accent); }
 
 /* notes + actions */
-.cbf-note { text-align: center; max-width: 720px; margin: 18px auto 0; }
+.cbf-note { text-align: center; max-width: 720px; margin: 24px auto 0; }
 .cbf-note--tight { text-align: left; margin: 12px 0 0; }
 .cbf-note p { margin: 0; }
-.cbf-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 28px; }
+.cbf-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 32px; }
 .cbf-actions--end { justify-content: flex-end; }
 @media (max-width: 749px) { .cbf-actions { flex-direction: column-reverse; align-items: stretch; } }
-
-.cbf-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 14px 28px; border: 1px solid transparent; border-radius: var(--uk-radius-pill); font-family: var(--uk-font-body); font-size: 16px; font-weight: 600; line-height: 1; cursor: pointer; text-decoration: none; transition: background-color .18s ease, color .18s ease, opacity .18s ease; }
-.cbf-btn--primary { background: var(--cbf-accent); color: #fff; min-width: 200px; }
-.cbf-btn--primary:hover:not(:disabled) { background: var(--uk-dark-blue); }
-.cbf-btn--primary:disabled { background: #a8b7bb; cursor: not-allowed; }
-.cbf-btn--ghost { background: transparent; color: var(--uk-muted); padding-inline: 12px; }
-.cbf-btn--ghost:hover { color: var(--uk-text); }
-.cbf-btn--block { width: 100%; min-height: 56px; font-size: 17px; }
-.cbf-btn--center { margin: 10px auto 0; display: flex; }
-.cbf-btn__arrow { font-size: 18px; line-height: 1; }
-.cbf-btn:focus-visible { outline: 2px solid var(--uk-sky-blue); outline-offset: 2px; }
+.cbf-section .uikit-btn:disabled { background: var(--uk-gray-2); border-color: var(--uk-gray-2); color: var(--uk-white); cursor: not-allowed; }
+.cbf-btn--block { width: 100%; }
+.cbf-btn--center { margin: 12px auto 0; display: flex; }
 
 /* step 3 */
 .cbf-step--narrow { max-width: 760px; margin-inline: auto; }
-.cbf-summary { display: grid; grid-template-columns: minmax(0, 30%) minmax(0, 1fr); border: 2px solid var(--cbf-accent); border-radius: var(--uk-radius-card); background: var(--cbf-surface); overflow: hidden; }
+.cbf-summary { display: grid; grid-template-columns: minmax(0, 30%) minmax(0, 1fr); border: 1px solid var(--uk-gold); border-radius: var(--uk-radius-card); background: var(--uk-white); box-shadow: var(--cbf-shadow); overflow: hidden; }
 .cbf-summary__media { display: block; aspect-ratio: 1; overflow: hidden; background: var(--uk-gray-4); }
 .cbf-summary__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.cbf-summary__body { display: flex; flex-direction: column; justify-content: center; gap: 8px; padding: 20px 22px; min-width: 0; }
-.cbf-summary__title { font-family: var(--uk-font-heading); font-weight: 500; font-size: 22px; line-height: 1.15; color: var(--cbf-ink); }
-.cbf-summary__size { color: var(--cbf-accent); white-space: nowrap; }
+.cbf-summary__body { display: flex; flex-direction: column; justify-content: center; gap: 8px; padding: 24px; min-width: 0; }
+.cbf-summary__title { color: var(--uk-heading); }
 .cbf-summary__foot { margin-top: 4px; flex-wrap: wrap; }
-.cbf-summary__price { display: inline-flex; align-items: baseline; gap: 8px; font-size: 26px; font-weight: 700; color: var(--cbf-ink); }
+.cbf-summary__price { display: inline-flex; align-items: baseline; gap: 8px; font-family: var(--uk-font-heading); font-weight: 500; font-size: 34px; line-height: 1; color: var(--uk-heading); }
 .cbf-rating { display: inline-flex; align-items: center; gap: 6px; }
 .cbf-rating__stars { display: inline-flex; gap: 2px; }
-.cbf-star { width: 14px; height: 14px; fill: var(--cbf-accent); }
-.cbf-rating__star.is-off .cbf-star { fill: var(--cbf-line); }
+.cbf-star { width: 14px; height: 14px; fill: var(--uk-gold); }
+.cbf-rating__star.is-off .cbf-star { fill: var(--uk-gray-3); }
 @media (max-width: 749px) {
   .cbf-summary { grid-template-columns: 1fr; }
   .cbf-summary__media { aspect-ratio: 16 / 9; }
 }
 
-.cbf-panel { margin-top: 20px; padding: 20px 22px; border: 2px solid color-mix(in srgb, var(--cbf-accent) 15%, transparent); border-radius: var(--uk-radius-card); background: color-mix(in srgb, var(--cbf-accent) 4%, var(--cbf-surface)); }
-.cbf-panel__title { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; font-family: var(--uk-font-heading); font-weight: 500; font-size: 20px; color: var(--cbf-ink); }
-.cbf-panel__title .cbf-icon { color: var(--cbf-accent); width: 18px; height: 18px; }
+/* panels, as the kit's white cards (uikit-panels__buy) with its stat type (uikit-panels__stat) */
+.cbf-panel { margin-top: 20px; padding: 24px; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-card); background: var(--uk-white); }
+.cbf-panel__title { display: flex; align-items: center; gap: 8px; margin: 0 0 14px; color: var(--uk-heading); }
+.cbf-panel__title .cbf-icon { color: var(--uk-gold); width: 18px; height: 18px; }
 .cbf-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
 .cbf-list__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 16px; }
-.cbf-list__name { display: inline-flex; align-items: center; gap: 8px; min-width: 0; color: var(--cbf-ink); }
-.cbf-icon--ok { color: #2f9e6d; width: 15px; height: 15px; }
-.cbf-list__qty { font-weight: 700; color: var(--cbf-accent); }
-.cbf-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; text-align: center; }
-.cbf-stat { display: flex; flex-direction: column; gap: 2px; }
-.cbf-stat__num { font-size: 26px; font-weight: 700; color: var(--cbf-accent); line-height: 1.1; }
+.cbf-list__name { display: inline-flex; align-items: center; gap: 8px; min-width: 0; color: var(--uk-heading); }
+.cbf-icon--ok { color: var(--uk-gold); width: 15px; height: 15px; }
+.cbf-list__qty { font-weight: 600; color: var(--cbf-gold-text); }
+.cbf-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--uk-rule); }
+.cbf-stat { display: flex; flex-direction: column; gap: 6px; padding: 18px 12px 0 0; }
+.uikit .cbf-stat__num { font-family: var(--uk-font-heading); font-size: 26px; line-height: 1.1; color: var(--uk-heading); }
 
 /* purchase type */
 .cbf-purchase { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
 .cbf-opt--row { height: auto; }
 .cbf-card--row { padding: 16px 18px; gap: 12px; }
-.cbf-row__lead { display: inline-flex; align-items: center; gap: 12px; }
-.cbf-dot { display: inline-flex; width: 18px; height: 18px; border: 2px solid #9fb0b4; border-radius: 50%; position: relative; flex: 0 0 auto; }
-.cbf-dot::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; background: var(--cbf-accent); opacity: 0; transition: opacity .15s ease; }
-.cbf-opt input:checked + .cbf-card .cbf-dot { border-color: var(--cbf-accent); }
+.cbf-row__lead { display: inline-flex; align-items: center; gap: 12px; color: var(--uk-heading); }
+.cbf-dot { display: inline-flex; width: 18px; height: 18px; border: 1px solid var(--uk-gray-2); border-radius: 50%; position: relative; flex: 0 0 auto; }
+.cbf-dot::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; background: var(--uk-gold); opacity: 0; transition: opacity .15s ease; }
+.cbf-opt input:checked + .cbf-card .cbf-dot { border-color: var(--uk-gold); }
 .cbf-opt input:checked + .cbf-card .cbf-dot::after { opacity: 1; }
-.cbf-row__price { white-space: nowrap; }
+.cbf-row__price { white-space: nowrap; color: var(--uk-heading); }
 .cbf-sub-detail { display: flex; flex-direction: column; gap: 12px; padding-left: 30px; }
 .cbf-sub-detail[hidden] { display: none; }
 .cbf-select-wrap { position: relative; display: block; }
-.cbf-select { width: 100%; appearance: none; -webkit-appearance: none; padding: 10px 40px 10px 14px; border: 1px solid var(--cbf-line); border-radius: 10px; background: var(--cbf-surface); color: var(--uk-text); font-family: var(--uk-font-body); }
-.cbf-select-wrap::after { content: ""; position: absolute; right: 14px; top: 50%; width: 8px; height: 8px; border-right: 2px solid var(--uk-muted); border-bottom: 2px solid var(--uk-muted); transform: translateY(-70%) rotate(45deg); pointer-events: none; }
+.cbf-select { width: 100%; appearance: none; -webkit-appearance: none; padding: 12px 40px 12px 16px; border: 1px solid var(--uk-rule); border-radius: 10px; background: var(--uk-white); color: var(--uk-heading); font: inherit; }
+.cbf-select:focus { outline: none; border-color: var(--uk-heading); }
+.cbf-select-wrap::after { content: ""; position: absolute; right: 16px; top: 50%; width: 8px; height: 8px; border-right: 1px solid var(--uk-heading); border-bottom: 1px solid var(--uk-heading); transform: translateY(-70%) rotate(45deg); pointer-events: none; }
 .cbf-benefits ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
 .cbf-benefits li { position: relative; padding-left: 22px; }
-.cbf-benefits li::before { content: ""; position: absolute; left: 0; top: 0.35em; width: 6px; height: 10px; border-right: 2px solid var(--cbf-accent); border-bottom: 2px solid var(--cbf-accent); transform: rotate(45deg); }
+.cbf-benefits li::before { content: ""; position: absolute; left: 0; top: 0.35em; width: 6px; height: 10px; border-right: 2px solid var(--uk-gold); border-bottom: 2px solid var(--uk-gold); transform: rotate(45deg); }
 
-/* email + checkout */
+/* email + checkout, as the kit's contact fields */
 .cbf-checkout { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
-.cbf-label { font-weight: 600; color: var(--cbf-ink); }
-.cbf-input { width: 100%; padding: 12px 14px; border: 2px solid color-mix(in srgb, var(--cbf-accent) 30%, transparent); border-radius: 10px; background: var(--cbf-surface); font-family: var(--uk-font-body); color: var(--uk-text); transition: border-color .18s ease, box-shadow .18s ease; }
-.cbf-input:focus { outline: none; border-color: var(--cbf-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--cbf-accent) 25%, transparent); }
-.cbf-error { margin: 0; color: #b23a3a; }
+.cbf-label { color: var(--uk-heading); }
+.cbf-input { width: 100%; padding: 14px 16px; border: 1px solid var(--uk-rule); border-radius: 10px; background: var(--uk-white); color: var(--uk-heading); font: inherit; transition: border-color .18s ease; }
+.cbf-input:focus { outline: none; border-color: var(--uk-heading); }
+.cbf-error { margin: 0; color: #a23b2a; }
 
 /* reviews block from Judge.me */
 .cbf-reviews { margin-top: 56px; }
 {% endstylesheet %}
+
 
 {% schema %}
 {
@@ -965,7 +946,6 @@
     { "type": "product", "id": "product", "label": "Curated box product" },
     { "type": "text", "id": "style_option_name", "label": "Style option name", "default": "Style" },
     { "type": "text", "id": "size_option_name", "label": "Size option name", "default": "Size" },
-    { "type": "color", "id": "accent", "label": "Accent colour", "default": "#497991" },
     { "type": "text", "id": "step_labels", "label": "Progress labels (comma separated)", "default": "Seafood,Size,Checkout" },
     { "type": "text", "id": "continue_label", "label": "Continue button", "default": "Continue" },
     { "type": "text", "id": "back_label", "label": "Back button", "default": "Back" },
