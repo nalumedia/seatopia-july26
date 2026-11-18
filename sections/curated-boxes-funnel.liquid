@@ -74,6 +74,11 @@
         assign v_style = v.options[style_idx]
         assign v_size = v.options[size_idx]
         assign v_img = v.image | default: product.featured_image
+        assign v_portions = v_size | split: ' ' | first | plus: 0
+        assign v_per = ''
+        if v_portions > 0
+          assign v_per = v.price | times: 1.0 | divided_by: v_portions | round | money
+        endif
       -%}
       {
         "id": {{ v.id }},
@@ -83,16 +88,25 @@
         "price": {{ v.price }},
         "priceText": {{ v.price | money | json }},
         "priceShort": {{ v.price | money_without_trailing_zeros | json }},
+        "portions": {{ v_portions }},
+        "perServing": {{ v_per | json }},
         "available": {{ v.available }},
         "image": {{ v_img | image_url: width: 900 | json }},
         "components": {{ v.metafields.custom.box_components.value | json }},
         "plans": [
           {%- for alloc in v.selling_plan_allocations -%}
+            {%- liquid
+              assign a_per = ''
+              if v_portions > 0
+                assign a_per = alloc.price | times: 1.0 | divided_by: v_portions | round | money
+              endif
+            -%}
             {
               "id": {{ alloc.selling_plan.id }},
               "name": {{ alloc.selling_plan.name | json }},
               "price": {{ alloc.price }},
-              "priceText": {{ alloc.price | money | json }}
+              "priceText": {{ alloc.price | money | json }},
+              "perServing": {{ a_per | json }}
             }{% unless forloop.last %},{% endunless %}
           {%- endfor -%}
         ]
@@ -193,11 +207,20 @@
                     endfor
 
                     assign s_idx = style_option.position | minus: 1
+                    assign z_idx = size_option.position | minus: 1
                     assign lowest = nil
+                    assign lowest_per = nil
                     for v in product.variants
                       if v.options[s_idx] == value
                         if lowest == nil or v.price < lowest
                           assign lowest = v.price
+                        endif
+                        assign vp = v.options[z_idx] | split: ' ' | first | plus: 0
+                        if vp > 0
+                          assign per = v.price | times: 1.0 | divided_by: vp | round
+                          if lowest_per == nil or per < lowest_per
+                            assign lowest_per = per
+                          endif
                         endif
                       endif
                     endfor
@@ -227,7 +250,7 @@
                           <span class="cbf-card__text uikit-body-s uikit-muted">{{ blurb }}</span>
                         {%- endif -%}
                         {%- if lowest != nil -%}
-                          <span class="cbf-card__price uikit-body-s uikit-muted">From <strong>{{ lowest | money_without_trailing_zeros }}</strong></span>
+                          <span class="cbf-card__price uikit-body-s uikit-muted">From <strong>{{ lowest | money_without_trailing_zeros }}</strong>{% if lowest_per != nil %} <span class="cbf-per">· from {{ lowest_per | money }}/serving</span>{% endif %}</span>
                         {%- endif -%}
                         <span class="cbf-card__omega uikit-body-s" data-cbf-style-omega="{{ value | escape }}" hidden>
                           {{ icon_fish }}<span data-cbf-style-omega-text></span>
@@ -364,6 +387,7 @@
                   <span class="cbf-summary__price">
                     <span data-cbf-summary-price></span>
                     <s class="uikit-body-s uikit-muted" data-cbf-summary-compare hidden></s>
+                    <span class="cbf-per uikit-body-s uikit-muted" data-cbf-summary-per></span>
                   </span>
                   {%- assign rating_count = product.metafields.reviews.rating_count.value | default: 0 -%}
                   {%- if rating_count > 0 -%}
@@ -425,7 +449,7 @@
                   <span class="cbf-card cbf-card--row">
                     <span class="cbf-card__row">
                       <span class="cbf-row__lead"><span class="cbf-dot" aria-hidden="true"></span><span class="uikit-label-m">{{ section.settings.onetime_label | escape }}</span></span>
-                      <span class="uikit-label-m" data-cbf-once-price></span>
+                      <span class="cbf-row__price"><span class="uikit-label-m" data-cbf-once-price></span> <span class="cbf-per uikit-body-s uikit-muted" data-cbf-once-per></span></span>
                     </span>
                   </span>
                 </label>
@@ -435,7 +459,7 @@
                   <span class="cbf-card cbf-card--row">
                     <span class="cbf-card__row">
                       <span class="cbf-row__lead"><span class="cbf-dot" aria-hidden="true"></span><span class="uikit-label-m">{{ section.settings.subscribe_label | escape }}</span></span>
-                      <span class="cbf-row__price"><span class="uikit-label-m" data-cbf-sub-price></span> <s class="uikit-body-s uikit-muted" data-cbf-sub-compare></s></span>
+                      <span class="cbf-row__price"><span class="uikit-label-m" data-cbf-sub-price></span> <s class="uikit-body-s uikit-muted" data-cbf-sub-compare></s> <span class="cbf-per uikit-body-s uikit-muted" data-cbf-sub-per></span></span>
                     </span>
                     <span class="cbf-sub-detail" data-cbf-sub-detail>
                       <span class="cbf-select-wrap">
@@ -631,7 +655,9 @@
             var match = self.variants.filter(function (x) {
               return x.style === style && x.size === el.dataset.cbfSizePrice;
             })[0];
-            el.innerHTML = match ? 'Starting at <strong>' + match.priceShort + '</strong>' : '';
+            el.innerHTML = match
+              ? 'Starting at <strong>' + match.priceShort + '</strong>' + (match.perServing ? ' <span class="cbf-per">· ' + match.perServing + '/serving</span>' : '')
+              : '';
           });
           this.querySelectorAll('[data-cbf-size-omega]').forEach(function (el) {
             var match = self.variants.filter(function (x) {
@@ -672,8 +698,10 @@
           if (subDetail) subDetail.hidden = !wantsSub;
 
           this.setText('[data-cbf-once-price]', v.priceText);
+          this.setText('[data-cbf-once-per]', v.perServing ? v.perServing + '/serving' : '');
           this.setText('[data-cbf-sub-price]', subPlan ? subPlan.priceText : '');
           this.setText('[data-cbf-sub-compare]', subPlan && subPlan.price < v.price ? v.priceText : '');
+          this.setText('[data-cbf-sub-per]', subPlan && subPlan.perServing ? subPlan.perServing + '/serving' : '');
 
           var priceText = plan ? plan.priceText : v.priceText;
           this.querySelector('[data-cbf-variant-id]').value = v.id;
@@ -691,6 +719,8 @@
           this.setText('[data-cbf-summary-price]', priceText);
           var cmp = this.querySelector('[data-cbf-summary-compare]');
           if (cmp) { cmp.textContent = v.priceText; cmp.hidden = !(plan && plan.price < v.price); }
+          var perText = plan ? plan.perServing : v.perServing;
+          this.setText('[data-cbf-summary-per]', perText ? perText + '/serving' : '');
           this.setText('[data-cbf-submit-text]',
             (plan ? this.dataset.subLabel : this.dataset.onceLabel) + ' — ' + priceText);
 
@@ -852,6 +882,9 @@
 .cbf-card__title { color: var(--uk-heading); }
 .cbf-card__text p { margin: 0; }
 .cbf-card__price strong { color: var(--uk-heading); font-weight: 600; }
+.cbf-per { white-space: nowrap; font-weight: 400; }
+.cbf-summary__price .cbf-per { font-family: var(--uk-font-body); }
+.cbf-row__price .cbf-per { white-space: nowrap; }
 .cbf-card__omega { display: inline-flex; align-items: center; gap: 6px; margin-top: 2px; padding-top: 8px; border-top: 1px solid var(--uk-rule); color: var(--cbf-gold-text); font-weight: 600; }
 .cbf-card__omega--stack { flex-direction: column; align-self: stretch; gap: 2px; margin-top: 4px; }
 .cbf-card__omega-big { font-size: 18px; font-weight: 600; color: var(--cbf-gold-text); }
