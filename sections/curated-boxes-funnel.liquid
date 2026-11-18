@@ -895,8 +895,10 @@
 .cbf-star { width: 14px; height: 14px; fill: var(--uk-gold); }
 .cbf-rating__star.is-off .cbf-star { fill: var(--uk-gray-3); }
 @media (max-width: 749px) {
-  .cbf-summary { grid-template-columns: 1fr; }
-  .cbf-summary__media { aspect-ratio: 16 / 9; }
+  .cbf-summary { grid-template-columns: 118px minmax(0, 1fr); }
+  .cbf-summary__media { aspect-ratio: auto; }
+  .cbf-summary__title { font-size: 20px; }
+  .cbf-summary__price { font-size: 28px; }
 }
 
 /* panels, as the kit's white cards (uikit-panels__buy) with its stat type (uikit-panels__stat) */
