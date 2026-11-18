@@ -805,13 +805,18 @@
 
           var body = new FormData(this.form);
           if (!body.get('selling_plan')) body.delete('selling_plan');
-          fetch(window.Shopify && window.Shopify.routes ? window.Shopify.routes.root + 'cart/add.js' : '/cart/add.js', {
+          var root = window.Shopify && window.Shopify.routes ? window.Shopify.routes.root : '/';
+          var emailEl = this.querySelector('[data-cbf-email]');
+          var emailVal = emailEl ? (emailEl.value || '').trim() : '';
+          /* checkout[email] prefills the email field on Shopify's checkout */
+          var checkoutUrl = root + 'checkout' + (emailVal ? '?checkout%5Bemail%5D=' + encodeURIComponent(emailVal) : '');
+          fetch(root + 'cart/add.js', {
             method: 'POST',
             headers: { 'Accept': 'application/json' },
             body: body
           }).then(function (r) {
             if (!r.ok) throw new Error('add failed');
-            window.location.href = (window.Shopify && window.Shopify.routes ? window.Shopify.routes.root : '/') + 'checkout';
+            window.location.href = checkoutUrl;
           }).catch(function () {
             self.busy = false;
             if (label) label.textContent = prev;
