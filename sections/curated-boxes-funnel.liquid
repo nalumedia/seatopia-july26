@@ -381,6 +381,7 @@
               </div>
             </div>
 
+            <div class="cbf-panels">
             {%- comment -%} b) contents - only when the metafield exists {%- endcomment -%}
             <div class="cbf-panel" data-cbf-contents hidden>
               <h3 class="cbf-panel__title uikit-label-m">{{ icon_fish }}{{ section.settings.contents_heading | escape }}</h3>
@@ -411,6 +412,7 @@
                 <div class="cbf-note cbf-note--tight uikit-body-s uikit-muted">{{ section.settings.omega_disclaimer }}</div>
               {%- endif -%}
               <div class="cbf-note cbf-note--tight uikit-body-s uikit-muted" data-cbf-omega-partial hidden>{{ section.settings.omega_partial_note }}</div>
+            </div>
             </div>
 
             {%- comment -%} d) purchase type {%- endcomment -%}
@@ -810,9 +812,9 @@
 @media (max-width: 749px) { .cbf-phone { justify-content: center; text-align: center; flex-wrap: wrap; } }
 
 /* progress */
-.cbf-progress { list-style: none; display: flex; align-items: flex-start; justify-content: center; max-width: 440px; margin: 0 auto 20px; padding: 0; }
+.cbf-progress { list-style: none; display: flex; align-items: center; justify-content: center; max-width: 480px; margin: 0 auto 16px; padding: 0; }
 .cbf-progress__item { flex: 0 0 auto; }
-.cbf-progress__btn { display: flex; flex-direction: column; align-items: center; gap: 6px; background: none; border: 0; padding: 0; cursor: default; color: var(--uk-muted); font: inherit; }
+.cbf-progress__btn { display: flex; flex-direction: row; align-items: center; gap: 8px; background: none; border: 0; padding: 0; cursor: default; color: var(--uk-muted); font: inherit; }
 .cbf-progress__item.is-done .cbf-progress__btn { cursor: pointer; }
 .cbf-progress__item.is-active .cbf-progress__btn,
 .cbf-progress__item.is-done .cbf-progress__btn { color: var(--uk-heading); }
@@ -823,11 +825,11 @@
 .cbf-progress__check .cbf-icon { width: 16px; height: 16px; }
 .cbf-progress__item.is-done .cbf-progress__digit { display: none; }
 .cbf-progress__item.is-done .cbf-progress__check { display: inline-flex; }
-.cbf-progress__rule { flex: 1 1 60px; height: 1px; margin: 18px 10px 0; background: var(--uk-rule); }
+.cbf-progress__rule { flex: 1 1 40px; height: 1px; margin: 0 10px; background: var(--uk-rule); }
 .cbf-progress__rule.is-active { background: var(--uk-gold); }
 
 /* headings, as the kit's offer / box-grid heads */
-.cbf-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; max-width: 780px; margin: 0 auto 22px; }
+.cbf-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; max-width: 780px; margin: 0 auto 18px; }
 .cbf-sub p { margin: 0; }
 
 /* grids + cards: white, 1px kit rule, kit card radius; chosen = gold rule + the kit's featured shadow */
@@ -842,7 +844,7 @@
 .cbf-opt input:focus-visible + .cbf-card { outline: 2px solid var(--uk-gold); outline-offset: 2px; }
 .cbf-card--size { overflow: visible; }
 
-.cbf-card__media { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--uk-gray-4); }
+.cbf-card__media { display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--uk-gray-4); }
 .cbf-card__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .cbf-card__body { display: flex; flex-direction: column; gap: 6px; padding: 18px 20px 20px; }
 .cbf-card__body--center { align-items: center; text-align: center; padding: 24px 20px 22px; }
@@ -882,7 +884,7 @@
 /* step 3 */
 .cbf-step--narrow { max-width: 760px; margin-inline: auto; }
 .cbf-summary { display: grid; grid-template-columns: minmax(0, 30%) minmax(0, 1fr); border: 1px solid var(--uk-gold); border-radius: var(--uk-radius-card); background: var(--uk-white); box-shadow: var(--cbf-shadow); overflow: hidden; }
-.cbf-summary__media { display: block; aspect-ratio: 1; overflow: hidden; background: var(--uk-gray-4); }
+.cbf-summary__media { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--uk-gray-4); }
 .cbf-summary__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .cbf-summary__body { display: flex; flex-direction: column; justify-content: center; gap: 6px; padding: 20px; min-width: 0; }
 .cbf-summary__title { color: var(--uk-heading); }
@@ -898,7 +900,9 @@
 }
 
 /* panels, as the kit's white cards (uikit-panels__buy) with its stat type (uikit-panels__stat) */
-.cbf-panel { margin-top: 14px; padding: 18px 20px; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-card); background: var(--uk-white); }
+.cbf-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+.cbf-panels:empty { display: none; }
+.cbf-panel { min-width: 0; padding: 18px 20px; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-card); background: var(--uk-white); }
 .uikit .cbf-panel__title { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-family: var(--uk-font-body); font-size: 16px; font-weight: 600; line-height: 1.2; letter-spacing: 0; color: var(--uk-heading); }
 .cbf-panel__title .cbf-icon { color: var(--uk-gold); width: 18px; height: 18px; }
 .cbf-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
@@ -906,7 +910,7 @@
 .cbf-list__name { display: inline-flex; align-items: center; gap: 8px; min-width: 0; color: var(--uk-heading); }
 .cbf-icon--ok { color: var(--uk-gold); width: 15px; height: 15px; }
 .cbf-list__qty { font-weight: 600; color: var(--cbf-gold-text); }
-.cbf-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--uk-rule); }
+.cbf-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 8px; border-top: 1px solid var(--uk-rule); }
 .cbf-stat { display: flex; flex-direction: column; gap: 4px; padding: 14px 12px 0 0; }
 .uikit .cbf-stat__num { font-family: var(--uk-font-heading); font-size: 26px; line-height: 1.1; color: var(--uk-heading); }
 
@@ -948,6 +952,9 @@
   .uikit .cbf-card--size .cbf-portions { font-size: 40px; }
   .cbf-card--size .cbf-card__omega--stack { align-items: flex-start; }
   .cbf-summary__body { padding: 16px; }
+  .cbf-panels { grid-template-columns: 1fr; gap: 10px; margin-top: 10px; }
+  .cbf-progress__btn { flex-direction: column; gap: 4px; }
+  .cbf-progress__rule { margin: 0 8px 22px; }
 }
 
 /* reviews block from Judge.me */
