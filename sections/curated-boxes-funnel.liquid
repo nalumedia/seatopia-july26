@@ -239,15 +239,15 @@
               </div>
             </fieldset>
 
-            {%- if section.settings.omega_footnote != blank -%}
-              <div class="cbf-note uikit-body-s uikit-muted" data-cbf-omega-note hidden>{{ section.settings.omega_footnote }}</div>
-            {%- endif -%}
-
             <div class="cbf-actions cbf-actions--end">
               <button type="button" class="uikit-btn uikit-btn--primary" data-cbf-next="2" data-cbf-needs="style" disabled>
                 {{ section.settings.continue_label | escape }}
               </button>
             </div>
+
+            {%- if section.settings.omega_footnote != blank -%}
+              <div class="cbf-note uikit-body-s uikit-muted" data-cbf-omega-note hidden>{{ section.settings.omega_footnote }}</div>
+            {%- endif -%}
           </div>
 
           {%- comment -%} ================= STEP 2 : SIZE ================= {%- endcomment -%}
@@ -295,9 +295,11 @@
                         <span class="cbf-badge uikit-label-s">{{ badge | escape }}</span>
                       {%- endif -%}
                       <span class="cbf-card__body cbf-card__body--center">
-                        {%- if emoji != blank -%}<span class="cbf-emoji" aria-hidden="true">{{ emoji }}</span>{%- endif -%}
-                        <span class="cbf-portions">{{ portions }}</span>
-                        <span class="cbf-portions__label uikit-body-s uikit-muted">Portions</span>
+                        <span class="cbf-size__lead">
+                          {%- if emoji != blank -%}<span class="cbf-emoji" aria-hidden="true">{{ emoji }}</span>{%- endif -%}
+                          <span class="cbf-portions">{{ portions }}</span>
+                          <span class="cbf-portions__label uikit-body-s uikit-muted">Portions</span>
+                        </span>
                         {%- if tagline != blank -%}<span class="cbf-eyebrow uikit-label-s">{{ tagline | escape }}</span>{%- endif -%}
                         {%- if detail != blank -%}<span class="cbf-card__text uikit-body-s uikit-muted">{{ detail }}</span>{%- endif -%}
                         <span class="cbf-card__price uikit-body-m uikit-muted" data-cbf-size-price="{{ value | escape }}"></span>
@@ -312,10 +314,6 @@
               </div>
             </fieldset>
 
-            {%- if section.settings.omega_footnote != blank -%}
-              <div class="cbf-note uikit-body-s uikit-muted" data-cbf-omega-note hidden>{{ section.settings.omega_footnote }}</div>
-            {%- endif -%}
-
             <div class="cbf-actions">
               <button type="button" class="uikit-btn uikit-btn--secondary" data-cbf-next="1">
                 {{ section.settings.back_label | escape }}
@@ -324,6 +322,10 @@
                 {{ section.settings.continue_label | escape }}
               </button>
             </div>
+
+            {%- if section.settings.omega_footnote != blank -%}
+              <div class="cbf-note uikit-body-s uikit-muted" data-cbf-omega-note hidden>{{ section.settings.omega_footnote }}</div>
+            {%- endif -%}
           </div>
 
           {%- comment -%} ================= STEP 3 : REVIEW ================= {%- endcomment -%}
@@ -797,17 +799,20 @@
    token or a value the uikit-* sections already use, so this page reads like
    the Hyman and Eudēmonia pages. */
 .cbf-section { --cbf-gold-text: #8a6430; --cbf-shadow: 0 10px 30px rgba(46,75,89,.10); }
+.uikit .cbf-section { padding-block: 20px 48px; }
+@media (max-width: 749px) { .uikit .cbf-section { padding-block: 14px 36px; } }
 .cbf-container { position: relative; }
 .cbf { display: block; }
 
 /* phone line */
-.cbf-phone { display: flex; justify-content: flex-end; gap: 4px; margin: 0 0 20px; }
+.cbf-phone { display: flex; justify-content: flex-end; gap: 4px; margin: 0 0 10px; }
+@media (min-width: 990px) { .cbf-phone { position: absolute; top: 8px; right: var(--uk-gutter); margin: 0; } }
 @media (max-width: 749px) { .cbf-phone { justify-content: center; text-align: center; flex-wrap: wrap; } }
 
 /* progress */
-.cbf-progress { list-style: none; display: flex; align-items: flex-start; justify-content: center; max-width: 440px; margin: 0 auto 40px; padding: 0; }
+.cbf-progress { list-style: none; display: flex; align-items: flex-start; justify-content: center; max-width: 440px; margin: 0 auto 20px; padding: 0; }
 .cbf-progress__item { flex: 0 0 auto; }
-.cbf-progress__btn { display: flex; flex-direction: column; align-items: center; gap: 8px; background: none; border: 0; padding: 0; cursor: default; color: var(--uk-muted); font: inherit; }
+.cbf-progress__btn { display: flex; flex-direction: column; align-items: center; gap: 6px; background: none; border: 0; padding: 0; cursor: default; color: var(--uk-muted); font: inherit; }
 .cbf-progress__item.is-done .cbf-progress__btn { cursor: pointer; }
 .cbf-progress__item.is-active .cbf-progress__btn,
 .cbf-progress__item.is-done .cbf-progress__btn { color: var(--uk-heading); }
@@ -822,13 +827,13 @@
 .cbf-progress__rule.is-active { background: var(--uk-gold); }
 
 /* headings, as the kit's offer / box-grid heads */
-.cbf-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; max-width: 780px; margin: 0 auto 40px; }
+.cbf-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; max-width: 780px; margin: 0 auto 22px; }
 .cbf-sub p { margin: 0; }
 
 /* grids + cards: white, 1px kit rule, kit card radius; chosen = gold rule + the kit's featured shadow */
 .cbf-fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .cbf-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
-@media (max-width: 749px) { .cbf-grid { grid-template-columns: 1fr; gap: 14px; } }
+@media (max-width: 749px) { .cbf-grid { grid-template-columns: 1fr; gap: 10px; } }
 
 .cbf-opt { display: block; position: relative; cursor: pointer; height: 100%; }
 .cbf-card { position: relative; display: flex; flex-direction: column; height: 100%; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-card); background: var(--uk-white); overflow: hidden; transition: border-color .18s ease, box-shadow .18s ease; }
@@ -837,16 +842,16 @@
 .cbf-opt input:focus-visible + .cbf-card { outline: 2px solid var(--uk-gold); outline-offset: 2px; }
 .cbf-card--size { overflow: visible; }
 
-.cbf-card__media { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--uk-gray-4); }
+.cbf-card__media { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--uk-gray-4); }
 .cbf-card__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.cbf-card__body { display: flex; flex-direction: column; gap: 8px; padding: 24px; }
-.cbf-card__body--center { align-items: center; text-align: center; padding: 32px 24px 28px; }
+.cbf-card__body { display: flex; flex-direction: column; gap: 6px; padding: 18px 20px 20px; }
+.cbf-card__body--center { align-items: center; text-align: center; padding: 24px 20px 22px; }
 .cbf-card__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .cbf-card__title { color: var(--uk-heading); }
 .cbf-card__text p { margin: 0; }
 .cbf-card__price strong { color: var(--uk-heading); font-weight: 600; }
-.cbf-card__omega { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; padding-top: 12px; border-top: 1px solid var(--uk-rule); color: var(--cbf-gold-text); font-weight: 600; }
-.cbf-card__omega--stack { flex-direction: column; align-self: stretch; gap: 2px; margin-top: 8px; }
+.cbf-card__omega { display: inline-flex; align-items: center; gap: 6px; margin-top: 2px; padding-top: 8px; border-top: 1px solid var(--uk-rule); color: var(--cbf-gold-text); font-weight: 600; }
+.cbf-card__omega--stack { flex-direction: column; align-self: stretch; gap: 2px; margin-top: 4px; }
 .cbf-card__omega-big { font-size: 18px; font-weight: 600; color: var(--cbf-gold-text); }
 .cbf-icon { width: 16px; height: 16px; flex: 0 0 auto; }
 
@@ -858,27 +863,28 @@
 /* the kit's gold tag (uikit-boxgrid__tag--gold) and gold eyebrow (uikit-offer__eyebrow) */
 .cbf-badge { position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); padding: 6px 12px; border-radius: var(--uk-radius-pill); background: var(--uk-gold); color: var(--uk-white); white-space: nowrap; z-index: 1; }
 .uikit .cbf-eyebrow { color: var(--uk-gold); letter-spacing: .12em; text-transform: uppercase; }
-.cbf-emoji { font-size: 26px; line-height: 1; }
-.uikit .cbf-portions { font-family: var(--uk-font-heading); font-weight: 300; font-size: 56px; line-height: 1; letter-spacing: -.02em; color: var(--uk-heading); margin-top: 4px; }
-.cbf-portions__label { margin-top: -2px; }
+.cbf-size__lead { display: contents; }
+.cbf-emoji { font-size: 22px; line-height: 1; }
+.uikit .cbf-portions { font-family: var(--uk-font-heading); font-weight: 300; font-size: 48px; line-height: 1; letter-spacing: -.02em; color: var(--uk-heading); margin-top: 2px; }
+.cbf-portions__label { margin-top: -4px; }
 
 /* notes + actions */
-.cbf-note { text-align: center; max-width: 720px; margin: 24px auto 0; }
+.cbf-note { text-align: center; max-width: 720px; margin: 16px auto 0; }
 .cbf-note--tight { text-align: left; margin: 12px 0 0; }
 .cbf-note p { margin: 0; }
-.cbf-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 32px; }
+.cbf-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 20px; }
 .cbf-actions--end { justify-content: flex-end; }
-@media (max-width: 749px) { .cbf-actions { flex-direction: column-reverse; align-items: stretch; } }
+@media (max-width: 749px) { .cbf-actions { margin-top: 14px; } .cbf-actions .uikit-btn { flex: 1 1 0; min-width: 0; } }
 .cbf-section .uikit-btn:disabled { background: var(--uk-gray-2); border-color: var(--uk-gray-2); color: var(--uk-white); cursor: not-allowed; }
 .cbf-btn--block { width: 100%; }
-.cbf-btn--center { margin: 12px auto 0; display: flex; }
+.cbf-btn--center { margin: 8px auto 0; display: flex; }
 
 /* step 3 */
 .cbf-step--narrow { max-width: 760px; margin-inline: auto; }
 .cbf-summary { display: grid; grid-template-columns: minmax(0, 30%) minmax(0, 1fr); border: 1px solid var(--uk-gold); border-radius: var(--uk-radius-card); background: var(--uk-white); box-shadow: var(--cbf-shadow); overflow: hidden; }
 .cbf-summary__media { display: block; aspect-ratio: 1; overflow: hidden; background: var(--uk-gray-4); }
 .cbf-summary__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.cbf-summary__body { display: flex; flex-direction: column; justify-content: center; gap: 8px; padding: 24px; min-width: 0; }
+.cbf-summary__body { display: flex; flex-direction: column; justify-content: center; gap: 6px; padding: 20px; min-width: 0; }
 .cbf-summary__title { color: var(--uk-heading); }
 .cbf-summary__foot { margin-top: 4px; flex-wrap: wrap; }
 .cbf-summary__price { display: inline-flex; align-items: baseline; gap: 8px; font-family: var(--uk-font-heading); font-weight: 500; font-size: 34px; line-height: 1; color: var(--uk-heading); }
@@ -892,22 +898,22 @@
 }
 
 /* panels, as the kit's white cards (uikit-panels__buy) with its stat type (uikit-panels__stat) */
-.cbf-panel { margin-top: 20px; padding: 24px; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-card); background: var(--uk-white); }
-.uikit .cbf-panel__title { display: flex; align-items: center; gap: 8px; margin: 0 0 14px; font-family: var(--uk-font-body); font-size: 16px; font-weight: 600; line-height: 1.2; letter-spacing: 0; color: var(--uk-heading); }
+.cbf-panel { margin-top: 14px; padding: 18px 20px; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-card); background: var(--uk-white); }
+.uikit .cbf-panel__title { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-family: var(--uk-font-body); font-size: 16px; font-weight: 600; line-height: 1.2; letter-spacing: 0; color: var(--uk-heading); }
 .cbf-panel__title .cbf-icon { color: var(--uk-gold); width: 18px; height: 18px; }
-.cbf-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.cbf-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
 .cbf-list__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 16px; }
 .cbf-list__name { display: inline-flex; align-items: center; gap: 8px; min-width: 0; color: var(--uk-heading); }
 .cbf-icon--ok { color: var(--uk-gold); width: 15px; height: 15px; }
 .cbf-list__qty { font-weight: 600; color: var(--cbf-gold-text); }
 .cbf-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--uk-rule); }
-.cbf-stat { display: flex; flex-direction: column; gap: 6px; padding: 18px 12px 0 0; }
+.cbf-stat { display: flex; flex-direction: column; gap: 4px; padding: 14px 12px 0 0; }
 .uikit .cbf-stat__num { font-family: var(--uk-font-heading); font-size: 26px; line-height: 1.1; color: var(--uk-heading); }
 
 /* purchase type */
-.cbf-purchase { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+.cbf-purchase { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
 .cbf-opt--row { height: auto; }
-.cbf-card--row { padding: 16px 18px; gap: 12px; }
+.cbf-card--row { padding: 14px 18px; gap: 10px; }
 .cbf-row__lead { display: inline-flex; align-items: center; gap: 12px; color: var(--uk-heading); }
 .cbf-dot { display: inline-flex; width: 18px; height: 18px; border: 1px solid var(--uk-gray-2); border-radius: 50%; position: relative; flex: 0 0 auto; }
 .cbf-dot::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; background: var(--uk-gold); opacity: 0; transition: opacity .15s ease; }
@@ -925,11 +931,24 @@
 .cbf-benefits li::before { content: ""; position: absolute; left: 0; top: 0.35em; width: 6px; height: 10px; border-right: 2px solid var(--uk-gold); border-bottom: 2px solid var(--uk-gold); transform: rotate(45deg); }
 
 /* email + checkout, as the kit's contact fields */
-.cbf-checkout { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+.cbf-checkout { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
 .cbf-label { color: var(--uk-heading); }
 .cbf-input { width: 100%; padding: 14px 16px; border: 1px solid var(--uk-rule); border-radius: 10px; background: var(--uk-white); color: var(--uk-heading); font: inherit; transition: border-color .18s ease; }
 .cbf-input:focus { outline: none; border-color: var(--uk-heading); }
 .cbf-error { margin: 0; color: #a23b2a; }
+
+/* phones: style cards become a row with a square thumbnail; size cards put the number beside the details */
+@media (max-width: 749px) {
+  .cbf-card--style { flex-direction: row; align-items: stretch; }
+  .cbf-card--style .cbf-card__media { flex: 0 0 118px; aspect-ratio: auto; }
+  .cbf-card--style .cbf-card__body { flex: 1 1 auto; min-width: 0; padding: 14px 16px; gap: 4px; }
+  .cbf-card--style .cbf-card__omega { padding-top: 6px; }
+  .cbf-card--size .cbf-card__body--center { display: grid; grid-template-columns: 92px minmax(0, 1fr); column-gap: 14px; align-items: center; text-align: left; padding: 18px 16px 16px; }
+  .cbf-card--size .cbf-size__lead { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; grid-row: 1 / span 5; }
+  .uikit .cbf-card--size .cbf-portions { font-size: 40px; }
+  .cbf-card--size .cbf-card__omega--stack { align-items: flex-start; }
+  .cbf-summary__body { padding: 16px; }
+}
 
 /* reviews block from Judge.me */
 .cbf-reviews { margin-top: 56px; }
