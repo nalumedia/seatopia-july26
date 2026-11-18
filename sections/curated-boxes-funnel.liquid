@@ -882,7 +882,7 @@
 .cbf-sub p { margin: 0; }
 
 /* the box chosen on step 1, as the kit's gold-outlined chip (uikit-hero__chip) */
-.cbf-chosen { display: inline-flex; align-items: center; gap: 10px; margin-top: 6px; padding: 5px 14px 5px 5px; border: 1px solid var(--uk-gold); border-radius: var(--uk-radius-pill); background: var(--uk-white); color: var(--uk-heading); font: inherit; cursor: pointer; transition: border-color .18s ease; }
+.cbf-chosen { display: inline-flex; align-items: center; gap: 10px; margin: 6px 0 8px; padding: 5px 14px 5px 5px; border: 1px solid var(--uk-gold); border-radius: var(--uk-radius-pill); background: var(--uk-white); color: var(--uk-heading); font: inherit; cursor: pointer; transition: border-color .18s ease; }
 .cbf-chosen:hover { border-color: var(--uk-dark-blue); }
 .cbf-chosen:focus-visible { outline: 2px solid var(--uk-gold); outline-offset: 2px; }
 .cbf-chosen[hidden] { display: none; }
@@ -893,7 +893,7 @@
 /* grids + cards: white, 1px kit rule, kit card radius; chosen = gold rule + the kit's featured shadow */
 .cbf-fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .cbf-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
-@media (max-width: 749px) { .cbf-grid { grid-template-columns: 1fr; gap: 10px; } }
+@media (max-width: 749px) { .cbf-grid { grid-template-columns: 1fr; gap: 10px; } [data-cbf-step="2"] .cbf-grid { gap: 20px; } }
 
 .cbf-opt { display: block; position: relative; cursor: pointer; height: 100%; }
 .cbf-card { position: relative; display: flex; flex-direction: column; height: 100%; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-card); background: var(--uk-white); overflow: hidden; transition: border-color .18s ease, box-shadow .18s ease; }
