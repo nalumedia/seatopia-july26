@@ -296,7 +296,6 @@
                     assign tagline = ''
                     assign detail = ''
                     assign badge = ''
-                    assign emoji = ''
                     for block in section.blocks
                       if block.type == 'size'
                         assign bname = block.settings.size_value | downcase | strip
@@ -304,7 +303,6 @@
                           assign tagline = block.settings.tagline
                           assign detail = block.settings.description
                           assign badge = block.settings.badge
-                          assign emoji = block.settings.emoji
                         endif
                       endif
                     endfor
@@ -324,7 +322,6 @@
                       {%- endif -%}
                       <span class="cbf-card__body cbf-card__body--center">
                         <span class="cbf-size__lead">
-                          {%- if emoji != blank -%}<span class="cbf-emoji" aria-hidden="true">{{ emoji }}</span>{%- endif -%}
                           <span class="cbf-portions">{{ portions }}</span>
                           <span class="cbf-portions__label uikit-body-s uikit-muted">Portions</span>
                         </span>
@@ -732,12 +729,7 @@
           var img = this.querySelector('[data-cbf-summary-image]');
           if (img && v.image) { img.src = v.image; img.srcset = ''; img.alt = v.style; }
           this.setText('[data-cbf-summary-title]', v.style);
-          var sizeEl = this.querySelector('[data-cbf-summary-size]');
-          if (sizeEl) {
-            var sizeCard = this.querySelector('[data-cbf-size][value="' + v.size.replace(/"/g, '\\"') + '"]');
-            var emoji = sizeCard ? sizeCard.parentElement.querySelector('.cbf-emoji') : null;
-            sizeEl.textContent = (emoji ? emoji.textContent + ' ' : '') + v.size;
-          }
+          this.setText('[data-cbf-summary-size]', v.size);
           this.setText('[data-cbf-summary-price]', priceText);
           var cmp = this.querySelector('[data-cbf-summary-compare]');
           if (cmp) { cmp.textContent = v.priceText; cmp.hidden = !(plan && plan.price < v.price); }
@@ -912,17 +904,20 @@
 
 .cbf-card__media { display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--uk-gray-4); }
 .cbf-card__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.cbf-card__body { display: flex; flex-direction: column; gap: 6px; padding: 18px 20px 20px; }
-.cbf-card__body--center { align-items: center; text-align: center; padding: 24px 20px 22px; }
+.cbf-card__body { display: flex; flex-direction: column; gap: 8px; padding: 20px; flex: 1 1 auto; }
+.cbf-card__body--center { align-items: center; text-align: center; padding: 24px 20px 20px; }
+.cbf-card__text { flex: 1 1 auto; }
 .cbf-card__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.cbf-card--style .cbf-card__row { align-items: flex-start; }
+.cbf-card--style .cbf-radio { margin-top: 4px; }
 .cbf-card__title { color: var(--uk-heading); }
 .cbf-card__text p { margin: 0; }
 .cbf-card__price strong { color: var(--uk-heading); font-weight: 600; }
 .cbf-per { white-space: nowrap; font-weight: 400; }
 .cbf-summary__price .cbf-per { font-family: var(--uk-font-body); }
 .cbf-row__price .cbf-per { white-space: nowrap; }
-.cbf-card__omega { display: inline-flex; align-items: center; gap: 6px; margin-top: 2px; padding-top: 8px; border-top: 1px solid var(--uk-rule); color: var(--cbf-gold-text); font-weight: 600; }
-.cbf-card__omega--stack { flex-direction: column; align-self: stretch; gap: 2px; margin-top: 4px; }
+.cbf-card__omega { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; padding-top: 12px; border-top: 1px solid var(--uk-rule); color: var(--cbf-gold-text); font-weight: 600; }
+.cbf-card__omega--stack { flex-direction: column; align-self: stretch; gap: 2px; }
 .cbf-card__omega-big { font-size: 18px; font-weight: 600; color: var(--cbf-gold-text); }
 .cbf-icon { width: 16px; height: 16px; flex: 0 0 auto; }
 
@@ -935,9 +930,8 @@
 .cbf-badge { position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); padding: 6px 12px; border-radius: var(--uk-radius-pill); background: var(--uk-gold); color: var(--uk-white); white-space: nowrap; z-index: 1; }
 .uikit .cbf-eyebrow { color: var(--uk-gold); letter-spacing: .12em; text-transform: uppercase; }
 .cbf-size__lead { display: contents; }
-.cbf-emoji { font-size: 22px; line-height: 1; }
-.uikit .cbf-portions { font-family: var(--uk-font-heading); font-weight: 300; font-size: 48px; line-height: 1; letter-spacing: -.02em; color: var(--uk-heading); margin-top: 2px; }
-.cbf-portions__label { margin-top: -4px; }
+.uikit .cbf-portions { font-family: var(--uk-font-heading); font-weight: 300; font-size: 48px; line-height: 1; letter-spacing: -.02em; color: var(--uk-heading); }
+.cbf-portions__label { margin-top: -4px; margin-bottom: 4px; }
 
 /* notes + actions */
 .cbf-note { text-align: center; max-width: 720px; margin: 16px auto 0; }
@@ -1021,7 +1015,8 @@
   .cbf-card--style .cbf-card__body { flex: 1 1 auto; min-width: 0; padding: 14px 16px; gap: 4px; }
   .cbf-card--style .cbf-card__omega { padding-top: 6px; }
   .cbf-card--size .cbf-card__body--center { display: grid; grid-template-columns: 92px minmax(0, 1fr); column-gap: 14px; align-items: center; text-align: left; padding: 18px 16px 16px; }
-  .cbf-card--size .cbf-size__lead { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; grid-row: 1 / span 5; }
+  .cbf-card--size .cbf-size__lead { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; grid-row: 1 / span 5; }
+  .cbf-card--size .cbf-portions__label { margin-bottom: 0; }
   .uikit .cbf-card--size .cbf-portions { font-size: 40px; }
   .cbf-card--size .cbf-card__omega--stack { align-items: flex-start; }
   .cbf-summary__body { padding: 16px; }
@@ -1102,7 +1097,6 @@
       "name": "Size card",
       "settings": [
         { "type": "text", "id": "size_value", "label": "Matches Size option value" },
-        { "type": "text", "id": "emoji", "label": "Emoji" },
         { "type": "text", "id": "tagline", "label": "Tagline" },
         { "type": "richtext", "id": "description", "label": "Detail line" },
         { "type": "text", "id": "badge", "label": "Badge" }

@@ -51,7 +51,6 @@
           "type": "size",
           "settings": {
             "size_value": "12 Portions",
-            "emoji": "🐟",
             "tagline": "Perfect for you",
             "description": "<p>~6-8 oz portions · A great way to start your Seatopia journey.</p>",
             "badge": ""
@@ -61,7 +60,6 @@
           "type": "size",
           "settings": {
             "size_value": "18 Portions",
-            "emoji": "🐠🐠",
             "tagline": "For you to share",
             "description": "<p>~6-8 oz portions · More variety, better value — our most popular size.</p>",
             "badge": "Most Popular"
@@ -71,7 +69,6 @@
           "type": "size",
           "settings": {
             "size_value": "24 Portions",
-            "emoji": "🐡🐡🐡",
             "tagline": "For your family",
             "description": "<p>~6-8 oz portions · Stock your freezer with premium catches.</p>",
             "badge": ""
