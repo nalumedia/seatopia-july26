@@ -1746,25 +1746,12 @@
             "link": "/pages/nick-norwitz-seatopia",
             "link_label": "Why he supports Seatopia"
           }
-        },
-        "e_greenfield": {
-          "type": "endorser",
-          "settings": {
-            "image": "shopify://shop_images/image_15_d3436008-fe58-4d87-9757-60882241aac0.png",
-            "name": "Ben Greenfield",
-            "role": "Customer for 5+ years",
-            "quote": "“If you want healthy, gourmet-style seafood, in the comfort of your own home, seafood that goes above and beyond any you've tasted before, you need SEATOPIA in your life!”",
-            "disclosure": "Paid partner and affiliate",
-            "link": "",
-            "link_label": "Why he supports Seatopia"
-          }
         }
       },
       "block_order": [
         "e_hyman",
         "e_means",
-        "e_norwitz",
-        "e_greenfield"
+        "e_norwitz"
       ],
       "settings": {
         "anchor": "endorsements",

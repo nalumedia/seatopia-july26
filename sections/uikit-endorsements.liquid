@@ -79,7 +79,9 @@
 </div>
 <style>
   /* dark band: the kit's dark blue with the kit tokens re-pointed for a dark surface */
-  .uikit-endorse { --uk-surface: var(--uk-dark-blue); --uk-text: var(--uk-white); --uk-heading: var(--uk-white); --uk-muted: rgba(255,255,255,.72); --uk-rule: rgba(255,255,255,.14); background: var(--uk-dark-blue); color: var(--uk-white); overflow: hidden; }
+  /* .uikit.uikit-endorse outranks uikit.css's .uikit, which a later section can re-link after this style block */
+  .uikit.uikit-endorse { --uk-surface: var(--uk-dark-blue); --uk-text: var(--uk-white); --uk-heading: var(--uk-white); --uk-muted: rgba(255,255,255,.72); --uk-rule: rgba(255,255,255,.14); background: var(--uk-dark-blue); color: var(--uk-white); overflow: hidden; }
+  .uikit.uikit-endorse h2 { color: var(--uk-white); }
   .uikit-endorse__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 36px; }
   .uikit-endorse__headtext { display: flex; flex-direction: column; gap: 14px; max-width: 760px; }
   .uikit-endorse__eyebrow { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 14px; color: var(--uk-muted); }
@@ -96,11 +98,13 @@
   .uikit-endorse__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(28,36,39,.45) 0%, rgba(28,36,39,0) 28%); }
   .uikit .uikit-endorse__name { position: absolute; top: 20px; left: 20px; right: 20px; color: var(--uk-white); letter-spacing: .1em; text-transform: uppercase; text-shadow: 0 1px 8px rgba(0,0,0,.35); }
   .uikit-endorse__panel { position: relative; display: flex; flex-direction: column; gap: 12px; padding: 20px; margin: 0; background: rgba(28,36,39,.58); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); color: var(--uk-white); }
-  .uikit .uikit-endorse__quote { margin: 0; font-size: 16px; line-height: 1.45; color: var(--uk-white); }
+  .uikit .uikit-endorse__quote { margin: 0; padding: 0; border: 0; font-family: var(--uk-font-body); font-style: normal; font-size: 16px; line-height: 1.45; color: var(--uk-white); }
+  .uikit .uikit-endorse__quote p { margin: 0; }
   .uikit .uikit-endorse__role { color: var(--uk-muted); letter-spacing: .08em; text-transform: uppercase; font-weight: 500; }
   .uikit-endorse__more { color: var(--uk-white); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.4); align-self: flex-start; padding-bottom: 1px; }
   .uikit-endorse__more:hover { border-color: var(--uk-white); }
   .uikit-endorse__arrows { display: flex; justify-content: flex-end; gap: 8px; margin-top: 24px; }
+  .uikit-endorse__arrows[hidden] { display: none; }
   .uikit-endorse__arrow { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1px solid rgba(255,255,255,.3); border-radius: 999px; background: transparent; color: var(--uk-white); cursor: pointer; transition: border-color .18s ease; }
   .uikit-endorse__arrow:hover { border-color: var(--uk-white); }
   @media (max-width: 989px) {
@@ -119,6 +123,9 @@
     var root = wrap ? wrap.querySelector('.uikit-endorse') : (me ? me.parentElement.querySelector('.uikit-endorse') : null);
     if (!root) return;
     var track = root.querySelector('[data-uk-track]');
+    var arrows = root.querySelector('.uikit-endorse__arrows');
+    function fit() { if (arrows && track) arrows.hidden = track.scrollWidth <= track.clientWidth + 4; }
+    fit(); window.addEventListener('resize', fit);
     root.querySelectorAll('[data-uk-scroll]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var card = track.querySelector('.uikit-endorse__card');
