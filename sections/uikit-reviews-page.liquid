@@ -55,12 +55,15 @@
       <div class="uikit-rp__main">
         <div class="jdgm-widget jdgm-all-reviews-widget" data-from-snippet="true" data-rp-widget>
           {{ shop.metafields.judgeme.all_reviews_header }}
-          <div class="jdgm-rev-widg__body">
+          <div class="jdgm-rev-widg__body" data-rp-list>
             {{ shop.metafields.judgeme.all_reviews_0 }}
           </div>
-          <div class="jdgm-paginate"></div>
         </div>
-        <p class="uikit-body-s uikit-muted uikit-rp__empty" data-rp-empty hidden>No reviews for that product on this page. Try another page or clear the filter.</p>
+        <p class="uikit-body-s uikit-muted uikit-rp__empty" data-rp-empty hidden>No reviews for that product among the ones loaded. Load more, or clear the filter.</p>
+        <div class="uikit-rp__more">
+          <button type="button" class="uikit-btn uikit-btn--secondary" data-rp-more data-shop="{{ shop.permanent_domain }}">Load more reviews</button>
+          <p class="uikit-body-s uikit-muted" data-rp-status hidden>Loading…</p>
+        </div>
       </div>
     </div>
   </div>
@@ -125,12 +128,11 @@
   .uikit-rp__thumb { position: absolute; left: 24px; top: 22px; width: 56px; height: 56px; border-radius: 12px; overflow: hidden; background: var(--uk-gray-4); }
   .uikit-rp__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .uikit-rp .jdgm-rev.uikit-rp--no-thumb { padding-left: 24px; }
-  /* pagination */
-  .uikit-rp .jdgm-paginate { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 28px; }
-  .uikit-rp .jdgm-paginate__page { min-width: 40px; height: 40px; padding: 0 12px; border: 1px solid var(--uk-rule); border-radius: 999px; background: var(--uk-white); color: var(--uk-heading); font: inherit; font-size: 14px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
-  .uikit-rp .jdgm-paginate__page.jdgm-curt { background: var(--uk-heading); border-color: var(--uk-heading); color: var(--uk-white); }
-  .uikit-rp .jdgm-paginate__page.jdgm-paginate__first-page, .uikit-rp .jdgm-paginate__page.jdgm-paginate__last-page { display: none; }
+  /* Judge.me's own tabs and paginator are not used; the page loads pages itself */
+  .uikit-rp .jdgm-rev-widg__tabs, .uikit-rp .jdgm-all-reviews__tabs, .uikit-rp .jdgm-paginate, .uikit-rp .jdgm-rev-widg__sort-wrapper { display: none !important; }
   .uikit-rp .jdgm-spinner::before { display: none; }
+  .uikit-rp__more { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 28px; }
+  .uikit-rp__more[hidden] { display: none; }
   @media (max-width: 989px) {
     .uikit-rp__layout { grid-template-columns: 1fr; gap: 28px; }
     .uikit-rp__side { position: static; }
@@ -246,18 +248,58 @@
           '<span class="uikit-rp__hist-bar"><span style="width:' + (parseInt(row.dataset.percentage, 10) || 0) + '%"></span></span>' +
           '<span class="uikit-rp__hist-count">' + (row.dataset.frequency || 0) + '</span>';
         b.addEventListener('click', function () {
-          var star = row.querySelector('.jdgm-histogram__star');
           var same = activeRating === row.dataset.rating;
           activeRating = same ? '' : row.dataset.rating;
           hist.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b && !same ? 'true' : 'false'); });
-          if (star) star.click();
+          reload();
         });
         li.appendChild(b); hist.appendChild(li);
       });
     }
 
+    /* ---- paging, straight from Judge.me's all-reviews endpoint (the one its widget calls) ---- */
+    var list = root.querySelector('[data-rp-list]');
+    var more = root.querySelector('[data-rp-more]');
+    var status = root.querySelector('[data-rp-status]');
+    var PER = 25, page = 1, busy = false;
+    function endpoint(p) {
+      var shop = more ? more.dataset.shop : '';
+      return 'https://cdn.judge.me/reviews/all_reviews_js_based?url=' + encodeURIComponent(shop) + '&shop_domain=' + encodeURIComponent(shop) +
+        '&platform=shopify&review_type=product-reviews&per_page=' + PER + '&page=' + p + (activeRating ? '&filter_rating=' + activeRating : '') + '&ts=' + Date.now();
+    }
+    function fetchPage(p) {
+      busy = true; if (status) { status.hidden = false; status.textContent = 'Loading…'; } if (more) more.disabled = true;
+      return fetch(endpoint(p)).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+        var tmp = document.createElement('div'); tmp.innerHTML = d && d.html ? d.html : '';
+        var revs = Array.prototype.slice.call(tmp.querySelectorAll('.jdgm-rev'));
+        return revs;
+      }).catch(function () { return []; }).then(function (revs) {
+        busy = false; if (status) status.hidden = true; if (more) more.disabled = false;
+        return revs;
+      });
+    }
+    function append(revs) {
+      revs.forEach(function (r) { list.appendChild(r); });
+      decorate();
+      if (more) more.parentElement.hidden = revs.length < PER;
+    }
+    function reload() {
+      page = 1;
+      fetchPage(1).then(function (revs) {
+        list.innerHTML = '';
+        append(revs);
+        if (!revs.length && empty) { empty.hidden = false; empty.textContent = 'No reviews with that rating yet.'; }
+      });
+    }
+    if (more) more.addEventListener('click', function () {
+      if (busy) return;
+      page += 1;
+      fetchPage(page).then(append);
+    });
+
     decorate(); buildHist();
-    var mo = new MutationObserver(function () { decorate(); buildHist(); });
+    if (more && list.querySelectorAll('.jdgm-rev').length < PER) more.parentElement.hidden = true;
+    var mo = new MutationObserver(function () { buildHist(); });
     mo.observe(widget, { childList: true, subtree: true });
   })();
 </script>
