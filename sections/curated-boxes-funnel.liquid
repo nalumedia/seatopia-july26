@@ -39,6 +39,11 @@
   endfor
 
   assign omega_mf = shop.metafields.custom.omega_by_sku
+  assign entry = false
+  if section.settings.mode == 'entry'
+    assign entry = true
+  endif
+  assign funnel_url = section.settings.funnel_url | default: '/pages/curated-boxes'
 -%}
 
 {%- if product == blank or style_option == blank or size_option == blank -%}
@@ -128,7 +133,9 @@
   <section class="uikit uikit-section uikit-section--tight cbf-section" id="CuratedFunnel-{{ section.id }}">
     <div class="uikit-container cbf-container">
       <curated-funnel
-        class="cbf"
+        class="cbf{% if entry %} cbf--entry{% endif %}"
+        data-entry="{{ entry }}"
+        data-funnel-url="{{ funnel_url | escape }}"
         data-style-name="{{ section.settings.style_option_name | escape }}"
         data-size-name="{{ section.settings.size_option_name | escape }}"
         data-sub-label="{{ section.settings.submit_sub_label | default: 'Subscribe' | escape }}"
@@ -141,7 +148,7 @@
         {%- endif -%}
 
         {%- comment -%} ---------- phone pill ---------- {%- endcomment -%}
-        {%- if section.settings.phone != blank -%}
+        {%- if section.settings.phone != blank and entry == false -%}
           {%- assign tel = section.settings.phone | remove: '(' | remove: ')' | remove: ' ' | remove: '-' | remove: '.' -%}
           <p class="cbf-phone uikit-body-s uikit-muted">
             {{ section.settings.phone_label | escape }}
@@ -149,7 +156,8 @@
           </p>
         {%- endif -%}
 
-        {%- comment -%} ---------- progress ---------- {%- endcomment -%}
+        {%- comment -%} ---------- progress (full mode only) ---------- {%- endcomment -%}
+        {%- unless entry -%}
         <ol class="cbf-progress" aria-label="Progress">
           {%- assign step_labels = section.settings.step_labels | default: 'Seafood,Size,Checkout' | split: ',' -%}
           {%- for label in step_labels -%}
@@ -172,6 +180,7 @@
             {%- endunless -%}
           {%- endfor -%}
         </ol>
+        {%- endunless -%}
 
         <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data" data-cbf-form novalidate>
           <input type="hidden" name="id" value="" data-cbf-variant-id>
@@ -273,6 +282,7 @@
             {%- endif -%}
           </div>
 
+          {%- unless entry -%}
           {%- comment -%} ================= STEP 2 : SIZE ================= {%- endcomment -%}
           <div class="cbf-step" data-cbf-step="2" hidden>
             <div class="cbf-head">
@@ -502,6 +512,7 @@
               </button>
             </div>
           </div>
+          {%- endunless -%}
         </form>
       </curated-funnel>
 
@@ -522,6 +533,8 @@
           this.omega = this.readJSON('[data-cbf-omega]') || null;
           this.form = this.querySelector('[data-cbf-form]');
           this.requireEmail = this.dataset.requireEmail === 'true';
+          this.entry = this.dataset.entry === 'true';
+          this.funnelUrl = this.dataset.funnelUrl || '/pages/curated-boxes';
           this.step = 1;
           this.busy = false;
 
@@ -541,6 +554,26 @@
           this.renderStyleOmega();
           this.update();
           this.goto(1, false);
+          if (!this.entry) this.applyParams();
+        }
+
+        /* Deep link from an entry module elsewhere on the site: ?style=...&size=... preselects
+           and opens the funnel on the next step. */
+        applyParams() {
+          var q;
+          try { q = new URLSearchParams(window.location.search); } catch (e) { return; }
+          var want = { style: q.get('style'), size: q.get('size') };
+          var picked = {};
+          ['style', 'size'].forEach(function (k) {
+            if (!want[k]) return;
+            var el = Array.prototype.filter.call(this.querySelectorAll('[data-cbf-' + k + ']'), function (r) {
+              return r.value.toLowerCase() === want[k].toLowerCase();
+            })[0];
+            if (el) { el.checked = true; picked[k] = true; }
+          }, this);
+          if (!picked.style) return;
+          this.update();
+          this.goto(picked.size ? 3 : 2, false);
         }
 
         readJSON(sel) {
@@ -576,6 +609,12 @@
 
         goto(n, scroll) {
           if (n === 2 && !this.val('style')) return;
+          if (this.entry && n >= 2) {
+            /* entry mode: the rest of the funnel lives on the funnel page */
+            var sep = this.funnelUrl.indexOf('?') > -1 ? '&' : '?';
+            window.location.href = this.funnelUrl + sep + 'style=' + encodeURIComponent(this.val('style'));
+            return;
+          }
           if (n === 3 && !this.current()) return;
           this.step = n;
           this.querySelectorAll('[data-cbf-step]').forEach(function (el) {
@@ -1040,6 +1079,11 @@
       "content": "Three-step funnel over one product with a Style option and a Size option. Optional data: variant metafield custom.box_components (JSON list of {sku,name,quantity}) powers 'What's inside'; shop metafield custom.omega_by_sku (JSON map of SKU to {epaDhaMg}) powers the omega figures. Both blocks stay hidden until that data exists — values are never estimated."
     },
     { "type": "product", "id": "product", "label": "Curated box product" },
+    { "type": "select", "id": "mode", "label": "Mode", "options": [
+      { "value": "full", "label": "Full funnel: three steps in place" },
+      { "value": "entry", "label": "Entry: step 1 here, size and checkout on the funnel page" }
+    ], "default": "full", "info": "Entry is for the homepage, landing pages and recipes: pick a box here, continue on the funnel page with that box already chosen." },
+    { "type": "url", "id": "funnel_url", "label": "Funnel page (entry mode)", "info": "Defaults to /pages/curated-boxes." },
     { "type": "text", "id": "style_option_name", "label": "Style option name", "default": "Style" },
     { "type": "text", "id": "size_option_name", "label": "Size option name", "default": "Size" },
     { "type": "text", "id": "step_labels", "label": "Progress labels (comma separated)", "default": "Seafood,Size,Checkout" },
