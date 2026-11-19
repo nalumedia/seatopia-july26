@@ -92,7 +92,12 @@
   .uikit-rp .jdgm-rev { position: relative; margin: 0; padding: 22px 24px 22px 100px; border: 1px solid var(--uk-rule) !important; border-radius: var(--uk-radius-card); background: var(--uk-white); min-height: 100px; }
   .uikit-rp .jdgm-rev[hidden] { display: none; }
   .uikit-rp .jdgm-rev__icon { display: none !important; }
-  .uikit-rp .jdgm-rev__header { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-bottom: 8px; }
+  /* Judge.me lays the all-reviews widget out in two columns (header left, content right); stack them */
+  .uikit-rp .jdgm-rev__header, .uikit-rp .jdgm-rev__content { float: none !important; width: auto !important; max-width: none !important; padding: 0 !important; margin: 0 !important; box-sizing: border-box; }
+  .uikit-rp .jdgm-rev__header { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-bottom: 8px !important; }
+  .uikit-rp .jdgm-rev__content { display: block; }
+  .uikit-rp .jdgm-rev__content .jdgm-rev__rating { display: inline-block; margin-bottom: 6px; }
+  .uikit-rp .jdgm-rev__timestamp { float: none !important; }
   .uikit-rp .jdgm-rev__br { display: none; }
   .uikit-rp .jdgm-rev__rating { order: 1; }
   .uikit-rp .jdgm-star { color: var(--uk-gold) !important; font-size: 16px; }
@@ -101,8 +106,9 @@
   .uikit-rp .jdgm-rev__author-wrapper { order: 2; display: inline-flex; align-items: center; gap: 6px; }
   .uikit-rp .jdgm-rev__author { font-weight: 600; font-size: 14px; color: var(--uk-heading); }
   .uikit-rp .jdgm-rev__buyer-badge-wrapper { order: 3; }
-  .uikit-rp .jdgm-rev__buyer-badge { color: var(--uk-gold); }
-  .uikit-rp .jdgm-rev__buyer-badge::after { content: " Verified buyer"; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--uk-muted); }
+  .uikit-rp .jdgm-rev__buyer-badge-wrapper { display: inline-flex; align-items: center; padding: 3px 9px; border-radius: var(--uk-radius-pill); background: rgba(187,143,80,.14); color: #8a6430 !important; font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+  .uikit-rp .jdgm-rev__buyer-badge { color: inherit !important; font-size: inherit !important; background: none !important; padding: 0 !important; }
+  .uikit-rp .jdgm-rev__buyer-badge::before { color: var(--uk-gold); margin-right: 4px; }
   .uikit-rp .jdgm-rev__prod-info-wrapper { order: 5; flex-basis: 100%; }
   .uikit-rp .jdgm-rev__prod-link-prefix { display: none; }
   .uikit-rp .jdgm-rev__prod-link { font-size: 13px; color: var(--uk-heading); text-decoration: none; border-bottom: 1px solid var(--uk-gray-2); }
@@ -232,6 +238,7 @@
       var rows = widget.querySelectorAll('.jdgm-histogram__row');
       if (!rows.length || hist.children.length) return;
       rows.forEach(function (row) {
+        if (!/^[1-5]$/.test(row.dataset.rating || '')) return;
         var li = document.createElement('li');
         var b = document.createElement('button');
         b.type = 'button'; b.setAttribute('aria-pressed', 'false'); b.dataset.rpRating = row.dataset.rating;
