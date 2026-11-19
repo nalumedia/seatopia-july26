@@ -375,7 +375,8 @@
         "submit_once_label": "Checkout",
         "show_reviews": false,
         "mode": "entry",
-        "funnel_url": "/pages/curated-boxes"
+        "funnel_url": "/pages/curated-boxes",
+        "hide_on_articles": true
       }
     }
   },

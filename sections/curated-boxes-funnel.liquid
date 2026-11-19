@@ -53,6 +53,9 @@
     if here == funnel_url
       assign skip_entry = true
     endif
+    if section.settings.hide_on_articles and request.page_type == 'article'
+      assign skip_entry = true
+    endif
   endif
 -%}
 {%- if skip_entry -%}
@@ -141,7 +144,7 @@
     <svg class="cbf-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>
   {%- endcapture -%}
 
-  <section class="uikit uikit-section uikit-section--tight cbf-section" id="CuratedFunnel-{{ section.id }}">
+  <section class="section uikit uikit-section uikit-section--tight cbf-section" id="CuratedFunnel-{{ section.id }}">
     <div class="uikit-container cbf-container">
       <curated-funnel
         class="cbf{% if entry %} cbf--entry{% endif %}"
@@ -546,10 +549,13 @@
           this.requireEmail = this.dataset.requireEmail === 'true';
           this.entry = this.dataset.entry === 'true';
           this.funnelUrl = this.dataset.funnelUrl || '/pages/curated-boxes';
-          if (this.entry && document.querySelector('curated-funnel:not(.cbf--entry)')) {
-            var wrap = this.closest('.cbf-section');
-            if (wrap) wrap.hidden = true;
-            return;
+          if (this.entry) {
+            var first = document.querySelector('curated-funnel');
+            if (first && first !== this) {
+              var wrap = this.closest('.shopify-section') || this.closest('.cbf-section');
+              if (wrap) wrap.hidden = true;
+              return;
+            }
           }
           this.step = 1;
           this.busy = false;
@@ -1100,6 +1106,7 @@
       { "value": "entry", "label": "Entry: step 1 here, the rest on the funnel page" }
     ], "default": "full", "info": "Entry is for the homepage, landing pages and recipes: pick a box here, continue on the funnel page with that box already chosen." },
     { "type": "url", "id": "funnel_url", "label": "Funnel page (entry mode)", "info": "Defaults to /pages/curated-boxes." },
+    { "type": "checkbox", "id": "hide_on_articles", "label": "Hide on blog articles", "default": false, "info": "For the footer copy: recipe templates carry their own module above the newsletter banner." },
     { "type": "text", "id": "style_option_name", "label": "Style option name", "default": "Style" },
     { "type": "text", "id": "size_option_name", "label": "Size option name", "default": "Size" },
     { "type": "text", "id": "step_labels", "label": "Progress labels (comma separated)", "default": "Seafood,Size,Checkout" },
