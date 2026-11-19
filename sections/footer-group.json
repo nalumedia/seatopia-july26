@@ -149,78 +149,47 @@
             "enable_follow_on_shop": false
           }
         },
-        "link_list_fU4X7a": {
+        "link_shop": {
           "type": "link_list",
           "settings": {
             "heading": "Shop",
-            "menu": "v2-footer-c2",
-            "container_width": 50,
-            "opened": false
-          }
-        },
-        "link_list_EknJ8N": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Learn More",
-            "menu": "v2-footer-c1",
+            "menu": "footer-shop",
             "container_width": 50,
             "opened": true
           }
         },
-        "link_list_3EwCkL": {
+        "link_standard": {
           "type": "link_list",
           "settings": {
-            "heading": "Contact",
-            "menu": "v2-footer-r1-c4",
+            "heading": "The Standard",
+            "menu": "footer-standard",
             "container_width": 50,
             "opened": false
           }
         },
-        "link_list_mq8frt": {
+        "link_learn": {
           "type": "link_list",
           "settings": {
-            "heading": "Seafood Recipes",
-            "menu": "v2-footer-r1-c5",
+            "heading": "Learn",
+            "menu": "footer-learn",
             "container_width": 50,
             "opened": false
           }
         },
-        "link_list_6ixiPN": {
+        "link_about": {
           "type": "link_list",
-          "disabled": true,
           "settings": {
-            "heading": "Seatopia Salmon",
-            "menu": "v2-footer-r2-c1",
+            "heading": "About",
+            "menu": "footer-about",
             "container_width": 50,
             "opened": false
           }
         },
-        "link_list_VyAnDp": {
+        "link_help": {
           "type": "link_list",
-          "disabled": true,
           "settings": {
-            "heading": "Seatopia other species",
-            "menu": "v2-footer-r2-c1",
-            "container_width": 50,
-            "opened": false
-          }
-        },
-        "link_list_ta3Y9V": {
-          "type": "link_list",
-          "disabled": true,
-          "settings": {
-            "heading": "Seatopia whitefish",
-            "menu": "v2-footer-r2-c1",
-            "container_width": 50,
-            "opened": false
-          }
-        },
-        "link_list_3WKHUV": {
-          "type": "link_list",
-          "disabled": true,
-          "settings": {
-            "heading": "Other collection/species",
-            "menu": "v2-footer-r2-c1",
+            "heading": "Help",
+            "menu": "footer-help",
             "container_width": 50,
             "opened": false
           }
@@ -228,20 +197,17 @@
       },
       "block_order": [
         "logo_social",
-        "link_list_fU4X7a",
-        "link_list_EknJ8N",
-        "link_list_3EwCkL",
-        "link_list_mq8frt",
-        "link_list_6ixiPN",
-        "link_list_VyAnDp",
-        "link_list_ta3Y9V",
-        "link_list_3WKHUV"
+        "link_shop",
+        "link_standard",
+        "link_learn",
+        "link_about",
+        "link_help"
       ],
       "settings": {
         "enable_newsletter": true,
-        "newsletter_heading": "Stay in the loop with our weekly newsletter",
+        "newsletter_heading": "Join the weekly newsletter",
         "newsletter_heading_size": "md:title-lg",
-        "newsletter_text": "",
+        "newsletter_text": "<p>Recipes, farm news and member offers. One email a week.</p>",
         "newsletter_logo_height": 50,
         "show_social": true,
         "enable_follow_on_shop": true,
@@ -268,14 +234,17 @@
         "show_payment_icons": false,
         "monochrome_payment_icons": false,
         "show_copyright": true,
-        "copyright_text": "Nutrient values are based on independent lab analyses (Light Labs COAs) and may vary by lot. These statements have not been evaluated by the Food and Drug Administration. This information is for educational purposes only and is not intended to diagnose, treat, cure, or prevent any disease. Please consult your healthcare provider for personalized guidance, especially during pregnancy.",
+        "copyright_text": "",
         "color_text": "#ffffff",
         "color_background": "#1D3D3E",
         "gradient_background": "",
         "divider": false,
         "full_width": true,
         "rounded": true,
-        "enable_parallax": true
+        "enable_parallax": true,
+        "disclaimer": "Nutrient values are based on independent lab analyses (Light Labs COAs) and may vary by lot. These statements have not been evaluated by the Food and Drug Administration. This information is for educational purposes only and is not intended to diagnose, treat, cure, or prevent any disease. Please consult your healthcare provider for personalized guidance, especially during pregnancy.",
+        "show_powered_by": false,
+        "legal_menu": "footer-legal"
       }
     },
     "curated_funnel_entry": {

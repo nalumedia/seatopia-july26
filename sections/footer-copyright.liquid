@@ -4,11 +4,15 @@
     --color-background: {{ section.settings.color_background.rgb }};
     --color-foreground: {{ section.settings.color_text.rgb }};
   }
+  #shopify-section-{{ section.id }} .footer-disclaimer { font-size: 12px; line-height: 1.5; opacity: .7; max-width: 90ch; margin: 0 0 12px; text-align: left; }
 </style>
 
 <div class="section{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded{% endif %}"{% if section.settings.enable_parallax %} is="footer-parallax"{% endif %}>
   <div class="footer-copyright page-width{% if section.settings.full_width %} page-width--full{% endif %} w-full flex flex-col items-center justify-between gap-4 lg:gap-0 lg:flex-row relative">
     <div class="rte credits text-center">
+      {%- if section.settings.disclaimer != blank -%}
+        <p class="footer-disclaimer">{{ section.settings.disclaimer | escape | newline_to_br }}</p>
+      {%- endif -%}
       <div class="cstm-copy-policy-outer">
       <div class="cstm-copuright">
       {%- liquid
@@ -23,7 +27,9 @@
           endif
           echo '.&nbsp;'
         endif
-        echo powered_by_link
+        if section.settings.show_powered_by
+          echo powered_by_link
+        endif
       -%}
       </div>
       {%- if section.settings.show_policy -%}
@@ -38,6 +44,15 @@
               </li>
             {%- endif -%}
           {%- endfor -%}
+          {%- if section.settings.legal_menu != blank -%}
+            {%- for link in section.settings.legal_menu.links -%}
+              <li>
+                <small>
+                  <a href="{{ link.url }}" class="block reversed-link">{{ link.title }}</a>
+                </small>
+              </li>
+            {%- endfor -%}
+          {%- endif -%}
         </ul>
         </div>
         </div>
@@ -200,6 +215,24 @@
       "type": "text",
       "id": "copyright_text",
       "label": "t:sections.footer-copyright.settings.copyright_text.label"
+    },
+    {
+      "type": "textarea",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "info": "Shown in small type above the copyright line."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_powered_by",
+      "label": "Show 'Powered by Shopify'",
+      "default": true
+    },
+    {
+      "type": "link_list",
+      "id": "legal_menu",
+      "label": "Extra legal links",
+      "info": "Listed after the shop policies, e.g. Do Not Sell My Information."
     },
     {
       "type": "header",
