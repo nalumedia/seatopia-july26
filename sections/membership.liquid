@@ -476,6 +476,7 @@
     </div>
   </section>
 
+  {%- if section.settings.show_testimonials -%}
   {%- comment -%} ==================== Testimonials ==================== {%- endcomment -%}
   <section class="mbr-band mbr-tone--sage">
     <div class="page-width">
@@ -496,6 +497,7 @@
       </div>
     </div>
   </section>
+  {%- endif -%}
 
   {%- comment -%} ==================== FAQ (native details/summary — no JS) ==================== {%- endcomment -%}
   <section class="mbr-band" id="faq">
@@ -548,6 +550,7 @@
   "name": "Membership",
   "settings": [
     { "type": "paragraph", "content": "White bands use the site's global colours. The accent bands below take their colours from these settings." },
+    { "type": "checkbox", "id": "show_testimonials", "label": "Show the built-in testimonials band", "default": true, "info": "Turn off when the page carries the UI kit endorsements and reviews sections instead." },
     { "type": "header", "content": "Spacing" },
     { "type": "range", "id": "band_padding", "label": "Band padding (desktop)", "min": 40, "max": 160, "step": 4, "unit": "px", "default": 96 },
     { "type": "range", "id": "band_padding_mobile", "label": "Band padding (mobile)", "min": 24, "max": 120, "step": 4, "unit": "px", "default": 60 },

@@ -1,7 +1,163 @@
 {
   "sections": {
     "membership": {
-      "type": "membership"
+      "type": "membership",
+      "settings": {
+        "show_testimonials": false
+      }
+    },
+    "reviews": {
+      "type": "uikit-reviews",
+      "blocks": {
+        "r_lori": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "The Best",
+            "quote": "The most delicious fish we have ever had. Every piece is so fresh and perfect!",
+            "name": "Lori O.",
+            "date": "11/16/2026",
+            "product": "white-fish-box",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_tpm": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Honestly best fish I’ve ever had",
+            "quote": "I’ve never been able to cook really good fish at home, and I swear this is some of the best fish I’ve ever had, at home OR in a restaurant. The quality is incredible, it tastes so fresh, and I love that it comes in individually portioned packets.",
+            "name": "T. P. M.",
+            "date": "11/17/2026",
+            "product": "king-salmon",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_rosemary": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Scallops - tender and flavorful!",
+            "quote": "I made a fresh mixed veggie/scallop stirfry with shallots, coconut aminos and sesame oil and it was heavenly. The scallops were tender...buttery and delish!",
+            "name": "Rosemary L.",
+            "date": "11/11/2026",
+            "product": "scallop-meat-16oz",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_nathan": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Best tasting",
+            "quote": "The best tasting salmon I have ever had.",
+            "name": "Nathan R.",
+            "date": "11/10/2026",
+            "product": "atlantic-salmon-2x-6oz-portions",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_andrea": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "king salmon",
+            "quote": "this was the most delicious salmon, I have had in a long time. thank you!!!",
+            "name": "Andrea B.",
+            "date": "11/17/2026",
+            "product": "king-salmon",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_ora": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Incredible Salmon",
+            "quote": "I now prefer to eat salmon at home over any of the best restaurants in NYC! Wow! Delicious…and knowing that it is tested and for microplastics and carefully sourced is what keeps me coming back for more! Thanks you for making this available!",
+            "name": "Anonymous",
+            "date": "11/18/2026",
+            "product": "buy-ora-king-salmon-portion-new-zealand",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        }
+      },
+      "block_order": [
+        "r_lori",
+        "r_tpm",
+        "r_rosemary",
+        "r_nathan",
+        "r_andrea",
+        "r_ora"
+      ],
+      "settings": {
+        "anchor": "customer-reviews",
+        "heading": "What members are saying",
+        "show_rating": true,
+        "all_reviews_link": "/pages/reviews",
+        "all_reviews_label": "Read all reviews"
+      }
+    },
+    "endorsements": {
+      "type": "uikit-endorsements",
+      "blocks": {
+        "e_hyman": {
+          "type": "endorser",
+          "settings": {
+            "image": "shopify://shop_images/05212021_Mark_Hyman9087-Edit.jpg",
+            "name": "Dr. Mark Hyman, MD",
+            "role": "Functional medicine physician",
+            "quote": "“We are what our food eats.”",
+            "disclosure": "Paid partner",
+            "link": "shopify://pages/mark-hyman",
+            "link_label": "Why he supports Seatopia"
+          }
+        },
+        "e_means": {
+          "type": "endorser",
+          "settings": {
+            "image": "shopify://shop_images/DrCaseyMeans-Seatopia-33.jpg",
+            "name": "Dr. Casey Means, MD",
+            "role": "Physician and author",
+            "quote": "“Regenerative aquaculture is seafood production that enhances, rather than depletes, the oceans.”",
+            "disclosure": "",
+            "link": "/pages/casey-means-good-energy",
+            "link_label": "Why she supports Seatopia"
+          }
+        },
+        "e_norwitz": {
+          "type": "endorser",
+          "settings": {
+            "image": "shopify://shop_images/Nick_1.webp",
+            "name": "Dr. Nick Norwitz, MD PhD",
+            "role": "Physician and researcher",
+            "quote": "“Given how much seafood I eat, quality matters. Seatopia delivers on nutrient density and purity, while proving that exceptional nutrition and regenerative aquaculture can go hand in hand.”",
+            "disclosure": "Paid partner",
+            "link": "/pages/nick-norwitz-seatopia",
+            "link_label": "Why he supports Seatopia"
+          }
+        }
+      },
+      "block_order": [
+        "e_hyman",
+        "e_means",
+        "e_norwitz"
+      ],
+      "settings": {
+        "anchor": "endorsements",
+        "show_rating": true,
+        "eyebrow": "",
+        "heading": "Trusted by doctors and thousands of subscribers",
+        "cta_label": "Read the reviews",
+        "cta_link": "/pages/reviews",
+        "tone": "teal"
+      }
     },
     "funnel": {
       "type": "curated-boxes-funnel",
@@ -104,6 +260,8 @@
   },
   "order": [
     "membership",
+    "reviews",
+    "endorsements",
     "funnel"
   ]
 }
