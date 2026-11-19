@@ -24,23 +24,38 @@
   <div class="uikit-container">
     {%- if s.heading != blank -%}<h2 class="uikit-h2 uikit-reviews__heading">{{ s.heading }}</h2>{%- endif -%}
     {%- if section.blocks.size > 0 -%}
-      <ul class="uikit-reviews__grid uikit-reviews__grid--{{ section.blocks.size }}" role="list">
+      {%- assign scroll = false -%}
+      {%- if section.blocks.size > 3 -%}{%- assign scroll = true -%}{%- endif -%}
+      <ul class="uikit-reviews__grid uikit-reviews__grid--{{ section.blocks.size }}{% if scroll %} uikit-reviews__grid--scroll{% endif %}" role="list" data-uk-track>
         {%- for block in section.blocks -%}
           {%- assign b = block.settings -%}
+          {%- assign bp = b.product -%}
           <li class="uikit-reviews__item" {{ block.shopify_attributes }}>
+            {%- if bp != blank and bp.featured_image != blank -%}
+              <a class="uikit-reviews__product" href="{{ bp.url }}" aria-label="{{ bp.title | escape }}">
+                <span class="uikit-reviews__thumb">{{ bp.featured_image | image_url: width: 160 | image_tag: loading: 'lazy', widths: '80,120,160', sizes: '56px', alt: bp.title }}</span>
+                <span class="uikit-label-s uikit-reviews__product-name">{{ bp.title }}</span>
+              </a>
+            {%- endif -%}
             <span class="uikit-reviews__stars" aria-label="{{ b.rating }} out of 5">{%- for i in (1..5) -%}<span aria-hidden="true">{% if i <= b.rating %}★{% else %}☆{% endif %}</span>{%- endfor -%}</span>
             {%- if b.title != blank -%}<h3 class="uikit-reviews__title">{{ b.title }}</h3>{%- endif -%}
             {%- if b.quote != blank -%}<blockquote class="uikit-body-m uikit-reviews__quote">&ldquo;{{ b.quote }}&rdquo;</blockquote>{%- endif -%}
             {%- capture meta -%}
               {{- b.name -}}
               {%- if b.date != blank %}, {{ b.date }}{% endif -%}
-              {%- if b.product != blank %} · {{ b.product }} review{% endif -%}
+              {%- if bp == blank and b.product_label != blank %} · {{ b.product_label }} review{% endif -%}
               {%- if b.disclosure != blank %} · {{ b.disclosure }}{% endif -%}
             {%- endcapture -%}
             {%- if meta != blank -%}<span class="uikit-label-s uikit-reviews__meta">{{ meta | strip }}</span>{%- endif -%}
           </li>
         {%- endfor -%}
       </ul>
+      {%- if scroll -%}
+        <div class="uikit-reviews__arrows">
+          <button type="button" class="uikit-reviews__arrow" data-uk-scroll="-1" aria-label="Previous reviews"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button type="button" class="uikit-reviews__arrow" data-uk-scroll="1" aria-label="More reviews"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      {%- endif -%}
     {%- endif -%}
     {%- if s.show_rating and rv_count > 0 -%}
       <p class="uikit-reviews__foot uikit-body-s">
@@ -56,6 +71,19 @@
   .uikit-reviews__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 48px; list-style: none; margin: 0; padding: 0; }
   .uikit-reviews__grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .uikit-reviews__item { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+  .uikit-reviews__grid--scroll { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
+  .uikit-reviews__grid--scroll::-webkit-scrollbar { display: none; }
+  .uikit-reviews__grid--scroll .uikit-reviews__item { flex: 0 0 360px; scroll-snap-align: start; padding: 24px; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-card); background: var(--uk-white); }
+  .uikit-reviews__product { display: inline-flex; align-items: center; gap: 12px; color: var(--uk-heading); text-decoration: none; margin-bottom: 2px; }
+  .uikit-reviews__thumb { display: block; width: 56px; height: 56px; border-radius: 12px; overflow: hidden; background: var(--uk-gray-4); flex: none; }
+  .uikit-reviews__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .uikit .uikit-reviews__product-name { color: var(--uk-heading); }
+  .uikit-reviews__product:hover .uikit-reviews__product-name { text-decoration: underline; text-underline-offset: 3px; }
+  .uikit-reviews__arrows { display: flex; justify-content: flex-end; gap: 8px; margin-top: 20px; }
+  .uikit-reviews__arrows[hidden] { display: none; }
+  .uikit-reviews__arrow { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1px solid var(--uk-rule); border-radius: 999px; background: var(--uk-white); color: var(--uk-heading); cursor: pointer; }
+  @media (prefers-reduced-motion: no-preference) { .uikit-reviews__grid--scroll { scroll-behavior: smooth; } }
+  @media (max-width: 749px) { .uikit-reviews__grid--scroll .uikit-reviews__item { flex-basis: 82vw; } .uikit-reviews__arrows { display: none; } }
   .uikit-reviews__stars { color: var(--uk-gold); letter-spacing: 3px; font-size: 22px; line-height: 1; }
   .uikit-reviews__stars--inline { font-size: 15px; letter-spacing: 2px; }
   .uikit .uikit-reviews__title { font-family: var(--uk-font-body); font-size: 19px; font-weight: 600; line-height: 1.25; letter-spacing: 0; color: var(--uk-heading); margin: 2px 0 0; }
@@ -64,12 +92,32 @@
   .uikit-reviews__foot { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 56px 0 0; padding-top: 24px; border-top: 1px solid var(--uk-rule); color: var(--uk-muted); }
   @media (max-width: 989px) { .uikit-reviews__grid, .uikit-reviews__grid--2 { grid-template-columns: 1fr; gap: 32px; } .uikit .uikit-reviews__heading { margin-bottom: 32px; } }
 </style>
+<script>
+  (function () {
+    var me = document.currentScript;
+    var wrap = me && me.closest ? me.closest('.shopify-section') : null;
+    var root = wrap ? wrap.querySelector('.uikit-reviews') : null;
+    if (!root) return;
+    var track = root.querySelector('[data-uk-track]');
+    var arrows = root.querySelector('.uikit-reviews__arrows');
+    if (!track || !arrows) return;
+    function fit() { arrows.hidden = track.scrollWidth <= track.clientWidth + 48; }
+    fit(); window.addEventListener('resize', fit);
+    root.querySelectorAll('[data-uk-scroll]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var card = track.querySelector('.uikit-reviews__item');
+        var step = card ? card.getBoundingClientRect().width + 24 : 380;
+        track.scrollBy({ left: step * parseInt(btn.dataset.ukScroll, 10), behavior: 'smooth' });
+      });
+    });
+  })();
+</script>
 {% schema %}
 {
   "name": "UI kit — reviews",
   "tag": "section",
   "settings": [
-    { "type": "paragraph", "content": "Real reviews only, copied verbatim from Judge.me. Three read best side by side." },
+    { "type": "paragraph", "content": "Real reviews only, copied verbatim from Judge.me. Three sit side by side; four or more become a row you scroll through." },
     { "type": "text", "id": "anchor", "label": "Anchor id", "default": "customer-reviews" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "What people are saying" },
     { "type": "checkbox", "id": "show_rating", "label": "Show the Judge.me rating and review count", "default": true },
@@ -86,7 +134,8 @@
         { "type": "textarea", "id": "quote", "label": "Review (verbatim)" },
         { "type": "text", "id": "name", "label": "Reviewer" },
         { "type": "text", "id": "date", "label": "Date", "info": "As shown on Judge.me, e.g. 10/02/2026" },
-        { "type": "text", "id": "product", "label": "Product" },
+        { "type": "product", "id": "product", "label": "Product", "info": "Shows the product's thumbnail and links to it." },
+        { "type": "text", "id": "product_label", "label": "Product name (when no product is picked)" },
         { "type": "text", "id": "disclosure", "label": "Disclosure", "default": "Verified buyer" }
       ]
     }

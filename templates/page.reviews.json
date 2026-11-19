@@ -1,0 +1,258 @@
+{
+  "sections": {
+    "reviews_page": {
+      "type": "uikit-reviews-page",
+      "settings": {
+        "eyebrow": "Reviews",
+        "heading": "What our subscribers say",
+        "text": "Reviews from verified buyers, in their own words, collected by Judge.me. Click a product to shop it."
+      }
+    },
+    "doctors": {
+      "type": "uikit-endorsements",
+      "blocks": {
+        "e_hyman": {
+          "type": "endorser",
+          "settings": {
+            "image": "shopify://shop_images/05212021_Mark_Hyman9087-Edit.jpg",
+            "name": "Dr. Mark Hyman, MD",
+            "role": "Functional medicine physician",
+            "quote": "“We are what our food eats.”",
+            "disclosure": "Paid partner",
+            "link": "shopify://pages/mark-hyman",
+            "link_label": "Why he supports Seatopia"
+          }
+        },
+        "e_means": {
+          "type": "endorser",
+          "settings": {
+            "image": "shopify://shop_images/DrCaseyMeans-Seatopia-33.jpg",
+            "name": "Dr. Casey Means, MD",
+            "role": "Physician and author",
+            "quote": "“Regenerative aquaculture is seafood production that enhances, rather than depletes, the oceans.”",
+            "disclosure": "",
+            "link": "/pages/casey-means-good-energy",
+            "link_label": "Why she supports Seatopia"
+          }
+        },
+        "e_norwitz": {
+          "type": "endorser",
+          "settings": {
+            "image": "shopify://shop_images/Nick_1.webp",
+            "name": "Dr. Nick Norwitz, MD PhD",
+            "role": "Physician and researcher",
+            "quote": "“Given how much seafood I eat, quality matters. Seatopia delivers on nutrient density and purity, while proving that exceptional nutrition and regenerative aquaculture can go hand in hand.”",
+            "disclosure": "Paid partner",
+            "link": "/pages/nick-norwitz-seatopia",
+            "link_label": "Why he supports Seatopia"
+          }
+        }
+      },
+      "block_order": [
+        "e_hyman",
+        "e_means",
+        "e_norwitz"
+      ],
+      "settings": {
+        "anchor": "doctors",
+        "show_rating": true,
+        "eyebrow": "",
+        "heading": "The doctors who recommend Seatopia",
+        "cta_label": "",
+        "cta_link": "",
+        "tone": "deep"
+      }
+    },
+    "logos": {
+      "type": "uikit-logo-cloud",
+      "blocks": {
+        "l1": {
+          "type": "logo",
+          "settings": {
+            "name": "Goop"
+          }
+        },
+        "l2": {
+          "type": "logo",
+          "settings": {
+            "name": "Forbes"
+          }
+        },
+        "l3": {
+          "type": "logo",
+          "settings": {
+            "name": "Well+Good"
+          }
+        },
+        "l4": {
+          "type": "logo",
+          "settings": {
+            "name": "Food Fix"
+          }
+        }
+      },
+      "block_order": [
+        "l1",
+        "l2",
+        "l3",
+        "l4"
+      ],
+      "settings": {
+        "heading": "Featured In"
+      }
+    },
+    "start": {
+      "type": "curated-boxes-funnel",
+      "blocks": {
+        "style_salmon": {
+          "type": "style",
+          "settings": {
+            "style_value": "Salmon Lovers",
+            "image": "shopify://shop_images/salmon-lovers-box-837422.png",
+            "description": "<p>Curated variety may include King Salmon, Atlantic Salmon, Steelhead, and Smoked Salmon selections.</p>"
+          }
+        },
+        "style_variety": {
+          "type": "style",
+          "settings": {
+            "style_value": "Fish & Shellfish Variety",
+            "image": "shopify://shop_images/fish-shell-variety-box-700099.jpg",
+            "description": "<p>Curated variety of salmon, whitefish, and Peruvian scallops for adventurous palates.</p>"
+          }
+        },
+        "style_white": {
+          "type": "style",
+          "settings": {
+            "style_value": "White Fish Box",
+            "image": "shopify://shop_images/white-fish-box-281733.jpg",
+            "description": "<p>Curated variety may include Sea Bream, Branzino, Yellowtail, and Barramundi.</p>"
+          }
+        },
+        "size_12": {
+          "type": "size",
+          "settings": {
+            "size_value": "12 Portions",
+            "tagline": "Perfect for you",
+            "description": "<p>~6-8 oz portions · A great way to start your Seatopia journey.</p>",
+            "badge": ""
+          }
+        },
+        "size_18": {
+          "type": "size",
+          "settings": {
+            "size_value": "18 Portions",
+            "tagline": "For you to share",
+            "description": "<p>~6-8 oz portions · More variety, better value — our most popular size.</p>",
+            "badge": "Most Popular"
+          }
+        },
+        "size_24": {
+          "type": "size",
+          "settings": {
+            "size_value": "24 Portions",
+            "tagline": "For your family",
+            "description": "<p>~6-8 oz portions · Stock your freezer with premium catches.</p>",
+            "badge": ""
+          }
+        }
+      },
+      "block_order": [
+        "style_salmon",
+        "style_variety",
+        "style_white",
+        "size_12",
+        "size_18",
+        "size_24"
+      ],
+      "settings": {
+        "product": "seatopia-regenerative-seafood-bundle",
+        "style_option_name": "Style",
+        "size_option_name": "Size",
+        "step_labels": "Seafood,Size,Checkout",
+        "continue_label": "Continue",
+        "back_label": "Back",
+        "change_size_label": "Change size",
+        "phone_label": "Prefer to talk? Call us to order",
+        "phone": "",
+        "step1_heading": "Ready to start? Get started with a curated box",
+        "step1_subheading": "<p>Pick your seafood. Choose your size and check out on the next page.</p>",
+        "step2_heading": "Choose Your Size",
+        "step2_subheading": "<p>Choose the box size that fits your household.</p>",
+        "omega_footnote": "<p>Per-serving EPA+DHA figures are our published third-party test results from Edacious for each portion in the box, averaged across the box. Values vary by sample and season.</p>",
+        "step3_heading": "Your Box is Built!",
+        "step3_subheading": "<p>Review your selections and checkout.</p>",
+        "ship_copy": "<p>Arrives snap frozen. Orders ship Tuesday &amp; Wednesday.</p>",
+        "contents_heading": "What's inside this box",
+        "contents_disclaimer": "<p>Chef-curated selection — exact varieties may shift slightly with the season and best available harvest.</p>",
+        "omega_heading": "Omega-3 in this box",
+        "omega_disclaimer": "<p>Published Edacious test results for each portion, summed for the box. Values vary by sample and season.</p>",
+        "omega_partial_note": "<p>Totals include lab-tested portions only.</p>",
+        "purchase_heading": "How would you like it?",
+        "subscribe_label": "Subscribe & Save 10%",
+        "subscribe_benefits": "<ul><li>Free 1:1 chef classes</li><li>Arrives snap-frozen or we replace it</li><li>Pause, skip, or cancel anytime</li></ul>",
+        "onetime_label": "One-time purchase",
+        "email_label": "Enter your email to continue to checkout",
+        "email_error": "Please enter a valid email address.",
+        "checkout_label": "Checkout",
+        "submit_sub_label": "Subscribe",
+        "submit_once_label": "Checkout",
+        "show_reviews": false,
+        "mode": "entry",
+        "funnel_url": "/pages/curated-boxes",
+        "hide_on_articles": false
+      }
+    },
+    "learn": {
+      "type": "uikit-offers",
+      "settings": {
+        "eyebrow": "Learn more",
+        "heading": "From the Seatopia kitchen",
+        "tight": true
+      },
+      "blocks": {
+        "r1": {
+          "type": "offer",
+          "settings": {
+            "image_article": "seafood-recipes/crispy-skin-king-salmon-with-snap-pea-pesto-and-roasted-broccoli",
+            "title": "Crispy skin king salmon",
+            "text": "<p>With snap pea pesto and roasted broccoli.</p>",
+            "cta_label": "Get the recipe",
+            "cta_link": "/blogs/seafood-recipes/crispy-skin-king-salmon-with-snap-pea-pesto-and-roasted-broccoli"
+          }
+        },
+        "r2": {
+          "type": "offer",
+          "settings": {
+            "image_article": "seafood-recipes/king-salmon-poke-bowls",
+            "title": "10-minute king salmon poke bowls",
+            "text": "<p>Build-your-own bowls with sashimi-grade king salmon. No cooking.</p>",
+            "cta_label": "Get the recipe",
+            "cta_link": "/blogs/seafood-recipes/king-salmon-poke-bowls"
+          }
+        },
+        "r3": {
+          "type": "offer",
+          "settings": {
+            "image_article": "seafood-recipes/garlic-dill-baked-salmon",
+            "title": "Garlic dill broken salmon",
+            "text": "<p>A weeknight sheet-pan salmon with garlic, dill and lemon.</p>",
+            "cta_label": "Get the recipe",
+            "cta_link": "/blogs/seafood-recipes/garlic-dill-baked-salmon"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ]
+    }
+  },
+  "order": [
+    "reviews_page",
+    "doctors",
+    "logos",
+    "start",
+    "learn"
+  ]
+}

@@ -1635,7 +1635,8 @@
         "eyebrow": "",
         "heading": "Trusted by doctors and thousands of subscribers",
         "cta_label": "Read the reviews",
-        "cta_link": "/#customer-reviews"
+        "cta_link": "/pages/reviews",
+        "tone": "deep"
       }
     },
     "reviews": {
@@ -1649,7 +1650,21 @@
             "quote": "The most delicious fish we have ever had. Every piece is so fresh and perfect!",
             "name": "Lori O.",
             "date": "11/16/2026",
-            "product": "White Fish Box",
+            "product": "white-fish-box",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_tpm": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Honestly best fish I’ve ever had",
+            "quote": "I’ve never been able to cook really good fish at home, and I swear this is some of the best fish I’ve ever had, at home OR in a restaurant. The quality is incredible, it tastes so fresh, and I love that it comes in individually portioned packets.",
+            "name": "T. P. M.",
+            "date": "11/17/2026",
+            "product": "king-salmon",
+            "product_label": "",
             "disclosure": "Verified buyer"
           }
         },
@@ -1661,7 +1676,21 @@
             "quote": "I made a fresh mixed veggie/scallop stirfry with shallots, coconut aminos and sesame oil and it was heavenly. The scallops were tender...buttery and delish!",
             "name": "Rosemary L.",
             "date": "11/11/2026",
-            "product": "Scallops",
+            "product": "scallop-meat-16oz",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_nathan": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Best tasting",
+            "quote": "The best tasting salmon I have ever had.",
+            "name": "Nathan R.",
+            "date": "11/10/2026",
+            "product": "atlantic-salmon-2x-6oz-portions",
+            "product_label": "",
             "disclosure": "Verified buyer"
           }
         },
@@ -1673,22 +1702,39 @@
             "quote": "this was the most delicious salmon, I have had in a long time. thank you!!!",
             "name": "Andrea B.",
             "date": "11/17/2026",
-            "product": "King Salmon",
+            "product": "king-salmon",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_ora": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Incredible Salmon",
+            "quote": "I now prefer to eat salmon at home over any of the best restaurants in NYC! Wow! Delicious…and knowing that it is tested and for microplastics and carefully sourced is what keeps me coming back for more! Thanks you for making this available!",
+            "name": "Anonymous",
+            "date": "11/18/2026",
+            "product": "buy-ora-king-salmon-portion-new-zealand",
+            "product_label": "",
             "disclosure": "Verified buyer"
           }
         }
       },
       "block_order": [
         "r_lori",
+        "r_tpm",
         "r_rosemary",
-        "r_andrea"
+        "r_nathan",
+        "r_andrea",
+        "r_ora"
       ],
       "settings": {
         "anchor": "customer-reviews",
         "heading": "What people are saying",
         "show_rating": true,
-        "all_reviews_link": "",
-        "all_reviews_label": "Collected by Judge.me"
+        "all_reviews_link": "/pages/reviews",
+        "all_reviews_label": "Read all reviews"
       }
     }
   },

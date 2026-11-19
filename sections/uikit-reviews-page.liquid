@@ -1,0 +1,269 @@
+{%- comment -%}
+  UI kit — reviews page. Judge.me's all-reviews widget (every review, paginated and
+  filterable by Judge.me's own script) restyled in the kit, with a sidebar that filters
+  by product and by rating, and a product thumbnail on every review that links to the
+  product. Modelled on AG1's reviews page, in Seatopia's own type and colours.
+
+  Data: shop.metafields.judgeme.all_reviews_header (summary + histogram) and
+  all_reviews_0 (the newest reviews). Judge.me's script, loaded sitewide, paginates and
+  filters inside .jdgm-all-reviews-widget. Nothing here is typed by hand (claims guide
+  §4.H / 16 CFR Part 465): the counts and reviews are Judge.me's.
+{%- endcomment -%}
+{%- render 'uikit-fonts' -%}
+{{ 'uikit.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign s = section.settings
+  assign rv_count = shop.metafields.judgeme.all_reviews_count | plus: 0
+  assign rv_rating = shop.metafields.judgeme.all_reviews_rating | plus: 0.0
+  assign rv_count_text = rv_count
+  if rv_count > 999
+    assign rv_k = rv_count | divided_by: 1000
+    assign rv_r = rv_count | modulo: 1000 | prepend: '000' | slice: -3, 3
+    assign rv_count_text = rv_k | append: ',' | append: rv_r
+  endif
+-%}
+<div class="uikit uikit-section uikit-section--tight uikit-rp">
+  <div class="uikit-container">
+    <div class="uikit-rp__head">
+      {%- if s.eyebrow != blank -%}<p class="uikit-overline uikit-rp__eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+      <h1 class="uikit-h1 uikit-rp__heading">{{ s.heading }}</h1>
+      {%- if rv_count > 0 -%}
+        <p class="uikit-rp__summary">
+          <span class="uikit-rp__stars" aria-hidden="true">★★★★★</span>
+          <span class="uikit-body-m"><b>{{ rv_rating | round: 2 }}</b> average from {{ rv_count_text }} reviews</span>
+          <a class="uikit-body-s uikit-link" href="https://judge.me/reviews/stores/seatopia" target="_blank" rel="noopener">Collected by Judge.me</a>
+        </p>
+      {%- endif -%}
+      {%- if s.text != blank -%}<p class="uikit-body-m uikit-muted uikit-rp__intro">{{ s.text }}</p>{%- endif -%}
+    </div>
+
+    <div class="uikit-rp__layout">
+      <aside class="uikit-rp__side">
+        <div class="uikit-rp__block">
+          <p class="uikit-label-s uikit-rp__side-title">Rating</p>
+          <ul class="uikit-rp__hist" role="list" data-rp-hist></ul>
+        </div>
+        <div class="uikit-rp__block">
+          <p class="uikit-label-s uikit-rp__side-title">Product</p>
+          <div class="uikit-rp__chips" role="group" aria-label="Filter by product" data-rp-chips>
+            <button type="button" class="uikit-rp__chip" data-rp-product="" aria-pressed="true">All</button>
+          </div>
+          <p class="uikit-body-s uikit-muted uikit-rp__hint" data-rp-hint hidden>Filters the reviews on this page.</p>
+        </div>
+      </aside>
+
+      <div class="uikit-rp__main">
+        <div class="jdgm-widget jdgm-all-reviews-widget" data-from-snippet="true" data-rp-widget>
+          {{ shop.metafields.judgeme.all_reviews_header }}
+          <div class="jdgm-rev-widg__body">
+            {{ shop.metafields.judgeme.all_reviews_0 }}
+          </div>
+          <div class="jdgm-paginate"></div>
+        </div>
+        <p class="uikit-body-s uikit-muted uikit-rp__empty" data-rp-empty hidden>No reviews for that product on this page. Try another page or clear the filter.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .uikit-rp__head { display: flex; flex-direction: column; gap: 14px; max-width: 760px; margin-bottom: 40px; }
+  .uikit .uikit-rp__eyebrow { color: var(--uk-gold); }
+  .uikit .uikit-rp__heading { font-size: clamp(38px, 5vw, 60px); }
+  .uikit-rp__summary { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; margin: 0; }
+  .uikit-rp__stars { color: var(--uk-gold); letter-spacing: 2px; font-size: 18px; }
+  .uikit-rp__layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 48px; align-items: start; }
+  .uikit-rp__side { position: sticky; top: calc(var(--sticky-header-height, 0px) + 24px); display: flex; flex-direction: column; gap: 28px; }
+  .uikit-rp__block { display: flex; flex-direction: column; gap: 12px; }
+  .uikit .uikit-rp__side-title { color: var(--uk-gold); letter-spacing: .12em; text-transform: uppercase; }
+  .uikit-rp__hist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .uikit-rp__hist button { display: grid; grid-template-columns: 56px minmax(0, 1fr) 44px; align-items: center; gap: 10px; width: 100%; padding: 4px 0; border: 0; background: none; font: inherit; color: var(--uk-heading); cursor: pointer; text-align: left; }
+  .uikit-rp__hist button[aria-pressed="true"] .uikit-rp__hist-label { font-weight: 600; }
+  .uikit-rp__hist-label { font-size: 14px; }
+  .uikit-rp__hist-bar { height: 8px; border-radius: 999px; background: var(--uk-gray-4); overflow: hidden; }
+  .uikit-rp__hist-bar span { display: block; height: 100%; background: var(--uk-gold); border-radius: 999px; }
+  .uikit-rp__hist-count { font-size: 13px; color: var(--uk-muted); text-align: right; font-variant-numeric: tabular-nums; }
+  .uikit-rp__chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .uikit-rp__chip { padding: 8px 14px; border: 1px solid var(--uk-rule); border-radius: var(--uk-radius-pill); background: var(--uk-white); color: var(--uk-heading); font: inherit; font-size: 14px; cursor: pointer; }
+  .uikit-rp__chip[aria-pressed="true"] { background: var(--uk-heading); border-color: var(--uk-heading); color: var(--uk-white); }
+
+  /* ---- Judge.me widget, restyled ---- */
+  .uikit-rp .jdgm-all-reviews__header { display: none; }
+  .uikit-rp .jdgm-rev-widg__body { display: flex; flex-direction: column; gap: 16px; }
+  .uikit-rp .jdgm-rev { position: relative; margin: 0; padding: 22px 24px 22px 100px; border: 1px solid var(--uk-rule) !important; border-radius: var(--uk-radius-card); background: var(--uk-white); min-height: 100px; }
+  .uikit-rp .jdgm-rev[hidden] { display: none; }
+  .uikit-rp .jdgm-rev__icon { display: none !important; }
+  .uikit-rp .jdgm-rev__header { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-bottom: 8px; }
+  .uikit-rp .jdgm-rev__br { display: none; }
+  .uikit-rp .jdgm-rev__rating { order: 1; }
+  .uikit-rp .jdgm-star { color: var(--uk-gold) !important; font-size: 16px; }
+  .uikit-rp .jdgm-rev__timestamp { order: 4; font-size: 13px; color: var(--uk-muted); }
+  .uikit-rp .jdgm-rev__timestamp::before { content: "· "; }
+  .uikit-rp .jdgm-rev__author-wrapper { order: 2; display: inline-flex; align-items: center; gap: 6px; }
+  .uikit-rp .jdgm-rev__author { font-weight: 600; font-size: 14px; color: var(--uk-heading); }
+  .uikit-rp .jdgm-rev__buyer-badge-wrapper { order: 3; }
+  .uikit-rp .jdgm-rev__buyer-badge { color: var(--uk-gold); }
+  .uikit-rp .jdgm-rev__buyer-badge::after { content: " Verified buyer"; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--uk-muted); }
+  .uikit-rp .jdgm-rev__prod-info-wrapper { order: 5; flex-basis: 100%; }
+  .uikit-rp .jdgm-rev__prod-link-prefix { display: none; }
+  .uikit-rp .jdgm-rev__prod-link { font-size: 13px; color: var(--uk-heading); text-decoration: none; border-bottom: 1px solid var(--uk-gray-2); }
+  .uikit-rp .jdgm-rev__prod-link:hover { border-color: var(--uk-heading); }
+  .uikit-rp .jdgm-rev__title { display: block; font-size: 18px; font-weight: 600; line-height: 1.3; color: var(--uk-heading); margin: 0 0 6px; }
+  .uikit-rp .jdgm-rev__title:empty { display: none; }
+  .uikit-rp .jdgm-rev__body { font-size: 16px; line-height: 1.5; color: var(--uk-text); }
+  .uikit-rp .jdgm-rev__body p { margin: 0; }
+  .uikit-rp .jdgm-rev__transparency-badge-wrapper, .uikit-rp .jdgm-rev__actions, .uikit-rp .jdgm-rev__custom-form { display: none !important; }
+  .uikit-rp .jdgm-rev__pics { margin-top: 12px; }
+  .uikit-rp .jdgm-rev__reply { margin-top: 12px; padding: 12px 14px; border-radius: 10px; background: var(--uk-surface); font-size: 14px; }
+  .uikit-rp .jdgm-rev__reply:empty { display: none; }
+  /* product thumbnail, added by the script below */
+  .uikit-rp__thumb { position: absolute; left: 24px; top: 22px; width: 56px; height: 56px; border-radius: 12px; overflow: hidden; background: var(--uk-gray-4); }
+  .uikit-rp__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .uikit-rp .jdgm-rev.uikit-rp--no-thumb { padding-left: 24px; }
+  /* pagination */
+  .uikit-rp .jdgm-paginate { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 28px; }
+  .uikit-rp .jdgm-paginate__page { min-width: 40px; height: 40px; padding: 0 12px; border: 1px solid var(--uk-rule); border-radius: 999px; background: var(--uk-white); color: var(--uk-heading); font: inherit; font-size: 14px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+  .uikit-rp .jdgm-paginate__page.jdgm-curt { background: var(--uk-heading); border-color: var(--uk-heading); color: var(--uk-white); }
+  .uikit-rp .jdgm-paginate__page.jdgm-paginate__first-page, .uikit-rp .jdgm-paginate__page.jdgm-paginate__last-page { display: none; }
+  .uikit-rp .jdgm-spinner::before { display: none; }
+  @media (max-width: 989px) {
+    .uikit-rp__layout { grid-template-columns: 1fr; gap: 28px; }
+    .uikit-rp__side { position: static; }
+    .uikit-rp__hist { max-width: 420px; }
+  }
+  @media (max-width: 749px) {
+    .uikit-rp .jdgm-rev { padding: 18px 18px 18px 86px; }
+    .uikit-rp__thumb { left: 18px; top: 18px; width: 52px; height: 52px; }
+  }
+</style>
+<script>
+  (function () {
+    var me = document.currentScript;
+    var wrap = me && me.closest ? me.closest('.shopify-section') : null;
+    var root = wrap ? wrap.querySelector('.uikit-rp') : null;
+    if (!root) return;
+    var widget = root.querySelector('[data-rp-widget]');
+    var chips = root.querySelector('[data-rp-chips]');
+    var hist = root.querySelector('[data-rp-hist]');
+    var empty = root.querySelector('[data-rp-empty]');
+    var images = {};
+    var activeProduct = '';
+    var activeRating = '';
+
+    function handleOf(href) { var m = /\/products\/([^/?#]+)/.exec(href || ''); return m ? m[1] : ''; }
+
+    function fetchImage(handle) {
+      if (images[handle] !== undefined) return Promise.resolve(images[handle]);
+      images[handle] = null;
+      return fetch('/products/' + handle + '.js', { headers: { 'Accept': 'application/json' } })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (p) {
+          var src = p && (p.featured_image || (p.images && p.images[0]));
+          if (src) {
+            src = src.replace(/(\.[a-z]{3,4})(\?|$)/i, '_160x160_crop_center$1$2');
+            images[handle] = { src: src, title: p.title };
+          }
+          return images[handle];
+        }).catch(function () { return null; });
+    }
+
+    function decorate() {
+      var revs = widget.querySelectorAll('.jdgm-rev');
+      revs.forEach(function (rev) {
+        if (rev.dataset.rpDone) return;
+        rev.dataset.rpDone = '1';
+        var link = rev.querySelector('.jdgm-rev__prod-link');
+        var handle = link ? handleOf(link.getAttribute('href')) : '';
+        rev.dataset.rpProduct = handle;
+        if (link) link.removeAttribute('target');
+        if (!handle) { rev.classList.add('uikit-rp--no-thumb'); return; }
+        fetchImage(handle).then(function (img) {
+          if (!img) { rev.classList.add('uikit-rp--no-thumb'); return; }
+          var a = document.createElement('a');
+          a.className = 'uikit-rp__thumb';
+          a.href = '/products/' + handle;
+          a.setAttribute('aria-label', img.title || handle);
+          var el = document.createElement('img');
+          el.src = img.src; el.alt = ''; el.loading = 'lazy'; el.width = 56; el.height = 56;
+          a.appendChild(el);
+          rev.insertBefore(a, rev.firstChild);
+        });
+      });
+      buildChips();
+      applyFilter();
+    }
+
+    function buildChips() {
+      var seen = {};
+      chips.querySelectorAll('[data-rp-product]').forEach(function (c) { if (c.dataset.rpProduct) seen[c.dataset.rpProduct] = true; });
+      widget.querySelectorAll('.jdgm-rev').forEach(function (rev) {
+        var handle = rev.dataset.rpProduct;
+        var link = rev.querySelector('.jdgm-rev__prod-link');
+        if (!handle || seen[handle] || !link) return;
+        seen[handle] = true;
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'uikit-rp__chip'; b.dataset.rpProduct = handle; b.setAttribute('aria-pressed', 'false');
+        b.textContent = link.textContent.trim();
+        chips.appendChild(b);
+      });
+    }
+
+    function applyFilter() {
+      var shown = 0;
+      widget.querySelectorAll('.jdgm-rev').forEach(function (rev) {
+        var ok = !activeProduct || rev.dataset.rpProduct === activeProduct;
+        rev.hidden = !ok;
+        if (ok) shown++;
+      });
+      if (empty) empty.hidden = shown > 0;
+      var hint = root.querySelector('[data-rp-hint]');
+      if (hint) hint.hidden = !activeProduct;
+    }
+
+    chips.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-rp-product]');
+      if (!b) return;
+      activeProduct = b.dataset.rpProduct;
+      chips.querySelectorAll('[data-rp-product]').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      applyFilter();
+    });
+
+    /* rating histogram from Judge.me's header; a click uses Judge.me's own star filter */
+    function buildHist() {
+      var rows = widget.querySelectorAll('.jdgm-histogram__row');
+      if (!rows.length || hist.children.length) return;
+      rows.forEach(function (row) {
+        var li = document.createElement('li');
+        var b = document.createElement('button');
+        b.type = 'button'; b.setAttribute('aria-pressed', 'false'); b.dataset.rpRating = row.dataset.rating;
+        b.innerHTML = '<span class="uikit-rp__hist-label">' + row.dataset.rating + ' star' + (row.dataset.rating === '1' ? '' : 's') + '</span>' +
+          '<span class="uikit-rp__hist-bar"><span style="width:' + (parseInt(row.dataset.percentage, 10) || 0) + '%"></span></span>' +
+          '<span class="uikit-rp__hist-count">' + (row.dataset.frequency || 0) + '</span>';
+        b.addEventListener('click', function () {
+          var star = row.querySelector('.jdgm-histogram__star');
+          var same = activeRating === row.dataset.rating;
+          activeRating = same ? '' : row.dataset.rating;
+          hist.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b && !same ? 'true' : 'false'); });
+          if (star) star.click();
+        });
+        li.appendChild(b); hist.appendChild(li);
+      });
+    }
+
+    decorate(); buildHist();
+    var mo = new MutationObserver(function () { decorate(); buildHist(); });
+    mo.observe(widget, { childList: true, subtree: true });
+  })();
+</script>
+{% schema %}
+{
+  "name": "UI kit — reviews page",
+  "tag": "section",
+  "settings": [
+    { "type": "paragraph", "content": "Every review, from Judge.me. Counts, stars and text are Judge.me's; nothing is typed here." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Reviews" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What our subscribers say" },
+    { "type": "textarea", "id": "text", "label": "Intro", "default": "Reviews from verified buyers, in their own words, collected by Judge.me." }
+  ],
+  "presets": [{ "name": "UI kit — reviews page" }]
+}
+{% endschema %}
