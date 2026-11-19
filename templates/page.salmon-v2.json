@@ -1,0 +1,817 @@
+{
+  "sections": {
+    "hero": {
+      "type": "uikit-hero",
+      "blocks": {
+        "badge_coa": {
+          "type": "badge",
+          "settings": {
+            "icon_name": "fish",
+            "text": "Third-party Certificates of Analysis from Edacious and EMSL"
+          }
+        },
+        "badge_hg": {
+          "type": "badge",
+          "settings": {
+            "icon_name": "mercury",
+            "text": "Our limit is 0.1 ppm methylmercury – a tenth of the FDA action level"
+          }
+        },
+        "badge_mp": {
+          "type": "badge",
+          "settings": {
+            "icon_name": "microplastics",
+            "text": "Zero microplastics detected"
+          }
+        },
+        "badge_farms": {
+          "type": "badge",
+          "settings": {
+            "icon_name": "waves",
+            "text": "Farms named, panels published"
+          }
+        }
+      },
+      "block_order": [
+        "badge_coa",
+        "badge_hg",
+        "badge_mp",
+        "badge_farms"
+      ],
+      "settings": {
+        "heading": "Salmon with the lab results to prove it.",
+        "subheading": "Farm-raised king, Atlantic and steelhead, third-party lab tested for nutrition, mercury and microplastics, with the results published. Snap-frozen to your door.",
+        "cta_label": "Start with a box",
+        "cta_link": "/pages/curated-boxes?style=Salmon%20Lovers",
+        "cta2_label": "Shop single portions",
+        "cta2_link": "#shop",
+        "chip": "",
+        "note": "Ships frozen Tuesday or Wednesday. Free overnight shipping over $500. Single packs ship one-time at any size; subscriptions start at $125 a box.",
+        "image": "shopify://shop_images/omegamaxxing-01-hero-salmon-platter.jpg",
+        "rating_product": "king-salmon",
+        "quote": "I would typically only eat wild fish, but then I tasted the salmon at Seatopia. Now I’m completely hooked!",
+        "quote_name": "Andreia W., verified buyer",
+        "partner": "none"
+      }
+    },
+    "chooser": {
+      "type": "uikit-box-grid",
+      "blocks": {
+        "c_ora": {
+          "type": "box",
+          "settings": {
+            "product": "king-salmon",
+            "title": "Ora King Salmon",
+            "group": "I want the richest, most buttery fish",
+            "tag": "Richest",
+            "text": "Sashimi-grade 8.5 oz skin-on portions from Ōra King, New Zealand.",
+            "show_savings": false,
+            "show_price": true,
+            "show_buy": true
+          }
+        },
+        "c_atl": {
+          "type": "box",
+          "settings": {
+            "product": "atlantic-salmon-2x-6oz-portions",
+            "title": "Atlantic Salmon",
+            "group": "I want an easy weeknight fish",
+            "tag": "",
+            "text": "Skin-off 6 oz portions. Mild and lean, from the fridge to the pan.",
+            "show_savings": false,
+            "show_price": true,
+            "show_buy": true
+          }
+        },
+        "c_box": {
+          "type": "box",
+          "settings": {
+            "product": "salmon-box",
+            "title": "Salmon Lover’s Box",
+            "group": "I want to try everything",
+            "tag": "Best first order",
+            "tag_gold": true,
+            "text": "King salmon, Atlantic salmon and steelhead. 12, 18 or 24 portions.",
+            "show_savings": true,
+            "show_price": true,
+            "show_buy": true
+          }
+        }
+      },
+      "block_order": [
+        "c_ora",
+        "c_atl",
+        "c_box"
+      ],
+      "settings": {
+        "layout": "grid",
+        "anchor": "start",
+        "heading": "Not sure where to start?",
+        "text": "Three good first orders. Every one is third-party tested, farm named, snap-frozen at harvest.",
+        "cta_label": "",
+        "cta_link": "",
+        "show_filters": false,
+        "default_group": ""
+      }
+    },
+    "shop": {
+      "type": "uikit-box-grid",
+      "settings": {
+        "layout": "scroll",
+        "show_filters": true,
+        "anchor": "shop",
+        "heading": "Shop salmon",
+        "text": "King salmon, Atlantic salmon and steelhead in individually sealed portions. Smoked lox, salmon roe and the salmon boxes are one tap away.",
+        "cta_label": "Build your own box",
+        "cta_link": "/collections/build-your-own-box",
+        "default_group": "Portions"
+      },
+      "blocks": {
+        "ora": {
+          "type": "box",
+          "settings": {
+            "product": "king-salmon",
+            "show_price": true,
+            "show_buy": true,
+            "title": "Ora King Salmon",
+            "group": "Portions",
+            "tag": "Best seller",
+            "tag_gold": true,
+            "text": "Skin-on, sashimi-grade 8.5 oz portions from Ora King, New Zealand."
+          }
+        },
+        "alpine": {
+          "type": "box",
+          "settings": {
+            "product": "mt-cook-alpine-salmon-7oz-filet",
+            "show_price": true,
+            "show_buy": true,
+            "title": "Alpine King Salmon",
+            "group": "Portions",
+            "text": "Skin-on 7 oz portions from Mt. Cook, New Zealand."
+          }
+        },
+        "atlantic": {
+          "type": "box",
+          "settings": {
+            "product": "atlantic-salmon-2x-6oz-portions",
+            "show_price": true,
+            "show_buy": true,
+            "title": "Atlantic Salmon",
+            "group": "Portions",
+            "text": "Skin-off, sashimi-grade 6 oz portions."
+          }
+        },
+        "steelhead": {
+          "type": "box",
+          "settings": {
+            "product": "steelhead-2x-6oz-filets",
+            "show_price": true,
+            "show_buy": true,
+            "title": "Steelhead",
+            "group": "Portions",
+            "text": "Skin-on, sashimi-grade 6 oz portions."
+          }
+        },
+        "loin": {
+          "type": "box",
+          "settings": {
+            "product": "steelhead-sashimi-loin-12oz",
+            "show_price": true,
+            "show_buy": true,
+            "title": "Steelhead Sashimi Loin",
+            "group": "Portions",
+            "text": "Skin-off, sashimi-grade 12 oz loins, ready to slice."
+          }
+        },
+        "lox": {
+          "type": "box",
+          "settings": {
+            "product": "seatopia-steelhead-4oz-smoked",
+            "show_price": true,
+            "show_buy": true,
+            "title": "Cold-Smoked Steelhead Lox",
+            "group": "Smoked & roe",
+            "text": "4 oz cold-smoked lox."
+          }
+        },
+        "pastrami": {
+          "type": "box",
+          "settings": {
+            "product": "steelhead-pastrami-smoked-4oz",
+            "show_price": true,
+            "show_buy": true,
+            "title": "Pastrami Smoked Lox",
+            "group": "Smoked & roe",
+            "text": "4 oz pastrami-spiced, cold-smoked nova lox."
+          }
+        },
+        "roe": {
+          "type": "box",
+          "settings": {
+            "product": "lab-tested-salmon-roe-caviar",
+            "show_price": true,
+            "show_buy": true,
+            "title": "Salmon Roe Caviar",
+            "group": "Smoked & roe",
+            "text": "Lightly cured Atlantic salmon roe, in 30 g tins."
+          }
+        },
+        "box": {
+          "type": "box",
+          "settings": {
+            "product": "salmon-box",
+            "show_price": true,
+            "show_buy": true,
+            "title": "Salmon Lover’s Box",
+            "group": "Salmon boxes",
+            "show_savings": true,
+            "text": "King salmon, Atlantic salmon and steelhead. 12, 18 or 24 portions."
+          }
+        },
+        "ss": {
+          "type": "box",
+          "settings": {
+            "product": "shrimp-and-salmon-box",
+            "show_price": true,
+            "show_buy": true,
+            "title": "Shrimp and Salmon Box",
+            "group": "Salmon boxes",
+            "text": "Salmon and black tiger shrimp, together in one box."
+          }
+        }
+      },
+      "block_order": [
+        "ora",
+        "alpine",
+        "atlantic",
+        "steelhead",
+        "loin",
+        "lox",
+        "pastrami",
+        "roe",
+        "box",
+        "ss"
+      ]
+    },
+    "reviews": {
+      "type": "uikit-reviews",
+      "blocks": {
+        "v_andreia": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "",
+            "quote": "I would typically only eat wild fish, but then I tasted the salmon at Seatopia. Now I’m completely hooked!",
+            "name": "Andreia W.",
+            "date": "",
+            "product": "",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "v_kimber": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "",
+            "quote": "Impeccably packaged to arrive rock hard frozen and has the freshest fish taste and i live in Hawaii with amazing fresh fish. This salmon and branzino, which I can’t get here taste as if they are local fish. Highly recommended!!!",
+            "name": "Kimber",
+            "date": "",
+            "product": "king-salmon",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "v_tpm": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Honestly best fish I’ve ever had",
+            "quote": "I’ve never been able to cook really good fish at home, and I swear this is some of the best fish I’ve ever had, at home OR in a restaurant. The quality is incredible, it tastes so fresh, and I love that it comes in individually portioned packets.",
+            "name": "T. P. M.",
+            "date": "11/17/2026",
+            "product": "king-salmon",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "v_ora": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Incredible Salmon",
+            "quote": "I now prefer to eat salmon at home over any of the best restaurants in NYC! Wow! Delicious…and knowing that it is tested and for microplastics and carefully sourced is what keeps me coming back for more! Thanks you for making this available!",
+            "name": "Anonymous",
+            "date": "11/18/2026",
+            "product": "buy-ora-king-salmon-portion-new-zealand",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "v_nathan": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Best tasting",
+            "quote": "The best tasting salmon I have ever had.",
+            "name": "Nathan R.",
+            "date": "11/10/2026",
+            "product": "atlantic-salmon-2x-6oz-portions",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "v_james": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "",
+            "quote": "I look forward to every meal from Seatopia. Each of the different versions of Salmon is unique and tasty. I highly recommend the Salmon Lover's box for quality and taste.",
+            "name": "James J.",
+            "date": "",
+            "product": "salmon-box",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        }
+      },
+      "block_order": [
+        "v_andreia",
+        "v_kimber",
+        "v_tpm",
+        "v_ora",
+        "v_nathan",
+        "v_james"
+      ],
+      "settings": {
+        "anchor": "reviews",
+        "heading": "What salmon buyers say",
+        "show_rating": true,
+        "all_reviews_link": "/pages/reviews",
+        "all_reviews_label": "Read all reviews"
+      }
+    },
+    "panels": {
+      "type": "uikit-panels",
+      "blocks": {
+        "p_ora": {
+          "type": "product",
+          "settings": {
+            "name": "Ora King Salmon",
+            "detail": "8.5 oz portions",
+            "portion": "6 oz serving",
+            "headline_value": "2,414 mg",
+            "headline_label": "EPA+DHA",
+            "embed_product": "",
+            "embed_config": "",
+            "product": "king-salmon",
+            "recipe": "seafood-recipes/king-salmon-poke-bowls",
+            "note": "Means across three samples, Nov 2025 panel. Values vary by sample and season. The Certificate of Analysis is on the product page.",
+            "stat_1": "Protein::33.0 g",
+            "stat_2": "Vitamin D::34.9 mcg",
+            "stat_3": "Selenium::44.8 mcg",
+            "stat_4": "Vitamin E::25.8 mg",
+            "stat_5": "Mercury::Below LOQ"
+          }
+        },
+        "p_alp": {
+          "type": "panel",
+          "settings": {
+            "name": "Alpine King Salmon",
+            "detail": "2 × 7 oz",
+            "portion": "7 oz portion",
+            "headline_value": "2,315 mg",
+            "headline_label": "EPA+DHA",
+            "embed_product": "mt-cook-king-salmon",
+            "embed_config": "5wfy5l",
+            "product": "mt-cook-alpine-salmon-7oz-filet",
+            "recipe": "seafood-recipes/mt-cook-salmon-roe-poke-bowl-with-orange-butter-rice",
+            "note": "Means across samples tested. Open the lab panel below for the full results.",
+            "stat_1": "Protein::39.1 g",
+            "stat_2": "Vitamin D::41.9 mcg",
+            "stat_3": "Selenium::69.1 mcg",
+            "stat_4": "Vitamin E::13.9 mg",
+            "stat_5": "Mercury::0.033 ppm"
+          }
+        },
+        "p_atl": {
+          "type": "panel",
+          "settings": {
+            "name": "Atlantic Salmon",
+            "detail": "2 × 6 oz",
+            "portion": "6 oz portion",
+            "headline_value": "1,963 mg",
+            "headline_label": "EPA+DHA",
+            "embed_product": "bakkafrost-atlantic-salmon-fillet",
+            "embed_config": "huzutw",
+            "product": "atlantic-salmon-2x-6oz-portions",
+            "recipe": "seafood-recipes/one-pan-mediterranean-salmon-pasta",
+            "note": "Means across samples tested. Open the lab panel below for the full results.",
+            "stat_1": "Protein::36.7 g",
+            "stat_2": "Vitamin D::13.2 mcg",
+            "stat_3": "Selenium::28.1 mcg",
+            "stat_4": "Potassium::919 mg",
+            "stat_5": "Mercury::0.037 ppm"
+          }
+        },
+        "p_stl": {
+          "type": "panel",
+          "settings": {
+            "name": "Steelhead Sashimi Loin",
+            "detail": "2 × 5 oz",
+            "portion": "5 oz portion",
+            "headline_value": "1,067 mg",
+            "headline_label": "EPA+DHA",
+            "embed_product": "caleta-bay-steelhead-trout-loin",
+            "embed_config": "8uxc5v",
+            "product": "steelhead-sashimi-loin-12oz",
+            "recipe": "seafood-recipes/cured-steelhead-loin-lox-bagel",
+            "note": "Means across samples tested. Open the lab panel below for the full results.",
+            "stat_1": "Protein::29.7 g",
+            "stat_2": "Vitamin D::11.3 mcg",
+            "stat_3": "Selenium::27.8 mcg",
+            "stat_4": "Vitamin B12::3.1 mcg",
+            "stat_5": "Mercury::Below LOQ"
+          }
+        }
+      },
+      "block_order": [
+        "p_ora",
+        "p_alp",
+        "p_atl",
+        "p_stl"
+      ],
+      "settings": {
+        "eyebrow": "The Seatopia Standard",
+        "anchor": "lab-panels",
+        "heading": "What our lab found in each salmon",
+        "text": "<p>Every farm partner is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard. Edacious runs the nutrient and contaminant panel; EMSL tests for microplastics down to 1 micron.</p>",
+        "total_value": "",
+        "total_label": "",
+        "footnote": "<p>Nutrition results describe tested samples; values vary by sample and season.</p>"
+      }
+    },
+    "objections": {
+      "type": "uikit-benefits",
+      "blocks": {
+        "o_farmed": {
+          "type": "benefit",
+          "settings": {
+            "icon_name": "waves",
+            "text": "Every salmon we sell is sourced from best-in-class aquaculture, and we name the farm and publish the lab panels.",
+            "title": "Farmed? Yes, and we say so."
+          }
+        },
+        "o_frozen": {
+          "type": "benefit",
+          "settings": {
+            "icon_name": "fish",
+            "text": "Every portion is individually vacuum sealed and blast-frozen to -10°F at harvest, then shipped frozen nationwide with a frozen delivery guarantee.",
+            "title": "Frozen? Blast-frozen at harvest."
+          }
+        },
+        "o_raw": {
+          "type": "benefit",
+          "settings": {
+            "icon_name": "mercury",
+            "text": "There is no regulated definition. Ours: vacuum sealed and blast frozen to -10 °F at peak freshness, processed in an accredited facility, lab tested for mercury and microplastics. The FDA conservatively suggests cooking to 145 °F.",
+            "title": "Raw? Here is what sashimi-grade means to us."
+          }
+        }
+      },
+      "block_order": [
+        "o_farmed",
+        "o_frozen",
+        "o_raw"
+      ],
+      "settings": {
+        "heading": "Three honest answers",
+        "text": "The questions we get most, answered the way we answer them in the FAQ.",
+        "heading_position": "above"
+      }
+    },
+    "guide": {
+      "type": "uikit-offers",
+      "settings": {
+        "eyebrow": "Know your salmon",
+        "heading": "Ora King, Alpine King, Atlantic or steelhead?",
+        "text": "<p>Every salmon we sell is farmed, and we name the farm. Here is how they differ, and what our lab found in each. Every supplier is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard.</p>",
+        "anchor": "know-your-salmon"
+      },
+      "blocks": {
+        "k_ora": {
+          "type": "offer",
+          "settings": {
+            "image_product": "king-salmon",
+            "eyebrow": "King salmon · New Zealand",
+            "title": "Ora King salmon",
+            "text": "<p>King salmon (Chinook, <em>Oncorhynchus tshawytscha</em>), raised in the Marlborough Sounds by the New Zealand King Salmon Company, from more than two decades of selective breeding. Rich, buttery and finely marbled; the one for sashimi, crudo and a crisp-skinned sear. <a href=\"/pages/ora-king-salmon-new-zealand\">Meet the farm</a>.</p><p>Our King Salmon tested at 1,140 mg EPA and 2,290 mg DHA, plus 64 mcg selenium, per 8.5 oz skin-on, sashimi-grade portion. Values vary by sample and season.</p>",
+            "cta_label": "Shop Ora King salmon",
+            "cta_link": "/products/king-salmon",
+            "featured": true
+          }
+        },
+        "k_alp": {
+          "type": "offer",
+          "settings": {
+            "image_product": "mt-cook-alpine-salmon-7oz-filet",
+            "eyebrow": "King salmon · New Zealand",
+            "title": "Alpine King salmon",
+            "text": "<p>Freshwater king salmon from Mt. Cook, raised in fast-flowing, glacier-fed hydroelectric canals in New Zealand’s Southern Alps. Rich like Ora King, with a slightly lighter finish. <a href=\"/pages/mt-cook-alpine-salmon\">Meet the farm</a>.</p><p>Our Alpine King Salmon tested at 800 mg EPA and 1,510 mg DHA, plus 69 mcg selenium, per 7 oz skin-on portion. Values vary by sample and season.</p>",
+            "cta_label": "Shop Alpine King salmon",
+            "cta_link": "/products/mt-cook-alpine-salmon-7oz-filet",
+            "featured": false
+          }
+        },
+        "k_atl": {
+          "type": "offer",
+          "settings": {
+            "image_product": "atlantic-salmon-2x-6oz-portions",
+            "eyebrow": "Atlantic salmon",
+            "title": "Atlantic salmon",
+            "text": "<p>The everyday salmon: mild, versatile and skin-off, so it goes straight from the fridge to the pan, the oven or the air fryer.</p><p>Our Atlantic Salmon tested at 709 mg EPA and 1,254 mg DHA, plus 28 mcg selenium, per 6 oz skin-off, sashimi-grade portion. Values vary by sample and season.</p>",
+            "cta_label": "Shop Atlantic salmon",
+            "cta_link": "/products/atlantic-salmon-2x-6oz-portions",
+            "featured": false
+          }
+        },
+        "k_stl": {
+          "type": "offer",
+          "settings": {
+            "image_product": "steelhead-2x-6oz-filets",
+            "eyebrow": "Steelhead",
+            "title": "Steelhead",
+            "text": "<p>Salmon’s close cousin, with deep coral flesh and a milder, delicate flavor. Try the 12 oz sashimi loin for slicing, or cold-smoked lox for breakfast.</p><p>Our Steelhead tested at 565 mg EPA and 1,563 mg DHA, plus 27 mcg selenium, per 6 oz skin-on, sashimi-grade portion. Values vary by sample and season.</p>",
+            "cta_label": "Shop steelhead",
+            "cta_link": "/products/steelhead-2x-6oz-filets",
+            "featured": false
+          }
+        }
+      },
+      "block_order": [
+        "k_ora",
+        "k_alp",
+        "k_atl",
+        "k_stl"
+      ]
+    },
+    "join": {
+      "type": "uikit-feature",
+      "settings": {
+        "image": "shopify://shop_images/omegamaxxing-11-salmon-fillets.jpg",
+        "image_side": "left",
+        "ratio": "4 / 3",
+        "eyebrow": "Join and save",
+        "heading": "Subscribe to a salmon box and save 10% on every order.",
+        "text": "<p>Membership comes with every subscription: 10% off each delivery, free 1:1 classes with our chefs, and member gifts and rewards. Pause, skip or change your box size and delivery date anytime from your account.</p>",
+        "cta_label": "Subscribe to the Salmon Lover’s Box",
+        "cta_link": "/products/salmon-box"
+      }
+    },
+    "recipes": {
+      "type": "uikit-offers",
+      "settings": {
+        "eyebrow": "Salmon recipes",
+        "heading": "What to make with it tonight.",
+        "tight": true
+      },
+      "blocks": {
+        "r1": {
+          "type": "offer",
+          "settings": {
+            "image_article": "seafood-recipes/crispy-skin-king-salmon-with-snap-pea-pesto-and-roasted-broccoli",
+            "title": "Crispy skin king salmon",
+            "text": "<p>With snap pea pesto and roasted broccoli.</p>",
+            "cta_label": "Get the recipe",
+            "cta_link": "/blogs/seafood-recipes/crispy-skin-king-salmon-with-snap-pea-pesto-and-roasted-broccoli"
+          }
+        },
+        "r2": {
+          "type": "offer",
+          "settings": {
+            "image_article": "seafood-recipes/king-salmon-poke-bowls",
+            "title": "10-minute king salmon poke bowls",
+            "text": "<p>Build-your-own bowls with sashimi-grade king salmon. No cooking.</p>",
+            "cta_label": "Get the recipe",
+            "cta_link": "/blogs/seafood-recipes/king-salmon-poke-bowls"
+          }
+        },
+        "r3": {
+          "type": "offer",
+          "settings": {
+            "image_article": "seafood-recipes/garlic-dill-baked-salmon",
+            "title": "Garlic dill broken salmon",
+            "text": "<p>A weeknight sheet-pan salmon with garlic, dill and lemon.</p>",
+            "cta_label": "Get the recipe",
+            "cta_link": "/blogs/seafood-recipes/garlic-dill-baked-salmon"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ]
+    },
+    "steps": {
+      "type": "uikit-how-it-works",
+      "settings": {
+        "heading": "Dinner gets simple again."
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/hyman-uikit-step-box.jpg",
+            "title": "Choose a curated box, or build your own",
+            "text": "Order by Tuesday 12pm EST for delivery that week, or start a subscription."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/hyman-uikit-step-delivery.jpg",
+            "title": "Your seafood arrives at your door",
+            "text": "Blast-frozen, with a frozen delivery guarantee."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/hyman-uikit-step-plate.jpg",
+            "title": "Prepare dinner in minutes.",
+            "text": "Every portion is sealed on its own, so you thaw only what you need. Our recipes take it from there."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
+    },
+    "faq": {
+      "type": "uikit-faq",
+      "settings": {
+        "heading": "Salmon questions, answered",
+        "footnote": "<p>Nutrition results describe tested samples; values vary by sample and season. <a href=\"/policies/shipping-policy\">Frozen delivery guarantee terms</a>.</p>",
+        "faq_schema": true
+      },
+      "blocks": {
+        "q_ora": {
+          "type": "question",
+          "settings": {
+            "question": "What is Ora King salmon?",
+            "answer": "<p>Ora King is a king salmon (Chinook, <em>Oncorhynchus tshawytscha</em>) raised in the Marlborough Sounds of New Zealand by the New Zealand King Salmon Company. It comes from more than two decades of selective breeding, and it is known for rich marbling, deep color and a buttery texture.</p><p>Ours arrives as skin-on, sushi-grade 8.5 oz portions, blast-frozen to -10°F at harvest and vacuum sealed. <a href=\"/products/king-salmon\">Shop Ora King salmon</a> or <a href=\"/pages/ora-king-salmon-new-zealand\">read about the farm</a>.</p>"
+          }
+        },
+        "q_types": {
+          "type": "question",
+          "settings": {
+            "question": "What is the difference between king salmon, Atlantic salmon and steelhead?",
+            "answer": "<p>King salmon (Chinook) is the richest, with the most marbling; we carry Ora King and Alpine King from New Zealand. Atlantic salmon is milder and leaner, and ours is skin-off for easy weeknight cooking. Steelhead is a close cousin of salmon with deep coral flesh and a delicate flavor.</p><p>We publish what our lab found in each one on its product page, so you can compare the omega-3s, protein and selenium for yourself.</p>"
+          }
+        },
+        "q_farmed": {
+          "type": "question",
+          "settings": {
+            "question": "Is your salmon wild or farmed?",
+            "answer": "<p>Farmed, and we say so. Every salmon we sell is sourced from best-in-class aquaculture, and we name the farm and publish the lab panels.</p><p>Every supplier is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard.</p>"
+          }
+        },
+        "q_ship": {
+          "type": "question",
+          "settings": {
+            "question": "How is the salmon shipped?",
+            "answer": "<p>Every portion is individually vacuum sealed and blast-frozen to -10°F at harvest, then shipped frozen nationwide with a frozen delivery guarantee. Orders received by Tuesday 12pm EST ship that week and arrive 1–3 days after shipment. <a href=\"/policies/shipping-policy\">Frozen delivery guarantee terms</a>.</p>"
+          }
+        },
+        "q_thaw": {
+          "type": "question",
+          "settings": {
+            "question": "How do I thaw frozen salmon?",
+            "answer": "<p>Move the portions you need to the fridge the night before, still sealed. Once thawed, open the package, pat the fish dry and cook. Because each portion is sealed on its own, you only thaw what you need.</p>"
+          }
+        },
+        "q_sashimi": {
+          "type": "question",
+          "settings": {
+            "question": "Is this sashimi grade?",
+            "answer": "<p>There is no official or regulated definition of “sashimi-grade” or “sushi-grade” fish in the United States. Sellers use the terms to signal that fish is safe to eat raw, but they are not a certification or a legal standard. So here is ours.</p><p>All of our seafood is vacuum sealed and blast frozen to -10 °F at peak freshness, which preserves taste, texture and colour, and is processed in an accredited facility. It is lab tested for mercury and microplastics. Farmed fish raised on formulated feed are exempt from the FDA Food Code’s parasite-freezing rule, and we blast-freeze at harvest anyway. That is what sashimi-grade means to us.</p><p>There is always some risk in eating anything raw or undercooked. If you are concerned or particularly sensitive, consult your doctor. The FDA conservatively suggests cooking to an internal temperature of 145 °F.</p>"
+          }
+        },
+        "q_mercury": {
+          "type": "question",
+          "settings": {
+            "question": "Is your seafood mercury free?",
+            "answer": "<p>Most fish naturally contain trace amounts of mercury, and it is close to impossible to find seafood that is genuinely “mercury free.” Mercury can sit below what a test can detect, so “mercury free” may not be true even when a result reads zero.</p><p>That is why we talk about mercury <strong>safe</strong> instead, and why we define it: our standard is 0.1 ppm methylmercury or below, a tenth of the FDA’s 1.0 ppm action level. Every supplier is tested against that standard before we approve them, then audited at random to make sure they stay compliant.</p><p>We also test selenium and look at the selenium-to-mercury ratio, because selenium in fish binds mercury so that less of it is absorbed.</p><p>FDA and EPA recommend 2 to 3 servings a week, 4 oz each, from their “Best Choices” list for people who are pregnant or breastfeeding. Salmon is on that list.</p>"
+          }
+        },
+        "q_micro": {
+          "type": "question",
+          "settings": {
+            "question": "Is it microplastic free?",
+            "answer": "<p><strong>We do not claim to be “microplastic free.”</strong> As with mercury, particles could exist below what a test can detect, and some scientists think nanoparticles may be everywhere on earth.</p><p>What we can say is that samples from every farm in the Seatopia portfolio have been tested and no microplastics were detected, which means no particles showed up down to 1 micron: a thousandth of a millimetre. We ship samples straight from our warehouse to the lab, so it is the same fish that gets shipped to you, already cut, blast frozen and vacuum sealed in its packaging.</p><p>Our fish is vacuum-sealed for freshness and safety, and the best available science suggests microplastics come more from what is inside the fish than from what it is wrapped in. Microplastics usually enter a fish through the food chain, when it eats contaminated prey or feed. That is why we lab test the edible portion of the fish itself. If a sample does not pass our microplastic threshold, we do not sell that fish.</p>"
+          }
+        },
+        "q_serving": {
+          "type": "question",
+          "settings": {
+            "question": "What counts as a serving?",
+            "answer": "<p>We consider one portion to be 4 to 6 ounces of cooked fish, which matches the FDA’s definition of a serving of seafood. That is the guideline behind how much fish by weight goes into a box described in servings. Some of our fish, such as king salmon, come in larger pieces of 7.5 to 8.5 oz, so a single piece can be two nutritional servings.</p><p>Many of our members work with a nutritionist or practitioner, or use an app, to decide what they should be eating for protein, fats or specific nutrients. The right amount and frequency for you is personal, and our job is to give you the data that makes the decision easy.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q_ora",
+        "q_types",
+        "q_farmed",
+        "q_sashimi",
+        "q_ship",
+        "q_thaw",
+        "q_mercury",
+        "q_micro",
+        "q_serving"
+      ]
+    },
+    "newsletter": {
+      "type": "newsletter-banner",
+      "blocks": {
+        "h_news": {
+          "type": "heading",
+          "settings": {
+            "heading": "From the Seatopia kitchen, by email",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_news": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Recipes, cooking temperatures and new harvests from the Seatopia kitchen &mdash; plus first word when a species comes back in season.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_news": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "h_news",
+        "t_news",
+        "f_news"
+      ],
+      "name": "t:sections.newsletter-banner.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "transparent_footer": false,
+        "image": "shopify://shop_images/Grilled_Ora_6.png",
+        "image_height": "650px",
+        "content_width": "medium",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "list_tag": "newsletter,salmon-lp"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "chooser",
+    "shop",
+    "reviews",
+    "panels",
+    "objections",
+    "guide",
+    "join",
+    "recipes",
+    "steps",
+    "faq",
+    "newsletter"
+  ]
+}

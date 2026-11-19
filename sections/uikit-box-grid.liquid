@@ -50,7 +50,7 @@
       </div>
     {%- endif -%}
 
-    <ul class="uikit-boxgrid{% if scroll %} uikit-boxgrid--scroll{% endif %}" role="list" data-uk-track>
+    <ul class="uikit-boxgrid{% if scroll %} uikit-boxgrid--scroll{% endif %}" role="list" data-uk-track data-uk-default-group="{{ section.settings.default_group | handleize }}">
       {%- for block in section.blocks -%}
         {%- liquid
           assign bp = block.settings.product
@@ -172,6 +172,9 @@
         if (track) { track.scrollLeft = 0; track.dispatchEvent(new Event('scroll')); }
       });
     });
+    var dg = root.querySelector('[data-uk-default-group]');
+    var dgName = dg ? dg.getAttribute('data-uk-default-group') : '';
+    if (dgName) { var dgBtn = root.querySelector('[data-uk-filter="' + dgName + '"]'); if (dgBtn) dgBtn.click(); }
   })();
 </script>
 
@@ -214,6 +217,7 @@
     { "type": "text", "id": "cta_label", "label": "Button label", "default": "Build Your Box" },
     { "type": "url", "id": "cta_link", "label": "Button link" },
     { "type": "checkbox", "id": "show_filters", "label": "Filter buttons by group", "default": false },
+    { "type": "text", "id": "default_group", "label": "Group shown first", "info": "A group name; the matching filter is pressed on load. Blank shows all." },
     { "type": "text", "id": "anchor", "label": "Anchor ID", "info": "Letters, numbers and hyphens. Link to it with #your-id." },
     {
       "type": "select", "id": "layout", "label": "Layout", "default": "grid",

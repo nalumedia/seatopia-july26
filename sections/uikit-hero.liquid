@@ -30,6 +30,23 @@
           {%- endif -%}
         </div>
       {%- endif -%}
+      {%- liquid
+        assign rp = section.settings.rating_product
+        assign r_count = 0
+        if rp != blank
+          assign r_count = rp.metafields.reviews.rating_count.value | default: 0 | plus: 0
+          assign r_val = rp.metafields.reviews.rating.value.rating | default: 0
+        endif
+      -%}
+      {%- if r_count > 0 -%}
+        <p class="uikit-body-s uikit-hero__rating">
+          <span class="uikit-hero__stars" aria-hidden="true">★★★★★</span>
+          <b>{{ r_val | round: 2 }}</b> from {{ r_count }} reviews of our {{ rp.title }}
+        </p>
+      {%- endif -%}
+      {%- if section.settings.quote != blank -%}
+        <blockquote class="uikit-body-m uikit-hero__quote">&ldquo;{{ section.settings.quote }}&rdquo;{% if section.settings.quote_name != blank %} <span class="uikit-label-s uikit-hero__quote-name">{{ section.settings.quote_name }}</span>{% endif %}</blockquote>
+      {%- endif -%}
       {%- if section.settings.note != blank -%}
         <p class="uikit-body-s uikit-hero__note">{{ section.settings.note }}</p>
       {%- endif -%}
@@ -69,6 +86,10 @@
   .uikit-hero__chip { display: inline-flex; align-items: center; min-height: 34px; padding: 8px 14px; border: 1px solid var(--uk-gold); border-radius: var(--uk-radius-pill); color: var(--uk-heading); }
   .uikit-hero__note { color: var(--uk-heading); }
   .uikit-hero__ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .uikit-hero__rating { display: flex; align-items: center; gap: 8px; margin: 0; color: var(--uk-heading); }
+  .uikit-hero__stars { color: var(--uk-gold); letter-spacing: 2px; }
+  .uikit .uikit-hero__quote { margin: 0; padding: 0; border: 0; font-family: var(--uk-font-body); font-style: normal; max-width: 620px; color: var(--uk-heading); }
+  .uikit .uikit-hero__quote-name { color: var(--uk-muted); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
   .uikit-hero__lockup { display: inline-flex; align-items: center; gap: 18px; margin-bottom: 6px; color: var(--uk-heading); }
   .uikit-hero__lockup-seatopia { font-family: var(--uk-font-heading, inherit); font-size: 22px; letter-spacing: .14em; line-height: 1; }
   .uikit-hero__lockup-x { font-size: 18px; color: var(--uk-gold); }
@@ -140,6 +161,9 @@
     { "type": "url", "id": "cta2_link", "label": "Second button link" },
     { "type": "text", "id": "chip", "label": "Offer chip", "info": "Claims guide rule 11: only an offer that is live in Shopify." },
     { "type": "text", "id": "note", "label": "Note below button", "info": "Use for a paid-partner disclosure. It must stay this size and in this position." },
+    { "type": "product", "id": "rating_product", "label": "Rating from this product", "info": "Shows the product's live Judge.me rating and count under the buttons." },
+    { "type": "textarea", "id": "quote", "label": "Review quote", "info": "A real review, verbatim." },
+    { "type": "text", "id": "quote_name", "label": "Review quote name", "info": "e.g. Andreia W., verified buyer" },
     { "type": "image_picker", "id": "image", "label": "Hero image" },
     {
       "type": "select", "id": "partner", "label": "Partner logo", "default": "none",
