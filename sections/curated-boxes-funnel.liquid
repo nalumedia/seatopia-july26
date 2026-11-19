@@ -46,7 +46,18 @@
   assign funnel_url = section.settings.funnel_url | default: '/pages/curated-boxes'
 -%}
 
-{%- if product == blank or style_option == blank or size_option == blank -%}
+{%- liquid
+  assign skip_entry = false
+  if entry
+    assign here = request.path | split: '?' | first
+    if here == funnel_url
+      assign skip_entry = true
+    endif
+  endif
+-%}
+{%- if skip_entry -%}
+  {%- comment -%} entry module on the funnel page itself: the full funnel is already here {%- endcomment -%}
+{%- elsif product == blank or style_option == blank or size_option == blank -%}
   {%- if request.design_mode -%}
     <div class="section section--padding">
       <div class="page-width">
@@ -535,6 +546,11 @@
           this.requireEmail = this.dataset.requireEmail === 'true';
           this.entry = this.dataset.entry === 'true';
           this.funnelUrl = this.dataset.funnelUrl || '/pages/curated-boxes';
+          if (this.entry && document.querySelector('curated-funnel:not(.cbf--entry)')) {
+            var wrap = this.closest('.cbf-section');
+            if (wrap) wrap.hidden = true;
+            return;
+          }
           this.step = 1;
           this.busy = false;
 
