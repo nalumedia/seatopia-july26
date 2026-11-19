@@ -1,0 +1,161 @@
+{%- comment -%}
+  UI kit — endorsements band. A dark band with photo cards for the doctors and
+  partners who recommend Seatopia, the way AG1 shows its endorsers: the name over the
+  photo, the quote on a frosted panel, the role and the disclosure underneath.
+
+  Claims guide §4.H / §8.4 and 16 CFR 255: only real, attributable quotes already
+  approved for the site. A paid partner's card must carry "Paid partner" (and
+  "affiliate" where there is a commission) in the same card: the Disclosure field.
+  Doctors speak about the food or the programme, never about a health outcome.
+  The eyebrow's rating and count come from Judge.me's shop metafields, never typed.
+{%- endcomment -%}
+{%- render 'uikit-fonts' -%}
+{{ 'uikit.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign s = section.settings
+  assign rv_count = shop.metafields.judgeme.all_reviews_count | plus: 0
+  assign rv_rating = shop.metafields.judgeme.all_reviews_rating | plus: 0.0
+  assign rv_count_text = rv_count
+  if rv_count > 999
+    assign rv_k = rv_count | divided_by: 1000
+    assign rv_r = rv_count | modulo: 1000 | prepend: '000' | slice: -3, 3
+    assign rv_count_text = rv_k | append: ',' | append: rv_r
+  endif
+-%}
+<div class="uikit uikit-section uikit-endorse"{% if s.anchor != blank %} id="{{ s.anchor | handleize }}"{% endif %}>
+  <div class="uikit-container">
+    <div class="uikit-endorse__head">
+      <div class="uikit-endorse__headtext">
+        {%- if s.show_rating and rv_count > 0 -%}
+          <p class="uikit-endorse__eyebrow">
+            <span class="uikit-endorse__stars" aria-hidden="true">★★★★★</span>
+            <span>{{ rv_rating | round: 1 }} from {{ rv_count_text }} reviews collected by Judge.me</span>
+          </p>
+        {%- elsif s.eyebrow != blank -%}
+          <p class="uikit-overline uikit-endorse__overline">{{ s.eyebrow }}</p>
+        {%- endif -%}
+        {%- if s.heading != blank -%}<h2 class="uikit-h2">{{ s.heading }}</h2>{%- endif -%}
+      </div>
+      {%- if s.cta_label != blank and s.cta_link != blank -%}
+        <a class="uikit-btn uikit-btn--primary uikit-btn--on-dark uikit-endorse__cta" href="{{ s.cta_link }}">{{ s.cta_label }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="uikit-endorse__scroller">
+    <ul class="uikit-endorse__track" role="list" data-uk-track>
+      {%- for block in section.blocks -%}
+        {%- assign b = block.settings -%}
+        <li class="uikit-endorse__card" {{ block.shopify_attributes }}>
+          <span class="uikit-endorse__media">
+            {%- if b.image != blank -%}
+              {{ b.image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '400,600,900', sizes: '(min-width: 750px) 380px, 80vw', alt: b.name | default: '' }}
+            {%- endif -%}
+          </span>
+          {%- if b.name != blank -%}<span class="uikit-label-s uikit-endorse__name">{{ b.name }}</span>{%- endif -%}
+          <div class="uikit-endorse__panel">
+            {%- if b.quote != blank -%}<blockquote class="uikit-body-m uikit-endorse__quote">{{ b.quote }}</blockquote>{%- endif -%}
+            {%- capture meta -%}
+              {{- b.role -}}
+              {%- if b.role != blank and b.disclosure != blank %} · {% endif -%}
+              {{- b.disclosure -}}
+            {%- endcapture -%}
+            {%- if meta != blank -%}<span class="uikit-label-s uikit-endorse__role">{{ meta | strip }}</span>{%- endif -%}
+            {%- if b.link != blank -%}<a class="uikit-body-s uikit-endorse__more" href="{{ b.link }}">{{ b.link_label | default: 'Read more' }} &rarr;</a>{%- endif -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+
+  {%- if section.blocks.size > 1 -%}
+    <div class="uikit-container">
+      <div class="uikit-endorse__arrows">
+        <button type="button" class="uikit-endorse__arrow" data-uk-scroll="-1" aria-label="Previous"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button type="button" class="uikit-endorse__arrow" data-uk-scroll="1" aria-label="Next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+<style>
+  /* dark band: the kit's dark blue with the kit tokens re-pointed for a dark surface */
+  .uikit-endorse { --uk-surface: var(--uk-dark-blue); --uk-text: var(--uk-white); --uk-heading: var(--uk-white); --uk-muted: rgba(255,255,255,.72); --uk-rule: rgba(255,255,255,.14); background: var(--uk-dark-blue); color: var(--uk-white); overflow: hidden; }
+  .uikit-endorse__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 36px; }
+  .uikit-endorse__headtext { display: flex; flex-direction: column; gap: 14px; max-width: 760px; }
+  .uikit-endorse__eyebrow { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 14px; color: var(--uk-muted); }
+  .uikit-endorse__stars { color: var(--uk-gold); letter-spacing: 2px; font-size: 15px; }
+  .uikit .uikit-endorse__overline { color: var(--uk-gold); }
+  .uikit-endorse__cta { flex: none; }
+  .uikit-endorse__scroller { width: 100%; }
+  .uikit-endorse__track { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0 max(var(--uk-gutter), calc((100% - var(--uk-container)) / 2 + var(--uk-gutter))); overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: max(var(--uk-gutter), calc((100% - var(--uk-container)) / 2 + var(--uk-gutter))); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .uikit-endorse__track::-webkit-scrollbar { display: none; }
+  .uikit-endorse__track::after { content: ""; flex: 0 0 1px; }
+  .uikit-endorse__card { position: relative; flex: 0 0 380px; aspect-ratio: 3 / 4; border-radius: var(--uk-radius-card); overflow: hidden; background: var(--uk-deep-deep-blue); scroll-snap-align: start; display: flex; flex-direction: column; justify-content: flex-end; }
+  .uikit-endorse__media { position: absolute; inset: 0; }
+  .uikit-endorse__media img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  .uikit-endorse__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(28,36,39,.45) 0%, rgba(28,36,39,0) 28%); }
+  .uikit .uikit-endorse__name { position: absolute; top: 20px; left: 20px; right: 20px; color: var(--uk-white); letter-spacing: .1em; text-transform: uppercase; text-shadow: 0 1px 8px rgba(0,0,0,.35); }
+  .uikit-endorse__panel { position: relative; display: flex; flex-direction: column; gap: 12px; padding: 20px; margin: 0; background: rgba(28,36,39,.58); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); color: var(--uk-white); }
+  .uikit .uikit-endorse__quote { margin: 0; font-size: 16px; line-height: 1.45; color: var(--uk-white); }
+  .uikit .uikit-endorse__role { color: var(--uk-muted); letter-spacing: .08em; text-transform: uppercase; font-weight: 500; }
+  .uikit-endorse__more { color: var(--uk-white); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.4); align-self: flex-start; padding-bottom: 1px; }
+  .uikit-endorse__more:hover { border-color: var(--uk-white); }
+  .uikit-endorse__arrows { display: flex; justify-content: flex-end; gap: 8px; margin-top: 24px; }
+  .uikit-endorse__arrow { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1px solid rgba(255,255,255,.3); border-radius: 999px; background: transparent; color: var(--uk-white); cursor: pointer; transition: border-color .18s ease; }
+  .uikit-endorse__arrow:hover { border-color: var(--uk-white); }
+  @media (max-width: 989px) {
+    .uikit-endorse__head { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 749px) {
+    .uikit-endorse__card { flex-basis: 80vw; }
+    .uikit-endorse__arrows { display: none; }
+  }
+  @media (prefers-reduced-motion: no-preference) { .uikit-endorse__track { scroll-behavior: smooth; } }
+</style>
+<script>
+  (function () {
+    var me = document.currentScript;
+    var wrap = me && me.closest ? me.closest('.shopify-section') : null;
+    var root = wrap ? wrap.querySelector('.uikit-endorse') : (me ? me.parentElement.querySelector('.uikit-endorse') : null);
+    if (!root) return;
+    var track = root.querySelector('[data-uk-track]');
+    root.querySelectorAll('[data-uk-scroll]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var card = track.querySelector('.uikit-endorse__card');
+        var step = card ? card.getBoundingClientRect().width + 20 : 400;
+        track.scrollBy({ left: step * parseInt(btn.dataset.ukScroll, 10), behavior: 'smooth' });
+      });
+    });
+  })();
+</script>
+{% schema %}
+{
+  "name": "UI kit — endorsements",
+  "tag": "section",
+  "settings": [
+    { "type": "paragraph", "content": "Only quotes already approved for the site. Paid partners must carry 'Paid partner' (plus 'affiliate' where there is a commission) in the Disclosure field of their own card." },
+    { "type": "text", "id": "anchor", "label": "Anchor id" },
+    { "type": "checkbox", "id": "show_rating", "label": "Show the Judge.me rating and review count as the eyebrow", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow (when the rating is off)" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Trusted by doctors and thousands of subscribers" },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Read the reviews" },
+    { "type": "url", "id": "cta_link", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "endorser",
+      "name": "Endorser",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo (portrait)" },
+        { "type": "text", "id": "name", "label": "Name" },
+        { "type": "text", "id": "role", "label": "Role" },
+        { "type": "textarea", "id": "quote", "label": "Quote (approved, verbatim)" },
+        { "type": "text", "id": "disclosure", "label": "Disclosure", "info": "Paid partner / Paid partner and affiliate. Leave blank only for an unpaid endorser." },
+        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "text", "id": "link_label", "label": "Link label", "default": "Why they support Seatopia" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "UI kit — endorsements" }]
+}
+{% endschema %}
