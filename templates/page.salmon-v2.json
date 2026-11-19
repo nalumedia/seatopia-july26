@@ -356,7 +356,7 @@
       "type": "uikit-panels",
       "blocks": {
         "p_ora": {
-          "type": "product",
+          "type": "panel",
           "settings": {
             "name": "Ora King Salmon",
             "detail": "8.5 oz portions",
