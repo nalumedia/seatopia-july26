@@ -145,7 +145,7 @@
   {%- endcapture -%}
 
   <section class="section uikit uikit-section uikit-section--tight cbf-section" id="CuratedFunnel-{{ section.id }}">
-    <div class="uikit-container cbf-container">
+    <div class="uikit-container cbf-container"{% unless entry %} id="curated-funnel"{% endunless %}>
       <curated-funnel
         class="cbf{% if entry %} cbf--entry{% endif %}"
         data-entry="{{ entry }}"
@@ -924,7 +924,8 @@
 /* Curated Boxes Funnel. Layout only: every colour, font and radius is a UI kit
    token or a value the uikit-* sections already use, so this page reads like
    the Hyman and Eudēmonia pages. */
-.cbf-section { --cbf-gold-text: #8a6430; --cbf-shadow: 0 10px 30px rgba(46,75,89,.10); } .cbf-section { scroll-margin-top: var(--sticky-header-height, 0px); }
+.cbf-section { --cbf-gold-text: #8a6430; --cbf-shadow: 0 10px 30px rgba(46,75,89,.10); }
+#curated-funnel { scroll-margin-top: calc(var(--sticky-header-height, 0px) + 24px); }
 .uikit .cbf-section { padding-block: 20px 48px; }
 @media (max-width: 749px) { .uikit .cbf-section { padding-block: 14px 36px; } }
 .cbf-container { position: relative; }
