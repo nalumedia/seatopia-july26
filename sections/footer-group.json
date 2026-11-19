@@ -134,7 +134,8 @@
         "full_width": false,
         "rounded": false,
         "hide_on_pages": "become-a-seatopia-ambassador, curated-boxes"
-      }
+      },
+      "disabled": true
     },
     "footer": {
       "type": "footer",
@@ -375,8 +376,7 @@
         "show_reviews": false,
         "mode": "entry",
         "funnel_url": "/pages/curated-boxes"
-      },
-      "disabled": true
+      }
     }
   },
   "order": [
