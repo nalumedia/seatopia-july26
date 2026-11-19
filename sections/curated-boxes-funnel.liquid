@@ -866,6 +866,7 @@
           var root = window.Shopify && window.Shopify.routes ? window.Shopify.routes.root : '/';
           var emailEl = this.querySelector('[data-cbf-email]');
           var emailVal = emailEl ? (emailEl.value || '').trim() : '';
+          if (emailVal && this.emailOk()) this.identifyLead(emailVal);
           /* checkout[email] prefills the email field on Shopify's checkout */
           var checkoutUrl = root + 'checkout' + (emailVal ? '?checkout%5Bemail%5D=' + encodeURIComponent(emailVal) : '');
           fetch(root + 'cart/add.js', {
@@ -884,21 +885,34 @@
         }
 
         /* Klaviyo is already on every page - identify the lead without adding
-           a dependency. Fails silently if Klaviyo has not booted yet. */
+           a dependency. Runs on blur and again on submit (Enter in the field skips
+           blur). Prefers the current klaviyo.identify API, falls back to the legacy
+           _learnq queue, and fails silently if Klaviyo has not booted. */
         captureLead(e) {
           var email = (e.target.value || '').trim();
           var ok = this.emailOk();
           var err = this.querySelector('[data-cbf-email-error]');
           if (err) err.hidden = ok || !email;
           if (!ok) return;
+          this.identifyLead(email);
+        }
+
+        identifyLead(email) {
+          if (!email || this.lastIdentified === email) return;
+          var props = {
+            $email: email,
+            CuratedBoxStyle: this.val('style'),
+            CuratedBoxSize: this.val('size'),
+            LeadSource: 'curated-boxes-funnel'
+          };
           try {
-            window._learnq = window._learnq || [];
-            window._learnq.push(['identify', {
-              $email: email,
-              CuratedBoxStyle: this.val('style'),
-              CuratedBoxSize: this.val('size'),
-              LeadSource: 'curated-boxes-funnel'
-            }]);
+            if (window.klaviyo && typeof window.klaviyo.identify === 'function') {
+              window.klaviyo.identify(props);
+            } else {
+              window._learnq = window._learnq || [];
+              window._learnq.push(['identify', props]);
+            }
+            this.lastIdentified = email;
           } catch (_) {}
         }
       });
