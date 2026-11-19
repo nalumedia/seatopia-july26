@@ -91,7 +91,6 @@
   .uikit-endorse__scroller { width: 100%; }
   .uikit-endorse__track { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0 max(var(--uk-gutter), calc((100% - var(--uk-container)) / 2 + var(--uk-gutter))); overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: max(var(--uk-gutter), calc((100% - var(--uk-container)) / 2 + var(--uk-gutter))); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
   .uikit-endorse__track::-webkit-scrollbar { display: none; }
-  .uikit-endorse__track::after { content: ""; flex: 0 0 1px; }
   .uikit-endorse__card { position: relative; flex: 0 0 380px; aspect-ratio: 3 / 4; border-radius: var(--uk-radius-card); overflow: hidden; background: var(--uk-deep-deep-blue); scroll-snap-align: start; display: flex; flex-direction: column; justify-content: flex-end; }
   .uikit-endorse__media { position: absolute; inset: 0; }
   .uikit-endorse__media img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
@@ -124,7 +123,7 @@
     if (!root) return;
     var track = root.querySelector('[data-uk-track]');
     var arrows = root.querySelector('.uikit-endorse__arrows');
-    function fit() { if (arrows && track) arrows.hidden = track.scrollWidth <= track.clientWidth + 4; }
+    function fit() { if (arrows && track) arrows.hidden = track.scrollWidth <= track.clientWidth + 48; }
     fit(); window.addEventListener('resize', fit);
     root.querySelectorAll('[data-uk-scroll]').forEach(function (btn) {
       btn.addEventListener('click', function () {
