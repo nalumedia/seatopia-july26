@@ -925,7 +925,7 @@
    token or a value the uikit-* sections already use, so this page reads like
    the Hyman and Eudēmonia pages. */
 .cbf-section { --cbf-gold-text: #8a6430; --cbf-shadow: 0 10px 30px rgba(46,75,89,.10); }
-#curated-funnel { scroll-margin-top: calc(var(--sticky-header-height, 0px) + 24px); }
+#curated-funnel { scroll-margin-top: calc(var(--header-height, 0px) + 24px); } /* --sticky-header-height is only published after the first scroll */
 .uikit .cbf-section { padding-block: 20px 48px; }
 @media (max-width: 749px) { .uikit .cbf-section { padding-block: 14px 36px; } }
 .cbf-container { position: relative; }
