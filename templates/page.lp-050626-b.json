@@ -1,0 +1,533 @@
+{
+  "sections": {
+    "hero": {
+      "type": "uikit-hero",
+      "blocks": {
+        "badge_coa": {
+          "type": "badge",
+          "settings": {
+            "icon_name": "fish",
+            "text": "Third-party Certificates of Analysis from Edacious and EMSL"
+          }
+        },
+        "badge_hg": {
+          "type": "badge",
+          "settings": {
+            "icon_name": "mercury",
+            "text": "Our limit is 0.1 ppm methylmercury – a tenth of the FDA action level"
+          }
+        },
+        "badge_mp": {
+          "type": "badge",
+          "settings": {
+            "icon_name": "microplastics",
+            "text": "Zero microplastics detected"
+          }
+        },
+        "badge_farms": {
+          "type": "badge",
+          "settings": {
+            "icon_name": "waves",
+            "text": "Farms named, panels published"
+          }
+        }
+      },
+      "block_order": [
+        "badge_coa",
+        "badge_hg",
+        "badge_mp",
+        "badge_farms"
+      ],
+      "settings": {
+        "heading": "Seafood with the lab results to prove it.",
+        "subheading": "Sashimi-grade salmon, white fish and shellfish from best-in-class aquaculture, third-party tested for nutrition, mercury and microplastics, with the results published. Snap-frozen to your door.",
+        "cta_label": "Start with a curated box",
+        "cta_link": "#curated-funnel",
+        "cta2_label": "Build your own box",
+        "cta2_link": "/collections/build-your-own-box",
+        "chip": "",
+        "note": "Ships frozen Tuesday or Wednesday. Free overnight shipping over $500. One-time boxes at any size; subscriptions start at $125 a box and save 10%.",
+        "image": "shopify://shop_images/hyman-uikit-hand-roll-hero.jpg",
+        "rating_product": "seatopia-regenerative-seafood-bundle",
+        "quote": "The most delicious fish we have ever had. Every piece is so fresh and perfect!",
+        "quote_name": "Lori O., verified buyer",
+        "partner": "none"
+      }
+    },
+    "funnel": {
+      "type": "curated-boxes-funnel",
+      "blocks": {
+        "style_salmon": {
+          "type": "style",
+          "settings": {
+            "style_value": "Salmon Lovers",
+            "image": "shopify://shop_images/salmon-lovers-box-837422.png",
+            "description": "<p>Curated variety may include King Salmon, Atlantic Salmon, Steelhead, and Smoked Salmon selections.</p>"
+          }
+        },
+        "style_variety": {
+          "type": "style",
+          "settings": {
+            "style_value": "Fish & Shellfish Variety",
+            "image": "shopify://shop_images/fish-shell-variety-box-700099.jpg",
+            "description": "<p>Curated variety of salmon, whitefish, and Peruvian scallops for adventurous palates.</p>"
+          }
+        },
+        "style_white": {
+          "type": "style",
+          "settings": {
+            "style_value": "White Fish Box",
+            "image": "shopify://shop_images/white-fish-box-281733.jpg",
+            "description": "<p>Curated variety may include Sea Bream, Branzino, Yellowtail, and Barramundi.</p>"
+          }
+        },
+        "size_12": {
+          "type": "size",
+          "settings": {
+            "size_value": "12 Portions",
+            "tagline": "Perfect for you",
+            "description": "<p>~6-8 oz portions · A great way to start your Seatopia journey.</p>",
+            "badge": ""
+          }
+        },
+        "size_18": {
+          "type": "size",
+          "settings": {
+            "size_value": "18 Portions",
+            "tagline": "For you to share",
+            "description": "<p>~6-8 oz portions · More variety, better value — our most popular size.</p>",
+            "badge": "Most Popular"
+          }
+        },
+        "size_24": {
+          "type": "size",
+          "settings": {
+            "size_value": "24 Portions",
+            "tagline": "For your family",
+            "description": "<p>~6-8 oz portions · Stock your freezer with premium catches.</p>",
+            "badge": ""
+          }
+        }
+      },
+      "block_order": [
+        "style_salmon",
+        "style_variety",
+        "style_white",
+        "size_12",
+        "size_18",
+        "size_24"
+      ],
+      "settings": {
+        "product": "seatopia-regenerative-seafood-bundle",
+        "style_option_name": "Style",
+        "size_option_name": "Size",
+        "step_labels": "Seafood,Size,Checkout",
+        "continue_label": "Continue",
+        "back_label": "Back",
+        "change_size_label": "Change size",
+        "phone_label": "Prefer to talk? Call us to order",
+        "phone": "",
+        "step1_heading": "Choose Your Seafood",
+        "step1_subheading": "<p>Each box is chef-curated with hand-picked selections.</p>",
+        "step2_heading": "Choose Your Size",
+        "step2_subheading": "<p>Choose the box size that fits your household.</p>",
+        "omega_footnote": "<p>Per-serving EPA+DHA figures are our published third-party test results from Edacious for each portion in the box, averaged across the box. Values vary by sample and season.</p>",
+        "step3_heading": "Your Box is Built!",
+        "step3_subheading": "<p>Review your selections and checkout.</p>",
+        "ship_copy": "<p>Arrives snap frozen. Orders ship Tuesday &amp; Wednesday.</p>",
+        "contents_heading": "What's inside this box",
+        "contents_disclaimer": "<p>Chef-curated selection — exact varieties may shift slightly with the season and best available harvest.</p>",
+        "omega_heading": "Omega-3 in this box",
+        "omega_disclaimer": "<p>Published Edacious test results for each portion, summed for the box. Values vary by sample and season.</p>",
+        "omega_partial_note": "<p>Totals include lab-tested portions only.</p>",
+        "purchase_heading": "How would you like it?",
+        "subscribe_label": "Subscribe & Save 10%",
+        "subscribe_benefits": "<ul><li>Free 1:1 chef classes</li><li>Arrives snap-frozen or we replace it</li><li>Pause, skip, or cancel anytime</li></ul>",
+        "onetime_label": "One-time purchase",
+        "email_label": "Enter your email to continue to checkout",
+        "email_error": "Please enter a valid email address.",
+        "checkout_label": "Checkout",
+        "submit_sub_label": "Subscribe",
+        "submit_once_label": "Checkout",
+        "show_reviews": true
+      }
+    },
+    "steps": {
+      "type": "uikit-how-it-works",
+      "settings": {
+        "heading": "Dinner gets simple again."
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/hyman-uikit-step-box.jpg",
+            "title": "Choose a curated box, or build your own",
+            "text": "Order by Tuesday 12pm EST for delivery that week, or start a subscription."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/hyman-uikit-step-delivery.jpg",
+            "title": "Your seafood arrives at your door",
+            "text": "Blast-frozen, with a frozen delivery guarantee."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/hyman-uikit-step-plate.jpg",
+            "title": "Prepare dinner in minutes.",
+            "text": "Every portion is sealed on its own, so you thaw only what you need. Our recipes take it from there."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
+    },
+    "endorsements": {
+      "type": "uikit-endorsements",
+      "blocks": {
+        "e_hyman": {
+          "type": "endorser",
+          "settings": {
+            "image": "shopify://shop_images/05212021_Mark_Hyman9087-Edit.jpg",
+            "name": "Dr. Mark Hyman, MD",
+            "role": "Functional medicine physician",
+            "quote": "“We are what our food eats.”",
+            "disclosure": "Paid partner",
+            "link": "shopify://pages/mark-hyman",
+            "link_label": "Why he supports Seatopia"
+          }
+        },
+        "e_means": {
+          "type": "endorser",
+          "settings": {
+            "image": "shopify://shop_images/DrCaseyMeans-Seatopia-33.jpg",
+            "name": "Dr. Casey Means, MD",
+            "role": "Physician and author",
+            "quote": "“Regenerative aquaculture is seafood production that enhances, rather than depletes, the oceans.”",
+            "disclosure": "",
+            "link": "/pages/casey-means-good-energy",
+            "link_label": "Why she supports Seatopia"
+          }
+        },
+        "e_norwitz": {
+          "type": "endorser",
+          "settings": {
+            "image": "shopify://shop_images/Nick_1.webp",
+            "name": "Dr. Nick Norwitz, MD PhD",
+            "role": "Physician and researcher",
+            "quote": "“Given how much seafood I eat, quality matters. Seatopia delivers on nutrient density and purity, while proving that exceptional nutrition and regenerative aquaculture can go hand in hand.”",
+            "disclosure": "Paid partner",
+            "link": "/pages/nick-norwitz-seatopia",
+            "link_label": "Why he supports Seatopia"
+          }
+        }
+      },
+      "block_order": [
+        "e_hyman",
+        "e_means",
+        "e_norwitz"
+      ],
+      "settings": {
+        "anchor": "endorsements",
+        "show_rating": true,
+        "eyebrow": "",
+        "heading": "Trusted by doctors and thousands of subscribers",
+        "cta_label": "Read the reviews",
+        "cta_link": "/pages/reviews",
+        "tone": "deep"
+      }
+    },
+    "reviews": {
+      "type": "uikit-reviews",
+      "blocks": {
+        "r_lori": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "The Best",
+            "quote": "The most delicious fish we have ever had. Every piece is so fresh and perfect!",
+            "name": "Lori O.",
+            "date": "11/16/2026",
+            "product": "white-fish-box",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_tpm": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Honestly best fish I’ve ever had",
+            "quote": "I’ve never been able to cook really good fish at home, and I swear this is some of the best fish I’ve ever had, at home OR in a restaurant. The quality is incredible, it tastes so fresh, and I love that it comes in individually portioned packets.",
+            "name": "T. P. M.",
+            "date": "11/17/2026",
+            "product": "king-salmon",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_rosemary": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Scallops - tender and flavorful!",
+            "quote": "I made a fresh mixed veggie/scallop stirfry with shallots, coconut aminos and sesame oil and it was heavenly. The scallops were tender...buttery and delish!",
+            "name": "Rosemary L.",
+            "date": "11/11/2026",
+            "product": "scallop-meat-16oz",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_nathan": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Best tasting",
+            "quote": "The best tasting salmon I have ever had.",
+            "name": "Nathan R.",
+            "date": "11/10/2026",
+            "product": "atlantic-salmon-2x-6oz-portions",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_andrea": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "king salmon",
+            "quote": "this was the most delicious salmon, I have had in a long time. thank you!!!",
+            "name": "Andrea B.",
+            "date": "11/17/2026",
+            "product": "king-salmon",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_ora": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Incredible Salmon",
+            "quote": "I now prefer to eat salmon at home over any of the best restaurants in NYC! Wow! Delicious…and knowing that it is tested and for microplastics and carefully sourced is what keeps me coming back for more! Thanks you for making this available!",
+            "name": "Anonymous",
+            "date": "11/18/2026",
+            "product": "buy-ora-king-salmon-portion-new-zealand",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        }
+      },
+      "block_order": [
+        "r_lori",
+        "r_tpm",
+        "r_rosemary",
+        "r_nathan",
+        "r_andrea",
+        "r_ora"
+      ],
+      "settings": {
+        "anchor": "customer-reviews",
+        "heading": "What people are saying",
+        "show_rating": true,
+        "all_reviews_link": "/pages/reviews",
+        "all_reviews_label": "Read all reviews"
+      }
+    },
+    "objections": {
+      "type": "uikit-benefits",
+      "blocks": {
+        "o_farmed": {
+          "type": "benefit",
+          "settings": {
+            "icon_name": "waves",
+            "text": "Every fish we sell is sourced from best-in-class aquaculture, and we name the farm and publish the lab panels.",
+            "title": "Farmed? Yes, and we say so."
+          }
+        },
+        "o_frozen": {
+          "type": "benefit",
+          "settings": {
+            "icon_name": "fish",
+            "text": "Every portion is individually vacuum sealed and blast-frozen to -10°F at harvest, then shipped frozen nationwide with a frozen delivery guarantee.",
+            "title": "Frozen? Blast-frozen at harvest."
+          }
+        },
+        "o_raw": {
+          "type": "benefit",
+          "settings": {
+            "icon_name": "mercury",
+            "text": "There is no regulated definition. Ours: vacuum sealed and blast frozen to -10 °F at peak freshness, processed in an accredited facility, lab tested for mercury and microplastics. The FDA conservatively suggests cooking to 145 °F.",
+            "title": "Raw? Here is what sashimi-grade means to us."
+          }
+        }
+      },
+      "block_order": [
+        "o_farmed",
+        "o_frozen",
+        "o_raw"
+      ],
+      "settings": {
+        "heading": "Three honest answers",
+        "text": "The questions we get most, answered the way we answer them in the FAQ.",
+        "heading_position": "above"
+      }
+    },
+    "join": {
+      "type": "uikit-feature",
+      "settings": {
+        "image": "shopify://shop_images/omegamaxxing-11-salmon-fillets.jpg",
+        "image_side": "left",
+        "ratio": "4 / 3",
+        "eyebrow": "Join and save",
+        "heading": "Subscribe to a curated box and save 10% on every order.",
+        "text": "<p>Membership comes with every subscription: 10% off each delivery, free 1:1 classes with our chefs, and member gifts and rewards. Pause, skip or change your box size and delivery date anytime from your account.</p>",
+        "cta_label": "See what membership includes",
+        "cta_link": "/pages/seatopia-membership"
+      }
+    },
+    "faq": {
+      "type": "uikit-faq",
+      "settings": {
+        "heading": "Questions, answered",
+        "footnote": "<p>Nutrition results describe tested samples; values vary by sample and season. <a href=\"/policies/shipping-policy\">Frozen delivery guarantee terms</a>.</p>",
+        "faq_schema": true
+      },
+      "blocks": {
+        "q_farmed": {
+          "type": "question",
+          "settings": {
+            "question": "Is your seafood wild or farmed?",
+            "answer": "<p>Farmed, and we say so. Every fish we sell is sourced from best-in-class aquaculture, and we name the farm and publish the lab panels.</p><p>Every supplier is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard.</p>"
+          }
+        },
+        "q_ship": {
+          "type": "question",
+          "settings": {
+            "question": "How is the seafood shipped?",
+            "answer": "<p>Every portion is individually vacuum sealed and blast-frozen to -10°F at harvest, then shipped frozen nationwide with a frozen delivery guarantee. Orders received by Tuesday 12pm EST ship that week and arrive 1–3 days after shipment. <a href=\"/policies/shipping-policy\">Frozen delivery guarantee terms</a>.</p>"
+          }
+        },
+        "q_thaw": {
+          "type": "question",
+          "settings": {
+            "question": "How do I thaw frozen seafood?",
+            "answer": "<p>Move the portions you need to the fridge the night before, still sealed. Once thawed, open the package, pat the fish dry and cook. Because each portion is sealed on its own, you only thaw what you need.</p>"
+          }
+        },
+        "q_sashimi": {
+          "type": "question",
+          "settings": {
+            "question": "Is this sashimi grade?",
+            "answer": "<p>There is no official or regulated definition of “sashimi-grade” or “sushi-grade” fish in the United States. Sellers use the terms to signal that fish is safe to eat raw, but they are not a certification or a legal standard. So here is ours.</p><p>All of our seafood is vacuum sealed and blast frozen to -10 °F at peak freshness, which preserves taste, texture and colour, and is processed in an accredited facility. It is lab tested for mercury and microplastics. Farmed fish raised on formulated feed are exempt from the FDA Food Code’s parasite-freezing rule, and we blast-freeze at harvest anyway. That is what sashimi-grade means to us.</p><p>There is always some risk in eating anything raw or undercooked. If you are concerned or particularly sensitive, consult your doctor. The FDA conservatively suggests cooking to an internal temperature of 145 °F.</p>"
+          }
+        },
+        "q_mercury": {
+          "type": "question",
+          "settings": {
+            "question": "Is your seafood mercury free?",
+            "answer": "<p>Most fish naturally contain trace amounts of mercury, and it is close to impossible to find seafood that is genuinely “mercury free.” Mercury can sit below what a test can detect, so “mercury free” may not be true even when a result reads zero.</p><p>That is why we talk about mercury <strong>safe</strong> instead, and why we define it: our standard is 0.1 ppm methylmercury or below, a tenth of the FDA’s 1.0 ppm action level. Every supplier is tested against that standard before we approve them, then audited at random to make sure they stay compliant.</p><p>We also test selenium and look at the selenium-to-mercury ratio, because selenium in fish binds mercury so that less of it is absorbed.</p><p>FDA and EPA recommend 2 to 3 servings a week, 4 oz each, from their “Best Choices” list for people who are pregnant or breastfeeding. Salmon is on that list.</p>"
+          }
+        },
+        "q_micro": {
+          "type": "question",
+          "settings": {
+            "question": "Is it microplastic free?",
+            "answer": "<p><strong>We do not claim to be “microplastic free.”</strong> As with mercury, particles could exist below what a test can detect, and some scientists think nanoparticles may be everywhere on earth.</p><p>What we can say is that samples from every farm in the Seatopia portfolio have been tested and no microplastics were detected, which means no particles showed up down to 1 micron: a thousandth of a millimetre. We ship samples straight from our warehouse to the lab, so it is the same fish that gets shipped to you, already cut, blast frozen and vacuum sealed in its packaging.</p><p>Our fish is vacuum-sealed for freshness and safety, and the best available science suggests microplastics come more from what is inside the fish than from what it is wrapped in. Microplastics usually enter a fish through the food chain, when it eats contaminated prey or feed. That is why we lab test the edible portion of the fish itself. If a sample does not pass our microplastic threshold, we do not sell that fish.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q_farmed",
+        "q_ship",
+        "q_thaw",
+        "q_sashimi",
+        "q_mercury",
+        "q_micro"
+      ]
+    },
+    "newsletter": {
+      "type": "newsletter-banner",
+      "blocks": {
+        "h_news": {
+          "type": "heading",
+          "settings": {
+            "heading": "From the Seatopia kitchen, by email",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "t_news": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Recipes, cooking temperatures and new harvests from the Seatopia kitchen &mdash; plus first word when a species comes back in season.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "f_news": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "h_news",
+        "t_news",
+        "f_news"
+      ],
+      "name": "t:sections.newsletter-banner.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "transparent_footer": false,
+        "image": "shopify://shop_images/Grilled_Ora_6.png",
+        "image_height": "650px",
+        "content_width": "medium",
+        "content_position": "md:items-center md:justify-center",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical",
+        "list_tag": "newsletter,qmn-lp-b"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "funnel",
+    "steps",
+    "endorsements",
+    "reviews",
+    "objections",
+    "join",
+    "faq",
+    "newsletter"
+  ]
+}
