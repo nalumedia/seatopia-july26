@@ -1187,6 +1187,19 @@
             "link_label": "Read the guide",
             "pdf_url": ""
           }
+        },
+        "seatopia101": {
+          "type": "guide",
+          "settings": {
+            "page": "seatopia-101",
+            "image": "shopify://shop_images/king-salmon-poke.jpg",
+            "kicker": "Six techniques, 30 minutes or less",
+            "title": "Seatopia 101",
+            "short_name": "Seatopia 101",
+            "text": "The recipe e-book: the 24-hour defrost, crispy skin, ceviche, poke, hand rolls and a miso marinade, each ready in 30 minutes or less.",
+            "link_label": "Read the guide",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/SeatopiaSimpleRecipes_e958c947-2969-4d39-8ed3-68cbe69f28a4.pdf?v=1795184518"
+          }
         }
       },
       "block_order": [
@@ -1194,7 +1207,8 @@
         "omega",
         "mercury",
         "reset",
-        "autumn"
+        "autumn",
+        "seatopia101"
       ],
       "settings": {
         "label": "Free guides",

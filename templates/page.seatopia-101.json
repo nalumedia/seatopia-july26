@@ -1,0 +1,238 @@
+{
+  "sections": {
+    "guide": {
+      "type": "seatopia-guide",
+      "blocks": {
+        "b00_hero": {
+          "type": "hero",
+          "settings": {
+            "image": "shopify://shop_images/king-salmon-poke.jpg",
+            "image_mobile": "shopify://shop_images/hand_roll_prep.jpg",
+            "eyebrow": "Seatopia · A recipe e-book with cooking tips",
+            "deck": "Six foundational seafood techniques, each ready in 30 minutes or less.",
+            "chips": "s101-defrost|the 24-hour defrost\ns101-crispy|crispy skin\ns101-ceviche|ceviche\ns101-handrolls|hand rolls",
+            "title": "seatopia 101"
+          }
+        },
+        "b01_intro": {
+          "type": "intro",
+          "settings": {
+            "eyebrow": "Seatopia 101",
+            "heading": "Seafood you can trust, made simple. Six techniques, thirty minutes or less, and ingredients you can count on one hand.",
+            "text": "<p>We believe sashimi-grade seafood should be easy to cook and a pleasure to eat. Fish is one of the most versatile proteins in the kitchen, but we get it: it can be intimidating. So we wrote this guide to show just how quick it can be.</p><p>With quality seafood, minimal is best. Each of these techniques takes 30 minutes or less and leans on simple ingredients. A quick lunch, an easy snack or an elegant dinner: here are effortless ways to bring sashimi-grade fish into your week.</p>"
+          }
+        },
+        "b02_sashimi": {
+          "type": "chapter",
+          "settings": {
+            "anchor": "s101-sashimi",
+            "label": "Before you start",
+            "heading": "A quick note on “sashimi-grade” and cooking temperatures",
+            "toc_title": "Sashimi-grade, defined",
+            "toc_sub": "and the FDA freezing rule",
+            "text": "<p>There is no official or regulated definition of “sashimi-grade” or “sushi-grade” fish in the United States. Sellers use the terms to signal that fish is safe to eat raw, but they are not a certification or a legal standard. So here is ours.</p><p>All of our seafood is vacuum sealed and blast frozen to -10 °F at peak freshness, which preserves taste, texture and colour, and is processed in an accredited facility. It is lab tested for mercury and microplastics. Farmed fish raised on formulated feed are exempt from the FDA Food Code’s parasite-freezing rule, and we blast-freeze at harvest anyway. That is what sashimi-grade means to us. [1]</p>",
+            "image": "shopify://shop_images/KanpachiFilet-Sliced.jpg",
+            "layout": "split",
+            "tone": "light",
+            "points": "",
+            "points_columns": "3",
+            "takeaway_label": "Eating it raw",
+            "takeaway": "<p>There is always some risk in eating anything raw or undercooked. If you are concerned or particularly sensitive, consult your doctor. The FDA conservatively suggests cooking to an internal temperature of 145 °F. [2]</p>"
+          }
+        },
+        "b03_defrost": {
+          "type": "chapter",
+          "settings": {
+            "anchor": "s101-defrost",
+            "label": "Foundation · 12 minutes hands-on",
+            "heading": "The 24-hour defrost method",
+            "toc_title": "The 24-hour defrost",
+            "toc_sub": "slow, in the fridge, wrapped in paper towel",
+            "text": "<p>Proper defrosting is the final step in preserving the quality of your seafood. Slow, controlled thawing lets the fish reabsorb its natural oils evenly, keeping the texture firm, the colour vibrant and the flavour sweet and buttery.</p><p><strong>Fish to use:</strong> any fillet, skin on or off.</p>",
+            "image": "shopify://shop_images/defrosting-esteros-lubimar-branzino.jpg",
+            "layout": "flip",
+            "tone": "light",
+            "points": "Unwrap while frozen|Remove the fillets from their vacuum-sealed packaging while they are still frozen.\nWrap in paper towel|Wrap in unbleached paper towel or a traditional maguro roll. The towel wicks moisture so the flesh stays firm and ready for slicing.\nRest in the fridge|Place on a plate or rack in the refrigerator for 12 to 36 hours. Swap the towel whenever it looks saturated.\nPat dry|After 24 hours, remove the paper towel and pat the thawed fillet dry before slicing or cooking.",
+            "points_columns": "4",
+            "takeaway_label": "Chef’s notes",
+            "takeaway": "<p>Swap the paper towel at least once during the 24-hour defrost, as soon as it looks damp. Choose unbleached paper towel. In a hurry? <a href=\"/blogs/seafood-recipes/best-ways-to-defrost-sushi-grade-seafood-for-sashimi-and-cooking\">The full article</a> covers the quick defrost and how to thaw scallops.</p>"
+          }
+        },
+        "b04_crispy": {
+          "type": "chapter",
+          "settings": {
+            "anchor": "s101-crispy",
+            "label": "Technique 1 · 12 minutes",
+            "heading": "The secret to crispy skin: parchment paper",
+            "toc_title": "Crispy skin",
+            "toc_sub": "no sticking, no tearing",
+            "text": "<p>Pan searing is one of the simplest ways to cook fish, and keeping the skin on makes it even better. The layer just under the skin is where much of a fillet’s richness sits, so it is our favourite part. The catch: skin-down in a stainless steel pan, fish can stick and tear. Our trick is a sheet of parchment paper between the fish and the pan. It gives you crisp, golden skin without the stick.</p><p><strong>Fish to use:</strong> Branzino, Sea Bream, Barramundi, salmon: anything with the skin on.</p>",
+            "image": "shopify://shop_images/seatopia-pan-seared-branzino.jpg",
+            "layout": "wide",
+            "tone": "sage",
+            "points": "Pat dry and season|Pat the fillet dry and season with sea salt.\nHeat the pan|Heat a nonstick or stainless steel pan over medium-high and add a drizzle of a high-heat oil like avocado or grapeseed.\nLay down the parchment|Cut a piece of parchment slightly larger than the fillet, lay it in the hot pan, then place the fish skin-side down on top.\nPress for 30 seconds|Press gently with a spatula for 30 seconds so the fillet doesn’t curl.\nCook 3 to 4 minutes|Cook until the skin is golden and crisp, then flip carefully and cook another minute or two.\nServe skin up|Slide the fish off the parchment and serve skin-side up right away, with a squeeze of lemon and flaky sea salt.",
+            "points_columns": "3",
+            "takeaway_label": "Chef’s notes",
+            "takeaway": "<p>Serve alongside a steaming bowl of basmati rice and a leafy green salad. For sauces and dressings we like Haven’s Kitchen. Choose parchment paper labelled PFAS-free. <a href=\"/blogs/seafood-recipes/seafood-101-the-secret-to-crispy-skin\">Read the full recipe.</a></p>"
+          }
+        },
+        "b05_ceviche": {
+          "type": "chapter",
+          "settings": {
+            "anchor": "s101-ceviche",
+            "label": "Technique 2 · 10 minutes",
+            "heading": "Simple ceviche",
+            "toc_title": "Simple ceviche",
+            "toc_sub": "citrus-cured, Peruvian roots",
+            "text": "<p>We love ceviche. It is a citrus-cured seafood dish from the coasts of Latin America, with Peru widely recognised as its birthplace. Raw fish is marinated in fresh lime or lemon juice and mixed with onion, chilli and herbs like cilantro. The acid gently “cooks” the fish, keeping its delicate texture while adding big flavour. With roots going back more than 2,000 years, ceviche has travelled across cultures and stayed beloved. For us it is a celebration of less is more.</p><p><strong>Fish to use:</strong> Yellowtail, scallops, shrimp, Branzino or Sea Bream. <strong>Not for:</strong> salmon.</p><p><strong>Ingredients</strong></p><ul><li>6 oz Seatopia Yellowtail, diced</li><li>1 lime, juiced</li><li>2 tbsp red onion, finely diced</li><li>1 tbsp cilantro, chopped</li><li>½ avocado, diced</li><li>Sea salt to taste (we like Maldon or Vera Salt)</li><li>Diced jalapeño, serrano or habanero to taste (optional)</li></ul>",
+            "image": "shopify://shop_images/JakobLayman.0319.CevicheProject_015.0.jpg",
+            "layout": "split",
+            "tone": "light",
+            "points": "Cure|In a bowl, combine the diced yellowtail with the lime juice and let it sit for 5 minutes.\nMix|Add the onion, cilantro, avocado and sea salt, mixing gently.\nServe|Serve immediately with tostadas or crisp cucumber slices.",
+            "points_columns": "3",
+            "takeaway_label": "Chef’s notes",
+            "takeaway": "<p>Defrost, then dry the fish with a paper towel. If using scallops, give them a 15-second rinse under cool water and dry them. If using Sea Bream or Branzino, remove the skin first. <a href=\"/blogs/seafood-recipes/simple-ceviche\">Read the full recipe.</a></p>"
+          }
+        },
+        "b06_poke": {
+          "type": "chapter",
+          "settings": {
+            "anchor": "s101-poke",
+            "label": "Technique 3 · 20 minutes",
+            "heading": "Poke bowl",
+            "toc_title": "Poke bowl",
+            "toc_sub": "a Hawaiian classic with salmon",
+            "text": "<p>Poke (pronounced poh-keh) is a traditional Hawaiian dish of bite-sized raw fish, classically ahi tuna, marinated in soy sauce, sesame oil and aromatics like green onion, seaweed or chilli. Native Hawaiian fishermen first made it as a quick snack from the off-cuts of their catch. It has since grown into a customisable bowl layered with rice, vegetables, sauces and toppings, loved around the world. Here is our simple twist on the classic with salmon.</p><p><strong>Fish to use:</strong> salmon, Yellowtail, Branzino or Sea Bream.</p><p><strong>Ingredients</strong></p><ul><li>1 Seatopia salmon fillet</li><li>1 cup sushi rice, cooked</li><li>1 tbsp soy sauce or coconut aminos</li><li>1 tsp sesame oil</li><li>½ avocado, sliced</li><li>½ cup cucumber, julienned</li><li>¼ cup shredded carrot</li><li>1 tbsp pickled ginger</li><li>Sesame seeds and green onion, to garnish</li></ul>",
+            "image": "shopify://shop_images/Salmon_Poke_Bowl.png",
+            "layout": "flip",
+            "tone": "light",
+            "points": "Cube and marinate|Slice the raw salmon into ½-inch cubes. In a bowl, mist generously with soy sauce (we like Yugeta Shoyu) and drizzle with sesame oil. Marinate 5 to 10 minutes while you prep the vegetables.\nBuild the bowl|Layer the sushi rice, cubed salmon, avocado, cucumber and carrot.\nFinish|Drizzle with soy sauce and sesame oil, then garnish with sesame seeds and green onion.",
+            "points_columns": "3",
+            "takeaway_label": "Chef’s notes",
+            "takeaway": "<p>Defrost the fish the night before so it slices cleanly. <a href=\"/blogs/seafood-recipes/atlantic-salmon-poke-bowl-with-avocado-organic-vegetables\">Read the full recipe.</a></p>"
+          }
+        },
+        "b07_handrolls": {
+          "type": "chapter",
+          "settings": {
+            "anchor": "s101-handrolls",
+            "label": "Technique 4 · 10 minutes",
+            "heading": "Hand rolls",
+            "toc_title": "Hand rolls",
+            "toc_sub": "the easiest sushi at home",
+            "text": "<p>This is the easiest way to do sushi at home, and great for kids. Hand rolls, or temaki, are a beloved Japanese style made by wrapping a sheet of crisp nori around seasoned sushi rice and fillings like sashimi-grade fish, avocado, cucumber or sprouts. They are shaped like small cones (or tacos) and eaten straight away, with no slicing required. Temaki is all about balance: tender fish, warm rice, cool crunch and the snap of seaweed. Fast, fun and endlessly customisable.</p><p>Defrost the fish the night before and put rice in the rice cooker. Then all you have to do is slice the fish and get the nori from the pantry.</p><p><strong>Fish to use:</strong> King Salmon, Steelhead, Yellowtail, Barramundi. <strong>Not for:</strong> scallops.</p><p><strong>Ingredients</strong></p><ul><li>4 oz Seatopia King Salmon, sliced into thin strips</li><li>2 sheets nori</li><li>½ cup sushi rice, cooked</li><li>¼ avocado, sliced</li><li>1 tsp sesame seeds</li><li>1 tsp wasabi (optional)</li><li>1 tbsp soy sauce</li></ul>",
+            "image": "shopify://shop_images/hand_roll_prep_4_of_8.jpg",
+            "layout": "split",
+            "tone": "sage",
+            "points": "Rice on the nori|Place a small scoop of sushi rice on one end of the nori sheet.\nAdd the fillings|Add salmon, avocado and sesame seeds on top.\nRoll|Roll into a cone, or fold it like a taco. Serve with soy sauce and wasabi.",
+            "points_columns": "3",
+            "takeaway_label": "Chef’s notes",
+            "takeaway": "<p>Keep the nori in the packet until the last second so it stays crisp. <a href=\"/blogs/seafood-recipes/sushi-hand-rolls-made-easy\">Read the full recipe.</a></p>"
+          }
+        },
+        "b08_miso": {
+          "type": "chapter",
+          "settings": {
+            "anchor": "s101-miso",
+            "label": "Technique 5 · 25 minutes",
+            "heading": "Miso marinade",
+            "toc_title": "Miso marinade",
+            "toc_sub": "umami, then a caramelised crust",
+            "text": "<p>Miso marinating is an old-school Japanese technique that infuses seafood with the deep umami of miso while keeping it tender and moist. Made from fermented soybeans, miso paste is blended with ingredients like sake, mirin and sugar to make a rich, slightly sweet marinade. Fish like black cod, salmon or Branzino soak up the flavour as the miso gently cures the surface, giving a beautifully caramelised crust when cooked. The method dates back centuries, when it preserved fish before refrigeration. Today it is cherished for the way it turns simple seafood into something silky and savoury. This one is a regular in our kitchen.</p><p><strong>Fish to use:</strong> Barramundi, Steelhead, Atlantic Salmon, King Salmon, Yellowtail.</p><p><strong>Ingredients</strong></p><ul><li>1 Seatopia Barramundi fillet</li><li>2 tbsp miso paste</li><li>1 tbsp honey</li><li>1 tbsp rice vinegar</li><li>1 tbsp soy sauce</li><li>½ tsp sesame oil</li><li>½ cup bok choy or spinach</li><li>1 cup cooked rice or soba noodles</li></ul>",
+            "image": "shopify://shop_images/MisoGlaze_Broiled_NewZealand_KingSalmon.jpg",
+            "layout": "wide",
+            "tone": "light",
+            "points": "Make the glaze|Preheat the oven to 400 °F. In a small bowl, mix the miso, honey, vinegar, soy sauce and sesame oil.\nBake|Brush the glaze over the fillet and bake for 12 to 15 minutes, until golden.\nServe|Serve over rice or soba noodles with sautéed bok choy.",
+            "points_columns": "3",
+            "takeaway_label": "Chef’s notes",
+            "takeaway": "<p>The glaze browns fast under the broiler, so keep an eye on the last two minutes. <a href=\"/blogs/seafood-recipes/seafood-101-miso-marinade\">Read the full recipe.</a></p>"
+          }
+        },
+        "b09_recipes": {
+          "type": "recipes",
+          "settings": {
+            "anchor": "s101-recipes",
+            "label": "Full recipes",
+            "heading": "The full recipes, step by step",
+            "toc_title": "The full recipes",
+            "toc_sub": "six Seafood 101 articles",
+            "text": "<p>Each technique in this guide has a full article with photos, timing and swaps.</p>",
+            "article_1": "seafood-recipes/best-ways-to-defrost-sushi-grade-seafood-for-sashimi-and-cooking",
+            "article_2": "seafood-recipes/seafood-101-the-secret-to-crispy-skin",
+            "article_3": "seafood-recipes/simple-ceviche",
+            "article_4": "seafood-recipes/atlantic-salmon-poke-bowl-with-avocado-organic-vegetables",
+            "article_5": "seafood-recipes/sushi-hand-rolls-made-easy",
+            "article_6": "seafood-recipes/seafood-101-miso-marinade",
+            "note": "<p>Eating raw or undercooked seafood may increase your risk of foodborne illness. The FDA conservatively suggests cooking to an internal temperature of 145 °F.</p>"
+          }
+        },
+        "b10_chef": {
+          "type": "chapter",
+          "settings": {
+            "anchor": "s101-chef",
+            "label": "Cook with us",
+            "heading": "Want to activate your inner chef?",
+            "toc_title": "Cook with us",
+            "toc_sub": "free 1:1 classes with a Seatopia chef",
+            "text": "<p>We offer free 1:1 virtual cooking classes with a Seatopia chef. Book a call and learn how to prepare sashimi-grade seafood at home, from defrosting to plating.</p><p><a href=\"/pages/unleash-your-inner-chef\">Book a free 1:1 cooking class</a></p>",
+            "layout": "split",
+            "tone": "dark",
+            "points": "",
+            "points_columns": "3",
+            "takeaway_label": "Final thoughts",
+            "takeaway": "<p>Every Seatopia meal is more than nourishment. Every supplier is third-party tested for nutrition, mercury and microplastics, then randomly audited to ensure consistent compliance with the Seatopia Standard. Thank you for being part of the shift toward food that is tested and published. Welcome to Seatopia.</p>"
+          }
+        },
+        "b11_gate": {
+          "type": "gate",
+          "settings": {
+            "anchor": "download",
+            "label": "Free download",
+            "heading": "Take Seatopia 101 with you",
+            "toc_title": "Download the e-book",
+            "toc_sub": "the full guide as a PDF",
+            "text": "<p>The whole e-book as a PDF: the 24-hour defrost, crispy skin, ceviche, poke, hand rolls and the miso marinade, with a QR code to every full recipe.</p>",
+            "guide_name": "Seatopia 101",
+            "cover": "shopify://shop_images/seatopia-101-guide-cover.png",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/SeatopiaSimpleRecipes_e958c947-2969-4d39-8ed3-68cbe69f28a4.pdf?v=1795184518",
+            "button_label": "Unlock the e-book",
+            "download_label": "Download the PDF",
+            "success": "You’re in. Your e-book is ready, and we’ve added you to our emails.",
+            "fine_print": "<p>By unlocking the e-book you agree to receive emails from Seatopia. Unsubscribe anytime. <a href=\"/policies/privacy-policy\">Privacy policy</a>.</p>",
+            "klaviyo_key": "UzEgpY",
+            "klaviyo_list": "W9Spu3",
+            "tone": "sage"
+          }
+        },
+        "b12_sources": {
+          "type": "sources",
+          "settings": {
+            "heading": "Sources",
+            "text": "<ol><li>U.S. Food and Drug Administration. <a href=\"https://www.fda.gov/food/fda-food-code/food-code-2022\"><em>FDA Food Code 2022</em></a>, §3-402.11 Parasite Destruction, and the exemption for aquacultured fish raised on formulated feed.</li><li>U.S. Food and Drug Administration. <a href=\"https://www.fda.gov/food/buy-store-serve-safe-food/selecting-and-serving-fresh-and-frozen-seafood-safely\"><em>Selecting and Serving Fresh and Frozen Seafood Safely</em></a>: cook fish to an internal temperature of 145 °F; raw or undercooked seafood carries a higher risk of foodborne illness.</li></ol>"
+          }
+        }
+      },
+      "block_order": [
+        "b00_hero",
+        "b01_intro",
+        "b02_sashimi",
+        "b03_defrost",
+        "b04_crispy",
+        "b05_ceviche",
+        "b06_poke",
+        "b07_handrolls",
+        "b08_miso",
+        "b09_recipes",
+        "b10_chef",
+        "b11_gate",
+        "b12_sources"
+      ],
+      "settings": {
+        "anchor": "seatopia-101"
+      }
+    }
+  },
+  "order": [
+    "guide"
+  ]
+}
