@@ -93,7 +93,7 @@
             "promo_heading_1": "Shop Curated Boxes",
             "promo_subtext_1": "Get started with our favorites",
             "promo_overlay_content_1": true,
-            "promo_link_1": "shopify://collections/curated-boxes",
+            "promo_link_1": "shopify://pages/curated-boxes",
             "promo_tag_1": "",
             "promo_color_text_1": "#ffffff",
             "promo_color_overlay_1": "#000000",
