@@ -41,7 +41,9 @@
   .wk-banner__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   /* A band-shaped scrim: strongest behind the copy, lighter at the edges, plus a soft text shadow. The photo under the hero is bright and busy. */
   .wk-banner__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27, 46, 55, calc(var(--wk-banner-overlay, .52) * .7)) 0%, rgba(27, 46, 55, var(--wk-banner-overlay, .52)) 30%, rgba(27, 46, 55, var(--wk-banner-overlay, .52)) 70%, rgba(27, 46, 55, calc(var(--wk-banner-overlay, .52) * .7)) 100%); }
-  .wk-banner__content { position: relative; display: flex; flex-direction: column; align-items: center; gap: 28px; width: 100%; max-width: 1040px; text-align: center; }
+  .wk-banner__content { position: relative; z-index: 0; display: flex; flex-direction: column; align-items: center; gap: 28px; width: 100%; max-width: 1040px; text-align: center; }
+  /* Soft pool of shade behind the copy only, so the subject stays visible at the edges. */
+  .wk-banner__content::before { content: ""; position: absolute; z-index: -1; inset: -96px -160px; background: radial-gradient(ellipse at center, rgba(27, 46, 55, .62) 0%, rgba(27, 46, 55, .4) 40%, rgba(27, 46, 55, 0) 70%); pointer-events: none; }
   .wk .wk-banner__heading { color: var(--wk-white); max-width: 1040px; text-shadow: 0 1px 2px rgba(0, 0, 0, .35), 0 10px 40px rgba(0, 0, 0, .3); }
   .wk-banner__text { color: var(--wk-white); max-width: 640px; display: flex; flex-direction: column; gap: 14px; font-weight: 500; text-shadow: 0 1px 2px rgba(0, 0, 0, .45), 0 6px 24px rgba(0, 0, 0, .3); }
   .wk-banner__btn { margin-top: 4px; }
