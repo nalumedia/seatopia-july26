@@ -39,10 +39,11 @@
   .wk-banner { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: var(--wk-banner-h, 720px); padding: 64px var(--wk-gutter); background: var(--wk-ink); overflow: hidden; }
   .wk-banner--band { padding: 0; }
   .wk-banner__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .wk-banner__overlay { position: absolute; inset: 0; background: rgba(27, 46, 55, var(--wk-banner-overlay, .52)); }
+  /* A band-shaped scrim: strongest behind the copy, lighter at the edges, plus a soft text shadow. The photo under the hero is bright and busy. */
+  .wk-banner__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27, 46, 55, calc(var(--wk-banner-overlay, .52) * .7)) 0%, rgba(27, 46, 55, var(--wk-banner-overlay, .52)) 30%, rgba(27, 46, 55, var(--wk-banner-overlay, .52)) 70%, rgba(27, 46, 55, calc(var(--wk-banner-overlay, .52) * .7)) 100%); }
   .wk-banner__content { position: relative; display: flex; flex-direction: column; align-items: center; gap: 28px; width: 100%; max-width: 1040px; text-align: center; }
-  .wk .wk-banner__heading { color: var(--wk-white); max-width: 1040px; }
-  .wk-banner__text { color: var(--wk-white); max-width: 640px; display: flex; flex-direction: column; gap: 14px; }
+  .wk .wk-banner__heading { color: var(--wk-white); max-width: 1040px; text-shadow: 0 1px 2px rgba(0, 0, 0, .35), 0 10px 40px rgba(0, 0, 0, .3); }
+  .wk-banner__text { color: var(--wk-white); max-width: 640px; display: flex; flex-direction: column; gap: 14px; font-weight: 500; text-shadow: 0 1px 2px rgba(0, 0, 0, .45), 0 6px 24px rgba(0, 0, 0, .3); }
   .wk-banner__btn { margin-top: 4px; }
   @media (max-width: 749px) {
     .wk-banner { min-height: calc(var(--wk-banner-h, 720px) * 0.7); padding-block: 48px; }
@@ -59,7 +60,7 @@
   "settings": [
     { "type": "image_picker", "id": "image", "label": "Image" },
     { "type": "range", "id": "height", "label": "Height", "min": 320, "max": 960, "step": 20, "unit": "px", "default": 720 },
-    { "type": "range", "id": "overlay", "label": "Overlay", "min": 0, "max": 80, "step": 2, "unit": "%", "default": 52 },
+    { "type": "range", "id": "overlay", "label": "Overlay", "min": 0, "max": 80, "step": 2, "unit": "%", "default": 60 },
     { "type": "text", "id": "heading", "label": "Heading" },
     { "type": "select", "id": "heading_size", "label": "Heading size", "default": "display", "options": [ { "value": "display", "label": "Display" }, { "value": "xl", "label": "Extra large" } ] },
     { "type": "select", "id": "heading_tag", "label": "Heading tag", "default": "h2", "options": [ { "value": "h1", "label": "H1 (page title)" }, { "value": "h2", "label": "H2" } ] },

@@ -5,7 +5,7 @@
       "settings": {
         "image": "shopify://shop_images/Mangrove1.png",
         "height": 860,
-        "overlay": 52,
+        "overlay": 62,
         "heading": "Every Box Plants a Mangrove",
         "heading_size": "display",
         "heading_tag": "h1",
@@ -320,43 +320,103 @@
         "c6"
       ]
     },
-    "testimonials": {
-      "type": "web-testimonials",
-      "settings": {
-        "heading": "Our community trusts us for clean, healthy seafood",
-        "text": "Join a community that is transforming their health",
-        "show_rating": true,
-        "reviews_link": "/pages/reviews",
-        "tone": "sand"
-      },
+    "reviews": {
+      "type": "uikit-reviews",
       "blocks": {
-        "t1": {
+        "r_lori": {
           "type": "review",
           "settings": {
-            "image": "shopify://shop_images/gp.png",
-            "quote": "“I’m cooking with seafood from this company I found called Seatopia that does all sustainable seafood, and mercury tests all their products which is really good!”",
-            "name": "Gwyneth Paltrow",
-            "role": "Celebrity & Wellness Guru",
-            "disclosure": "",
-            "rating": 5
+            "rating": 5,
+            "title": "The Best",
+            "quote": "The most delicious fish we have ever had. Every piece is so fresh and perfect!",
+            "name": "Lori O.",
+            "date": "11/16/2026",
+            "product": "white-fish-box",
+            "product_label": "",
+            "disclosure": "Verified buyer"
           }
         },
-        "t2": {
+        "r_tpm": {
           "type": "review",
           "settings": {
-            "image": "shopify://shop_images/Ben_greenfield_89fa6ea5-3395-4d81-975e-1f952ba5b657.png",
-            "quote": "“If you want healthy, gourmet-style seafood, in the comfort of your own home, seafood that goes above and beyond any you've tasted before, you need Seatopia in your life!”",
-            "name": "Ben Greenfield",
-            "role": "Health & Fitness Coach",
-            "disclosure": "Paid partner and affiliate",
-            "rating": 5
+            "rating": 5,
+            "title": "Honestly best fish I’ve ever had",
+            "quote": "I’ve never been able to cook really good fish at home, and I swear this is some of the best fish I’ve ever had, at home OR in a restaurant. The quality is incredible, it tastes so fresh, and I love that it comes in individually portioned packets.",
+            "name": "T. P. M.",
+            "date": "11/17/2026",
+            "product": "king-salmon",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_rosemary": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Scallops - tender and flavorful!",
+            "quote": "I made a fresh mixed veggie/scallop stirfry with shallots, coconut aminos and sesame oil and it was heavenly. The scallops were tender...buttery and delish!",
+            "name": "Rosemary L.",
+            "date": "11/11/2026",
+            "product": "scallop-meat-16oz",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_nathan": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Best tasting",
+            "quote": "The best tasting salmon I have ever had.",
+            "name": "Nathan R.",
+            "date": "11/10/2026",
+            "product": "atlantic-salmon-2x-6oz-portions",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_andrea": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "king salmon",
+            "quote": "this was the most delicious salmon, I have had in a long time. thank you!!!",
+            "name": "Andrea B.",
+            "date": "11/17/2026",
+            "product": "king-salmon",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_ora": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Incredible Salmon",
+            "quote": "I now prefer to eat salmon at home over any of the best restaurants in NYC! Wow! Delicious…and knowing that it is tested and for microplastics and carefully sourced is what keeps me coming back for more! Thanks you for making this available!",
+            "name": "Anonymous",
+            "date": "11/18/2026",
+            "product": "buy-ora-king-salmon-portion-new-zealand",
+            "product_label": "",
+            "disclosure": "Verified buyer"
           }
         }
       },
       "block_order": [
-        "t1",
-        "t2"
-      ]
+        "r_lori",
+        "r_tpm",
+        "r_rosemary",
+        "r_nathan",
+        "r_andrea",
+        "r_ora"
+      ],
+      "settings": {
+        "anchor": "customer-reviews",
+        "heading": "What people are saying",
+        "show_rating": true,
+        "all_reviews_link": "/pages/reviews",
+        "all_reviews_label": "Read all reviews"
+      }
     },
     "faq": {
       "type": "web-faq",
@@ -378,21 +438,21 @@
           "type": "question",
           "settings": {
             "question": "Can I customize my box?",
-            "answer": "<p>We are essentially a farmers market for artisanal aquaculture. In that sense, our Seatopia curated boxes are like a CSA box. We offer our curated boxes as a way to highlight what is seasonally available and introduce our members to new seafood and farm partners they might be interested in. So, they cannot be customized. But we do offer custom boxes! Members can order a custom box through the a la cart section of our website. Subscription members can mix and match items in their portal and take advantage of member-only items and offers.</p>"
+            "answer": "<p>We are essentially a farmers market for artisanal aquaculture. In that sense, our Seatopia curated boxes are like a CSA box. We offer our curated boxes as a way to highlight what is seasonally available and introduce our members to new seafood and farm partners they might be interested in. So, they cannot be customized. </p><p>But we do offer custom boxes! Members can order a custom box through the <a href=\"https://seatopia.fish/collections/add-ons\" title=\"https://seatopia.fish/collections/add-ons\">a la cart section of our website. </a>Subscription members can mix and match items in their portal and take advantage of member-only items and offers. </p>"
           }
         },
         "q2": {
           "type": "question",
           "settings": {
             "question": "Do I have to subscribe to place an order?",
-            "answer": "<p>No! But becoming a subscriber is the best way to support aquaculture farmers raising fish the right way. Your subscription helps us with planning harvest timelines and scheduling ocean freight, helping us move the industry away from unsustainable practices of flying fresh fish around the world. Subscribers also have early access to preferred pricing, exclusive add-ons and limited time offers. You will never be locked in to a subscription - you may change the order, the frequency or cancel anytime.</p>"
+            "answer": "<p>No! But becoming a subscriber is the best way to support aquaculture farmers raising fish the right way. </p><p>Your subscription helps us with planning harvest timelines and scheduling ocean freight, helping us move the industry away from unsustainable practices of flying fresh fish around the world. Subscribers also have early access to preferred pricing, exclusive add-ons and limited time offers. </p><p>You will never be locked in to a subscription - you may change the order, the frequency or cancel anytime. </p>"
           }
         },
         "q3": {
           "type": "question",
           "settings": {
             "question": "Do you offer discounts?",
-            "answer": "<p>As a general rule, we do not offer discounts, aside from a small thank you for first time customers. We offer the same incentive if you find us through one of our affiliate friends or supporters. Both are only available to first time customers. Rather than ask our members to search the internet for discounts and coupons, we always offer the lowest prices we can. The best way to save is by becoming a monthly subscriber. Our subscription members receive a small price incentive for helping us to reliably and predictably support artisan, regenerative aquaculture.</p>"
+            "answer": "<p>As a general rule, we do not offer discounts, aside from a small thank you for first time customers. We offer the same incentive if you find us through one of our affiliate friends or supporters. Both are only available to first time customers. </p><p>Rather than ask our members to search the internet for discounts and coupons, we always offer the lowest prices we can. </p><p>The best way to save is by becoming a monthly subscriber. Our subscription members receive a small price incentive for helping us to reliably and predictably support artisan, regenerative aquaculture.</p>"
           }
         },
         "q4": {
@@ -544,7 +604,7 @@
     "gallery",
     "why",
     "explore",
-    "testimonials",
+    "reviews",
     "faq",
     "curated",
     "cta"
