@@ -1,0 +1,200 @@
+{%- comment -%}
+  Web kit — product spotlight. Figma 4592:578 "Product — Mangrove Black Tiger Shrimp":
+  gallery with four thumbnails, eyebrow, title, price + live Judge.me rating, the
+  product description, pack chips, Add to cart, and a notes panel.
+
+  Everything comes from the product: description from the PDP, the notes from the
+  product's custom.farm_notes / chef_notes / feed_notes metafields, the farm link from
+  custom.farmpage. Copy therefore stays in one place, and the claims on this page are
+  the ones already cleared for the product page.
+
+  Add to cart reuses the theme's product form (is="product-form"), so the cart drawer
+  opens and the add-to-cart events fire exactly as on the PDP. The pack chips follow
+  the quick-add contract (data-card-qa / data-qa-variant, layout/theme.liquid).
+{%- endcomment -%}
+{%- render 'uikit-fonts' -%}
+{{ 'web-kit.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign s = section.settings
+  assign p = s.product
+  assign v0 = p.selected_or_first_available_variant
+  assign rating = p.metafields.reviews.rating.value
+  assign rating_count = p.metafields.reviews.rating_count.value | plus: 0
+  assign eyebrow = s.eyebrow | default: p.vendor
+  assign heading = s.heading | default: p.title
+  assign media = p.media | where: 'media_type', 'image'
+  assign main_img = s.image | default: media.first.preview_image
+  assign farm_url = s.notes_link
+  if farm_url == blank and p.metafields.custom.farmpage.value != blank
+    assign farm_url = p.metafields.custom.farmpage.value.url
+  endif
+  assign form_id = 'WkProduct-' | append: section.id
+-%}
+{%- if p != blank -%}
+<div class="wk wk-section wk-section--white wk-product-wrap">
+  <div class="wk-container wk-product">
+    <div class="wk-product__gallery">
+      <div class="wk-media wk-product__main" data-wk-main>
+        {%- if main_img != blank -%}
+          {{ main_img | image_url: width: 1400 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 600px, 100vw', widths: '600,900,1200,1400', alt: main_img.alt | default: p.title }}
+        {%- endif -%}
+      </div>
+      {%- if media.size > 1 -%}
+        <div class="wk-product__thumbs" role="list">
+          {%- for m in media limit: s.thumb_count -%}
+            <button type="button" class="wk-media wk-product__thumb{% if forloop.first %} is-active{% endif %}" role="listitem" data-wk-thumb="{{ m.preview_image | image_url: width: 1400 }}" aria-label="View image {{ forloop.index }} of {{ p.title | escape }}">
+              {{ m.preview_image | image_url: width: 400 | image_tag: loading: 'lazy', widths: '200,300,400', sizes: '141px', alt: '' }}
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="wk-product__info">
+      {%- if eyebrow != blank -%}<p class="wk-eyebrow wk-eyebrow--muted">{{ eyebrow }}</p>{%- endif -%}
+      <h2 class="wk-display wk-product__title">{{ heading }}</h2>
+      <div class="wk-product__pricerow">
+        <span class="wk-product__price" data-qa-label>{{ v0.price | money_without_trailing_zeros }}</span>
+        {%- if rating != blank and rating_count > 0 -%}
+          <a class="wk-product__rating" href="{{ p.url }}#judgeme_product_reviews" aria-label="Rated {{ rating.rating | round: 2 }} out of 5 from {{ rating_count }} reviews">
+            <span class="wk-stars" aria-hidden="true">★★★★★</span>
+            <span class="wk-body-s wk-muted">{{ rating.rating | round: 2 }}</span>
+          </a>
+        {%- endif -%}
+      </div>
+      <hr class="wk-rule">
+      <div class="wk-body-s wk-prose wk-product__desc">
+        {%- if s.description != blank -%}{{ s.description }}{%- else -%}{{ p.description }}{%- endif -%}
+      </div>
+
+      {%- if p.available -%}
+        <div class="card-qa wk-product__buy" data-card-qa>
+          {%- form 'product', p, is: 'product-form', id: form_id, class: 'card-qa__form wk-product__form' -%}
+            <input type="hidden" name="id" value="{{ v0.id }}">
+            {%- unless p.has_only_default_variant -%}
+              <p class="wk-product__qlabel">{{ p.options.first | default: 'Quantity' }}</p>
+              <div class="card-qa__packs wk-product__packs" role="radiogroup" aria-label="{{ p.options.first | default: 'Quantity' | escape }} for {{ p.title | escape }}">
+                {%- for v in p.variants -%}
+                  <button type="button" class="card-qa__pack wk-chip{% if v.id == v0.id %} is-active{% endif %}" role="radio" aria-checked="{% if v.id == v0.id %}true{% else %}false{% endif %}"
+                    data-qa-variant="{{ v.id }}" data-qa-text="{{ v.price | money_without_trailing_zeros }}"{% unless v.available %} disabled{% endunless %}>
+                    {{ v.title | escape }} &middot; {{ v.price | money_without_trailing_zeros }}
+                  </button>
+                {%- endfor -%}
+              </div>
+            {%- endunless -%}
+            <button type="submit" class="card-qa__add wk-btn wk-btn--coral wk-btn--block wk-product__add" data-variant-id="{{ v0.id }}">
+              <span class="btn-text">{{ s.add_label | default: 'Add to cart' }}</span>{% render 'web-kit-icon', name: 'arrow-right' %}
+            </button>
+          {%- endform -%}
+        </div>
+      {%- else -%}
+        <p class="wk-body-s wk-muted">{{ s.sold_out_text | default: 'Sold out for now.' }}</p>
+      {%- endif -%}
+
+      {%- capture notes -%}
+        {%- if s.notes != blank -%}
+          {{ s.notes }}
+        {%- else -%}
+          {%- if p.metafields.custom.farm_notes != blank -%}{{ p.metafields.custom.farm_notes | metafield_tag }}{%- endif -%}
+          {%- if p.metafields.custom.chef_notes != blank -%}{{ p.metafields.custom.chef_notes | metafield_tag }}{%- endif -%}
+          {%- if p.metafields.custom.feed_notes != blank -%}{{ p.metafields.custom.feed_notes | metafield_tag }}{%- endif -%}
+        {%- endif -%}
+      {%- endcapture -%}
+      {%- if notes != blank -%}
+        <div class="wk-product__notes">
+          {%- if s.notes_eyebrow != blank -%}<p class="wk-eyebrow">{{ s.notes_eyebrow }}</p>{%- endif -%}
+          <div class="wk-product__notes-text">{{ notes }}</div>
+          {%- if s.notes_link_label != blank and farm_url != blank -%}
+            <a class="wk-link wk-product__notes-link" href="{{ farm_url }}">{{ s.notes_link_label }}</a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<style>
+  #shopify-section-{{ section.id }} .wk-product-wrap { padding-block: 112px; }
+  .wk-product { display: grid; grid-template-columns: 600px minmax(0, 1fr); gap: 72px; align-items: start; }
+  .wk-product__gallery { display: flex; flex-direction: column; gap: 12px; position: sticky; top: calc(var(--header-height, 80px) + 24px); }
+  .wk-product__main { aspect-ratio: 1 / 1; }
+  .wk-product__thumbs { display: flex; gap: 12px; }
+  .wk-product__thumb { width: 141px; aspect-ratio: 1 / 1; padding: 0; border: 1px solid transparent; cursor: pointer; }
+  .wk-product__thumb.is-active { border-color: var(--wk-ink); }
+  .wk-product__info { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+  .wk-product__pricerow { display: flex; align-items: center; gap: 16px; }
+  .wk-product__price { font-size: 24px; font-weight: 500; color: var(--wk-ink); }
+  .wk-product__rating { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: inherit; }
+  .wk-product__rating .wk-stars { font-size: 16px; }
+  .wk-product__rating:hover .wk-body-s { text-decoration: underline; }
+  .wk-product .wk-rule { width: 100%; }
+  .wk-product__desc { font-size: 16px; line-height: 1.55; color: var(--wk-ink); }
+  .wk-product__desc a { color: inherit; }
+  .wk-product__buy { width: 100%; margin: 0; padding: 0; }
+  .wk-product__form { display: flex; flex-direction: column; gap: 20px; }
+  .wk-product__qlabel { font-size: 14px; font-weight: 500; color: var(--wk-ink); margin: 0; }
+  .wk-product__packs { display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: stretch; gap: 10px; padding: 0; margin-top: -10px; }
+  .wk .wk-chip { position: static; height: auto; min-width: 0; padding: 12px 20px; border-radius: 0; border: 1px solid rgba(46, 75, 89, 0.3); background: var(--wk-white); color: var(--wk-ink); font: inherit; font-size: 15px; font-weight: 400; line-height: normal; cursor: pointer; }
+  .wk .wk-chip.is-active { background: var(--wk-white); color: var(--wk-ink); border: 1.5px solid var(--wk-ink); }
+  .wk .wk-chip[disabled] { opacity: .35; cursor: not-allowed; text-decoration: line-through; }
+  .wk .wk-product__add { min-height: 0; border-radius: 0; font-weight: 400; font-size: 16px; }
+  .wk .wk-product__add:hover, .wk .wk-product__add:focus-visible { background: var(--wk-ink); border-color: var(--wk-ink); color: var(--wk-white); }
+  .wk .wk-product__add[aria-busy="true"] { color: transparent; }
+  .wk .wk-product__add[aria-busy="true"] svg { visibility: hidden; }
+  .wk-product__notes { display: flex; flex-direction: column; gap: 16px; width: 100%; padding: 28px 32px 32px; background: var(--wk-sand); }
+  .wk-product__notes-text { font-family: var(--wk-font-heading); font-weight: 300; font-size: 18px; line-height: 1.45; color: var(--wk-ink); }
+  .wk-product__notes-text p + p { margin-top: 16px; }
+  .wk-product__notes-link { align-self: flex-start; }
+  @media (max-width: 1199px) {
+    .wk-product { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 40px; }
+    .wk-product__thumb { width: calc((100% - 36px) / 4); }
+  }
+  @media (max-width: 989px) {
+    #shopify-section-{{ section.id }} .wk-product-wrap { padding-block: var(--wk-section-y); }
+    .wk-product { grid-template-columns: 1fr; gap: 32px; }
+    .wk-product__gallery { position: static; }
+    .wk .wk-product__title { font-size: 44px; }
+    .wk-product__notes { padding: 24px; }
+  }
+</style>
+
+<script>
+  (function () {
+    var root = document.getElementById('shopify-section-{{ section.id }}');
+    if (!root) return;
+    var main = root.querySelector('[data-wk-main] img');
+    var thumbs = root.querySelectorAll('[data-wk-thumb]');
+    thumbs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        if (!main) return;
+        main.removeAttribute('srcset'); main.removeAttribute('sizes');
+        main.src = t.getAttribute('data-wk-thumb');
+        thumbs.forEach(function (x) { x.classList.toggle('is-active', x === t); });
+      });
+    });
+  })();
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Web kit — product spotlight",
+  "tag": "section",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "info": "Defaults to the vendor." },
+    { "type": "text", "id": "heading", "label": "Heading", "info": "Defaults to the product title." },
+    { "type": "image_picker", "id": "image", "label": "Main image", "info": "Defaults to the product's first image." },
+    { "type": "range", "id": "thumb_count", "label": "Thumbnails", "min": 0, "max": 6, "step": 1, "default": 4 },
+    { "type": "richtext", "id": "description", "label": "Description", "info": "Defaults to the product description, so the PDP's cleared copy is reused." },
+    { "type": "text", "id": "add_label", "label": "Add button", "default": "Add to cart" },
+    { "type": "text", "id": "sold_out_text", "label": "Sold out text", "default": "Sold out for now." },
+    { "type": "header", "content": "Notes panel" },
+    { "type": "text", "id": "notes_eyebrow", "label": "Eyebrow", "default": "Chef notes" },
+    { "type": "richtext", "id": "notes", "label": "Notes", "info": "Defaults to the product's farm, chef and feed notes metafields." },
+    { "type": "text", "id": "notes_link_label", "label": "Link label", "default": "Learn more about the farm →" },
+    { "type": "url", "id": "notes_link", "label": "Link", "info": "Defaults to the product's farm page metafield." }
+  ],
+  "presets": [{ "name": "Web kit — product spotlight" }]
+}
+{% endschema %}

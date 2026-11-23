@@ -1,0 +1,552 @@
+{
+  "sections": {
+    "hero": {
+      "type": "web-banner",
+      "settings": {
+        "image": "shopify://shop_images/Mangrove1.png",
+        "height": 860,
+        "overlay": 52,
+        "heading": "Every Box Plants a Mangrove",
+        "heading_size": "display",
+        "heading_tag": "h1",
+        "text": "<p>Along the coast of Tarakan, Indonesia, our Black Tiger Shrimp are raised within living mangrove forests.</p><p>For every Seatopia box ordered, we plant one mangrove tree to support the coastal ecosystems that make exceptional seafood possible.</p>",
+        "cta_label": "",
+        "cta_link": "",
+        "eager": "eager"
+      }
+    },
+    "steps": {
+      "type": "web-steps",
+      "settings": {
+        "heading": "How Your Box Gives Back",
+        "tone": "sand"
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Choose Your Box",
+            "text": "Discover thoughtfully raised seafood."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "We Plant a Mangrove",
+            "text": "Each box supports mangrove planting in Tarakan."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Support Coastal Ecosystems",
+            "text": "Mangroves provide habitat for marine life and help protect coastlines."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
+    },
+    "band": {
+      "type": "web-banner",
+      "settings": {
+        "image": "shopify://shop_images/Mangrove_MMA_1.41.1.jpg",
+        "height": 640,
+        "overlay": 0,
+        "heading": "",
+        "heading_size": "display",
+        "heading_tag": "h2",
+        "text": "",
+        "cta_label": "",
+        "cta_link": "",
+        "eager": "lazy"
+      }
+    },
+    "story": {
+      "type": "web-split",
+      "settings": {
+        "image": "shopify://shop_images/Mangrove2.png",
+        "image_side": "left",
+        "ratio": "720 / 820",
+        "tone": "paper",
+        "eyebrow": "Tarakan, Indonesia",
+        "heading": "The Forest and the Farm Are One",
+        "cta_label": "The Seatopia Standard",
+        "cta_link": "/pages/why-clean-seafood-matters",
+        "cta_style": "outline"
+      },
+      "blocks": {
+        "p1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>In Tarakan, Indonesia, Black Tiger Shrimp are raised in low-density ponds woven through living mangrove forests.</p>"
+          }
+        },
+        "p2": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Natural tidal cycles support an ecosystem where mangrove roots help stabilize shorelines, filter water, and provide habitat for marine life.</p>"
+          }
+        },
+        "p3": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>It’s a different approach to aquaculture, one that recognizes the relationship between healthy ecosystems and exceptional seafood.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ]
+    },
+    "product": {
+      "type": "web-product",
+      "settings": {
+        "product": "black-tiger-shrimp-mangrove-regeneration",
+        "eyebrow": "",
+        "heading": "",
+        "thumb_count": 4,
+        "description": "",
+        "add_label": "Add to cart",
+        "sold_out_text": "Sold out for now.",
+        "notes_eyebrow": "Chef notes",
+        "notes": "",
+        "notes_link_label": "Learn more about the farm →",
+        "notes_link": ""
+      }
+    },
+    "gallery": {
+      "type": "web-gallery",
+      "settings": {
+        "height": 260,
+        "tone": "paper"
+      },
+      "blocks": {
+        "g1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Mangrove4.png"
+          }
+        },
+        "g2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Mangrove_MMA_1.48.1.jpg"
+          }
+        },
+        "g3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Mangrove_MMA_1.49.1_8cadbd08-708e-43a0-90b0-de8764b03438.jpg"
+          }
+        },
+        "g4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Mangrove_MMA_3.7.1_06d4c3ce-3909-4fe8-8630-ed7b983a4136.jpg"
+          }
+        },
+        "g5": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Mangrove5.png"
+          }
+        },
+        "g6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Mangrove_MMA_1.149.1_bed2b495-4533-4402-93ff-b9813bd90bc0.jpg"
+          }
+        },
+        "g7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Mangrove_MMA_1.46.1.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3",
+        "g4",
+        "g5",
+        "g6",
+        "g7"
+      ]
+    },
+    "why": {
+      "type": "web-split",
+      "settings": {
+        "image": "shopify://shop_images/Mangrove3.png",
+        "image_side": "right",
+        "ratio": "640 / 900",
+        "tone": "ink",
+        "eyebrow": "The impact",
+        "heading": "Why Mangroves Matter",
+        "cta_label": "",
+        "cta_link": "",
+        "cta_style": "outline"
+      },
+      "blocks": {
+        "r1": {
+          "type": "row",
+          "settings": {
+            "title": "Coastal Protection",
+            "text": "Mangrove roots help stabilize shorelines and protect against erosion."
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "title": "Marine Biodiversity",
+            "text": "Mangrove forests provide essential habitat and nursery grounds for marine life."
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "title": "Natural Carbon Storage",
+            "text": "Mangroves capture and store carbon in their biomass and surrounding coastal sediments."
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ]
+    },
+    "explore": {
+      "type": "web-product-grid",
+      "settings": {
+        "heading": "Explore Seatopia",
+        "link_label": "Shop all seafood →",
+        "link_url": "/collections/all-seafood",
+        "view_label": "View",
+        "anchor": "shop",
+        "tone": "paper"
+      },
+      "blocks": {
+        "c1": {
+          "type": "product",
+          "settings": {
+            "product": "lab-tested-salmon-roe-caviar",
+            "image": "shopify://shop_images/salmon_roe_caviar_2.png",
+            "eyebrow": "",
+            "title": "Salmon Roe Caviar",
+            "price_line": "",
+            "text": "Plump, briny pearls bursting with oceanic flavor. Adorn sushi and sashimi with these gourmet gems",
+            "link": "",
+            "show_add": true
+          }
+        },
+        "c2": {
+          "type": "product",
+          "settings": {
+            "product": "black-tiger-shrimp-mangrove-regeneration",
+            "eyebrow": "",
+            "title": "",
+            "price_line": "",
+            "text": "Sweet, briny shrimp with a natural richness, best enjoyed quickly seared for a delicate snap or pan-fried to preserve their depth.",
+            "link": "",
+            "show_add": true
+          }
+        },
+        "c3": {
+          "type": "product",
+          "settings": {
+            "product": "buy-ora-king-salmon-portion-new-zealand",
+            "image": "shopify://shop_images/king-salmon-771851.jpg",
+            "eyebrow": "",
+            "title": "",
+            "price_line": "",
+            "text": "Unapologetically rich and velvety—Ōra King salmon, the gold standard for celebratory seafood",
+            "link": "",
+            "show_add": true
+          }
+        },
+        "c4": {
+          "type": "product",
+          "settings": {
+            "product": "steelhead-sashimi-loin-12oz",
+            "image": "shopify://shop_images/steelhead-sashimi-loin-836382.jpg",
+            "eyebrow": "Caleta Bay",
+            "title": "Caleta Bay, Steelhead, Sashimi Loin",
+            "price_line": "",
+            "text": "",
+            "link": "",
+            "show_add": true
+          }
+        },
+        "c5": {
+          "type": "product",
+          "settings": {
+            "product": "add-on-barramundi-filet-5oz-each",
+            "image": "shopify://shop_images/fish-shell-variety-box-752110.jpg",
+            "eyebrow": "",
+            "title": "",
+            "price_line": "",
+            "text": "Mild, succulent - exceptional when pan seared with a crispy skin",
+            "link": "",
+            "show_add": true
+          }
+        },
+        "c6": {
+          "type": "product",
+          "settings": {
+            "product": "regenerative-farmed-scallops-peru",
+            "image": "shopify://shop_images/fish-shell-variety-box-336538.jpg",
+            "eyebrow": "",
+            "title": "",
+            "price_line": "",
+            "text": "On the half shell. Naturally sweet with a creamy bite — stunning raw, lightly torched, or nestled in citrus-forward ceviches",
+            "link": "",
+            "show_add": true
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6"
+      ]
+    },
+    "testimonials": {
+      "type": "web-testimonials",
+      "settings": {
+        "heading": "Our community trusts us for clean, healthy seafood",
+        "text": "Join a community that is transforming their health",
+        "show_rating": true,
+        "reviews_link": "/pages/reviews",
+        "tone": "sand"
+      },
+      "blocks": {
+        "t1": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/gp.png",
+            "quote": "“I’m cooking with seafood from this company I found called Seatopia that does all sustainable seafood, and mercury tests all their products which is really good!”",
+            "name": "Gwyneth Paltrow",
+            "role": "Celebrity & Wellness Guru",
+            "disclosure": "",
+            "rating": 5
+          }
+        },
+        "t2": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Ben_greenfield_89fa6ea5-3395-4d81-975e-1f952ba5b657.png",
+            "quote": "“If you want healthy, gourmet-style seafood, in the comfort of your own home, seafood that goes above and beyond any you've tasted before, you need Seatopia in your life!”",
+            "name": "Ben Greenfield",
+            "role": "Health & Fitness Coach",
+            "disclosure": "Paid partner and affiliate",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2"
+      ]
+    },
+    "faq": {
+      "type": "web-faq",
+      "settings": {
+        "heading": "FAQs",
+        "text": "<p>Please read our <a href=\"/pages/faq\">FAQs page</a> to find out more.</p>",
+        "open_first": true,
+        "faq_schema": false,
+        "anchor": "",
+        "tone": "white",
+        "show_contact": true,
+        "contact_heading": "Didn’t find your answer?",
+        "contact_text": "Don't hesitate to contact us",
+        "button": "Send message",
+        "success": "Thank you. We read every message and will reply soon."
+      },
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "Can I customize my box?",
+            "answer": "<p>We are essentially a farmers market for artisanal aquaculture. In that sense, our Seatopia curated boxes are like a CSA box. We offer our curated boxes as a way to highlight what is seasonally available and introduce our members to new seafood and farm partners they might be interested in. So, they cannot be customized. But we do offer custom boxes! Members can order a custom box through the a la cart section of our website. Subscription members can mix and match items in their portal and take advantage of member-only items and offers.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "Do I have to subscribe to place an order?",
+            "answer": "<p>No! But becoming a subscriber is the best way to support aquaculture farmers raising fish the right way. Your subscription helps us with planning harvest timelines and scheduling ocean freight, helping us move the industry away from unsustainable practices of flying fresh fish around the world. Subscribers also have early access to preferred pricing, exclusive add-ons and limited time offers. You will never be locked in to a subscription - you may change the order, the frequency or cancel anytime.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Do you offer discounts?",
+            "answer": "<p>As a general rule, we do not offer discounts, aside from a small thank you for first time customers. We offer the same incentive if you find us through one of our affiliate friends or supporters. Both are only available to first time customers. Rather than ask our members to search the internet for discounts and coupons, we always offer the lowest prices we can. The best way to save is by becoming a monthly subscriber. Our subscription members receive a small price incentive for helping us to reliably and predictably support artisan, regenerative aquaculture.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "What about antibiotics?",
+            "answer": "<p>When we choose farm partners, we look for farms that manage animal health without antibiotics. Many of our farms have no need for them by design, which is the case with scallops and with many of our land-based recirculating farms. Others have transitioned away entirely: our Atlantic salmon partner, Bakkafrost, has used zero antibiotics since 2004.</p><p>In the rare case of a significant animal health threat, some of our farms reserve the right to use therapeutic antibiotics under veterinary guidance. If that happens, the fish are held for a mandatory withdrawal period so that no trace remains before harvest. Antibiotics on the World Health Organization's list of drugs critically important to human medicine are not permitted.</p>"
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "What is a portion?",
+            "answer": "<p>We consider one portion to be 4 to 6 ounces of cooked fish, which matches the FDA's definition of a serving of seafood. That is the guideline behind how much fish by weight goes into a box described in servings. Some of our fish, such as king salmon, come in larger pieces of 7.5 to 8.5 oz, so a single piece can be two nutritional servings.</p><p>Many of our members work with a nutritionist or practitioner, or use an app, to decide what they should be eating for protein, fats or specific nutrients. The right amount and frequency for you is personal, and our job is to give you the data that makes the decision easy.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ]
+    },
+    "curated": {
+      "type": "curated-boxes-funnel",
+      "blocks": {
+        "style_salmon": {
+          "type": "style",
+          "settings": {
+            "style_value": "Salmon Lovers",
+            "image": "shopify://shop_images/salmon-lovers-box-837422.png",
+            "description": "<p>Curated variety may include King Salmon, Atlantic Salmon, Steelhead, and Smoked Salmon selections.</p>"
+          }
+        },
+        "style_variety": {
+          "type": "style",
+          "settings": {
+            "style_value": "Fish & Shellfish Variety",
+            "image": "shopify://shop_images/fish-shell-variety-box-700099.jpg",
+            "description": "<p>Curated variety of salmon, whitefish, and Peruvian scallops for adventurous palates.</p>"
+          }
+        },
+        "style_white": {
+          "type": "style",
+          "settings": {
+            "style_value": "White Fish Box",
+            "image": "shopify://shop_images/white-fish-box-281733.jpg",
+            "description": "<p>Curated variety may include Sea Bream, Branzino, Yellowtail, and Barramundi.</p>"
+          }
+        },
+        "size_12": {
+          "type": "size",
+          "settings": {
+            "size_value": "12 Portions",
+            "tagline": "Perfect for you",
+            "description": "<p>~6-8 oz portions · A great way to start your Seatopia journey.</p>",
+            "badge": ""
+          }
+        },
+        "size_18": {
+          "type": "size",
+          "settings": {
+            "size_value": "18 Portions",
+            "tagline": "For you to share",
+            "description": "<p>~6-8 oz portions · More variety, better value — our most popular size.</p>",
+            "badge": "Most Popular"
+          }
+        },
+        "size_24": {
+          "type": "size",
+          "settings": {
+            "size_value": "24 Portions",
+            "tagline": "For your family",
+            "description": "<p>~6-8 oz portions · Stock your freezer with premium catches.</p>",
+            "badge": ""
+          }
+        }
+      },
+      "block_order": [
+        "style_salmon",
+        "style_variety",
+        "style_white",
+        "size_12",
+        "size_18",
+        "size_24"
+      ],
+      "settings": {
+        "product": "seatopia-regenerative-seafood-bundle",
+        "style_option_name": "Style",
+        "size_option_name": "Size",
+        "step_labels": "Seafood,Size,Checkout",
+        "continue_label": "Continue",
+        "back_label": "Back",
+        "change_size_label": "Change size",
+        "phone_label": "Prefer to talk? Call us to order",
+        "phone": "",
+        "step1_heading": "Get started with a curated box",
+        "step1_subheading": "<p>Pick your seafood. Choose your size and check out on the next page.</p>",
+        "step2_heading": "Choose Your Size",
+        "step2_subheading": "<p>Choose the box size that fits your household.</p>",
+        "omega_footnote": "<p>Per-serving EPA+DHA figures are our published third-party test results from Edacious for each portion in the box, averaged across the box. Values vary by sample and season.</p>",
+        "step3_heading": "Your Box is Built!",
+        "step3_subheading": "<p>Review your selections and checkout.</p>",
+        "ship_copy": "<p>Arrives snap frozen. Orders ship Tuesday &amp; Wednesday.</p>",
+        "contents_heading": "What's inside this box",
+        "contents_disclaimer": "<p>Chef-curated selection — exact varieties may shift slightly with the season and best available harvest.</p>",
+        "omega_heading": "Omega-3 in this box",
+        "omega_disclaimer": "<p>Published Edacious test results for each portion, summed for the box. Values vary by sample and season.</p>",
+        "omega_partial_note": "<p>Totals include lab-tested portions only.</p>",
+        "purchase_heading": "How would you like it?",
+        "subscribe_label": "Subscribe & Save 10%",
+        "subscribe_benefits": "<ul><li>Free 1:1 chef classes</li><li>Arrives snap-frozen or we replace it</li><li>Pause, skip, or cancel anytime</li></ul>",
+        "onetime_label": "One-time purchase",
+        "email_label": "Enter your email to continue to checkout",
+        "email_error": "Please enter a valid email address.",
+        "checkout_label": "Checkout",
+        "submit_sub_label": "Subscribe",
+        "submit_once_label": "Checkout",
+        "show_reviews": false,
+        "mode": "entry",
+        "funnel_url": "/pages/curated-boxes",
+        "hide_on_articles": false
+      }
+    },
+    "cta": {
+      "type": "web-banner",
+      "settings": {
+        "image": "shopify://shop_images/Mangrove_MMA_1.48.1.jpg",
+        "height": 720,
+        "overlay": 50,
+        "heading": "Good Seafood. A Healthier Ocean.",
+        "heading_size": "xl",
+        "heading_tag": "h2",
+        "text": "<p>Discover thoughtfully raised seafood and join us in supporting healthier coastal ecosystems.</p>",
+        "cta_label": "Choose Your Box",
+        "cta_link": "/pages/curated-boxes",
+        "eager": "lazy"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "steps",
+    "band",
+    "story",
+    "product",
+    "gallery",
+    "why",
+    "explore",
+    "testimonials",
+    "faq",
+    "curated",
+    "cta"
+  ]
+}

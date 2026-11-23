@@ -1,0 +1,88 @@
+{%- comment -%}
+  Web kit — image beside copy, full bleed. Figma 4592:565 "Tarakan Story" (light, image
+  left, paragraphs + outline button) and 4593:547 "Why Mangroves Matter" (ink, image
+  right, ruled rows). Paragraph and row blocks can be mixed.
+{%- endcomment -%}
+{%- render 'uikit-fonts' -%}
+{{ 'web-kit.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign s = section.settings
+  assign on_ink = false
+  if s.tone == 'ink'
+    assign on_ink = true
+  endif
+-%}
+<div class="wk wk-section--{{ s.tone }} wk-split wk-split--image-{{ s.image_side }}" style="--wk-split-ratio: {{ s.ratio }};">
+  <div class="wk-media wk-split__media">
+    {%- if s.image != blank -%}
+      {{ s.image | image_url: width: 1600 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 50vw, 100vw', widths: '600,900,1200,1600', alt: s.image.alt | default: '' }}
+    {%- endif -%}
+  </div>
+  <div class="wk-split__copy">
+    {%- if s.eyebrow != blank -%}
+      <p class="wk-eyebrow{% if on_ink %} wk-eyebrow--on-ink{% endif %}">{{ s.eyebrow }}</p>
+    {%- endif -%}
+    {%- if s.heading != blank -%}
+      <h2 class="wk-display wk-split__heading">{{ s.heading }}</h2>
+    {%- endif -%}
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'paragraph' -%}
+          <div class="wk-body wk-prose wk-split__text" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+        {%- when 'row' -%}
+          <div class="wk-split__row{% if forloop.first %} wk-split__row--first{% endif %}" {{ block.shopify_attributes }}>
+            <h3 class="wk-h3 wk-split__row-title">{{ block.settings.title }}</h3>
+            <p class="wk-body-m wk-split__row-text">{{ block.settings.text }}</p>
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+    {%- if s.cta_label != blank -%}
+      <a class="wk-btn wk-btn--{{ s.cta_style }} wk-split__btn" href="{{ s.cta_link | default: '#' }}">{{ s.cta_label }}{% render 'web-kit-icon', name: 'arrow-right' %}</a>
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  .wk-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; }
+  .wk-split--image-right .wk-split__media { order: 2; }
+  .wk-split__media { aspect-ratio: var(--wk-split-ratio, 720 / 820); height: 100%; max-height: 900px; }
+  .wk-split__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; padding: 96px clamp(24px, 7.8vw, 112px) 96px clamp(24px, 6.7vw, 96px); }
+  .wk-split--image-right .wk-split__copy { padding: 112px clamp(24px, 6.7vw, 96px) 112px clamp(24px, 7.8vw, 112px); gap: 20px; }
+  .wk-split__text { color: var(--wk-ink); }
+  .wk-section--ink .wk-split__text { color: var(--wk-sand); }
+  .wk-split__row { display: flex; flex-direction: column; gap: 8px; width: 100%; padding: 24px 0; border-top: 1px solid var(--wk-rule); }
+  .wk-split__row--first { margin-top: 16px; }
+  .wk-section--ink .wk-split__row { border-top-color: var(--wk-rule-on-ink); }
+  .wk-split__row-text { color: rgba(46, 75, 89, 0.85); }
+  .wk-section--ink .wk-split__row-text { color: rgba(237, 232, 223, 0.85); }
+  .wk-split__btn { margin-top: 8px; }
+  @media (max-width: 989px) {
+    .wk-split { grid-template-columns: 1fr; }
+    .wk-split--image-right .wk-split__media { order: 0; }
+    .wk-split__media { aspect-ratio: 4 / 3; height: auto; max-height: none; }
+    .wk-split__copy, .wk-split--image-right .wk-split__copy { padding: 48px var(--wk-gutter); gap: 20px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Web kit — image with copy",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "select", "id": "image_side", "label": "Image side", "default": "left", "options": [ { "value": "left", "label": "Left" }, { "value": "right", "label": "Right" } ] },
+    { "type": "select", "id": "ratio", "label": "Image shape", "default": "720 / 820", "options": [ { "value": "720 / 820", "label": "Tall (720 × 820)" }, { "value": "640 / 900", "label": "Taller (640 × 900)" }, { "value": "1 / 1", "label": "Square" }, { "value": "4 / 3", "label": "Landscape" } ] },
+    { "type": "select", "id": "tone", "label": "Background", "default": "paper", "options": [ { "value": "paper", "label": "Paper" }, { "value": "sand", "label": "Sand" }, { "value": "white", "label": "White" }, { "value": "ink", "label": "Ink (dark)" } ] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "textarea", "id": "heading", "label": "Heading" },
+    { "type": "text", "id": "cta_label", "label": "Button label" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "select", "id": "cta_style", "label": "Button style", "default": "outline", "options": [ { "value": "outline", "label": "Outline" }, { "value": "coral", "label": "Coral" }, { "value": "ink", "label": "Ink" } ] }
+  ],
+  "blocks": [
+    { "type": "paragraph", "name": "Paragraph", "settings": [ { "type": "richtext", "id": "text", "label": "Text" } ] },
+    { "type": "row", "name": "Ruled row", "settings": [ { "type": "text", "id": "title", "label": "Title" }, { "type": "textarea", "id": "text", "label": "Text" } ] }
+  ],
+  "presets": [{ "name": "Web kit — image with copy", "blocks": [ { "type": "paragraph" } ] }]
+}
+{% endschema %}

@@ -1,0 +1,43 @@
+{%- comment -%}
+  Web kit — photo strip. Figma 4593:539 "Mangrove Gallery": up to seven stills in a row,
+  260px tall, 8px apart, on 24px of paper. Scrolls sideways on small screens.
+{%- endcomment -%}
+{{ 'web-kit.css' | asset_url | stylesheet_tag }}
+<div class="wk wk-section--{{ section.settings.tone }} wk-gallery-wrap">
+  <ul class="wk-gallery" role="list" style="--wk-gallery-h: {{ section.settings.height }}px;">
+    {%- for block in section.blocks -%}
+      <li class="wk-media wk-gallery__item" {{ block.shopify_attributes }}>
+        {%- if block.settings.image != blank -%}
+          {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 14vw, 42vw', widths: '300,400,600,800', alt: block.settings.image.alt | default: '' }}
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
+
+<style>
+  .wk-gallery-wrap { padding: 24px; }
+  .wk-gallery { display: flex; gap: 8px; list-style: none; margin: 0; padding: 0; }
+  .wk-gallery__item { flex: 1 1 0; min-width: 0; height: var(--wk-gallery-h, 260px); }
+  @media (max-width: 989px) {
+    .wk-gallery-wrap { padding: 16px 0; }
+    .wk-gallery { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-inline: var(--wk-gutter); }
+    .wk-gallery::-webkit-scrollbar { display: none; }
+    .wk-gallery__item { flex: 0 0 42vw; height: 180px; scroll-snap-align: start; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Web kit — photo strip",
+  "tag": "section",
+  "settings": [
+    { "type": "range", "id": "height", "label": "Height", "min": 160, "max": 400, "step": 20, "unit": "px", "default": 260 },
+    { "type": "select", "id": "tone", "label": "Background", "default": "paper", "options": [ { "value": "paper", "label": "Paper" }, { "value": "sand", "label": "Sand" }, { "value": "white", "label": "White" } ] }
+  ],
+  "blocks": [
+    { "type": "image", "name": "Photo", "limit": 8, "settings": [ { "type": "image_picker", "id": "image", "label": "Image" } ] }
+  ],
+  "presets": [{ "name": "Web kit — photo strip", "blocks": [ { "type": "image" }, { "type": "image" }, { "type": "image" }, { "type": "image" }, { "type": "image" } ] }]
+}
+{% endschema %}

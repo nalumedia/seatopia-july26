@@ -1,0 +1,122 @@
+{%- comment -%}
+  Web kit — product grid. Figma 4593:562 "Explore Seatopia", built from the
+  "Collection Card / Info" component (4593:522): square image, vendor eyebrow, title,
+  a price line, a sentence, then View + Add.
+
+  The price line is a block field, not arithmetic: a "per serving" figure is a factual
+  price claim and the catalogue does not carry servings per pack, so it is typed by a
+  person or left blank, in which case the card shows the starting price.
+  Add uses the theme's product form (cart drawer, same events as the PDP) for the
+  first available variant.
+{%- endcomment -%}
+{%- render 'uikit-fonts' -%}
+{{ 'web-kit.css' | asset_url | stylesheet_tag }}
+<div class="wk wk-section wk-section--{{ section.settings.tone }}"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | handleize }}"{% endif %}>
+  <div class="wk-container wk-pgrid">
+    <div class="wk-pgrid__head">
+      {%- if section.settings.heading != blank -%}<h2 class="wk-display">{{ section.settings.heading }}</h2>{%- endif -%}
+      {%- if section.settings.link_label != blank -%}<a class="wk-link" href="{{ section.settings.link_url | default: '/collections/all-seafood' }}">{{ section.settings.link_label }}</a>{%- endif -%}
+    </div>
+    <ul class="wk-pgrid__grid" role="list">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign bp = block.settings.product
+          assign bs = block.settings
+          assign img = bs.image | default: bp.featured_image
+          assign title = bs.title | default: bp.title
+          assign eyebrow = bs.eyebrow | default: bp.vendor
+          assign link = bs.link | default: bp.url
+          assign v0 = bp.selected_or_first_available_variant
+          assign price_line = bs.price_line
+          if price_line == blank and bp != blank
+            assign price_line = bp.price_min | money_without_trailing_zeros
+            if bp.price_varies
+              assign price_line = price_line | prepend: 'From '
+            endif
+          endif
+          assign card_form_id = 'WkCard-' | append: section.id | append: '-' | append: block.id
+        -%}
+        <li class="wk-pcard" {{ block.shopify_attributes }}>
+          <a class="wk-media wk-pcard__media" href="{{ link | default: '#' }}" tabindex="-1" aria-hidden="true">
+            {%- if img != blank -%}
+              {{ img | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 413px, 100vw', widths: '400,600,900', alt: '' }}
+            {%- endif -%}
+          </a>
+          <div class="wk-pcard__info">
+            {%- if eyebrow != blank -%}<p class="wk-eyebrow wk-eyebrow--s">{{ eyebrow }}</p>{%- endif -%}
+            <h3 class="wk-h4 wk-pcard__title"><a href="{{ link | default: '#' }}">{{ title }}</a></h3>
+            {%- if price_line != blank -%}<p class="wk-pcard__price">{{ price_line }}</p>{%- endif -%}
+            {%- if bs.text != blank -%}<p class="wk-body-s wk-muted--75">{{ bs.text }}</p>{%- endif -%}
+            <div class="wk-pcard__actions">
+              {%- if link != blank -%}<a class="wk-btn wk-btn--outline wk-btn--s" href="{{ link }}">{{ section.settings.view_label | default: 'View' }}</a>{%- endif -%}
+              {%- if bs.show_add and bp != blank and bp.available -%}
+                <div class="card-qa wk-pcard__buy" data-card-qa>
+                  {%- form 'product', bp, is: 'product-form', id: card_form_id, class: 'card-qa__form' -%}
+                    <input type="hidden" name="id" value="{{ v0.id }}">
+                    <button type="submit" class="card-qa__add wk-btn wk-btn--ink wk-btn--s wk-btn--block" data-variant-id="{{ v0.id }}">
+                      <span class="btn-text">Add {% unless bp.has_only_default_variant %}{{ v0.title | escape }} &middot; {% endunless %}{{ v0.price | money_without_trailing_zeros }}</span>
+                    </button>
+                  {%- endform -%}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+<style>
+  .wk-pgrid { display: flex; flex-direction: column; gap: 56px; }
+  .wk-pgrid__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+  .wk-pgrid__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 56px 20px; list-style: none; margin: 0; padding: 0; }
+  .wk-pcard { display: flex; flex-direction: column; }
+  .wk-pcard__media { aspect-ratio: 1 / 1; }
+  .wk-pcard__info { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding-top: 20px; }
+  .wk .wk-pcard__title a { color: inherit; text-decoration: none; }
+  .wk .wk-pcard__title a:hover { text-decoration: underline; }
+  .wk-pcard__price { font-size: 16px; font-weight: 500; color: var(--wk-ink); }
+  .wk-pcard__actions { display: flex; gap: 8px; width: 100%; padding-top: 8px; }
+  .wk-pcard__buy { flex: 1 1 0; margin: 0; padding: 0; width: auto; }
+  .wk-pcard__buy .card-qa__form { display: block; }
+  .wk .wk-pcard__buy .card-qa__add { min-height: 0; border-radius: 0; border-color: var(--wk-ink); font-weight: 400; font-size: 14px; }
+  .wk .wk-pcard__buy .card-qa__add:hover, .wk .wk-pcard__buy .card-qa__add:focus-visible { background: var(--wk-coral); border-color: var(--wk-coral); color: var(--wk-white); }
+  @media (max-width: 989px) {
+    .wk-pgrid { gap: 36px; }
+    .wk-pgrid__head { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .wk-pgrid__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 16px; }
+    .wk .wk-pcard__title { font-size: 24px; }
+  }
+  @media (max-width: 599px) {
+    .wk-pgrid__grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Web kit — product grid",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Explore Seatopia" },
+    { "type": "text", "id": "link_label", "label": "Link label", "default": "Shop all seafood →" },
+    { "type": "url", "id": "link_url", "label": "Link" },
+    { "type": "text", "id": "view_label", "label": "View button label", "default": "View" },
+    { "type": "text", "id": "anchor", "label": "Anchor ID" },
+    { "type": "select", "id": "tone", "label": "Background", "default": "paper", "options": [ { "value": "paper", "label": "Paper" }, { "value": "sand", "label": "Sand" }, { "value": "white", "label": "White" } ] }
+  ],
+  "blocks": [
+    { "type": "product", "name": "Product card", "settings": [
+      { "type": "product", "id": "product", "label": "Product" },
+      { "type": "image_picker", "id": "image", "label": "Image", "info": "Defaults to the product image." },
+      { "type": "text", "id": "eyebrow", "label": "Eyebrow", "info": "Defaults to the vendor." },
+      { "type": "text", "id": "title", "label": "Title", "info": "Defaults to the product title." },
+      { "type": "text", "id": "price_line", "label": "Price line", "info": "e.g. $7.75 /serving. Blank shows the starting price. A per-serving figure must match the pack's real price and servings." },
+      { "type": "textarea", "id": "text", "label": "Sentence" },
+      { "type": "url", "id": "link", "label": "Link", "info": "Defaults to the product page." },
+      { "type": "checkbox", "id": "show_add", "label": "Show Add button", "default": true }
+    ]}
+  ],
+  "presets": [{ "name": "Web kit — product grid", "blocks": [ { "type": "product" }, { "type": "product" }, { "type": "product" } ] }]
+}
+{% endschema %}
