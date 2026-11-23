@@ -50,6 +50,65 @@
         "s3"
       ]
     },
+    "impact": {
+      "type": "web-impact",
+      "settings": {
+        "api_url": "https://getdeep.blue/api/public/mangrove-widget",
+        "eyebrow": "Live from our orders",
+        "heading": "Our impact so far",
+        "text": "<p>Every mangrove below is a planting commitment counted from a real Seatopia order and planted with our partners in Tarakan.</p>",
+        "campaign_label": "Current campaign",
+        "loading_text": "…",
+        "unavailable_text": "Temporarily unavailable",
+        "footnote": "<p>Counts are planting commitments calculated from orders, not confirmation of planting. CO₂e is an estimate at 150 kg per tree over its lifetime, not measured sequestration; acres are an equivalent at 800 trees per acre. Updated every few minutes.</p>",
+        "anchor": "impact",
+        "tone": "ink"
+      },
+      "blocks": {
+        "m1": {
+          "type": "stat",
+          "settings": {
+            "metric": "totalMangroves",
+            "format": "number",
+            "label": "Mangroves planted",
+            "text": "One tree per box this season, planted in coastal restoration zones around the Tarakan farming community."
+          }
+        },
+        "m2": {
+          "type": "stat",
+          "settings": {
+            "metric": "campaign.mangroves",
+            "format": "number",
+            "label": "This winter",
+            "text": "Trees committed since the winter campaign began."
+          }
+        },
+        "m3": {
+          "type": "stat",
+          "settings": {
+            "metric": "co2eLifetimeTons",
+            "format": "tons",
+            "label": "CO₂e over their lifetime",
+            "text": "Estimated at 150 kg per tree. Mangroves store much of it in coastal sediment."
+          }
+        },
+        "m4": {
+          "type": "stat",
+          "settings": {
+            "metric": "acresEquivalent",
+            "format": "acres",
+            "label": "Acres of coastline",
+            "text": "Equivalent at 800 trees per acre of restored mangrove forest."
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ]
+    },
     "band": {
       "type": "web-banner",
       "settings": {
@@ -598,6 +657,7 @@
   "order": [
     "hero",
     "steps",
+    "impact",
     "band",
     "story",
     "product",

@@ -1,0 +1,173 @@
+{%- comment -%}
+  Web kit — live impact counters, fed by Seatopia's public mangrove API
+  (GET https://getdeep.blue/api/public/mangrove-widget, read-only aggregate JSON, CORS open,
+  cached five minutes). One fetch per page view, no polling, no credentials.
+
+  Honesty rules from the API's own documentation, kept here on purpose:
+  - the numbers are planting commitments calculated from orders, not confirmation of planting;
+  - CO2e is an estimate at 150 kg per tree over its lifetime, acres at 800 trees per acre;
+  - on any failure show "Temporarily unavailable" or a clearly dated last-known value,
+    never a fabricated zero. The last good payload is kept in localStorage for that.
+{%- endcomment -%}
+{%- render 'uikit-fonts' -%}
+{{ 'web-kit.css' | asset_url | stylesheet_tag }}
+{%- assign s = section.settings -%}
+<div class="wk wk-section wk-section--{{ s.tone }} wk-impact-wrap"{% if s.anchor != blank %} id="{{ s.anchor | handleize }}"{% endif %}>
+  <div class="wk-container wk-impact" data-wk-impact data-api="{{ s.api_url | default: 'https://getdeep.blue/api/public/mangrove-widget' | escape }}" data-unavailable="{{ s.unavailable_text | default: 'Temporarily unavailable' | escape }}">
+    <div class="wk-impact__head">
+      {%- if s.eyebrow != blank -%}<p class="wk-eyebrow{% if s.tone == 'ink' %} wk-eyebrow--on-ink{% endif %}">{{ s.eyebrow }}</p>{%- endif -%}
+      {%- if s.heading != blank -%}<h2 class="wk-display">{{ s.heading }}</h2>{%- endif -%}
+      {%- if s.text != blank -%}<div class="wk-body wk-prose wk-impact__intro">{{ s.text }}</div>{%- endif -%}
+    </div>
+    <ul class="wk-impact__stats" role="list" aria-live="polite">
+      {%- for block in section.blocks -%}
+        <li class="wk-impact__stat" data-wk-metric="{{ block.settings.metric }}" data-wk-format="{{ block.settings.format }}" {{ block.shopify_attributes }}>
+          <span class="wk-impact__num" data-wk-value>{{ s.loading_text | default: '…' }}</span>
+          <span class="wk-h3 wk-impact__label">{{ block.settings.label }}</span>
+          {%- if block.settings.text != blank -%}<span class="wk-body-m wk-impact__text">{{ block.settings.text }}</span>{%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+    <p class="wk-body-s wk-impact__meta" data-wk-meta hidden></p>
+    {%- if s.footnote != blank -%}<div class="wk-body-xs wk-prose wk-impact__foot">{{ s.footnote }}</div>{%- endif -%}
+  </div>
+</div>
+
+<style>
+  .wk-impact { display: flex; flex-direction: column; gap: 48px; }
+  .wk-impact__head { display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
+  .wk-impact__intro { max-width: 720px; }
+  .wk-section--ink .wk-impact__intro { color: rgba(237, 232, 223, 0.85); }
+  .wk-impact__stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; width: 100%; list-style: none; margin: 0; padding: 0; }
+  .wk-impact__stat { display: flex; flex-direction: column; gap: 12px; padding: 8px 40px; border-left: 1px solid var(--wk-rule); }
+  .wk-section--ink .wk-impact__stat { border-left-color: var(--wk-rule-on-ink); }
+  .wk-impact__num { font-family: var(--wk-font-heading); font-weight: 300; font-size: clamp(48px, 5vw, 72px); line-height: 1; color: var(--wk-gold); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  .wk-impact__num small { font-size: 0.42em; letter-spacing: 0; margin-left: 0.15em; }
+  .wk-impact__num.is-unavailable { font-family: var(--wk-font-body); font-size: 15px; font-weight: 500; color: inherit; opacity: .7; min-height: 72px; display: flex; align-items: flex-end; }
+  .wk .wk-impact__label { color: var(--wk-ink); }
+  .wk-section--ink .wk-impact__label { color: var(--wk-sand); }
+  .wk-impact__text { color: rgba(46, 75, 89, 0.85); }
+  .wk-section--ink .wk-impact__text { color: rgba(237, 232, 223, 0.85); }
+  .wk-impact__meta { text-align: center; color: rgba(46, 75, 89, 0.75); }
+  .wk-section--ink .wk-impact__meta { color: rgba(237, 232, 223, 0.75); }
+  .wk-impact__foot { max-width: 820px; margin-inline: auto; text-align: center; color: rgba(46, 75, 89, 0.6); }
+  .wk-section--ink .wk-impact__foot { color: rgba(237, 232, 223, 0.6); }
+  @media (max-width: 989px) {
+    .wk-impact { gap: 32px; }
+    .wk-impact__stats { grid-template-columns: 1fr 1fr; gap: 28px 0; }
+    .wk-impact__stat { padding: 4px 20px; }
+  }
+  @media (max-width: 599px) { .wk-impact__stats { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  (function () {
+    var root = document.querySelector('#shopify-section-{{ section.id }} [data-wk-impact]');
+    if (!root || !window.fetch) return;
+    var api = root.getAttribute('data-api');
+    var unavailable = root.getAttribute('data-unavailable');
+    var meta = root.querySelector('[data-wk-meta]');
+    var stats = root.querySelectorAll('[data-wk-metric]');
+    var KEY = 'wk-impact:' + api;
+
+    function fmt(value, format) {
+      if (!isFinite(value)) return null;
+      if (format === 'tons') return Math.round(value).toLocaleString() + '<small>t</small>';
+      if (format === 'acres') return (value >= 100 ? Math.round(value) : Math.round(value * 10) / 10).toLocaleString();
+      if (format === 'kg') return Math.round(value).toLocaleString() + '<small>kg</small>';
+      return Math.round(value).toLocaleString();
+    }
+    function render(data, note) {
+      var ok = 0;
+      stats.forEach(function (li) {
+        var key = li.getAttribute('data-wk-metric');
+        var el = li.querySelector('[data-wk-value]');
+        var v = key.indexOf('campaign.') === 0 && data.campaign ? data.campaign[key.slice(9)] : data[key];
+        var text = fmt(Number(v), li.getAttribute('data-wk-format'));
+        if (text === null) { el.textContent = unavailable; el.classList.add('is-unavailable'); return; }
+        el.innerHTML = text; el.classList.remove('is-unavailable'); ok++;
+      });
+      if (meta) {
+        var parts = [];
+        if (data.campaign && data.campaign.startsOn && data.campaign.endsOn) {
+          parts.push('{{ s.campaign_label | default: 'Current campaign' | escape }}: ' + dateRange(data.campaign.startsOn, data.campaign.endsOn) + (data.campaign.mangrovesPerOrder ? ' · ' + data.campaign.mangrovesPerOrder + ' mangrove per order' : ''));
+        }
+        if (note) parts.push(note);
+        meta.textContent = parts.join(' · ');
+        meta.hidden = parts.length === 0;
+      }
+      return ok > 0;
+    }
+    function dateRange(a, b) {
+      try {
+        var o = { month: 'short', day: 'numeric' };
+        var da = new Date(a + 'T12:00:00Z'), db = new Date(b + 'T12:00:00Z');
+        return da.toLocaleDateString(undefined, o) + ' – ' + db.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+      } catch (e) { return a + ' – ' + b; }
+    }
+    function fail() {
+      var last = null;
+      try { last = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
+      if (last && last.data && last.at) {
+        var d = new Date(last.at);
+        render(last.data, 'Last updated ' + d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }));
+        return;
+      }
+      stats.forEach(function (li) { var el = li.querySelector('[data-wk-value]'); el.textContent = unavailable; el.classList.add('is-unavailable'); });
+      if (meta) meta.hidden = true;
+    }
+    fetch(api, { credentials: 'omit' }).then(function (r) {
+      if (!r.ok) throw new Error('bad status');
+      return r.json();
+    }).then(function (data) {
+      if (!data || !isFinite(Number(data.totalMangroves))) throw new Error('missing fields');
+      if (!render(data)) throw new Error('nothing rendered');
+      try { localStorage.setItem(KEY, JSON.stringify({ at: data.lastUpdated || new Date().toISOString(), data: data })); } catch (e) {}
+    }).catch(fail);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Web kit — live impact",
+  "tag": "section",
+  "settings": [
+    { "type": "paragraph", "content": "Numbers come live from the public mangrove API. They are planting commitments calculated from orders; keep the footnote that says so." },
+    { "type": "text", "id": "api_url", "label": "API URL", "default": "https://getdeep.blue/api/public/mangrove-widget" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Our impact so far" },
+    { "type": "richtext", "id": "text", "label": "Intro" },
+    { "type": "text", "id": "campaign_label", "label": "Campaign line label", "default": "Current campaign" },
+    { "type": "text", "id": "loading_text", "label": "Loading placeholder", "default": "…" },
+    { "type": "text", "id": "unavailable_text", "label": "Unavailable text", "default": "Temporarily unavailable" },
+    { "type": "richtext", "id": "footnote", "label": "Footnote", "default": "<p>Counts are planting commitments calculated from orders, not confirmation of planting. CO₂e is an estimate at 150 kg per tree over its lifetime, not measured sequestration; acres are an equivalent at 800 trees per acre.</p>" },
+    { "type": "text", "id": "anchor", "label": "Anchor ID" },
+    { "type": "select", "id": "tone", "label": "Background", "default": "ink", "options": [ { "value": "ink", "label": "Ink (dark)" }, { "value": "sand", "label": "Sand" }, { "value": "paper", "label": "Paper" }, { "value": "white", "label": "White" } ] }
+  ],
+  "blocks": [
+    { "type": "stat", "name": "Counter", "limit": 4, "settings": [
+      { "type": "select", "id": "metric", "label": "Number", "default": "totalMangroves", "options": [
+        { "value": "totalMangroves", "label": "Mangroves, lifetime" },
+        { "value": "winterSolsticeMangroves", "label": "Mangroves, winter campaign" },
+        { "value": "campaign.mangroves", "label": "Mangroves, current campaign" },
+        { "value": "shrimpMangroves", "label": "Mangroves from shrimp orders" },
+        { "value": "earthMonthMangroves", "label": "Mangroves, April 2026" },
+        { "value": "orderMangroves", "label": "Mangroves from per-order campaigns" },
+        { "value": "totalCustomers", "label": "Customers" },
+        { "value": "co2eLifetimeTons", "label": "CO₂e, tons (estimate)" },
+        { "value": "co2eLifetimeKg", "label": "CO₂e, kg (estimate)" },
+        { "value": "acresEquivalent", "label": "Acres equivalent" }
+      ] },
+      { "type": "select", "id": "format", "label": "Format", "default": "number", "options": [ { "value": "number", "label": "Whole number" }, { "value": "tons", "label": "Tons" }, { "value": "kg", "label": "Kilograms" }, { "value": "acres", "label": "Acres" } ] },
+      { "type": "text", "id": "label", "label": "Label" },
+      { "type": "textarea", "id": "text", "label": "Line" }
+    ]}
+  ],
+  "presets": [{ "name": "Web kit — live impact", "blocks": [
+    { "type": "stat", "settings": { "metric": "totalMangroves", "label": "Mangroves planted" } },
+    { "type": "stat", "settings": { "metric": "totalCustomers", "label": "Ocean guardians" } },
+    { "type": "stat", "settings": { "metric": "co2eLifetimeTons", "format": "tons", "label": "CO₂e, lifetime" } },
+    { "type": "stat", "settings": { "metric": "acresEquivalent", "format": "acres", "label": "Acres restored" } }
+  ]}]
+}
+{% endschema %}
