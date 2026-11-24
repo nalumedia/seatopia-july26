@@ -22,7 +22,7 @@
   <div class="wk-container">
     <header class="wk-journal__head">
       {%- if s.eyebrow != blank -%}<p class="wk-eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
-      <h1 class="wk-display wk-display--xl">{{ heading }}</h1>
+      <h1 class="wk-display">{{ heading }}</h1>
       {%- if s.intro != blank -%}<div class="wk-body wk-prose wk-journal__intro">{{ s.intro }}</div>{%- endif -%}
     </header>
 
@@ -107,10 +107,13 @@
 </div>
 
 <style>
-  .wk-journal .wk-container { display: flex; flex-direction: column; gap: 48px; }
-  .wk-journal__head { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; max-width: 860px; }
-  .wk-journal__intro { max-width: 680px; color: rgba(46,75,89,.85); }
-  .wk-journal__bar { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 16px; border-top: 1px solid var(--wk-rule); border-bottom: 1px solid var(--wk-rule); }
+  .wk-journal.wk-section { padding-top: 40px; }
+  .wk-journal .wk-container { display: flex; flex-direction: column; gap: 28px; }
+  .wk-journal__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 440px); align-items: end; gap: 12px 64px; }
+  .wk-journal__head .wk-eyebrow { grid-column: 1 / -1; }
+  .wk-journal__head .wk-display { margin: 0; }
+  .wk-journal__intro { color: rgba(46,75,89,.85); padding-bottom: 6px; }
+  .wk-journal__bar { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 12px; border-top: 1px solid var(--wk-rule); border-bottom: 1px solid var(--wk-rule); }
   .wk-journal__topics { display: flex; flex-wrap: wrap; gap: 6px 4px; }
   .wk-journal__topic { font-family: var(--wk-font-body); font-size: 14px; font-weight: 500; letter-spacing: .01em; color: var(--wk-ink); background: transparent; border: 1px solid transparent; border-radius: 0; padding: 8px 14px; cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
   .wk-journal__topic:hover { border-color: var(--wk-rule); }
@@ -142,7 +145,10 @@
   .wk-journal__pages a, .wk-journal__pages span { padding: 6px 10px; }
   .wk-journal__pages .current { border-bottom: 1px solid var(--wk-ink); }
   @media (max-width: 989px) {
-    .wk-journal .wk-container { gap: 32px; }
+    .wk-journal.wk-section { padding-top: 24px; }
+    .wk-journal .wk-container { gap: 20px; }
+    .wk-journal__head { grid-template-columns: 1fr; gap: 10px; }
+    .wk-journal__intro { padding-bottom: 0; }
     .wk-journal__bar { flex-direction: column; align-items: stretch; }
     .wk-journal__topics { overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; margin-inline: calc(var(--wk-gutter) * -1); padding-inline: var(--wk-gutter); }
     .wk-journal__topics::-webkit-scrollbar { display: none; }
