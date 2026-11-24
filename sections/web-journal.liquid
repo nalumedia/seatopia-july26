@@ -11,12 +11,11 @@
   assign heading = s.heading | default: blog.title
   assign featured = nil
   if s.featured_handle != blank
-    for a in blog.articles
-      if a.handle == s.featured_handle
-        assign featured = a
-        break
-      endif
-    endfor
+    assign featured_key = blog.handle | append: '/' | append: s.featured_handle
+    assign featured = articles[featured_key]
+  endif
+  if featured == nil or featured.handle == blank
+    assign featured = blog.articles.first
   endif
 -%}
 <div class="wk wk-section wk-section--{{ s.tone | default: 'paper' }} wk-journal" data-wk-journal>
@@ -44,18 +43,23 @@
 
     {%- paginate blog.articles by 50 -%}
       <div class="wk-journal__list" data-wk-list>
-        {%- assign shown = 0 -%}
-        {%- for article in blog.articles -%}
+        {%- assign ordered = blog.articles -%}
+        {%- for pass in (1..2) -%}
+        {%- for article in ordered -%}
           {%- liquid
             assign is_featured = false
-            if featured == nil and forloop.first
+            if article.handle == featured.handle
               assign is_featured = true
-            elsif featured != nil and article.handle == featured.handle
-              assign is_featured = true
+            endif
+            if pass == 1 and is_featured == false
+              continue
+            endif
+            if pass == 2 and is_featured
+              continue
             endif
             assign words = article.content | strip_html | split: ' ' | size
             assign minutes = words | divided_by: 200 | at_least: 1
-            assign excerpt = article.excerpt_or_content | strip_html | strip_newlines | truncatewords: 34
+            assign excerpt = article.excerpt_or_content | replace: '<', ' <' | strip_html | strip_newlines | replace: '  ', ' ' | strip | truncatewords: 34
             assign tags_lc = article.tags | join: '|' | downcase
             assign topic_label = ''
             for block in section.blocks
@@ -91,6 +95,7 @@
               <a class="wk-link wk-journal__more" href="{{ article.url }}">{{ s.read_label | default: 'Read the story' }}{% render 'web-kit-icon', name: 'arrow-right' %}</a>
             </div>
           </article>
+        {%- endfor -%}
         {%- endfor -%}
       </div>
       <p class="wk-body wk-journal__empty" data-wk-empty hidden>{{ s.empty_text | default: 'No stories match that yet.' }}</p>
@@ -130,8 +135,8 @@
   .wk-journal__excerpt { color: rgba(46,75,89,.85); }
   .wk-journal__meta { display: flex; flex-wrap: wrap; gap: 6px 0; color: rgba(46,75,89,.6); }
   .wk-journal__meta span + span::before { content: '·'; margin-inline: 8px; }
-  .wk-journal__more { margin-top: 4px; }
-  .wk-journal__more svg { width: 14px; height: 14px; margin-left: 8px; vertical-align: -2px; }
+  .wk-journal__more { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; margin-top: 4px; white-space: nowrap; }
+  .wk-journal__more svg { width: 14px; height: 14px; flex: none; }
   .wk-journal__empty { text-align: center; color: rgba(46,75,89,.7); padding-block: 48px; }
   .wk-journal__pages { display: flex; justify-content: center; gap: 12px; }
   .wk-journal__pages a, .wk-journal__pages span { padding: 6px 10px; }
