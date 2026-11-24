@@ -1,0 +1,219 @@
+{%- comment -%}
+  Web kit — journal. An editorial blog listing: masthead, topic bar with search, one featured story,
+  then a three-up grid of the rest. Topics map to one or more article tags (case-insensitive) and
+  filter client-side, so every published post renders once and the page works without JS.
+  Excerpts are stripped to plain text; reading time is words / 200.
+{%- endcomment -%}
+{%- render 'uikit-fonts' -%}
+{{ 'web-kit.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign s = section.settings
+  assign heading = s.heading | default: blog.title
+  assign featured = nil
+  if s.featured_handle != blank
+    for a in blog.articles
+      if a.handle == s.featured_handle
+        assign featured = a
+        break
+      endif
+    endfor
+  endif
+-%}
+<div class="wk wk-section wk-section--{{ s.tone | default: 'paper' }} wk-journal" data-wk-journal>
+  <div class="wk-container">
+    <header class="wk-journal__head">
+      {%- if s.eyebrow != blank -%}<p class="wk-eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+      <h1 class="wk-display wk-display--xl">{{ heading }}</h1>
+      {%- if s.intro != blank -%}<div class="wk-body wk-prose wk-journal__intro">{{ s.intro }}</div>{%- endif -%}
+    </header>
+
+    <div class="wk-journal__bar">
+      <div class="wk-journal__topics" role="tablist" aria-label="Topics">
+        <button type="button" class="wk-journal__topic is-active" data-wk-topic="" role="tab" aria-selected="true">{{ s.all_label | default: 'All stories' }}</button>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'topic' -%}
+            <button type="button" class="wk-journal__topic" data-wk-topic="{{ block.settings.tags | downcase | escape }}" role="tab" aria-selected="false" {{ block.shopify_attributes }}>{{ block.settings.label }}</button>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      <label class="wk-journal__search">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="M11 11l3.5 3.5"/></svg>
+        <input type="search" data-wk-search placeholder="{{ s.search_placeholder | default: 'Search stories' | escape }}" aria-label="{{ s.search_placeholder | default: 'Search stories' | escape }}">
+      </label>
+    </div>
+
+    {%- paginate blog.articles by 50 -%}
+      <div class="wk-journal__list" data-wk-list>
+        {%- assign shown = 0 -%}
+        {%- for article in blog.articles -%}
+          {%- liquid
+            assign is_featured = false
+            if featured == nil and forloop.first
+              assign is_featured = true
+            elsif featured != nil and article.handle == featured.handle
+              assign is_featured = true
+            endif
+            assign words = article.content | strip_html | split: ' ' | size
+            assign minutes = words | divided_by: 200 | at_least: 1
+            assign excerpt = article.excerpt_or_content | strip_html | strip_newlines | truncatewords: 34
+            assign tags_lc = article.tags | join: '|' | downcase
+            assign topic_label = ''
+            for block in section.blocks
+              if block.type == 'topic' and topic_label == ''
+                assign wanted = block.settings.tags | downcase | split: ','
+                for w in wanted
+                  assign ws = w | strip
+                  if ws != '' and tags_lc contains ws
+                    assign topic_label = block.settings.label
+                    break
+                  endif
+                endfor
+              endif
+            endfor
+          -%}
+          <article class="wk-journal__item{% if is_featured %} wk-journal__item--featured{% endif %}" data-wk-item data-tags="{{ tags_lc | escape }}" data-text="{{ article.title | append: ' ' | append: excerpt | downcase | escape }}" {% if is_featured %}data-featured{% endif %}>
+            <a class="wk-journal__media" href="{{ article.url }}" tabindex="-1" aria-hidden="true">
+              {%- if article.image -%}
+                {%- if is_featured -%}
+                  {{ article.image | image_url: width: 1600 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600,900,1200,1600', sizes: '(min-width: 990px) 60vw, 100vw', alt: '' }}
+                {%- else -%}
+                  {{ article.image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '400,600,900', sizes: '(min-width: 990px) 30vw, 100vw', alt: '' }}
+                {%- endif -%}
+              {%- else -%}
+                <span class="wk-journal__placeholder"></span>
+              {%- endif -%}
+            </a>
+            <div class="wk-journal__body">
+              <p class="wk-eyebrow wk-eyebrow--s wk-journal__kicker">{% if topic_label != '' %}{{ topic_label }}{% else %}{{ s.default_topic | default: 'Field notes' }}{% endif %}</p>
+              <h2 class="{% if is_featured %}wk-h2{% else %}wk-h3{% endif %} wk-journal__title"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+              {%- if excerpt != blank -%}<p class="wk-body-m wk-journal__excerpt">{{ excerpt }}</p>{%- endif -%}
+              <p class="wk-body-s wk-journal__meta">{% if s.show_author and article.author != blank %}<span>{{ article.author }}</span>{% endif %}<span>{{ article.published_at | date: '%b %-d, %Y' }}</span><span>{{ minutes }} min read</span></p>
+              <a class="wk-link wk-journal__more" href="{{ article.url }}">{{ s.read_label | default: 'Read the story' }}{% render 'web-kit-icon', name: 'arrow-right' %}</a>
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+      <p class="wk-body wk-journal__empty" data-wk-empty hidden>{{ s.empty_text | default: 'No stories match that yet.' }}</p>
+      {%- if paginate.pages > 1 -%}
+        <nav class="wk-journal__pages wk-body-s" aria-label="Pages">{{ paginate | default_pagination }}</nav>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</div>
+
+<style>
+  .wk-journal .wk-container { display: flex; flex-direction: column; gap: 48px; }
+  .wk-journal__head { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; max-width: 860px; }
+  .wk-journal__intro { max-width: 680px; color: rgba(46,75,89,.85); }
+  .wk-journal__bar { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 16px; border-top: 1px solid var(--wk-rule); border-bottom: 1px solid var(--wk-rule); }
+  .wk-journal__topics { display: flex; flex-wrap: wrap; gap: 6px 4px; }
+  .wk-journal__topic { font-family: var(--wk-font-body); font-size: 14px; font-weight: 500; letter-spacing: .01em; color: var(--wk-ink); background: transparent; border: 1px solid transparent; border-radius: 0; padding: 8px 14px; cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+  .wk-journal__topic:hover { border-color: var(--wk-rule); }
+  .wk-journal__topic.is-active { background: var(--wk-ink); color: var(--wk-paper); border-color: var(--wk-ink); }
+  .wk-journal__search { display: flex; align-items: center; gap: 10px; min-width: 260px; padding: 10px 14px; border: 1px solid var(--wk-rule); color: var(--wk-ink); background: var(--wk-paper); }
+  .wk-journal__search svg { width: 16px; height: 16px; flex: none; opacity: .7; }
+  .wk-journal__search input { flex: 1; min-width: 0; border: 0; background: transparent; font-family: var(--wk-font-body); font-size: 14px; color: inherit; outline: none; }
+  .wk-journal__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 56px 32px; }
+  .wk-journal__item { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+  .wk-journal__item[hidden] { display: none; }
+  .wk-journal__item--featured { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 48px; align-items: center; padding-bottom: 56px; border-bottom: 1px solid var(--wk-rule); }
+  .wk-journal__media { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--wk-sand); }
+  .wk-journal__item--featured .wk-journal__media { aspect-ratio: 16 / 10; }
+  .wk-journal__media img, .wk-journal__placeholder { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; }
+  .wk-journal__item:hover .wk-journal__media img { transform: scale(1.03); }
+  .wk-journal__body { display: flex; flex-direction: column; gap: 12px; }
+  .wk-journal__item--featured .wk-journal__body { gap: 16px; }
+  .wk-journal__kicker { color: var(--wk-coral); }
+  .wk .wk-journal__title { margin: 0; }
+  .wk-journal__title a { color: inherit; text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-size: 0 1px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size .25s; }
+  .wk-journal__item:hover .wk-journal__title a { background-size: 100% 1px; }
+  .wk-journal__excerpt { color: rgba(46,75,89,.85); }
+  .wk-journal__meta { display: flex; flex-wrap: wrap; gap: 6px 0; color: rgba(46,75,89,.6); }
+  .wk-journal__meta span + span::before { content: '·'; margin-inline: 8px; }
+  .wk-journal__more { margin-top: 4px; }
+  .wk-journal__more svg { width: 14px; height: 14px; margin-left: 8px; vertical-align: -2px; }
+  .wk-journal__empty { text-align: center; color: rgba(46,75,89,.7); padding-block: 48px; }
+  .wk-journal__pages { display: flex; justify-content: center; gap: 12px; }
+  .wk-journal__pages a, .wk-journal__pages span { padding: 6px 10px; }
+  .wk-journal__pages .current { border-bottom: 1px solid var(--wk-ink); }
+  @media (max-width: 989px) {
+    .wk-journal .wk-container { gap: 32px; }
+    .wk-journal__bar { flex-direction: column; align-items: stretch; }
+    .wk-journal__topics { overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; margin-inline: calc(var(--wk-gutter) * -1); padding-inline: var(--wk-gutter); }
+    .wk-journal__topics::-webkit-scrollbar { display: none; }
+    .wk-journal__topic { white-space: nowrap; }
+    .wk-journal__search { min-width: 0; }
+    .wk-journal__list { grid-template-columns: 1fr 1fr; gap: 40px 24px; }
+    .wk-journal__item--featured { grid-template-columns: 1fr; gap: 24px; padding-bottom: 40px; }
+  }
+  @media (max-width: 599px) { .wk-journal__list { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  (function () {
+    var root = document.querySelector('#shopify-section-{{ section.id }} [data-wk-journal]');
+    if (!root) return;
+    var items = [].slice.call(root.querySelectorAll('[data-wk-item]'));
+    var topics = [].slice.call(root.querySelectorAll('[data-wk-topic]'));
+    var search = root.querySelector('[data-wk-search]');
+    var empty = root.querySelector('[data-wk-empty]');
+    var topic = '', q = '';
+    function apply() {
+      var wanted = topic ? topic.split(',').map(function (t) { return t.trim(); }).filter(Boolean) : [];
+      var shown = 0;
+      items.forEach(function (it) {
+        var tags = (it.getAttribute('data-tags') || '').split('|');
+        var okTopic = !wanted.length || wanted.some(function (w) { return tags.indexOf(w) !== -1; });
+        var okText = !q || (it.getAttribute('data-text') || '').indexOf(q) !== -1;
+        var show = okTopic && okText;
+        it.hidden = !show;
+        if (show) shown++;
+      });
+      // Keep the featured layout only when nothing is filtering; otherwise everything becomes a card.
+      var filtering = !!(wanted.length || q);
+      items.forEach(function (it) { if (it.hasAttribute('data-featured')) it.classList.toggle('wk-journal__item--featured', !filtering); });
+      if (empty) empty.hidden = shown > 0;
+    }
+    topics.forEach(function (b) {
+      b.addEventListener('click', function () {
+        topic = b.getAttribute('data-wk-topic') || '';
+        topics.forEach(function (o) { var on = o === b; o.classList.toggle('is-active', on); o.setAttribute('aria-selected', on ? 'true' : 'false'); });
+        try { history.replaceState(null, '', topic ? '#' + encodeURIComponent(topic.split(',')[0].trim()) : location.pathname); } catch (e) {}
+        apply();
+      });
+    });
+    if (search) search.addEventListener('input', function () { q = search.value.trim().toLowerCase(); apply(); });
+    var initial = decodeURIComponent((location.hash || '').slice(1)).toLowerCase();
+    if (initial) {
+      var match = topics.filter(function (b) { return (b.getAttribute('data-wk-topic') || '').split(',')[0].trim() === initial; })[0];
+      if (match) match.click();
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Web kit — journal",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "info": "Defaults to the blog title." },
+    { "type": "richtext", "id": "intro", "label": "Intro" },
+    { "type": "text", "id": "featured_handle", "label": "Featured article handle", "info": "Leave empty to feature the newest post." },
+    { "type": "text", "id": "all_label", "label": "All topics label", "default": "All stories" },
+    { "type": "text", "id": "default_topic", "label": "Kicker for untagged posts", "default": "Field notes" },
+    { "type": "text", "id": "search_placeholder", "label": "Search placeholder", "default": "Search stories" },
+    { "type": "text", "id": "read_label", "label": "Read link label", "default": "Read the story" },
+    { "type": "text", "id": "empty_text", "label": "No results text", "default": "No stories match that yet." },
+    { "type": "checkbox", "id": "show_author", "label": "Show author", "default": true },
+    { "type": "select", "id": "tone", "label": "Background", "default": "paper", "options": [ { "value": "paper", "label": "Paper" }, { "value": "sand", "label": "Sand" }, { "value": "white", "label": "White" } ] }
+  ],
+  "blocks": [
+    { "type": "topic", "name": "Topic", "limit": 8, "settings": [
+      { "type": "text", "id": "label", "label": "Label" },
+      { "type": "text", "id": "tags", "label": "Article tags", "info": "Comma-separated; a post matches if it carries any of them. Case does not matter." }
+    ]}
+  ],
+  "presets": [{ "name": "Web kit — journal" }]
+}
+{% endschema %}

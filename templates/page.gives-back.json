@@ -192,7 +192,7 @@
       "type": "web-slideshow",
       "settings": {
         "height": 760,
-        "overlay": 45,
+        "overlay": 60,
         "autoplay": 7,
         "anchor": "projects"
       },
