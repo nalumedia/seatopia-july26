@@ -100,11 +100,34 @@
         var key = li.getAttribute('data-wk-metric');
         if (sourceOf(key) !== source) return;
         var el = li.querySelector('[data-wk-value]');
-        var text = fmt(Number(read(data, key)), li.getAttribute('data-wk-format'));
+        var value = Number(read(data, key)), format = li.getAttribute('data-wk-format');
+        var text = fmt(value, format);
         if (text === null) { setUnavailable(li); return; }
-        el.innerHTML = text; el.classList.remove('is-unavailable'); ok++;
+        el.classList.remove('is-unavailable'); ok++;
+        countUp(el, value, format, text);
       });
       return ok;
+    }
+    // Count up from zero when the number scrolls into view (skipped for reduced motion or without IntersectionObserver).
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function countUp(el, value, format, finalText) {
+      if (reduce || !window.IntersectionObserver || !window.requestAnimationFrame) { el.innerHTML = finalText; return; }
+      el.innerHTML = fmt(0, format);
+      var started = false;
+      var io = new IntersectionObserver(function (entries) {
+        if (started || !entries.some(function (e) { return e.isIntersecting; })) return;
+        started = true; io.disconnect();
+        var t0 = null, dur = 1800;
+        function step(ts) {
+          if (!t0) t0 = ts;
+          var p = Math.min(1, (ts - t0) / dur);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.innerHTML = p < 1 ? fmt(value * eased, format) : finalText;
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }, { threshold: 0.4 });
+      io.observe(el);
     }
     var notes = [];
     function note(text) { if (!meta) return; notes.push(text); meta.textContent = notes.join(' · '); meta.hidden = false; }
