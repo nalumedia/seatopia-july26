@@ -1,173 +1,294 @@
 {
-    "sections": {
-        "main-blog": {
-            "type": "main-blog",
-            "disabled": true,
-            "settings": {
-                "heading_size": "title-md",
-                "heading_alignment": "text-center justify-center",
-                "heading_tag": "h2",
-                "subheading": "",
-                "description": "",
-                "show_tag_filter": true,
-                "per_page": 9,
-                "layout": "collage",
-                "image_ratio": "landscape",
-                "show_tags": true,
-                "show_date": true,
-                "show_comments": true,
-                "show_author": false,
-                "show_excerpt": true,
-                "padding_top": 72,
-                "padding_bottom": 120,
-                "divider": false,
-                "full_width": false,
-                "rounded": false
-            }
-        },
-        "custom_main_blog_p6xCj8": {
-            "type": "custom-main-blog",
-            "blocks": {
-                "cstm_bnJLyA": {
-                    "type": "cstm",
-                    "disabled": true,
-                    "settings": {
-                        "menu_img": "shopify://shop_images/Ellipse_1.png",
-                        "menu": "buy-mt-cook-salmon"
-                    }
-                },
-                "cstm_EprJKp": {
-                    "type": "cstm",
-                    "disabled": true,
-                    "settings": {
-                        "menu_img": "shopify://shop_images/Ellipse_1_1.png",
-                        "menu": "buy-mt-cook-salmon"
-                    }
-                },
-                "cstm_aMdDzF": {
-                    "type": "cstm",
-                    "disabled": true,
-                    "settings": {
-                        "menu_img": "shopify://shop_images/Ellipse_1_2.png",
-                        "menu": "buy-mt-cook-salmon"
-                    }
-                },
-                "cstm_PkYDQ3": {
-                    "type": "cstm",
-                    "disabled": true,
-                    "settings": {
-                        "menu_img": "shopify://shop_images/Ellipse_1_3.png",
-                        "menu": "buy-mt-cook-salmon"
-                    }
-                },
-                "cstm_iHnEfR": {
-                    "type": "cstm",
-                    "disabled": true,
-                    "settings": {
-                        "menu_img": "shopify://shop_images/Ellipse_1_4.png",
-                        "menu": "buy-mt-cook-salmon"
-                    }
-                }
-            },
-            "block_order": [
-                "cstm_bnJLyA",
-                "cstm_EprJKp",
-                "cstm_aMdDzF",
-                "cstm_PkYDQ3",
-                "cstm_iHnEfR"
-            ],
-            "name": "Custom Main Blog",
-            "settings": {
-                "heading_size": "title-md",
-                "heading_alignment": "text-center justify-center",
-                "heading_tag": "h2",
-                "subheading": "",
-                "description": "",
-                "glorry_txt": "",
-                "show_tag_filter": false,
-                "title1": "Preparation",
-                "filter1tags": "Baking Broiling and Air Frying\nCuring\nGrilling\nOther\nPan Frying and Searing\nSashimi & Crudo\nSous Vide\nWhole Fish",
-                "title2": "Seafood",
-                "filter2tags": "Barramundi\nBranzino & Sea Bream\nSalmon and Steelhead\nScallops\nShrimp\nTrout\nTurbot\nYellowtail",
-                "title3": "Prep time",
-                "filter3tags": "An Hourish\nPlan Ahead\nQuick and easy",
-                "show_cstm_filter": false,
-                "filter_type": "drawer",
-                "enable_sorting": true,
-                "per_page": 9,
-                "layout": "collage",
-                "image_ratio": "square",
-                "show_tags": true,
-                "show_date": false,
-                "show_comments": false,
-                "show_author": false,
-                "show_excerpt": true,
-                "padding_top": 0,
-                "padding_bottom": 120,
-                "divider": false,
-                "full_width": false,
-                "rounded": false,
-                "title4": "",
-                "filter4tags": "",
-                "use_recipe_nav": true,
-                "enable_recipe_search": true,
-                "recipe_search_placeholder": "Search recipes, species, chefs…"
-            }
-        },
-        "newsletter_banner_6AkitK": {
-            "type": "newsletter-banner",
-            "blocks": {
-                "heading_cKLhhn": {
-                    "type": "heading",
-                    "settings": {
-                        "heading": "Receive Seatopia recipes right to your inbox, weekly.",
-                        "heading_size": "title-lg tracking-heading",
-                        "heading_tag": "h2",
-                        "highlighted_text": "none",
-                        "highlighted_scribble": "circle"
-                    }
-                },
-                "form_Wet8NH": {
-                    "type": "form",
-                    "settings": {}
-                }
-            },
-            "block_order": [
-                "heading_cKLhhn",
-                "form_Wet8NH"
-            ],
-            "name": "t:sections.newsletter-banner.presets.name",
-            "settings": {
-                "transparent_header": false,
-                "transparent_footer": false,
-                "image": "shopify://shop_images/Page_Product.png",
-                "image_height": "650px",
-                "content_width": "medium",
-                "content_position": "md:items-center md:justify-start",
-                "text_alignment": "left",
-                "image_height_mobile": "auto",
-                "content_position_mobile": "items-end justify-start",
-                "text_alignment_mobile": "left",
-                "color_text": "#ffffff",
-                "color_highlight": "#e0a580",
-                "gradient_highlight": "",
-                "color_button_text": "#171717",
-                "color_button_background": "#ffffff",
-                "color_button_gradient": "",
-                "color_overlay": "#171717",
-                "padding_top": 0,
-                "padding_bottom": 0,
-                "divider": false,
-                "full_width": true,
-                "rounded": true,
-                "enable_parallax": false,
-                "parallax_direction": "vertical"
-            }
-        }
+  "sections": {
+    "main-blog": {
+      "type": "main-blog",
+      "disabled": true,
+      "settings": {
+        "heading_size": "title-md",
+        "heading_alignment": "text-center justify-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "show_tag_filter": true,
+        "per_page": 9,
+        "layout": "collage",
+        "image_ratio": "landscape",
+        "show_tags": true,
+        "show_date": true,
+        "show_comments": true,
+        "show_author": false,
+        "show_excerpt": true,
+        "padding_top": 72,
+        "padding_bottom": 120,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
     },
-    "order": [
-        "main-blog",
-        "custom_main_blog_p6xCj8",
-        "newsletter_banner_6AkitK"
-    ]
+    "custom_main_blog_p6xCj8": {
+      "type": "custom-main-blog",
+      "blocks": {
+        "cstm_bnJLyA": {
+          "type": "cstm",
+          "disabled": true,
+          "settings": {
+            "menu_img": "shopify://shop_images/Ellipse_1.png",
+            "menu": "buy-mt-cook-salmon"
+          }
+        },
+        "cstm_EprJKp": {
+          "type": "cstm",
+          "disabled": true,
+          "settings": {
+            "menu_img": "shopify://shop_images/Ellipse_1_1.png",
+            "menu": "buy-mt-cook-salmon"
+          }
+        },
+        "cstm_aMdDzF": {
+          "type": "cstm",
+          "disabled": true,
+          "settings": {
+            "menu_img": "shopify://shop_images/Ellipse_1_2.png",
+            "menu": "buy-mt-cook-salmon"
+          }
+        },
+        "cstm_PkYDQ3": {
+          "type": "cstm",
+          "disabled": true,
+          "settings": {
+            "menu_img": "shopify://shop_images/Ellipse_1_3.png",
+            "menu": "buy-mt-cook-salmon"
+          }
+        },
+        "cstm_iHnEfR": {
+          "type": "cstm",
+          "disabled": true,
+          "settings": {
+            "menu_img": "shopify://shop_images/Ellipse_1_4.png",
+            "menu": "buy-mt-cook-salmon"
+          }
+        }
+      },
+      "block_order": [
+        "cstm_bnJLyA",
+        "cstm_EprJKp",
+        "cstm_aMdDzF",
+        "cstm_PkYDQ3",
+        "cstm_iHnEfR"
+      ],
+      "name": "Custom Main Blog",
+      "settings": {
+        "heading_size": "title-md",
+        "heading_alignment": "text-center justify-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "glorry_txt": "",
+        "show_tag_filter": false,
+        "title1": "Preparation",
+        "filter1tags": "Baking Broiling and Air Frying\nCuring\nGrilling\nOther\nPan Frying and Searing\nSashimi & Crudo\nSous Vide\nWhole Fish",
+        "title2": "Seafood",
+        "filter2tags": "Barramundi\nBranzino & Sea Bream\nSalmon and Steelhead\nScallops\nShrimp\nTrout\nTurbot\nYellowtail",
+        "title3": "Prep time",
+        "filter3tags": "An Hourish\nPlan Ahead\nQuick and easy",
+        "show_cstm_filter": false,
+        "filter_type": "drawer",
+        "enable_sorting": true,
+        "per_page": 9,
+        "layout": "collage",
+        "image_ratio": "square",
+        "show_tags": true,
+        "show_date": false,
+        "show_comments": false,
+        "show_author": false,
+        "show_excerpt": true,
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "title4": "",
+        "filter4tags": "",
+        "use_recipe_nav": true,
+        "enable_recipe_search": true,
+        "recipe_search_placeholder": "Search recipes, species, chefs…"
+      }
+    },
+    "newsletter_banner_6AkitK": {
+      "type": "newsletter-banner",
+      "blocks": {
+        "heading_cKLhhn": {
+          "type": "heading",
+          "settings": {
+            "heading": "Recipes, guides and chef stories. In your inbox, weekly.",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "form_Wet8NH": {
+          "type": "form",
+          "settings": {}
+        },
+        "text_intro": {
+          "type": "text",
+          "settings": {
+            "text": "<p>New recipes from our chefs the week they drop, seasonal guides like The Holiday Season on Ocean Time and Seatopia 101, and first word on what’s coming off the boat.</p>",
+            "text_size": "subtext-md",
+            "text_font": "body",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cKLhhn",
+        "text_intro",
+        "form_Wet8NH"
+      ],
+      "name": "t:sections.newsletter-banner.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "transparent_footer": false,
+        "image": "shopify://shop_images/Page_Product.png",
+        "image_height": "650px",
+        "content_width": "medium",
+        "content_position": "md:items-center md:justify-start",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": true,
+        "enable_parallax": false,
+        "parallax_direction": "vertical"
+      }
+    },
+    "recipe_guides": {
+      "type": "home-guides",
+      "blocks": {
+        "holiday": {
+          "type": "guide",
+          "settings": {
+            "page": "holiday-seafood-guide",
+            "image": "shopify://shop_images/holiday-guide-hero.jpg",
+            "kicker": "Holiday menus",
+            "title": "The Holiday Season on Ocean Time",
+            "short_name": "The Holiday Season on Ocean Time",
+            "text": "Thanksgiving, eight nights of Hanukkah, the Seven Fishes, a slow brunch and a board at midnight.",
+            "link_label": "Read the guide",
+            "pdf_url": ""
+          }
+        },
+        "omega": {
+          "type": "guide",
+          "settings": {
+            "page": "omegamaxxing",
+            "image": "shopify://shop_images/omegamaxxing-02-hero-mobile-garnish.jpg",
+            "kicker": "Omega-3s",
+            "title": "Omegamaxxing",
+            "short_name": "Omegamaxxing",
+            "text": "A practical guide to getting more omega-3s from your food.",
+            "link_label": "Read the guide",
+            "pdf_url": ""
+          }
+        },
+        "mercury": {
+          "type": "guide",
+          "settings": {
+            "page": "mercury-detox-guide-for-sushi-lovers",
+            "image": "shopify://shop_images/spicy_stonefruit_and_yellowtail_Hamachi_Crudo_6_of_22.jpg",
+            "kicker": "For sushi lovers",
+            "title": "Mercury & Sushi",
+            "short_name": "Mercury & Sushi",
+            "text": "Where mercury comes from, how we measure it, and how to choose seafood you’ll eat raw.",
+            "link_label": "Read the guide",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/Seatopia-Mercury-and-Sushi-Guide.pdf?v=1794409113"
+          }
+        },
+        "reset": {
+          "type": "guide",
+          "settings": {
+            "page": "seatopia-reset-guide",
+            "image": "shopify://shop_images/eudemonia-kitchen-family.jpg",
+            "kicker": "A kitchen guide",
+            "title": "The Seatopia Reset",
+            "short_name": "The Seatopia Reset",
+            "text": "Fewer unknowns on your plate: tested seafood, simple ingredients, and a week of recipes.",
+            "link_label": "Read the guide",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/The-Seatopia-Reset-Guide.pdf?v=1794409113"
+          }
+        },
+        "autumn": {
+          "type": "guide",
+          "settings": {
+            "page": "the-autumn-equinox",
+            "image": "shopify://shop_images/20260825-Stetten-Wilson-218.jpg",
+            "kicker": "A seasonal menu",
+            "title": "The Autumn Equinox",
+            "short_name": "The Autumn Equinox",
+            "text": "Four fall dinners from Chef Miriam, each under an hour, with the seafood a click away.",
+            "link_label": "Read the guide",
+            "pdf_url": ""
+          }
+        },
+        "seatopia101": {
+          "type": "guide",
+          "settings": {
+            "page": "seatopia-101",
+            "image": "shopify://shop_images/king-salmon-poke.jpg",
+            "kicker": "Six techniques, 30 minutes or less",
+            "title": "Seatopia 101",
+            "short_name": "Seatopia 101",
+            "text": "The recipe e-book: the 24-hour defrost, crispy skin, ceviche, poke, hand rolls and a miso marinade, each ready in 30 minutes or less.",
+            "link_label": "Read the guide",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0222/9882/0682/files/SeatopiaSimpleRecipes_e958c947-2969-4d39-8ed3-68cbe69f28a4.pdf?v=1795184518"
+          }
+        }
+      },
+      "block_order": [
+        "holiday",
+        "omega",
+        "mercury",
+        "reset",
+        "autumn",
+        "seatopia101"
+      ],
+      "settings": {
+        "label": "Free guides",
+        "heading": "Guides from the Seatopia kitchen",
+        "text": "<p>Short, practical guides to choosing and cooking seafood, from the holiday table to a 30-minute weeknight. Read them here, or unlock the PDFs below.</p>",
+        "unlock_heading": "Get the guides as PDFs",
+        "unlock_text": "<p>Enter your email to download the guides, to keep on your phone or print for the kitchen.</p>",
+        "button_label": "Unlock the guides",
+        "success": "You’re in. Your guides are ready, and we’ve added you to our emails.",
+        "fine_print": "<p>By unlocking the guides you agree to receive emails from Seatopia. Unsubscribe anytime. <a href=\"/policies/privacy-policy\">Privacy policy</a>.</p>",
+        "klaviyo_key": "UzEgpY",
+        "klaviyo_list": "W9Spu3",
+        "background": "#ffffff",
+        "text_color": "#2b3a44",
+        "panel_background": "#2b3a44",
+        "panel_text": "#ffffff",
+        "padding": 96,
+        "padding_mobile": 64
+      }
+    }
+  },
+  "order": [
+    "main-blog",
+    "custom_main_blog_p6xCj8",
+    "recipe_guides",
+    "newsletter_banner_6AkitK"
+  ]
 }
