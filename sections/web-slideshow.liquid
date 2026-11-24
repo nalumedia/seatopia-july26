@@ -1,6 +1,7 @@
 {%- comment -%}
   Web kit — slideshow. Full-bleed image slides with copy and one button each; arrows, dots, swipe,
-  autoplay that pauses on hover, focus and when the tab is hidden. Scroll-snap does the sliding so it
+  autoplay that pauses on hover, focus and when the tab is hidden. The "stacked" layout renders the
+  same slides as persistent bands, one under the other, with no controls. Scroll-snap does the sliding so it
   works without JS; the script only adds the controls and the timer.
 {%- endcomment -%}
 {%- render 'uikit-fonts' -%}
@@ -9,7 +10,8 @@
   assign s = section.settings
   assign count = section.blocks.size
 -%}
-<div class="wk wk-slideshow" id="{{ s.anchor | default: section.id | handleize }}" data-wk-slideshow data-autoplay="{{ s.autoplay | default: 0 }}" style="--wk-slide-h: {{ s.height | default: 720 }}px; --wk-slide-overlay: {{ s.overlay | default: 50 | divided_by: 100.0 }};">
+{%- assign stacked = false -%}{%- if s.layout == 'stacked' -%}{%- assign stacked = true -%}{%- endif -%}
+<div class="wk wk-slideshow{% if stacked %} wk-slideshow--stacked{% endif %}" id="{{ s.anchor | default: section.id | handleize }}" data-wk-slideshow data-autoplay="{{ s.autoplay | default: 0 }}" style="--wk-slide-h: {{ s.height | default: 720 }}px; --wk-slide-overlay: {{ s.overlay | default: 50 | divided_by: 100.0 }};">
   <div class="wk-slideshow__track" data-wk-track aria-roledescription="carousel">
     {%- for block in section.blocks -%}
       {%- assign b = block.settings -%}
@@ -29,7 +31,7 @@
       </section>
     {%- endfor -%}
   </div>
-  {%- if count > 1 -%}
+  {%- if count > 1 and stacked == false -%}
     <div class="wk-slideshow__nav">
       <button type="button" class="wk-slideshow__arrow" data-wk-prev aria-label="Previous slide">{% render 'web-kit-icon', name: 'arrow-right' %}</button>
       <div class="wk-slideshow__dots" role="tablist">
@@ -66,13 +68,16 @@
     .wk-slideshow__scrim { background: linear-gradient(180deg, rgba(27,46,55, calc(var(--wk-slide-overlay) * .4)) 0%, rgba(27,46,55, calc(var(--wk-slide-overlay) + .3)) 100%); }
     .wk-slideshow__nav { bottom: 20px; }
   }
+  .wk-slideshow--stacked .wk-slideshow__track { display: block; overflow: visible; scroll-snap-type: none; }
+  .wk-slideshow--stacked .wk-slideshow__slide { width: auto; }
+  .wk-slideshow--stacked .wk-slideshow__slide + .wk-slideshow__slide { border-top: 1px solid var(--wk-rule-on-ink); }
   @media (prefers-reduced-motion: reduce) { .wk-slideshow__track { scroll-behavior: auto; } }
 </style>
 
 <script>
   (function () {
     var root = document.querySelector('#shopify-section-{{ section.id }} [data-wk-slideshow]');
-    if (!root) return;
+    if (!root || root.classList.contains('wk-slideshow--stacked')) return;
     var track = root.querySelector('[data-wk-track]');
     var slides = [].slice.call(root.querySelectorAll('[data-wk-slide]'));
     var dots = [].slice.call(root.querySelectorAll('[data-wk-dot]'));
@@ -110,6 +115,7 @@
   "name": "Web kit — slideshow",
   "tag": "section",
   "settings": [
+    { "type": "select", "id": "layout", "label": "Layout", "default": "slideshow", "options": [ { "value": "slideshow", "label": "Slideshow" }, { "value": "stacked", "label": "Stacked bands (every slide visible)" } ] },
     { "type": "range", "id": "height", "label": "Height", "min": 480, "max": 960, "step": 20, "unit": "px", "default": 720 },
     { "type": "range", "id": "overlay", "label": "Overlay", "min": 0, "max": 90, "step": 5, "unit": "%", "default": 45 },
     { "type": "range", "id": "autoplay", "label": "Autoplay (seconds, 0 = off)", "min": 0, "max": 12, "step": 1, "default": 7 },
