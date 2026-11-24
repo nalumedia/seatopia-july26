@@ -1,5 +1,5 @@
 {%- comment -%}
-  Web kit — live impact counters. Two sources, picked per section:
+  Web kit — live impact counters. Two sources, picked per counter by the number it shows:
   - mangrove: Seatopia's public mangrove API (GET https://getdeep.blue/api/public/mangrove-widget,
     read-only aggregate JSON, CORS open, cached five minutes);
   - ecodrive: the public Ecodrive badge (an SVG whose <text> nodes carry "Total Trees Planted",
@@ -17,7 +17,7 @@
 {{ 'web-kit.css' | asset_url | stylesheet_tag }}
 {%- assign s = section.settings -%}
 <div class="wk wk-section wk-section--{{ s.tone }} wk-impact-wrap"{% if s.anchor != blank %} id="{{ s.anchor | handleize }}"{% endif %}>
-  <div class="wk-container wk-impact" data-wk-impact data-source="{{ s.source | default: 'mangrove' }}" data-api="{{ s.api_url | default: 'https://getdeep.blue/api/public/mangrove-widget' | escape }}" data-unavailable="{{ s.unavailable_text | default: 'Temporarily unavailable' | escape }}">
+  <div class="wk-container wk-impact" data-wk-impact data-api="{{ s.api_url | default: 'https://getdeep.blue/api/public/mangrove-widget' | escape }}" data-ecodrive="{{ s.ecodrive_url | default: 'https://7htgx3pzy2n3vqunaynz323iwe0egjev.lambda-url.us-east-1.on.aws/?businessId=22ca84f9-93b8-4308-8e17-850b276f4c83&variant=light&days=true&carbon=true&transparent=true' | escape }}" data-unavailable="{{ s.unavailable_text | default: 'Temporarily unavailable' | escape }}">
     <div class="wk-impact__head">
       {%- if s.eyebrow != blank -%}<p class="wk-eyebrow{% if s.tone == 'ink' %} wk-eyebrow--on-ink{% endif %}">{{ s.eyebrow }}</p>{%- endif -%}
       {%- if s.heading != blank -%}<h2 class="wk-display">{{ s.heading }}</h2>{%- endif -%}
@@ -73,14 +73,13 @@
   (function () {
     var root = document.querySelector('#shopify-section-{{ section.id }} [data-wk-impact]');
     if (!root || !window.fetch) return;
-    var api = root.getAttribute('data-api');
-    var source = root.getAttribute('data-source') || 'mangrove';
+    var urls = { mangrove: root.getAttribute('data-api'), ecodrive: root.getAttribute('data-ecodrive') };
     var unavailable = root.getAttribute('data-unavailable');
     var meta = root.querySelector('[data-wk-meta]');
-    var stats = root.querySelectorAll('[data-wk-metric]');
+    var stats = [].slice.call(root.querySelectorAll('[data-wk-metric]'));
     if (!stats.length) return;
-    var KEY = 'wk-impact:' + api;
 
+    function sourceOf(key) { return key.indexOf('ecodrive.') === 0 ? 'ecodrive' : 'mangrove'; }
     function fmt(value, format) {
       if (!isFinite(value)) return null;
       if (format === 'tons') return Math.round(value).toLocaleString() + '<small>t</small>';
@@ -89,33 +88,27 @@
       if (format === 'decimal') return (Math.round(value * 10) / 10).toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
       return Math.round(value).toLocaleString();
     }
-    function render(data, note) {
+    function read(data, key) {
+      if (key.indexOf('campaign.') === 0) return data.campaign ? data.campaign[key.slice(9)] : undefined;
+      return data[key.replace(/^ecodrive\./, '')];
+    }
+    function setUnavailable(li) { var el = li.querySelector('[data-wk-value]'); el.textContent = unavailable; el.classList.add('is-unavailable'); }
+    // Render every counter that belongs to `source` from `data`; returns how many got a number.
+    function render(source, data) {
       var ok = 0;
       stats.forEach(function (li) {
         var key = li.getAttribute('data-wk-metric');
+        if (sourceOf(key) !== source) return;
         var el = li.querySelector('[data-wk-value]');
-        var v = key.indexOf('campaign.') === 0 && data.campaign ? data.campaign[key.slice(9)] : data[key.replace(/^ecodrive\./, '')];
-        var text = fmt(Number(v), li.getAttribute('data-wk-format'));
-        if (text === null) { el.textContent = unavailable; el.classList.add('is-unavailable'); return; }
+        var text = fmt(Number(read(data, key)), li.getAttribute('data-wk-format'));
+        if (text === null) { setUnavailable(li); return; }
         el.innerHTML = text; el.classList.remove('is-unavailable'); ok++;
       });
-      if (meta) {
-        meta.textContent = note || '';
-        meta.hidden = !note;
-      }
-      return ok > 0;
+      return ok;
     }
-    function fail() {
-      var last = null;
-      try { last = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
-      if (last && last.data && last.at) {
-        var d = new Date(last.at);
-        render(last.data, 'Last updated ' + d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }));
-        return;
-      }
-      stats.forEach(function (li) { var el = li.querySelector('[data-wk-value]'); el.textContent = unavailable; el.classList.add('is-unavailable'); });
-      if (meta) meta.hidden = true;
-    }
+    var notes = [];
+    function note(text) { if (!meta) return; notes.push(text); meta.textContent = notes.join(' · '); meta.hidden = false; }
+
     // The Ecodrive badge is an SVG; its <text> nodes alternate label, value. Map the labels we know.
     function parseEcodrive(svgText) {
       var doc = new DOMParser().parseFromString(svgText, 'image/svg+xml');
@@ -128,15 +121,32 @@
       });
       return out;
     }
-    fetch(api, { credentials: 'omit' }).then(function (r) {
-      if (!r.ok) throw new Error('bad status');
-      return source === 'ecodrive' ? r.text().then(parseEcodrive) : r.json();
-    }).then(function (data) {
-      var check = source === 'ecodrive' ? data && data.trees : data && data.totalMangroves;
-      if (!data || !isFinite(Number(check))) throw new Error('missing fields');
-      if (!render(data)) throw new Error('nothing rendered');
-      try { localStorage.setItem(KEY, JSON.stringify({ at: data.lastUpdated || new Date().toISOString(), data: data })); } catch (e) {}
-    }).catch(fail);
+    function load(source) {
+      var api = urls[source];
+      var KEY = 'wk-impact:' + api;
+      function fail() {
+        var last = null;
+        try { last = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
+        if (last && last.data && last.at && render(source, last.data) > 0) {
+          var d = new Date(last.at);
+          note('Last updated ' + d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }));
+          return;
+        }
+        stats.forEach(function (li) { if (sourceOf(li.getAttribute('data-wk-metric')) === source) setUnavailable(li); });
+      }
+      fetch(api, { credentials: 'omit' }).then(function (r) {
+        if (!r.ok) throw new Error('bad status');
+        return source === 'ecodrive' ? r.text().then(parseEcodrive) : r.json();
+      }).then(function (data) {
+        var check = source === 'ecodrive' ? data && data.trees : data && data.totalMangroves;
+        if (!data || !isFinite(Number(check))) throw new Error('missing fields');
+        if (!render(source, data)) throw new Error('nothing rendered');
+        try { localStorage.setItem(KEY, JSON.stringify({ at: data.lastUpdated || new Date().toISOString(), data: data })); } catch (e) {}
+      }).catch(fail);
+    }
+    var needed = {};
+    stats.forEach(function (li) { needed[sourceOf(li.getAttribute('data-wk-metric'))] = true; });
+    Object.keys(needed).forEach(load);
   })();
 </script>
 
@@ -146,8 +156,8 @@
   "tag": "section",
   "settings": [
     { "type": "paragraph", "content": "Numbers come live from a public source. Mangrove counts are planting commitments calculated from orders; keep the footnote that says so. A counter with a fixed value never calls the source." },
-    { "type": "select", "id": "source", "label": "Source", "default": "mangrove", "options": [ { "value": "mangrove", "label": "Mangrove API (JSON)" }, { "value": "ecodrive", "label": "Ecodrive badge (kelp)" } ] },
-    { "type": "text", "id": "api_url", "label": "Source URL", "default": "https://getdeep.blue/api/public/mangrove-widget", "info": "Ecodrive: the public badge URL with carbon=true&days=true." },
+    { "type": "text", "id": "api_url", "label": "Mangrove API URL", "default": "https://getdeep.blue/api/public/mangrove-widget" },
+    { "type": "text", "id": "ecodrive_url", "label": "Ecodrive badge URL (kelp)", "default": "https://7htgx3pzy2n3vqunaynz323iwe0egjev.lambda-url.us-east-1.on.aws/?businessId=22ca84f9-93b8-4308-8e17-850b276f4c83&variant=light&days=true&carbon=true&transparent=true", "info": "Each counter picks its source by the number it shows; both can sit in one band." },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Our impact so far" },
     { "type": "richtext", "id": "text", "label": "Intro" },

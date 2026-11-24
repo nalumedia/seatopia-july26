@@ -9,7 +9,7 @@
         "heading": "You Fostered a Kelp Forest",
         "heading_size": "display",
         "heading_tag": "h1",
-        "text": "<p>A percentage of every Seatopia order funds kelp planting along the coast of British Columbia.</p><p>Together with our members we have funded more than 20,000 kelp trees, creating our first ocean restoration forest.</p>",
+        "text": "<p>From 2023 to 2026, a share of every Seatopia order funded kelp planting along the coast of British Columbia.</p><p>Together with our members we funded more than 20,000 kelp trees, creating our first ocean restoration forest. The planting is complete and the forest is growing.</p>",
         "cta_label": "",
         "cta_link": "",
         "eager": "eager"
@@ -32,15 +32,15 @@
         "s2": {
           "type": "step",
           "settings": {
-            "title": "We Fund Kelp Planting",
-            "text": "A percentage of every sale goes to kelp restoration in British Columbia."
+            "title": "We Funded Kelp Planting",
+            "text": "A share of every sale went to kelp restoration in British Columbia until the mangrove programme began."
           }
         },
         "s3": {
           "type": "step",
           "settings": {
             "title": "Forests Return",
-            "text": "Kelp creates habitat, filters water and buffers coastlines."
+            "text": "Kelp creates habitat, filters water and buffers coastlines. Today every order plants a mangrove instead."
           }
         }
       },
@@ -53,16 +53,16 @@
     "impact": {
       "type": "web-impact",
       "settings": {
-        "source": "ecodrive",
-        "api_url": "https://7htgx3pzy2n3vqunaynz323iwe0egjev.lambda-url.us-east-1.on.aws/?businessId=22ca84f9-93b8-4308-8e17-850b276f4c83&variant=light&days=true&carbon=true&transparent=true",
-        "eyebrow": "Live from our dashboard",
+        "eyebrow": "From our dashboard",
         "heading": "Our impact so far",
-        "text": "<p>Every kelp tree below was funded by Seatopia orders and planted with our partners along the coast of British Columbia.</p>",
+        "text": "<p>Every kelp tree below was funded by Seatopia orders between 2023 and 2026 and planted with our partners along the coast of British Columbia.</p>",
         "loading_text": "…",
         "unavailable_text": "Temporarily unavailable",
         "footnote": "<p>Figures come from Seatopia’s public Ecodrive dashboard, where planting is monitored and verified by veritree. Carbon is Ecodrive’s estimate, not measured sequestration. <a href=\"https://app.ecodrive.community/public-dashboard/22ca84f9-93b8-4308-8e17-850b276f4c83\" target=\"_blank\" rel=\"noopener\">See the dashboard</a>.</p>",
         "anchor": "impact",
-        "tone": "ink"
+        "tone": "ink",
+        "api_url": "https://getdeep.blue/api/public/mangrove-widget",
+        "ecodrive_url": "https://7htgx3pzy2n3vqunaynz323iwe0egjev.lambda-url.us-east-1.on.aws/?businessId=22ca84f9-93b8-4308-8e17-850b276f4c83&variant=light&days=true&carbon=true&transparent=true"
       },
       "blocks": {
         "k1": {
@@ -72,7 +72,7 @@
             "format": "number",
             "value": "",
             "label": "Kelp trees planted",
-            "text": "Funded by a percentage of every Seatopia order and planted along the coast of British Columbia."
+            "text": "Funded by a share of every Seatopia order from 2023 to 2026 and planted along the coast of British Columbia."
           }
         },
         "k2": {
@@ -157,7 +157,7 @@
         "p3": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Coastal Kelp leads the planting, veritree monitors and verifies it, and Ecodrive channels the funding from your orders.</p>"
+            "text": "<p>Coastal Kelp led the planting, veritree monitored and verified it, and Ecodrive channelled the funding from your orders. The programme ran until spring 2026, when our mangrove planting began.</p>"
           }
         }
       },
@@ -635,7 +635,7 @@
         "heading": "Good Seafood. A Healthier Ocean.",
         "heading_size": "xl",
         "heading_tag": "h2",
-        "text": "<p>Every box you order helps replant kelp forests and mangroves. Join us.</p>",
+        "text": "<p>Your kelp forest is growing. Today every box you order plants a mangrove in Tarakan. Join us.</p>",
         "cta_label": "Choose Your Box",
         "cta_link": "/pages/curated-boxes",
         "eager": "lazy"
