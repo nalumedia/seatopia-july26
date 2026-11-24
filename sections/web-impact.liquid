@@ -88,22 +88,10 @@
         el.innerHTML = text; el.classList.remove('is-unavailable'); ok++;
       });
       if (meta) {
-        var parts = [];
-        if (data.campaign && data.campaign.startsOn && data.campaign.endsOn) {
-          parts.push('{{ s.campaign_label | default: 'Current campaign' | escape }}: ' + dateRange(data.campaign.startsOn, data.campaign.endsOn) + (data.campaign.mangrovesPerOrder ? ' · ' + data.campaign.mangrovesPerOrder + ' mangrove per order' : ''));
-        }
-        if (note) parts.push(note);
-        meta.textContent = parts.join(' · ');
-        meta.hidden = parts.length === 0;
+        meta.textContent = note || '';
+        meta.hidden = !note;
       }
       return ok > 0;
-    }
-    function dateRange(a, b) {
-      try {
-        var o = { month: 'short', day: 'numeric' };
-        var da = new Date(a + 'T12:00:00Z'), db = new Date(b + 'T12:00:00Z');
-        return da.toLocaleDateString(undefined, o) + ' – ' + db.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
-      } catch (e) { return a + ' – ' + b; }
     }
     function fail() {
       var last = null;
@@ -137,7 +125,6 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Our impact so far" },
     { "type": "richtext", "id": "text", "label": "Intro" },
-    { "type": "text", "id": "campaign_label", "label": "Campaign line label", "default": "Current campaign" },
     { "type": "text", "id": "loading_text", "label": "Loading placeholder", "default": "…" },
     { "type": "text", "id": "unavailable_text", "label": "Unavailable text", "default": "Temporarily unavailable" },
     { "type": "richtext", "id": "footnote", "label": "Footnote", "default": "<p>Counts are planting commitments calculated from orders, not confirmation of planting. CO₂e is an estimate at 150 kg per tree over its lifetime, not measured sequestration; acres are an equivalent at 800 trees per acre.</p>" },
