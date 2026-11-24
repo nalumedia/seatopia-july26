@@ -1,0 +1,659 @@
+{
+  "sections": {
+    "hero": {
+      "type": "web-banner",
+      "settings": {
+        "image": "shopify://shop_images/SeatopiaKelpReforestation.jpg",
+        "height": 860,
+        "overlay": 62,
+        "heading": "You Fostered a Kelp Forest",
+        "heading_size": "display",
+        "heading_tag": "h1",
+        "text": "<p>A percentage of every Seatopia order funds kelp planting along the coast of British Columbia.</p><p>Together with our members we have funded more than 20,000 kelp trees, creating our first ocean restoration forest.</p>",
+        "cta_label": "",
+        "cta_link": "",
+        "eager": "eager"
+      }
+    },
+    "steps": {
+      "type": "web-steps",
+      "settings": {
+        "heading": "How Your Box Gives Back",
+        "tone": "sand"
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Choose Your Box",
+            "text": "Discover thoughtfully raised seafood."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "We Fund Kelp Planting",
+            "text": "A percentage of every sale goes to kelp restoration in British Columbia."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Forests Return",
+            "text": "Kelp creates habitat, filters water and buffers coastlines."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
+    },
+    "impact": {
+      "type": "web-impact",
+      "settings": {
+        "source": "ecodrive",
+        "api_url": "https://7htgx3pzy2n3vqunaynz323iwe0egjev.lambda-url.us-east-1.on.aws/?businessId=22ca84f9-93b8-4308-8e17-850b276f4c83&variant=light&days=true&carbon=true&transparent=true",
+        "eyebrow": "Live from our dashboard",
+        "heading": "Our impact so far",
+        "text": "<p>Every kelp tree below was funded by Seatopia orders and planted with our partners along the coast of British Columbia.</p>",
+        "loading_text": "…",
+        "unavailable_text": "Temporarily unavailable",
+        "footnote": "<p>Figures come from Seatopia’s public Ecodrive dashboard, where planting is monitored and verified by veritree. Carbon is Ecodrive’s estimate, not measured sequestration. <a href=\"https://app.ecodrive.community/public-dashboard/22ca84f9-93b8-4308-8e17-850b276f4c83\" target=\"_blank\" rel=\"noopener\">See the dashboard</a>.</p>",
+        "anchor": "impact",
+        "tone": "ink"
+      },
+      "blocks": {
+        "k1": {
+          "type": "stat",
+          "settings": {
+            "metric": "ecodrive.trees",
+            "format": "number",
+            "value": "",
+            "label": "Kelp trees planted",
+            "text": "Funded by a percentage of every Seatopia order and planted along the coast of British Columbia."
+          }
+        },
+        "k2": {
+          "type": "stat",
+          "settings": {
+            "metric": "ecodrive.carbonTonnes",
+            "format": "decimal",
+            "value": "",
+            "label": "Tonnes of carbon",
+            "text": "Ecodrive’s estimate for the kelp planted so far."
+          }
+        },
+        "k3": {
+          "type": "stat",
+          "settings": {
+            "metric": "totalMangroves",
+            "format": "number",
+            "value": "2",
+            "label": "Restoration sites",
+            "text": "Hotham Sound and Venture Point, British Columbia."
+          }
+        },
+        "k4": {
+          "type": "stat",
+          "settings": {
+            "metric": "totalMangroves",
+            "format": "number",
+            "value": "3",
+            "label": "Kelp species",
+            "text": "Bull kelp, sugar kelp and Alaria marginata."
+          }
+        }
+      },
+      "block_order": [
+        "k1",
+        "k2",
+        "k3",
+        "k4"
+      ]
+    },
+    "band": {
+      "type": "web-banner",
+      "settings": {
+        "image": "shopify://shop_images/Kelp_forest_seal.png",
+        "height": 640,
+        "overlay": 0,
+        "heading": "",
+        "heading_size": "display",
+        "heading_tag": "h2",
+        "text": "",
+        "cta_label": "",
+        "cta_link": "",
+        "eager": "lazy"
+      }
+    },
+    "story": {
+      "type": "web-split",
+      "settings": {
+        "image": "shopify://shop_images/Sporophytes-lines.jpg",
+        "image_side": "left",
+        "ratio": "720 / 820",
+        "tone": "paper",
+        "eyebrow": "British Columbia, Canada",
+        "heading": "A Living Monument to Ocean Regeneration",
+        "cta_label": "Watch the planting",
+        "cta_link": "https://youtu.be/Sw99R7-PpsI",
+        "cta_style": "outline"
+      },
+      "blocks": {
+        "p1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>At Hotham Sound, clean waters and diverse marine life were hit by mass kelp die-offs during the last El Niño. With our partners we are replanting bull kelp, sugar kelp and Alaria marginata there.</p>"
+          }
+        },
+        "p2": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>At Venture Point in the Okisollo Channel, a former industrial salmon farm is being turned into a kelp cultivation site, a working example of regenerative aquaculture.</p>"
+          }
+        },
+        "p3": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Coastal Kelp leads the planting, veritree monitors and verifies it, and Ecodrive channels the funding from your orders.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ]
+    },
+    "gallery": {
+      "type": "web-gallery",
+      "settings": {
+        "height": 260,
+        "tone": "paper"
+      },
+      "blocks": {
+        "g1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/kelp_Sporophytes.jpg"
+          }
+        },
+        "g2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/kelp_Sporophytes_lines.jpg"
+          }
+        },
+        "g3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/young_kelp.jpg"
+          }
+        },
+        "g4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1_kelp_team.jpg"
+          }
+        },
+        "g5": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Fred_Boat_Bamfield_9f3dcb63e4.jpg"
+          }
+        },
+        "g6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/kelp-team-seatopia-beenie.jpg"
+          }
+        },
+        "g7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Kelp_1_1_6691e4add3.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3",
+        "g4",
+        "g5",
+        "g6",
+        "g7"
+      ]
+    },
+    "why": {
+      "type": "web-split",
+      "settings": {
+        "image": "shopify://shop_images/kelp-malibu.jpg",
+        "image_side": "right",
+        "ratio": "640 / 900",
+        "tone": "ink",
+        "eyebrow": "The impact",
+        "heading": "Why Kelp Matters",
+        "cta_label": "We also plant mangroves",
+        "cta_link": "/pages/we-plant-mangroves",
+        "cta_style": "outline"
+      },
+      "blocks": {
+        "r1": {
+          "type": "row",
+          "settings": {
+            "title": "Water Quality & Oxygen",
+            "text": "Kelp absorbs excess nutrients like nitrogen and phosphorus, filtering coastal water and producing oxygen."
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "title": "Habitat & Biodiversity",
+            "text": "Kelp forests shelter and feed species from the smallest invertebrates to herring and salmon."
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "title": "Carbon & Coastlines",
+            "text": "Kelp takes up CO₂ as it grows and buffers shorelines against waves and storm surge."
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ]
+    },
+    "explore": {
+      "type": "web-product-grid",
+      "settings": {
+        "heading": "Explore Seatopia",
+        "link_label": "Shop all seafood →",
+        "link_url": "/collections/all-seafood",
+        "view_label": "View",
+        "anchor": "shop",
+        "tone": "paper"
+      },
+      "blocks": {
+        "c1": {
+          "type": "product",
+          "settings": {
+            "product": "lab-tested-salmon-roe-caviar",
+            "image": "shopify://shop_images/salmon_roe_caviar_2.png",
+            "eyebrow": "",
+            "title": "Salmon Roe Caviar",
+            "price_line": "",
+            "text": "Plump, briny pearls bursting with oceanic flavor. Adorn sushi and sashimi with these gourmet gems",
+            "link": "",
+            "show_add": true
+          }
+        },
+        "c2": {
+          "type": "product",
+          "settings": {
+            "product": "black-tiger-shrimp-mangrove-regeneration",
+            "eyebrow": "",
+            "title": "",
+            "price_line": "",
+            "text": "Sweet, briny shrimp with a natural richness, best enjoyed quickly seared for a delicate snap or pan-fried to preserve their depth.",
+            "link": "",
+            "show_add": true
+          }
+        },
+        "c3": {
+          "type": "product",
+          "settings": {
+            "product": "buy-ora-king-salmon-portion-new-zealand",
+            "image": "shopify://shop_images/king-salmon-771851.jpg",
+            "eyebrow": "",
+            "title": "",
+            "price_line": "",
+            "text": "Unapologetically rich and velvety—Ōra King salmon, the gold standard for celebratory seafood",
+            "link": "",
+            "show_add": true
+          }
+        },
+        "c4": {
+          "type": "product",
+          "settings": {
+            "product": "steelhead-sashimi-loin-12oz",
+            "image": "shopify://shop_images/steelhead-sashimi-loin-836382.jpg",
+            "eyebrow": "Caleta Bay",
+            "title": "Caleta Bay, Steelhead, Sashimi Loin",
+            "price_line": "",
+            "text": "",
+            "link": "",
+            "show_add": true
+          }
+        },
+        "c5": {
+          "type": "product",
+          "settings": {
+            "product": "add-on-barramundi-filet-5oz-each",
+            "image": "shopify://shop_images/fish-shell-variety-box-752110.jpg",
+            "eyebrow": "",
+            "title": "",
+            "price_line": "",
+            "text": "Mild, succulent - exceptional when pan seared with a crispy skin",
+            "link": "",
+            "show_add": true
+          }
+        },
+        "c6": {
+          "type": "product",
+          "settings": {
+            "product": "regenerative-farmed-scallops-peru",
+            "image": "shopify://shop_images/fish-shell-variety-box-336538.jpg",
+            "eyebrow": "",
+            "title": "",
+            "price_line": "",
+            "text": "On the half shell. Naturally sweet with a creamy bite — stunning raw, lightly torched, or nestled in citrus-forward ceviches",
+            "link": "",
+            "show_add": true
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6"
+      ]
+    },
+    "reviews": {
+      "type": "uikit-reviews",
+      "blocks": {
+        "r_lori": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "The Best",
+            "quote": "The most delicious fish we have ever had. Every piece is so fresh and perfect!",
+            "name": "Lori O.",
+            "date": "11/16/2026",
+            "product": "white-fish-box",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_tpm": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Honestly best fish I’ve ever had",
+            "quote": "I’ve never been able to cook really good fish at home, and I swear this is some of the best fish I’ve ever had, at home OR in a restaurant. The quality is incredible, it tastes so fresh, and I love that it comes in individually portioned packets.",
+            "name": "T. P. M.",
+            "date": "11/17/2026",
+            "product": "king-salmon",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_rosemary": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Scallops - tender and flavorful!",
+            "quote": "I made a fresh mixed veggie/scallop stirfry with shallots, coconut aminos and sesame oil and it was heavenly. The scallops were tender...buttery and delish!",
+            "name": "Rosemary L.",
+            "date": "11/11/2026",
+            "product": "scallop-meat-16oz",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_nathan": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Best tasting",
+            "quote": "The best tasting salmon I have ever had.",
+            "name": "Nathan R.",
+            "date": "11/10/2026",
+            "product": "atlantic-salmon-2x-6oz-portions",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_andrea": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "king salmon",
+            "quote": "this was the most delicious salmon, I have had in a long time. thank you!!!",
+            "name": "Andrea B.",
+            "date": "11/17/2026",
+            "product": "king-salmon",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        },
+        "r_ora": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Incredible Salmon",
+            "quote": "I now prefer to eat salmon at home over any of the best restaurants in NYC! Wow! Delicious…and knowing that it is tested and for microplastics and carefully sourced is what keeps me coming back for more! Thanks you for making this available!",
+            "name": "Anonymous",
+            "date": "11/18/2026",
+            "product": "buy-ora-king-salmon-portion-new-zealand",
+            "product_label": "",
+            "disclosure": "Verified buyer"
+          }
+        }
+      },
+      "block_order": [
+        "r_lori",
+        "r_tpm",
+        "r_rosemary",
+        "r_nathan",
+        "r_andrea",
+        "r_ora"
+      ],
+      "settings": {
+        "anchor": "customer-reviews",
+        "heading": "What people are saying",
+        "show_rating": true,
+        "all_reviews_link": "/pages/reviews",
+        "all_reviews_label": "Read all reviews"
+      }
+    },
+    "faq": {
+      "type": "web-faq",
+      "settings": {
+        "heading": "FAQs",
+        "text": "<p>Please read our <a href=\"/pages/faq\">FAQs page</a> to find out more.</p>",
+        "open_first": true,
+        "faq_schema": false,
+        "anchor": "",
+        "tone": "white",
+        "show_contact": true,
+        "contact_heading": "Didn’t find your answer?",
+        "contact_text": "Don't hesitate to contact us",
+        "button": "Send message",
+        "success": "Thank you. We read every message and will reply soon."
+      },
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "Can I customize my box?",
+            "answer": "<p>We are essentially a farmers market for artisanal aquaculture. In that sense, our Seatopia curated boxes are like a CSA box. We offer our curated boxes as a way to highlight what is seasonally available and introduce our members to new seafood and farm partners they might be interested in. So, they cannot be customized. </p><p>But we do offer custom boxes! Members can order a custom box through the <a href=\"https://seatopia.fish/collections/add-ons\" title=\"https://seatopia.fish/collections/add-ons\">a la cart section of our website. </a>Subscription members can mix and match items in their portal and take advantage of member-only items and offers. </p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "Do I have to subscribe to place an order?",
+            "answer": "<p>No! But becoming a subscriber is the best way to support aquaculture farmers raising fish the right way. </p><p>Your subscription helps us with planning harvest timelines and scheduling ocean freight, helping us move the industry away from unsustainable practices of flying fresh fish around the world. Subscribers also have early access to preferred pricing, exclusive add-ons and limited time offers. </p><p>You will never be locked in to a subscription - you may change the order, the frequency or cancel anytime. </p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Do you offer discounts?",
+            "answer": "<p>As a general rule, we do not offer discounts, aside from a small thank you for first time customers. We offer the same incentive if you find us through one of our affiliate friends or supporters. Both are only available to first time customers. </p><p>Rather than ask our members to search the internet for discounts and coupons, we always offer the lowest prices we can. </p><p>The best way to save is by becoming a monthly subscriber. Our subscription members receive a small price incentive for helping us to reliably and predictably support artisan, regenerative aquaculture.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "What about antibiotics?",
+            "answer": "<p>When we choose farm partners, we look for farms that manage animal health without antibiotics. Many of our farms have no need for them by design, which is the case with scallops and with many of our land-based recirculating farms. Others have transitioned away entirely: our Atlantic salmon partner, Bakkafrost, has used zero antibiotics since 2004.</p><p>In the rare case of a significant animal health threat, some of our farms reserve the right to use therapeutic antibiotics under veterinary guidance. If that happens, the fish are held for a mandatory withdrawal period so that no trace remains before harvest. Antibiotics on the World Health Organization's list of drugs critically important to human medicine are not permitted.</p>"
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "What is a portion?",
+            "answer": "<p>We consider one portion to be 4 to 6 ounces of cooked fish, which matches the FDA's definition of a serving of seafood. That is the guideline behind how much fish by weight goes into a box described in servings. Some of our fish, such as king salmon, come in larger pieces of 7.5 to 8.5 oz, so a single piece can be two nutritional servings.</p><p>Many of our members work with a nutritionist or practitioner, or use an app, to decide what they should be eating for protein, fats or specific nutrients. The right amount and frequency for you is personal, and our job is to give you the data that makes the decision easy.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ]
+    },
+    "curated": {
+      "type": "curated-boxes-funnel",
+      "blocks": {
+        "style_salmon": {
+          "type": "style",
+          "settings": {
+            "style_value": "Salmon Lovers",
+            "image": "shopify://shop_images/salmon-lovers-box-837422.png",
+            "description": "<p>Curated variety may include King Salmon, Atlantic Salmon, Steelhead, and Smoked Salmon selections.</p>"
+          }
+        },
+        "style_variety": {
+          "type": "style",
+          "settings": {
+            "style_value": "Fish & Shellfish Variety",
+            "image": "shopify://shop_images/fish-shell-variety-box-700099.jpg",
+            "description": "<p>Curated variety of salmon, whitefish, and Peruvian scallops for adventurous palates.</p>"
+          }
+        },
+        "style_white": {
+          "type": "style",
+          "settings": {
+            "style_value": "White Fish Box",
+            "image": "shopify://shop_images/white-fish-box-281733.jpg",
+            "description": "<p>Curated variety may include Sea Bream, Branzino, Yellowtail, and Barramundi.</p>"
+          }
+        },
+        "size_12": {
+          "type": "size",
+          "settings": {
+            "size_value": "12 Portions",
+            "tagline": "Perfect for you",
+            "description": "<p>~6-8 oz portions · A great way to start your Seatopia journey.</p>",
+            "badge": ""
+          }
+        },
+        "size_18": {
+          "type": "size",
+          "settings": {
+            "size_value": "18 Portions",
+            "tagline": "For you to share",
+            "description": "<p>~6-8 oz portions · More variety, better value — our most popular size.</p>",
+            "badge": "Most Popular"
+          }
+        },
+        "size_24": {
+          "type": "size",
+          "settings": {
+            "size_value": "24 Portions",
+            "tagline": "For your family",
+            "description": "<p>~6-8 oz portions · Stock your freezer with premium catches.</p>",
+            "badge": ""
+          }
+        }
+      },
+      "block_order": [
+        "style_salmon",
+        "style_variety",
+        "style_white",
+        "size_12",
+        "size_18",
+        "size_24"
+      ],
+      "settings": {
+        "product": "seatopia-regenerative-seafood-bundle",
+        "style_option_name": "Style",
+        "size_option_name": "Size",
+        "step_labels": "Seafood,Size,Checkout",
+        "continue_label": "Continue",
+        "back_label": "Back",
+        "change_size_label": "Change size",
+        "phone_label": "Prefer to talk? Call us to order",
+        "phone": "",
+        "step1_heading": "Get started with a curated box",
+        "step1_subheading": "<p>Pick your seafood. Choose your size and check out on the next page.</p>",
+        "step2_heading": "Choose Your Size",
+        "step2_subheading": "<p>Choose the box size that fits your household.</p>",
+        "omega_footnote": "<p>Per-serving EPA+DHA figures are our published third-party test results from Edacious for each portion in the box, averaged across the box. Values vary by sample and season.</p>",
+        "step3_heading": "Your Box is Built!",
+        "step3_subheading": "<p>Review your selections and checkout.</p>",
+        "ship_copy": "<p>Arrives snap frozen. Orders ship Tuesday &amp; Wednesday.</p>",
+        "contents_heading": "What's inside this box",
+        "contents_disclaimer": "<p>Chef-curated selection — exact varieties may shift slightly with the season and best available harvest.</p>",
+        "omega_heading": "Omega-3 in this box",
+        "omega_disclaimer": "<p>Published Edacious test results for each portion, summed for the box. Values vary by sample and season.</p>",
+        "omega_partial_note": "<p>Totals include lab-tested portions only.</p>",
+        "purchase_heading": "How would you like it?",
+        "subscribe_label": "Subscribe & Save 10%",
+        "subscribe_benefits": "<ul><li>Free 1:1 chef classes</li><li>Arrives snap-frozen or we replace it</li><li>Pause, skip, or cancel anytime</li></ul>",
+        "onetime_label": "One-time purchase",
+        "email_label": "Enter your email to continue to checkout",
+        "email_error": "Please enter a valid email address.",
+        "checkout_label": "Checkout",
+        "submit_sub_label": "Subscribe",
+        "submit_once_label": "Checkout",
+        "show_reviews": false,
+        "mode": "entry",
+        "funnel_url": "/pages/curated-boxes",
+        "hide_on_articles": false
+      }
+    },
+    "cta": {
+      "type": "web-banner",
+      "settings": {
+        "image": "shopify://shop_images/Kelp_1_1_6691e4add3.jpg",
+        "height": 720,
+        "overlay": 50,
+        "heading": "Good Seafood. A Healthier Ocean.",
+        "heading_size": "xl",
+        "heading_tag": "h2",
+        "text": "<p>Every box you order helps replant kelp forests and mangroves. Join us.</p>",
+        "cta_label": "Choose Your Box",
+        "cta_link": "/pages/curated-boxes",
+        "eager": "lazy"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "steps",
+    "impact",
+    "band",
+    "story",
+    "gallery",
+    "why",
+    "explore",
+    "reviews",
+    "faq",
+    "curated",
+    "cta"
+  ]
+}
