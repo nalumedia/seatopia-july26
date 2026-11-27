@@ -117,7 +117,7 @@
                 endif
                 # Flat-rate qualification at the $125 minimum replaces the free-shipping bar and the old
                 # minimum message here (snippets/cart-shipping-qualify.liquid).
-                render 'cart-shipping-qualify', free_min: minimum_amount
+                render 'cart-shipping-qualify', free_min: minimum_amount, promo_label: section.settings.free_shipping_promo_label
               -%}
               {%- render 'cart-promo-banner' -%}
 
@@ -939,6 +939,12 @@
       "default": "100",
       "label": "t:sections.cart-drawer.settings.free_shipping_minimum_amount.label",
       "info": "t:sections.cart-drawer.settings.free_shipping_minimum_amount.info"
+    },
+    {
+      "type": "text",
+      "id": "free_shipping_promo_label",
+      "label": "Promo label above the bar",
+      "info": "Short seasonal line, e.g. a Black Friday free-shipping callout. Leave blank to hide."
     },
     {
       "type": "header",

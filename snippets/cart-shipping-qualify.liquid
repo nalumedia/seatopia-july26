@@ -9,6 +9,8 @@
 
   Accepts:
   - free_min: {Number} free-shipping threshold in dollars (the drawer's free_shipping_minimum_amount), optional
+  - promo_label: {String} optional seasonal callout rendered as a pill above the bar (the drawer's
+    free_shipping_promo_label), e.g. the BFCM 2026 "free shipping over $200" line. Blank hides it.
 {%- endcomment -%}
 {%- liquid
   assign plan_min = settings.threshold_amount | default: '125' | strip | times: 100
@@ -53,6 +55,9 @@
 -%}
 {%- if cart.item_count > 0 and has_gift_card == false -%}
   <div class="ship-qual ship-qual--{{ stage }}">
+    {%- if promo_label != blank and stage != 'done' -%}
+      <p class="ship-qual__promo">{{ promo_label }}</p>
+    {%- endif -%}
     {%- case stage -%}
       {%- when 'flat' -%}
         <p class="ship-qual__line">
@@ -85,6 +90,7 @@
 <style>
   .ship-qual { display: grid; gap: 8px; }
   .ship-qual__line { margin: 0; font-size: 15px; line-height: 1.4; }
+  .ship-qual__promo { margin: 0 0 2px; justify-self: start; padding: 5px 12px; border-radius: 999px; background: #2e4b59; color: #fff; font-size: 13px; font-weight: 600; line-height: 1.3; }
   .ship-qual__sub { display: block; font-size: 13px; opacity: .7; }
   .ship-qual__bar { height: 6px; border-radius: 999px; background: rgba(17, 24, 39, 0.1); overflow: hidden; }
   .ship-qual__bar span { display: block; height: 100%; background: #2e4b59; border-radius: inherit; }
