@@ -29,19 +29,19 @@
         },
         "announcement_mrCFnq": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
             "icon": "none",
-            "text": "Unlock FREE Gifts with your Seatopia Membership",
-            "link": "shopify://pages/seatopia-membership",
+            "text": "Stock up for the holidays with FREE Shipping on orders over $200",
+            "link": "shopify://pages/curated-boxes",
             "hide_icon_mobile": true,
-            "text_mobile": "Unlock FREE Gifts with your Seatopia Membership",
+            "text_mobile": "Stock up for the holidays with FREE Shipping on orders over $200",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
         },
         "announcement-1": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "icon": "none",
             "text": "🚀 FREE Overnight Shipping on orders over $500",
