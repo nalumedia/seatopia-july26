@@ -20,11 +20,22 @@
   >
     <overlay-element class="overlay fixed-modal invisible opacity-0 fixed bottom-0 left-0 w-full h-screen pointer-events-none" aria-controls="CartDrawer" aria-expanded="false"></overlay-element>
     <div class="drawer__inner z-10 absolute top-0 flex flex-col w-full h-full overflow-hidden">
+      {%- comment -%}
+        Title reads "Build My Box" while the cart is empty and "My Box" once it has items. Only the
+        MiniCart panel is re-rendered on cart updates (assets/cart.js), so the header cannot rely on
+        Liquid alone; it keys off the cart-count badge, which toggles its own hidden attribute on
+        every cart update. Browsers without :has() show "My Box" always.
+      {%- endcomment -%}
+      <style>
+        .drawer__tab .drawer__title-empty { display: none; }
+        .drawer__tab:has(cart-count[hidden]) .drawer__title-empty { display: inline; }
+        .drawer__tab:has(cart-count[hidden]) .drawer__title-full { display: none; }
+      </style>
       <gesture-element class="drawer__header flex justify-between opacity-0 invisible relative">
         <ul class="drawer__tabs flex gap-10" is="tab-list">
           <li>
             <button class="drawer__tab relative" type="button" aria-controls="MiniCart-{{ section.id }}" aria-expanded="true">
-              <span class="drawer__title heading lg:text-3xl text-2xl leading-none tracking-tight">My Box</span>
+              <span class="drawer__title heading lg:text-3xl text-2xl leading-none tracking-tight"><span class="drawer__title-empty">Build My Box</span><span class="drawer__title-full">My Box</span></span>
               <cart-count class="count absolute font-medium text-xs lg:text-sm leading-none" aria-label="{{ 'general.cart.cart_count' | t: count: cart.item_count | escape }}"{% if cart == empty %} hidden{% endif %}>{{ cart.item_count }}</cart-count>
             </button>
           </li>
@@ -51,6 +62,9 @@
             {%- if cart == empty -%}
               <div class="drawer__scrollable relative flex justify-center items-start grow shrink text-center">
                 <div class="drawer__empty grid gap-5 md:gap-8">
+                  {%- if section.settings.free_shipping_promo_label != blank -%}
+                    <p class="ship-qual__promo ship-qual__promo--center">{{ section.settings.free_shipping_promo_label }}</p>
+                  {%- endif -%}
                   <h2 class="drawer__empty-text heading leading-none tracking-tight">{{ 'cart.general.empty' | t }}</h2>
                   <div class="drawer__empty-message text-sm md:text-base leading-tight rte">
                     {{- section.settings.empty_cart_message -}}
