@@ -467,6 +467,7 @@
   .plan-toggle__opt + .plan-toggle__opt { border-top: 1px solid rgba(17, 24, 39, 0.08); }
   .plan-toggle__opt.is-active { box-shadow: none; }
   .plan-toggle__note { font-size: 12px; }
+  .plan-toggle[data-mode="onetime"] .plan-toggle__more { display: none; } /* delivery picker + perks only once Subscribe is chosen */
   .plan-toggle__note { grid-column: 2 / -1; font-size: 12px; opacity: .65; }
   .plan-toggle[data-plan-busy] { pointer-events: none; }
   /* Loading: a thin bar under the drawer header, and a soft dim on the cart page. */
