@@ -461,6 +461,12 @@
   .plan-toggle__name { font-size: 15px; font-weight: 500; }
   .plan-toggle__price { font-size: 15px; font-weight: 600; white-space: nowrap; }
   .plan-toggle__price s { font-weight: 400; opacity: .5; margin-left: 4px; }
+  /* Quiet pass (Ryan, 2026-11-26): options sit on the surface, no cards. */
+  .plan-toggle { gap: 0; margin: 2px 0 6px; border-top: 1px solid rgba(17, 24, 39, 0.1); border-bottom: 1px solid rgba(17, 24, 39, 0.1); }
+  .plan-toggle__opt { padding: 11px 2px; border: 0; border-radius: 0; background: transparent; }
+  .plan-toggle__opt + .plan-toggle__opt { border-top: 1px solid rgba(17, 24, 39, 0.08); }
+  .plan-toggle__opt.is-active { box-shadow: none; }
+  .plan-toggle__note { font-size: 12px; }
   .plan-toggle__note { grid-column: 2 / -1; font-size: 12px; opacity: .65; }
   .plan-toggle[data-plan-busy] { pointer-events: none; }
   /* Loading: a thin bar under the drawer header, and a soft dim on the cart page. */

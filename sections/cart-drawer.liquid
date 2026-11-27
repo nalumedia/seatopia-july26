@@ -225,6 +225,22 @@
     .cart-lines[data-plan-busy], cart-items[data-plan-busy] .cart-lines { opacity: .5; pointer-events: none; }
     .cart-group__error { flex-basis: 100%; color: #a33; font-size: 12px; font-weight: 500; text-transform: none; letter-spacing: 0; }
     .cart-group__error[hidden] { display: none; }
+    /* Quiet pass (Ryan, 2026-11-26): horizontal − 1 + stepper with Remove beside it, like the Paper cart. */
+    .cart-lines .cart-quantity { width: 92px; height: 32px; }
+    .cart-lines .cart-quantity .quantity__input { padding-inline: 28px; border-radius: 999px; font-size: 14px; }
+    .cart-lines .cart-quantity .quantity__buttons { display: flex !important; flex-direction: row-reverse; justify-content: space-between; position: absolute; inset: 0; width: auto; height: 100%; pointer-events: none; }
+    .cart-lines .cart-quantity .quantity__button { pointer-events: auto; width: 28px; height: 100%; padding: 0 !important; align-items: center !important; font-size: 17px; line-height: 1; opacity: .7; }
+    .cart-lines .cart-quantity .quantity__button:hover { opacity: 1; }
+    .cart-lines .cart-quantity .quantity__button .icon { display: none; }
+    .cart-lines .cart-quantity .quantity__button[name=minus]::before { content: '\2212'; }
+    .cart-lines .cart-quantity .quantity__button[name=plus]::before { content: '+'; }
+    .cart-lines .horizontal-product__quantity .grid { display: flex; align-items: center; gap: 12px; }
+    .cart-lines .horizontal-product__quantity .text-xs { font-size: 12px; opacity: .7; }
+    .cart-lines .horizontal-product__quantity .text-xs .link { text-underline-offset: 2px; }
+    .drawer__footer-top { padding-block: 6px; }
+    .drawer__footer-top > button .icon { display: none; }
+    .drawer__footer-top > button span { font-size: 12px; opacity: .7; }
+    .drawer__footer-bottom .tax-note { font-size: 12px; opacity: .7; }
   </style>
   {%- capture plan_state_top -%}{%- render 'cart-plan-state' -%}{%- endcapture -%}
   {%- render 'cart-plan-gate', state: plan_state_top, part: 'toggle' -%}
@@ -425,7 +441,8 @@
     {%- comment -%} ── UPGRADE BANNER — subscribed ke baad, one-time ke upar ── {%- endcomment -%}
    
 
-    {%- if grp_otp_count > 0 -%}
+    {%- comment -%} Group header only when there is something to group against (quiet pass, 2026-11-26). {%- endcomment -%}
+    {%- if grp_otp_count > 0 and grp_sub_count > 0 -%}
       <li class="cart-group cart-group--otp">
         <span class="cart-group__label">{% if alc_unlocked %}One-time add-ons{% else %}One-time{% endif %}</span>
         <span class="cart-group__meta">{{ grp_otp_total | money }}</span>
@@ -661,7 +678,8 @@
                 -%}
                 {%- render 'cart-favorites',
                   products: collections['build-your-own-box'].products,
-                  limit: 6,
+                  limit: 4,
+                  compact: true,
                   alc_unlocked: alc_unlocked,
                   heading: section.settings.cart_recommendations_heading
                 -%}

@@ -12,6 +12,8 @@
   - products: {Array} products to offer
   - limit: {Number} max rows (default 6)
   - heading: {String}
+  - compact: {Boolean} no pack-size chips, just the default pack's name and one Add button
+    (the filled-cart drawer, quiet pass 2026-11-26). The empty state keeps the chips.
   - alc_unlocked: {Boolean} the subscription has reached the minimum, so items can be mixed:
     the header offers "Add as: Subscription | One-time add-on" (default Subscription).
     Before that, favorites follow the cart's single mode (all or nothing).
@@ -127,7 +129,7 @@
       {%- endif -%}
       <span class="cart-fav__body">
         <a href="{{ p.url }}" class="cart-fav__name reversed-link">{{ p.title | escape }}</a>
-        {%- if chips -%}
+        {%- if chips and compact != true -%}
           <span class="cart-fav__packs" role="group" aria-label="Size for {{ p.title | escape }}">{{ fav_chips }}</span>
         {%- elsif p.has_only_default_variant == false -%}
           <span class="cart-fav__variant">{{ v0.title | escape }}</span>
